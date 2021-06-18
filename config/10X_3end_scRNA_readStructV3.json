@@ -1,0 +1,16 @@
+{
+    "platform":"10X",
+    "cell barcode tag":"CB",
+    "cell barcode":[
+        {
+            "location":"R1:1-16",
+        }
+    ],
+    "UMI tag":"UB",
+    "UMI":{
+        "location":"R1:17-28",
+    },
+    "read 1":{
+        "location":"R2:1-100",
+    }
+}

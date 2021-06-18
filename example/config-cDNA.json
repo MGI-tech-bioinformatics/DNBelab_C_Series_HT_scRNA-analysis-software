@@ -1,0 +1,20 @@
+{
+	"main.Outdir":"/Local/path/to/outdir",
+	"main.SampleName":"samplename",
+	"main.cDNA_Fastq1":"L01_read_1.fq.gz,L02_read_1.fq.gz",
+	"main.cDNA_Fastq2":"L01_read_2.fq.gz,L02_read_2.fq.gz",
+	"main.Oligo_Fastq1":"L01_read_1.fq.gz,L02_read_1.fq.gz",
+	"main.Oligo_Fastq2":"L01_read_2.fq.gz,L02_read_2.fq.gz",
+	"main.BeadsBarcode":"/Local/path/to/pipeline/config/DNBelabC4_scRNA_beads_readStructure.json",
+	"main.OligoBarcode":"/Local/path/to/pipeline/config/DNBelabC4_scRNA_oligo_readStructure.json",
+	"main.Root":"/Local/path/to/pipeline",
+	"main.Env":"/Env_path",
+	"main.Refdir":"/Local/path/to/GRCh38/star_index",
+	"main.Gtf":"/Local/path/to/GRCh38/gtf/genes.gtf",
+	"main.Oligo_type8":"/Local/path/to/pipeline/config/oligo_type8.txt",
+	"main.Species":"Human",
+	"main.QC.clusterdim":"30",
+	"main.QC.minfeatures":"200",
+	"main.Cluster.clusterdim":"30",
+	"main.Cluster.PCusage":"50"
+}

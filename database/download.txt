@@ -1,0 +1,5 @@
+GRCh38:	https://ftp.cngb.org/pub/CNSA/data2/CNP0000906/GRCh38.tar.gz
+
+mm10:	https://ftp.cngb.org/pub/CNSA/data2/CNP0000906/mm10.tar.gz
+
+GRCh38_mm10:	https://ftp.cngb.org/pub/CNSA/data2/CNP0000906/GRCh38_mm10.tar.gz
