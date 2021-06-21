@@ -86,6 +86,7 @@ suppressMessages({
     library(data.table)
     library(cowplot)
     library(DropletUtils)
+	library(showtext)
   
 })
 
@@ -179,6 +180,7 @@ write.table(cc$BARCODE, file=paste(opt$output,"/beads_barcodes.txt",sep=""),row.
 write.table(cc_1W$BARCODE, file=paste(opt$output,"/beads_barcodes_10K.txt",sep=""),row.names=FALSE,col.names=FALSE,quote=FALSE)
 write.csv(tmp,file=paste(opt$output,"/cutoff.csv",sep=""),row.names=FALSE,quote=FALSE)
 
+showtext_auto()
 png(file=paste(opt$output,"/beads_count_summary.png",sep=""), width=1200,height=400,res=80)
 p1 = ggplot(tmp,aes(x=barcodes,y=UMI)) + xlim(0,10) + ylim(0,9)
 p1 = p1 +annotate("text",x=0.2,y=9,label="Estimated Number of beads:",size=10,hjust=0)
