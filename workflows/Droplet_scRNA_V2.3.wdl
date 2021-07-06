@@ -191,7 +191,7 @@ task parseFastq{
 	    if [ -f ${outdir}/symbol/01.DataStat_sigh.txt ];then
 		echo "01.DataStat node success"
 	    else
-		${root}/software/PISA parse -t 4 -f -q 4 -dropN -config ${barcode} -cbdis ${outdir}/01.DataStat/${barcode_counts_raw} -1 ${outdir}/01.DataStat/${readFq} -report ${outdir}/01.DataStat/${report} ${fastq1} ${fastq2} &&
+		${root}/software/scRNA_parse -t 4 -f -q 4 -dropN -config ${barcode} -cbdis ${outdir}/01.DataStat/${barcode_counts_raw} -1 ${outdir}/01.DataStat/${readFq} -report ${outdir}/01.DataStat/${report} ${fastq1} ${fastq2} &&
 		echo "[`date +%F` `date +%T`] Nothing is True. Everything is permitted." > ${outdir}/symbol/01.DataStat_sigh.txt
 	    fi
 	>>>
@@ -250,14 +250,14 @@ task getM280UMI{
 		echo "03.M280UMI_stat node success"
 	    else
 		Rscript ${root}/scripts/scRNA_cell_calling_v1.2.2.R -i ${beads_stat} -o ${outdir}/03.M280UMI_stat/ -e 0 -f 0 &&
-		`less -s ${outdir}/01.DataStat/cDNA_barcode_counts_raw.txt |awk '{print $1}' >${outdir}/03.M280UMI_stat/beads_barcode_all.txt` &&
+		`cat  ${outdir}/01.DataStat/cDNA_barcode_counts_raw.txt |awk '{print $1}' >${outdir}/03.M280UMI_stat/beads_barcode_all.txt` &&
 		export LD_LIBRARY_PATH="${env}/lib/:$LD_LIBRARY_PATH" && ${root}/software/mergeBarcodes -b ${outdir}/03.M280UMI_stat/beads_barcode_all.txt -f ${Oligo_fastq} -n ${sampleName} -o ${outdir}/03.M280UMI_stat/ && unset LD_LIBRARY_PATH &&
-		python ${root}/scripts/s1.get.similarityOfBeads.py ${sampleName} ${outdir}/03.M280UMI_stat/${sampleName}_CB_UB_count.txt ${outdir}/03.M280UMI_stat/beads_barcodes.txt ${oligo_type8} ${outdir}/03.M280UMI_stat/Similarity.all.csv ${outdir}/03.M280UMI_stat/Similarity.droplet.csv ${outdir}/03.M280UMI_stat/Similarity.droplet.filtered.csv &&
+		${root}/software/s1.get.similarityOfBeads -n 4 ${sampleName} ${outdir}/03.M280UMI_stat/${sampleName}_CB_UB_count.txt ${outdir}/03.M280UMI_stat/beads_barcodes.txt ${oligo_type8} ${outdir}/03.M280UMI_stat/Similarity.all.csv ${outdir}/03.M280UMI_stat/Similarity.droplet.csv ${outdir}/03.M280UMI_stat/Similarity.droplet.filtered.csv &&
 		python ${root}/scripts/s2.get.combinedListOfBeads.py ${outdir}/03.M280UMI_stat/Similarity.droplet.filtered.csv ${outdir}/03.M280UMI_stat/${sampleName}_combined_list.txt &&
 		perl ${root}/scripts/fishInWinter.fq.gz.pl -bf table -ff table ${outdir}/03.M280UMI_stat/${sampleName}_combined_list.txt ${outdir}/03.M280UMI_stat/beads_barcodes.txt  --except >${outdir}/03.M280UMI_stat/${sampleName}_N1.beads  &&
 		`awk -F '_N'  '{if ($2<=9) print $1"_N"$2}' ${outdir}/03.M280UMI_stat/${sampleName}_combined_list.txt >${outdir}/03.M280UMI_stat/${sampleName}_combined_list.filter.txt` &&
 		`num=$(tail -n 1 ${outdir}/03.M280UMI_stat/${sampleName}_combined_list.filter.txt | cut -f 2 | awk -F"_" '{print $1}' | sed 's/CELL//') && awk -v N=$num '{print $1"\tCELL"N+NR"_N1"}' ${outdir}/03.M280UMI_stat/${sampleName}_N1.beads > ${outdir}/03.M280UMI_stat/${sampleName}_N1.cell &&  cat ${outdir}/03.M280UMI_stat/${sampleName}_N1.cell  ${outdir}/03.M280UMI_stat/${sampleName}_combined_list.filter.txt >${outdir}/03.M280UMI_stat/${sampleName}_barcodeTranslate.txt` &&
-		perl ${root}/scripts/tagAdd.pl -bam ${finalbam} -file ${outdir}/03.M280UMI_stat/${sampleName}_barcodeTranslate.txt -out ${outdir}/03.M280UMI_stat/anno_decon.bam -tag_check CB:Z: -tag_add DB:Z: -root ${root} &&
+		${root}/software/tagAdd -n 4 -bam ${finalbam} -file ${outdir}/03.M280UMI_stat/${sampleName}_barcodeTranslate.txt -out ${outdir}/03.M280UMI_stat/anno_decon.bam -tag_check CB:Z: -tag_add DB:Z: -root ${root} &&
 		perl ${root}/scripts/cell_stat.pl -c ${beads_stat} -m ${outdir}/03.M280UMI_stat/${sampleName}_barcodeTranslate.txt -o ${outdir}/03.M280UMI_stat/ &&
 		Rscript ${root}/scripts/CellMergeStat.R -I ${outdir}/03.M280UMI_stat/${sampleName}_barcodeTranslate.txt -O ${outdir}/03.M280UMI_stat/ -n ${sampleName} &&
 		echo "[`date +%F` `date +%T`] Nothing is True. Everything is permitted." > ${outdir}/symbol/03.M280UMI_stat_sigh.txt
