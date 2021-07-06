@@ -13,6 +13,7 @@ workflow main{
 	String Gtf
 	String SampleName
 	String Oligo_type8
+	Int? expectCellNum
 	call makedir{
 		input:
 		outdir=Outdir
@@ -53,6 +54,7 @@ workflow main{
 		outdir=makedir.dir,
 		root=Root,
 		env=Env,
+		expectCell=expectCellNum,
 		Oligo_fastq=M280parseFastq.fastqFile,
 		sampleName=SampleName,
 		oligo_type8=Oligo_type8,
@@ -245,11 +247,12 @@ task getM280UMI{
 	String oligo_type8
 	String finalbam
 	String beads_stat
+	Int? expectCell
 	command<<<
 	    if [ -f ${outdir}/symbol/03.M280UMI_stat_sigh.txt ];then
 		echo "03.M280UMI_stat node success"
 	    else
-		Rscript ${root}/scripts/scRNA_cell_calling_v1.2.2.R -i ${beads_stat} -o ${outdir}/03.M280UMI_stat/ -e 0 -f 0 &&
+		Rscript ${root}/scripts/scRNA_cell_calling_v1.2.2.R -i ${beads_stat} -o ${outdir}/03.M280UMI_stat/ -e 0 -f ${default=0 expectCell} &&
 		`cat  ${outdir}/01.DataStat/cDNA_barcode_counts_raw.txt |awk '{print $1}' >${outdir}/03.M280UMI_stat/beads_barcode_all.txt` &&
 		export LD_LIBRARY_PATH="${env}/lib/:$LD_LIBRARY_PATH" && ${root}/software/mergeBarcodes -b ${outdir}/03.M280UMI_stat/beads_barcode_all.txt -f ${Oligo_fastq} -n ${sampleName} -o ${outdir}/03.M280UMI_stat/ && unset LD_LIBRARY_PATH &&
 		${root}/software/s1.get.similarityOfBeads -n 4 ${sampleName} ${outdir}/03.M280UMI_stat/${sampleName}_CB_UB_count.txt ${outdir}/03.M280UMI_stat/beads_barcodes.txt ${oligo_type8} ${outdir}/03.M280UMI_stat/Similarity.all.csv ${outdir}/03.M280UMI_stat/Similarity.droplet.csv ${outdir}/03.M280UMI_stat/Similarity.droplet.filtered.csv &&
