@@ -8,7 +8,7 @@
 	"main.BeadsBarcode":"/Local/path/to/pipeline/config/DNBelabC4_scRNA_beads_readStructure.json",
 	"main.OligoBarcode":"/Local/path/to/pipeline/config/DNBelabC4_scRNA_oligo_readStructure.json",
 	"main.Root":"/Local/path/to/pipeline",
-	"main.Env":"/Env_path",
+	"main.Env":"/Local/path/to/miniconda3/envs/scRNA",
 	"main.Refdir":"/Local/path/to/GRCh38/star_index",
 	"main.Gtf":"/Local/path/to/GRCh38/gtf/genes.gtf",
 	"main.Oligo_type8":"/Local/path/to/pipeline/config/oligo_type8.txt",
