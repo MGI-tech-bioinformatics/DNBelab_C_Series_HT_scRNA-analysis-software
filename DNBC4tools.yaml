@@ -17,7 +17,6 @@ dependencies:
   - _r-mutex=1.0.1=anacondar_1
   - alsa-lib=1.2.3.2=h166bdaf_0
   - anndata=0.8.0=py38h578d9bd_0
-  - attr=2.4.48=h516909a_0
   - binutils_impl_linux-64=2.36.1=h193b22a_2
   - binutils_linux-64=2.36=hf3e587d_9
   - bioconductor-beachmat=2.10.0=r41h619a076_1
@@ -103,7 +102,6 @@ dependencies:
   - ld_impl_linux-64=2.36.1=hea4e1c9_2
   - lerc=3.0=h9c3ff4c_0
   - libblas=3.9.0=14_linux64_openblas
-  - libcap=2.47=h7f98852_0
   - libcblas=3.9.0=14_linux64_openblas
   - libclang=13.0.1=default_hc23dcda_0
   - libcups=2.3.3=hf5a7f15_1
@@ -151,7 +149,6 @@ dependencies:
   - llvmlite=0.38.0=py38h4ff587b_0
   - lz4-c=1.9.3=h9c3ff4c_1
   - make=4.3=hd18ef5c_1
-  - matplotlib=3.5.1=py38h06a4308_1
   - matplotlib-base=3.5.1=py38hf4fb855_0
   - mizani=0.7.4=pyhd8ed1ab_0
   - multiprocess=0.70.12.2=py38h7f8727e_0
@@ -180,17 +177,14 @@ dependencies:
   - plotly=4.14.3=pyhd3eb1b0_0
   - plotnine=0.8.0=pyhd8ed1ab_0
   - pthread-stubs=0.4=h36c2ea0_1001
-  - pulseaudio=14.0=hb166930_2
   - pynndescent=0.5.4=pyhd3eb1b0_0
   - pyparsing=3.0.4=pyhd3eb1b0_0
-  - pyqt=5.15.4=py38hfa26641_0
   - pyqt5-sip=12.9.0=py38hfa26641_0
   - pysam=0.19.0=py38h8bf8b8d_0
   - python=3.8.12=ha38a3c6_3_cpython
   - python-dateutil=2.8.2=pyhd3eb1b0_0
   - python_abi=3.8=2_cp38
   - pytz=2022.1=py38h06a4308_0
-  - qt-main=5.15.2=hdf1cb14_3
   - r-abind=1.4_5=r41hc72bb7e_1003
   - r-argparse=2.1.3=r41hc72bb7e_0
   - r-askpass=1.1=r41hcfec24a_2
@@ -458,5 +452,6 @@ dependencies:
   - zstd=1.5.2=ha95c52a_0
   - pip:
     - dnbc4tools==2.0.1
-    - tarjan==0.2.3.2
     - polars==0.13.40
+    - tarjan==0.2.3.2
+    - typing-extensions==4.2.0
