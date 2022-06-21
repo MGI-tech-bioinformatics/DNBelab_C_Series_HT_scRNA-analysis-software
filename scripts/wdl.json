@@ -1,0 +1,30 @@
+{
+    "BeadsBarcode" : "/MGI/pipeline/DNBC4tools/config/DNBelabC4_scRNA_beads_readStructure.json",
+    "OligoBarcode" : "/MGI/pipeline/DNBC4tools/config/DNBelabC4_scRNA_oligo_readStructure.json",
+    "OligoBarcodeMix" : "/MGI/pipeline/DNBC4tools/config/DNBelabC4_scRNA_oligomix_readStructure.json",
+    "Oligo_type8" : "/MGI/pipeline/DNBC4tools/config/oligo_type8.txt",
+    "Root" : "/MGI/pipeline",
+    "Env" : "/MGI/miniconda3/envs/DNBC4tools",
+    "expectCellNum" : 3000,
+    "calling_method" : "emptydrops",
+    "forceCellNum" : 0,
+    "Intron" : true,
+    "DB" :
+    {
+        "Human" :
+        {
+            "refdir" : "/MGI/database/DNBC4tools/Human",
+            "gtf" : "/MGI/database/DNBC4tools/Human/genes.filter.gtf"
+        },
+        "Mouse" :
+        {
+            "refdir" : "/MGI/database/DNBC4tools/Mouse",
+            "gtf" : "/MGI/database/DNBC4tools/Mouse/genes.filter.gtf"
+        },
+        "Other" :
+        {
+            "refdir" : "/MGI/database/DNBC4tools/Other",
+            "gtf" : "/MGI/database/DNBC4tools/Other/genes.filter.gtf"
+        }
+    }
+}

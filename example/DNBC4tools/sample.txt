@@ -1,0 +1,3 @@
+test1	cDNA1_L01_1.fq.gz;cDNA1_L01_2.fq.gz oligo1_L01_1.fq.gz,oligo1_L02_1.fq.gz;/oligo1_L01_2.fq.gz,oligo1_L02_2.fq.gz  Mouse
+test2	cDNA2_L01_1.fq.gz,cDNA2_L02_1.fq.gz;cDNA1_L01_2.fq.gz,cDNA2_L02_2.fq.gz oligo2_L01_1.fq.gz;/oligo2_L01_2.fq.gz  Mouse
+test3	cDNA3_L01_1.fq.gz;cDNA3_L01_2.fq.gz oligo3_L01_1.fq.gz,oligo3_L02_1.fq.gz;/oligo3_L01_2.fq.gz,oligo3_L02_2.fq.gz  Mouse
