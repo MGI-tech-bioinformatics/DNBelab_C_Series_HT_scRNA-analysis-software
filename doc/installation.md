@@ -2,9 +2,9 @@
 
 ### 1. Clone repo
 ```
-git clone https://github.com/lishuangshuang0616/DNBC4tools.git
-chmod 755 -R DNBC4tools
-cd DNBC4tools
+git clone https://github.com/MGI-tech-bioinformatics/DNBelab_C_Series_HT_scRNA-analysis-software.git
+chmod 755 -R DNBelab_C_Series_HT_scRNA-analysis-software
+cd DNBelab_C_Series_HT_scRNA-analysis-software
 ```
 
 ### 2. Create DNBC4tools environment
