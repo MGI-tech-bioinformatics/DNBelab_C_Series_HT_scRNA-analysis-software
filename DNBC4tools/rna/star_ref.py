@@ -41,18 +41,19 @@ def filtergtf(gtf,filtergtf,attribute):
     gtfread = read(gtf,'gene')
     result = open(filtergtf,'w')
     for i in gtfread:
-        if i[0].startswith('#'):
-            result.writelines(i)
-        else:
-            lst = i[0].split('\t')[-1].replace('"', '').strip().strip(';')
-            lstlist = lst.split('; ')
-            aDict = {}
-            for j in lstlist:
-                aDict[j.split(' ')[0]] = j.split(' ')[-1]
-            for key1,value1 in aDict.items():
-                for key2,value2 in d.items():
-                    if key1 == value2 and key2 == value1:
-                        result.writelines(i)
+        if i:
+            if i[0].startswith('#'):
+                result.writelines(i)
+            else:
+                lst = i[0].split('\t')[-1].replace('"', '').strip().strip(';')
+                lstlist = lst.split('; ')
+                aDict = {}
+                for j in lstlist:
+                    aDict[j.split(' ')[0]] = j.split(' ')[-1]
+                for key1,value1 in aDict.items():
+                    for key2,value2 in d.items():
+                        if key1 == value2 and key2 == value1:
+                            result.writelines(i)
     result.close()
 
 def statgtf(gtf,keyword,outfile):

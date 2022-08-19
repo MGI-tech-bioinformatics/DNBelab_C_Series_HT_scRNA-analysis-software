@@ -62,7 +62,7 @@ if COUNT_MTX_FNAME is not None:
                 print(i, file=OU)
 D = dt.fread(SIMI_DROPLET_FNAME, header=False)
 if D.ncols == 0:
-    open(argv[2],'w').close()
+    open(COMB_LIST_FNAME,'w').close()
 else:
     D = D[f.C2 > simi_thres,:]
     beads = dt.fread(BEADS_LIST_FNAME, header=False)

@@ -100,7 +100,7 @@ def plot_jaccard_knee_frag(count_data_path):
         plot_data.append(data_dict)
     plotly_data = [go.Scatter(x=dat['x'], y=dat['y'], name=dat['name'], mode=dat['mode'], showlegend=dat['showlegend'],marker={'color': dat['line']['color']}, line=dat['line'], text=dat['text']) for dat in plot_data]
     layout = go.Layout(xaxis=dict(type="log", gridcolor="lightgrey",title="Barcode in Rank-descending Order",color="black",showline=True,zeroline=True,linewidth=1,fixedrange= True,linecolor="black"),
-                    yaxis = dict(type="log",title="Reads per Barcode",gridcolor="lightgrey",linewidth=1,fixedrange= True,color="black",linecolor="black"),
+                    yaxis = dict(type="log",title="UMI counts",gridcolor="lightgrey",linewidth=1,fixedrange= True,color="black",linecolor="black"),
                     height=360,width=450,plot_bgcolor='rgba(0,0,0,0)',hovermode='closest',paper_bgcolor='white',legend=dict(x=1,y=1,traceorder="normal",font=dict(family="Arial",size=12,color="black"),bordercolor="Black",borderwidth=0),
                     margin=dict(l=0,r=0,b=0,t=0,pad=1),font=dict(size=10))
     fig = go.Figure(data=plotly_data, layout=layout)

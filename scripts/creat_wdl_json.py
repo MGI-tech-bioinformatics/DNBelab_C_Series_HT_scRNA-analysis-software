@@ -21,8 +21,8 @@ Species information can be added to the DB in json format, which needs to corres
 from collections import defaultdict
 import json,os,argparse
 
-parser = argparse.ArgumentParser(description='Convert tmp.txt to sample.txt')
-parser.add_argument('-i','--infile', metavar='FILE', type=str,help='sample.txt for analysis',default='sample.txt')
+parser = argparse.ArgumentParser(description='create run for all samples')
+parser.add_argument('-i','--infile', metavar='FILE', type=str,help='sample.txt for analysis, default: sample.txt',default='sample.txt')
 parser.add_argument('-m','--mixseq', action='store_true', help='cDNA and oligo sequeencing in one chip')
 parser.add_argument('-o','--outdir',help='storage outfile',default=os.getcwd())
 args = parser.parse_args()

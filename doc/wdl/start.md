@@ -1,8 +1,10 @@
-## **WDL**
+# **WDL**
 
 ## config JSON file
 An config JSON file includes all input parameters and genome reference index directory for running pipelines. Always use absolute paths in config JSON.
-<br /> [config JSON file specification](./input_json.md)
+
+ [config JSON file specification](./input_json.md)
+
 ## Start
 - Setup configure file.
 <br />single sample:
@@ -13,7 +15,7 @@ An config JSON file includes all input parameters and genome reference index dir
 <br /> /mgi/miniconda3/envs/DNBC4tools/bin/python /Local/path/to/pipeline/scripts/creat_wdl_json.py 
 
 - Run the pipeline
-```
+```shell
 ### run the pipeline
 sh run.sh
 ### Background run the pipeline

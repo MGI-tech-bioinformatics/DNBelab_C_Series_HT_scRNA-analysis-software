@@ -11,20 +11,23 @@ An open source and flexible pipeline to analysis high-throughput DNBelab C Serie
   - centos 7.x 64-bit operating system (Linux kernel 3.10.0, compatible with higher software and hardware configuration). 
 
 ## Directory contents
-- **DNBC4tools**   config, software and script directories
-- **doc**   Instruction for use
-- **example** Example of use the pipline
-- **scripts**    Miscellaneous scripts
-- **wdl**  WDL pipeline
+- **DNBC4tools**   config, software and script directories.
+- **doc**   Instruction for use.
+- **example** Example of use the pipline.
+- **scripts**    Miscellaneous scripts.
+- **wdl**  WDL pipeline.
 
 ## Installation
-installation manual [here](./doc/installation.md)
+installation manual [**here**](./doc/installation.md)
 
 ## Database
-Create database manual [here](./doc/database.md)
+Create database manual [**here**](./doc/database.md)
 ## Start
-**WDL: Customize the config file, use wdl to analysis**
+**WDL version: Customize the config file, use wdl to analysis**
 - **[WDL](./doc/wdl/start.md)**
 
-**Command line: Using the DNBC4tools command line**
+**Command line version: Using the DNBC4tools command line**
 - **[DNBC4tools](./doc/DNBC4tools/start.md)**
+
+**Docker**
+- **[Docker](./doc/docker/start.md)**

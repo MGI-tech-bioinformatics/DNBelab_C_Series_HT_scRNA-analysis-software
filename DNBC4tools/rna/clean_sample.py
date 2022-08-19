@@ -14,9 +14,9 @@ def samplename():
         for i in args.name.split(','):
             all_sample.append(i)
     else:
-        html_list = glob.glob('%s/*/04.report/*.html'%(args.outdir))
+        html_list = glob.glob('%s/*/output/*.html'%(args.outdir))
         for html in html_list:
-            sample = html.split('/')[-1].split('_')[0]
+            sample = html.split('/')[-1].split('_scRNA_')[0]
             all_sample.append(sample)
     return all_sample
 
@@ -28,8 +28,8 @@ def combine_result():
     all_sample = samplename()
     for sample in all_sample:
         metrics_list.append('%s/%s/output/metrics_summary.xls'%(args.outdir,sample))
-        html_list.append('%s/%s/output/%s_CDCPv2_scRNA_report.html'%(args.outdir,sample,sample))
-        os.system('cp %s/%s/04.report/*.html %s'%(args.outdir,sample,result))
+        html_list.append('%s/%s/output/%s_scRNA_report.html'%(args.outdir,sample,sample))
+        os.system('cp %s/%s/output/%s_scRNA_report.html %s'%(args.outdir,sample,sample,result))
     metrics = pd.read_table("%s"%metrics_list[0],sep="\t",index_col=0)
     for i in range(1,len(metrics_list)):
         file_name = metrics_list[i]

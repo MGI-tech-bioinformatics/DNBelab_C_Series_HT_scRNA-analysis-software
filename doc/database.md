@@ -1,9 +1,11 @@
-## **Creat database**
+# **Creat database**
 
 ### **View gene_type or gene_biotype of the GTF**
-```
+```shell
 $DNBC4tools mkref --action stat --ingtf gene.gtf --type gene_type --outstat gtf_type.txt
-
+```
+check gene type
+```shell
 $cat gtf_type.txt
 
 Type	Count
@@ -23,10 +25,10 @@ IG_V_gene	218
 IG_V_pseudogene	158
 TR_V_gene	144
 ```
-***Notice***：you need to check that the GTF file contains gene_biotype or gene_type. For example, the GTF of ensembl, use "--type gene_biotype", the GTF of genecode use "gene_type". The gene line of the gtf file needs to have gene_name and gene_id, and other lines need to include gene_name, gene_id, transcript_name and transcript_id, otherwise the genes cannot be annotated.
+***Notice***：you need to check that the GTF file contains gene_biotype or gene_type. For example, the GTF of ensembl, use "--type gene_biotype", the GTF of genecode use "gene_type". 
 
 ### **Filter GTF**
-```
+```shell
 $DNBC4tools mkref --action mkgtf --ingtf gene.gtf --outgtf gene.filter.gtf \
             --attribute gene_type:protein_coding \
                         gene_type:lncRNA \
@@ -48,7 +50,7 @@ $DNBC4tools mkref --action mkgtf --ingtf gene.gtf --outgtf gene.filter.gtf \
 ***Notice***：you need to check that the GTF file contains gene_biotype or gene_type. For example, the GTF of ensembl, use "--attribute gene_biotype:protein_coding", the GTF of genecode use "--attribute gene_type:protein_coding". After filtering, you can use "stat" to check whether the result is correct. Different versions of gene_type name may be different. 
 
 ### **Create STAR database**
-```
+```shell
 $DNBC4tools mkref --action mkref --ingtf gene.filter.gtf \
             --fasta genome.fa \
             --star_dir $star_dir \
@@ -58,9 +60,9 @@ $DNBC4tools mkref --action mkref --ingtf gene.filter.gtf \
 
 ### **References**  
 #### **Ref-202203**
-- **human(GRCh38)**
+- **Human(GRCh38)**
 <br /> http://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_32/GRCh38.primary_assembly.genome.fa.gz
 <br /> http://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_32/gencode.v32.primary_assembly.annotation.gtf.gz
-- **mouse(GRCm38)** 
+- **Mouse(GRCm38)** 
 <br /> http://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_mouse/release_M23/GRCm38.primary_assembly.genome.fa.gz
 <br /> http://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_mouse/release_M23/gencode.vM23.primary_assembly.annotation.gtf.gz

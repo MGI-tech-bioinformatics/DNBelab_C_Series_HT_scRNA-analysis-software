@@ -10,18 +10,17 @@ def pipeline_package(pipe):
 def main():
     parser = argparse.ArgumentParser(formatter_class=argparse.RawDescriptionHelpFormatter,
     description=textwrap.dedent('''
-        DNBC4tools contain the following pipeline and function:
+        DNBC4tools contain the following pipelines and functions:
         --------------------------------
         pipeline:
         DNBC4tools run : Run data, count, analysis, report for a complete pipeline.
         DNBC4tools data : Run quality control and filtering on the raw fastq, 
-                          use Star to align the cDNAData to the reference genome and annotate it with GTF file.
+                          align the cDNA data to the reference genome and annotate it with gtf file.
         DNBC4tools count : Determine the inflection point and judge the empty droplets, 
                            merge multiple beads in the same droplet, calculate the cell * gene expression matrix.
         DNBC4tools analysis : Run quality control on the cell expression matrix, filter low-quality cells and genes,
                               perform cell clustering analysis and marker gene screening based on the expression matrix.
-        DNBC4tools report : Data Aggregation and Visualization Web Report Generation,
-                            need data,count,analysis output.
+        DNBC4tools report : Summary result files and generate html report.
         
         function:
         DNBC4tools multi : Creat shell list for multi samples.

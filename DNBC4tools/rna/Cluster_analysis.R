@@ -137,12 +137,12 @@ if(dim(object.combined)[2] > 50){
   cat(paste("Number of cells used for clustering,", length(colnames(object.combined)), "\n",sep=""),file=paste(args$out,"/Clustering/cell_report.csv",sep=""))
 
   object.combined_for_annotation <- GetAssayData(object.combined, slot="data")
-  if (species.usage %in% c("mouse","Mouse","mm10","human","Human","hg19","hg38","Human_nucleus","hg19_premRNA","Mouse_nucleus")){
-    if (species.usage == "mouse"||species.usage == "Mouse"||species.usage == "mm10"||species.usage == "Mouse_nucleus"){
+  if (species.usage %in% c("mouse","Mouse","mm10","human","Human","hg19","hg38","Human_nucleus","hg19_premRNA","Mouse_nucleus","Homo_sapiens","Mus_musculus")){
+    if (species.usage == "mouse"||species.usage == "Mouse"||species.usage == "mm10"||species.usage == "Mouse_nucleus"||species.usage == "Mus_musculus"){
         object.combined_cell_type <- scMCA(scdata = object.combined_for_annotation, numbers_plot = 3)
         out=as.data.frame(unlist(object.combined_cell_type$scMCA))
         }
-    else if (species.usage == "human"||species.usage == "Human"||species.usage == "hg19"||species.usage == "hg38" ||species.usage == "Human_nucleus" || species.usage == "hg19_premRNA"){
+    else if (species.usage == "human"||species.usage == "Human"||species.usage == "hg19"||species.usage == "hg38" ||species.usage == "Human_nucleus" || species.usage == "hg19_premRNA"||species.usage == "Homo_sapiens"){
         object.combined_cell_type <- scHCL(scdata = object.combined_for_annotation, numbers_plot = 3)
         out=as.data.frame(unlist(object.combined_cell_type$scHCL))
         }

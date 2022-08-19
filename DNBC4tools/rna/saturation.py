@@ -82,14 +82,14 @@ def fraction_reads(outdir,totalreads:int):
             "Median Genes per Cell": np.zeros(sampling_fractions_length, np.uint32),
             "Mean Gene per Cell": np.zeros(sampling_fractions_length, np.uint32),
             "Total Gene": np.zeros(sampling_fractions_length, np.uint32),
-        #    "UMI Saturation": np.zeros(sampling_fractions_length, np.float64),
             "Sequencing Saturation": np.zeros(sampling_fractions_length, np.float64),
+            "UMI Saturation": np.zeros(sampling_fractions_length, np.float64),
         },
         index=pd.Index(data=np.array(sampling_fractions), name="sampling_fraction"),
         )
     cellcount_all_df = cellcount_df.with_column(pl.col("Count").repeat_by(pl.col("Count"))).explode("Count")
     stats_df.loc[1.0, "Mean Reads per Cell"] = round(totalreads/(pl.n_unique(cellcount_df['Cell'])))
-    # stats_df.loc[1.0, "UMI Saturation"] = round((1- (cellcount_df.filter(pl.col("Count") == 1).height)/(cellcount_df.height))*100,2)
+    stats_df.loc[1.0, "UMI Saturation"] = round((1- (cellcount_df.filter(pl.col("Count") == 1).height)/(cellcount_df.height))*100,2)
     stats_df.loc[1.0, "Sequencing Saturation"] = round((1- cellcount_df.height/cellcount_df.filter(pl.col('Cell')!='None').select([pl.col("Count").sum()])[0,0])*100,2)
     cellcount_df = cellcount_df.with_column(pl.col("GeneID").str.split(";")).explode("GeneID")
     stats_df.loc[1.0, "Median Genes per Cell"] = round(cellcount_df.filter(pl.col('Cell')!='None').groupby("Cell").agg(
@@ -108,7 +108,7 @@ def fraction_reads(outdir,totalreads:int):
             cellcount_sampled=cellcount_all_df.sample(frac=sampling_fraction)
             cellcount_sampled=cellcount_sampled.groupby(["Cell", "GeneID","UMI"]).agg([pl.col("UMI").count().alias("Count")])
             stats_df.loc[sampling_fraction, "Mean Reads per Cell"] = round(totalreads*float(sampling_fraction)/pl.n_unique(cellcount_sampled['Cell']))
-            # stats_df.loc[sampling_fraction, "UMI Saturation"] = round((1- (cellcount_sampled.filter(pl.col("Count") == 1).height)/cellcount_sampled.height)*100,2)
+            stats_df.loc[sampling_fraction, "UMI Saturation"] = round((1- (cellcount_sampled.filter(pl.col("Count") == 1).height)/cellcount_sampled.height)*100,2)
             stats_df.loc[sampling_fraction, "Sequencing Saturation"] = round((1- (cellcount_sampled.height-1)/cellcount_sampled.filter(pl.col('Cell')!='None').select([pl.col("Count").sum()])[0,0])*100,2)
             cellcount_sampled = cellcount_sampled.with_column(pl.col("GeneID").str.split(";")).explode("GeneID")
             stats_df.loc[sampling_fraction, "Median Genes per Cell"] = round(cellcount_sampled.filter(pl.col('Cell')!='None').groupby("Cell").agg(

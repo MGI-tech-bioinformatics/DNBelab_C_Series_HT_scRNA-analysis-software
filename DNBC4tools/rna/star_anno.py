@@ -6,13 +6,13 @@ from DNBC4tools.__init__ import _root_dir
 parser = argparse.ArgumentParser(description='QC,star and anno')
 parser.add_argument('--name',help='sample name', type=str)
 parser.add_argument('--outdir',help='output dir, default is current directory', default=os.getcwd())
-parser.add_argument('--cDNAfastq1',help='cDNAR1 fastq file, Multiple files are separated by comma.', required=True)
-parser.add_argument('--cDNAfastq2',help='cDNAR2 fastq file, Multiple files are separated by comma.', required=True)
+parser.add_argument('--cDNAfastq1',help='cDNAR1 fastq file, Multiple files are separated by commas.', required=True)
+parser.add_argument('--cDNAfastq2',help='cDNAR2 fastq file, Multiple files are separated by commas.', required=True)
 parser.add_argument('--cDNAconfig',
     help='whitelist file in JSON format for cDNA fastq.',
     default='%s/config/DNBelabC4_scRNA_beads_readStructure.json'%_root_dir)
-parser.add_argument('--oligofastq1',help='oligoR1 fastq file, Multiple files are separated by comma.',required=True)
-parser.add_argument('--oligofastq2',help='oligoR2 fastq file, Multiple files are separated by comma.',required=True)
+parser.add_argument('--oligofastq1',help='oligoR1 fastq file, Multiple files are separated by commas.',required=True)
+parser.add_argument('--oligofastq2',help='oligoR2 fastq file, Multiple files are separated by commas.',required=True)
 parser.add_argument('--oligoconfig',
     help='whitelist file in JSON format for oligo fastq.',
     default='%s/config/DNBelabC4_scRNA_oligo_readStructure.json'%_root_dir)

@@ -19,10 +19,10 @@ If used in the delivery cluster task, the full path is required.
 > **Usage**
 <br />**Required parameter**：
 <br /> **--name** sample name.
-<br /> **--cDNAfastq1** The R1 sequence of the sample cDNA library, multiple samples are separated by commas, and the sequence is the same as that of cDNA R2.
-<br /> **--cDNAfastq2** The R2 sequence of the sample cDNA library, multiple samples are separated by commas, and the sequence is the same as that of cDNA R1.
-<br /> **--oligofastq1** The R1 sequence of the sample oligo library, multiple samples are separated by commas, and the sequence is the same as that of oligo R2.
-<br /> **--oligofastq2** The R2 sequence of the sample oligo library, multiple samples are separated by commas, and the sequence is the same as that of oligo R1.
+<br /> **--cDNAfastq1** The R1 sequence of the sample cDNA library, multiple files are separated by commas, and the sequence is the same as that of cDNA R2.
+<br /> **--cDNAfastq2** The R2 sequence of the sample cDNA library, multiple files are separated by commas, and the sequence is the same as that of cDNA R1.
+<br /> **--oligofastq1** The R1 sequence of the sample oligo library, multiple files are separated by commas, and the sequence is the same as that of oligo R2.
+<br /> **--oligofastq2** The R2 sequence of the sample oligo library, multiple files are separated by commas, and the sequence is the same as that of oligo R1.
 <br /> **--starIndexDir** The STAR index path of the species' genome.
 <br /> **--gtf**: Species annotation file, which needs to match the genome file.
 <br /> **Optional parameter**：
@@ -42,7 +42,6 @@ If used in the delivery cluster task, the full path is required.
 <br /> **--mixseq** cDNA and oligo library are sequenced on the same chip, and this parameter is added when the sequencing mode is cDNA sequencing mode. In the presence of this parameter, the --oligoconfig parameter is invalid, and DNBelabC4_scRNA_oligomix_readStructure.json is used.
 <br /> **--no_bam** By default, anno_decon_sort.bam will be moved to the result directory output. If this parameter is selected, this operation will not be performed.
 <br /> **--dry** The code of the step is printed directly without analysis.
-<br />
 <br />
 
 - **DNBC4tools data** Analyze data quality control and data comparison annotation to generate final.bam and raw_matrix, the corresponding directory is 01.data.
