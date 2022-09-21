@@ -1,5 +1,9 @@
+# set seed
+#set.seed(123)
+
 ### Define Find_doublet function
 Find_doublet <- function(data){
+  set.seed(123)
   sweep.res.list <- paramSweep_v3(data, PCs = 1:dim.usage, sct = FALSE)
   sweep.stats <- summarizeSweep(sweep.res.list, GT = FALSE)
   bcmvn <- find.pK(sweep.stats)
@@ -77,8 +81,8 @@ percentMt_plot <- function(EC){
     summarise(Q1 = quantile(extra_nfeature$percent.mt, 1/4), Q3 = quantile(extra_nfeature$percent.mt, 3/4)) %>%
     ungroup() %>%
     #get lowest Q1 and highest Q3
-    summarise(lowQ1 = 0, highQ3 = max(Q3)*3)
-  p <- p + coord_cartesian(ylim = as.numeric(ylims_feature))
+    summarise(lowQ1 = 0, highQ3 = max(Q3)*3 + 0.01)
+  p <- p + coord_cartesian(ylim = as.numeric(ylims_feature)) + expand_limits(y=0)
   p
 }
 

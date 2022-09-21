@@ -1,5 +1,19 @@
+### 2.0.6
+
+```2022.09.19```
+
+- Fix：Fixed an issue where results could not be reproduced, now we can make the results of multiple analyses exactly the same.
+- Fix：Fixed bug in cDNA library reads Q30 statistics.
+- Fix：Fix the problem that the number of barcodes in *barcodes.tsv.gz* is inconsistent with *Estimated number of cells*.
+- Added：Added instructions for using singularity.
+- It's recommended to upgrade this version, git clone the repo and then update the emvironment by ```pip install --upgrade dnbc4tools```.
+
+
+
 ### **2.0.5**
+
 `2022.08.19`
+
 - Update： Add docker version.
 - Fix： There is a problem with the annotation logic statistics in 2.0.0, and 2.0.5 has been corrected.
 - Fix： Fixed some description in html.

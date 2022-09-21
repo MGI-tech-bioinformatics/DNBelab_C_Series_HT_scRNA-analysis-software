@@ -33,11 +33,15 @@ class Data:
             scRNA_parse_cmd += ['--mixseq']
         scRNA_parse_cmd = ' '.join(scRNA_parse_cmd)
         start_print_cmd(scRNA_parse_cmd)
+        final_sort_cmd = 'samtools sort -@ %s %s/01.data/final.bam -o %s/01.data/final_sorted.bam'\
+            %(self.thread,self.outdir,self.outdir)
+        logging_call(final_sort_cmd,'data',self.outdir)
         str_mkdir('%s/01.data/raw_matrix'%self.outdir)
-        raw_matrix_cmd = '%s/soft/PISA count -@ %s -cb CB -anno-tag GN -umi UB -outdir %s/01.data/raw_matrix %s/01.data/final.bam'\
+        raw_matrix_cmd = '%s/soft/PISA count -@ %s -cb CB -anno-tag GN -umi UB -outdir %s/01.data/raw_matrix %s/01.data/final_sorted.bam'\
             %(_root_dir,self.thread,self.outdir,self.outdir)
         logging_call(raw_matrix_cmd,'data',self.outdir)
         rm_temp('%s/01.data/Aligned.out.bam'%self.outdir)
+        rm_temp('%s/01.data/final.bam'%self.outdir)
 
 def data(args):
     Data(args).run()

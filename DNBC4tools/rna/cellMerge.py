@@ -5,6 +5,7 @@ import os,argparse
 import collections
 import pandas as pd
 import warnings
+from itertools import groupby
 warnings.filterwarnings('ignore')
 
 parser = argparse.ArgumentParser(description='summary barcode and cell merge')
@@ -49,16 +50,22 @@ with open(os.path.join(indir,'beads_barcodes.txt'),'r') as allbarcode:
             one_barcodedict[line] = cellName
 
 with open(os.path.join(indir,'%s_barcodeTranslate.txt'%name),'w') as barcode_cell,\
-    open(os.path.join(indir,'%s_barcodeTranslate_hex.txt'%name),'w') as barcode_cell_hex:
+    open(os.path.join(indir,'%s_barcodeTranslate_hex.txt'%name),'w') as barcode_cell_hex,\
+    open(os.path.join(indir,'cell.id'),'w') as cellFile:
+    celllist = []
     for k2,v2 in one_barcodedict.items():
         barcode_cell.write(f'{k2}\t{v2}'+'\n')
+        celllist.append(v2)
         k2_hex = seq_comp(k2)
         barcode_cell_hex.write(f'{k2_hex}\t{v2}'+'\n')
     for k1,v1 in multibeads_filter_dict.items():
         for v1terms in v1:
             barcode_cell.write(f'{v1terms}\t{k1}'+'\n')
+            celllist.append(k1)
             v1terms_hex = seq_comp(v1terms)
             barcode_cell_hex.write(f'{v1terms_hex}\t{k1}'+'\n')
+    cellRmDup = [x for x, _ in groupby(celllist)]
+    cellFile.write('\n'.join(cellRmDup))
 
 
 raw_beads_stat = pd.read_table(os.path.join(indir,'../01.data/beads_stat.txt'),sep = '\t')

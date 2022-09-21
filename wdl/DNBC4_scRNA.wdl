@@ -134,7 +134,7 @@ workflow main{
 			input: 
 			outdir=makedir.dir,
 			root=Root,
-			anno_decon=getM280UMI.anno_decon,
+			#anno_decon=getM280UMI.anno_decon,
 			attachment_dir=report.attachment_dir
 		}
     }
@@ -249,7 +249,9 @@ task cDNAanno{
 		${root}/DNBC4tools/soft/scStar --outSAMattributes singleCell --outSAMtype BAM Unsorted --genomeDir ${refdir} --outFileNamePrefix ${outdir}/01.data/ --stParaFile ${cDNA_para} --outSAMmode NoQS --runThreadN 10 --limitOutSJcollapsed 10000000 --limitIObufferSize 350000000 &&
 		${root}/DNBC4tools/soft/Anno -I ${outdir}/01.data/Aligned.out.bam -a ${gtf} -L ${outdir}/01.data/cDNA_barcode_counts_raw.txt -o ${outdir}/01.data -c 10 -m chrM -B ${cDNA_barcode} ${true="--intron" false="" intron } --anno 1 &&
 		rm -rf ${outdir}/01.data/Aligned.out.bam &&
-		${root}/DNBC4tools/soft/PISA count -@ 10 -cb CB -anno-tag GN -umi UB -outdir ${outdir}/01.data/raw_matrix ${outdir}/01.data/final.bam &&
+		samtools sort -@ 10 ${outdir}/01.data/final.bam -o ${outdir}/01.data/final_sorted.bam &&
+		rm -rf ${outdir}/01.data/final.bam &&
+		${root}/DNBC4tools/soft/PISA count -@ 10 -cb CB -anno-tag GN -umi UB -outdir ${outdir}/01.data/raw_matrix ${outdir}/01.data/final_sorted.bam &&
         echo "[`date +%F` `date +%T`] Nothing is True. Everything is permitted." > ${outdir}/symbol/02.cDNAAnno_sigh.txt
     fi
 	>>>
@@ -257,7 +259,7 @@ task cDNAanno{
 		File beads_stat="${outdir}/01.data/beads_stat.txt"
 		File mapping="${outdir}/01.data/alignment_report.csv"
 		File annostat="${outdir}/01.data/anno_report.csv"
-		File finalbam="${outdir}/01.data/final.bam"
+		File finalbam="${outdir}/01.data/final_sorted.bam"
 		File rawMatrix="${outdir}/01.data/raw_matrix"
 		File cDNABarcode="${outdir}/01.data/cDNA_barcode_counts_raw.txt"
 		File cDNAReport="${outdir}/01.data/cDNA_sequencing_report.csv"	
@@ -287,14 +289,14 @@ task getM280UMI{
 		${root}/DNBC4tools/soft/s1.get.similarityOfBeads -n 4 ${sampleName} ${outdir}/02.count/${sampleName}_CB_UB_count.txt ${outdir}/02.count/beads_barcodes.txt ${oligo_type8} ${outdir}/02.count/Similarity.all.csv ${outdir}/02.count/Similarity.droplet.csv ${outdir}/02.count/Similarity.droplet.filtered.csv &&
 		python ${root}/DNBC4tools/rna/combinedListOfBeads.py --similarity_droplet ${outdir}/02.count/Similarity.droplet.csv --beads_list ${outdir}/02.count/beads_barcodes.txt --combined_list ${outdir}/02.count/${sampleName}_combined_list.txt &&
 		python ${root}/DNBC4tools/rna/cellMerge.py --indir ${outdir}/02.count --name ${sampleName} &&
-		${root}/DNBC4tools/soft/tagAdd -n 4  -bam ${finalbam} -file ${outdir}/02.count/${sampleName}_barcodeTranslate_hex.txt -out ${outdir}/02.count/anno_decon.bam -tag_check CB:Z: -tag_add DB:Z: -root ${root} &&
+		${root}/DNBC4tools/soft/tagAdd -n 4  -bam ${finalbam} -file ${outdir}/02.count/${sampleName}_barcodeTranslate_hex.txt -out ${outdir}/02.count/anno_decon_sorted.bam -tag_check CB:Z: -tag_add DB:Z: &&
         echo "[`date +%F` `date +%T`] Nothing is True. Everything is permitted." > ${outdir}/symbol/03.M280UMI_stat_sigh.txt
     fi
 	>>>
 	output{
 		File M280merge="${outdir}/02.count/cellNumber_merge.png"
 		File cut="${outdir}/02.count/cutoff.csv"
-		File anno_decon = "${outdir}/02.count/anno_decon.bam"
+		File anno_decon = "${outdir}/02.count/anno_decon_sorted.bam"
     }
 }
 
@@ -307,7 +309,7 @@ task count{
 	if [ -f ${outdir}/symbol/04.count_matrix_sigh.txt ];then
 		echo "count_matrix node success"
 	else
-		${root}/DNBC4tools/soft/PISA count -one-hit -@ 10 -cb DB -anno-tag GN -umi UB -outdir ${outdir}/02.count/filter_matrix ${outdir}/02.count/anno_decon.bam  &&
+		${root}/DNBC4tools/soft/PISA count -one-hit -@ 10 -cb DB -anno-tag GN -umi UB -list ${outdir}/02.count/cell.id -outdir ${outdir}/02.count/filter_matrix ${outdir}/02.count/anno_decon_sorted.bam  &&
 		Rscript ${root}/DNBC4tools/rna/cell_report.R -M ${outdir}/02.count/filter_matrix -O ${outdir}/02.count/ &&
 		echo "[`date +%F` `date +%T`] Nothing is True. Everything is permitted." > ${outdir}/symbol/04.count_matrix_sigh.txt
     fi
@@ -322,7 +324,7 @@ task count{
 task splice_matrix{
 	String outdir
 	String root
-	String anno_decon
+	#String anno_decon
 	String attachment_dir
 	command<<<
 	if [ -f ${outdir}/symbol/06.splice_matrix_sigh.txt ];then
@@ -330,8 +332,8 @@ task splice_matrix{
 	else
 		mkdir -p ${outdir}/output/attachment/splice_matrix
 		mkdir -p ${outdir}/output/attachment/RNAvelocity_matrix
-		${root}/DNBC4tools/soft/PISA count -one-hit -@ 10 -cb DB -ttype E,S -anno-tag GN -umi UB -outdir ${outdir}/output/attachment/splice_matrix ${outdir}/02.count/anno_decon.bam  &&
-		${root}/DNBC4tools/soft/PISA count -one-hit -@ 10 -cb DB -velo -anno-tag GN -umi UB -outdir ${outdir}/output/attachment/RNAvelocity_matrix ${outdir}/02.count/anno_decon.bam  &&
+		${root}/DNBC4tools/soft/PISA count -one-hit -@ 10 -cb DB -ttype E,S -anno-tag GN -umi UB -list ${outdir}/02.count/cell.id -outdir ${outdir}/output/attachment/splice_matrix ${outdir}/output/anno_decon_sorted.bam  &&
+		${root}/DNBC4tools/soft/PISA count -one-hit -@ 10 -cb DB -velo -anno-tag GN -umi UB -list ${outdir}/02.count/cell.id -outdir ${outdir}/output/attachment/RNAvelocity_matrix ${outdir}/output/anno_decon_sorted.bam  &&
 		echo "[`date +%F` `date +%T`] Nothing is True. Everything is permitted." > ${outdir}/symbol/06.splice_matrix_sigh.txt
 	fi
 	>>>
@@ -346,7 +348,7 @@ task saturation{
 	if [ -f ${outdir}/symbol/04.saturation_sigh.txt ];then
 		echo "saturation node success"
 	else
-		samtools sort -@ 10 ${outdir}/02.count/anno_decon.bam -o ${outdir}/02.count/anno_decon_sorted.bam &&
+		#samtools sort -@ 10 ${outdir}/02.count/anno_decon.bam -o ${outdir}/02.count/anno_decon_sorted.bam &&
 		samtools index -@ 10 ${outdir}/02.count/anno_decon_sorted.bam &&
 		python ${root}/DNBC4tools/rna/saturation.py  -i ${outdir}/02.count/anno_decon_sorted.bam -o ${outdir}/02.count -f ${outdir}/02.count/cellCount_report.csv --quality 20 --threads 10 &&
 		echo "[`date +%F` `date +%T`] Nothing is True. Everything is permitted." > ${outdir}/symbol/04.saturation_sigh.txt

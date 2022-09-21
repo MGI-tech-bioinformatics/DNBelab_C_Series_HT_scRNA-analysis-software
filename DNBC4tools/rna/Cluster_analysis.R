@@ -29,7 +29,7 @@ args = parser$parse_args()
 remove_batch <- if(!is.null(args$removebatch)) args$removebatch else "TRUE"
 dim.usage <- if(!is.null(args$dim)) args$dim else 30
 pc.usage <- if(!is.null(args$pc)) args$pc else 50
-seed.usage <- if(!is.null(args$seed)) args$seed else 0
+seed.usage <- if(!is.null(args$seed)) args$seed else 123
 k.usage <- if(!is.null(args$knn)) args$knn else 20
 res.usage <- if(!is.null(args$res)) args$res else 0.8
 maxdim.usage <- if(!is.null(args$maxdim)) args$maxdim else "2L"

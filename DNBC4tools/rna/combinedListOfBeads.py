@@ -113,10 +113,10 @@ else:
 
     with open(COMB_LIST_FNAME, 'wt') as OU:
         n = 1
-        for i in combine_list:
+        for i in sorted(combine_list, key=lambda x: x[0]):
             for j in i:
                 print(j, '\t', 'CELL', n, '_N', len(i), sep='', file=OU)
             n += 1
-        for j in outers:
+        for j in sorted(outers):
             print(j, '\t', 'CELL', n, '_N', 1, sep='', file=OU)
             n += 1

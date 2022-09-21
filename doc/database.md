@@ -1,8 +1,11 @@
 # **Creat database**
 
 ### **View gene_type or gene_biotype of the GTF**
+
 ```shell
 $DNBC4tools mkref --action stat --ingtf gene.gtf --type gene_type --outstat gtf_type.txt
+
+# $DNBC4tools:/miniconda3/bin/env/DNBC4tools/bin/DNBC4tools
 ```
 check gene type
 ```shell

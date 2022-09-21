@@ -118,7 +118,7 @@ if(args$forcecells > 0){
   tmp<-data.frame(barcodes=1:len,UMI=UMIsor,Beads=c(rep("true",cutoff),rep("noise",len-cutoff)))
   beads_barcodes <- rownames(br.out.sort)[1:cutoff]
 }else if(args$method=="emptydrops"){
-  set.seed(100)
+  set.seed(123)
   e.out <- emptyDropsCellRanger(mtx,n.expected.cells=as.numeric(args$expectcells), 
                     max.percentile=0.99, max.min.ratio=10,
                     umi.min=as.numeric(args$minumi),umi.min.frac.median=0.01,cand.max.n=20000,

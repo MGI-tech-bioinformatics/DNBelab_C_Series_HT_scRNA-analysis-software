@@ -38,14 +38,14 @@ class Count:
             %(new_python,_root_dir,self.outdir,self.outdir,self.outdir,self.name)
         CellMerge_cmd = '%s %s/rna/cellMerge.py --indir %s/02.count --name %s'\
             %(new_python,_root_dir,self.outdir,self.name)
-        tagAdd_cmd = '%s/soft/tagAdd -n %s -bam %s -file %s/02.count/%s_barcodeTranslate_hex.txt -out %s/02.count/anno_decon.bam -tag_check CB:Z: -tag_add DB:Z: -root %s'\
-            %(_root_dir,self.thread,self.bam,self.outdir,self.name,self.outdir,_root_dir)
-        PISA_count_cmd = '%s/soft/PISA count -one-hit -@ %s -cb DB -anno-tag GN -umi UB -outdir %s/02.count/filter_matrix %s/02.count/anno_decon.bam'\
-            %(_root_dir,self.thread,self.outdir,self.outdir)
+        tagAdd_cmd = '%s/soft/tagAdd -n %s -bam %s -file %s/02.count/%s_barcodeTranslate_hex.txt -out %s/02.count/anno_decon_sorted.bam -tag_check CB:Z: -tag_add DB:Z: '\
+            %(_root_dir,self.thread,self.bam,self.outdir,self.name,self.outdir)
+        PISA_count_cmd = '%s/soft/PISA count -one-hit -@ %s -cb DB -anno-tag GN -umi UB -list %s/02.count/cell.id -outdir %s/02.count/filter_matrix %s/02.count/anno_decon_sorted.bam'\
+            %(_root_dir,self.thread,self.outdir,self.outdir,self.outdir)
         cellReport_cmd = '%s %s/rna/cell_report.R -M %s/02.count/filter_matrix -O %s/02.count'\
             %(new_rscript,_root_dir,self.outdir,self.outdir)
-        bam_sort_cmd = 'samtools sort -@ %s %s/02.count/anno_decon.bam -o %s/02.count/anno_decon_sorted.bam'\
-            %(self.thread,self.outdir,self.outdir)
+        #bam_sort_cmd = 'samtools sort -@ %s %s/02.count/anno_decon.bam -o %s/02.count/anno_decon_sorted.bam'\
+        #    %(self.thread,self.outdir,self.outdir)
         bam_index_cmd = 'samtools index -@ %s %s/02.count/anno_decon_sorted.bam'\
             %(self.thread,self.outdir)
         saturation_cmd = '%s %s/rna/saturation.py -i %s/02.count/anno_decon_sorted.bam -o %s/02.count -f %s/02.count/cellCount_report.csv --quality 20 --threads %s'\
@@ -62,7 +62,7 @@ class Count:
         str_mkdir('%s/02.count/filter_matrix'%self.outdir)
         logging_call(PISA_count_cmd,'count',self.outdir)
         logging_call(cellReport_cmd,'count',self.outdir)
-        logging_call(bam_sort_cmd,'count',self.outdir)
+        #logging_call(bam_sort_cmd,'count',self.outdir)
         logging_call(bam_index_cmd,'count',self.outdir)
         logging_call(saturation_cmd,'count',self.outdir)
         
@@ -73,7 +73,7 @@ def count(args):
 
 def parse_count(parser):
     parser.add_argument('--name',metavar='NAME',help='sample name.')
-    parser.add_argument('--bam',metavar='FILE',help='Bam file after star and anno, eg./01.data/final.bam.')
+    parser.add_argument('--bam',metavar='FILE',help='Bam file after star and anno, eg./01.data/final_sorted.bam.')
     parser.add_argument('--raw_matrix',metavar='FILE',help='Raw matrix dir, eg./01.data/raw_matrix.')
     parser.add_argument('--cDNAbarcodeCount',metavar='FILE',help='Read count per cell barcode for cDNA, eg./01.data/cDNA_barcode_counts_raw.txt.',)
     parser.add_argument('--Indexreads',metavar='FILE',help='Barcode reads generate by scRNAparse, eg./01.data/Index_reads.fq.gz.')

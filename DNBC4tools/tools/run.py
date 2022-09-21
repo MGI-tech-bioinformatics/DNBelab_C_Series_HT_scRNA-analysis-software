@@ -40,7 +40,7 @@ class Runpipe:
             data_cmd += ['--no_introns']
         data_cmd = ' '.join(data_cmd)
 
-        count_cmd = 'DNBC4tools count --name %s --raw_matrix %s/%s/01.data/raw_matrix --bam %s/%s/01.data/final.bam --calling_method %s --expectcells %s --forcecells %s --minumi 1000 --cDNAbarcodeCount %s/%s/01.data/cDNA_barcode_counts_raw.txt --Indexreads %s/%s/01.data/Index_reads.fq.gz --oligobarcodeCount %s/%s/01.data/Index_barcode_counts_raw.txt --thread %s --oligotype %s --outdir %s'\
+        count_cmd = 'DNBC4tools count --name %s --raw_matrix %s/%s/01.data/raw_matrix --bam %s/%s/01.data/final_sorted.bam --calling_method %s --expectcells %s --forcecells %s --minumi 1000 --cDNAbarcodeCount %s/%s/01.data/cDNA_barcode_counts_raw.txt --Indexreads %s/%s/01.data/Index_reads.fq.gz --oligobarcodeCount %s/%s/01.data/Index_barcode_counts_raw.txt --thread %s --oligotype %s --outdir %s'\
         %(self.name,self.outdir,self.name,self.outdir,self.name,self.calling_method,self.expectcells,self.forcecells,self.outdir,self.name,self.outdir,self.name,self.outdir,self.name,self.thread,self.oligotype,self.outdir)
 
         analysis_cmd = 'DNBC4tools analysis --name %s --matrix %s/%s/02.count/filter_matrix --species %s --outdir %s --mtgenes %s'\

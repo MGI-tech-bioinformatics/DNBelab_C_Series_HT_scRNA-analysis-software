@@ -29,10 +29,14 @@ class Report:
             generate_output_cmd += ['--no_bam']
         generate_output_cmd = ' '.join(generate_output_cmd)
 
-        splice_matrix_cmd = '%s/soft/PISA count -one-hit -@ %s -cb DB -ttype E,S -anno-tag GN -umi UB -outdir %s/output/attachment/splice_matrix %s/02.count/anno_decon.bam' \
-            %(_root_dir,self.thread,self.outdir,self.outdir)
-        RNAvelocity_matrix_cmd = '%s/soft/PISA count -one-hit -@ %s -cb DB -velo -anno-tag GN -umi UB -outdir %s/output/attachment/RNAvelocity_matrix %s/02.count/anno_decon.bam' \
-            %(_root_dir,self.thread,self.outdir,self.outdir)
+        if self.no_bam:
+            anno_bam_dir = '02.count'
+        else:
+            anno_bam_dir = 'output'
+        splice_matrix_cmd = '%s/soft/PISA count -one-hit -@ %s -cb DB -ttype E,S -anno-tag GN -umi UB -list %s/02.count/cell.id -outdir %s/output/attachment/splice_matrix %s/%s/anno_decon_sorted.bam' \
+            %(_root_dir,self.thread,self.outdir,self.outdir,self.outdir,anno_bam_dir)
+        RNAvelocity_matrix_cmd = '%s/soft/PISA count -one-hit -@ %s -cb DB -velo -anno-tag GN -umi UB -list %s/02.count/cell.id -outdir %s/output/attachment/RNAvelocity_matrix %s/%s/anno_decon_sorted.bam' \
+            %(_root_dir,self.thread,self.outdir,self.outdir,self.outdir,anno_bam_dir)
         
         logging_call(pre_cmd,'report',self.outdir)
         logging_call(generate_report_cmd,'report',self.outdir)
