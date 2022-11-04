@@ -57,7 +57,7 @@ def report(args):
 
 def parse_report(parser):
     parser.add_argument('--name',required=True,help='Sample name.')
-    parser.add_argument('--species',type=str,default='NA',help='Species name.')
+    parser.add_argument('--species',type=str,default='undefined',help='Species name, [default: undefined].')
     parser.add_argument('--outdir',help='output dir, [default: current directory].',default=os.getcwd())
     parser.add_argument('--thread',type=int, metavar='INT',default=4,help='Analysis threads, [default: 4].')
     parser.add_argument('--no_bam', action='store_true',help='Do not move filter bam file to output dir.')

@@ -42,10 +42,10 @@ def parse_analysis(parser):
     parser.add_argument('--clusterdim',metavar='INT',type=int,default=20,help='The principal components used for clustering, [default: 20].')
     parser.add_argument('--doubletpercentage',metavar='FLOAT',type=float,default=0.05,help='Assuming doublet formation rate, tailor for your dataset, [default: 0.05].')
     parser.add_argument('--mitpercentage',metavar='INT',type=int,default=15,help='Filter cells with mtgenes percentage, [default: 15].')
-    parser.add_argument('--mtgenes',metavar='LIST',default='auto',help='Set mitochondrial genes(mtgene list file path) or false, [default: auto].')
+    parser.add_argument('--mtgenes',metavar='FILE',default='auto',help='Path of file with mitochondrial genes, [default: auto].')
     parser.add_argument('--minfeatures',metavar='INT',type=int,default=200,help='Filter cells with minimum nfeatures, [default: 200].',)
     parser.add_argument('--PCusage',metavar='INT',type=int,default=50,help='The total number of principal components for PCA, [default: 50].')
     parser.add_argument('--resolution',metavar='FLOAT',type=float,default=0.5,help='Cluster resolution, [default: 0.5].',)
-    parser.add_argument('--species',metavar='STR',type=str,default='other',help='select species for cell annotation, only Human and Mouse can do auto annotation.')
+    parser.add_argument('--species',type=str, metavar='STR',default='undefined',help='Species name. Only "Homo_sapiens","Human","Mus_musculus" and "Mouse" can perform cell annotation analysis, [default: undefined].')
     parser.add_argument('--outdir',metavar='DIR',help='output dir, [default: current directory].',default=os.getcwd())
     return parser

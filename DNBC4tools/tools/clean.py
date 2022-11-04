@@ -19,7 +19,7 @@ class Clean:
         if self.combine:
             clean_cmd += ['--combine']
         clean_cmd = ' '.join(clean_cmd)
-        print(clean_cmd)
+        #print(clean_cmd)
         check_call(clean_cmd,shell=True)
 
 def clean(args):

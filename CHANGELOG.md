@@ -1,3 +1,12 @@
+### 2.0.7
+
+`2022.11.4`
+
+- Added：When filtering cDNA libraries with fastq, clipping filtering of adapters has been added.
+- Added：Since the release of the new version of the reagent and the library structure are not suitable for judgment, in this version, we have added automatic judgment of the reagent version and dark reaction sequencing. Added parameters `--chemistry`, `--darkreaction`, used `--customize` to replace the previous `--cDNAconfig` and `--oligoconfig`, and removed the parameter `--mixseq`. It is recommended to automatically determine the reagent version and dark reaction sequencing. For parameter descriptions, please refer to the detailed description and FAQ question 1. Automatic judgment is currently only applicable to the DNBC4tools command line, not for wdl.
+- Fix：Fixed several bugs and added the memory limit parameter `--limitGenomeGenerateRAM` in DNBC4tools mkref.
+- Fix：Modified the software instructions.
+
 ### 2.0.6
 
 ```2022.09.19```

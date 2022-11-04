@@ -1,17 +1,18 @@
 workflow main{
 	String Outdir
 	String Root
-	String Species
+	String? Species = "undefined"
 	String cDNA_Fastq1
 	String cDNA_Fastq2
 	String Oligo_Fastq1
 	String Oligo_Fastq2
-	String BeadsBarcode
-	String OligoBarcode
+	String? BeadsBarcode = "${Root}/DNBC4tools/config/scRNA_beads_darkReaction.json"
+	String? OligoBarcode = "${Root}/DNBC4tools/config/scRNA_oligo_darkReaction.json"
 	String Refdir
 	String Gtf
 	String SampleName
-	String Oligo_type8
+	String? Oligo_type8 = "${Root}/DNBC4tools/config/oligo_type8.txt"
+	String? Adapter = "${Root}/DNBC4tools/config/adapter.txt"
 	Int? expectCellNum = 3000
 	String? calling_method = 'emptydrops'
 	Int? forceCellNum = 0
@@ -42,6 +43,7 @@ workflow main{
 		refdir=Refdir,
 		gtf=Gtf,
 		oligo_type8=Oligo_type8,
+		adapter=Adapter,
 	}
 	call oligo_parse{
 		input:
@@ -130,14 +132,14 @@ workflow main{
 		saturation=saturation.satfile
 	}
 	if (Intron==true) {
-        call splice_matrix{
-			input: 
+		call splice_matrix{
+			input:
 			outdir=makedir.dir,
 			root=Root,
 			#anno_decon=getM280UMI.anno_decon,
 			attachment_dir=report.attachment_dir
 		}
-    }
+	}
 }
 
 ## task.14 report ##
@@ -160,8 +162,8 @@ task report{
 	String QCfig
 	Boolean? intron
 	command<<<
-        if [ -f ${outdir}/symbol/07.report_sigh.txt ];then
-            echo "report node success"
+	if [ -f ${outdir}/symbol/07.report_sigh.txt ];then
+		echo "report node success"
 	else
 		python ${root}/DNBC4tools/rna/pre_process.py --outPath ${outdir} --sample ${sampleName} &&
 		python ${root}/DNBC4tools/rna/generate_report.py --outPath ${outdir} --name ${sampleName} --htmlTemplate ${root}/DNBC4tools/template/template.html --species ${species} --intron ${true="true" false="false" intron } &&
@@ -184,7 +186,7 @@ task makedir{
 		mkdir -p ${outdir}/03.analysis/QC
 		mkdir -p ${outdir}/03.analysis/Clustering
 		mkdir -p ${outdir}/04.report
-        mkdir -p ${outdir}/symbol
+		mkdir -p ${outdir}/symbol
 	}
 	output{
 		String dir="${outdir}"
@@ -203,8 +205,9 @@ task process_para{
 	String refdir
 	String gtf
 	String oligo_type8
+	String adapter
 	command<<<
-		python ${root}/DNBC4tools/rna/bc_para.py --outdir ${outdir} --cDNAfastq1 ${cDNA_fastq1} --cDNAfastq2 ${cDNA_fastq2} --cDNAconfig ${cDNA_barcode} --oligofastq1 ${oligo_fastq1} --oligofastq2 ${oligo_fastq2} --oligoconfig ${oligo_barcode} --thread 10 --star_index ${refdir} --gtf ${gtf} --oligotype ${oligo_type8}
+		python ${root}/DNBC4tools/rna/bc_para.py --outdir ${outdir} --cDNAfastq1 ${cDNA_fastq1} --cDNAfastq2 ${cDNA_fastq2} --cDNAconfig ${cDNA_barcode} --oligofastq1 ${oligo_fastq1} --oligofastq2 ${oligo_fastq2} --oligoconfig ${oligo_barcode} --thread 10 --genomeDir ${refdir} --gtf ${gtf} --oligotype ${oligo_type8} --adapter ${adapter}
 	>>>
 	output{
 		File cDNA_para="${outdir}/01.data/cDNA_para"
@@ -218,12 +221,12 @@ task oligo_parse{
 	String root
 	String outdir
 	command<<<
-        if [ -f ${outdir}/symbol/01.oligoparse_sigh.txt ];then
-            	echo "01.oligoparse node success"
-        else
+	if [ -f ${outdir}/symbol/01.oligoparse_sigh.txt ];then
+		echo "oligo_parse node success"
+	else
 		${root}/DNBC4tools/soft/parseFq ${oligo_para} &&
-        	echo "[`date +%F` `date +%T`] Nothing is True. Everything is permitted." > ${outdir}/symbol/01.oligoparse_sigh.txt
-        fi
+		echo "[`date +%F` `date +%T`] Nothing is True. Everything is permitted." > ${outdir}/symbol/01.oligoparse_sigh.txt
+	fi
 	>>>
 	output{
 		File oligoFastq="${outdir}/01.data/Index_reads.fq.gz"
@@ -243,17 +246,17 @@ task cDNAanno{
 	String sampleName
 	String cDNA_barcode
 	command<<<
-        if [ -f ${outdir}/symbol/02.cDNAAnno_sigh.txt ];then
-            	echo "02.cDNAAnno node success"
-        else
+	if [ -f ${outdir}/symbol/02.cDNAAnno_sigh.txt ];then
+		echo "cDNAanno node success"
+	else
 		${root}/DNBC4tools/soft/scStar --outSAMattributes singleCell --outSAMtype BAM Unsorted --genomeDir ${refdir} --outFileNamePrefix ${outdir}/01.data/ --stParaFile ${cDNA_para} --outSAMmode NoQS --runThreadN 10 --limitOutSJcollapsed 10000000 --limitIObufferSize 350000000 &&
 		${root}/DNBC4tools/soft/Anno -I ${outdir}/01.data/Aligned.out.bam -a ${gtf} -L ${outdir}/01.data/cDNA_barcode_counts_raw.txt -o ${outdir}/01.data -c 10 -m chrM -B ${cDNA_barcode} ${true="--intron" false="" intron } --anno 1 &&
 		rm -rf ${outdir}/01.data/Aligned.out.bam &&
 		samtools sort -@ 10 ${outdir}/01.data/final.bam -o ${outdir}/01.data/final_sorted.bam &&
 		rm -rf ${outdir}/01.data/final.bam &&
 		${root}/DNBC4tools/soft/PISA count -@ 10 -cb CB -anno-tag GN -umi UB -outdir ${outdir}/01.data/raw_matrix ${outdir}/01.data/final_sorted.bam &&
-        echo "[`date +%F` `date +%T`] Nothing is True. Everything is permitted." > ${outdir}/symbol/02.cDNAAnno_sigh.txt
-    fi
+		echo "[`date +%F` `date +%T`] Nothing is True. Everything is permitted." > ${outdir}/symbol/02.cDNAAnno_sigh.txt
+	fi
 	>>>
 	output{
 		File beads_stat="${outdir}/01.data/beads_stat.txt"
@@ -281,7 +284,7 @@ task getM280UMI{
 	Int? min_umi
 	command<<<
 	if [ -f ${outdir}/symbol/03.M280UMI_stat_sigh.txt ];then
-		echo "03.M280UMI_stat node success"
+		echo "getM280UMI node success"
 	else
 		Rscript ${root}/DNBC4tools/rna/cell_calling.R --matrix ${outdir}/01.data/raw_matrix --outdir ${outdir}/02.count/ --method ${method} --expectcells ${expectCell} --forcecells ${forceCell} --minumi ${min_umi} &&
 		python ${root}/DNBC4tools/rna/get_barcode.py --raw ${outdir}/01.data/cDNA_barcode_counts_raw.txt --select ${outdir}/02.count/beads_barcodes_hex.txt -o ${outdir}/02.count &&
@@ -290,14 +293,14 @@ task getM280UMI{
 		python ${root}/DNBC4tools/rna/combinedListOfBeads.py --similarity_droplet ${outdir}/02.count/Similarity.droplet.csv --beads_list ${outdir}/02.count/beads_barcodes.txt --combined_list ${outdir}/02.count/${sampleName}_combined_list.txt &&
 		python ${root}/DNBC4tools/rna/cellMerge.py --indir ${outdir}/02.count --name ${sampleName} &&
 		${root}/DNBC4tools/soft/tagAdd -n 4  -bam ${finalbam} -file ${outdir}/02.count/${sampleName}_barcodeTranslate_hex.txt -out ${outdir}/02.count/anno_decon_sorted.bam -tag_check CB:Z: -tag_add DB:Z: &&
-        echo "[`date +%F` `date +%T`] Nothing is True. Everything is permitted." > ${outdir}/symbol/03.M280UMI_stat_sigh.txt
-    fi
+		echo "[`date +%F` `date +%T`] Nothing is True. Everything is permitted." > ${outdir}/symbol/03.M280UMI_stat_sigh.txt
+	fi
 	>>>
 	output{
 		File M280merge="${outdir}/02.count/cellNumber_merge.png"
 		File cut="${outdir}/02.count/cutoff.csv"
 		File anno_decon = "${outdir}/02.count/anno_decon_sorted.bam"
-    }
+	}
 }
 
 ## task.4-1 count_matrix ##
@@ -312,12 +315,12 @@ task count{
 		${root}/DNBC4tools/soft/PISA count -one-hit -@ 10 -cb DB -anno-tag GN -umi UB -list ${outdir}/02.count/cell.id -outdir ${outdir}/02.count/filter_matrix ${outdir}/02.count/anno_decon_sorted.bam  &&
 		Rscript ${root}/DNBC4tools/rna/cell_report.R -M ${outdir}/02.count/filter_matrix -O ${outdir}/02.count/ &&
 		echo "[`date +%F` `date +%T`] Nothing is True. Everything is permitted." > ${outdir}/symbol/04.count_matrix_sigh.txt
-    fi
+	fi
 	>>>
 	output{
 		String matrixdir="${outdir}/02.count/filter_matrix"
 		File cellcount='${outdir}/02.count/cellCount_report.csv'
-    }
+	}
 }
 
 ## task.intron ##
@@ -348,7 +351,6 @@ task saturation{
 	if [ -f ${outdir}/symbol/04.saturation_sigh.txt ];then
 		echo "saturation node success"
 	else
-		#samtools sort -@ 10 ${outdir}/02.count/anno_decon.bam -o ${outdir}/02.count/anno_decon_sorted.bam &&
 		samtools index -@ 10 ${outdir}/02.count/anno_decon_sorted.bam &&
 		python ${root}/DNBC4tools/rna/saturation.py  -i ${outdir}/02.count/anno_decon_sorted.bam -o ${outdir}/02.count -f ${outdir}/02.count/cellCount_report.csv --quality 20 --threads 10 &&
 		echo "[`date +%F` `date +%T`] Nothing is True. Everything is permitted." > ${outdir}/symbol/04.saturation_sigh.txt
@@ -356,7 +358,6 @@ task saturation{
 	>>>
 	output{
 		File satfile="${outdir}/02.count/saturation.xls"
-		### File anno_sort='${outdir}/02.count/anno_decon_sorted.bam'
 	}
 }	
 
@@ -373,17 +374,16 @@ task QC{
 	String sampleName
 	command<<<
 	if [ -f ${outdir}/symbol/05.QC_sigh.txt ];then
-		echo "05.QC node success"
+		echo "QC node success"
 	else
 		Rscript ${root}/DNBC4tools/rna/QC_analysis.R -I ${matrixdir} -D ${clusterdim} -P ${doublepercentage} -M ${mtgenes} -MP ${mitpercentage} -F ${minfeatures} -B ${sampleName} -O ${outdir}/03.analysis/ &&
-        	echo "[`date +%F` `date +%T`] Nothing is True. Everything is permitted." > ${outdir}/symbol/05.QC_sigh.txt
-        fi
+		echo "[`date +%F` `date +%T`] Nothing is True. Everything is permitted." > ${outdir}/symbol/05.QC_sigh.txt
+	fi
 	>>>
 	output{
 		File QCfig="${outdir}/03.analysis/QC/raw_QCplot.png"
 		String QCdir = "${outdir}/03.analysis/QC"
 	}
-
 }
 
 ## task.5_2 Cluster ##
@@ -397,39 +397,37 @@ task Cluster{
 	Float? resolution
 	command<<<
 	if [ -f ${outdir}/symbol/05.Cluster_sigh.txt ];then
-		echo "05.Cluster node success"
+		echo "Cluster node success"
 	else
 		Rscript ${root}/DNBC4tools/rna/Cluster_analysis.R -I ${QCdir} -D ${clusterdim} -PC ${PCusage} -RES ${resolution} -O ${outdir}/03.analysis/ -SP ${species} &&
-        	echo "[`date +%F` `date +%T`] Nothing is True. Everything is permitted." > ${outdir}/symbol/05.Cluster_sigh.txt
-        fi
+		echo "[`date +%F` `date +%T`] Nothing is True. Everything is permitted." > ${outdir}/symbol/05.Cluster_sigh.txt
+	fi
 	>>>
 	output{
-		# File clusterRDS="${outdir}/03.analysis/Clustering/clustering_annotation_object.RDS"
 		File cell_report="${outdir}/03.analysis/Clustering/cell_report.csv"
 		File cluster="${outdir}/03.analysis/Clustering/cluster.csv"
 		File marker="${outdir}/03.analysis/Clustering/marker.csv"
-		# File cell_type="${outdir}/03.analysis/Clustering/cluster_annotation.png"
 	}
 }
 
 task bam2cram{
 	String root
-    	String outdir
-    	String finalbam
-		String matrixdir
-    	String fai
+	String outdir
+	String finalbam
+	String matrixdir
+	String fai
 	command<<<
 	if [ -f ${outdir}/symbol/06.bam2cram.txt ];then
-		echo "06.bam2cram node success"
+		echo "bam2cram node success"
 	else
 		samtools view -@ 10 -C -T ${fai} ${finalbam} > ${outdir}/01.data/raw_feature.cram &&
-        samtools view -@ 10 -C -T ${fai} ${outdir}/02.count/anno_decon.bam > ${outdir}/02.count/filtered_feature.cram &&
+		samtools view -@ 10 -C -T ${fai} ${outdir}/02.count/anno_decon.bam > ${outdir}/02.count/filtered_feature.cram &&
 		rm -rf ${outdir}/02.count/anno_decon.bam
 		echo "[`date +%F` `date +%T`] Nothing is True. Everything is permitted." > ${outdir}/symbol/06.bam2cram.txt
-        fi
-    	>>>
+	fi
+	>>>
 	output{
 		String finalcram = "${outdir}/01.data/raw_feature.cram"
 		String annocram = "${outdir}/02.count/filtered_feature.cram"
-        }
+	}
 }

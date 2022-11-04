@@ -9,15 +9,15 @@ class Runpipe:
         self.cDNAr2 = args.cDNAfastq2
         self.oligor1 = args.oligofastq1
         self.oligor2 = args.oligofastq2
-        self.starIndexDir = args.starIndexDir
+        self.genomeDir = args.genomeDir
         self.gtf = args.gtf
         self.species = args.species
         
         self.outdir = args.outdir
         self.thread = args.thread
-        self.cDNAconfig = args.cDNAconfig
-        self.oligoconfig = args.oligoconfig
-        self.oligotype = args.oligotype
+        self.chemistry = args.chemistry
+        self.darkreaction = args.darkreaction
+        self.customize = args.customize
         self.calling_method = args.calling_method
         self.expectcells = args.expectcells
         self.forcecells = args.forcecells
@@ -26,22 +26,21 @@ class Runpipe:
         self.process = args.process
         self.no_introns = args.no_introns
         self.no_bam = args.no_bam
-        self.mixseq = args.mixseq
         self.dry = args.dry
         
     def runpipe(self):
         change_path()
-        judgeFilexits(self.cDNAr1,self.cDNAr2,self.oligor1,self.oligor2,self.cDNAconfig,self.oligoconfig,self.starIndexDir,self.gtf,self.oligotype)
-        data_cmd = ['DNBC4tools data --cDNAfastq1 %s --cDNAfastq2 %s --oligofastq1 %s --oligofastq2 %s --thread %s --name %s --cDNAconfig %s --oligoconfig %s --outdir %s --starIndexDir %s --gtf %s'
-        %(self.cDNAr1,self.cDNAr2,self.oligor1,self.oligor2,self.thread,self.name,self.cDNAconfig,self.oligoconfig,self.outdir,self.starIndexDir,self.gtf)]
-        if self.mixseq:
-            data_cmd += ['--mixseq']
+        judgeFilexits(self.cDNAr1,self.cDNAr2,self.oligor1,self.oligor2,self.genomeDir,self.gtf)
+        data_cmd = ['DNBC4tools data --cDNAfastq1 %s --cDNAfastq2 %s --oligofastq1 %s --oligofastq2 %s --thread %s --name %s --chemistry %s --darkreaction %s --outdir %s --genomeDir %s --gtf %s'
+        %(self.cDNAr1,self.cDNAr2,self.oligor1,self.oligor2,self.thread,self.name,self.chemistry,self.darkreaction,self.outdir,self.genomeDir,self.gtf)]
+        if self.customize:
+            data_cmd += ['--customize %s'%self.customize]
         if self.no_introns:
             data_cmd += ['--no_introns']
         data_cmd = ' '.join(data_cmd)
 
-        count_cmd = 'DNBC4tools count --name %s --raw_matrix %s/%s/01.data/raw_matrix --bam %s/%s/01.data/final_sorted.bam --calling_method %s --expectcells %s --forcecells %s --minumi 1000 --cDNAbarcodeCount %s/%s/01.data/cDNA_barcode_counts_raw.txt --Indexreads %s/%s/01.data/Index_reads.fq.gz --oligobarcodeCount %s/%s/01.data/Index_barcode_counts_raw.txt --thread %s --oligotype %s --outdir %s'\
-        %(self.name,self.outdir,self.name,self.outdir,self.name,self.calling_method,self.expectcells,self.forcecells,self.outdir,self.name,self.outdir,self.name,self.outdir,self.name,self.thread,self.oligotype,self.outdir)
+        count_cmd = 'DNBC4tools count --name %s --raw_matrix %s/%s/01.data/raw_matrix --bam %s/%s/01.data/final_sorted.bam --calling_method %s --expectcells %s --forcecells %s --minumi 1000 --cDNAbarcodeCount %s/%s/01.data/cDNA_barcode_counts_raw.txt --Indexreads %s/%s/01.data/Index_reads.fq.gz --oligobarcodeCount %s/%s/01.data/Index_barcode_counts_raw.txt --thread %s --outdir %s'\
+        %(self.name,self.outdir,self.name,self.outdir,self.name,self.calling_method,self.expectcells,self.forcecells,self.outdir,self.name,self.outdir,self.name,self.outdir,self.name,self.thread,self.outdir)
 
         analysis_cmd = 'DNBC4tools analysis --name %s --matrix %s/%s/02.count/filter_matrix --species %s --outdir %s --mtgenes %s'\
             %(self.name,self.outdir,self.name,self.species,self.outdir,self.mtgenes) 
@@ -79,26 +78,25 @@ def run(args):
     Runpipe(args).runpipe()
 
 def parse_run(parser):
-    parser.add_argument('--name', metavar='NAME',help='sample name.', type=str,required=True)
-    parser.add_argument('--cDNAfastq1', metavar='FASTQ',help='cDNA R1 fastq file, Multiple files are separated by commas.', required=True)
-    parser.add_argument('--cDNAfastq2', metavar='FASTQ',help='cDNA R2 fastq file, Multiple files are separated by commas, the files order needs to be consistent with cDNAfastq1.', required=True)
-    parser.add_argument('--oligofastq1', metavar='FASTQ',help='oligo R1 fastq file, Multiple files are separated by commas.',required=True)
-    parser.add_argument('--oligofastq2', metavar='FASTQ',help='oligo R2 fastq file, Multiple files are separated by commas, the files order needs to be consistent with oligofastq1.',required=True)
-    parser.add_argument('--starIndexDir',type=str, metavar='PATH',help='Star index dir path.',required=True)
-    parser.add_argument('--gtf',type=str, metavar='GTF',help='GTF file.',required=True)
-    parser.add_argument('--species',type=str, metavar='STR',default='NA',help='Species name. Only [Human] and [Mouse] can analysis cell annotation, [default: NA].')
-    parser.add_argument('--outdir', metavar='PATH',help='output dir, [default: current directory].', default=os.getcwd())
-    parser.add_argument('--thread',type=int, metavar='INT',default=4,help='Analysis threads, [default: 4].')
-    parser.add_argument('--cDNAconfig', metavar='JASON',help='whitelist of cell barcode and structure file in JSON format for cDNA fastq, [defalut: DNBelabC4_scRNA_beads_readStructure.json].',default='%s/config/DNBelabC4_scRNA_beads_readStructure.json'%_root_dir)
-    parser.add_argument('--oligoconfig', metavar='JASON',help='whitelist of cell barcode and structure file in JSON format for oligo fastq, [defalut: DNBelabC4_scRNA_oligo_readStructure.json].',default='%s/config/DNBelabC4_scRNA_oligo_readStructure.json'%_root_dir)
-    parser.add_argument('--oligotype', metavar='FILE',help='Whitelist of oligo index, [default: oligo_type8.txt].',default='%s/config/oligo_type8.txt'%_root_dir)
-    parser.add_argument('--calling_method',metavar='STR',help='Cell calling method, Choose from barcoderanks and emptydrops, [default: emptydrops].', default='emptydrops')
+    parser.add_argument('--name', metavar='NAME',help='Sample name.', type=str,required=True)
+    parser.add_argument('--cDNAfastq1', metavar='FASTQ',help='cDNA R1 fastq file, use commas to separate multiple files.', required=True)
+    parser.add_argument('--cDNAfastq2', metavar='FASTQ',help='cDNA R2 fastq file, use commas to separate multiple files, the files order needs to be consistent with cDNAfastq1.', required=True)
+    parser.add_argument('--oligofastq1', metavar='FASTQ',help='oligo R1 fastq file, use commas to separate multiple files.',required=True)
+    parser.add_argument('--oligofastq2', metavar='FASTQ',help='oligo R2 fastq file, use commas to separate multiple files, the files order needs to be consistent with oligofastq1.',required=True)
+    parser.add_argument('--genomeDir',type=str, metavar='PATH',help='Path of folder containing reference index.',required=True)
+    parser.add_argument('--gtf',type=str, metavar='GTF',help='Path of gtf file.',required=True)
+    parser.add_argument('--species',type=str, metavar='STR',default='undefined',help='Species name. Only "Homo_sapiens","Human","Mus_musculus" and "Mouse" can perform cell annotation analysis, [default: undefined].')
+    parser.add_argument('--outdir', metavar='PATH',help='Output diretory, [default: current directory].', default=os.getcwd())
+    parser.add_argument('--thread',type=int, metavar='INT',default=4,help='Number of threads to use, [default: 4].')
+    parser.add_argument('--calling_method',metavar='STR',choices=["barcoderanks","emptydrops"],help='Cell calling method, Choose from barcoderanks and emptydrops, [default: emptydrops].', default='emptydrops')
     parser.add_argument('--expectcells',metavar='INT',help='Expected number of recovered beads, [default: 3000].', default=3000)
     parser.add_argument('--forcecells',metavar='INT',help='Force pipeline to use this number of beads.', default=0)
-    parser.add_argument('--mtgenes',metavar='FILE',default='auto',help='Set mitochondrial genes(mtgene list file path) or auto, [default: auto].')
-    parser.add_argument('--process', metavar='STR',help='Custom your analysis steps, steps are separated by commas, [default: data,count,analysis,report].',type=str,default='data,count,analysis,report')
+    parser.add_argument('--chemistry',metavar='STR',choices=["scRNAv1HT","scRNAv2HT","auto"],help='Chemistry version. Automatic detection is recommended. If setting, needs to be used with --darkreaction, can be "scRNAv1HT", "scRNAv2HT", [default: auto].',default='auto')
+    parser.add_argument('--darkreaction',metavar='STR',help='Sequencing dark reaction. Automatic detection is recommended. If setting, needs to be used with --chemistry, use comma to separate cDNA and oligo, can be "R1,R1R2", "R1,R1", "unset,unset", etc, [default: auto].', default='auto')
+    parser.add_argument('--customize',metavar='STR',help='Customize files for whitelist and readstructure in JSON format for cDNA and oligo, use comma to separate cDNA and oligo.')
+    parser.add_argument('--process', metavar='STR',help='Custom your analysis steps, use comma to separate steps, [default: data,count,analysis,report].',type=str,default='data,count,analysis,report')
+    parser.add_argument('--mtgenes',metavar='FILE',default='auto',help='Path of file with mitochondrial genes, [default: auto].')
     parser.add_argument('--no_introns', action='store_true',help='Not include intronic reads in count.')
-    parser.add_argument('--mixseq', action='store_true',help='cDNA and oligo sequence in same chip.')
     parser.add_argument('--no_bam', action='store_true',help='Do not move filter bam file to the output dir.')
     parser.add_argument('--dry', help=' Do not execute the pipeline. Generate a pipeline shell file.',action='store_true')
     return parser

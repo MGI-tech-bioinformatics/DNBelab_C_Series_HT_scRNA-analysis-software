@@ -304,7 +304,7 @@ if os.path.exists(outdir+'/03.analysis/Clustering/marker.csv'):
     df1= pd.read_csv(open(outdir+'/03.analysis/Clustering/marker.csv'),encoding="utf-8",dtype=str,)
     fw = open(outdir+'/04.report/table/marker-table.txt','w')
     for index, row in df1.iterrows():
-        fw.write('<tr><td>'+row['Unnamed: 0']+'</td>'\
+        fw.write('<tr><td>'+row['gene']+'</td>'\
                 +'<td>'+row['cluster']+'</td>'\
                 +'<td>'+row['p_val_adj']+'</td>'\
                 +'<td>'+row['p_val']+'</td>'\

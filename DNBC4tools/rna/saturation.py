@@ -55,7 +55,8 @@ def count_result(in_bam, out_dir, ctg):
 
 def combine_txt(indir:str):
     os.system("rm -rf %s/cell_count_detail.xls"%indir)
-    os.system("cat %s/temp/*.txt >> %s/cell_count_detail.xls"%(indir,indir))
+    #os.system("cat %s/temp/*.txt >> %s/cell_count_detail.xls"%(indir,indir))
+    os.system("find %s/temp/ -name \"*.txt\" | xargs cat  >> %s/cell_count_detail.xls"%(indir,indir))
 
 def fraction_reads(outdir,totalreads:int):
     cellcount_df = pl.read_csv(

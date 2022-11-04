@@ -28,7 +28,7 @@ IG_V_gene	218
 IG_V_pseudogene	158
 TR_V_gene	144
 ```
-***Notice***：you need to check that the GTF file contains gene_biotype or gene_type. For example, the GTF of ensembl, use "--type gene_biotype", the GTF of genecode use "gene_type". 
+***Notice***：you need to check that the GTF file contains gene_biotype or gene_type. For example, the GTF of ensembl, use "--type gene_biotype", the GTF of genecode use "--type gene_type". 
 
 ### **Filter GTF**
 ```shell
@@ -56,7 +56,7 @@ $DNBC4tools mkref --action mkgtf --ingtf gene.gtf --outgtf gene.filter.gtf \
 ```shell
 $DNBC4tools mkref --action mkref --ingtf gene.filter.gtf \
             --fasta genome.fa \
-            --star_dir $star_dir \
+            --genomeDir $--genomeDir \
             --thread $threads
 ```
 ***Notice***: STAR version is 2.7.2b, STAR versionGenome is 2.7.1a. Version does not adapt downward.

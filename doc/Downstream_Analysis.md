@@ -111,3 +111,99 @@ def ReadPISA(path):
     adata.var_names_make_unique()
     return adata
 ```
+
+<br/>
+<br/>
+
+### RNA_velocity
+
+You can read the matrix of this directory output/attachment/RNAvelocity_matrix
+
+```R
+ReadPISA <- function(mex_dir=NULL,
+                     barcode.path = NULL,
+                     feature.path = NULL,
+                     matrix.path=NULL,
+                     use_10X=FALSE) {
+  if (is.null(mex_dir) && is.null(barcode.path)  && is.null(feature.path) &&
+        is.null(matrix.path)) {
+    stop("No matrix set.")
+  }
+  if (!is.null(mex_dir) && !file.exists(mex_dir) ) {
+    stop(paste0(mex_dir, " does not exist."))
+  }
+  if (is.null(barcode.path)  && is.null(feature.path) && is.null(matrix.path)) {
+    barcode.path <- paste0(mex_dir, "/barcodes.tsv.gz")
+    feature.path <- paste0(mex_dir, "/features.tsv.gz")
+    matrix.path <- paste0(mex_dir, "/matrix.mtx.gz")
+  }
+  spliced.path <- paste0(mex_dir, "/spliced.mtx.gz")
+  unspliced.path <- paste0(mex_dir, "/unspliced.mtx.gz")
+  spanning.path <- paste0(mex_dir, "/spanning.mtx.gz")
+
+  if (!file.exists(barcode.path) || !file.exists(feature.path)) {
+    stop(paste0("No expression file found at ", mex_dir))
+  }
+
+  .ReadPISA0 <- function(barcode.path, feature.path, matrix.path, use_10X) {
+    mat <- Matrix::readMM(file = matrix.path)
+    feature.names <- read.delim(feature.path,
+                                header = FALSE,
+                                stringsAsFactors = FALSE
+                                )
+    barcode.names <- read.delim(barcode.path,
+                                header = FALSE,
+                                stringsAsFactors = FALSE
+                                )
+    colnames(mat) <- barcode.names$V1
+    if (use_10X == TRUE) {
+      rownames(mat) <- make.unique(feature.names$V2)
+    } else {
+      rownames(mat) <- make.unique(feature.names$V1)
+    }
+    mat
+  }
+  
+  if (!file.exists(spliced.path) && file.exists(matrix.path)) {
+    return(.ReadPISA0(barcode.path, feature.path, matrix.path, use_10X))
+  }
+  mat <- list()
+  cat("Load spliced matrix ...\n")
+  mat$spliced <- Matrix::readMM(file = spliced.path)
+  mat$spliced <- as(mat$spliced, 'dgCMatrix')
+  cat("Load unspliced matrix ...\n")
+  mat$unspliced <- Matrix::readMM(file = unspliced.path)
+  mat$unspliced <- as(mat$unspliced, 'dgCMatrix')
+  cat("Load spanning matrix ...\n")
+  mat$spanning <- Matrix::readMM(file = spanning.path)
+  mat$spanning <- as(mat$spanning, 'dgCMatrix')
+
+  feature.names <- read.delim(feature.path,
+                              header = FALSE,
+                              stringsAsFactors = FALSE
+  )
+  barcode.names <- read.delim(barcode.path,
+                              header = FALSE,
+                              stringsAsFactors = FALSE
+  )
+  colnames(mat$spliced) <- barcode.names$V1
+  rownames(mat$spliced) <- make.unique(feature.names$V1)
+  colnames(mat$unspliced) <- barcode.names$V1
+  rownames(mat$unspliced) <- make.unique(feature.names$V1)
+  colnames(mat$spanning) <- barcode.names$V1
+  rownames(mat$spanning) <- make.unique(feature.names$V1)
+  mat
+}
+
+EC <- ReadPISA('output/attachment/RNAvelocity_matrix')
+library(Seurat)
+library(velocyto.R)
+emat <- EC$spliced
+nmat <- EC$unspliced
+smat <- EC$spanning
+```
+
+or the bam used for RNA velocyto is anno_decon_sorted.bam in the output directory, but some processing is required because the tag of the cell barcode in bam is DB. The script is changeBamTag.py, using method
+```shell
+/miniconda3/envs/DNBC4tools/bin/python changeBamTag.py --infile anno_decon_sorted.bam --outfile velocyto.bam
+```

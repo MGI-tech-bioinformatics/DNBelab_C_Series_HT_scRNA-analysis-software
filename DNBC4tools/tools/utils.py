@@ -27,7 +27,7 @@ def rm_temp(*args):
         os.remove(i)
 
 def start_print_cmd(arg):
-    print(arg)
+    #print(arg)
     check_call(arg,shell=True)
 
 def logging_call(popenargs,name,dir):

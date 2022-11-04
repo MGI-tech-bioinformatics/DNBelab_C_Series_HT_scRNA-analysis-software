@@ -11,7 +11,6 @@ class Count:
         self.Indexreads = args.Indexreads
         self.oligobarcodeCount = args.oligobarcodeCount
         self.thread = args.thread
-        self.oligotype = args.oligotype
         self.calling_method = args.calling_method
         self.expectcells = args.expectcells
         self.forcecells = args.forcecells
@@ -19,7 +18,7 @@ class Count:
         self.outdir = os.path.join(args.outdir,args.name)
     
     def run(self):
-        judgeFilexits(self.bam,self.cDNAbarcodeCount,self.Indexreads,self.oligobarcodeCount,self.oligotype,self.raw_matrix)
+        judgeFilexits(self.bam,self.cDNAbarcodeCount,self.Indexreads,self.oligobarcodeCount,self.raw_matrix)
         str_mkdir('%s/02.count'%self.outdir)
         str_mkdir('%s/log'%self.outdir)
         change_path()
@@ -32,8 +31,8 @@ class Count:
             %(new_python,_root_dir,self.cDNAbarcodeCount,self.outdir,self.outdir)
         mergeBarcodes_cmd = '%s/soft/mergeBarcodes -b %s/02.count/beads_barcode_all.txt -f %s -n %s -o %s/02.count/'\
             %(_root_dir,self.outdir,self.Indexreads,self.name,self.outdir)
-        similiarBeads_cmd = '%s/soft/s1.get.similarityOfBeads -n %s %s %s/02.count/%s_CB_UB_count.txt %s/02.count/beads_barcodes.txt %s %s/02.count/Similarity.all.csv %s/02.count/Similarity.droplet.csv %s/02.count/Similarity.droplet.filtered.csv'\
-            %(_root_dir,self.thread,self.name,self.outdir,self.name,self.outdir,self.oligotype,self.outdir,self.outdir,self.outdir)
+        similiarBeads_cmd = '%s/soft/s1.get.similarityOfBeads -n %s %s %s/02.count/%s_CB_UB_count.txt %s/02.count/beads_barcodes.txt %s/config/oligo_type8.txt %s/02.count/Similarity.all.csv %s/02.count/Similarity.droplet.csv %s/02.count/Similarity.droplet.filtered.csv'\
+            %(_root_dir,self.thread,self.name,self.outdir,self.name,self.outdir,_root_dir,self.outdir,self.outdir,self.outdir)
         combineBeads_cmd = '%s %s/rna/combinedListOfBeads.py --similarity_droplet %s/02.count/Similarity.droplet.csv --beads_list %s/02.count/beads_barcodes.txt --combined_list %s/02.count/%s_combined_list.txt'\
             %(new_python,_root_dir,self.outdir,self.outdir,self.outdir,self.name)
         CellMerge_cmd = '%s %s/rna/cellMerge.py --indir %s/02.count --name %s'\
@@ -78,7 +77,6 @@ def parse_count(parser):
     parser.add_argument('--cDNAbarcodeCount',metavar='FILE',help='Read count per cell barcode for cDNA, eg./01.data/cDNA_barcode_counts_raw.txt.',)
     parser.add_argument('--Indexreads',metavar='FILE',help='Barcode reads generate by scRNAparse, eg./01.data/Index_reads.fq.gz.')
     parser.add_argument('--oligobarcodeCount',metavar='FILE',help='Read count per cell barcode for oligo, eg./01.data/Index_barcode_counts_raw.txt.')
-    parser.add_argument('--oligotype',metavar='FILE',help='Whitelist for oligo index, [default: oligo_type8.txt].',default='%s/config/oligo_type8.txt'%_root_dir)
     parser.add_argument('--thread',metavar='INT',help='Analysis threads. [default: 4].',type=int,default=4)
     parser.add_argument('--outdir',metavar='DIR',help='output dir, [default: current directory].',default=os.getcwd())
     parser.add_argument('--calling_method',metavar='STR',help='Cell calling method, Choose from barcoderanks and emptydrops, [default: emptydrops].', default='emptydrops')

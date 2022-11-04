@@ -72,6 +72,7 @@ def get_args_from_file():
             stat['cDNA_frag_low_qual'] = df[1][2]
             stat['cDNA_frag_fail_bar'] = df[1][3]
             stat['cDNA_frag_exact_bar'] = df[1][5]
+            stat['cDNA_adapter'] = df[1][6]
             stat['cDNA_Q30_c_bar'] = df[1][7]
             stat['cDNA_Q30_s_bar'] = df[1][8]
             stat['cDNA_Q30_UMI'] = df[1][9]
@@ -244,13 +245,13 @@ def write_param_to_template():
     
     metrics_df = pd.DataFrame([stat])
     cols = ["samplename","species","estm_Num_cell","mean_r_per_c","mean_UMI_per_c","median_UMI_per_c","total_gene",\
-        "mean_genes_per_c","median_genes_per_c","saturation","Fraction","cDNA_num_frag","cDNA_frag_pass_QC_ratio","cDNA_Q30_r",\
+        "mean_genes_per_c","median_genes_per_c","saturation","Fraction","cDNA_num_frag","cDNA_frag_pass_QC_ratio","cDNA_adapter","cDNA_Q30_r",\
         "index_num_frag","index_frag_pass_QC_ratio","index_Q30_r","mito_ratio","r_m_geno","r_m_ex","r_m_intro",\
         "r_m_anti","r_m_inter"]
     metrics_summary_df = metrics_df[cols]
     metrics_summary_df.columns =["SampleName","species","Estimated number of cell","Mean reads per cell","Mean UMI count per cell",\
         "Median UMI counts per cell","Total genes detected","Mean genes per cell","Median genes per cell","Sequencing saturation",\
-        "Fraction Reads in cell","cDNA Number of reads","cDNA Reads pass QC","cDNA Q30 bases in reads","index Number of reads",\
+        "Fraction Reads in cell","cDNA Number of reads","cDNA Reads pass QC","cDNA Adapter Reads","cDNA Q30 bases in reads","index Number of reads",\
         "index Reads pass QC","index Q30 bases in reads","Mitochondria ratio","Reads mapped to genome (Map Quality >= 0)",\
         "Reads mapped to exonic regions","Reads mapped to intronic regions","Reads mapped antisense to gene","Reads mapped to intergenic regions"]
     #metrics_summary_df = metrics_summary_df.T

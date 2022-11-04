@@ -11,7 +11,8 @@ class Ref:
         self.outstat = args.outstat
         self.type = args.type
         self.fasta = args.fasta
-        self.star_dir = args.star_dir
+        self.genomeDir = args.genomeDir
+        self.limitram = args.limitGenomeGenerateRAM
         self.thread = args.thread
 
     def run(self):
@@ -31,9 +32,9 @@ class Ref:
             start_print_cmd(stat_cmd)
         if self.action == 'mkref':
             judgeFilexits(self.ingtf,self.fasta)
-            str_mkdir('%s'%self.star_dir)
-            mkref_cmd = '%s %s/rna/star_ref.py --action mkref --ingtf %s --fasta %s --star_dir %s --star %s/soft/scStar --thread %s'\
-                %(new_python,_root_dir,self.ingtf,self.fasta,self.star_dir,_root_dir,self.thread)
+            str_mkdir('%s'%self.genomeDir)
+            mkref_cmd = '%s %s/rna/star_ref.py --action mkref --ingtf %s --fasta %s --genomeDir %s --star %s/soft/scStar --thread %s --limitram %s'\
+                %(new_python,_root_dir,self.ingtf,self.fasta,self.genomeDir,_root_dir,self.thread,self.limitram)
             start_print_cmd(mkref_cmd)
 
 def mkref(args):
@@ -47,6 +48,7 @@ def parse_mkref(parser):
     parser.add_argument('--outstat',metavar='FILE', default = 'gtf_type.txt',help='Set the stats outfile in stat, [default: "gtf_type.txt" in current dir].')
     parser.add_argument('--type',metavar='STR', default = 'gene_type',help='Set the the type for stat, [default: gene_type].')
     parser.add_argument('--fasta',metavar='FASTA',help='Set the fasta in mkref.')
-    parser.add_argument('--star_dir',metavar='DIR',default=os.getcwd(),help='Set the star indexdir in mkref, [default: current dir].')
+    parser.add_argument('--genomeDir',metavar='DIR',default=os.getcwd(),help='Set the star indexdir in mkref, [default: current dir].')
+    parser.add_argument('--limitGenomeGenerateRAM',metavar='INT',help='Set the limit genome generate ram in mkref.',default=125000000000)
     parser.add_argument('--thread',metavar='INT', default=4,help='Set the threads in mkref, [default: 4].')
     return parser

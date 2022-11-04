@@ -1,8 +1,8 @@
 suppressMessages({
     library(data.table)
-	library(Seurat)
-	library(Matrix)
-	library(DropletUtils)
+    library(Seurat)
+    library(Matrix)
+    library(DropletUtils)
 })
 
 parser = argparse::ArgumentParser(description="Stat the information of the final cell")

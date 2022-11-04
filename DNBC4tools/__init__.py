@@ -1,6 +1,6 @@
 import os
 
-_version = "2.0.6"
+_version = "2.0.7"
 
 _pipelist = [
     "data",
