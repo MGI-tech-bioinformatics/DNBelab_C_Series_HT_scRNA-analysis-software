@@ -6,8 +6,8 @@ workflow main{
 	String cDNA_Fastq2
 	String Oligo_Fastq1
 	String Oligo_Fastq2
-	String? BeadsBarcode = "${Root}/DNBC4tools/config/scRNA_beads_darkReaction.json"
-	String? OligoBarcode = "${Root}/DNBC4tools/config/scRNA_oligo_darkReaction.json"
+	String BeadsBarcode
+	String OligoBarcode
 	String Refdir
 	String Gtf
 	String SampleName
