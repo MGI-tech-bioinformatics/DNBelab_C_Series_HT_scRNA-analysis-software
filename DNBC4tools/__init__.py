@@ -1,16 +1,11 @@
 import os
 
-_version = "2.0.7"
+__version__ = "2.0dev"
 
-_pipelist = [
-    "data",
-    'count',
-    'analysis',
-    'report',
-    'clean',
-    'mkref',
-    'run',
-    'multi',
+__category__ = [
+    "rna",
+    'atac',
+    'tools'
 ]
 
-_root_dir = os.path.abspath(os.path.dirname(__file__))
+__root_dir__ = os.path.abspath(os.path.dirname(__file__))
