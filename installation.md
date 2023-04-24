@@ -20,7 +20,7 @@ Requires conda to be installed
 source /miniconda3/bin/activate
 conda env create -f DNBC4dev.yaml -n DNBC4dev
 ```
-**Update**: There is no need to reinstall the environment when the version is updated, , only the python package **dnbc4tools** needs to be updated
+**Update**: There is no need to reinstall the environment when the version is updated, , only the python package **dnbc4dev** needs to be updated
 
 ```shell
 source activate DNBC4dev
