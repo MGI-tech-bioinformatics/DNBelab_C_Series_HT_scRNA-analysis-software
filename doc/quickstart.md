@@ -1,37 +1,38 @@
 # Quick start
 
-### DNBC4tools
+### 1. dnbc4tools
 
-- **conda**
+- **Conda**
 
 No source environment is required, use the full path command directly
 
 ```shell
-/miniconda3/envs/DNBC4tools/bin/DNBC4tools
+$miniconda3/envs/dnbc4tools/bin/dnbc4tools
 ```
 
-- **docker**
+- **Docker**
 
 ```shell
-docker run -P  -v $Database_LOCAL:/database -v $Rawdata_LOCAL:/data -v $Result_LOCAL:/result lishuangshuang3/dnbc4tools DNBC4tools
+docker run -P  -v $Database_LOCAL:/database -v $Rawdata_LOCAL:/data -v $Result_LOCAL:/result dnbelabc4/dnbc4tools dnbc4tools
 # $Database_LOCAL: directory on your local machine that has the database files. 
 # $Rawdata_LOCAL: directory on your local machine that has the sequence data.
 # $Result_LOCAL: directory for result.
-# You can use --user $(id -u):$(id -g) to obtain the owner and group
 ```
 
-- **singularity**
+- **Singularity**
 
 ```shell
-export SINGULARITY_BIND=$cDNA_data,$oligo_data,$result,$database
-singularity exec dnbc4tools.sif DNBC4tools
+export SINGULARITY_BIND=$data,$result,$database
+singularity exec dnbc4tools.sif dnbc4tools
 # You can bind multiple directories by Using the environment variable:
-# export SINGULARITY_BINDPATH=$cDNA_data,$oligo_data,$result,$database
+# export SINGULARITY_BINDPATH=$data,$result,$database
 ```
 
 
 
-### Build index for reference genome
+### 2. scRNA
+
+#### 2.1 Build index for reference genome
 
 - **Human(GRCh38)**
 
@@ -41,28 +42,9 @@ wget http://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_32/gencode
 gzip -d GRCh38.primary_assembly.genome.fa.gz
 gzip -d gencode.v32.primary_assembly.annotation.gtf.gz
 
-DNBC4tools mkref --action mkgtf --ingtf gencode.v32.primary_assembly.annotation.gtf --outgtf gene.filter.gtf \
-            --attribute gene_type:protein_coding \
-                        gene_type:lncRNA \
-                        gene_type:IG_C_gene \
-                        gene_type:IG_D_gene \
-                        gene_type:IG_J_gene \
-                        gene_type:IG_LV_gene \
-                        gene_type:IG_V_gene \
-                        gene_type:IG_V_pseudogene \
-                        gene_type:IG_J_pseudogene \
-                        gene_type:IG_C_pseudogene \
-                        gene_type:TR_C_gene \
-                        gene_type:TR_D_gene \
-                        gene_type:TR_J_gene \
-                        gene_type:TR_V_gene \
-                        gene_type:TR_V_pseudogene \
-                        gene_type:TR_J_pseudogene
+$dnbc4tools tools mkgtf --ingtf gencode.v32.primary_assembly.annotation.gtf --output genes.filter.gtf --type gene_type
                         
-DNBC4tools mkref --action mkref --ingtf gene.filter.gtf \
-            --fasta GRCh38.primary_assembly.genome.fa \
-            --genomeDir . \
-            --thread 10
+$dnbc4tools rna mkref --ingtf genes.filter.gtf --fasta GRCh38.primary_assembly.genome.fa --threads 10 --species Homo_sapiens
 ```
 
 - **Mouse(GRCm38)**
@@ -73,71 +55,84 @@ wget http://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_mouse/release_M23/gencod
 gzip -d GRCm38.primary_assembly.genome.fa.gz
 gzip -d gencode.vM23.primary_assembly.annotation.gtf.gz
 
-DNBC4tools mkref --action mkgtf --ingtf gencode.vM23.primary_assembly.annotation.gtf --outgtf gene.filter.gtf \
-            --attribute gene_type:protein_coding \
-                        gene_type:lncRNA \
-                        gene_type:IG_C_gene \
-                        gene_type:IG_D_gene \
-                        gene_type:IG_J_gene \
-                        gene_type:IG_LV_gene \
-                        gene_type:IG_V_gene \
-                        gene_type:IG_V_pseudogene \
-                        gene_type:IG_J_pseudogene \
-                        gene_type:IG_C_pseudogene \
-                        gene_type:TR_C_gene \
-                        gene_type:TR_D_gene \
-                        gene_type:TR_J_gene \
-                        gene_type:TR_V_gene \
-                        gene_type:TR_V_pseudogene \
-                        gene_type:TR_J_pseudogene
+$dnbc4tools tools mkgtf --ingtf gencode.vM23.primary_assembly.annotation.gtf --output genes.filter.gtf --type gene_type
                         
-DNBC4tools mkref --action mkref --ingtf gene.filter.gtf \
-            --fasta GRCm38.primary_assembly.genome.fa \
-            --genomeDir . \
-            --thread 10
+$dnbc4tools rna mkref --ingtf genes.filter.gtf --fasta GRCm38.primary_assembly.genome.fa --threads 10 --species Mus_musculus
 ```
 
+> *Note: version 2.0.\* requires rebuilding the reference database, using the parameter "--noindex" to skip the scStar index generation.*
 
+#### 2.2 RUN
 
-### RUN
-
-**Running the entire workflow**
+**Running the main workflow**
 
 ```shell
-DNBC4tools run --cDNAfastq1 /test/data/test_cDNA_R1.fastq.gz \
+$dnbc4tools rna run \
+	--cDNAfastq1 /test/data/test_cDNA_R1.fastq.gz \
 	--cDNAfastq2 /test/data/test_cDNA_R2.fastq.gz \
 	--oligofastq1 /test/data/test_oligo1_1.fq.gz,/test/data/test_oligo2_1.fq.gz \
 	--oligofastq2 /test/data/test_oligo1_2.fq.gz,/test/data/test_oligo2_2.fq.gz \
-	--genomeDir /database/Mouse/mm10 --gtf /database/Mouse/mm10/genes.gtf \
-	--name test --species Mus_musculus --thread 10
-	
-# set "--expectcells" ,it is recommended to set the expected number of recovered cells according to 50% of the input amount of viable cells (capture efficiency 50%).
-# For example, the input of viable cells is 20,000
-DNBC4tools run --cDNAfastq1 /test/data/test_cDNA_R1.fastq.gz \
-	--cDNAfastq2 /test/data/test_cDNA_R2.fastq.gz \
-	--oligofastq1 /test/data/test_oligo1_1.fq.gz,/test/data/test_oligo2_1.fq.gz \
-	--oligofastq2 /test/data/test_oligo1_2.fq.gz,/test/data/test_oligo2_2.fq.gz \
-	--genomeDir /database/Mouse/mm10 --gtf /database/Mouse/mm10/genes.gtf \
-	--name test --species Mus_musculus --expectcells 10000 --thread 10
-	
-# set "--chemistry" and "--darkreaction" or "--customize", "--customize" has the highest priority
-DNBC4tools run --cDNAfastq1 /test/data/test_cDNA_R1.fastq.gz \
-	--cDNAfastq2 /test/data/test_cDNA_R2.fastq.gz \
-	--oligofastq1 /test/data/test_oligo1_1.fq.gz,/test/data/test_oligo2_1.fq.gz \
-	--oligofastq2 /test/data/test_oligo1_2.fq.gz,/test/data/test_oligo2_2.fq.gz \
-	--genomeDir /database/Mouse/mm10 --gtf /database/Mouse/mm10/genes.gtf \
-	--name test --species Mus_musculus --expectcells 10000 \
-	--customize scRNA_beads_darkReaction.json,scRNA_oligo_darkReaction.json --thread 10
+	--genomeDir /database/scRNA/Mus_musculus/mm10  \
+	--name test --threads 10
 ```
-
-
 
 **Use the multi command to process multiple samples**
 
 ```shell
-DNBC4tools multi --list samplelist \
-         --genomeDir /database/Mouse/mm10/ --gtf /database/Mouse/mm10/genes.gtf \
-         --thread 10
+$dnbc4tools rna multi --list samplelist \
+         --genomeDir /database/scRNA/Mus_musculus/mm10 \
+         --threads 10
 ```
 
+
+
+### 3. scATAC
+
+#### 3.1 Build index for reference genome
+
+- **Human(GRCh38)**
+
+```shell
+wget http://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_32/GRCh38.primary_assembly.genome.fa.gz
+wget http://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_32/gencode.v32.primary_assembly.annotation.gtf.gz
+gzip -d GRCh38.primary_assembly.genome.fa.gz
+gzip -d gencode.v32.primary_assembly.annotation.gtf.gz
+
+$dnbc4tools tools mkgtf --ingtf gencode.v32.primary_assembly.annotation.gtf --output genes.filter.gtf --type gene_type
+                        
+$dnbc4tools atac mkref --fasta GRCh38.primary_assembly.genome.fa --ingtf genes.filter.gtf --species Homo_sapiens --blacklist hg38 --prefix chr
+```
+
+- **Mouse(GRCm38)**
+
+```shell
+wget http://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_mouse/release_M23/GRCm38.primary_assembly.genome.fa.gz
+wget http://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_mouse/release_M23/gencode.vM23.primary_assembly.annotation.gtf.gz
+gzip -d GRCm38.primary_assembly.genome.fa.gz
+gzip -d gencode.vM23.primary_assembly.annotation.gtf.gz
+
+$dnbc4tools tools mkgtf --ingtf gencode.vM23.primary_assembly.annotation.gtf --output genes.filter.gtf --type gene_type
+                        
+$dnbc4tools atac mkref --fasta GRCm38.primary_assembly.genome.fa --ingtf genes.filter.gtf --species Mus_musculus --blacklist mm10 --prefix chr
+```
+
+#### 3.2 RUN
+
+**Running the main workflow**
+
+```shell
+$dnbc4tools atac run \
+	--fastq1 /test/data/test1_R1.fastq.gz,/test/data/test2_R1.fastq.gz \
+	--fastq2 /test/data/test1_R2.fastq.gz,/test/data/test2_R2.fastq.gz \
+	--genomeDir /database/scATAC/Mus_musculus/mm10  \
+	--name test --threads 10
+```
+
+**Use the multi command to process multiple samples**
+
+```shell
+$dnbc4tools atac multi --list samplelist \
+         --genomeDir /database/scATAC/Mus_musculus/mm10  \
+         --threads 10
+```
 

@@ -1,10 +1,8 @@
 # Installation
 
-DNBelab_C_Series_HT_scRNA-analysis-software analysis software can be based on conda environment or docker/singularity container.
+DNBelab_C_Series_HT_singlecell-analysis-software analysis software can be based on conda environment or docker/singularity container.
 
-
-
-### 1. conda
+### 1. Conda
 
 ##### 1.1 Clone repo
 
@@ -20,31 +18,19 @@ Requires conda to be installed
 
 ```shell
 source /miniconda3/bin/activate
-conda env create -f DNBC4tools.yaml -n DNBC4tools
-conda activate DNBC4tools
-Rscript -e "devtools::install_github(c('chris-mcginnis-ucsf/DoubletFinder','ggjlab/scHCL','ggjlab/scMCA'),force = TRUE);"
+conda env create -f dnbc4tools.yaml -n dnbc4tools
 ```
-***Note:*** If you use wdl to run the process, you need to download [cromwell-35.jar](https://github.com/broadinstitute/cromwell/releases/download/35/cromwell-35.jar)
-
-**Update**: There is no need to reinstall the environment when the version is updated, , only the python package **dnbc4tools** needs to be updated
-
-```shell
-source activate DNBC4tools
-pip install --upgrade -i https://pypi.tuna.tsinghua.edu.cn/simple dnbc4tools
-```
-
-
+>**Note**: *updating version 2.1.0 requires recreating the analysis environment.*
 
 ### 2. container
 
-##### docker
+##### Singularity
 
 ```shell
-docker pull lishuangshuang3/dnbc4tools
+singularity build dnbc4tools.sif docker://dnbelabc4/dnbc4tools
 ```
-
-##### singularity
+##### Docker
 
 ```shell
-singularity build dnbc4tools.sif docker://lishuangshuang3/dnbc4tools
+docker pull dnbelabc4/dnbc4tools
 ```
