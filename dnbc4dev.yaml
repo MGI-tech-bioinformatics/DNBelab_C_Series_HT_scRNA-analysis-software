@@ -1,9 +1,8 @@
-name: dnbc4dev
+name: dnbc4merge
 channels:
-  - http://mirrors.bfsu.edu.cn/anaconda/cloud/bioconda
-  - http://mirrors.bfsu.edu.cn/anaconda/pkgs/main
-  - http://mirrors.bfsu.edu.cn/anaconda/pkgs/r
   - http://mirrors.bfsu.edu.cn/anaconda/cloud/conda-forge
+  - http://mirrors.bfsu.edu.cn/anaconda/pkgs/main
+  - defaults
   - http://mirrors.bfsu.edu.cn/anaconda/pkgs/r/
   - http://mirrors.bfsu.edu.cn/anaconda/pkgs/main/
   - http://mirrors.bfsu.edu.cn/anaconda/pkgs/free/
@@ -60,9 +59,9 @@ dependencies:
   - bwidget=1.9.11=1
   - bzip2=1.0.8=h7b6447c_0
   - c-ares=1.19.0=h5eee18b_0
-  - ca-certificates=2023.01.10=h06a4308_0
+  - ca-certificates=2023.05.30=h06a4308_0
   - cairo=1.16.0=hb05425b_4
-  - certifi=2022.12.7=py38h06a4308_0
+  - certifi=2023.7.22=py38h06a4308_0
   - cffi=1.15.1=py38h74dc2b5_0
   - charset-normalizer=2.0.4=pyhd3eb1b0_0
   - cloudpickle=2.2.1=py38h06a4308_0
@@ -110,6 +109,7 @@ dependencies:
   - krb5=1.19.4=h568e23c_0
   - lcms2=2.12=h3be6417_0
   - ld_impl_linux-64=2.38=h1181459_1
+  - leidenalg=0.9.1=py38h8dc9893_0
   - lerc=3.0=h295c915_0
   - libblas=3.9.0=16_linux64_openblas
   - libbrotlicommon=1.0.9=h5eee18b_7
@@ -162,7 +162,7 @@ dependencies:
   - numpy-base=1.23.5=py38h1e6e340_0
   - oniguruma=6.9.7.1=h27cfd23_0
   - openblas=0.3.21=pthreads_h320a7e8_3
-  - openssl=1.1.1t=h7f8727e_0
+  - openssl=1.1.1v=h7f8727e_0
   - packaging=23.0=py38h06a4308_0
   - pandas=1.5.3=py38h417a72b_0
   - pango=1.50.7=h05da053_0
@@ -175,6 +175,7 @@ dependencies:
   - pixman=0.40.0=h7f8727e_1
   - plotly=5.9.0=py38h06a4308_0
   - pooch=1.4.0=pyhd3eb1b0_0
+  - pyahocorasick=2.0.0=py38h1de0b5d_0
   - pycparser=2.21=pyhd3eb1b0_0
   - pynndescent=0.5.4=pyhd3eb1b0_0
   - pyopenssl=23.0.0=py38h06a4308_0
@@ -274,7 +275,7 @@ dependencies:
   - r-nlme=3.1_157=r42h640688f_0
   - r-npsurv=0.5_0=r42hc72bb7e_1
   - r-openssl=2.0.2=r42h76d94ec_0
-  - r-parallelly=1.31.1=r42h6115d3f_0
+  - r-parallelly=1.36.0=r42hc72bb7e_1
   - r-patchwork=1.1.1=r42h6115d3f_0
   - r-pbapply=1.5_0=r42h142f84f_0
   - r-pillar=1.7.0=r42h6115d3f_0
@@ -383,7 +384,7 @@ dependencies:
   - zlib=1.2.13=h166bdaf_4
   - zstd=1.5.5=hc292b87_0
   - pip:
-    - dnbc4dev==2.1.7
-    - polars==0.13.40
-    - tarjan==0.2.3.2
-    - typing-extensions==4.5.0
+      - dnbc4dev==2.2.1
+      - polars==0.13.40
+      - tarjan==0.2.3.2
+      - typing-extensions==4.5.0
