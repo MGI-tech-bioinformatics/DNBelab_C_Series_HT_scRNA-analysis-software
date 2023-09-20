@@ -1,44 +1,36 @@
 # Quick start
 
-### 1. dnbc4tools
+### **1. dnbc4tools**
 
-- **conda**
+- **Conda**
 
 No source environment is required, use the full path command directly
 
 ```shell
-<<<<<<< Updated upstream:quickstart.md
-$miniconda3/envs/DNBC4dev/bin/dnbc4tools
-=======
-$miniconda3/envs/dnbc4dev/bin/dnbc4tools
->>>>>>> Stashed changes:doc/quickstart.md
+$miniconda3/envs/dnbc4tools/bin/dnbc4tools
 ```
 
-- **docker**
+- **Docker**
 
 ```shell
-<<<<<<< Updated upstream:quickstart.md
-docker run -P  -v $Database_LOCAL:/database -v $Rawdata_LOCAL:/data -v $Result_LOCAL:/result lishuangshuang3/dnbc4dev dnbc4tools
-=======
-docker run -P  -v $Database_LOCAL:/database -v $Rawdata_LOCAL:/data -v $Result_LOCAL:/result dnbelabc4/dnbc4dev dnbc4tools
->>>>>>> Stashed changes:doc/quickstart.md
+docker run -P  -v $Database_LOCAL:/database -v $Rawdata_LOCAL:/data -v $Result_LOCAL:/result dnbelabc4/dnbc4tools dnbc4tools
 # $Database_LOCAL: directory on your local machine that has the database files. 
 # $Rawdata_LOCAL: directory on your local machine that has the sequence data.
 # $Result_LOCAL: directory for result.
 ```
 
-- **singularity**
+- **Singularity**
 
 ```shell
 export SINGULARITY_BIND=$data,$result,$database
-singularity exec dnbc4dev.sif dnbc4tools
+singularity exec dnbc4tools.sif dnbc4tools
 # You can bind multiple directories by Using the environment variable:
 # export SINGULARITY_BINDPATH=$data,$result,$database
 ```
 
 
 
-### 2. scRNA
+### **2. scRNA**
 
 #### 2.1 Build index for reference genome
 
@@ -68,11 +60,11 @@ $dnbc4tools tools mkgtf --ingtf gencode.vM23.primary_assembly.annotation.gtf --o
 $dnbc4tools rna mkref --ingtf genes.filter.gtf --fasta GRCm38.primary_assembly.genome.fa --threads 10 --species Mus_musculus
 ```
 
-> *Note: version 2.0 has built the reference database using the parameter "--noindex" to skip the scStar index generation process*
+> *Note: version 2.0.\* requires rebuilding the reference database, using the parameter "--noindex" to skip the scStar index generation.*
 
 #### 2.2 RUN
 
-**Running the entire workflow**
+**Running the main workflow**
 
 ```shell
 $dnbc4tools rna run \
@@ -126,7 +118,7 @@ $dnbc4tools atac mkref --fasta GRCm38.primary_assembly.genome.fa --ingtf genes.f
 
 #### 3.2 RUN
 
-**Running the entire workflow**
+**Running the main workflow**
 
 ```shell
 $dnbc4tools atac run \

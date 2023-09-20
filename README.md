@@ -1,5 +1,5 @@
-[![PyPI](https://img.shields.io/pypi/v/dnbc4dev)](https://pypi.org/project/DNBC4dev)
-[![Docker Pulls](https://img.shields.io/docker/pulls/dnbelabc4/dnbc4dev)](https://hub.docker.com/r/dnbelabc4/dnbc4dev)
+[![PyPI](https://img.shields.io/pypi/v/dnbc4tools)](https://pypi.org/project/DNBC4tools)
+[![Docker Pulls](https://img.shields.io/docker/pulls/dnbelabc4/dnbc4tools)](https://hub.docker.com/r/dnbelabc4/dnbc4tools)
 
 # DNBelab_C_Series_HT_singlecell-analysis-software
 
@@ -21,5 +21,5 @@ An open source and flexible pipeline to analyze high-throughput DNBelab C Series
 ## Support
 
 - Please use github issue tracker for questions. [**issues**](https://github.com/MGI-tech-bioinformatics/DNBelab_C_Series_HT_scRNA-analysis-software/issues)
-- Note: *Upgrading to version dev will necessitate recreating the analysis environment. If you downloaded the previous dev version, you only need to manually install the python package **pyahocorasick** and update **dnbc4dev***.
-- Note: *Upgrading to version dev requires rebuilding the scRNA reference database. For more details, please refer to the quick start guide.If you have processed the database according to the dev version or 2.1.0 version, you do not need to re-modify.*
+- Note: *Updated the environment from version 2.1.0 to the new version 2.1.1 without the need for a fresh installation, you only need to manually install the python package **pyahocorasick** and update **dnbc4tools***.
+- Note: *Upgrading to version 2.1.\* requires rebuilding the scRNA reference database. For more details, please refer to the quick start guide.*
