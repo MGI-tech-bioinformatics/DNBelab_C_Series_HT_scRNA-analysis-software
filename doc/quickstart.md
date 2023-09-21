@@ -1,6 +1,6 @@
 # Quick start
 
-### 1. dnbc4tools
+### **1. dnbc4tools**
 
 - **Conda**
 
@@ -30,7 +30,7 @@ singularity exec dnbc4tools.sif dnbc4tools
 
 
 
-### 2. scRNA
+### **2. scRNA**
 
 #### 2.1 Build index for reference genome
 
