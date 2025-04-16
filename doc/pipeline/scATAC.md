@@ -184,3 +184,5 @@ Elapsed Time: 4 hours 16 minutes 14 seconds
 ```
 
 成功的运行会以Analysis Finished结束。
+
+输出结果使用请[参考](../io.md).

@@ -6,21 +6,21 @@ The *dnbc4tools* analysis workflow is designed to integrate various subprogram m
 </br>
 
 
-## [Single-Cell RNA Analysis](./pipeline/scRNA.md)
+## Single-Cell RNA Analysis ([English](./pipeline/scRNA_en.md) | [中文](./pipeline/scRNA.md))
 
 </br>
 </br>
 
 
-## [Single-Cell ATAC Analysis](./pipeline/scATAC.md)
+## Single-Cell ATAC Analysis ([English](./pipeline/scATAC_en.md) | [中文](./pipeline/scATAC.md))
 
 </br>
 </br>
 
 
-## [Single-Cell VDJ Analysis](./pipeline/scVDJ.md)
+## Single-Cell VDJ Analysis ([English](./pipeline/scVDJ_en.md) | [中文](./pipeline/scVDJ.md))
 
 </br>
 </br>
 
-## [parameter](./parameter/parameter.md)
+## Parameter of dnbc4tools ([English](./parameter/parameter_en.md) | [中文](./parameter/parameter.md))
