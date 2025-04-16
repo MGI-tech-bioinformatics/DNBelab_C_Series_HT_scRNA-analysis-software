@@ -104,7 +104,7 @@ optional arguments:
   --noindex             Only generate ref.json without constructing the genome index.
 ```
 
-| 参数                     | 描述                                                         |
+| Parameter                | Description                                                  |
 | ------------------------ | ------------------------------------------------------------ |
 | **--fasta<br />--ingtf** | **Required parameter**, provides the reference genome FASTA file and GTF annotation file for your species. If corresponding data is available in the Ensembl database, it is recommended to use files from this database. If your target species is not in Ensembl, other sources of GTF and FASTA files can be used. Note that GTF files are required and GFF files are not supported. The recommended genome FASTA file should be the `primary` assembly version. GTF file format requirements: for single-cell RNA analysis, GTF files must contain at least "gene" or "transcript" type annotations as well as "exon" type annotations. Attributes should include at least "gene_id" or "gene_name" and "transcript_id" or "transcript_name". |
 | **--species**            | **Optional parameter**, specifies the species name used to build the reference database. In cell annotation analysis, only "Homo_sapiens", "Human", "Mus_musculus", and "Mouse" are valid options. |
