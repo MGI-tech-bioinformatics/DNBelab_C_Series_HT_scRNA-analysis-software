@@ -1,10 +1,8 @@
-# 单细胞RNA分析
+# Single-Cell RNA Analysis
 
-## 运行 dnbc4tools rna
+## Running dnbc4tools rna
 
-
-
-**工作流程如下图所示:**
+**Workflow Overview:**
 
  ![image-20240926152210545](https://s2.loli.net/2024/09/26/uKTXv7Q2miNbz1S.png)
 
@@ -14,53 +12,56 @@
 
 > [!Tip]
 >
-> - `$dnbc4tools`代表可执行程序的路径，通常在使用前需要将其替换为实际的安装路径。例如，如果程序安装在 /opt/software/dnbc4tools2.1.3。则对应命令
+> - `$dnbc4tools` represents the executable path. Replace this with the actual path before use. For example, if installed at `/opt/software/dnbc4tools2.1.3`, the command would be:
 >
 > ```shell
 > /opt/software/dnbc4tools2.1.3/dnbc4tools rna run ...
 > ```
 >
-> - 换行符 `\` 用于在命令行中将命令分为多行，以提高可读性。它表示命令未结束，下一行是该命令的继续。如果分析输入在一行中，则不需要使用反斜杠。
+> - The backslash `\` is used to split long shell commands across multiple lines for readability. It signals that the command continues on the next line. If written in a single line, the backslash is not required.
 
 </br>
 </br>
 
-### RNA 分析步骤
+### RNA Analysis Steps
 
-#### 第一步：准备FASTQ文件
+#### Step 1: Prepare FASTQ Files
 
-FASTQ 文件
+Prepare the input FASTQ files.
 
 </br>
 
-#### 第二步：准备参考数据库（可选）
+#### Step 2: Prepare Reference Database (Optional)
 
-- **基因组文件**：基因组文件应以 FASTA 格式提供，包含特定物种的完整基因组序列，包括染色体、线粒体及其他遗传信息，通常为主装配版本。这些文件为基因组分析和比对提供基础数据。
-- **注释文件**：基因组注释文件应以 GTF 格式提供，包含基因组中基因、转录本、外显子及其他功能区域的详细信息。该文件标识基因的位置、类型（如“gene”、“transcript”、“exon”）及其相关属性（如“gene_id”、“gene_name”、“transcript_id”、“transcript_name”）。这些信息对理解基因组的功能和结构至关重要。
+- **Genome File**: Provided in FASTA format and includes the complete genome sequence (chromosomes, mitochondria, etc.) of the species of interest. Typically the primary genome assembly.
+- **Annotation File**: Provided in GTF format, describing genes, transcripts, exons, and other features. Includes attributes such as "gene_id", "gene_name", "transcript_id", and "transcript_name". This information is essential for understanding gene structure and function.
 
-对于可从 [Ensembl 数据库](https://www.ensembl.org/index.html) 获取的物种，建议使用该处提供的文件。Ensembl 的 GTF 文件包含可选标签，便于过滤（通过 `dnbc4tools tools mkgtf`）。如果 Ensembl 无法提供所需物种的文件，则可以使用其他来源的 GTF 和 FASTA 文件。请注意，GTF 文件为必需，不支持 GFF 文件。基因组文件与注释文件需对应，GTF 文件格式要求为：对于单细胞 RNA 分析，GTF 文件至少需包含“gene”或“transcript”类型以及“exon”类型的注释，并且属性中必须包含“gene_id”或“gene_name”以及“transcript_id”或“transcript_name”。
+For supported species, it is recommended to download these files from the [Ensembl database](https://www.ensembl.org/index.html). Ensembl GTFs include filter-friendly tags compatible with `dnbc4tools tools mkgtf`. If Ensembl doesn't support your species, other sources may be used. Note that only GTF format is supported—GFF files are not.
 
-##### 2.1 使用dnbc4tools tools mkgtf过滤GTF文件（可选）
+The GTF file must contain annotations of type "gene" or "transcript" and "exon", and include "gene_id"/"gene_name" and "transcript_id"/"transcript_name" attributes.
 
-从 ENSEMBL 和 UCSC 等网站下载的 GTF 文件通常包含多种基因类型的基因。选择您研究中比较感兴趣的基因类型，过滤部分基因类型可以减少重叠的基因注释。与多个基因非唯一比对的 reads 会被过滤。
+##### 2.1 Filter GTF Using `dnbc4tools tools mkgtf` (Optional)
 
-我们提供了基因类型数量统计、基因类型过滤和校正 GTF 文件的功能。
+GTF files from ENSEMBL or UCSC often contain many gene types. Filtering for relevant gene types reduces annotation overlap and filters reads mapped to multiple genes.
 
-- **基因类型数量统计**（可选）
+We support:
+- Gene type counting
+- Gene type filtering
+- GTF format correction
 
-  以下是一个示例步骤或脚本模板：
-  
-  ```shell
-  $dnbc4tools tools mkgtf --action stat --ingtf genes.gtf --output gtfstat.txt --type gene_biotype
-  ```
+- **Count Gene Types** (Optional):
 
-  在上面的命令中，需要查看 GTF 文件中的 tag 确定 `type` 的类型。
+```shell
+$dnbc4tools tools mkgtf --action stat --ingtf genes.gtf --output gtfstat.txt --type gene_biotype
+```
+
+Review the tags in the GTF file to determine the appropriate `type`.
 
   ![image-20240927111652480](https://s2.loli.net/2024/10/09/afGqtQocTE9h3uR.png)
   
   
   
-  输出示例：成功运行后，输出文件，以下是一个示例：
+  Example output: After successful execution, the output file will resemble the following:
   
   ```shell
   $cat gtf_type.txt
@@ -109,17 +110,17 @@ FASTQ 文件
 
 
 
-- **校正 GTF 文件**（可选）
+- **Correct GTF File** (Optional)
 
-  GTF 文件格式要求为：对于单细胞 RNA 分析，GTF 文件至少需包含“gene”或“transcript”类型以及“exon”类型的注释，并且属性中必须包含“gene_id”或“gene_name”以及“transcript_id”或“transcript_name”。存在内容缺失的 GTF 文件会导致主分析流程无法注释而报错。
+  GTF file format requirements: For single-cell RNA analysis, the GTF file must contain at least "gene" or "transcript" type and "exon" type annotations, and the attributes must include "gene_id" or "gene_name" and "transcript_id" or "transcript_name". GTF files with missing content will cause errors in the main analysis pipeline due to annotation failure.
 
-  以下是一个示例步骤或脚本模板：
+  Here is an example step or script template:
   
   ```shell
   $dnbc4tools tools mkgtf --action check --ingtf genes.gtf --output corrected.gtf
   ```
 
-  运行时打印信息
+  Runtime output example:
   
   ```shell
   Start checking...
@@ -141,21 +142,21 @@ FASTQ 文件
   Complete
   ```
 
-  软件会主动填补 gene 行和 transcript 行缺失的信息，会根据 gene_id 和 gene_name 以及 transcript_id 和 transcript_name 互相填补。
-  
-  警告信息提示该位置存在多个基因信息，在分析时会导致过滤。
+  This automatically fills missing `gene` and `transcript` entries based on `gene_id`, `gene_name`, `transcript_id`, and `transcript_name`.
+
+  Warnings will highlight regions with overlapping gene IDs.
 
 
 
-- **基因类型过滤**
+- **Gene Type Filtering**
 
-  以下是一个示例步骤或脚本模板：
+  Here is an example step or script template:
   
   ```shell
   $dnbc4tools tools mkgtf --ingtf genes.gtf --output genes.filter.gtf --type gene_biotype
   ```
 
-  命令中我们可以添加参数 `include` 来获取需要的 gene 类型，默认是下面列出的基因型：
+  In the command, we can add the include parameter to specify the desired gene types. The default gene types are listed below:
   
   - protein_coding
   - lncRNA/lincRNA
@@ -173,7 +174,7 @@ FASTQ 文件
   - TR_J_gene
   - TR_C_gene
 
-  例如应用以上筛选来过滤，可以使用默认选项，也可以使用如下命令：
+  For example, to apply the above filtering, you can use the default options or the following command:
   
   ```shell
   $dnbc4tools tools mkgtf --ingtf genes.gtf --output genes.filter.gtf --type gene_biotype \
@@ -182,21 +183,21 @@ FASTQ 文件
   			TR_V_gene,TR_D_gene,TR_J_gene,TR_C_gene
   ```
   
-  这将从原始未过滤的 GTF 文件生成一个过滤的 GTF 文件。在输出文件中，其他基因类型被排除在 GTF 注释之外。
+  This will generate a filtered GTF file from the original unfiltered GTF file. Other gene types are excluded from the GTF annotations in the output file.
 
 </br>
 
-##### 2.2 **使用dnbc4tools rna mkref构建参考数据库**
+##### 2.2 **Building Reference Database with dnbc4tools rna mkref**
 
-在运行dnbc4tools rna run分析之前，我们需要优先构建参考数据库
+Before running the dnbc4tools rna run analysis, we need to build the reference database first.
 
-需要注释文件 GTF 和参考基因组 FASTA 来构建索引文件，用于测序 reads 的比对和注释。以下是一个示例步骤或脚本模板：
+Annotation files (GTF) and reference genome (FASTA) are required to build index files for mapping and annotating sequencing reads. Here is an example step or script template:
 
 ```shell
 $dnbc4tools rna mkref --fasta genome.fa --ingtf genes.gtf --species Homo_sapiens --threads 10
 ```
 
-运行时打印信息，以下是一个示例：
+Runtime output example:
 
 ```shell
 STAR verison: 2.7.2b
@@ -225,7 +226,7 @@ Mar 28 10:44:19 ..... finished successfully
 Analysis Complete
 ```
 
-运行完成后输出：
+Output after completion:
 
 ```shell
 /opt/database/Homo_sapiens
@@ -252,7 +253,7 @@ Analysis Complete
 └── transcriptInfo.tab
 ```
 
-其中ref.json文件中记录数据库的主要信息。
+The ref.json file records the main information of the database.
 
 ```shell
 {
@@ -267,15 +268,15 @@ Analysis Complete
 
 </br>
 
-#### 第三步：多样本操作（可选）
+#### Step 3: Multi-sample Operation (Optional)
 
-为了简化每个样本单独生成主分析流程，可以使用配置文件来生成一个包含多个样本的主流程 shell 脚本。以下是一个示例步骤或脚本模板：
+To simplify generating the main analysis pipeline for each sample individually, a configuration file can be used to generate a main pipeline shell script containing multiple samples. Here is an example step or script template:
 
 ```shell
 $dnbc4tools rna multi --list sample.tsv --genomeDir /opt/database/Homo_sapiens --threads 10
 ```
 
-其中sample.tsv文件使用制表符 (\t) 分隔符。第一列包含样本名称，第二列包含 cDNA 文库测序数据，第三列包含寡核苷酸文库测序数据。多个 fastq 文件应以逗号分隔，R1 和 R2 文件应以分号分隔。
+The sample.tsv file uses tab (\t) as a delimiter. The first column contains the sample name, the second column contains cDNA library sequencing data, and the third column contains oligonucleotide library sequencing data. Multiple fastq files should be separated by commas, and R1 and R2 files should be separated by semicolons.
 
 ```shell
 $sample1 /data/cDNA1_R1.fq.gz;/data/cDNA1_R2.fq.gz /data/oligo1_R1.fq.gz,/data/oligo4_R1.fq.gz;/data/oligo1_R2.fq.gz,/data/oligo4_R2.fq.gz 
@@ -283,7 +284,7 @@ $sample2 /data/cDNA2_R1.fq.gz;/data/cDNA2_R2.fq.gz /data/oligo2_R1.fq.gz;/data/o
 $sample3 /data/cDNA3_R1.fq.gz;/data/cDNA3_R2.fq.gz /data/oligo3_R1.fq.gz;/data/oligo3_R2.fq.gz
 ```
 
-运行完成后输出：
+Output after completion:
 
 ```shell
 sample1.sh
@@ -291,22 +292,22 @@ sample2.sh
 sample3.sh
 ```
 
-其中文件 sample1.sh 如下：
+The content of sample1.sh is as follows:
 
 ```shell
 $cat sample1.sh
 /opt/software/dnbc4tools2.1.3/dnbc4tools rna run --name sample1 --cDNAfastq1 /data/cDNA1_R1.fq.gz --cDNAfastq2 /data/cDNA1_R2.fq.gz --oligofastq1 /data/oligo1_R1.fq.gz,/data/oligo4_R1.fq.gz --oligofastq2 /data/oligo1_R2.fq.gz,/data/oligo4_R2.fq.gz --genomeDir /database/scRNA/Mus_musculus/mm10 --threads 10 
 ```
 
-执行第四步进行主流程分析。
+Proceed to Step 4 for main pipeline analysis.
 
 </br>
 
-#### 第四步：主分析流程
+#### Step 4: Main Analysis Pipeline
 
-RNA 主分析流程。处理单个样本单细胞 RNA 的 cDNA 和 oligo 文库测序数据。该流程包括质量控制、比对和功能区域注释。随后，系统将合并磁珠以识别细胞，并生成原始基因表达矩阵及过滤后的基因表达矩阵。接下来，分析将对该矩阵进行细胞过滤、降维、聚类和注释，最终生成 HTML 格式的报告并输出分析结果。
+The main RNA analysis pipeline processes single-cell RNA cDNA and oligo library sequencing data for a single sample. This pipeline includes quality control, alignment, and functional region annotation. Subsequently, the system merges beads to identify cells and generates both raw and filtered gene expression matrices. Next, the analysis performs cell filtering, dimensionality reduction, clustering, and annotation on this matrix, ultimately generating an HTML format report and outputting analysis results.
 
-为单个样本生成表达矩阵，以下是一个示例步骤或脚本模板：
+To generate an expression matrix for a single sample, here is an example step or script template:
 
 ```shell
 $dnbc4tools rna run \
@@ -320,7 +321,7 @@ $dnbc4tools rna run \
 ```
 
 
-在对试剂版本和暗反应自动检测后，软件开始运行分析，以下是一个示例：
+After automatic detection of reagent version and dark reaction, the software begins analysis. Here is an example:
 
 ```shell
 Chemistry(darkreaction) determined in oligoR1: darkreaction
@@ -352,6 +353,6 @@ Analysis Finished
 Elapsed Time: 1 hours 38 minutes 51 seconds
 ```
 
-成功的运行会以Analysis Finished结束。
+A successful run ends with "Analysis Finished".
 
-输出结果使用请[参考](../io.md).
+For usage of output results, please refer to [here](../io.md).
