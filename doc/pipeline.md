@@ -1,37 +1,29 @@
 # Analysis Workflow
 
-The **dnbc4tools** analysis workflow is designed to integrate various subprogram modules, each of which can independently perform specific tasks. This modular approach allows users to conduct targeted analyses tailored to different research needs.
+The **dnbc4tools** analysis workflow integrates multiple submodules, each capable of performing specific tasks independently. This modular design allows users to flexibly select analysis content according to research needs.
 
 ---
 
-## Available Analysis Types
+## 🗂️ Table of Contents
 
-### 1. Single-Cell RNA Analysis
-
-> Analysis of gene expression at single-cell resolution, enabling cell type identification, differential expression analysis, and trajectory inference.
-
-📖 Documentation: [English](./pipeline/scRNA_en.md) | [中文](./pipeline/scRNA.md)
+- [Available Analysis Types](#available-analysis-types)
+- [Command Parameters](#command-parameters)
 
 ---
 
-### 2. Single-Cell ATAC Analysis
+## 🧬 Available Analysis Types
 
-> Analysis of chromatin accessibility at single-cell resolution, revealing regulatory elements and transcription factor binding sites.
-
-📖 Documentation: [English](./pipeline/scATAC_en.md) | [中文](./pipeline/scATAC.md)
-
----
-
-### 3. Single-Cell VDJ Analysis
-
-> Analysis of immune receptor repertoires at single-cell resolution, characterizing T-cell and B-cell receptor diversity.
-
-📖 Documentation: [English](./pipeline/scVDJ_en.md) | [中文](./pipeline/scVDJ.md)
+| Type                  | Description                                                                 | Documentation                                                          |
+|-----------------------|-----------------------------------------------------------------------------|------------------------------------------------------------------------|
+| 🔬 Single-Cell RNA    | Gene expression profiling at scale with single cell resolution. | [English](./pipeline/scRNA_en.md) / [中文](./pipeline/scRNA.md)         |
+| 🧪 Single-Cell ATAC   | Chromatin accessibilility profiling at the single cell level. | [English](./pipeline/scATAC_en.md) / [中文](./pipeline/scATAC.md)       |
+| 🦠 Single-Cell VDJ    | V(D)J repertoire profiling for the specificity of T and B cells. | [English](./pipeline/scVDJ_en.md) / [中文](./pipeline/scVDJ.md)         |
 
 ---
 
-## Command Parameters
+## ⚙️ Command Parameters
 
-> Comprehensive documentation of all available parameters for dnbc4tools commands.
+> For detailed documentation of all available parameters for **dnbc4tools** commands, please refer to:
 
-📖 Documentation: [English](./parameter/parameter_en.md) | [中文](./parameter/parameter.md)
+- [English](./parameter/parameter_en.md)
+- [中文](./parameter/parameter.md)
