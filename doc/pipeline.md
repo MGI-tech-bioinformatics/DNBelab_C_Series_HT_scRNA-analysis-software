@@ -1,26 +1,37 @@
 # Analysis Workflow
 
-The *dnbc4tools* analysis workflow is designed to integrate various subprogram modules, each of which can independently perform specific tasks. This modular approach allows users to conduct targeted analyses tailored to different research needs.
+The **dnbc4tools** analysis workflow is designed to integrate various subprogram modules, each of which can independently perform specific tasks. This modular approach allows users to conduct targeted analyses tailored to different research needs.
 
-</br>
-</br>
+---
 
+## Available Analysis Types
 
-## Single-Cell RNA Analysis ([English](./pipeline/scRNA_en.md) | [中文](./pipeline/scRNA.md))
+### 1. Single-Cell RNA Analysis
 
-</br>
-</br>
+> Analysis of gene expression at single-cell resolution, enabling cell type identification, differential expression analysis, and trajectory inference.
 
+📖 Documentation: [English](./pipeline/scRNA_en.md) | [中文](./pipeline/scRNA.md)
 
-## Single-Cell ATAC Analysis ([English](./pipeline/scATAC_en.md) | [中文](./pipeline/scATAC.md))
+---
 
-</br>
-</br>
+### 2. Single-Cell ATAC Analysis
 
+> Analysis of chromatin accessibility at single-cell resolution, revealing regulatory elements and transcription factor binding sites.
 
-## Single-Cell VDJ Analysis ([English](./pipeline/scVDJ_en.md) | [中文](./pipeline/scVDJ.md))
+📖 Documentation: [English](./pipeline/scATAC_en.md) | [中文](./pipeline/scATAC.md)
 
-</br>
-</br>
+---
 
-## Parameter of dnbc4tools ([English](./parameter/parameter_en.md) | [中文](./parameter/parameter.md))
+### 3. Single-Cell VDJ Analysis
+
+> Analysis of immune receptor repertoires at single-cell resolution, characterizing T-cell and B-cell receptor diversity.
+
+📖 Documentation: [English](./pipeline/scVDJ_en.md) | [中文](./pipeline/scVDJ.md)
+
+---
+
+## Command Parameters
+
+> Comprehensive documentation of all available parameters for dnbc4tools commands.
+
+📖 Documentation: [English](./parameter/parameter_en.md) | [中文](./parameter/parameter.md)
