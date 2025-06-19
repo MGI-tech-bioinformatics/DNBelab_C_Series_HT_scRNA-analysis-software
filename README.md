@@ -37,6 +37,6 @@ This comprehensive toolkit supports multiple single-cell analysis workflows, inc
 ## 🤝 Support & Community
 
 - For questions, bug reports, or feature requests, please use our [GitHub Issues](https://github.com/MGI-tech-bioinformatics/DNBelab_C_Series_HT_scRNA-analysis-software/issues) tracker.
-- Contributions and suggestions are welcome!
+- This Beta version is available for public testing, features are complete but may contain bugs. We invite users to test and suggest functionality improvements!
 
 ---

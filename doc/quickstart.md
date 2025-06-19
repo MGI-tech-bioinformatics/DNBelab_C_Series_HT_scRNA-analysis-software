@@ -259,6 +259,8 @@ $dnbc4tools vdj run \
 
 For detailed parameter descriptions and additional options, refer to the [parameter documentation](parameter/README.md).
 
+To learn how to use and analyze the output results in R or Python, see the [output usage guide](io.md).
+
 ## 🔍 Troubleshooting
 
 If you encounter any issues during the analysis, check the loginfo file in the logs directory or contact our support team.

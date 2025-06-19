@@ -1,61 +1,115 @@
-# Software Installation
+# 📦 DNBelab C Series™ Software Installation
 
-## 1. System Requirements
+---
 
-To run the *dnbc4tools* package on a Linux-based system, the following minimum requirements are necessary:
+> **Complete installation guide for the DNBelab C Series™ HT Single-Cell Analysis Software package**
 
-- **x86-64 compatible processor**
-- **50 GB RAM** and **4 CPUs**
-- **CentOS 7.x** 64-bit operating system (Linux kernel 3.10.0) or a compatible newer version
+---
 
-</br>
-</br>
+## 🖥️ System Requirements
 
-## 2. Software Download
+| Category   | Requirement                                   |
+|------------|-----------------------------------------------|
+| Processor  | x86-64 compatible processors                 |
+| Memory     | 50GB RAM or higher                           |
+| CPU        | Minimum 8 cores, 16+ cores recommended       |
+| Storage    | Sufficient disk space for data processing    |
+| OS         | Linux 64-bit (CentOS 7.x, Ubuntu 20.04+)     |
 
-### dnbc4tools 2.1.3 (Released: October 9, 2024)
+> Compatible with higher software and hardware configurations.
 
-**Download for Linux 64-bit**: [dnbc4tools2.1.3.tar.gz](https://ftp.cngb.org/pub/CNSA/data5/CNP0006367/Single_Cell/CSE0000448/dnbc4tools2.1.3.tar.gz)
+---
 
-- **File size**: 495M
-- **md5sum**: dfda9a3f308aaa3fdaa6c2a971bb2821
 
-```shell
-#### Download using `wget`
-wget -O dnbc4tools2.1.3.tar.gz "https://ftp.cngb.org/pub/CNSA/data5/CNP0006367/Single_Cell/CSE0000448/dnbc4tools2.1.3.tar.gz"
-#### Download using `curl`
-curl -o dnbc4tools2.1.3.tar.gz "https://ftp.cngb.org/pub/CNSA/data5/CNP0006367/Single_Cell/CSE0000448/dnbc4tools2.1.3.tar.gz"
+
+## 💾 Software Download
+
+### dnbc4tools 3.0 Beta (Released: July 16, 2025)
+
+| Package Details | Information                                  |
+|----------------|----------------------------------------------|
+| Download Link  | [dnbc4tools3.0Beta.tar.gz](https://ftp.cngb.org/pub/CNSA/data5/CNP0006367/Single_Cell/CSE0000448/dnbc4tools3.0Beta.tar.gz) |
+| File Size      | 495M                                         |
+| MD5 Checksum   | dfda9a3f308aaa3fdaa6c2a971bb2821            |
+
+### Download Methods
+
+```bash
+# Download using wget
+wget -O dnbc4tools3.0Beta.tar.gz "https://ftp.cngb.org/pub/CNSA/data5/CNP0006367/Single_Cell/CSE0000448/dnbc4tools3.0Beta.tar.gz"
+
+# Or download using curl
+curl -o dnbc4tools3.0Beta.tar.gz "https://ftp.cngb.org/pub/CNSA/data5/CNP0006367/Single_Cell/CSE0000448/dnbc4tools3.0Beta.tar.gz"
 ```
 
-**New Features in dnbc4tools 2.1.3**
+### New Features
 
-- Available as a tar.gz compressed file, requiring no additional configuration.
-- **New Modules**: Single-cell RNA 5' Transcriptome Analysis and Single-cell VDJ Analysis.
+> **dnbc4tools 3.0 Beta introduces:**
+> 
+> **RNA-Seq Analysis Updates**
+> - **Enhanced Annotation Rules**: Improved RNA annotation logic for accuracy and compatibility
+> - **HTML Report Upgrades**: Adjusted visualization parameters for better interactive exploration
+> - **Expanded Feature Matrix**: Added `gene_id` and `gene_name` fields to the feature matrix
+> - **BAM File Enrichment**: Enhanced BAM file outputs with additional metadata for downstream analysis
+> - **Dual-Species Support**: Enabled library preparation and analysis for mixed-species samples
+> 
+> **VDJ Analysis Improvements**
+> - **Algorithm Optimization**: Refined V(D)J assembly and annotation algorithms for higher precision
+> - **Standardized Outputs**: Updated result formats to align with mainstream analysis tools
+> 
+> **Pipeline Efficiency**
+> - **Streamlined Storage**: Removed intermediate files; only final results are retained to reduce storage usage
+> - **Log & Directory Restructuring**: Reorganized analysis directories and logs for better traceability
 
-</br>
-</br>
+---
 
-## 3. Software Installation
 
-*dnbc4tools* is distributed as a tar.gz package that can be directly extracted and run without any additional setup. All necessary dependencies are precompiled, making the software compatible with most Linux environments.
 
-1. **Download and extract the dnbc4tools package** to a suitable directory. In this example, it will be extracted to `/opt/software`.
+## 🔧 Installation Process
 
-   ```shell
-   cd /opt/software
-   # Extract the dnbc4tools package
-   tar -xzvf dnbc4tools2.1.3.tar.gz
-   ```
+> *dnbc4tools* is distributed as a tar.gz package with precompiled dependencies, making it compatible with most Linux environments without additional setup.
 
-2. During extraction, numerous files will be listed in the terminal. Once extraction is complete, the directory should contain the following items, with `dnbc4tools2.1.3/dnbc4tools` being the executable:
+### Step 1: Extract the Package
 
-   ```shell
-   dnbc4tools2.1.3/
-   dnbc4tools2.1.3/dnbc4tools
-   dnbc4tools2.1.3/external
-   dnbc4tools2.1.3/lib
-   dnbc4tools2.1.3/misc
-   dnbc4tools2.1.3/sourceC4.bash
-   ```
+Extract the dnbc4tools package to your preferred directory (example uses `/opt/software`):
 
-This completes the installation. *dnbc4tools* is now ready for use.
+```bash
+# Navigate to target directory
+cd /opt/software
+
+# Extract the package
+tar -xzvf dnbc4tools3.0Beta.tar.gz
+```
+
+### Step 2: Verify Directory Structure
+
+After extraction, you should see the following directory structure:
+
+| Component | Description |
+|-----------|-------------|
+| `dnbc4tools3.0Beta/dnbc4tools` | Main executable |
+| `dnbc4tools3.0Beta/external` | External dependencies |
+| `dnbc4tools3.0Beta/lib` | Library files |
+| `dnbc4tools3.0Beta/misc` | Miscellaneous files |
+| `dnbc4tools3.0Beta/sourceC4.bash` | Environment configuration script |
+
+### Step 3: Verify Installation
+
+Confirm that the installation was successful:
+
+```bash
+# View help information
+/opt/software/dnbc4tools3.0Beta/dnbc4tools --help
+```
+
+> **Success!** Your *dnbc4tools* installation is now complete and ready for use.
+
+---
+
+## 🔍 Next Steps
+
+Now that you have successfully installed the software, you can:
+
+- Check the [Quick Start Guide](./quickstart.md) to begin your analysis
+- Explore the [Analysis Workflows](./pipeline.md) for detailed pipeline information
+- Review [Parameter Settings](./parameter/parameter_en.md) for configuration options
