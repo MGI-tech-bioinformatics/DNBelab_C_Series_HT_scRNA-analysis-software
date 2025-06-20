@@ -3,11 +3,14 @@
 ## 📋 目录
 
 - [📝 概述](#-概述)
-- [🧪 RNA 分析步骤](#-rna-分析步骤)
+- [🔄 工作流程图](#-工作流程图)
+- [📌 使用说明](#-使用说明)
+- [🧪 分析步骤](#-分析步骤)
   - [1️⃣ 准备FASTQ文件](#️-准备fastq文件)
   - [2️⃣ 准备参考数据库](#️-准备参考数据库可选)
-    - [2.1 🔍 使用dnbc4tools tools mkgtf过滤GTF文件](#21--使用dnbc4tools-tools-mkgtf过滤gtf文件可选)
-    - [2.2 🔨 使用dnbc4tools rna mkref构建参考数据库](#22--使用dnbc4tools-rna-mkref构建参考数据库)
+    - [2.1 参考数据库文件要求](#21-参考数据库文件要求)
+    - [2.2 使用dnbc4tools tools mkgtf过滤GTF文件](#22-使用dnbc4tools-tools-mkgtf过滤gtf文件可选)
+    - [2.3 使用dnbc4tools rna mkref构建参考数据库](#23-使用dnbc4tools-rna-mkref构建参考数据库)
   - [3️⃣ 多样本操作](#️-多样本操作可选)
   - [4️⃣ 主分析流程](#️-主分析流程)
 - [📊 结果解析](#-结果解析)
@@ -17,11 +20,11 @@
 
 本文档详细介绍了使用 dnbc4tools 进行单细胞 RNA 测序数据分析的完整流程。
 
-### 🔄 工作流程图
+## 🔄 工作流程图
 
 ![工作流程图](https://s2.loli.net/2024/09/26/uKTXv7Q2miNbz1S.png)
 
-### 📌 使用说明
+## 📌 使用说明
 
 > [!Tip]
 >
@@ -35,7 +38,7 @@
 
 
 
-## 🧪 RNA 分析步骤
+## 🧪 分析步骤
 
 ### 1️⃣ 准备FASTQ文件
 
@@ -51,7 +54,7 @@
 
 ### 2️⃣ 准备参考数据库（可选）
 
-#### 2.1 参考数据库文件要求
+### 2.1 参考数据库文件要求
 
 | 文件类型 | 格式 | 说明 |
 |---------|------|------|
@@ -66,7 +69,7 @@
 - 不支持GFF文件格式
 - 基因组文件与注释文件需对应
 
-#### 2.2 🔍 使用dnbc4tools tools mkgtf过滤GTF文件（可选）
+### 2.2 使用dnbc4tools tools mkgtf过滤GTF文件（可选）
 
 从 ENSEMBL 和 UCSC 等网站下载的 GTF 文件通常包含多种基因类型的基因。选择您研究中比较感兴趣的基因类型，过滤部分基因类型可以减少重叠的基因注释。与多个基因非唯一比对的 reads 会被过滤。
 
@@ -173,7 +176,7 @@ $dnbc4tools tools mkgtf \
         IG_C_pseudogene,TR_V_gene,TR_D_gene,TR_J_gene,TR_C_gene
 ```
 
-#### 2.3 🔨 使用dnbc4tools rna mkref构建参考数据库
+### 2.3 使用dnbc4tools rna mkref构建参考数据库
 
 在运行dnbc4tools rna run分析之前，我们需要优先构建参考数据库。此步骤需要注释文件(GTF)和参考基因组(FASTA)来构建索引文件，用于测序reads的比对和注释。
 

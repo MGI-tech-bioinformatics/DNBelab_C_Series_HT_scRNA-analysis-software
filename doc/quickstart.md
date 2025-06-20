@@ -8,8 +8,8 @@
 
 ---
 
-> [!TIP] **Before You Begin**
->
+> **💡 Tip: Before You Begin**
+> 
 > - `$dnbc4tools` refers to the path of the executable program. Before running any commands, replace it with the actual installation path. For example, if installed in `/opt/software/dnbc4tools2.1.3`, use:
 >   ```shell
 >   /opt/software/dnbc4tools3.0/dnbc4tools rna run ...

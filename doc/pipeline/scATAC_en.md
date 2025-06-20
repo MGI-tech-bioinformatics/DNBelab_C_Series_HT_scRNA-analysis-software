@@ -1,114 +1,169 @@
-# Single-Cell ATAC Analysis
+# 🧬 DNBelab C Series HT scATAC Analysis
 
-## Running dnbc4tools atac
+## 📋 Table of Contents
 
-**Workflow Overview:**
+- [📝 Overview](#-overview)
+- [🔄 Workflow Diagram](#-workflow-diagram)
+- [📌 Usage Notes](#-usage-notes)
+- [🧪 Analysis Steps](#-analysis-steps)
+  - [1️⃣ Prepare FASTQ Files](#️-prepare-fastq-files)
+  - [2️⃣ Prepare Reference Database](#️-prepare-reference-database-optional)
+    - [2.1 Using dnbc4tools tools mkgtf to Filter GTF Files](#21-using-dnbc4tools-tools-mkgtf-to-filter-gtf-files-optional)
+    - [2.2 Building Reference Database with dnbc4tools atac mkref](#22-building-reference-database-with-dnbc4tools-atac-mkref)
+  - [3️⃣ Multi-sample Operation](#️-multi-sample-operation-optional)
+  - [4️⃣ Main Analysis Pipeline](#️-main-analysis-pipeline)
+- [📊 Results Interpretation](#-results-interpretation)
+- [❓ Frequently Asked Questions](#-frequently-asked-questions)
 
- ![image-20240927163629666](https://s2.loli.net/2024/09/27/exd1OyX3n4K8LGq.png)
+## 📝 Overview
 
+This document provides a detailed guide for analyzing single-cell ATAC sequencing data using dnbc4tools.
 
+## 🔄 Workflow Diagram
 
+![Workflow Diagram](https://s2.loli.net/2024/09/27/exd1OyX3n4K8LGq.png)
 
+## 📌 Usage Notes
 
-> [!Tip]
->
-> - `$dnbc4tools` represents the executable path. Replace this with the actual path before use. For example, if installed at `/opt/software/dnbc4tools2.1.3`, the command would be:
->
-> ```shell
-> /opt/software/dnbc4tools2.1.3/dnbc4tools atac run ...
-> ```
->
+> **Tip:**
+> - `$dnbc4tools` represents the executable path. Replace this with the actual path before use. For example, if installed at `/opt/software/dnbc4tools3.0Beta`, the command would be:
+>   ```shell
+>   /opt/software/dnbc4tools3.0Beta/dnbc4tools atac run ...
+>   ```
 > - The backslash `\` is used to split long shell commands across multiple lines for readability. It signals that the command continues on the next line. If written in a single line, the backslash is not required.
 
-</br>
-</br>
+## 🧪 Analysis Steps
 
-### ATAC Analysis Steps
+### 1️⃣ Prepare FASTQ Files
 
-#### Step 1: Prepare FASTQ Files
+The analysis requires FASTQ files:
 
-FASTQ files
+| File Type | Description |
+|-----------|-------------|
+| **ATAC Library** | Sequencing data containing cell barcode and chromatin accessibility information |
 
-</br>
+> **Note**: Ensure FASTQ files are of good quality and record their file paths for subsequent analysis.
 
-#### Step 2: Prepare Reference Database (Optional)
+### 2️⃣ Prepare Reference Database (Optional)
 
-- **Genome File**: The genome file should be provided in FASTA format, containing the complete genome sequence of the species, including chromosomes, mitochondria, and other genetic information, typically the primary assembly version. These files provide the foundational data for genome analysis and alignment.
-- **Annotation File**: The genome annotation file should be provided in GTF format, containing detailed information about genes, transcripts, exons, and other functional regions within the genome. This file identifies the location and type of genes (such as "gene", "transcript", "exon") and their related attributes (such as "gene_id", "gene_name", "transcript_id", "transcript_name"). This information is crucial for understanding the function and structure of the genome.
+| File Type | Format | Description |
+|-----------|--------|-------------|
+| **Genome File** | FASTA | Contains the complete genome sequence of the species of interest, including chromosomes, mitochondria, and other genetic information, typically the primary assembly. These files provide the foundation for genome analysis and alignment. |
+| **Annotation File** | GTF | Contains detailed information about genes, transcripts, exons, and other functional regions in the genome. This file identifies the location, type, and related attributes of genes. |
 
-For species available from the [Ensembl database](https://www.ensembl.org/index.html), it is recommended to use the files provided there. Ensembl's GTF files contain optional tags that facilitate filtering (via `dnbc4tools tools mkgtf`). If Ensembl cannot provide the required files for your species, other sources of GTF and FASTA files can be used. Note that GTF files are required, and GFF files are not supported. The genome file and annotation file must correspond, and the GTF file format requirements are: for single-cell ATAC analysis, the GTF file must contain annotations of at least "gene" or "transcript" type.
+> **Recommended Data Source**: Preferably use files provided by the [Ensembl database](https://www.ensembl.org/index.html). Ensembl's GTF files include optional tags that facilitate filtering (through `dnbc4tools tools mkgtf`).
 
+**GTF File Requirements**:
+- Must include annotations of type "gene" or "transcript"
+- GFF file format is not supported
+- Genome file and annotation file must correspond to each other
 
-##### 2.1 Filter GTF Using dnbc4tools tools mkgtf (Optional)
+#### 2.1 Using dnbc4tools tools mkgtf to Filter GTF Files (Optional)
 
-For detailed information on GTF file filtering, please [refer](./scRNA.md).
+For detailed information on GTF file filtering, please [refer to the scRNA analysis pipeline](./scRNA.md#22-using-dnbc4tools-tools-mkgtf-to-filter-gtf-files-optional).
 
-##### 2.2 **Build Reference Database with dnbc4tools atac mkref**
+#### 2.2 Building Reference Database with dnbc4tools atac mkref
 
-Before running the dnbc4tools atac run analysis, we need to build the reference database first.
+Before running the dnbc4tools atac run analysis, we need to first build a reference database. This step requires annotation files (GTF) and reference genome (FASTA) to build index files for mapping and statistical analysis of sequencing reads.
 
-Annotation files (GTF) and reference genome (FASTA) are required to build index files for mapping and statistical analysis of sequencing reads. Here is an example step or script template:
+##### 2.2.1 Build Command
 
 ```shell
-$dnbc4tools atac mkref --fasta genome.fa --ingtf genes.gtf --species Homo_sapiens --threads 10
+$dnbc4tools atac mkref \
+  --fasta genome.fa \
+  --ingtf genes.gtf \
+  --species Mus_musculus \
+  --threads 10
 ```
 
-Runtime output information
+##### 2.2.2 Output Results
 
-```shell
-Building index for dnbc4tools atac
-chromap verison: 0.2.6-r490
-runMode: genomeGenerate
-genomeDir: /opt/database/Mus_musculus
-Mitochondrial chromosome: chrM
-The remaining chromosomes are:
-['chr9', 'chr12', 'chr11', 'chr15', 'chr14', 'chr16', 'chrM', 'chrX', 'chr13', 'chr10', 'chr4', 'chr8', 'chr1', 'chr19', 'chr18', 'chr3', 'chr6', 'chr7', 'chr2', 'chr5', 'chrY', 'chr17']
-Analysis Complete
+After successful execution, a reference database directory will be created at the specified location, containing the following file structure:
+
 ```
-
-Output after completion:
-
-```shell
 /opt/database/Mus_musculus
-├── chrom.sizes
-├── gencode.vM23.primary_assembly.annotation.gtf
-├── genes.filter.gtf
-├── genome.fa.fai
-├── genome.index
-├── GRCm38.primary_assembly.genome.fa
-├── promoter.bed
-├── ref.json
-├── tss.bed
+├── fasta
+│   ├── genome.fa                                 # Reference genome file
+│   ├── genome.fa.fai                             # Genome index file
+│   ├── genome.index                              # Chromap index file
+│   └── genome.index.log                          # Chromap index build log
+├── genes
+│   └── genes.gtf                                 # Gene annotation file
+├── ref.json                                      # Reference database configuration file
+└── regions
+    ├── chrom.sizes                               # Chromosome size information file
+    ├── promoter.bed                              # Promoter region annotation file
+    └── tss.bed                                   # Transcription start site annotation file
 ```
 
-The ref.json file records the main information of the database.
+The ref.json file records the main information of the database:
 
-```shell
+```json
 {
     "species": "Mus_musculus",
-    "genome": "/opt/database/Mus_musculus/GRCm38.primary_assembly.genome.fa",
-    "index": "/opt/database/Mus_musculus/genome.index",
+    "input_fasta_files": [
+        "genome.fa"
+    ],
+    "input_gtf_files": [
+        "genes.gtf"
+    ],
+    "genome": "/opt/database/Mus_musculus/fasta/genome.fa",
+    "index": "/opt/database/Mus_musculus/fasta/genome.index",
+    "gtf": "/opt/database/Mus_musculus/genes/genes.gtf",
     "chrmt": "chrM",
     "chloroplast": "None",
-    "chromeSize": "/opt/database/Mus_musculus/chrom.sizes",
-    "tss": "/opt/database/Mus_musculus/tss.bed",
-    "promoter": "/opt/database/Mus_musculus/promoter.bed",
-    "blacklist": "/opt/database/Mus_musculus/mm10.full.blacklist.bed",
+    "chromeSize": "/opt/database/Mus_musculus/regions/chrom.sizes",
+    "tss": "/opt/database/Mus_musculus/regions/tss.bed",
+    "promoter": "/opt/database/Mus_musculus/regions/promoter.bed",
+    "version": "dnbc4tools 3.0Beta",
+    "blacklist": "None",
     "genomesize": "mm"
 }
 ```
 
-</br>
+> **Note**: Building a reference database may take a long time, depending on the genome size and computer performance.
 
-#### Step 3: Multi-sample Operation (Optional)
+Printed information during execution, here is an example:
+
+```shell
+Creating new reference folder at /opt/database/Mus_musculus
+...done
+
+Writing genome FASTA file into reference folder...
+...done
+
+Indexing genome FASTA file...
+...done
+
+Writing genes GTF file into reference folder...
+...done
+
+Extracting TSS and promoter regions from GTF file...
+...done
+
+Generating Chromap genome index...
+...done
+
+Writing reference JSON file...
+...done
+
+Analysis Complete
+```
+
+---
+
+### 3️⃣ Multi-sample Operation (Optional)
 
 To simplify generating the main analysis pipeline for each sample individually, a configuration file can be used to generate a main pipeline shell script containing multiple samples. Here is an example step or script template:
 
 ```shell
-$dnbc4tools atac multi --list sample.tsv --genomeDir /opt/database/Mus_musculus --threads 10
+$dnbc4tools atac multi \
+  --list sample.tsv \
+  --genomeDir /opt/database/Mus_musculus \
+  --threads 10
 ```
 
-The sample.tsv file uses tab (\t) as a delimiter. The first column contains the sample name, and the second column contains library sequencing data. Multiple fastq files should be separated by commas, and R1 and R2 files should be separated by semicolons.
+The sample.tsv file uses tab (\t) separators. The first column contains the sample name, and the second column contains library sequencing data. Multiple fastq files should be separated by commas, and R1 and R2 files should be separated by semicolons.
 
 ```shell
 $sample1 /data/sample1_R1.fq.gz;/data/sample1_R2.fq.gz 
@@ -116,7 +171,7 @@ $sample2 /data/sample2_R1.fq.gz;/data/sample2_R2.fq.gz
 $sample3 /data/sample3_1_R1.fq.gz,/data/sample3_2_R1.fq.gz;/data/sample3_1_R2.fq.gz,/data/sample3_2_R2.fq.gz
 ```
 
-Output after completion:
+After running, the output will be:
 
 ```shell
 sample1.sh
@@ -128,60 +183,68 @@ The content of sample1.sh is as follows:
 
 ```shell
 $cat sample1.sh
-/opt/software/dnbc4tools2.1.3/dnbc4tools atac run --name sample1 --fastq1 /data/sample1_R1.fq.gz --fastq2 /data/sample1_R2.fq.gz --genomeDir /opt/database/Mus_musculus --threads 10 
+/opt/software/dnbc4tools3.0Beta/dnbc4tools atac run --name sample1 --fastq1 /data/sample1_R1.fq.gz --fastq2 /data/sample1_R2.fq.gz --genomeDir /opt/database/Mus_musculus --threads 10 
 ```
 
-Proceed to Step 4 for the main analysis.
+Proceed to step 4 for the main pipeline analysis.
 
-</br>
+---
 
-#### Step 4: Main Analysis Pipeline
+### 4️⃣ Main Analysis Pipeline
 
 The main ATAC analysis pipeline uses single-cell ATAC library sequencing data from a single sample. It generates fragments files for all beads after filtering and alignment. Beads are merged, and peak calling analysis is performed, utilizing fragment information in peak regions for cell identification. Subsequently, cell filtering, dimensionality reduction, and clustering are conducted. Finally, the results of each step are integrated to generate an HTML report and output the analysis results.
 
-To generate an expression matrix for a single sample, here is an example step or script template:
+To generate an expression matrix for a single sample, here is an example command template:
 
 ```shell
 $dnbc4tools atac run \
-		--name sample \
-		--fastq1 /sample/data/test1_R1.fastq.gz,/sample/data/test2_R1.fastq.gz \
-		--fastq2 /sample/data/test1_R2.fastq.gz,/sample/data/test2_R2.fastq.gz \
-		--genomeDir /opt/database/Mus_musculus \
-		--threads 10
+  --name sample \
+  --fastq1 /sample/data/test1_R1.fastq.gz,/sample/data/test2_R1.fastq.gz \
+  --fastq2 /sample/data/test1_R2.fastq.gz,/sample/data/test2_R2.fastq.gz \
+  --genomeDir /opt/database/Mus_musculus \
+  --threads 10
 ```
 
-
-After automatic detection of reagent version and dark reaction, the software begins running the analysis. Here is an example:
+After automatic detection of reagent version and dark reaction, the software begins the analysis. Here is an example log:
 
 ```shell
+2025-06-03 16:24:27 Performing ATAC data processing
 Chemistry(darkreaction) determined in fastqR1: darkreaction
 Chemistry(darkreaction) determined in fastqR2: darkreaction
 
-2024-08-21 11:33:49
-Conduct quality control for raw data, perform alignment.
+2025-06-03 16:24:30 Performing quality control and alignment on raw data...
+...done
 
-2024-08-21 12:52:10
-Calculating bead similarity and merging beads within the same droplet.
+2025-06-03 16:36:25 Computing bead similarity and merging beads within droplets...
+...done
 
-2024-08-21 13:14:50
-Analyze fragments for peak calling.
+2025-06-03 16:38:21 Processing fragments for peak calling...
+...done
 
-2024-08-21 13:35:33
-Generating the raw peaks matrix.
+2025-06-03 16:40:06 Generating raw peaks matrix...
+...done
 
-2024-08-21 14:59:27
-Generating the filter peaks matrix.
+2025-06-03 16:47:30 Generating filtered peaks matrix...
+...done
 
-2024-08-21 15:32:31
-Conducting dimensionality reduction and clustering.
+2025-06-03 16:50:52 Conducting dimensionality reduction and clustering...
+...done
 
-2024-08-21 15:49:23
-Statistical analysis and report generation for results.
+2025-06-03 16:54:44 Statistical analysis and report generation for results...
+...done
 
-Analysis Finished
-Elapsed Time: 4 hours 16 minutes 14 seconds
+Analysis Finished Elapsed Time: 0:30:43
 ```
 
-A successful run ends with "Analysis Finished".
+A successful run ends with `Analysis Finished`.
 
-For usage of output results, please refer to [here](../io.md).
+---
+
+## 📊 Results Interpretation
+
+After the analysis is complete, the output directory `outs` and logs directory will be generated. For more detailed information about the output files, please refer to the [output file annotations](../outs/scATAC.md).
+For detailed usage of the output results, please refer to the [output file documentation](../io.md).
+
+## ❓ Frequently Asked Questions
+
+To be added later
