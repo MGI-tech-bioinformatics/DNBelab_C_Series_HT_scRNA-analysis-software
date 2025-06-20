@@ -40,3 +40,10 @@ This comprehensive toolkit supports multiple single-cell analysis workflows, inc
 - This Beta version is available for public testing, features are complete but may contain bugs. We invite users to test and suggest functionality improvements!
 
 ---
+
+## 📝 Release Notes
+
+- Check our [Release Notes](./doc/release.md) for detailed information about version updates and new features.
+- The latest version includes significant improvements to RNA-Seq, ATAC-Seq, and VDJ modules.
+
+---

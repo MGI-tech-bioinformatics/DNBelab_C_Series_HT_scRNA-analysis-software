@@ -65,6 +65,21 @@ $dnbc4tools rna mkref --ingtf genes.filter.gtf --fasta GRCm38.primary_assembly.g
 ```
 </details>
 
+<details open>
+<summary><b>Human-Mouse Mixed Reference</b></summary>
+
+Download and prepare the human and mouse reference files as described above, then create a mixed reference:
+
+```shell
+$dnbc4tools rna mkref \
+    --fasta GRCh38.primary_assembly.genome.fa,GRCm38.primary_assembly.genome.fa \
+    --ingtf hg38/genes.filter.gtf,mm10/genes.filter.gtf \
+    --species hg38,mm10 \
+    --threads 10
+```
+</details>
+
+
 ### 1.2 Data Analysis
 
 > This step processes raw sequencing data to generate gene expression matrices and perform quality control.
