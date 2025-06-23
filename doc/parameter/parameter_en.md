@@ -1,13 +1,15 @@
 # Command Line Parameters
 
-Each analysis command line option is divided into required parameters, optional parameters, and flag parameters. Required and optional parameters need input, while flag parameters do not require input.
+Each analysis command line option is divided into three categories:
+- **Required Parameters**: Must provide input values
+- **Optional Parameters**: Can provide input values or use default values
+- **Flag Parameters**: No input values needed, only indicates whether to enable certain functionality
 
-Use `dnbc4tools <subtypes> <subcommands> --help` to get help information.
+> **Tip**: Use `dnbc4tools <subtypes> <subcommands> --help` to get detailed help information.
 
-</br>
-</br>
+---
 
-## [Single-Cell RNA Analysis](./scRNA_en.md)
+## 🧬 [Single-Cell RNA Analysis](./scRNA_en.md)
 
 - **dnbc4tools rna run**
 
@@ -21,10 +23,9 @@ Use `dnbc4tools <subtypes> <subcommands> --help` to get help information.
 
   Multi-sample operation, each sample executes the single-cell RNA run main analysis workflow.
 
-</br>
-</br>
+---
 
-## [Single-Cell ATAC Analysis](./scATAC_en.md)
+## 🔬 [Single-Cell ATAC Analysis](./scATAC_en.md)
 
 - **dnbc4tools atac run**
 
@@ -38,28 +39,18 @@ Use `dnbc4tools <subtypes> <subcommands> --help` to get help information.
 
   Multi-sample operation, each sample executes the single-cell ATAC run main analysis workflow.
 
-</br>
-</br> 
+---
 
-## [Single-Cell VDJ Analysis](./scVDJ_en.md)
+## 🧪 [Single-Cell VDJ Analysis](./scVDJ_en.md)
 
 - **dnbc4tools vdj run**
 
   Main analysis workflow. Uses single-cell VDJ library sequencing data and the corresponding sample's 5' transcriptome analysis results. First, filter the data, merge beads using the 5' transcriptome results, then align the VDJ gene regions and extract the corresponding reads, perform de novo assembly and annotation. Based on the assembly annotation results and the 5' transcriptome cell acquisition situation, perform cell filtering. Finally, integrate the results of each step to generate an HTML report and output the analysis results.
 
-</br>
-</br>
+---
 
-## Tools
+## 🛠️ Tools
 
 - **dnbc4tools tools mkgtf**
 
   GTF file operation tool, including type statistics, gene filtering, and file format checking.
-
-- **dnbc4tools tools changetag**
-
-  Tool for adjusting BAM tag information.
-
-- **dnbc4tools tools clean**
-
-  Tool for cleaning intermediate analysis files.

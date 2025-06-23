@@ -1,64 +1,100 @@
-# 单细胞ATAC
+# 🧬 DNBelab C Series HT scATAC 分析参数
 
-## dnbc4tools atac run
+## 📋 目录
+- [主分析流程 (run)](#dnbc4tools-atac-run)
+- [参考数据库构建 (mkref)](#dnbc4tools-atac-mkref)
+- [多样本操作 (multi)](#dnbc4tools-atac-multi)
 
-用法
+---
+
+## 🔬 dnbc4tools atac run
+
+### 📊 用法
 
 ```shell
-$dnbc4tools atac run
+$ dnbc4tools atac run
 usage: dnbc4tools atac run [-h] 
-
---fastq1, --fastq2
-    Multiple raw FASTQ files separated by commas and belong to the same sequencing library.
-    Order of R1/R2 fastq files must be consistent.
-
---darkreaction
-    Recommend automatic detection for settings. Ensure consistent sequencing lengths and dark
-    cycles for multiple FASTQ data. Dark cycle modes can be "R1R2", "R1", "R2", "unset", etc.
-
---customize
-    Comma-separated string value: [r1|r2|bc]:start:end:strand. Inclusive start and end, -1
-    means end of read. Example: "bc:6:15,bc:22:31,r1:65:-1,r2:19:-1". "bc" indicates cell
-    barcode information, "6:15" denotes positions 7 to 16 in the sequence.
 
 optional arguments:
   -h, --help            show this help message and exit
-  --name <SAMPLE_ID>    User-defined sample ID.
-  --fastq1 <FQ1FILES>   The input R1 fastq files.
-  --fastq2 <FQ2FILES>   The input R2 fastq files.
-  --genomeDir <DATABASE>
-                        Path to the directory where genome files are stored.
-  --outdir <OUTDIR>     Output directory. [default: current directory]
-  --threads <CORENUM>   Number of threads used for analysis. [default: 4]
-  --darkreaction <DARKCYCLE>
-                        Sequencing dark cycles. Automatic detection is recommended. [default: auto]
-  --customize <STRUCTURE>
-                        Customize read structure.
-  --forcecells <CELLNUM>
-                        Force pipeline to use this number of cells.
-  --frags_cutoff <MIN_FRAGMENTS>
-                        Filter cells with unique fragments number lower than this value. [default: 1000]
-  --tss_cutoff <MIN_TSS_RATIO>
-                        Filter cells with tss proportion lower than this value. [default: 0]
-  --merge_cutoff <MIN_MERGE>
-                        The lowest number of fragments when merging beads. [default: 1000]
-  --process <ANALYSIS_STEPS>
-                        Custom analysis steps enable the skipping of unnecessary steps. [default: data,decon,analysis,report]
-  --bam                 The alignment process generates BAM format files, but this significantly prolongs the analysis time.
+
+Input Fastq Files:
+  Input FASTQ files (comma-separated) from same library.
+  Ensure consistent ordering between R1/R2 files.
+
+  -1, --fastq1 <FILE>   The input R1 fastq files
+  -2, --fastq2 <FILE>   The input R2 fastq files
+
+Basic Settings:
+  -n, --name <STR>      Unique identifier for the sample
+  -g, --genomeDir <DIR>
+                        Reference genome directory path
+  -o, --outdir <DIR>    Output directory [default: current directory]
+  -t, --threads <INT>   Number of CPU threads [default: 10]
+
+Library Settings:
+  Auto-detection recommended for dark cycles. Dark cycle modes can be "R1R2", "R1", "R2", "unset"
+  For multiple files, ensure consistent settings.
+  customize: Specify sequence structure patterns.
+  Example customize: "cb,R1:1-10;cb,R1:11-20;R1,R1:21-70;R2,R2:1-50".
+
+  --darkreaction <STR>  Sequencing dark cycles [default: auto]
+  --customize <STR>     Customize read structure
+
+Filtering Settings:
+  --forcecells <INT>    Force pipeline to use this number of cells
+  --frags_cutoff <INT>  Filter cells with unique fragments number lower than this value [default: 1000]
+  --tss_cutoff <FLOAT>  Filter cells with TSS proportion lower than this value [default: 0]
+  --jaccard_cutoff <FLOAT>
+                        Jaccard similarity threshold for merging beads
+  --merge_cutoff <INT>  The lowest number of fragments when merging beads [default: 1000]
+
+Analysis Settings:
+  --need_bam            Generate BAM format files (significantly increases analysis time)
 ```
 
-| 参数                                                     | 描述                                                         |
-| -------------------------------------------------------- | ------------------------------------------------------------ |
-| **--name**                                               | **必需参数**，定义样本名称，与生成的HTML报告中显示的样本ID一致。 |
-| **--fastq1 <br />--fastq2**                              | **必需参数**，`fastq1`和`fastq2`代表ATAC文库的R1和R2序列。多个FASTQ序列应以逗号分隔，并确保R1和R2序列的排序一致。FASTQ文件的测序模式必须相同，暗反应设置需保持一致。不同实验或不同样本的数据不得合并分析，仅同一文库的数据可以合并进行分析。 |
-| **--genomeDir**                                          | **必需参数**，指定在单细胞ATAC文库准备过程中生成的参考数据库的目录。该数据库包含基因组文件、bed格式的转录起始位点文件、比对数据库、线粒体染色体名称及染色体等信息。 |
-| **--outdir**                                             | **可选参数**，指定结果保存的目录。该目录的名称将基于`name`参数提供的样本ID，默认为当前目录。 |
-| **--threads**                                            | **可选参数**，分析过程中使用的线程数量，增加线程数量可以加速分析。 |
-| **--forcecells**                                         | **可选参数**，根据与peak重叠的fragments数量排序提取指定数量的细胞，以确定真实细胞。该值具有最高优先级。 |
-| **--frags_cutoff<br />--tss_cutoff<br />--merge_cutoff** | **可选参数**，`frags_cutoff` 是细胞过滤阶段使用的最低fragments数量，默认为1000。`merge_cutoff` 是合并细胞条形码所需的最低fragments数量，默认为1000。在peak calling步骤中，仅考虑片段计数超过`merge_cutoff`的细胞。建议保持`merge_cutoff`和`frags_cutoff`一致或不高于此值。`tss_cutoff` 指的与转录起始位点区域重叠的fragments占比，低于此值的细胞将被过滤，默认为不过滤。建议使用默认参数进行分析，并在获得结果报告后再根据结果调整这些参数。 |
-| **--darkreaction<br /> --customize**                     | **可选参数**，软件可自动识别文库Read1和Read2序列结构中的暗反应设置，暗反应指的是不识别碱基的生化反应，通常设置为固定碱基。识别逻辑为：软件首先检查前200,000个序列的长度来确定暗反应的存在。建议使用自动检测。暗反应模式包括“R1R2”、“R1”、“R2”、“unset”，其中“R1R2”表示R1和R2为暗反应设置。对于超出标准设置的特殊需求，用户可以直接使用`customize`定义相关信息，以逗号分隔的字符串值：[r1\|r2\|bc]:start:end，包含起始和结束位置，-1表示读取末尾。例如：“bc:6:15,bc:22:31,r1:65:-1,r2:19:-1”。“bc”表示细胞条形码信息，“6:15”表示序列的第7到16个位置。位置的数值从0开始，实际位置相差1。 |
-| **--process**                                            | **可选参数**，设置分析步骤，包括：<br> - **data**：执行文库测序数据的质量控制和比对，生成raw fragments.tsv.gz文件，并过滤仅保留chromesize文件中指定的染色体信息。计算具有超过`merge_cutoff`的细胞条形码的磁珠间的Jaccard距离并绘制曲线。使用Otsu算法获得合并的最低值。合并细胞条形码并生成合并后的 all.merge.fragments.tsv.gz文件。执行peak calling分析以获取peak位置信息。<br> - **decon**：利用peak位置信息和fragments数据生成raw_peak_matrix。识别真实细胞（基于与peak重叠的片段曲线、fragments数量和与转录起始位点区域重叠的fragments占比进行过滤）。生成filter_peak_matrix。计算TSS富集分数并进行饱和度分析。<br/> - **analysis**：过滤细胞并执行降维聚类。<br/> - **report**：生成结果文件和HTML网页报告。<br/>用户可选择分析步骤跳过已完成的部分。在所有参数中，`--forcecells`、`--frags_cutoff`和`--tss_cutoff`在decon步骤中发生。调整这些参数可能会跳过data步骤。使用`--process decon, analysis, report`。参数`--darkreaction`、`--customize`、`--merge_cutoff`和`--bam`在data步骤中发生。如果需要调整，无法跳过该过程。默认使用整个过程：`--process data, decon, analysis, report`。 |
-| **--bam**                                                | **标志参数**，在比对过程中生成BAM文件，但这会显著增加软件分析时间。如果不需要BAM文件，建议不要使用该参数。 |
+
+### 📝 参数说明
+
+#### 🔴 必需参数
+
+| 参数 | 描述 |
+|------|------|
+| **--name** | 定义样本的唯一标识符，将在生成的HTML报告中显示为样本ID。 |
+| **--fastq1<br>--fastq2** | 指定ATAC文库的R1和R2测序文件。<br><br>📌 **格式要求**：<br>- 多个FASTQ文件需以逗号分隔<br>- R1和R2文件必须保持相同的排序顺序<br>- 所有文件必须来自同一文库，测序模式和暗反应设置必须一致<br>- 不同实验或样本的数据不得合并分析 |
+| **--genomeDir** | 指定参考基因组数据库目录。<br><br>📌 **包含内容**：<br>- 基因组序列文件<br>- 转录起始位点(TSS)的bed格式文件<br>- 比对数据库<br>- 线粒体染色体信息<br>- 其他染色体相关信息 |
+
+#### 🟢 基本设置参数
+
+| 参数 | 描述 |
+|------|------|
+| **--outdir** | 指定结果输出目录 [**默认值**：当前目录]<br>目录名称将基于`--name`参数提供的样本ID。 |
+| **--threads** | 设置分析过程使用的CPU线程数 [**默认值**：10]<br>增加线程数可加速分析过程。 |
+
+#### 🟢 过滤和质控参数
+
+| 参数 | 描述 |
+|------|------|
+| **--forcecells** | 强制使用指定数量的细胞进行分析 [**无默认值**]<br>根据与peak重叠的fragments数量排序提取指定数量的细胞。<br>⚠️ **注意**：此参数具有最高优先级，会覆盖其他细胞过滤标准。 |
+| **--frags_cutoff** | 细胞过滤阈值 [**默认值**：1000]<br>过滤unique fragments数量低于此值的细胞。 |
+| **--tss_cutoff** | TSS富集阈值 [**默认值**：0]<br>过滤与转录起始位点区域重叠的fragments占比低于此值的细胞。 |
+| **--jaccard_cutoff** | Jaccard相似度阈值 [**无默认值**]<br>用于确定哪些细胞条形码应该被合并的相似度阈值。 |
+| **--merge_cutoff** | 合并阈值 [**默认值**：1000]<br>合并细胞条形码所需的最低fragments数量。<br>在peak calling步骤中，仅考虑片段计数超过此值的细胞。<br>💡 **建议**：保持与`frags_cutoff`一致或不高于此值。 |
+
+#### 🟢 文库设置参数
+
+| 参数 | 描述 |
+|------|------|
+| **--darkreaction** | 设置暗反应模式 [**默认值**：auto]<br><br>📌 **功能**：<br>控制软件如何处理文库Read1和Read2序列结构中的暗反应设置。暗反应指不识别碱基的生化反应，通常设置为固定碱基。<br><br>📌 **识别逻辑**：<br>软件检查前200,000个序列的长度来确定暗反应的存在。<br><br>📌 **可选模式**：<br>- "R1R2"：R1和R2均为暗反应设置<br>- "R1"：仅R1为暗反应设置<br>- "R2"：仅R2为暗反应设置<br>- "unset"：无暗反应设置<br><br>💡 **建议**：使用自动检测(auto)模式。 |
+| **--customize** | 自定义序列结构 [**无默认值**]<br><br>📌 **用途**：<br>用于超出标准设置的特殊需求，直接定义序列结构信息，使用时需加上引号。<br><br>📌 **格式**：<br>分号分隔的字符串值：[R1\|R2\|cb],[R1\|R2]:start-end<br><br>📌 **示例**：<br>"cb,R1:1-10;cb,R1:11-20;R1,R1:21-70;R2,R2:1-50"<br>- "cb"表示细胞条形码信息<br>- "R1"表示位于Read1上<br>- "1-10"表示序列的第1到10个位置 |
+
+#### 🚩 分析设置参数
+
+| 参数 | 描述 |
+|------|------|
+| **--need_bam** | 生成BAM格式文件 [**标志参数**]<br><br>⚠️ **注意事项**：<br>- 会显著增加软件分析时间<br>- 目前版本生成bam和不生成bam的最终结果会存在一些差异，因为软件chromap在比对时会存在较小的差异 |
+
+> 💡 **分析建议**：首次分析时建议使用默认参数，获得结果报告后再根据需要调整参数。
 
 </br>
 </br>
@@ -71,72 +107,91 @@ optional arguments:
 $dnbc4tools atac mkref
 usage: dnbc4tools atac mkref [-h] 
 
---chrM
-    Define mitochondrial chromosomes. "auto" recognizes "chrM,MT,chrMT,mt,Mt".
-
---prefix
-    String or list of strings representing prefix(es) or full name(s) of chromosomes to keep.
-    For example, "--prefix chr" selects chromosome sequences starting with "chr", or "--prefix
-    1,2,3,4,5,Mt,Pt" selects chromosome sequences of Arabidopsis thaliana
-
---noindex
-    Skip indexing step if database has been built using chromap. Only generate ref.json file.
-
-Example:
-    dnbc4tools atac mkref --fasta /database/genome.fasta --ingtf /database/genes.gtf --species
-    Homo_sapiens --chrM MT --genomeDir /database
-
 optional arguments:
-  -h, --help            show this help message and exit
-  --fasta <FASTA>       Path to the genome file in FASTA format.
-  --ingtf <GTF>         Path to the genome annotation file in GTF format.
-  --genomeDir <DATABASE>
-                        Path to the directory where genome files are stored, [default: current dir].
-  --species <SPECIES>   Species name, [default: undefined].
-  --tag <TYPE>          Select the type to generate bed, [default: transcript].
-  --chrM <Mito>         Mitochondrial chromosome name, [default: auto].
-  --chloroplast <CHLOROPLAST>
-                        Chloroplast chromosome names, particularly recommended for plant, such as the name "Pt".
-  --prefix <CHROMOSOMES>
-                        Filter chromosomes by prefix or full name.
-  --noindex             Only generate ref.json without constructing genome index.
+  -h, --help           show this help message and exit
+
+Input files:
+  Input genome FASTA and gene annotation GTF files. For mixed species analysis, use comma to separate multiple files.
+
+  --fasta <FILE>       Path to reference genome FASTA file. Multiple files separated by comma
+  --ingtf <FILE>       Path to gene annotation GTF file. Multiple files separated by comma
+
+Basic settings:
+  --genomeDir <DIR>    Output directory for reference files [default: current directory]
+  --species <STR>      Species identifier. For mixed species analysis, use comma separated [default: undefined]
+
+Advanced settings:
+  --tag <TYPE>         Select type to generate BED file [default: transcript]
+  --chrM <STR>         Mitochondrial chromosome identifier in reference genome [default: auto]
+  --chloroplast <STR>  Chloroplast chromosome name, particularly recommended for plants, e.g. "Pt"
+  --prefix <STR>       Filter chromosomes by prefix or full name. Not supported for mixed species
+  --kmer <INT>         k-mer length, this determines the size of the substrings being extracted [default: 17]
+  --window <INT>       Window size, this defines the number of consecutive k-mers within a window [default: 7]
+  --noindex            Only generate ref.json without building genome index
 ```
 
-| 参数                     | 描述                                                         |
-| ------------------------ | ------------------------------------------------------------ |
-| **--fasta<br />--ingtf** | **必需参数**，提供您物种的参考基因组FASTA文件和GTF注释文件。如果Ensembl数据库中提供相应数据，推荐使用该数据库的文件。如果您的目标物种不在Ensembl中，也可使用其他来源的GTF和FASTA文件。请注意，GTF文件是必需的，且不支持GFF文件。建议使用的基因组FASTA文件应为`primary`组装版本。GTF文件的格式要求：基因组文件与注释文件需对应，GTF 文件格式要求为：对于单细胞 ATAC分析，GTF 文件至少需包含“gene”或“transcript”类型的注释。 |
-| **--genomeDir**          | **可选参数**，指定存储数据库文件的目录路径，默认为当前路径。 |
-| **--species**            | **可选参数**，指定用于构建参考数据库的物种名称。             |
-| **--tag**                | **可选参数**，生成bed格式的转录起始位点文件时使用基因信息或转录本信息，默认使用转录本信息。 |
-| **--chrM**               | **可选参数**，识别线粒体染色体名称。“auto”选项会在“chrM、MT、chrMT、mt、Mt”名称中寻找线粒体染色体名称。 |
-| **--chloroplast**        | **可选参数**，设置叶绿体染色体名称，建议为植物样本设置染色体名称。若不设置线粒体和叶绿体，当线粒体和叶绿体的片段数量极高时，可能会导致在合并磁珠步骤中内存消耗过大并产生错误，以及提高了与转录起始位点区域重叠的fragments占比。 |
-| **--prefix**             | **可选参数**，表示要保留的染色体前缀或全名的字符串或字符串列表。例如，`--prefix chr` 选择以“chr”开头的染色体序列，或 `--prefix 1,2,3,4,5,Mt,Pt` 选择指定的染色体。 |
-| **--noindex**            | **标志参数** ，如果数据库已经使用Chromap构建，则跳过索引步骤。 |
+### 📝 参数说明
+
+#### 🔴 必需参数
+
+| 参数 | 描述 |
+|------|------|
+| **--fasta<br>--ingtf** | 提供参考基因组FASTA文件和GTF注释文件。<br><br>📌 **数据来源建议**：<br>- 优先使用Ensembl数据库提供的文件<br>- 如目标物种不在Ensembl中，可使用其他来源的文件<br><br>📌 **文件要求**：<br>- GTF文件必需，不支持GFF格式<br>- 基因组FASTA文件建议为`primary`组装版本<br>- 基因组文件与注释文件必须对应<br>- GTF文件至少需包含"gene"或"transcript"类型的注释 |
+
+#### 🟢 输出设置参数
+
+| 参数 | 描述 |
+|------|------|
+| **--genomeDir** | 指定存储数据库文件的目录路径 [**默认值**：当前路径]<br>所有生成的参考文件将保存在此目录中。 |
+| **--species** | 指定用于构建参考数据库的物种名称 [**无默认值**]<br>此名称将记录在生成的ref.json文件中。 |
+
+#### 🟢 基因组设置参数
+
+| 参数 | 描述 |
+|------|------|
+| **--tag** | 生成转录起始位点(TSS)文件的信息来源 [**默认值**：transcript]<br>可选择使用基因信息或转录本信息生成bed格式的TSS文件。 |
+| **--chrM** | 线粒体染色体名称识别 [**默认值**：auto]<br><br>📌 **自动识别**：<br>"auto"选项会在以下名称中查找线粒体染色体：<br>- chrM<br>- MT<br>- chrMT<br>- mt<br>- Mt |
+| **--chloroplast** | 叶绿体染色体名称设置 [**无默认值**]<br><br>📌 **适用场景**：<br>建议为植物样本设置此参数<br><br>⚠️ **注意事项**：<br>若不设置线粒体和叶绿体，当这些区域的片段数量极高时：<br>- 可能导致合并磁珠步骤中内存消耗过大并产生错误<br>- 可能提高与转录起始位点区域重叠的fragments占比 |
+| **--prefix** | 染色体筛选 [**无默认值**]<br><br>📌 **功能**：<br>指定要保留的染色体前缀或全名<br><br>📌 **格式**：<br>字符串或字符串列表<br><br>📌 **示例**：<br>- `--prefix chr`：选择以"chr"开头的染色体序列<br>- `--prefix 1,2,3,4,5,Mt,Pt`：选择指定的染色体 |
+| **--kmer** | k-mer长度设置 [**默认值**：17]<br>确定在索引构建过程中提取的子字符串大小。<br>此参数影响比对的精确度和速度。 |
+| **--window** | 窗口大小设置 [**默认值**：7]<br>定义一个窗口内连续k-mer的数量。<br>此参数影响比对的灵敏度和特异性。 |
+| **--noindex** | 跳过索引步骤 [**标志参数**]<br>如果数据库已经使用Chromap构建，可使用此参数跳过索引步骤。 |
 
 > [!TIP]
->
-> 使用Chromap进行文库构建和比对目前无法处理极大的基因组，因此某些物种无法利用该软件进行scATAC分析。未来的更新将探索超大基因组的替代比对方法。数据库库构建完成后，数据库目录中会生成一个ref.json文件以记录关键信息。
->
+> 
+> 📋 **数据库构建说明**：
+> - 使用Chromap构建的数据库目前无法处理极大的基因组，某些物种可能无法使用此软件进行scATAC分析，或者调整kmer和window参数来适配基因组索引构建。
+> - 数据库构建完成后，将在数据库目录中生成ref.json文件，记录关键信息
+> 
+> 📋 **ref.json文件示例**：
 > ```json
 > {
-> "species": "Homo_sapiens",
-> "genome": "$PATH/genome.fa",
-> "index": "$PATH/genome.index",
-> "chromeSize": "$PATH/chrom.sizes",
-> "tss": "$PATH/tss.bed",
-> "promoter": "$PATH/promoter.bed",
-> "blacklist": "None",
-> "chrmt": "chrM",
-> "chloroplast": "None",
-> "genomesize": "hs"
+>     "species": "Homo_sapiens",
+>     "input_fasta_files": [
+>         "genome.fa"
+>     ],
+>     "input_gtf_files": [
+>         "genes.gtf"
+>     ],
+>     "genome": "/database/scATAC/Homo_sapiens/fasta/genome.fa",
+>     "index": "/database/scATAC/Homo_sapiens/fasta/genome.index",
+>     "gtf": "/database/scATAC/Homo_sapiens/genes/genes.gtf",
+>     "chrmt": "chrM",
+>     "chloroplast": "None",
+>     "chromeSize": "/database/scATAC/Homo_sapiens/regions/chrom.sizes",
+>     "tss": "/database/scATAC/Homo_sapiens/regions/tss.bed",
+>     "promoter": "/database/scATAC/Homo_sapiens/regions/promoter.bed",
+>     "version": "3.0Beta",
+>     "blacklist": "None",
+>     "genomesize": "hs"
 > }
 > ```
->
-> chromeSize文件中列出的染色体名称将包含在fragments.tsv.gz文件中进行分析。未在此文件中列出的染色体将被排除在分析之外。
->
-> 自2.1.2版本，已移除blacklist参数不再强制要求存在黑名单文件。如有需要，可以手动添加。此参数不会影响分析结果。黑名单区域的片段数量将记录在metadata文件output/singlecell.csv中的blacklist_region_fragments列中。
->
-> genomesize值用于MACS2 peak calling 分析。MACS2对某些物种有特殊标识符，例如“hs”表示Homo sapiens。
+> 
+> 📋 **重要说明**：
+> - chromeSize文件中列出的染色体名称将包含在fragments.tsv.gz文件中进行分析，未列出的染色体将被排除
+> - 自2.1.2版本起，blacklist参数已被移除，不再需要blacklist文件。如需要，可手动添加
+> - 黑名单区域的片段数量将记录在metadata文件output/singlecell.csv的blacklist_region_fragments列中
+> - genomesize值用于MACS2 peak calling分析，MACS2对某些物种有特殊标识符，如人类为"hs"
 
 </br>
 </br>
@@ -149,22 +204,22 @@ optional arguments:
 $dnbc4tools atac multi
 usage: dnbc4tools atac multi [-h] 
 
-All samples should be from the same species or the same reference database.
---list
-    Generate a two-column list with tab (\t) separators. R1 and R2 reads should be separated
-    by semicolons, and multiple FASTQ files should be separated with commas.
-
 optional arguments:
   -h, --help            show this help message and exit
-  --list <LIST>         sample list.
-  --outdir <OUTDIR>     Output diretory, [default: current directory].
-  --threads <CORENUM>   Number of threads used for analysis, [default: 4].
+  --list <LIST>         Path to the sample list file. Each line should contain sample name and FASTQ paths.
+  --outdir <OUTDIR>     Output directory. [default: current directory].
+  --threads <CORENUM>   Number of threads used for analysis. [default: 10].
   --genomeDir <DATABASE>
                         Path to the directory where genome files are stored.
 ```
 
-| 参数   | 描述                                                         |
-| ------ | ------------------------------------------------------------ |
-| --list | **必需参数**，文件使用制表符 (\t) 分隔符。第一列包含样本名称，第二列包含 ATAC 文库测序数据。多个 fastq 文件应以逗号分隔，R1 和 R2 文件应以分号分隔。 |
+### 📝 参数说明
 
-其他参数参考dnbc4tools atac run.
+#### 🔴 必需参数
+
+| 参数 | 描述 |
+|------|------|
+| **--list** | 样本列表文件路径 [**必需参数**]<br><br>📌 **文件格式**：<br>- 使用制表符(\t)分隔的文本文件<br>- 第一列：样本名称<br>- 第二列：ATAC文库测序数据路径<br><br>📌 **路径格式**：<br>- 多个fastq文件使用逗号(,)分隔<br>- R1和R2文件使用分号(;)分隔<br><br>📌 **示例**：<br>`sample1\tsample1_R1.fq.gz;sample1_R2.fq.gz`<br>`sample2\tsample2_1_R1.fq.gz,sample2_2_R1.fq.gz;sample2_1_R2.fq.gz,sample2_2_R2.fq.gz` |
+
+> 💡 **使用说明**：
+> - 对于其他参数设置，请参考`dnbc4tools atac run`命令的相应参数

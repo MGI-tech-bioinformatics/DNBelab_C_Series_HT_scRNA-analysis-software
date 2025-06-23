@@ -8,6 +8,21 @@
 
 ## 📋 dnbc4tools Release History
 
+### Table of Contents
+- [3.0 Beta (July 16, 2025)](#v3.0-beta)
+- [2.1.3 (October 9, 2024)](#v2.1.3)
+- [2.1.2 (April 24, 2024)](#v2.1.2)
+- [2.1.1 (September 21, 2023)](#v2.1.1)
+- [2.1.0 (July 28, 2023)](#v2.1.0)
+- [2.0.7 (November 4, 2022)](#v2.0.7)
+- [2.0.6 (September 19, 2022)](#v2.0.6)
+- [2.0.5 (August 19, 2022)](#v2.0.5)
+- [2.0.0 (June 20, 2022)](#v2.0.0)
+- [Historical Versions](#historical-versions)
+- [Version Selection Guide](#version-selection-guide)
+
+<a id="v3.0-beta"></a>
+
 ### 🔥 3.0 Beta (July 16, 2025)
 #### **RNA-Seq Module Updates**
 
@@ -100,6 +115,8 @@
 ---
 
 
+<a id="v2.1.3"></a>
+
 ### 🧬 2.1.3 (October 9, 2024)
 
 - **New Feature**: Added RNA 5' transcriptome analysis and single-cell VDJ analysis modules.
@@ -117,6 +134,8 @@
 ---
 
 
+<a id="v2.1.2"></a>
+
 ### 🔬 2.1.2 (April 24, 2024)
 
 - Adjusted ATAC analysis algorithm: merging based on Jaccard values, followed by cell identification through peaks region fragments.
@@ -133,6 +152,8 @@
 
 ---
 
+<a id="v2.1.1"></a>
+
 ### 📊 2.1.1 (September 21, 2023)
 
 - Optimized RNA analysis workflow: performing bead merging analysis using oligo data before cell identification.
@@ -147,6 +168,8 @@
 
 
 
+<a id="v2.1.0"></a>
+
 ### 🧪 2.1.0 (July 28, 2023)
 
 - **New Feature**: Added ATAC analysis module.
@@ -159,6 +182,8 @@
 
 ---
 
+<a id="v2.0.7"></a>
+
 ### ⚙️ 2.0.7 (November 4, 2022)
 
 - Added automatic recognition of reagent versions and sequencing dark reactions. New parameters `chemistry`, `darkreaction`, and `customize` replace the original `cDNAconfig` and `oligoconfig`. Removed the `mixseq` parameter. Automatic recognition is recommended.
@@ -168,6 +193,8 @@
 - Added memory parameter `limitram` for RNA database construction (mkref), which automatically determines `genomeSAindexNbases` and `genomeChrBinNbits` values based on genome size and chromosome count.
 
 ---
+
+<a id="v2.0.6"></a>
 
 ### 🐳 2.0.6 (September 19, 2022)
 
@@ -180,6 +207,8 @@
 - Fixed inconsistency between barcode count in `barcodes.tsv.gz` and estimated cell count.
 
 ---
+
+<a id="v2.0.5"></a>
 
 ### 🐋 2.0.5 (August 19, 2022)
 
@@ -197,6 +226,8 @@
 
 ---
 
+<a id="v2.0.0"></a>
+
 ### 🚀 2.0.0 (June 20, 2022)
 
 - Added command-line mode support.
@@ -210,6 +241,8 @@
 ---
 
 
+<a id="historical-versions"></a>
+
 ## 📦 Historical Versions
 
 Historical version information can be obtained from [GitHub Releases](https://github.com/MGI-tech-bioinformatics/DNBelab_C_Series_HT_scRNA-analysis-software/releases).
@@ -217,6 +250,8 @@ Historical version information can be obtained from [GitHub Releases](https://gi
 > **Note**: Due to multiple adjustments in software installation methods, if you need to install historical versions, please visit the releases page to download the corresponding package and follow the installation instructions.
 
 ---
+
+<a id="version-selection-guide"></a>
 
 ## 🔍 Version Selection Guide
 

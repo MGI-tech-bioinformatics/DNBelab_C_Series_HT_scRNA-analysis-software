@@ -1,61 +1,88 @@
-# Single-Cell VDJ
+# 🧬 DNBelab C Series HT scVDJ Parameters
 
-## dnbc4tools vdj run
+## 📋 Table of Contents
+- [Main Analysis Pipeline (run)](#dnbc4tools-vdj-run)
 
-Usage
+---
+
+## 🔬 dnbc4tools vdj run
+
+### 📊 Usage
 
 ```shell
 $dnbc4tools vdj run
 usage: dnbc4tools vdj run [-h] 
 
---fastq1, --fastq2
-    Multiple raw FASTQ files separated by commas and belong to the same sequencing library.
-    Order of R1/R2 fastq files must be consistent.
-
---ref
-    Provide reference databases for human and mouse for analysis. Other species are not
-    supported
-
---beadstrans
-    Required parameters. The analysis of the 5' scRNA must be completed first. In the analysis
-    results directory, there should be a file named singlecell.csv that records the
-    correspondence between cells and beads.
-
---darkreaction
-    Recommend automatic detection for settings. Ensure consistent sequencing lengths and dark
-    cycles for multiple FASTQ data. Dark cycle modes can be "R1" and "unset"
-
 optional arguments:
   -h, --help            show this help message and exit
-  --name <SAMPLE_ID>    User-defined sample ID.
-  --fastq1 <FQ1FILES>   The input R1 fastq files.
-  --fastq2 <FQ2FILES>   The input R2 fastq files.
-  --outdir <OUTDIR>     Output directory, [default: current directory].
-  --ref <REF>           Set the reference database, choose from 'human' and 'mouse'.
-  --chain <CHAIN>       Chain type to display metrics for: 'TR' for T cell receptors, 'IG' for B cell receptors.
-  --beadstrans <SINGLECELL>
-                        Beads converted into cells file in rna summary file 'output/singlecell.csv'.
-  --threads <CORENUM>   Number of threads used for analysis, [default: 10].
-  --darkreaction <DARKCYCLE>
-                        Sequencing dark cycles. Automatic detection is recommended, [default: auto].
-  --customize <STRUCTURE>
-                        Customize whitelist and readstructure files in JSON format.
-  --process <ANALYSIS_STEPS>
-                        Custom analysis steps enable the skipping of unnecessary steps, [default: data,assembly,filter,report].
-  --nornafilter         Retain cells including those not identified in the corresponding 5' Gene Expression dataset.
-  --singleEnd           Assemble using single-end data.
+
+Input Fastq Files:
+  Input FASTQ files (comma-separated) from same library.
+  Ensure consistent ordering between vdj R1/R2 files.
+
+  -1, --fastq1 <FILE>   Input R1 fastq file(s)
+  -2, --fastq2 <FILE>   Input R2 fastq file(s)
+
+Basic Settings:
+  -n, --name <STR>      Unique identifier for the sample
+  -r, --ref REF         Reference database: 'human'/'mouse' or path to custom reference
+  -c, --chain <STR>     VDJ receptor type (TR for T cell receptors, IG for B cell receptors)
+  -o, --outdir <DIR>    Output directory [default: current directory]
+  -t, --threads <INT>   Number of CPU threads [default: all available cores]
+  -s, --beadstrans <FILE>
+                        [Optional] RNA analysis singlecell.csv file for filtering cells and merging beads information
+
+Library Settings:
+  Auto-detection recommended for dark cycles. Dark cycle modes can be "R1" and "unset"
+  For multiple files, ensure consistent settings.
+  customize: Specify sequence structure patterns.
+  Example customize: "cb,R1:1-10;cb,R1:11-20;umi,R1:21-30;R1,R1:31-120;R2,R2:1-150".
+
+  -d, --darkreaction <STR>
+                        Sequencing dark cycles [default: auto]
+  -u, --customize <STR>
+                        Sequence structure patterns, filed format <type>,<read>:<start>-<end>
+  --enrichment_primers <FILE>
+                        Custom inner enrichment primers file, one primer sequence per line
+
+Analysis Settings:
+  --keep_all_cells      Keep all cells in analysis without RNA data filtering
+  --r2_only             Only use R2 reads for VDJ assembly. Manual setting required as software cannot auto-detect Read1 assembly needs.
 ```
 
-| Parameter                                | Description                                                  |
-| ---------------------------------------- | ------------------------------------------------------------ |
-| **--name**                               | **Required parameter**, defines the sample name, consistent with the sample ID displayed in the generated HTML report. |
-| **--fastq1 <br />--fastq2**              | **Required parameter**, `fastq1` and `fastq2` represent the R1 and R2 sequences of the VDJ library. Multiple FASTQ files should be separated by commas, ensuring the order of R1 and R2 sequences is consistent. The sequencing mode must be the same, and dark reaction settings must be consistent. Data from different experiments or samples should not be merged; only data from the same library can be merged for analysis. |
-| **--ref**                                | **Required parameter**, the software provides reference databases for humans and mice, which can be directly used according to the species. |
-| **--chain**                              | **Required parameter**, specifies the type of chain to analyze. Acceptable values are: "TR" for T cell receptors; "IG" for B cell receptors. |
-| **--beadstrans**                         | **Required parameter**, the analysis of 5' scRNA must be completed first, and there should be a file named "singlecell.csv" in the results directory that records the correspondence between cells and beads. |
-| **--outdir**                             | **Optional parameter**, specifies the directory where results are saved, default is the current directory. The directory name is based on the sample ID provided by the `name` parameter. |
-| **--threads**                            | **Optional parameter**, the number of threads used during analysis, increasing threads can speed up the analysis. |
-| **--darkreaction<br />--customize**      | **Optional parameter**, the software can automatically recognize the dark reaction settings of the library Read1, which refers to biochemical reactions that do not recognize bases, usually set to fixed bases. The recognition logic is: check the length of the first 200,000 sequences to determine the presence of dark reactions. Automatic detection is recommended. Dark reaction modes include "R1", "unset", where "R1" indicates R1 is set for dark reactions. Users can use `customize` to modify relevant information in the whitelist JSON file, see documentation for details. |
-| **--process**                            | **Optional parameter**, sets analysis steps, including: <br> - **data**: performs quality control on library sequencing data, merges beads using 5' transcriptome results, aligns VDJ gene regions, and extracts corresponding reads. <br> - **assembly**: performs de novo assembly on reads from VDJ gene regions for each cell, annotates the assembled contigs using the IMGT database. <br/> - **filter**: filters cells based on annotation results and 5' transcriptome cell acquisition, and generates clonotype information. <br/> - **report**: generates result files and HTML web report. <br /> Users can choose analysis steps to skip completed parts. |
-| **--nornafilter**                        | **Flag parameter**, does not use 5' transcriptome cell acquisition to filter cells. |
-| **--singleEnd**                          | **Flag parameter**, when sequencing, if Read1 only sequences cell barcode and UMI information without sequencing the insert fragment, only Read2 data is used for assembly. |
+
+### 📝 Parameter Description
+
+#### 🔴 Required Parameters
+
+| Parameter | Description |
+|------|------|
+| **--name** | Defines a unique identifier for the sample, which will be displayed as the sample ID in the generated HTML report. |
+| **--fastq1<br>--fastq2** | Specifies the R1 and R2 sequencing files for the VDJ library.<br><br>📌 **Format Requirements**:<br>- Multiple FASTQ files must be comma-separated<br>- R1 and R2 files must maintain the same order<br>- All files must be from the same library with consistent sequencing mode and dark reaction settings<br>- Data from different experiments or samples must not be merged for analysis |
+| **--ref** | Specifies the reference database.<br><br>📌 **Supported Species**:<br>- The software includes built-in reference databases for human and mouse<br>- Can directly use the database corresponding to the species<br>- Other species are not currently supported |
+| **--chain** | Specifies the receptor chain type for analysis.<br><br>📌 **Available Values**:<br>- "TR": T cell receptors<br>- "IG": B cell receptors |
+
+#### 🟢 Basic Setting Parameters
+
+| Parameter | Description |
+|------|------|
+| **--outdir** | Specifies the output directory for results [**Default**: current directory]<br>The directory name will be based on the sample ID provided by the `--name` parameter. |
+| **--threads** | Sets the number of CPU threads used for analysis [**Default**: all available cores]<br>Increasing the number of threads can accelerate the analysis process. |
+| **--beadstrans** | Specifies the cell information file from RNA analysis results [**Optional parameter**]<br><br>📌 **Function**:<br>- Provides cell correspondence between RNA and VDJ analyses<br>- Enables cell filtering based on RNA analysis results<br><br>📌 **Requirements**:<br>- 5' scRNA analysis must be completed first<br>- A file named "singlecell.csv" should exist in the results directory<br><br>📌 **Important Notes**:<br>- VDJ analysis can proceed without this parameter, but RNA-based cell filtering and correlation will not be available<br>- Legacy "singlecell.csv" format from previous versions is no longer supported, requiring re-processing of 5' RNA data|
+
+#### 🟢 Library Setting Parameters
+
+| Parameter | Description |
+|------|------|
+| **--darkreaction** | Sets the dark reaction mode [**Default**: auto]<br><br>📌 **Function**:<br>Controls how the software handles dark reaction settings in the library Read1 sequence structure. Dark reactions refer to biochemical reactions that do not recognize bases, usually set to fixed bases.<br><br>📌 **Recognition Logic**:<br>The software checks the length of the first 200,000 sequences to determine the presence of dark reactions.<br><br>📌 **Available Modes**:<br>- "R1": R1 is set for dark reactions<br>- "unset": No dark reaction settings<br><br>💡 **Recommendation**: Use automatic detection (auto) mode. |
+| **--customize** | Custom sequence structure [**No default value**]<br><br>📌 **Purpose**:<br>Used for special requirements beyond standard settings, directly defines sequence structure information, requires quotation marks when used.<br><br>📌 **Format**:<br>Semicolon-separated string value: [R1\|R2\|cb\|umi],[R1\|R2]:start-end<br><br>📌 **Example**:<br>"cb,R1:1-10;cb,R1:11-20;umi,R1:21-30;R1,R1:31-120;R2,R2:1-150"<br>- "cb" indicates cell barcode information<br>- "umi" indicates molecular identifier<br>- "R1" indicates location on Read1<br>- "1-10" indicates positions 1 to 10 of the sequence |
+| **--enrichment_primers** | Custom inner enrichment primers file [**No default value**]<br><br>📌 **Format**:<br>- Text file with one primer sequence per line<br>- Used for specific amplification of VDJ regions |
+
+#### 🚩 Analysis Setting Parameters
+
+| Parameter | Description |
+|------|------|
+| **--keep_all_cells** | Keep all cells [**Flag parameter**]<br>Does not use 5' transcriptome cell acquisition to filter cells. |
+| **--r2_only** | Only use R2 data for assembly [**Flag parameter**]<br><br>📌 **Applicable Scenario**:<br>When during sequencing, Read1 only sequences cell barcode and UMI information without sequencing the insert fragment<br><br>⚠️ **Note**:<br>The software cannot automatically detect whether Read1 needs to be used for assembly, manual setting is required |
+
+> 💡 **Analysis Recommendation**: For first-time analysis, it is recommended to use default parameters and adjust parameters as needed after obtaining the result report.
