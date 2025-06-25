@@ -10,9 +10,9 @@
 
 > **💡 Tip: Before You Begin**
 > 
-> - `$dnbc4tools` refers to the path of the executable program. Before running any commands, replace it with the actual installation path. For example, if installed in `/opt/software/dnbc4tools2.1.3`, use:
+> - `$dnbc4tools` refers to the path of the executable program. Before running any commands, replace it with the actual installation path. For example, if installed in `/opt/software/dnbc4tools3.0Beta`, use:
 >   ```shell
->   /opt/software/dnbc4tools3.0/dnbc4tools rna run ...
+>   /opt/software/dnbc4tools3.0Beta/dnbc4tools rna run ...
 >   ```
 > - Use the line continuation character `\` to split long commands into multiple lines for readability. If the command is on a single line, omit the backslashes.
 > - Commands in this guide use example paths. Adjust all paths according to your specific environment.

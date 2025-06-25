@@ -4,14 +4,7 @@ The **dnbc4tools** analysis workflow integrates multiple submodules, each capabl
 
 ---
 
-## 🗂️ Table of Contents
-
-- [Available Analysis Types](#available-analysis-types)
-- [Command Parameters](#command-parameters)
-
----
-
-## 🧬 Available Analysis Types
+## 🔬 Available Analysis Types
 
 | Type                  | Description                                                                 | Documentation                                                          |
 |-----------------------|-----------------------------------------------------------------------------|------------------------------------------------------------------------|
@@ -23,7 +16,4 @@ The **dnbc4tools** analysis workflow integrates multiple submodules, each capabl
 
 ## ⚙️ Command Parameters
 
-> For detailed documentation of all available parameters for **dnbc4tools** commands, please refer to:
-
-- [English](./parameter/parameter_en.md)
-- [中文](./parameter/parameter.md)
+> For detailed documentation of all available parameters for **dnbc4tools** commands, please refer to: [English](./parameter/parameter_en.md) / [中文](./parameter/parameter.md)

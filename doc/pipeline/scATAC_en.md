@@ -242,8 +242,26 @@ A successful run ends with `Analysis Finished`.
 
 ## 📊 Results Interpretation
 
-After the analysis is complete, the output directory `outs` and logs directory will be generated. For more detailed information about the output files, please refer to the [output file annotations](../outs/scATAC.md).
-For detailed usage of the output results, please refer to the [output file documentation](../io.md).
+After the analysis is complete, the output directory `outs` and logs directory will be generated.
+
+```
+├── *_scATAC_report.html                     # Analysis results HTML report, including QC metrics, clustering results
+├── filter_peak_matrix                       # Filtered peak matrix in MEX format directory
+│   ├── barcodes.tsv.gz                      # Filtered cell barcode information
+│   ├── matrix.mtx.gz                        # Filtered peak signal data in sparse matrix format
+│   └── peaks.bed.gz                         # Filtered peak position information
+├── fragments.tsv.gz                         # Contains all fragments aligned to the genome
+├── fragments.tsv.gz.tbi                     # Index file for fragments, used for fast random access
+├── metrics_summary.xls                      # Analysis quality metrics summary table, including sequencing QC, alignment rate
+├── raw_peak_matrix                          # Raw peak matrix in MEX format directory
+│   ├── barcodes.tsv.gz                      # Raw cell barcode information
+│   ├── matrix.mtx.gz                        # Raw peak signal data in sparse matrix format
+│   └── peaks.bed.gz                         # Raw peak position information
+└── singlecell.csv                           # Cell information summary table, including fragment count, peak count, and cell identification for each cell ID
+```
+- For detailed usage of the output results, please refer to the [output file documentation](../io.md).
+- For more detailed information about the output files, please refer to the [output file annotations](../outs/scATAC.md).
+- For analysis parameter settings, please refer to the [analysis parameter settings](../parameter/scATAC_en.md).
 
 ## ❓ Frequently Asked Questions
 

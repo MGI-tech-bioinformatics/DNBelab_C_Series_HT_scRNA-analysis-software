@@ -177,8 +177,9 @@ After analysis completion, the output directory "outs" and logs directory will b
 └── metrics_summary.xls                      # Analysis quality metrics summary table
 ```
 
-For output result interpretation, please [refer to the output file annotations](../outs/scVDJ.md).
-For detailed usage of output results, please [refer to the output file documentation](../io.md).
+- For detailed usage of the output results, please refer to the [output file documentation](../io.md).
+- For more detailed information about the output files, please refer to the [output file annotations](../outs/scVDJ.md).
+- For analysis parameter settings, please refer to the [analysis parameter settings](../parameter/scVDJ_en.md).
 
 ## ❓ Frequently Asked Questions
 

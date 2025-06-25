@@ -239,8 +239,28 @@ Analysis Finished Elapsed Time: 0:30:43
 
 ## 📊 结果解析
 
-分析完成后，将生成结果输出目录outs，logs日志目录。有关输出的结果释义，请[参考输出文件注释](../outs/scATAC.md)。
-有关输出结果的详细使用方法，请[参考输出文件说明文档](../io.md)。
+分析完成后，将生成结果输出目录outs，logs日志目录。
+
+```
+├── *_scATAC_report.html                     # 分析结果HTML报告，包含质控指标、聚类结果和可视化图表
+├── filter_peak_matrix                       # 过滤后的峰矩阵MEX格式目录
+│   ├── barcodes.tsv.gz                      # 过滤后的细胞条形码信息
+│   ├── matrix.mtx.gz                        # 过滤后的稀疏矩阵格式的峰信号数据
+│   └── peaks.bed.gz                         # 过滤后的峰位置信息
+├── fragments.tsv.gz                         # 包含所有比对到基因组的片段信息
+├── fragments.tsv.gz.tbi                     # 片段文件的索引，用于快速随机访问
+├── metrics_summary.xls                      # 分析质量指标汇总表，包含测序质控、比对率和细胞质控等统计信息
+├── raw_peak_matrix                          # 原始峰矩阵MEX格式目录
+│   ├── barcodes.tsv.gz                      # 原始细胞条形码信息
+│   ├── matrix.mtx.gz                        # 原始稀疏矩阵格式的峰信号数据
+│   └── peaks.bed.gz                         # 原始峰位置信息
+└── singlecell.csv                           # 细胞信息汇总表，包含每个cellid的片段数量、峰数量以及是否为细胞等信息
+```
+
+- 有关输出结果的详细使用方法，请[参考输出文件使用方法](../io.md)。
+- 有关输出的结果释义，请[参考输出文件解释](../outs/scATAC.md)。
+- 有关分析的参数设置，请[参考分析参数设置](../parameter/scATAC.md)。
+
 
 ## ❓ 常见问题
 
