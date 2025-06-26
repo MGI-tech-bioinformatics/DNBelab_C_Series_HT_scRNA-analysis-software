@@ -26,9 +26,9 @@ This document provides a detailed guide for analyzing single-cell ATAC sequencin
 ## 📌 Usage Notes
 
 > **Tip:**
-> - `$dnbc4tools` represents the executable path. Replace this with the actual path before use. For example, if installed at `/opt/software/dnbc4tools3.0Beta`, the command would be:
+> - `$dnbc4tools` represents the executable path. Replace this with the actual path before use. For example, if installed at `/opt/software/dnbc4tools3.0beta`, the command would be:
 >   ```shell
->   /opt/software/dnbc4tools3.0Beta/dnbc4tools atac run ...
+>   /opt/software/dnbc4tools3.0beta/dnbc4tools atac run ...
 >   ```
 > - The backslash `\` is used to split long shell commands across multiple lines for readability. It signals that the command continues on the next line. If written in a single line, the backslash is not required.
 
@@ -115,13 +115,13 @@ The ref.json file records the main information of the database:
     "chromeSize": "/opt/database/Mus_musculus/regions/chrom.sizes",
     "tss": "/opt/database/Mus_musculus/regions/tss.bed",
     "promoter": "/opt/database/Mus_musculus/regions/promoter.bed",
-    "version": "dnbc4tools 3.0Beta",
+    "version": "dnbc4tools 3.0beta",
     "blacklist": "None",
     "genomesize": "mm"
 }
 ```
 
-> **Note**: Building a reference database may take a long time, depending on the genome size and computer performance.
+> **Note**: Building a reference database may take a long time, depending on the genome size and computer performance. The software run analysis pipeline is compatible with legacy database versions.
 
 Printed information during execution, here is an example:
 

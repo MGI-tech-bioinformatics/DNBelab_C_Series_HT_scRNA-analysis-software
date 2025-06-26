@@ -186,7 +186,7 @@ Advanced settings:
 >     ],
 >     "mtgenes": "/database/scRNA/Homo_sapiens/star/mtgene.list",
 >     "species": "Homo_sapiens",
->     "version": "dnbc4tools 3.0Beta"
+>     "version": "dnbc4tools 3.0beta"
 > }
 > ```
 > 
@@ -206,7 +206,7 @@ Advanced settings:
 >     ],
 >     "mtgenes": "/database/scRNA/hg38_and_mm10/star/mtgene.list",
 >     "species": "hg38_and_mm10",
->     "version": "dnbc4tools 3.0Beta"
+>     "version": "dnbc4tools 3.0beta"
 > }
 > ```
 </br>

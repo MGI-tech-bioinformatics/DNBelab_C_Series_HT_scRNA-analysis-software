@@ -24,11 +24,11 @@
 
 ## 💾 Software Download
 
-### dnbc4tools 3.0 Beta (Released: July 16, 2025)
+### dnbc4tools 3.0 beta (Released: July 16, 2025)
 
 | Package Details | Information                                  |
 |----------------|----------------------------------------------|
-| Download Link  | [dnbc4tools3.0Beta.tar.gz](https://ftp.cngb.org/pub/CNSA/data5/CNP0006367/Single_Cell/CSE0000448/dnbc4tools3.0Beta.tar.gz) |
+| Download Link  | [dnbc4tools3.0beta.tar.gz](https://ftp.cngb.org/pub/CNSA/data5/CNP0006367/Single_Cell/CSE0000448/dnbc4tools3.0beta.tar.gz) |
 | File Size      | 495M                                         |
 | MD5 Checksum   | dfda9a3f308aaa3fdaa6c2a971bb2821            |
 
@@ -36,15 +36,15 @@
 
 ```bash
 # Download using wget
-wget -O dnbc4tools3.0Beta.tar.gz "https://ftp.cngb.org/pub/CNSA/data5/CNP0006367/Single_Cell/CSE0000448/dnbc4tools3.0Beta.tar.gz"
+wget -O dnbc4tools3.0Beta.tar.gz "https://ftp.cngb.org/pub/CNSA/data5/CNP0006367/Single_Cell/CSE0000448/dnbc4tools3.0beta.tar.gz"
 
 # Or download using curl
-curl -o dnbc4tools3.0Beta.tar.gz "https://ftp.cngb.org/pub/CNSA/data5/CNP0006367/Single_Cell/CSE0000448/dnbc4tools3.0Beta.tar.gz"
+curl -o dnbc4tools3.0Beta.tar.gz "https://ftp.cngb.org/pub/CNSA/data5/CNP0006367/Single_Cell/CSE0000448/dnbc4tools3.0beta.tar.gz"
 ```
 
 ### New Features
 
-> **dnbc4tools 3.0 Beta introduces:**
+> **dnbc4tools 3.0 beta introduces:**
 > 
 > **RNA-Seq Analysis Updates**
 > - **Enhanced Annotation Rules**: Improved RNA annotation logic for accuracy and compatibility
@@ -78,7 +78,7 @@ Extract the dnbc4tools package to your preferred directory (example uses `/opt/s
 cd /opt/software
 
 # Extract the package
-tar -xzvf dnbc4tools3.0Beta.tar.gz
+tar -xzvf dnbc4tools3.0beta.tar.gz
 ```
 
 ### Step 2: Verify Directory Structure
@@ -87,11 +87,11 @@ After extraction, you should see the following directory structure:
 
 | Component | Description |
 |-----------|-------------|
-| `dnbc4tools3.0Beta/dnbc4tools` | Main executable |
-| `dnbc4tools3.0Beta/external` | External dependencies |
-| `dnbc4tools3.0Beta/lib` | Library files |
-| `dnbc4tools3.0Beta/misc` | Miscellaneous files |
-| `dnbc4tools3.0Beta/sourceC4.bash` | Environment configuration script |
+| `dnbc4tools3.0beta/dnbc4tools` | Main executable |
+| `dnbc4tools3.0beta/external` | External dependencies |
+| `dnbc4tools3.0beta/lib` | Library files |
+| `dnbc4tools3.0beta/misc` | Miscellaneous files |
+| `dnbc4tools3.0beta/sourceC4.bash` | Environment configuration script |
 
 ### Step 3: Verify Installation
 
@@ -99,7 +99,7 @@ Confirm that the installation was successful:
 
 ```bash
 # View help information
-/opt/software/dnbc4tools3.0Beta/dnbc4tools --help
+/opt/software/dnbc4tools3.0beta/dnbc4tools --help
 ```
 
 > **Success!** Your *dnbc4tools* installation is now complete and ready for use.

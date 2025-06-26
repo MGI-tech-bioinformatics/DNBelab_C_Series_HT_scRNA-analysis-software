@@ -24,10 +24,10 @@ This document provides a detailed guide for analyzing single-cell VDJ sequencing
 
 > [!Tip]
 >
-> - `$dnbc4tools` represents the executable path. Replace this with the actual path before use. For example, if installed at `/opt/software/dnbc4tools3.0Beta`, the command would be:
+> - `$dnbc4tools` represents the executable path. Replace this with the actual path before use. For example, if installed at `/opt/software/dnbc4tools3.0beta`, the command would be:
 >
 > ```shell
-> /opt/software/dnbc4tools3.0Beta/dnbc4tools vdj run ...
+> /opt/software/dnbc4tools3.0beta/dnbc4tools vdj run ...
 > ```
 >
 > - The backslash `\` is used to split long shell commands across multiple lines for readability. It signals that the command continues on the next line. If written in a single line, the backslash is not required.

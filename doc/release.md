@@ -9,7 +9,7 @@
 ## 📋 dnbc4tools Release History
 
 ### Table of Contents
-- [3.0 Beta (July 16, 2025)](#v3.0-beta)
+- [3.0beta (July 16, 2025)](#v3.0-beta)
 - [2.1.3 (October 9, 2024)](#v2.1.3)
 - [2.1.2 (April 24, 2024)](#v2.1.2)
 - [2.1.1 (September 21, 2023)](#v2.1.1)
@@ -23,7 +23,7 @@
 
 <a id="v3.0-beta"></a>
 
-### 🔥 3.0 Beta (July 16, 2025)
+### 🔥 3.0 beta (July 16, 2025)
 #### **RNA-Seq Module Updates**
 
 ##### 🧠 **Alignment & Annotation Enhancements**

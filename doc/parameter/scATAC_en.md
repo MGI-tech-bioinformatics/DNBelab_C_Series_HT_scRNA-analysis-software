@@ -181,7 +181,7 @@ Advanced settings:
 >     "chromeSize": "/database/scATAC/Homo_sapiens/regions/chrom.sizes",
 >     "tss": "/database/scATAC/Homo_sapiens/regions/tss.bed",
 >     "promoter": "/database/scATAC/Homo_sapiens/regions/promoter.bed",
->     "version": "3.0Beta",
+>     "version": "3.0beta",
 >     "blacklist": "None",
 >     "genomesize": "hs"
 > }

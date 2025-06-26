@@ -24,10 +24,10 @@
 
 > [!Tip]
 >
-> - `$dnbc4tools`代表可执行程序的路径，通常在使用前需要将其替换为实际的安装路径。例如，如果程序安装在 /opt/software/dnbc4tools3.0Beta，则对应命令：
+> - `$dnbc4tools`代表可执行程序的路径，通常在使用前需要将其替换为实际的安装路径。例如，如果程序安装在 `/opt/software/dnbc4tools3.0beta`，则对应命令：
 >
 > ```shell
-> /opt/software/dnbc4tools3.0Beta/dnbc4tools vdj run ...
+> /opt/software/dnbc4tools3.0beta/dnbc4tools vdj run ...
 > ```
 >
 > - 换行符 `\` 用于在命令行中将命令分为多行，以提高可读性。它表示命令未结束，下一行是该命令的继续。如果分析输入在一行中，则不需要使用反斜杠。

@@ -28,10 +28,10 @@
 
 > [!Tip]
 >
-> - `$dnbc4tools`代表可执行程序的路径，通常在使用前需要将其替换为实际的安装路径。例如，如果程序安装在 /opt/software/dnbc4tools2.1.3，则对应命令：
+> - `$dnbc4tools`代表可执行程序的路径，通常在使用前需要将其替换为实际的安装路径。例如，如果程序安装在 /opt/software/dnbc4tools3.0beta，则对应命令：
 >
 > ```shell
-> /opt/software/dnbc4tools2.1.3/dnbc4tools rna run ...
+> /opt/software/dnbc4tools3.0beta/dnbc4tools rna run ...
 > ```
 >
 > - 换行符 `\` 用于在命令行中将命令分为多行，以提高可读性。它表示命令未结束，下一行是该命令的继续。如果分析输入在一行中，则不需要使用反斜杠。
@@ -238,11 +238,11 @@ $dnbc4tools rna mkref \
     ],
     "mtgenes": "/opt/database/Homo_sapiens/star/mtgene.list",
     "species": "Homo_sapiens",
-    "version": "dnbc4tools 3.0Beta"
+    "version": "dnbc4tools 3.0beta"
 }
 ```
 
-> **注意**：构建参考数据库可能需要较长时间，取决于基因组大小和计算机性能。
+> **注意**：构建参考数据库可能需要较长时间，取决于基因组大小和计算机性能。软件主分析流程兼容旧版本数据库。
 
 运行时打印信息，以下是一个示例：
 
