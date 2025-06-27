@@ -260,7 +260,7 @@ After the analysis is complete, the output directory `outs` and logs directory w
 └── singlecell.csv                           # Cell information summary table, including fragment count, peak count, and cell identification for each cell ID
 ```
 - For detailed usage of the output results, please refer to the [output file documentation](../io.md).
-- For more detailed information about the output files, please refer to the [output file annotations](../outs/scATAC.md).
+- For more detailed information about the output files, please refer to the [output file annotations](../outs/scATAC_en.md).
 - For analysis parameter settings, please refer to the [analysis parameter settings](../parameter/scATAC_en.md).
 
 ## ❓ Frequently Asked Questions

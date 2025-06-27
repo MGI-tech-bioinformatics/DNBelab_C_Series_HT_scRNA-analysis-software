@@ -46,8 +46,8 @@
 ##### 📊 **Report & Parameter Improvements**
 - Web reports now use valid barcode/UMI and include Reads mapped confidently to genome/transcriptome
 - Updated parameters:
-  - `expect_cells` is now estimated automatically
-  - `min_umi` added (default 500) to detect more low-UMI cells
+  - `expectcells` is now estimated automatically
+  - `minumi` added (default 500) to detect more low-UMI cells
   - `customize` replaces JSON for library structure input
 
 ##### 🚀 **Performance Optimization**
@@ -100,7 +100,7 @@
 - `customize` parameter format is unified with RNA module
 - Supports single-end, paired-end, and variable-length reads
 - Single-end analysis requires `r2_only` flag to avoid halved mapping and invalid Q30
-- `beads_trans` is now optional and primarily used for testing and troubleshooting. Legacy `singlecell.csv` format from previous versions is no longer supported, requiring re-processing of 5' RNA data
+- `beadstrans` is now optional and primarily used for testing and troubleshooting. Legacy `singlecell.csv` format from previous versions is no longer supported, requiring re-processing of 5' RNA data
 - `ref` accepts custom references, including support for non-human/mouse species analysis, requires inner enrichment primer information
 
 ---

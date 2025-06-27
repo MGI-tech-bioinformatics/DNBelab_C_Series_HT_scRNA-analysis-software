@@ -390,7 +390,7 @@ After the analysis is complete, the output directory `outs` and logs directory w
 ```
 
 - For detailed usage of the output results, please refer to the [output file documentation](../io.md).
-- For more detailed information about the output files, please refer to the [output file annotations](../outs/scRNA.md).
+- For more detailed information about the output files, please refer to the [output file annotations](../outs/scRNA_en.md).
 - For analysis parameter settings, please refer to the [analysis parameter settings](../parameter/scRNA_en.md).
 
 ## ❓ Frequently Asked Questions
