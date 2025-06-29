@@ -22,7 +22,9 @@ This document provides a detailed guide for analyzing single-cell RNA sequencing
 
 ## 🔄 Workflow Diagram
 
-![Workflow Diagram](https://s2.loli.net/2024/09/26/uKTXv7Q2miNbz1S.png)
+<div align="center">
+  <img src="https://s2.loli.net/2024/09/26/uKTXv7Q2miNbz1S.png" alt="Workflow Diagram" width="100%">
+</div>
 
 ## 📌 Usage Notes
 
@@ -85,10 +87,11 @@ $dnbc4tools tools mkgtf \
   --output gtfstat.txt \
   --type gene_biotype
 ```
-
 > **Note**: You need to check the tags in the GTF file to determine the `type`.
 
-![image-20240927111652480](https://s2.loli.net/2024/10/09/afGqtQocTE9h3uR.png)
+<div align="center">
+  <img src="https://s2.loli.net/2024/10/09/afGqtQocTE9h3uR.png" alt="GTF File Type Example" width="100%">
+</div>
 
 Example output:
 
@@ -275,13 +278,24 @@ $dnbc4tools rna multi \
   --threads 30
 ```
 
-The sample.tsv file uses tab (\t) separators. The first column contains the sample name, the second column contains cDNA library sequencing data, and the third column contains oligonucleotide library sequencing data. Multiple fastq files should be separated by commas, and R1 and R2 files should be separated by semicolons.
+The `sample.tsv` file is tab-delimited (`\t`) and contains three columns:
 
-```shell
-$sample1 /data/cDNA1_R1.fq.gz;/data/cDNA1_R2.fq.gz /data/oligo1_R1.fq.gz,/data/oligo4_R1.fq.gz;/data/oligo1_R2.fq.gz,/data/oligo4_R2.fq.gz 
-$sample2 /data/cDNA2_R1.fq.gz;/data/cDNA2_R2.fq.gz /data/oligo2_R1.fq.gz;/data/oligo2_R2.fq.gz 
-$sample3 /data/cDNA3_R1.fq.gz;/data/cDNA3_R2.fq.gz /data/oligo3_R1.fq.gz;/data/oligo3_R2.fq.gz
+| Column | Content |
+|--------|---------|
+| 1      | Sample Name |
+| 2      | cDNA Library Sequencing Data |
+| 3      | Oligo Library Sequencing Data |
+
+> **Note**:
+> - Multiple FASTQ files should be separated by commas (`,`).
+> - R1 and R2 files should be separated by semicolons (`;`).
+
+```tsv
+sample1	/data/cDNA1_R1.fq.gz;/data/cDNA1_R2.fq.gz	/data/oligo1_R1.fq.gz,/data/oligo4_R1.fq.gz;/data/oligo1_R2.fq.gz,/data/oligo4_R2.fq.gz
+sample2	/data/cDNA2_R1.fq.gz;/data/cDNA2_R2.fq.gz	/data/oligo2_R1.fq.gz;/data/oligo2_R2.fq.gz
+sample3	/data/cDNA3_R1.fq.gz;/data/cDNA3_R2.fq.gz	/data/oligo3_R1.fq.gz;/data/oligo3_R2.fq.gz
 ```
+
 
 After running, the output will be:
 
@@ -319,48 +333,50 @@ $dnbc4tools rna run \
   --threads 30
 ```
 
-After automatic detection of reagent version and dark reaction, the software begins the analysis. Here is an example log:
+After automatic detection of reagent version and dark reaction, the software starts running the analysis. Here is an example:
 
 ```shell
-2025-06-04 16:29:35 Performing RNA data processing
+2024-06-04 16:29:35 Performing RNA data processing
 Chemistry(darkreaction) determined in oligoR1: darkreaction
 Chemistry(darkreaction) determined in oligoR2: darkreaction
 Chemistry(darkreaction) determined in cDNAR1: darkreaction
 
-2025-06-04 16:29:37 Processing oligo library filtering...
+2024-06-04 16:29:37 Processing oligo library filtering...
 ...done
 
-2025-06-04 16:59:39 Processing cDNA library filtering...
+2024-06-04 16:59:39 Processing cDNA library filtering...
 ...done
 
-2025-06-04 17:50:10 Processing alignment and counting...
+2024-06-04 17:50:10 Processing alignment and counting...
 ...done
 
-2025-06-05 01:20:56 Calculating bead similarity, merging beads within the same droplet...
+2024-06-05 01:20:56 Calculating bead similarity, merging beads within the same droplet...
 ...done
 
-2025-06-05 01:22:17 Generating raw gene expression matrix...
+2024-06-05 01:22:17 Generating raw gene expression matrix...
 ...done
 
-2025-06-05 01:31:38 Generating cell-filtered gene expression matrix...
+2024-06-05 01:31:38 Generating cell-filtered gene expression matrix...
 ...done
 
-2025-06-05 01:33:07 Calculating sequencing saturation metrics...
+2024-06-05 01:33:07 Calculating sequencing saturation metrics...
 ...done
 
-2025-06-05 01:34:23 Generating position-sorted BAM file...
+2024-06-05 01:34:23 Generating position-sorted BAM file...
 ...done
 
-2025-06-05 02:23:17 Performing dimensionality reduction and clustering analysis...
+2024-06-05 02:23:17 Performing dimensionality reduction and clustering analysis...
 ...done
 
-2025-06-05 02:24:57 Generating analysis report and summary statistics...
+2024-06-05 02:24:57 Generating analysis report and summary statistics...
 ...done
 
-Analysis Finished Elapsed Time: 9:56:09
+Analysis Finished
+Elapsed Time: 9:56:09
 ```
 
 A successful run ends with `Analysis Finished`.
+
 
 ---
 
@@ -389,10 +405,11 @@ After the analysis is complete, the output directory `outs` and logs directory w
 └── singlecell.csv                          # Cell information summary table, including UMI counts, gene numbers, and cell identification for each cell ID
 ```
 
-- For detailed usage of the output results, please refer to the [output file documentation](../io.md).
-- For more detailed information about the output files, please refer to the [output file annotations](../outs/scRNA_en.md).
-- For analysis parameter settings, please refer to the [analysis parameter settings](../parameter/scRNA_en.md).
+- **Output Files**: For detailed usage, refer to the [Output File Documentation](../io.md)
+- **Results Interpretation**: For an explanation of the output files, see [Output File Annotations](../outs/scRNA.md)
+- **Parameter Settings**: For details on analysis parameters, see [Analysis Parameter Settings](../parameter/scRNA.md)
+
 
 ## ❓ Frequently Asked Questions
 
-To be added later
+> `Content to be added`

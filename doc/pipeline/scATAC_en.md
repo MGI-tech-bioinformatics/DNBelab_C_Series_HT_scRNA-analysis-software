@@ -21,7 +21,9 @@ This document provides a detailed guide for analyzing single-cell ATAC sequencin
 
 ## 🔄 Workflow Diagram
 
-![Workflow Diagram](https://s2.loli.net/2024/09/27/exd1OyX3n4K8LGq.png)
+<div align="center">
+  <img src="https://s2.loli.net/2024/09/27/exd1OyX3n4K8LGq.png" alt="Workflow Diagram" width="100%">
+</div>
 
 ## 📌 Usage Notes
 
@@ -163,12 +165,21 @@ $dnbc4tools atac multi \
   --threads 10
 ```
 
-The sample.tsv file uses tab (\t) separators. The first column contains the sample name, and the second column contains library sequencing data. Multiple fastq files should be separated by commas, and R1 and R2 files should be separated by semicolons.
+The `sample.tsv` file is tab-separated (`\t`) and contains two columns:
 
-```shell
-$sample1 /data/sample1_R1.fq.gz;/data/sample1_R2.fq.gz 
-$sample2 /data/sample2_R1.fq.gz;/data/sample2_R2.fq.gz
-$sample3 /data/sample3_1_R1.fq.gz,/data/sample3_2_R1.fq.gz;/data/sample3_1_R2.fq.gz,/data/sample3_2_R2.fq.gz
+| Column | Content |
+|--------|---------|
+| 1      | Sample Name |
+| 2      | Library Sequencing Data |
+
+> **Note**:
+> - Multiple fastq files should be separated by commas (`,`).
+> - R1 and R2 files should be separated by semicolons (`;`).
+
+```tsv
+sample1	/data/sample1_R1.fq.gz;/data/sample1_R2.fq.gz
+sample2	/data/sample2_R1.fq.gz;/data/sample2_R2.fq.gz
+sample3	/data/sample3_1_R1.fq.gz,/data/sample3_2_R1.fq.gz;/data/sample3_1_R2.fq.gz,/data/sample3_2_R2.fq.gz
 ```
 
 After running, the output will be:
@@ -208,35 +219,37 @@ $dnbc4tools atac run \
 After automatic detection of reagent version and dark reaction, the software begins the analysis. Here is an example log:
 
 ```shell
-2025-06-03 16:24:27 Performing ATAC data processing
+2024-06-03 16:24:27 Performing ATAC data processing
 Chemistry(darkreaction) determined in fastqR1: darkreaction
 Chemistry(darkreaction) determined in fastqR2: darkreaction
 
-2025-06-03 16:24:30 Performing quality control and alignment on raw data...
+2024-06-03 16:24:30 Performing quality control and alignment on raw data...
 ...done
 
-2025-06-03 16:36:25 Computing bead similarity and merging beads within droplets...
+2024-06-03 16:36:25 Computing bead similarity and merging beads within droplets...
 ...done
 
-2025-06-03 16:38:21 Processing fragments for peak calling...
+2024-06-03 16:38:21 Processing fragments for peak calling...
 ...done
 
-2025-06-03 16:40:06 Generating raw peaks matrix...
+2024-06-03 16:40:06 Generating raw peaks matrix...
 ...done
 
-2025-06-03 16:47:30 Generating filtered peaks matrix...
+2024-06-03 16:47:30 Generating filtered peaks matrix...
 ...done
 
-2025-06-03 16:50:52 Conducting dimensionality reduction and clustering...
+2024-06-03 16:50:52 Conducting dimensionality reduction and clustering...
 ...done
 
-2025-06-03 16:54:44 Statistical analysis and report generation for results...
+2024-06-03 16:54:44 Statistical analysis and report generation for results...
 ...done
 
-Analysis Finished Elapsed Time: 0:30:43
+Analysis Finished
+Elapsed Time: 0:30:43
 ```
 
 A successful run ends with `Analysis Finished`.
+
 
 ---
 
@@ -259,10 +272,11 @@ After the analysis is complete, the output directory `outs` and logs directory w
 │   └── peaks.bed.gz                         # Raw peak position information
 └── singlecell.csv                           # Cell information summary table, including fragment count, peak count, and cell identification for each cell ID
 ```
-- For detailed usage of the output results, please refer to the [output file documentation](../io.md).
-- For more detailed information about the output files, please refer to the [output file annotations](../outs/scATAC_en.md).
-- For analysis parameter settings, please refer to the [analysis parameter settings](../parameter/scATAC_en.md).
+- **Output File Usage**: For detailed instructions, see [Output File Documentation](../io.md)
+- **Results Interpretation**: For an explanation of the output, see [Output File Annotations](../outs/scATAC.md)
+- **Parameter Settings**: For details on analysis parameters, see [Analysis Parameter Settings](../parameter/scATAC.md)
+
 
 ## ❓ Frequently Asked Questions
 
-To be added later
+> `Content to be added`

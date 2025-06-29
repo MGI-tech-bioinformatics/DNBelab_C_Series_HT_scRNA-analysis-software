@@ -6,19 +6,19 @@ After single-cell VDJ analysis is completed, the following files and subdirector
 
 ```
 .
-├── airr_annotations.tsv                    # AIRR standard format annotation file
+├── airr_annotations.tsv                    # Annotation file in AIRR standard format
 ├── all_contig_annotations.csv              # Annotation information for all assembled sequences
 ├── all_contig.fasta                        # FASTA file of all assembled sequences
 ├── all_contig.fasta.fai                    # Index file for all assembled sequences
 ├── clonotypes.csv                          # Clonotype analysis results
 ├── consensus_annotations.csv               # Consensus sequence annotation information
-├── consensus.fasta                         # Consensus sequence FASTA file
-├── consensus.fasta.fai                     # Consensus sequence index file
+├── consensus.fasta                         # FASTA file of consensus sequences
+├── consensus.fasta.fai                     # Index file for consensus sequences
 ├── filtered_contig_annotations.csv         # Annotation information for filtered assembled sequences
-├── filtered_contig.fasta                   # Filtered assembled sequence FASTA file
+├── filtered_contig.fasta                   # FASTA file of filtered assembled sequences
 ├── filtered_contig.fasta.fai               # Index file for filtered assembled sequences
-├── metrics_summary.xls                     # Analysis quality metrics summary table
-└── *_scVDJ_TR(IG)_report.html              # HTML format analysis report
+├── metrics_summary.xls                     # Summary of analysis quality metrics
+└── *_scVDJ_TR(IG)_report.html              # Analysis report in HTML format
 ```
 
 ## 📑 Table of Contents
@@ -36,8 +36,8 @@ After single-cell VDJ analysis is completed, the following files and subdirector
 
 **Typical V(D)J Transcript Structure:**
 
-<div align="left">
-  <img src="../images/vdj_transcript.png" alt="V(D)J Transcript Structure Diagram" width="650">
+<div align="center">
+  <img src="../images/vdj_transcript.png" alt="V(D)J Transcript Structure Diagram" width="800">
 </div>
 
 > **Terminology:**  

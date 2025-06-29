@@ -6,26 +6,26 @@ After single-cell RNA analysis is completed, the following files and subdirector
 
 ## 📁 Output Directory Structure
 
-```
+```bash
 .
-├── analysis/                      # Downstream analysis results directory
+├── analysis/                      # Directory for downstream analysis results
 │   ├── cluster.csv                # Cell clustering results file
-│   ├── marker.csv                 # Differential expression gene marker file
-│   └── QC_Cluster.h5ad            # AnnData object after quality control and clustering
-├── anno_decon_sorted.bam          # Aligned, annotated and sorted BAM file
+│   ├── marker.csv                 # Differentially expressed gene markers file
+│   └── QC_Cluster.h5ad            # AnnData object after QC and clustering
+├── anno_decon_sorted.bam          # Aligned, annotated, and sorted BAM file
 ├── anno_decon_sorted.bam.bai      # BAM index file
 ├── filter_feature.h5ad            # Filtered feature matrix (AnnData format)
-├── filter_matrix/                 # Filtered gene expression matrix directory
-│   ├── barcodes.tsv.gz            # Cell barcode file
+├── filter_matrix/                 # Directory for the filtered gene expression matrix
+│   ├── barcodes.tsv.gz            # Cell barcodes file
 │   ├── features.tsv.gz            # Gene/feature information file
 │   └── matrix.mtx.gz              # Sparse matrix file (Market Matrix format)
-├── metrics_summary.xls            # Analysis metrics summary table
-├── raw_matrix/                    # Raw gene expression matrix directory
-│   ├── barcodes.tsv.gz            # Raw cell barcode file
+├── metrics_summary.xls            # Summary table of analysis metrics
+├── raw_matrix/                    # Directory for the raw gene expression matrix
+│   ├── barcodes.tsv.gz            # Raw cell barcodes file
 │   ├── features.tsv.gz            # Raw gene/feature information file
 │   └── matrix.mtx.gz              # Raw sparse matrix file
 ├── singlecell.csv                 # Single-cell metadata information table
-└── *_scRNA_report.html            # HTML format analysis report
+└── *_scRNA_report.html            # Analysis report in HTML format
 ```
 
 ---
@@ -159,7 +159,9 @@ Market Exchange Format (MEX) is a standard file format for storing sparse matric
 
 AnnData ("Annotated Data") is a data structure designed for matrix-type data, particularly suitable for single-cell RNA sequencing data analysis. It is based on HDF5 format, providing efficient data storage and access capabilities. It can be read and manipulated through Python's `scanpy` or `anndata` packages.
 
-<img src="../images/anndata.jpg" alt="AnnData Format Structure" width="300">
+<p align="center">
+  <img src="../images/anndata.jpg" alt="AnnData Structure Diagram" width="400">
+</p>
 
 #### Core Components
 

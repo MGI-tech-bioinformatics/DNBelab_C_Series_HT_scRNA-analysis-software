@@ -21,7 +21,9 @@
 
 ## 🔄 工作流程图
 
-![工作流程图](https://s2.loli.net/2024/09/27/exd1OyX3n4K8LGq.png)
+<div align="center">
+  <img src="https://s2.loli.net/2024/09/27/exd1OyX3n4K8LGq.png" alt="工作流程图" width="100%">
+</div>
 
 ## 📌 使用说明
 
@@ -164,12 +166,21 @@ $dnbc4tools atac multi \
   --threads 10
 ```
 
-其中sample.tsv文件使用制表符 (\t) 分隔符。第一列包含样本名称，第二列包含文库测序数据。多个 fastq 文件应以逗号分隔，R1 和 R2 文件应以分号分隔。
+其中 `sample.tsv` 文件使用制表符 (`\t`) 分隔，包含两列：
 
-```shell
-$sample1 /data/sample1_R1.fq.gz;/data/sample1_R2.fq.gz 
-$sample2 /data/sample2_R1.fq.gz;/data/sample2_R2.fq.gz
-$sample3 /data/sample3_1_R1.fq.gz,/data/sample3_2_R1.fq.gz;/data/sample3_1_R2.fq.gz,/data/sample3_2_R2.fq.gz
+| 列 | 内容 |
+|----|------|
+| 1  | 样本名称 |
+| 2  | 文库测序数据 |
+
+> **注意**：
+> - 多个fastq文件以逗号（`,`）分隔
+> - R1和R2文件以分号（`;`）分隔
+
+```tsv
+sample1	/data/sample1_R1.fq.gz;/data/sample1_R2.fq.gz
+sample2	/data/sample2_R1.fq.gz;/data/sample2_R2.fq.gz
+sample3	/data/sample3_1_R1.fq.gz,/data/sample3_2_R1.fq.gz;/data/sample3_1_R2.fq.gz,/data/sample3_2_R2.fq.gz
 ```
 
 运行完成后输出：
@@ -207,35 +218,37 @@ $dnbc4tools atac run \
 在对试剂版本和暗反应自动检测后，软件开始运行分析，以下是一个示例：
 
 ```shell
-2025-06-03 16:24:27 Performing ATAC data processing
+2024-06-03 16:24:27 Performing ATAC data processing
 Chemistry(darkreaction) determined in fastqR1: darkreaction
 Chemistry(darkreaction) determined in fastqR2: darkreaction
 
-2025-06-03 16:24:30 Performing quality control and alignment on raw data...
+2024-06-03 16:24:30 Performing quality control and alignment on raw data...
 ...done
 
-2025-06-03 16:36:25 Computing bead similarity and merging beads within droplets...
+2024-06-03 16:36:25 Computing bead similarity and merging beads within droplets...
 ...done
 
-2025-06-03 16:38:21 Processing fragments for peak calling...
+2024-06-03 16:38:21 Processing fragments for peak calling...
 ...done
 
-2025-06-03 16:40:06 Generating raw peaks matrix...
+2024-06-03 16:40:06 Generating raw peaks matrix...
 ...done
 
-2025-06-03 16:47:30 Generating filtered peaks matrix...
+2024-06-03 16:47:30 Generating filtered peaks matrix...
 ...done
 
-2025-06-03 16:50:52 Conducting dimensionality reduction and clustering...
+2024-06-03 16:50:52 Conducting dimensionality reduction and clustering...
 ...done
 
-2025-06-03 16:54:44 Statistical analysis and report generation for results...
+2024-06-03 16:54:44 Statistical analysis and report generation for results...
 ...done
 
-Analysis Finished Elapsed Time: 0:30:43
+Analysis Finished
+Elapsed Time: 0:30:43
 ```
 
-成功的运行会以Analysis Finished结束。
+成功的运行会以 `Analysis Finished` 结束。
+
 
 ## 📊 结果解析
 
@@ -257,11 +270,10 @@ Analysis Finished Elapsed Time: 0:30:43
 └── singlecell.csv                           # 细胞信息汇总表，包含每个cellid的片段数量、峰数量以及是否为细胞等信息
 ```
 
-- 有关输出结果的详细使用方法，请[参考输出文件使用方法](../io.md)。
-- 有关输出的结果释义，请[参考输出文件解释](../outs/scATAC.md)。
-- 有关分析的参数设置，请[参考分析参数设置](../parameter/scATAC.md)。
-
+- **输出文件使用方法**：详细说明请参考 [输出文件使用方法](../io.md)
+- **结果释义**：关于输出结果的解释，请参考 [输出文件解释](../outs/scATAC.md)
+- **参数设置**：分析参数的详细信息，请参考 [分析参数设置](../parameter/scATAC.md)
 
 ## ❓ 常见问题
 
-后续补充。
+> `内容待补充`

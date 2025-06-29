@@ -8,8 +8,8 @@ The **dnbc4tools** analysis workflow integrates multiple submodules, each capabl
 
 | Type                  | Description                                                                 | Documentation                                                          |
 |-----------------------|-----------------------------------------------------------------------------|------------------------------------------------------------------------|
-| 🔬 Single-Cell RNA    | Gene expression profiling at scale with single cell resolution. | [English](./pipeline/scRNA_en.md) / [中文](./pipeline/scRNA.md)         |
-| 🧪 Single-Cell ATAC   | Chromatin accessibilility profiling at the single cell level. | [English](./pipeline/scATAC_en.md) / [中文](./pipeline/scATAC.md)       |
+| 🔬 Single-Cell RNA    | Gene expression profiling at scale with single-cell resolution. | [English](./pipeline/scRNA_en.md) / [中文](./pipeline/scRNA.md)         |
+| 🧪 Single-Cell ATAC   | Chromatin accessibility profiling at the single-cell level. | [English](./pipeline/scATAC_en.md) / [中文](./pipeline/scATAC.md)       |
 | 🦠 Single-Cell VDJ    | V(D)J repertoire profiling for the specificity of T and B cells. | [English](./pipeline/scVDJ_en.md) / [中文](./pipeline/scVDJ.md)         |
 
 ---

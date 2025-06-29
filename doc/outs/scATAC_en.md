@@ -6,25 +6,25 @@ After single-cell ATAC analysis is completed, the following files and subdirecto
 
 ## 📁 Output Directory Structure
 
-```
+```bash
 .
-├── alignment.fragments.sorted.tagged.bam       # Quality-controlled alignment results (requires need_bam parameter)
-├── alignment.fragments.sorted.tagged.bam.bai   # Alignment result index file
-├── filter_peak_matrix/                         # Filtered peak matrix MEX format directory
-│   ├── barcodes.tsv.gz                         # Filtered cell barcode information
-│   ├── matrix.mtx.gz                           # Filtered sparse matrix format peak signal data
-│   └── peaks.bed.gz                            # Filtered peak position information
-├── fragments.tsv.gz                            # Contains all fragment information aligned to genome
-├── fragments.tsv.gz.tbi                        # Fragment file index for fast random access
-├── filtered.fragments.tsv.gz                   # Quality-controlled ATAC fragment file containing only high-quality fragments passing cell filtering
-├── filtered.fragments.tsv.gz.tbi               # Tabix index for filtered fragment file, supporting fast genomic interval queries
-├── metrics_summary.xls                         # Analysis quality metrics summary table
-├── raw_peak_matrix/                            # Raw peak matrix MEX format directory
+├── alignment.fragments.sorted.tagged.bam       # Quality-controlled alignment results (requires the 'need_bam' parameter for analysis)
+├── alignment.fragments.sorted.tagged.bam.bai   # Index file for the alignment results
+├── filter_peak_matrix/                         # Directory for the filtered peak matrix in MEX format
+│   ├── barcodes.tsv.gz                         # Barcodes of filtered cells
+│   ├── matrix.mtx.gz                           # Sparse matrix of peak signals in filtered data
+│   └── peaks.bed.gz                            # Peak locations in filtered data
+├── fragments.tsv.gz                            # All fragments aligned to the genome
+├── fragments.tsv.gz.tbi                        # Index for the fragments file for fast random access
+├── filtered.fragments.tsv.gz                   # Quality-controlled ATAC fragments file, containing only high-quality fragments from filtered cells
+├── filtered.fragments.tsv.gz.tbi               # Tabix index for the filtered fragments file, enabling fast queries of genomic intervals
+├── metrics_summary.xls                         # Summary table of analysis quality metrics
+├── raw_peak_matrix/                            # Directory for the raw peak matrix in MEX format
 │   ├── barcodes.tsv.gz                         # Raw cell barcode information
-│   ├── matrix.mtx.gz                           # Raw sparse matrix format peak signal data
-│   └── peaks.bed.gz                            # Raw peak position information
-├── singlecell.csv                              # Cell information summary table
-└── *_scATAC_report.html                        # HTML format analysis report
+│   ├── matrix.mtx.gz                           # Raw sparse matrix of peak signals
+│   └── peaks.bed.gz                            # Raw peak location information
+├── singlecell.csv                              # Summary table of cell information
+└── *_scATAC_report.html                        # Analysis report in HTML format
 ```
 
 ---
@@ -161,7 +161,9 @@ The HTML web report provides comprehensive visualization and detailed interpreta
 
 ### 📊 Main Report Content
 
-<img src="../images/html_scatac1.png" alt="scATAC Web Report" width="500">
+<p align="center">
+  <img src="../images/html_scatac1.png" alt="scATAC Report" width="800">
+</p>
 
 #### 🧬 Cell Metrics
 - **Estimated number of cells**  

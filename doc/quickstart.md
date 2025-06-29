@@ -8,14 +8,14 @@
 
 ---
 
-> **💡 Tip: Before You Begin**
+> **💡 Pro-Tip: Before You Start**
 > 
-> - `$dnbc4tools` refers to the path of the executable program. Before running any commands, replace it with the actual installation path. For example, if installed in `/opt/software/dnbc4tools3.0beta`, use:
+> - `$dnbc4tools` refers to the executable's path. Before running any commands, replace it with the actual installation path. For example, if installed in `/opt/software/dnbc4tools3.0beta`, use:
 >   ```shell
 >   /opt/software/dnbc4tools3.0beta/dnbc4tools rna run ...
 >   ```
-> - Use the line continuation character `\` to split long commands into multiple lines for readability. If the command is on a single line, omit the backslashes.
-> - Commands in this guide use example paths. Adjust all paths according to your specific environment.
+> - Use the line continuation character `\` to split long commands across multiple lines for readability. Omit the backslash if the command is on a single line.
+> - The commands in this guide use example paths. Adjust all paths to match your specific environment.
 
 ---
 
@@ -23,7 +23,7 @@
 
 > Single-cell RNA sequencing (scRNA-seq) enables gene expression profiling at the single-cell level, revealing cellular heterogeneity and identifying rare cell populations.
 
-### 1.1 Building the Reference Genome
+### 1.1 Build Reference Genome
 
 <details open>
 <summary><b>Human (GRCh38)</b></summary>
@@ -35,11 +35,11 @@ Download and prepare the reference files:
 wget http://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_32/GRCh38.primary_assembly.genome.fa.gz
 wget http://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_32/gencode.v32.primary_assembly.annotation.gtf.gz
 
-# Decompress files
+# Unzip the files
 gzip -d GRCh38.primary_assembly.genome.fa.gz
 gzip -d gencode.v32.primary_assembly.annotation.gtf.gz
 
-# Create filtered GTF and build reference
+# Create a filtered GTF and build the reference
 $dnbc4tools tools mkgtf --ingtf gencode.v32.primary_assembly.annotation.gtf --output genes.filter.gtf --type gene_type
 $dnbc4tools rna mkref --ingtf genes.filter.gtf --fasta GRCh38.primary_assembly.genome.fa --threads 10 --species Homo_sapiens
 ```
@@ -82,7 +82,7 @@ $dnbc4tools rna mkref \
 
 ### 1.2 Data Analysis
 
-> This step processes raw sequencing data to generate gene expression matrices and perform quality control.
+> This step processes raw sequencing data to generate a gene expression matrix and perform quality control.
 
 <details open>
 <summary><b>scRNA-seq Analysis Command</b></summary>
@@ -106,7 +106,7 @@ $dnbc4tools rna run \
 
 > Single-cell ATAC sequencing (scATAC-seq) profiles chromatin accessibility at the single-cell level, revealing regulatory elements and transcription factor binding sites.
 
-### 2.1 Building the Reference Genome
+### 2.1 Build Reference Genome
 
 <details open>
 <summary><b>Human (GRCh38)</b></summary>
@@ -150,7 +150,7 @@ $dnbc4tools atac mkref --fasta GRCm38.primary_assembly.genome.fa --ingtf genes.f
 
 ### 2.2 Data Analysis
 
-> This step processes raw sequencing data to identify accessible chromatin regions and generate accessibility matrices.
+> This step processes raw sequencing data to identify accessible chromatin regions and generate an accessibility matrix.
 
 <details open>
 <summary><b>scATAC-seq Analysis Command</b></summary>
@@ -173,7 +173,7 @@ $dnbc4tools atac run \
 > Single-cell VDJ sequencing (scVDJ-seq) profiles immune receptor repertoires at the single-cell level, enabling the study of adaptive immune responses and clonal expansion.
 
 > [!NOTE]
-> The single-cell VDJ analysis requires first completing the 5' scRNA analysis to establish cell-bead correspondence.
+> Single-cell VDJ analysis requires completing the 5' scRNA analysis first to establish cell-bead correspondence.
 
 ### 3.1 5' scRNA Analysis
 
@@ -272,7 +272,7 @@ $dnbc4tools vdj run \
 
 ## 📋 Command Reference
 
-For detailed parameter descriptions and additional options, refer to the [parameter documentation](parameter/README.md).
+For detailed parameter descriptions and additional options, refer to the [parameter documentation](parameter/parameter_en.md).
 
 To learn how to use and analyze the output results in R or Python, see the [output usage guide](io.md).
 

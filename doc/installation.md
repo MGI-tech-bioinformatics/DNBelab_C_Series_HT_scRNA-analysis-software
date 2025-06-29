@@ -24,7 +24,7 @@
 
 ## 💾 Software Download
 
-### dnbc4tools 3.0 beta (Released: July 16, 2025)
+### dnbc4tools 3.0 beta (Released: Jun 16, 2025)
 
 | Package Details | Information                                  |
 |----------------|----------------------------------------------|
@@ -46,20 +46,20 @@ curl -o dnbc4tools3.0Beta.tar.gz "https://ftp.cngb.org/pub/CNSA/data5/CNP0006367
 
 > **dnbc4tools 3.0 beta introduces:**
 > 
-> **RNA-Seq Analysis Updates**
-> - **Enhanced Annotation Rules**: Improved RNA annotation logic for accuracy and compatibility
-> - **HTML Report Upgrades**: Adjusted visualization parameters for better interactive exploration
-> - **Expanded Feature Matrix**: Added `gene_id` and `gene_name` fields to the feature matrix
-> - **BAM File Enrichment**: Enhanced BAM file outputs with additional metadata for downstream analysis
-> - **Dual-Species Support**: Enabled library preparation and analysis for mixed-species samples
+> - **RNA-Seq Analysis Updates**
+>   - **Enhanced Annotation Rules**: Improved RNA annotation logic for accuracy and compatibility.
+>   - **HTML Report Upgrades**: Adjusted visualization parameters for better interactive exploration.
+>   - **Expanded Feature Matrix**: Added `gene_id` and `gene_name` fields to the feature matrix.
+>   - **BAM File Enrichment**: Enhanced BAM file outputs with additional metadata for downstream analysis.
+>   - **Dual-Species Support**: Enabled library preparation and analysis for mixed-species samples.
 > 
-> **VDJ Analysis Improvements**
-> - **Algorithm Optimization**: Refined V(D)J assembly and annotation algorithms for higher precision
-> - **Standardized Outputs**: Updated result formats to align with mainstream analysis tools
+> - **VDJ Analysis Improvements**
+>   - **Algorithm Optimization**: Refined V(D)J assembly and annotation algorithms for higher precision.
+>   - **Standardized Outputs**: Updated result formats to align with mainstream analysis tools.
 > 
-> **Pipeline Efficiency**
-> - **Streamlined Storage**: Removed intermediate files; only final results are retained to reduce storage usage
-> - **Log & Directory Restructuring**: Reorganized analysis directories and logs for better traceability
+> - **Pipeline Efficiency**
+>   - **Streamlined Storage**: Removed intermediate files; only final results are retained to reduce storage usage.
+>   - **Log & Directory Restructuring**: Reorganized analysis directories and logs for better traceability.
 
 ---
 
@@ -110,6 +110,6 @@ Confirm that the installation was successful:
 
 Now that you have successfully installed the software, you can:
 
-- Check the [Quick Start Guide](./quickstart.md) to begin your analysis
-- Explore the [Analysis Workflows](./pipeline.md) for detailed pipeline information
-- Review [Parameter Settings](./parameter/parameter_en.md) for configuration options
+- Check the [Quick Start Guide](./quickstart.md) to begin your analysis.
+- Explore the [Analysis Workflows](./pipeline.md) for detailed pipeline information.
+- Review [Parameter Settings](./parameter/parameter_en.md) for configuration options.

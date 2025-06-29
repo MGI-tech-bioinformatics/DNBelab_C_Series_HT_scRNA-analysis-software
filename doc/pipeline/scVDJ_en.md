@@ -18,7 +18,9 @@ This document provides a detailed guide for analyzing single-cell VDJ sequencing
 
 ## 🔄 Workflow Diagram
 
-![Workflow Diagram](https://s2.loli.net/2024/09/27/WHFIaNpLV8xu4Pi.png)
+<p align="center">
+  <img src="https://s2.loli.net/2024/09/27/WHFIaNpLV8xu4Pi.png" alt="Workflow Diagram" width="800">
+</p>
 
 ## 📌 Usage Notes
 
@@ -37,7 +39,7 @@ This document provides a detailed guide for analyzing single-cell VDJ sequencing
 
 ### 1️⃣ 5' Transcriptome Analysis
 
-For transcriptome analysis, please refer to dnbc4tools rna run. The 5' transcriptome analysis requires adding the parameter `--end5` to the single-cell RNA main process analysis.
+For transcriptome analysis, please refer to `dnbc4tools rna run`. The 5' transcriptome analysis main pipeline requires adding the `--end5` parameter to the standard single-cell RNA analysis workflow.
 
 To generate an expression matrix for a single sample, here is an example step or script template:
 
@@ -64,7 +66,7 @@ The analysis requires the following files:
 | **FASTQ files** | VDJ library sequencing data containing TCR or BCR sequence information |
 | **singlecell.csv file** | Cell information file from 5' transcriptome analysis results |
 
-The *singlecell.csv* file in the corresponding sample's 5' transcriptome analysis results directory includes merged information from the cell and barcode columns, as well as the is_cell_barcode column indicating the 5' identified cells (1 indicates a cell, 0 indicates not a cell).
+The analysis requires the `singlecell.csv` file from the 5' transcriptome analysis output directory. This file contains merged information from the `cell` and `barcode` columns, along with an `is_cell_barcode` column (1 for a cell, 0 for a non-cell) to identify valid cells.
 
 > **Note**: Ensure the singlecell.csv file path is correct, as this file is key to connecting transcriptome and VDJ analysis.
 
@@ -155,7 +157,7 @@ Chemistry(darkreaction) determined in fastqR1: darkreaction
 Analysis Finished Elapsed Time: 3:53:07
 ```
 
-A successful run ends with "Analysis Finished".
+A successful run ends with `Analysis Finished`.
 
 ## 📊 Results Interpretation
 
@@ -177,10 +179,10 @@ After analysis completion, the output directory "outs" and logs directory will b
 └── metrics_summary.xls                      # Analysis quality metrics summary table
 ```
 
-- For detailed usage of the output results, please refer to the [output file documentation](../io.md).
-- For more detailed information about the output files, please refer to the [output file annotations](../outs/scVDJ_en.md).
-- For analysis parameter settings, please refer to the [analysis parameter settings](../parameter/scVDJ_en.md).
+- **Output Files**: For detailed usage, refer to the [Output File Documentation](../io.md).
+- **Results Interpretation**: For an explanation of the output files, see [Output File Annotations](../outs/scVDJ_en.md).
+- **Parameter Settings**: For details on analysis parameters, see [Analysis Parameter Settings](../parameter/scVDJ_en.md).
 
 ## ❓ Frequently Asked Questions
 
-To be added later
+*To be added later.*

@@ -22,7 +22,9 @@
 
 ## 🔄 工作流程图
 
-![工作流程图](https://s2.loli.net/2024/09/26/uKTXv7Q2miNbz1S.png)
+<div align="center">
+  <img src="https://s2.loli.net/2024/09/26/uKTXv7Q2miNbz1S.png" alt="工作流程图" width="1000">
+</div>
 
 ## 📌 使用说明
 
@@ -94,7 +96,9 @@ $dnbc4tools tools mkgtf \
 
 > **注意**：需要查看GTF文件中的tag确定`type`的类型。
 
-![image-20240927111652480](https://s2.loli.net/2024/10/09/afGqtQocTE9h3uR.png)
+<div align="center">
+  <img src="https://s2.loli.net/2024/10/09/afGqtQocTE9h3uR.png" alt="GTF文件类型示例" width="800">
+</div>
 
 输出示例：
 
@@ -281,13 +285,22 @@ $dnbc4tools rna multi \
   --threads 30
 ```
 
-其中sample.tsv文件使用制表符 (\t) 分隔符。第一列包含样本名称，第二列包含 cDNA 文库测序数据，第三列包含寡核苷酸文库测序数据。多个 fastq 文件应以逗号分隔，R1 和 R2 文件应以分号分隔。
+其中 `sample.tsv` 文件使用制表符 (`\t`) 分隔，包含三列：
 
-```shell
-$sample1 /data/cDNA1_R1.fq.gz;/data/cDNA1_R2.fq.gz /data/oligo1_R1.fq.gz,/data/oligo4_R1.fq.gz;/data/oligo1_R2.fq.gz,/data/oligo4_R2.fq.gz 
-$sample2 /data/cDNA2_R1.fq.gz;/data/cDNA2_R2.fq.gz /data/oligo2_R1.fq.gz;/data/oligo2_R2.fq.gz 
-$sample3 /data/cDNA3_R1.fq.gz;/data/cDNA3_R2.fq.gz /data/oligo3_R1.fq.gz;/data/oligo3_R2.fq.gz
+| 列 | 内容 |
+|----|------|
+| 1  | 样本名称 |
+| 2  | cDNA文库测序数据 |
+| 3  | oligo文库测序数据 |
+
+> **注意**：多个fastq文件以逗号分隔，R1和R2文件以分号分隔。
+
+```tsv
+sample1	/data/cDNA1_R1.fq.gz;/data/cDNA1_R2.fq.gz	/data/oligo1_R1.fq.gz,/data/oligo4_R1.fq.gz;/data/oligo1_R2.fq.gz,/data/oligo4_R2.fq.gz
+sample2	/data/cDNA2_R1.fq.gz;/data/cDNA2_R2.fq.gz	/data/oligo2_R1.fq.gz;/data/oligo2_R2.fq.gz
+sample3	/data/cDNA3_R1.fq.gz;/data/cDNA3_R2.fq.gz	/data/oligo3_R1.fq.gz;/data/oligo3_R2.fq.gz
 ```
+
 
 运行完成后输出：
 
@@ -329,45 +342,47 @@ $dnbc4tools rna run \
 在对试剂版本和暗反应自动检测后，软件开始运行分析，以下是一个示例：
 
 ```shell
-2025-06-04 16:29:35 Performing RNA data processing
+2024-06-04 16:29:35 Performing RNA data processing
 Chemistry(darkreaction) determined in oligoR1: darkreaction
 Chemistry(darkreaction) determined in oligoR2: darkreaction
 Chemistry(darkreaction) determined in cDNAR1: darkreaction
 
-2025-06-04 16:29:37 Processing oligo library filtering...
+2024-06-04 16:29:37 Processing oligo library filtering...
 ...done
 
-2025-06-04 16:59:39 Processing cDNA library filtering...
+2024-06-04 16:59:39 Processing cDNA library filtering...
 ...done
 
-2025-06-04 17:50:10 Processing alignment and counting...
+2024-06-04 17:50:10 Processing alignment and counting...
 ...done
 
-2025-06-05 01:20:56 Calculating bead similarity, merging beads within the same droplet...
+2024-06-05 01:20:56 Calculating bead similarity, merging beads within the same droplet...
 ...done
 
-2025-06-05 01:22:17 Generating raw gene expression matrix...
+2024-06-05 01:22:17 Generating raw gene expression matrix...
 ...done
 
-2025-06-05 01:31:38 Generating cell-filtered gene expression matrix...
+2024-06-05 01:31:38 Generating cell-filtered gene expression matrix...
 ...done
 
-2025-06-05 01:33:07 Calculating sequencing saturation metrics...
+2024-06-05 01:33:07 Calculating sequencing saturation metrics...
 ...done
 
-2025-06-05 01:34:23 Generating position-sorted BAM file...
+2024-06-05 01:34:23 Generating position-sorted BAM file...
 ...done
 
-2025-06-05 02:23:17 Performing dimensionality reduction and clustering analysis...
+2024-06-05 02:23:17 Performing dimensionality reduction and clustering analysis...
 ...done
 
-2025-06-05 02:24:57 Generating analysis report and summary statistics...
+2024-06-05 02:24:57 Generating analysis report and summary statistics...
 ...done
 
-Analysis Finished Elapsed Time: 9:56:09
+Analysis Finished
+Elapsed Time: 9:56:09
 ```
 
-成功的运行会以Analysis Finished结束。
+成功的运行会以 `Analysis Finished` 结束。
+
 
 ## 📊 结果解析
 
@@ -394,10 +409,10 @@ Analysis Finished Elapsed Time: 9:56:09
 └── singlecell.csv                          # 细胞信息汇总表，包含每个cellid的UMI计数、基因数量以及是否为细胞等信息
 ```
 
-- 有关输出结果的详细使用方法，请[参考输出文件使用方法](../io.md)。
-- 有关输出的结果释义，请[参考输出文件解释](../outs/scRNA.md)。
-- 有关分析的参数设置，请[参考分析参数设置](../parameter/scRNA.md)。
+- **输出文件使用方法**：详细说明请参考 [输出文件使用方法](../io.md)
+- **结果释义**：关于输出结果的解释，请参考 [输出文件解释](../outs/scRNA.md)
+- **参数设置**：分析参数的详细信息，请参考 [分析参数设置](../parameter/scRNA.md)
 
 ## ❓ 常见问题
 
-后续补充。
+> `内容待补充`
