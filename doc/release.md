@@ -1,10 +1,6 @@
 # Release Notes
 
----
-
 > **Official release history of DNBelab C Series™ HT Single-Cell Analysis Software**
-
----
 
 ## 📋 dnbc4tools Release History
 
@@ -106,7 +102,7 @@
 
 
 #### **Cross-Module Improvements**
-- **Database**: Database structure has been adjusted with stricter GTF validation, while maintaining compatibility with databases built by older versions.
+- **Database**: The database structure has been adjusted with stricter GTF validation, while maintaining compatibility with databases built by older versions.
 - **Storage**: Reduced post-analysis disk usage through significant directory structure changes and removal of intermediate temporary files.
 - **Parameters**: Standardized `customize` parameter logic across modules.
 - **Process Flow**: Due to the removal of intermediate files, the `process` parameter for selecting steps and resume functionality is no longer supported.
@@ -122,11 +118,11 @@
 
 - This update is released as a tar.gz compressed file, which users can directly extract without additional computational environment configuration.
 
-- Removed conda installation method. Container version has not been updated, but users can build it themselves.
+- Removed conda installation method. The container version has not been updated, but users can build it themselves.
 
 - Added GTF file format checking and correction functionality.
 
-- Fixed memory exception issues in scATAC bead merging analysis process.
+- Fixed memory exception issues in the scATAC bead merging analysis process.
 
 - Optimized time consumption for RNA alignment and interval annotation.
 
@@ -137,7 +133,7 @@
 
 ### 🔬 2.1.2 (2024.04.24)
 
-- Adjusted ATAC analysis algorithm: merging based on Jaccard values, followed by cell identification through peaks region fragments.
+- Adjusted ATAC analysis algorithm: merging based on Jaccard values, followed by cell identification through fragments in peak regions.
 
 - Added multiple ATAC filtering parameters and support for generating BAM format files.
 
@@ -145,7 +141,7 @@
 
 - Adjusted ATAC web report style to maintain consistency with RNA analysis reports.
 
-- Optimized software installation process, removed R package installation steps.
+- Optimized the software installation process, removing R package installation steps.
 
 - Modified N filtering logic: changed from filtering fragments containing "N" to filtering fragments with "N" in cell barcode and UMI regions.
 
@@ -157,7 +153,7 @@
 
 - Optimized RNA analysis workflow: performing bead merging analysis using oligo data before cell identification.
 
-- Optimized marker gene display for RNA cell populations to show the top 50 genes by log2FC value for each population.
+- Optimized marker gene display for RNA cell populations to show the top 50 genes by log2 fold change for each population.
 
 - Fixed potential high memory usage issues in container versions.
 
@@ -173,7 +169,7 @@
 
 - **New Feature**: Added ATAC analysis module.
 
-- Optimized RNA reference database construction, added `ref.json` file to record database information.
+- Optimized RNA reference database construction, adding a `ref.json` file to record database information.
 
 - Replaced Seurat with Scanpy for RNA dimensionality reduction and clustering, improving analysis speed.
 
@@ -185,7 +181,7 @@
 
 ### ⚙️ 2.0.7 (2022.11.04)
 
-- Added automatic recognition of reagent versions and sequencing dark reactions. New parameters `chemistry`, `darkreaction`, and `customize` replace the original `cDNAconfig` and `oligoconfig`. Removed the `mixseq` parameter. Automatic recognition is recommended.
+- Added automatic recognition of reagent versions and sequencing dark cycles. New parameters `chemistry`, `darkreaction`, and `customize` replace the original `cDNAconfig` and `oligoconfig`. Removed the `mixseq` parameter. Automatic recognition is recommended.
 
 - Added adapter sequence trimming functionality during RNA cDNA library fastq filtering.
 
@@ -199,17 +195,17 @@
 
 - Added Singularity container version.
 
-- Fixed issues with analysis result reproducibility, now ensuring consistent results across multiple analyses.
+- Fixed reproducibility issues to ensure consistent results across analyses.
 
 - Fixed errors in cDNA library Q30 read count statistics.
 
-- Fixed inconsistency between barcode count in `barcodes.tsv.gz` and estimated cell count.
+- Fixed inconsistency between the barcode count in `barcodes.tsv.gz` and the estimated cell count.
 
 ---
 
 <a id="v2.0.5"></a>
 
-### 🐋 2.0.5 (August 19, 2022)
+### 🐋 2.0.5 (2022.08.19)
 
 - Added Docker image version.
 
@@ -221,19 +217,19 @@
 
 - Adjusted UMI correction logic.
 
-- Fixed error requiring the first line of GTF files to contain `#` during filtering.
+- Fixed an error requiring the first line of GTF files to contain `#` during filtering.
 
 ---
 
 <a id="v2.0.0"></a>
 
-### 🚀 2.0.0 (June 20, 2022)
+### 🚀 2.0.0 (2022.06.20)
 
 - Added command-line mode support.
 
 - Fixed workflow interruption issues caused by empty beads similarity analysis and errors in QC and clustering analysis when cell counts are low.
 
-- Optimized alignment and interval annotation time and memory consumption. By default, intron reads are included for expression analysis; emptydrops method is used by default in cell identification; improved image display in result reports.
+- Optimized alignment and interval annotation time and memory consumption. By default, intron reads are included for expression analysis; the emptydrops method is now used by default for cell identification; improved image display in result reports.
 
 - Added saturation analysis, cell cluster annotation, and Fraction Reads in cells result statistics.
 
@@ -254,11 +250,11 @@ Historical version information can be obtained from [GitHub Releases](https://gi
 
 ## 🔍 Version Selection Guide
 
-| Version | Key Features | Recommended Use Cases |
+| Version | Key Features & Analysis Types | Recommended Use Cases |
 |---------|--------------|----------------------|
-| 2.1.3+  | RNA 5' and VDJ analysis | VDJ analysis |
-| 2.1.0+  | ATAC analysis support | ATAC analysis |
-| 2.0.0+  | Command-line interface | Basic RNA analysis |
+| 2.1.3+  | Adds RNA 5' and VDJ analysis | VDJ analysis, 5' RNA analysis. |
+| 2.1.0+  | Adds ATAC analysis support | ATAC analysis. |
+| 2.0.0+  | Command-line interface for 3' RNA | Basic 3' RNA analysis. |
 
-> For production environments, we recommend using the latest stable release.
+> For production environments, we recommend using the latest stable release. Beta versions are for testing only and should not be used in production.
 

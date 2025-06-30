@@ -45,12 +45,21 @@ Each analysis command line option is divided into three categories:
 
 - **dnbc4tools vdj run**
 
-  Main analysis workflow. Uses single-cell VDJ library sequencing data and the corresponding sample's 5' transcriptome analysis results. First, filter the data, merge beads using the 5' transcriptome results, then align the VDJ gene regions and extract the corresponding reads, perform de novo assembly and annotation. Based on the assembly annotation results and the 5' transcriptome cell acquisition situation, perform cell filtering. Finally, integrate the results of each step to generate an HTML report and output the analysis results.
+  Main analysis workflow. It processes single-cell VDJ library sequencing data along with the results from the 5' transcriptome analysis of the corresponding sample. The process begins with data filtering, followed by bead merging using the 5' transcriptome results. It then aligns reads to the VDJ gene regions, extracts the corresponding reads for de novo assembly and annotation. Cell filtering is performed based on the assembly and annotation results and the cell acquisition data from the 5' transcriptome. Finally, the results from all steps are integrated to generate an HTML web report and output the analysis results.
 
 ---
 
-## 🛠️ Tools
+## 🛠️ [Tools](./tools_en.md)
 
 - **dnbc4tools tools mkgtf**
 
-  GTF file operation tool, including type statistics, gene filtering, and file format checking.
+  A tool for GTF file operations, including type statistics, gene filtering, and file format checking.
+
+- **bam2fastq**
+  A tool for converting BAM files to FASTQ files.
+
+- **chromsplit**
+  A tool for splitting FASTQ and GTF files by chromosome.
+
+- **fqsubC4**
+  A tool for extracting reads from a FASTQ file based on a REGION.

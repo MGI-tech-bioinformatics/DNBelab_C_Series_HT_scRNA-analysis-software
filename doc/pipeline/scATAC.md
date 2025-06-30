@@ -22,7 +22,7 @@
 ## 🔄 工作流程图
 
 <div align="center">
-  <img src="https://s2.loli.net/2024/09/27/exd1OyX3n4K8LGq.png" alt="工作流程图" width="100%">
+  <img src="https://s2.loli.net/2024/09/27/exd1OyX3n4K8LGq.png" alt="工作流程图" width="1000">
 </div>
 
 ## 📌 使用说明
@@ -218,37 +218,35 @@ $dnbc4tools atac run \
 在对试剂版本和暗反应自动检测后，软件开始运行分析，以下是一个示例：
 
 ```shell
-2024-06-03 16:24:27 Performing ATAC data processing
+2025-06-03 16:24:27 Performing ATAC data processing
 Chemistry(darkreaction) determined in fastqR1: darkreaction
 Chemistry(darkreaction) determined in fastqR2: darkreaction
 
-2024-06-03 16:24:30 Performing quality control and alignment on raw data...
+2025-06-03 16:24:30 Performing quality control and alignment on raw data...
 ...done
 
-2024-06-03 16:36:25 Computing bead similarity and merging beads within droplets...
+2025-06-03 16:36:25 Computing bead similarity and merging beads within droplets...
 ...done
 
-2024-06-03 16:38:21 Processing fragments for peak calling...
+2025-06-03 16:38:21 Processing fragments for peak calling...
 ...done
 
-2024-06-03 16:40:06 Generating raw peaks matrix...
+2025-06-03 16:40:06 Generating raw peaks matrix...
 ...done
 
-2024-06-03 16:47:30 Generating filtered peaks matrix...
+2025-06-03 16:47:30 Generating filtered peaks matrix...
 ...done
 
-2024-06-03 16:50:52 Conducting dimensionality reduction and clustering...
+2025-06-03 16:50:52 Conducting dimensionality reduction and clustering...
 ...done
 
-2024-06-03 16:54:44 Statistical analysis and report generation for results...
+2025-06-03 16:54:44 Statistical analysis and report generation for results...
 ...done
 
-Analysis Finished
-Elapsed Time: 0:30:43
+Analysis Finished Elapsed Time: 0:30:43
 ```
 
 成功的运行会以 `Analysis Finished` 结束。
-
 
 ## 📊 结果解析
 

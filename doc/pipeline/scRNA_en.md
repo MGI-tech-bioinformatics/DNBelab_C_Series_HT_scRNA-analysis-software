@@ -23,7 +23,7 @@ This document provides a detailed guide for analyzing single-cell RNA sequencing
 ## 🔄 Workflow Diagram
 
 <div align="center">
-  <img src="https://s2.loli.net/2024/09/26/uKTXv7Q2miNbz1S.png" alt="Workflow Diagram" width="100%">
+  <img src="https://s2.loli.net/2024/09/26/uKTXv7Q2miNbz1S.png" alt="Workflow Diagram" width="1000">
 </div>
 
 ## 📌 Usage Notes
@@ -90,7 +90,7 @@ $dnbc4tools tools mkgtf \
 > **Note**: You need to check the tags in the GTF file to determine the `type`.
 
 <div align="center">
-  <img src="https://s2.loli.net/2024/10/09/afGqtQocTE9h3uR.png" alt="GTF File Type Example" width="100%">
+  <img src="https://s2.loli.net/2024/10/09/afGqtQocTE9h3uR.png" alt="GTF File Type Example" width="800">
 </div>
 
 Example output:
@@ -336,47 +336,45 @@ $dnbc4tools rna run \
 After automatic detection of reagent version and dark reaction, the software starts running the analysis. Here is an example:
 
 ```shell
-2024-06-04 16:29:35 Performing RNA data processing
+2025-06-04 16:29:35 Performing RNA data processing
 Chemistry(darkreaction) determined in oligoR1: darkreaction
 Chemistry(darkreaction) determined in oligoR2: darkreaction
 Chemistry(darkreaction) determined in cDNAR1: darkreaction
 
-2024-06-04 16:29:37 Processing oligo library filtering...
+2025-06-04 16:29:37 Processing oligo library filtering...
 ...done
 
-2024-06-04 16:59:39 Processing cDNA library filtering...
+2025-06-04 16:59:39 Processing cDNA library filtering...
 ...done
 
-2024-06-04 17:50:10 Processing alignment and counting...
+2025-06-04 17:50:10 Processing alignment and counting...
 ...done
 
-2024-06-05 01:20:56 Calculating bead similarity, merging beads within the same droplet...
+2025-06-05 01:20:56 Calculating bead similarity, merging beads within the same droplet...
 ...done
 
-2024-06-05 01:22:17 Generating raw gene expression matrix...
+2025-06-05 01:22:17 Generating raw gene expression matrix...
 ...done
 
-2024-06-05 01:31:38 Generating cell-filtered gene expression matrix...
+2025-06-05 01:31:38 Generating cell-filtered gene expression matrix...
 ...done
 
-2024-06-05 01:33:07 Calculating sequencing saturation metrics...
+2025-06-05 01:33:07 Calculating sequencing saturation metrics...
 ...done
 
-2024-06-05 01:34:23 Generating position-sorted BAM file...
+2025-06-05 01:34:23 Generating position-sorted BAM file...
 ...done
 
-2024-06-05 02:23:17 Performing dimensionality reduction and clustering analysis...
+2025-06-05 02:23:17 Performing dimensionality reduction and clustering analysis...
 ...done
 
-2024-06-05 02:24:57 Generating analysis report and summary statistics...
+2025-06-05 02:24:57 Generating analysis report and summary statistics...
 ...done
 
-Analysis Finished
-Elapsed Time: 9:56:09
+Analysis Finished Elapsed Time: 9:56:09
 ```
 
 A successful run ends with `Analysis Finished`.
-
 
 ---
 
@@ -406,9 +404,8 @@ After the analysis is complete, the output directory `outs` and logs directory w
 ```
 
 - **Output Files**: For detailed usage, refer to the [Output File Documentation](../io.md)
-- **Results Interpretation**: For an explanation of the output files, see [Output File Annotations](../outs/scRNA.md)
-- **Parameter Settings**: For details on analysis parameters, see [Analysis Parameter Settings](../parameter/scRNA.md)
-
+- **Results Interpretation**: For an explanation of the output files, see [Output File Annotations](../outs/scRNA_en.md)
+- **Parameter Settings**: For details on analysis parameters, see [Analysis Parameter Settings](../parameter/scRNA_en.md)
 
 ## ❓ Frequently Asked Questions
 

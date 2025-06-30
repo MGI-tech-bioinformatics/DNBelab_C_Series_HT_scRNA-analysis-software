@@ -49,8 +49,17 @@
 
 ---
 
-## 🛠️ 工具类
+## 🛠️ [工具类](./tools.md)
 
 - **dnbc4tools tools mkgtf**
 
   GTF 文件操作工具，包括类型统计、基因过滤和文件格式检查。
+
+- **bam2fastq**
+  BAM 文件操作工具，包括 BAM 文件转换成 FASTQ 文件。
+
+- **chromsplit**
+  染色体分割工具，将 FASTQ 和 GTF 文件进行染色体分割。
+
+- **fqsubC4**
+  FASTQ 文件操作工具，根据REGION位置提取FASTQ文件。
