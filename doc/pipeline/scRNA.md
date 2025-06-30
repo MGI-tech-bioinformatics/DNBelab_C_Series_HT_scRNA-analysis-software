@@ -23,7 +23,7 @@
 ## 🔄 工作流程图
 
 <div align="center">
-  <img src="https://s2.loli.net/2024/09/26/uKTXv7Q2miNbz1S.png" alt="工作流程图" width="1000">
+  <img src="https://s2.loli.net/2024/09/26/uKTXv7Q2miNbz1S.png" alt="工作流程图" width="800">
 </div>
 
 ## 📌 使用说明

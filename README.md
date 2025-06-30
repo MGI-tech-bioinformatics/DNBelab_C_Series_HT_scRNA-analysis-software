@@ -31,13 +31,15 @@ This comprehensive toolkit supports multiple single-cell analysis workflows, inc
 | [📦 Installation](./doc/installation.md)        | Step-by-step installation guide|
 | [⚡ Quick Start](./doc/quickstart.md)            | Get up and running quickly     |
 | [🧬 Analysis Workflow](./doc/pipeline.md)        | Detailed analysis pipelines    |
+| [⚙️ Parameters](./doc/parameter/parameter.md)   | Parameter configuration guide  |
+| [📊 Output Files](./doc/outs/)                  | Output file format descriptions|
 
 ---
 
 ## 🤝 Support & Community
 
 - For questions, bug reports, or feature requests, please use our [GitHub Issues](https://github.com/MGI-tech-bioinformatics/DNBelab_C_Series_HT_scRNA-analysis-software/issues) tracker.
-- This Beta version is available for public testing, features are complete but may contain bugs. We invite users to test and suggest functionality improvements!
+- This Beta version is available for public testing, features are complete but may contain bugs. We invite users to test and suggest functionality improvements! For production environments, we recommend using the latest stable release.
 
 ---
 

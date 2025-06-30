@@ -221,28 +221,28 @@ The HTML web report provides comprehensive visualization and detailed interpreta
 
 #### 🧬 Cell Metrics
 - **Estimated number of cells**
-  Estimated cell count: Refers to the number of cells identified as real cells (rather than background noise or empty droplets) in the sequencing data. The calculation process involves merging cell barcodes from the same droplet and then predicting real cells based on the empty droplet model (EmptyDrops).
+  Estimated cell count: Refers to the number of cells identified as real cells (rather than background noise or empty droplets) in the sequencing data. The calculation process involves merging cell barcodes from the same droplet and then predicting real cells based on the empty droplet model (EmptyDrops). Values higher or lower than expected may indicate inaccurate cell counting, cell lysis, or failure in the droplet generation process.
 
 - **Species**
   Species information: Displays the species origin or reference genome information of the sample, derived from information provided during database construction.
 
 - **Mean reads per cell**
-  Average reads count: The average number of sequencing reads per cell, used to assess single-cell sequencing depth. Calculated as the total number of reads associated with valid cell barcodes divided by the number of detected cells. This metric does not depend on read alignment results.
+  Average reads count: The average number of sequencing reads per cell, used to assess single-cell sequencing depth. Calculated as the total number of reads associated with valid cell barcodes divided by the number of detected cells. This metric does not depend on read alignment results. A minimum of 20,000 reads/cell is recommended. The required sequencing depth per cell depends on cell type (high RNA or low RNA) and the desired analysis objectives.
 
 - **Median/Mean UMI per cell**
-  Median/Mean UMI per cell: The median/average number of unique molecular identifiers (UMI) detected in each cell, used to assess gene expression levels in single-cell sequencing.
+  Median/Mean UMI per cell: The median/average number of unique molecular identifiers (UMI) detected in each cell, used to assess gene expression levels in single-cell sequencing. Depends on cell type and sequencing depth. Lower than expected values may be due to shallow sequencing depth or sample/library quality issues.
 
 - **Median/Mean genes per cell**
-  Median/Mean genes per cell: The median/average number of genes detected in each cell.
+  Median/Mean genes per cell: The median/average number of genes detected in each cell. Depends on cell type and sequencing depth. Lower than expected median genes per cell may be due to biological reasons (low transcriptional diversity) or may indicate low sequencing depth or low library complexity.
 
 - **Total genes detected**
-  Total genes detected: The total number of genes detected in the entire sample, with each gene detected in at least one cell with at least one UMI count.
+  Total genes detected: The total number of genes detected in the entire sample, with each gene detected in at least one cell with at least one UMI count. Depends on cell type and sequencing depth. Lower than expected values may be due to shallow sequencing depth or sample/library quality issues.
 
 - **Fraction reads in cells**
   Fraction of reads in cells: After sample filtering, the percentage of cell-related reads aligned to transcripts out of total reads aligned to transcripts, indicating that cell-related UMIs are reliably aligned to the genome. If there is a lot of free mRNA in the sample, this value will be relatively low.
 
 - **Sequencing saturation**
-  Sequencing saturation: An indicator for assessing whether sequencing depth is sufficient, reflecting the duplicate detection rate of molecules (UMI) in the library. When sequencing saturation is high or the curve growth is gentle, it indicates that continuing to increase sequencing depth will not significantly increase the number of detected genes, suggesting that the current sequencing depth is sufficient.
+  Sequencing saturation: An indicator for assessing whether sequencing depth is sufficient, reflecting the duplicate detection rate of molecules (UMI) in the library. When sequencing saturation is high or the curve growth is gentle, it indicates that continuing to increase sequencing depth will not significantly increase the number of detected genes, suggesting that the current sequencing depth is sufficient. Depends on library complexity, sequencing depth, and experimental analysis objectives. Lower sequencing saturation indicates that a large portion of library complexity has not yet been captured by sequencing.
 
 
 #### 🔬 Sequencing Metrics
@@ -268,10 +268,10 @@ The HTML web report provides comprehensive visualization and detailed interpreta
 
 #### 🗺️ Mapping Metrics
 - **Reads mapped to genome**
-  Genome-mapped reads: Refers to the proportion of all sequencing reads that successfully align to any position in the reference genome, including unique alignments and multiple alignments. This metric reflects the overall effectiveness of alignment.
+  Genome-mapped reads: Refers to the proportion of all sequencing reads that successfully align to any position in the reference genome, including unique alignments and multiple alignments. This metric reflects the overall effectiveness of alignment. Lower than expected values may indicate poor sample quality, reference genome mismatch, or sequencing quality issues.
 
 - **Reads mapped confidently to genome**
-  Confidently genome-mapped reads: Refers to the proportion of reads that can be confidently aligned to the reference genome, mainly from unique alignments. For multi-mapping reads that align to both a single exonic site and one or more non-exonic sites, the exonic site is selected and these reads are also retained and counted as confident alignments. This metric better reflects the reliability and biological relevance of read positioning.
+  Confidently genome-mapped reads: Refers to the proportion of reads that can be confidently aligned to the reference genome, mainly from unique alignments. For multi-mapping reads that align to both a single exonic site and one or more non-exonic sites, the exonic site is selected and these reads are also retained and counted as confident alignments. This metric better reflects the reliability and biological relevance of read positioning. Lower than expected values may indicate poor sequencing quality or reference genome mismatch.
 
 - **Reads mapped confidently to exonic regions**
   Exonic region alignment: Represents the proportion of reads confidently aligned to annotated exonic regions. When at least 50% of a read's sequence overlaps with exons, the read is classified as exonic alignment.
@@ -283,13 +283,13 @@ The HTML web report provides comprehensive visualization and detailed interpreta
   Intergenic region alignment: Refers to the proportion of reads confidently aligned to regions that do not belong to any annotated genes (i.e., intergenic regions). When reads meet neither exonic nor intronic classification criteria, they are classified as intergenic region alignment. An excessively high proportion may suggest non-specific amplification in the library or incomplete reference annotation.
 
 - **Reads mapped confidently to transcriptome**
-  Confidently transcriptome-mapped reads: Represents the proportion of reads that successfully align to transcripts and can be uniquely attributed to a single gene. When read alignment positions have multiple overlapping genes, these reads are filtered out to ensure accuracy of gene expression quantification. This is an important metric for assessing library quality, with an expected value generally greater than 30%. The higher the proportion, the more specific and reliable the captured mRNA.
+  Confidently transcriptome-mapped reads: Represents the proportion of reads that successfully align to transcripts and can be uniquely attributed to a single gene. When read alignment positions have multiple overlapping genes, these reads are filtered out to ensure accuracy of gene expression quantification. This is an important metric for assessing library quality, with an expected value generally greater than 30%. The higher the proportion, the more specific and reliable the captured mRNA. Lower than expected values may indicate incomplete transcriptome annotation or sample quality issues.
 
 - **Reads mapped antisense to gene**
   Antisense gene alignment: Refers to the proportion of reads that successfully align to the transcriptome but in the opposite direction to annotated genes. These reads may originate from technical noise, natural antisense transcripts, or insufficient directional library preparation. Under normal circumstances, this proportion should be below 10%. When an abnormally high proportion (>60%) is detected, it usually suggests that the 3' and 5' ends were not correctly distinguished during the analysis process.
 
 - **Include introns**
-  Include introns: This marker usually appears in analysis settings, indicating whether reads from intronic regions are also counted in transcript expression when counting transcript expression. Including intronic information helps improve capture efficiency, especially when identifying nuclear RNA or immature mRNA.
+  Include introns: This parameter controls whether reads aligned to intronic regions are included in gene expression counting. When set to True, reads from intronic regions are counted toward the expression of the corresponding gene; when set to False, only reads from exonic regions are counted toward gene expression. For single-nucleus RNA sequencing (snRNA-seq), this is usually set to True to capture nuclear unspliced transcripts; for single-cell RNA sequencing (scRNA-seq), this is usually set to False to focus on mature mRNA.
 
 > **Note:** All proportion metrics above are calculated using the total number of original sequencing reads (`Number of reads`) as the denominator, ensuring comparability and consistency between various metrics.
 

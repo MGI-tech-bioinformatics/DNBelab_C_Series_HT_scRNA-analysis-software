@@ -22,7 +22,7 @@ This document provides a detailed guide for analyzing single-cell ATAC sequencin
 ## 🔄 Workflow Diagram
 
 <div align="center">
-  <img src="https://s2.loli.net/2024/09/27/exd1OyX3n4K8LGq.png" alt="Workflow Diagram" width="1000">
+  <img src="https://s2.loli.net/2024/09/27/exd1OyX3n4K8LGq.png" alt="Workflow Diagram" width="800">
 </div>
 
 ## 📌 Usage Notes
