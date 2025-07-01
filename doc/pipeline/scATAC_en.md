@@ -74,8 +74,7 @@ Before running the dnbc4tools atac run analysis, we need to first build a refere
 $dnbc4tools atac mkref \
   --fasta genome.fa \
   --ingtf genes.gtf \
-  --species Mus_musculus \
-  --threads 10
+  --species Mus_musculus
 ```
 
 ##### 2.2.2 Output Results

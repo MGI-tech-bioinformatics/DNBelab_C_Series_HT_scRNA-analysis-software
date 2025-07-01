@@ -28,24 +28,24 @@ This comprehensive toolkit supports multiple single-cell analysis workflows, inc
 
 | Documentation                                   | Description                    |
 |-------------------------------------------------|--------------------------------|
-| [📦 Installation](./doc/installation.md)        | Step-by-step installation guide|
-| [⚡ Quick Start](./doc/quickstart.md)            | Get up and running quickly     |
-| [🧬 Analysis Workflow](./doc/pipeline.md)        | Detailed analysis pipelines    |
-| [⚙️ Parameters](./doc/parameter/parameter.md)   | Parameter configuration guide  |
-| [📊 Output Files](./doc/outs/)                  | Output file format descriptions|
+| [📦 Installation](./doc/installation.md)      | Complete setup guide for software dependencies and environment configuration |
+| [⚡ Quick Start](./doc/quickstart.md)          | Step-by-step tutorial with sample data to get you running quickly |
+| [🧬 Analysis Pipelines](./doc/pipeline.md)     | In-depth workflow documentation for scRNA-seq, scATAC-seq, and scVDJ-seq |
+| [⚙️ Parameters](./doc/parameter/parameter.md) | Comprehensive reference for all command-line options and settings |
+| [📊 Output Files](./doc/outs/outs.md)           | Detailed explanation of all generated output files and formats |
 
 ---
 
 ## 🤝 Support & Community
 
 - For questions, bug reports, or feature requests, please use our [GitHub Issues](https://github.com/MGI-tech-bioinformatics/DNBelab_C_Series_HT_scRNA-analysis-software/issues) tracker.
-- This Beta version is available for public testing, features are complete but may contain bugs. We invite users to test and suggest functionality improvements! For production environments, we recommend using the latest stable release.
 
 ---
 
 ## 📝 Release Notes
 
-- Check our [Release Notes](./doc/release.md) for detailed information about version updates and new features.
-- The latest version includes significant improvements to RNA-Seq, ATAC-Seq, and VDJ modules.
+- Review our [Release Notes](./doc/release.md) for comprehensive version history and feature updates
+- Latest release features enhanced performance and accuracy across scRNA-seq, scATAC-seq, and scVDJ-seq workflows
+- **Beta Release Notice**: This version is feature-complete but may contain bugs. Community testing and feedback are welcome! For production use, please consider the latest stable release
 
 ---

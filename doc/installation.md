@@ -28,19 +28,14 @@
 
 | Package Details | Information                                  |
 |----------------|----------------------------------------------|
-| Download Link  | [dnbc4tools3.0beta.tar.gz](https://ftp.cngb.org/pub/CNSA/data5/CNP0006367/Single_Cell/CSE0000448/dnbc4tools3.0beta.tar.gz) |
-| File Size      | 495M                                         |
-| MD5 Checksum   | dfda9a3f308aaa3fdaa6c2a971bb2821            |
+| File Name      | dnbc4tools3.0beta.tar.gz                   |
+| File Size      | 509M                                        |
+| MD5 Checksum   | 898b6c05235613d97a7d8f6b9da7adce           |
 
 ### Download Methods
 
-```bash
-# Download using wget
-wget -O dnbc4tools3.0Beta.tar.gz "https://ftp.cngb.org/pub/CNSA/data5/CNP0006367/Single_Cell/CSE0000448/dnbc4tools3.0beta.tar.gz"
-
-# Or download using curl
-curl -o dnbc4tools3.0Beta.tar.gz "https://ftp.cngb.org/pub/CNSA/data5/CNP0006367/Single_Cell/CSE0000448/dnbc4tools3.0beta.tar.gz"
-```
+**Download Options:**
+- [Baidu Netdisk](https://pan.baidu.com/s/15CZoKfvtCnQxkivMvCixaQ?pwd=gbm1) (Access Code: gbm1)
 
 ### New Features
 
