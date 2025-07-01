@@ -31,7 +31,7 @@ This comprehensive toolkit supports multiple single-cell analysis workflows, inc
 | [📦 Installation](./doc/installation.md)      | Complete setup guide for software dependencies and environment configuration |
 | [⚡ Quick Start](./doc/quickstart.md)          | Step-by-step tutorial with sample data to get you running quickly |
 | [🧬 Analysis Pipelines](./doc/pipeline.md)     | In-depth workflow documentation for scRNA-seq, scATAC-seq, and scVDJ-seq |
-| [⚙️ Parameters](./doc/parameter/parameter.md) | Comprehensive reference for all command-line options and settings |
+| [⚙️ Parameters](./doc/parameter/parameter_en.md) | Comprehensive reference for all command-line options and settings |
 | [📊 Output Files](./doc/outs/outs.md)           | Detailed explanation of all generated output files and formats |
 
 ---

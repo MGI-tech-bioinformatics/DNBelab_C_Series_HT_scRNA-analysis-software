@@ -227,7 +227,7 @@ The HTML web report provides comprehensive visualization and detailed interpreta
   Species information: Displays the species origin or reference genome information of the sample, derived from information provided during database construction.
 
 - **Mean reads per cell**
-  Average reads count: The average number of sequencing reads per cell, used to assess single-cell sequencing depth. Calculated as the total number of reads associated with valid cell barcodes divided by the number of detected cells. This metric does not depend on read alignment results. A minimum of 20,000 reads/cell is recommended. The required sequencing depth per cell depends on cell type (high RNA or low RNA) and the desired analysis objectives.
+  Average reads count: The average number of sequencing reads per cell, used to assess single-cell sequencing depth. Calculated as the total number of reads associated with valid cell barcodes divided by the number of detected cells. This metric does not depend on read alignment results. ≥15,000 reads/cell is recommended. The required sequencing depth per cell depends on cell type (high RNA or low RNA) and the desired analysis objectives.
 
 - **Median/Mean UMI per cell**
   Median/Mean UMI per cell: The median/average number of unique molecular identifiers (UMI) detected in each cell, used to assess gene expression levels in single-cell sequencing. Depends on cell type and sequencing depth. Lower than expected values may be due to shallow sequencing depth or sample/library quality issues.
@@ -250,13 +250,13 @@ The HTML web report provides comprehensive visualization and detailed interpreta
   Read count: Refers to the total number of sequencing read pairs allocated to this library. This value reflects the sequencing depth; the more reads, the theoretically more comprehensive coverage of the cellular transcriptome.
 
 - **Valid barcodes**
-  Valid barcodes: Refers to the proportion of sequencing reads whose barcodes can be successfully matched in the preset whitelist. A high proportion (usually expected value >75%) indicates accurate cell identification, less sample contamination, and good library construction quality.
+  Valid barcodes: Refers to the proportion of sequencing reads whose barcodes can be successfully matched in the preset whitelist. A high proportion (usually expected value ≥75%) indicates accurate cell identification, less sample contamination, and good library construction quality.
 
 - **Corrected barcodes**
   Corrected barcodes: Represents the proportion of reads where original sequencing barcodes are corrected through error correction algorithms and successfully recovered to valid barcodes in the whitelist. This process helps reduce barcode loss due to sequencing errors and improves barcode recognition efficiency.
 
 - **Valid UMIs**
-  Valid UMIs: Refers to the proportion of UMI sequences extracted from reads that do not contain 'N' bases and are not homopolymers (such as AAAAAA). A high proportion of valid UMIs (usually expected value >75%) means good UMI quality, which is beneficial for accurately distinguishing PCR duplicates subsequently.
+  Valid UMIs: Refers to the proportion of UMI sequences extracted from reads that do not contain 'N' bases and are not homopolymers (such as AAAAAA). A high proportion of valid UMIs (usually expected value ≥75%) means good UMI quality, which is beneficial for accurately distinguishing PCR duplicates subsequently.
 
 - **Q30 Base Quality**
   Q30 base quality: Represents the proportion of bases with sequencing accuracy higher than 99.9% (i.e., error rate lower than 0.1%), evaluated separately for different segments:
@@ -283,13 +283,13 @@ The HTML web report provides comprehensive visualization and detailed interpreta
   Intergenic region alignment: Refers to the proportion of reads confidently aligned to regions that do not belong to any annotated genes (i.e., intergenic regions). When reads meet neither exonic nor intronic classification criteria, they are classified as intergenic region alignment. An excessively high proportion may suggest non-specific amplification in the library or incomplete reference annotation.
 
 - **Reads mapped confidently to transcriptome**
-  Confidently transcriptome-mapped reads: Represents the proportion of reads that successfully align to transcripts and can be uniquely attributed to a single gene. When read alignment positions have multiple overlapping genes, these reads are filtered out to ensure accuracy of gene expression quantification. This is an important metric for assessing library quality, with an expected value generally greater than 30%. The higher the proportion, the more specific and reliable the captured mRNA. Lower than expected values may indicate incomplete transcriptome annotation or sample quality issues.
+  Transcriptome confident alignment: Represents the proportion of reads that are confidently aligned to transcripts and can be uniquely attributed to a single gene. When read alignment positions have multiple overlapping genes, these reads are filtered out to ensure accuracy of gene expression quantification. This is an important metric for assessing library quality, with an expected value generally greater than 30%. The higher the proportion, the more specific and reliable the captured mRNA. Lower than expected values may indicate incomplete transcriptome annotation or sample quality issues.
 
 - **Reads mapped antisense to gene**
-  Antisense gene alignment: Refers to the proportion of reads that successfully align to the transcriptome but in the opposite direction to annotated genes. These reads may originate from technical noise, natural antisense transcripts, or insufficient directional library preparation. Under normal circumstances, this proportion should be below 10%. When an abnormally high proportion (>60%) is detected, it usually suggests that the 3' and 5' ends were not correctly distinguished during the analysis process.
+  Antisense gene alignment: Refers to the proportion of reads that successfully align to the transcriptome but in the opposite direction to annotated genes. These reads may originate from technical noise, natural antisense transcripts, or insufficient directional library preparation. Under normal circumstances, this proportion should be below 20%. When an abnormally high proportion (≥60%) is detected, it usually suggests that the 3' and 5' ends were not correctly distinguished during the analysis process.
 
 - **Include introns**
-  Include introns: This parameter controls whether reads aligned to intronic regions are included in gene expression counting. When set to True, reads from intronic regions are counted toward the expression of the corresponding gene; when set to False, only reads from exonic regions are counted toward gene expression. For single-nucleus RNA sequencing (snRNA-seq), this is usually set to True to capture nuclear unspliced transcripts; for single-cell RNA sequencing (scRNA-seq), this is usually set to False to focus on mature mRNA.
+  Include introns: This parameter controls whether reads aligned to intronic regions are included in gene expression counting. When set to True, reads from intronic regions are counted toward the expression of the corresponding gene; when set to False, only reads from exonic regions are counted toward gene expression. 
 
 > **Note:** All proportion metrics above are calculated using the total number of original sequencing reads (`Number of reads`) as the denominator, ensuring comparability and consistency between various metrics.
 
@@ -323,7 +323,7 @@ The HTML web report provides comprehensive visualization and detailed interpreta
   The distribution of bead counts in droplets theoretically follows a Poisson distribution, but the actual distribution is affected by various factors, such as when cell UMI expression levels are low, some beads may not be effectively merged.
   
   **Quality Control Indicator:** When results show beads are mainly concentrated at 1, it is recommended to check:
-  - Whether the sequencing depth of the oligo library is sufficient (recommended > 50M reads)
+  - Whether the sequencing depth of the oligo library is sufficient (recommended ≥ 50M reads)
   - The compatibility between cDNA library and oligo library
 
 - **Cell Data Distribution**:

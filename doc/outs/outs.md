@@ -4,17 +4,10 @@ This section provides a detailed description of the various output files generat
 
 To help you better understand and utilize these analysis results, we have provided separate documentation for each analysis type. You can click on the links below to view detailed explanations of the corresponding output files based on the type of analysis you have performed:
 
-### Single-Cell RNA Sequencing (scRNA-seq)
+## 📊 Analysis Output Documentation
 
-- **[scRNA-seq Analysis Output](./scRNA.md)**
-- **[scRNA-seq Analysis Output (English)](./scRNA_en.md)**
-
-### Single-Cell ATAC Sequencing (scATAC-seq)
-
-- **[scATAC-seq Analysis Output](./scATAC.md)**
-- **[scATAC-seq Analysis Output (English)](./scATAC_en.md)**
-
-### Single-Cell V(D)J Sequencing (scVDJ-seq)
-
-- **[scVDJ-seq Analysis Output](./scVDJ.md)**
-- **[scVDJ-seq Analysis Output (English)](./scVDJ_en.md)**
+| Analysis Type         | Description                                                                 | Documentation                                                          |
+|-----------------------|-----------------------------------------------------------------------------|------------------------------------------------------------------------|
+| 🔬 Single-Cell RNA    | Gene expression analysis output files and quality metrics. | [English](./scRNA_en.md) / [中文](./scRNA.md)         |
+| 🧪 Single-Cell ATAC   | Chromatin accessibility analysis output files and peak information. | [English](./scATAC_en.md) / [中文](./scATAC.md)       |
+| 🦠 Single-Cell VDJ    | V(D)J repertoire analysis output files and clonotype data. | [English](./scVDJ_en.md) / [中文](./scVDJ.md)         |
