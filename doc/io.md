@@ -1,133 +1,48 @@
-## How to read output results for analysis in R or Python.
+# 📊 Reading Output Results for Analysis in R or Python
 
+---
 
+> **This guide demonstrates how to import and analyze DNBelab C Series™ single-cell data using popular analysis frameworks.**
 
-### scRNA
+---
 
+## 🧬 scRNA Analysis
 
+| Framework | Language | Description |
+|-----------|----------|-------------|
+| Seurat    | R        | Popular R package for single-cell analysis |
+| Scanpy    | Python   | Python-based single-cell analysis toolkit |
 
-#### seurat
+### 📦 Seurat
 
 ```R
 library(Seurat)
-counts.data <- Read10X(data.dir = "/output/filter_matrix",gene.column = 1)
+counts.data <- Read10X(data.dir = "/outs/filter_matrix")
 ```
 
-Using functions to read.(Applicable to raw_matrix, filter_matrix, and RNAvelocity_matrix, etc.)
-
-```R
-ReadMatrix_C4 <- function(mex_dir=NULL,
-                     barcode.path = NULL,
-                     feature.path = NULL,
-                     matrix.path=NULL,
-                     use_10X=FALSE) {
-  if (is.null(mex_dir) && is.null(barcode.path)  && is.null(feature.path) &&
-        is.null(matrix.path)) {
-    stop("No matrix set.")
-  }
-  if (!is.null(mex_dir) && !file.exists(mex_dir) ) {
-    stop(paste0(mex_dir, " does not exist."))
-  }
-  if (is.null(barcode.path)  && is.null(feature.path) && is.null(matrix.path)) {
-    barcode.path <- paste0(mex_dir, "/barcodes.tsv.gz")
-    feature.path <- paste0(mex_dir, "/features.tsv.gz")
-    matrix.path <- paste0(mex_dir, "/matrix.mtx.gz")
-  }
-  spliced.path <- paste0(mex_dir, "/spliced.mtx.gz")
-  unspliced.path <- paste0(mex_dir, "/unspliced.mtx.gz")
-  spanning.path <- paste0(mex_dir, "/spanning.mtx.gz")
-
-  if (!file.exists(barcode.path) || !file.exists(feature.path)) {
-    stop(paste0("No expression file found at ", mex_dir))
-  }
-
-  .ReadPISA0 <- function(barcode.path, feature.path, matrix.path, use_10X) {
-    mat <- Matrix::readMM(file = matrix.path)
-    feature.names <- read.delim(feature.path,
-                                header = FALSE,
-                                stringsAsFactors = FALSE
-                                )
-    barcode.names <- read.delim(barcode.path,
-                                header = FALSE,
-                                stringsAsFactors = FALSE
-                                )
-    colnames(mat) <- barcode.names$V1
-    if (use_10X == TRUE) {
-      rownames(mat) <- make.unique(feature.names$V2)
-    } else {
-      rownames(mat) <- make.unique(feature.names$V1)
-    }
-    mat
-  }
-  
-  if (!file.exists(spliced.path) && file.exists(matrix.path)) {
-    return(.ReadPISA0(barcode.path, feature.path, matrix.path, use_10X))
-  }
-  mat <- list()
-  cat("Load spliced matrix ...\n")
-  mat$spliced <- Matrix::readMM(file = spliced.path)
-  cat("Load unspliced matrix ...\n")
-  mat$unspliced <- Matrix::readMM(file = unspliced.path)
-  cat("Load spanning matrix ...\n")
-  mat$spanning <- Matrix::readMM(file = spanning.path)
-
-  feature.names <- read.delim(feature.path,
-                              header = FALSE,
-                              stringsAsFactors = FALSE
-  )
-  barcode.names <- read.delim(barcode.path,
-                              header = FALSE,
-                              stringsAsFactors = FALSE
-  )
-  colnames(mat$spliced) <- barcode.names$V1
-  rownames(mat$spliced) <- make.unique(feature.names$V1)
-  colnames(mat$unspliced) <- barcode.names$V1
-  rownames(mat$unspliced) <- make.unique(feature.names$V1)
-  colnames(mat$spanning) <- barcode.names$V1
-  rownames(mat$spanning) <- make.unique(feature.names$V1)
-  mat
-}
-```
-
-
-
-#### scanpy
+### 🐍 Scanpy
 
 ```python
 import scanpy as sc
-adata = sc.read_h5ad('/output/filter_feature.h5ad')
+
+### read h5ad
+adata = sc.read_h5ad('/outs/filter_feature.h5ad')
+
+### read matrix dir
+adata = sc.read_10x_mtx('/outs/filter_matrix')
 ```
 
-Using functions to read.
+---
 
-```python
-import pandas as pd
-import scipy.io
-import anndata
-from scipy.sparse import csr_matrix
+## 🔬 scATAC Analysis
 
-def read_anndata_C4(path):   
-    mat = scipy.io.mmread(os.path.join(path, "matrix.mtx.gz")).astype("float32")
-    mat = mat.transpose()
-    mat = csr_matrix(mat)
-    adata = anndata.AnnData(mat,dtype="float32")
-    genes = pd.read_csv(os.path.join(path, "features.tsv.gz"), header=None, sep='\t')
-    var_names = genes[0].values
-    var_names = anndata.utils.make_index_unique(pd.Index(var_names))
-    adata.var_names = var_names
-    adata.var['gene_symbols'] = genes[0].values
-    adata.obs_names = pd.read_csv(os.path.join(path, "barcodes.tsv.gz"), header=None)[0].values
-    adata.var_names_make_unique()
-    return adata
-```
+| Framework | Language | Description |
+|-----------|----------|-------------|
+| Signac    | R        | Extension of Seurat for scATAC-seq |
+| ArchR     | R        | Comprehensive scATAC-seq analysis |
+| AnnData   | Python   | Python data structure for scATAC |
 
-
-</br>
-</br>
-
-### scATAC
-
-#### signac
+### 📦 Signac
 
 ```R
 require(magrittr)
@@ -149,7 +64,7 @@ mtx <- Matrix::readMM(mtx_path) %>%
   magrittr::set_colnames(barcodes$barcode)
 ```
 
-Including Reading Other Files
+> **Including Reading Other Files with Metadata**
 
 ```R
 require(magrittr)
@@ -199,9 +114,7 @@ read_signac_C4 <- function(mex_dir_path, fragments, singlecellmetadata){
 }
 ```
 
-
-
-#### ArchR
+### 📊 ArchR
 
 ```r
 library(ArchR)
@@ -215,11 +128,9 @@ ArrowFiles <- createArrowFiles(
 )
 ```
 
+### 🐍 AnnData
 
-
-#### anndata
-
-```R
+```python
 import os
 from scipy.sparse import csr_matrix
 import anndata
@@ -246,3 +157,9 @@ def read_atac_C4(path):
     adata.var_names_make_unique()
     return adata
 ```
+
+---
+
+## 📚 Additional Resources
+
+> **For more detailed information on analysis workflows, please refer to our [Analysis Workflow](./pipeline.md) documentation.**

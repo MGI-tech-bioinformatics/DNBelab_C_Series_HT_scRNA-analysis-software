@@ -1,34 +1,51 @@
 [![Github Release](https://img.shields.io/github/v/release/MGI-tech-bioinformatics/DNBelab_C_Series_HT_scRNA-analysis-software)](https://github.com/MGI-tech-bioinformatics/DNBelab_C_Series_HT_scRNA-analysis-software/releases)
-[![PyPI](https://img.shields.io/pypi/v/dnbc4tools)](https://pypi.org/project/DNBC4tools)
-[![Docker Pulls](https://img.shields.io/docker/pulls/dnbelabc4/dnbc4tools)](https://hub.docker.com/r/dnbelabc4/dnbc4tools)
 
-# DNBelab_C_Series_HT_singlecell-analysis-software
+# DNBelab C Series™ HT Single-Cell Analysis Software
 
-## Introduction
+---
 
-An open source and flexible pipeline to analyze high-throughput DNBelab C Series<sup>TM</sup> single-cell datasets. 
+> **An open-source, flexible, and high-performance pipeline for analyzing high-throughput DNBelab C Series™ single-cell datasets.**
 
-**Hardware/Software requirements** 
+This comprehensive toolkit supports multiple single-cell analysis workflows, including **scRNA-seq**, **scATAC-seq**, and **scVDJ-seq**.
 
-- x86-64 compatible processors.
-- require at least 50GB of RAM and 4 CPU. 
-- centos 7.x 64-bit operating system (Linux kernel 3.10.0, compatible with higher software and hardware configuration). 
+---
 
-## Start
+## 🖥️ System Requirements
 
-- [**installation** ](./doc/installation.md)
-- [**quick start** ](./doc/quickstart.md)
+| Category   | Requirement                                   |
+|------------|-----------------------------------------------|
+| Processor  | x86-64 compatible processors                 |
+| Memory     | 50GB RAM or higher                           |
+| CPU        | Minimum 8 cores, 16+ cores recommended       |
+| Storage    | Sufficient disk space for data processing    |
+| OS         | Linux 64-bit (CentOS 7.x, Ubuntu 20.04+)     |
 
-## Support
+> Compatible with higher software and hardware configurations.
 
-- Please use github issue tracker for questions. [**issues**](https://github.com/MGI-tech-bioinformatics/DNBelab_C_Series_HT_scRNA-analysis-software/issues)
+---
 
+## 🚀 Getting Started
 
-> [!TIP]
->
-> CHANGELOG:  2.1.3 pre-release
->
-> - Added single-cell immune repertoire analysis.
-> - Optimizing high memory usage when performing combined single-cell ATAC analysis
-> - Improved single-cell RNA sequencing I/O for high-thread scenarios, reducing analysis time.
-> - Added the function of checking whether the gtf format is correct and generating a new gtf file in the correct format.
+| Documentation                                   | Description                    |
+|-------------------------------------------------|--------------------------------|
+| [📦 Installation](./doc/installation.md)      | Complete setup guide for software dependencies and environment configuration |
+| [⚡ Quick Start](./doc/quickstart.md)          | Step-by-step tutorial with sample data to get you running quickly |
+| [🧬 Analysis Pipelines](./doc/pipeline.md)     | In-depth workflow documentation for scRNA-seq, scATAC-seq, and scVDJ-seq |
+| [⚙️ Parameters](./doc/parameter/parameter_en.md) | Comprehensive reference for all command-line options and settings |
+| [📊 Output Files](./doc/outs/outs.md)           | Detailed explanation of all generated output files and formats |
+
+---
+
+## 🤝 Support & Community
+
+- For questions, bug reports, or feature requests, please use our [GitHub Issues](https://github.com/MGI-tech-bioinformatics/DNBelab_C_Series_HT_scRNA-analysis-software/issues) tracker.
+
+---
+
+## 📝 Release Notes
+
+- Review our [Release Notes](./doc/release.md) for comprehensive version history and feature updates
+- Latest release features enhanced performance and accuracy across scRNA-seq, scATAC-seq, and scVDJ-seq workflows
+- **Beta Release Notice**: This version is feature-complete but may contain bugs. Community testing and feedback are welcome! For production use, please consider the latest stable release
+
+---
