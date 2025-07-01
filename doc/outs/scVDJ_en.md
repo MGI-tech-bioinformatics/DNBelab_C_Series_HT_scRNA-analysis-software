@@ -332,8 +332,8 @@ The HTML web report provides comprehensive visualization and detailed interpreta
   > • Lower than expected values may be due to low proportion of B or T cells in sample, poor sample quality, poor library quality, or low sequencing depth
 
 #### 📈 Visualization Chart 1
-- **Barcode Rank Plot**:
-  **V(D)J Barcode Rank Plot**: Visualizes UMI count distribution for each cell (only counting UMIs from productive contigs), intuitively showing cell quality control results and background noise levels. This chart shows the UMI distribution differences between identified valid cells and background droplets.
+- **V(D)J Barcode Rank Plot**: 
+  Visualizes UMI count distribution for each cell (only counting UMIs from productive contigs), intuitively showing cell quality control results and background noise levels. This chart shows the UMI distribution differences between identified valid cells and background droplets.
   <img src="../images/html_scvdj3.jpg" alt="scVDJ Web Report" width="300">
 
   **(1) X-axis**

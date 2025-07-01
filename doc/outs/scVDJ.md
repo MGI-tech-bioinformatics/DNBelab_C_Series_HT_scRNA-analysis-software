@@ -337,8 +337,8 @@ HTML网页报告提供了单细胞RNA测序分析结果的全面可视化展示�
   > • 低于预期值可能由于样本中B或T细胞比例低、样本质量差、文库质量差或测序深度低
 
 #### 📈 可视化图表1
-- **细胞排序图 (Barcode Rank Plot)**：
-  **V(D)J Barcode Rank Plot（V(D)J条形码排序图）**：可视化每个细胞的UMI数量分布（仅统计productive contig的UMI），直观展示细胞质量控制结果和背景噪音水平。该图表用于展示已识别的有效细胞与背景液滴的UMI分布差异。
+- **V(D)J Barcode Rank Plot（V(D)J细胞排序图）**：
+  可视化每个细胞的UMI数量分布（仅统计productive contig的UMI），直观展示细胞质量控制结果和背景噪音水平。该图表用于展示已识别的有效细胞与背景液滴的UMI分布差异。
   <img src="../images/html_scvdj3.jpg" alt="scVDJ网页报告" width="300">
 
   **(1) 横轴（X轴）**
