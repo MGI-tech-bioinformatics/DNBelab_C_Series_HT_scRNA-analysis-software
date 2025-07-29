@@ -23,7 +23,7 @@ To run the *dnbc4tools* package on a Linux-based system, the following minimum r
 |------|----------|
 | **File Name** | dnbc4tools2.1.3.tar.gz |
 | **File Size** | 495M |
-| **MD5 Checksum** | dfda9a3f308aaa3fdaa6c2a971bb2821 |
+| **MD5 Checksum** | ba47a1fa825da0a3c1a24b0a8d6c161a |
 
 **Download Options:**
 - **BGI CloudDrive**: [dnbc4tools2.1.3.tar.gz](https://bgipan.genomics.cn/#/link/OnWQPBNDMG6aXkApEraT) (Access Code: Y8cv)
