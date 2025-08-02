@@ -28,14 +28,14 @@
 
 | Package Details | Information                                  |
 |----------------|----------------------------------------------|
-| File Name      | dnbc4tools3.0beta.tar.gz                   |
-| File Size      | 509M                                        |
-| MD5 Checksum   | 898b6c05235613d97a7d8f6b9da7adce           |
+| File Name      | dnbc4tools3.0beta_v2.tar.gz                   |
+| File Size      | 507M                                        |
+| MD5 Checksum   | 6989f298d0f4e47ab0c9f4af399c5161           |
 
 ### Download Methods
 
 **Download Options:**
-- [Baidu Netdisk](https://pan.baidu.com/s/15CZoKfvtCnQxkivMvCixaQ?pwd=gbm1) (Access Code: gbm1)
+- [Baidu Netdisk](https://pan.baidu.com/s/1puUnUhX4RMMIyKXKhM-IsA?pwd=6dcf) (Access Code: 6dcf)
 
 ### New Features
 
