@@ -187,8 +187,6 @@ V(D)J分析流程提供框架区(FWR)和互补决定区(CDR)的氨基酸和核�
 | `proportion` | 观察到的具有该克隆型的细胞ID的比例 |
 | `cdr3s_aa` | 以分号分隔的链:序列对列表，其中链为TRA、TRB、TRG、TRD、IGK、IGL或IGH，序列为该链的CDR3氨基酸序列 |
 | `cdr3s_nt` | 以分号分隔的链:序列对列表，其中链为TRA、TRB、TRG、TRD、IGK、IGL或IGH，序列为该链的CDR3核苷酸序列 |
-| `inkt_evidence` | 对于T细胞，该列指示克隆型是否为iNKT细胞群体。证据为以分号分隔的链:匹配列表，其中链为TRA或TRB之一，匹配为genes、junction或genes+junction之一 |
-| `mait_evidence` | 对于T细胞，该列指示克隆型是否为MAIT细胞群体。证据为以分号分隔的链:匹配列表，其中链为TRA或TRB之一，匹配为genes、junction或genes+junction之一 |
 
 #### consensus.fasta 
 一致性序列代表每个克隆型中最频繁的精确亚克隆型序列，理想情况下应为全长序列（从5' UTR开始到C基因引物结合位点结束）。

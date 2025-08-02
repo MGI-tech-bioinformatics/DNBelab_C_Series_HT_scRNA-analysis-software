@@ -185,8 +185,6 @@ The clonotype CSV file provides descriptive information for each clonotype.
 | `proportion` | Proportion of observed cell IDs with this clonotype |
 | `cdr3s_aa` | Semicolon-separated list of chain:sequence pairs, where chain is TRA, TRB, TRG, TRD, IGK, IGL, or IGH, and sequence is the CDR3 amino acid sequence for that chain |
 | `cdr3s_nt` | Semicolon-separated list of chain:sequence pairs, where chain is TRA, TRB, TRG, TRD, IGK, IGL, or IGH, and sequence is the CDR3 nucleotide sequence for that chain |
-| `inkt_evidence` | For T cells, this column indicates whether the clonotype is an iNKT cell population. Evidence is a semicolon-separated list of chain:match pairs, where chain is one of TRA or TRB, and match is one of genes, junction, or genes+junction |
-| `mait_evidence` | For T cells, this column indicates whether the clonotype is a MAIT cell population. Evidence is a semicolon-separated list of chain:match pairs, where chain is one of TRA or TRB, and match is one of genes, junction, or genes+junction |
 
 #### consensus.fasta 
 Consensus sequences represent the most frequent exact subclonotype sequences within each clonotype, ideally should be full-length sequences (from 5' UTR to C gene primer binding site).

@@ -86,7 +86,7 @@ Analysis Settings:
 | **--calling_method** | Cell identification method [**Default value**: emptydrops]<br><br>📌 **Available methods**:<br>- "emptydrops": Uses a two-step strategy to identify real cells:<br>  1. Initial screening: Captures cells in high UMI regions based on expected cell count (`--expectcells`)<br>  2. Statistical testing: Compares cells with UMI counts above minimum threshold (`--minumi`) against background, significant differences are identified as real cells<br>- "barcoderanks": Determines real cells based on UMI ranking curve, using the curve inflection point as threshold |
 | **--expectcells** | Expected number of recovered cells <br><br>💡 **Recommended value**:<br>- Recommended to be 50% of the number of effective cells input<br>- If the number of input cells is not provided, it is recommended to use the default value |
 | **--forcecells** | Force specific cell number [**No default value**]<br>Based on UMI ranking results, selects and extracts a specific number of top-ranked cells. |
-| **--minumi** | Minimum UMI count [**Default value**: 500]<br>Sets the minimum number of UMIs required to identify a cell. Cells with UMI counts below this threshold will be filtered out. |
+| **--minumi** | Minimum UMI count [**Default value**: 1000]<br>Sets the minimum number of UMIs required to identify a cell. Cells with UMI counts below this threshold will be filtered out. |
 
 #### 🟢 Library Settings
 

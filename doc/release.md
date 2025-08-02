@@ -46,7 +46,7 @@
 - Web reports now use valid barcode/UMI and include Reads mapped confidently to genome/transcriptome.
 - Updated parameters:
   - `expectcells` is now estimated automatically.
-  - `minumi` added (default 500) to detect more low-UMI cells.
+  - `minumi` added (default 1000).
   - `customize` replaces JSON for library structure input.
 
 ##### 🚀 **Performance Optimization**
@@ -79,7 +79,7 @@
 #### **VDJ Module Updates**
 
 ##### 🔧 **Assembly & Annotation Updates**
-- Applies De Bruijn graph-based reads assembly per cell to reconstruct full-length contigs.
+- Applies advanced assembly algorithm and annotation logic per cell to reconstruct full-length contigs.
 - Stricter filtering of contigs based on read support and background noise.
 
 ##### 💾 **Memory & Runtime Efficiency**

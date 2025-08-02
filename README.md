@@ -46,6 +46,6 @@ This comprehensive toolkit supports multiple single-cell analysis workflows, inc
 
 - Review our [Release Notes](./doc/release.md) for comprehensive version history and feature updates
 - Latest release features enhanced performance and accuracy across scRNA-seq, scATAC-seq, and scVDJ-seq workflows
-- **Beta Release Notice**: This version is feature-complete but may contain bugs. Community testing and feedback are welcome! For production use, please consider the latest stable release
+- **3.0 Beta Release Notice**: This version is feature-complete but may contain bugs. Community testing and feedback are welcome! For production use, please consider the latest stable release
 
 ---
