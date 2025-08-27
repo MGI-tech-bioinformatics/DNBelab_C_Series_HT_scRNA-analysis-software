@@ -1,13 +1,14 @@
 # 🧬 DNBelab C Series HT scATAC 分析参数
 
-## 📋 目录
-- [主分析流程 (run)](#dnbc4tools-atac-run)
-- [参考数据库构建 (mkref)](#dnbc4tools-atac-mkref)
-- [多样本操作 (multi)](#dnbc4tools-atac-multi)
+<div align="center">
+
+[🔬 主分析流程 (run)](#主分析流程-run) • [📊 参考数据库构建 (mkref)](#参考数据库构建-mkref) • [📋 多样本操作 (multi)](#多样本操作-multi)
+
+</div>
 
 ---
 
-## 🔬 dnbc4tools atac run
+## 🔬 主分析流程 (run) <a id="主分析流程-run"></a>
 
 ### 📊 用法
 
@@ -53,7 +54,6 @@ Analysis Settings:
   --need_bam            Generate BAM format files (significantly increases analysis time)
 ```
 
-
 ### 📝 参数说明
 
 #### 🔴 必需参数
@@ -96,12 +96,11 @@ Analysis Settings:
 
 > 💡 **分析建议**：首次分析时建议使用默认参数，获得结果报告后再根据需要调整参数。
 
-</br>
-</br>
+---
 
-## dnbc4tools atac mkref
+## 📊 参考数据库构建 (mkref) <a id="参考数据库构建-mkref"></a>
 
-用法
+### 📊 用法
 
 ```shell
 $dnbc4tools atac mkref
@@ -193,12 +192,11 @@ Advanced settings:
 > - 黑名单区域的片段数量将记录在metadata文件output/singlecell.csv的blacklist_region_fragments列中
 > - genomesize值用于MACS2 peak calling分析，MACS2对某些物种有特殊标识符，如人类为"hs"
 
-</br>
-</br>
+---
 
-## dnbc4tools atac multi
+## 📋 多样本操作 (multi) <a id="多样本操作-multi"></a>
 
-用法
+### 📊 用法
 
 ```shell
 $dnbc4tools atac multi

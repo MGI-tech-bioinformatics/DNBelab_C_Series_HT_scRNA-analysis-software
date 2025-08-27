@@ -1,43 +1,30 @@
-# 🔬 DNBelab C Series HT scRNA Analysis
+# 🧬 DNBelab C Series HT scRNA Analysis Pipeline
 
-## 📋 Table of Contents
+<div align="center">
 
-- [📝 Overview](#-overview)
-- [🔄 Workflow Diagram](#-workflow-diagram)
-- [📌 Usage Notes](#-usage-notes)
-- [🧪 Analysis Steps](#-analysis-steps)
-  - [1️⃣ Prepare FASTQ Files](#️-prepare-fastq-files)
-  - [2️⃣ Prepare Reference Database](#️-prepare-reference-database-optional)
-    - [2.1 Reference Database File Requirements](#21-reference-database-file-requirements)
-    - [2.2 Using dnbc4tools tools mkgtf to Filter GTF Files](#22-using-dnbc4tools-tools-mkgtf-to-filter-gtf-files-optional)
-    - [2.3 Building Reference Database with dnbc4tools rna mkref](#23-building-reference-database-with-dnbc4tools-rna-mkref)
-  - [3️⃣ Multi-sample Operation](#️-multi-sample-operation-optional)
-  - [4️⃣ Main Analysis Pipeline](#️-main-analysis-pipeline)
-- [📊 Results Interpretation](#-results-interpretation)
-- [❓ Frequently Asked Questions](#-frequently-asked-questions)
+**Complete Guide for Single-Cell RNA Sequencing Data Analysis**
 
-## 📝 Overview
+[📋 Overview](#overview) • [📁 File Preparation](#file-preparation) • [📊 Reference Database](#reference-database) • [🚀 Main Analysis Pipeline](#main-analysis-pipeline) • [📊 Results Interpretation](#results-interpretation)
 
-This document provides a detailed guide for analyzing single-cell RNA sequencing data using dnbc4tools.
+</div>
 
-## 🔄 Workflow Diagram
+---
+
+## 📋 Overview <a id="overview"></a>
+
+This document provides a complete workflow for analyzing single-cell RNA sequencing data using dnbc4tools.
+
+**Workflow**: Raw Data → Quality Control → Alignment → Cell Identification → Expression Matrix → Analysis Report
 
 <div align="center">
   <img src="https://s2.loli.net/2024/09/26/uKTXv7Q2miNbz1S.png" alt="Workflow Diagram" width="800">
 </div>
 
-## 📌 Usage Notes
+> **Usage Note**: `$dnbc4tools` represents the executable program path, which needs to be replaced with the actual installation path when used. The backslash `\` is used to split commands across multiple lines in the command line for better readability.
 
-> **Tip:**
-> - `$dnbc4tools` represents the executable path. Replace this with the actual path before use. For example, if installed at `/opt/software/dnbc4tools3.0beta`, the command would be:
->   ```shell
->   /opt/software/dnbc4tools3.0beta/dnbc4tools rna run ...
->   ```
-> - The backslash `\` is used to split long shell commands across multiple lines for readability. It signals that the command continues on the next line. If written in a single line, the backslash is not required.
+---
 
-## 🧪 Analysis Steps
-
-### 1️⃣ Prepare FASTQ Files
+## 📁 File Preparation <a id="file-preparation"></a>
 
 Two types of FASTQ files are required for analysis:
 
@@ -48,9 +35,9 @@ Two types of FASTQ files are required for analysis:
 
 > **Note**: Ensure FASTQ files are of good quality and record their file paths for subsequent analysis.
 
-### 2️⃣ Prepare Reference Database (Optional)
+## 📊 Reference Database <a id="reference-database"></a>
 
-#### 2.1 Reference Database File Requirements
+### File Requirements
 
 | File Type | Format | Description |
 |-----------|--------|-------------|
@@ -65,11 +52,11 @@ Two types of FASTQ files are required for analysis:
 - GFF file format is not supported
 - Genome file and annotation file must correspond to each other
 
-#### 2.2 Using dnbc4tools tools mkgtf to Filter GTF Files (Optional)
+### GTF File Processing (Optional)
 
-GTF files downloaded from websites like ENSEMBL and UCSC typically contain genes of various types. Selecting gene types of interest for your research can reduce overlapping gene annotations. Reads that map non-uniquely to multiple genes will be filtered out.
+GTF files downloaded from ENSEMBL and UCSC websites typically contain multiple gene types. Selecting gene types of interest for your research can reduce overlapping gene annotations. Reads that map non-uniquely to multiple genes will be filtered out.
 
-We provide three GTF file processing functions:
+We provide the following three GTF file processing functions:
 
 | Function | Description |
 |----------|-------------|
@@ -77,7 +64,7 @@ We provide three GTF file processing functions:
 | **GTF File Correction** | Fill in missing information to ensure the GTF file meets analysis requirements |
 | **Gene Type Filtering** | Filter specific gene types based on research needs |
 
-##### 2.2.1 Gene Type Count Statistics (Optional)
+#### Gene Type Count Statistics
 
 ```shell
 # Count gene types
@@ -87,7 +74,7 @@ $dnbc4tools tools mkgtf \
   --output gtfstat.txt \
   --type gene_biotype
 ```
-> **Note**: You need to check the tags in the GTF file to determine the `type`.
+> **Note**: You need to check the tags in the GTF file to determine the `type` parameter.
 
 <div align="center">
   <img src="https://s2.loli.net/2024/10/09/afGqtQocTE9h3uR.png" alt="GTF File Type Example" width="800">
@@ -116,9 +103,9 @@ IG_V_gene       145
 ......
 ```
 
-##### 2.2.2 GTF File Correction (Optional)
+#### GTF File Correction
 
-For GTF files with missing content, which may cause errors in the main analysis pipeline due to inability to annotate. This function can fill in missing information in gene and transcript lines.
+For GTF files with missing content, this may cause the main analysis pipeline to fail annotation and report errors. This function can fill in missing information in gene and transcript lines.
 
 ```shell
 # Correct GTF file
@@ -128,9 +115,9 @@ $dnbc4tools tools mkgtf \
   --output corrected.gtf
 ```
 
-The software will fill in gene_id and gene_name as well as transcript_id and transcript_name for each other, and will indicate positions where multiple gene information may exist.
+The software will cross-fill gene_id and gene_name as well as transcript_id and transcript_name, and will indicate positions where multiple gene information may exist.
 
-##### 2.2.3 Gene Type Filtering
+#### Gene Type Filtering
 
 ```shell
 # Gene type filtering
@@ -173,11 +160,11 @@ $dnbc4tools tools mkgtf \
         IG_C_pseudogene,TR_V_gene,TR_D_gene,TR_J_gene,TR_C_gene
 ```
 
-### 2.3 Building Reference Database with dnbc4tools rna mkref
+### Building Reference Database
 
 Before running the dnbc4tools rna run analysis, we need to first build a reference database. This step requires annotation files (GTF) and reference genome (FASTA) to build index files for mapping and annotating sequencing reads.
 
-##### 2.3.1 Build Command
+
 
 ```shell
 # Build reference database
@@ -188,7 +175,7 @@ $dnbc4tools rna mkref \
   --threads 10
 ```
 
-##### 2.3.2 Output Results
+**Output Results**:
 
 After successful execution, a reference database directory will be created at the specified location, containing the following file structure:
 
@@ -265,9 +252,11 @@ Writing Reference JSON file into reference folder...
 Analysis Complete
 ```
 
----
+</br>
 
-### 3️⃣ Multi-sample Operation (Optional)
+## 🚀 Main Analysis Pipeline <a id="main-analysis-pipeline"></a>
+
+### Multi-sample Batch Processing (Optional)
 
 To simplify generating the main analysis pipeline for each sample individually, a configuration file can be used to generate a main pipeline shell script containing multiple samples. Here is an example step or script template:
 
@@ -286,9 +275,7 @@ The `sample.tsv` file is tab-delimited (`\t`) and contains three columns:
 | 2      | cDNA Library Sequencing Data |
 | 3      | Oligo Library Sequencing Data |
 
-> **Note**:
-> - Multiple FASTQ files should be separated by commas (`,`).
-> - R1 and R2 files should be separated by semicolons (`;`).
+> **Note**: Multiple FASTQ files should be separated by commas, and R1 and R2 files should be separated by semicolons.
 
 ```tsv
 sample1	/data/cDNA1_R1.fq.gz;/data/cDNA1_R2.fq.gz	/data/oligo1_R1.fq.gz,/data/oligo4_R1.fq.gz;/data/oligo1_R2.fq.gz,/data/oligo4_R2.fq.gz
@@ -309,18 +296,18 @@ The content of sample1.sh is as follows:
 
 ```shell
 $cat sample1.sh
-/opt/software/dnbc4tools2.1.3/dnbc4tools rna run --name sample1 --cDNAfastq1 /data/cDNA1_R1.fq.gz --cDNAfastq2 /data/cDNA1_R2.fq.gz --oligofastq1 /data/oligo1_R1.fq.gz,/data/oligo4_R1.fq.gz --oligofastq2 /data/oligo1_R2.fq.gz,/data/oligo4_R2.fq.gz --genomeDir /database/scRNA/Mus_musculus/mm10 --threads 30 
+/opt/software/dnbc4tools3.0beta/dnbc4tools rna run --name sample1 --cDNAfastq1 /data/cDNA1_R1.fq.gz --cDNAfastq2 /data/cDNA1_R2.fq.gz --oligofastq1 /data/oligo1_R1.fq.gz,/data/oligo4_R1.fq.gz --oligofastq2 /data/oligo1_R2.fq.gz,/data/oligo4_R2.fq.gz --genomeDir /database/scRNA/Mus_musculus/mm10 --threads 30 
 ```
 
-Proceed to step 4 for the main pipeline analysis.
+Execute step 4 for the main pipeline analysis.
 
----
+</br>
 
-### 4️⃣ Main Analysis Pipeline
+### Single Sample Analysis
 
-The main RNA analysis pipeline processes single-cell RNA cDNA and oligo library sequencing data for a single sample. This pipeline includes quality control, alignment, and functional region annotation. Subsequently, the system merges beads to identify cells and generates both raw and filtered gene expression matrices. Next, the analysis performs cell filtering, dimensionality reduction, clustering, and annotation on this matrix, ultimately generating an HTML format report and outputting analysis results.
+The RNA main analysis pipeline processes single-cell RNA cDNA and oligo library sequencing data for a single sample. This pipeline includes quality control, alignment, and functional region annotation. Subsequently, the system merges beads to identify cells and generates both raw and filtered gene expression matrices. Next, the analysis performs cell filtering, dimensionality reduction, clustering, and annotation on this matrix, ultimately generating an HTML format report and outputting analysis results.
 
-To generate expression matrices for a single sample, here is an example command template:
+To generate expression matrices for a single sample, here is an example step or script template:
 
 ```shell
 $dnbc4tools rna run \
@@ -336,49 +323,48 @@ $dnbc4tools rna run \
 After automatic detection of reagent version and dark reaction, the software starts running the analysis. Here is an example:
 
 ```shell
-2025-06-04 16:29:35 Performing RNA data processing
+2024-06-04 16:29:35 Performing RNA data processing
 Chemistry(darkreaction) determined in oligoR1: darkreaction
 Chemistry(darkreaction) determined in oligoR2: darkreaction
 Chemistry(darkreaction) determined in cDNAR1: darkreaction
 
-2025-06-04 16:29:37 Processing oligo library filtering...
+2024-06-04 16:29:37 Processing oligo library filtering...
 ...done
 
-2025-06-04 16:59:39 Processing cDNA library filtering...
+2024-06-04 16:59:39 Processing cDNA library filtering...
 ...done
 
-2025-06-04 17:50:10 Processing alignment and counting...
+2024-06-04 17:50:10 Processing alignment and counting...
 ...done
 
-2025-06-05 01:20:56 Calculating bead similarity, merging beads within the same droplet...
+2024-06-05 01:20:56 Calculating bead similarity, merging beads within the same droplet...
 ...done
 
-2025-06-05 01:22:17 Generating raw gene expression matrix...
+2024-06-05 01:22:17 Generating raw gene expression matrix...
 ...done
 
-2025-06-05 01:31:38 Generating cell-filtered gene expression matrix...
+2024-06-05 01:31:38 Generating cell-filtered gene expression matrix...
 ...done
 
-2025-06-05 01:33:07 Calculating sequencing saturation metrics...
+2024-06-05 01:33:07 Calculating sequencing saturation metrics...
 ...done
 
-2025-06-05 01:34:23 Generating position-sorted BAM file...
+2024-06-05 01:34:23 Generating position-sorted BAM file...
 ...done
 
-2025-06-05 02:23:17 Performing dimensionality reduction and clustering analysis...
+2024-06-05 02:23:17 Performing dimensionality reduction and clustering analysis...
 ...done
 
-2025-06-05 02:24:57 Generating analysis report and summary statistics...
+2024-06-05 02:24:57 Generating analysis report and summary statistics...
 ...done
 
-Analysis Finished Elapsed Time: 9:56:09
+Analysis Finished
+Elapsed Time: 9:56:09
 ```
 
 A successful run ends with `Analysis Finished`.
 
----
-
-## 📊 Results Interpretation
+## 📊 Results Interpretation <a id="results-interpretation"></a>
 
 After the analysis is complete, the output directory `outs` and logs directory will be generated. The `outs` directory includes:
 
@@ -403,9 +389,12 @@ After the analysis is complete, the output directory `outs` and logs directory w
 └── singlecell.csv                          # Cell information summary table, including UMI counts, gene numbers, and cell identification for each cell ID
 ```
 
-- **Output Files**: For detailed usage, refer to the [Output File Documentation](../io.md)
-- **Results Interpretation**: For an explanation of the output files, see [Output File Annotations](../outs/scRNA_en.md)
-- **Parameter Settings**: For details on analysis parameters, see [Analysis Parameter Settings](../parameter/scRNA_en.md)
+**Related Documentation**:
+- [📊 Output File Usage](../io.md)
+- [📋 Analysis Parameter Settings](../parameter/scRNA_en.md)
+- [📝 Output File Descriptions](../outs/scRNA_en.md)
+
+---
 
 ## ❓ Frequently Asked Questions
 

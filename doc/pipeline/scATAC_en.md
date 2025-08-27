@@ -1,42 +1,30 @@
-# 🧬 DNBelab C Series HT scATAC Analysis
+# 🧬 DNBelab C Series HT scATAC Analysis Pipeline
 
-## 📋 Table of Contents
+<div align="center">
 
-- [📝 Overview](#-overview)
-- [🔄 Workflow Diagram](#-workflow-diagram)
-- [📌 Usage Notes](#-usage-notes)
-- [🧪 Analysis Steps](#-analysis-steps)
-  - [1️⃣ Prepare FASTQ Files](#️-prepare-fastq-files)
-  - [2️⃣ Prepare Reference Database](#️-prepare-reference-database-optional)
-    - [2.1 Using dnbc4tools tools mkgtf to Filter GTF Files](#21-using-dnbc4tools-tools-mkgtf-to-filter-gtf-files-optional)
-    - [2.2 Building Reference Database with dnbc4tools atac mkref](#22-building-reference-database-with-dnbc4tools-atac-mkref)
-  - [3️⃣ Multi-sample Operation](#️-multi-sample-operation-optional)
-  - [4️⃣ Main Analysis Pipeline](#️-main-analysis-pipeline)
-- [📊 Results Interpretation](#-results-interpretation)
-- [❓ Frequently Asked Questions](#-frequently-asked-questions)
+**Complete Guide for Single-Cell ATAC Sequencing Data Analysis**
 
-## 📝 Overview
+[📋 Overview](#overview) • [📁 File Preparation](#file-preparation) • [📊 Reference Database](#reference-database) • [🚀 Main Analysis Pipeline](#main-analysis-pipeline) • [📊 Results Interpretation](#results-interpretation)
+
+</div>
+
+---
+
+## 📋 Overview <a id="overview"></a>
 
 This document provides a detailed guide for analyzing single-cell ATAC sequencing data using dnbc4tools.
 
-## 🔄 Workflow Diagram
+**Workflow**: Raw Data → Quality Control → Alignment → Bead Merging → Peak Calling → Cell Identification → Dimensionality Reduction and Clustering → Analysis Report
 
 <div align="center">
   <img src="https://s2.loli.net/2024/09/27/exd1OyX3n4K8LGq.png" alt="Workflow Diagram" width="800">
 </div>
 
-## 📌 Usage Notes
+> **Usage Note**: `$dnbc4tools` represents the executable program path, which needs to be replaced with the actual installation path when used. The backslash `\` is used to split commands across multiple lines in the command line for better readability.
 
-> **Tip:**
-> - `$dnbc4tools` represents the executable path. Replace this with the actual path before use. For example, if installed at `/opt/software/dnbc4tools3.0beta`, the command would be:
->   ```shell
->   /opt/software/dnbc4tools3.0beta/dnbc4tools atac run ...
->   ```
-> - The backslash `\` is used to split long shell commands across multiple lines for readability. It signals that the command continues on the next line. If written in a single line, the backslash is not required.
+---
 
-## 🧪 Analysis Steps
-
-### 1️⃣ Prepare FASTQ Files
+## 📁 File Preparation <a id="file-preparation"></a>
 
 The analysis requires FASTQ files:
 
@@ -46,7 +34,9 @@ The analysis requires FASTQ files:
 
 > **Note**: Ensure FASTQ files are of good quality and record their file paths for subsequent analysis.
 
-### 2️⃣ Prepare Reference Database (Optional)
+## 📊 Reference Database <a id="reference-database"></a>
+
+### File Requirements
 
 | File Type | Format | Description |
 |-----------|--------|-------------|
@@ -60,15 +50,15 @@ The analysis requires FASTQ files:
 - GFF file format is not supported
 - Genome file and annotation file must correspond to each other
 
-#### 2.1 Using dnbc4tools tools mkgtf to Filter GTF Files (Optional)
+### GTF File Processing (Optional)
 
 For detailed information on GTF file filtering, please [refer to the scRNA analysis pipeline](./scRNA.md#22-using-dnbc4tools-tools-mkgtf-to-filter-gtf-files-optional).
 
-#### 2.2 Building Reference Database with dnbc4tools atac mkref
+### Building Reference Database
 
 Before running the dnbc4tools atac run analysis, we need to first build a reference database. This step requires annotation files (GTF) and reference genome (FASTA) to build index files for mapping and statistical analysis of sequencing reads.
 
-##### 2.2.1 Build Command
+
 
 ```shell
 $dnbc4tools atac mkref \
@@ -77,7 +67,7 @@ $dnbc4tools atac mkref \
   --species Mus_musculus
 ```
 
-##### 2.2.2 Output Results
+**Output Results**:
 
 After successful execution, a reference database directory will be created at the specified location, containing the following file structure:
 
@@ -151,9 +141,9 @@ Writing reference JSON file...
 Analysis Complete
 ```
 
----
+## 🚀 Main Analysis Pipeline <a id="main-analysis-pipeline"></a>
 
-### 3️⃣ Multi-sample Operation (Optional)
+### Multi-sample Batch Processing (Optional)
 
 To simplify generating the main analysis pipeline for each sample individually, a configuration file can be used to generate a main pipeline shell script containing multiple samples. Here is an example step or script template:
 
@@ -196,15 +186,15 @@ $cat sample1.sh
 /opt/software/dnbc4tools3.0Beta/dnbc4tools atac run --name sample1 --fastq1 /data/sample1_R1.fq.gz --fastq2 /data/sample1_R2.fq.gz --genomeDir /opt/database/Mus_musculus --threads 10 
 ```
 
-Proceed to step 4 for the main pipeline analysis.
+Execute step 4 for the main pipeline analysis.
 
----
+</br>
 
-### 4️⃣ Main Analysis Pipeline
+### Single Sample Analysis
 
-The main ATAC analysis pipeline uses single-cell ATAC library sequencing data from a single sample. It generates fragments files for all beads after filtering and alignment. Beads are merged, and peak calling analysis is performed, utilizing fragment information in peak regions for cell identification. Subsequently, cell filtering, dimensionality reduction, and clustering are conducted. Finally, the results of each step are integrated to generate an HTML report and output the analysis results.
+The ATAC main analysis pipeline uses single-cell ATAC library sequencing data from a single sample. It generates fragments files for all beads after filtering and alignment. Beads are merged, and peak calling analysis is performed, utilizing fragment information in peak regions for cell identification. Subsequently, cell filtering, dimensionality reduction, and clustering are conducted. Finally, the results of each step are integrated to generate an HTML report and output the analysis results.
 
-To generate an expression matrix for a single sample, here is an example command template:
+To generate an expression matrix for a single sample, here is an example step or script template:
 
 ```shell
 $dnbc4tools atac run \
@@ -243,14 +233,13 @@ Chemistry(darkreaction) determined in fastqR2: darkreaction
 2025-06-03 16:54:44 Statistical analysis and report generation for results...
 ...done
 
-Analysis Finished Elapsed Time: 0:30:43
+Analysis Finished
+Elapsed Time: 0:30:43
 ```
 
 A successful run ends with `Analysis Finished`.
 
----
-
-## 📊 Results Interpretation
+## 📊 Results Interpretation <a id="results-interpretation"></a>
 
 After the analysis is complete, the output directory `outs` and logs directory will be generated.
 
@@ -269,9 +258,12 @@ After the analysis is complete, the output directory `outs` and logs directory w
 │   └── peaks.bed.gz                         # Raw peak position information
 └── singlecell.csv                           # Cell information summary table, including fragment count, peak count, and cell identification for each cell ID
 ```
-- **Output File Usage**: For detailed instructions, see [Output File Documentation](../io.md)
-- **Results Interpretation**: For an explanation of the output, see [Output File Annotations](../outs/scATAC_en.md)
-- **Parameter Settings**: For details on analysis parameters, see [Analysis Parameter Settings](../parameter/scATAC_en.md)
+**Related Documentation**:
+- [📊 Output File Usage](../io.md)
+- [📋 Analysis Parameter Settings](../parameter/scATAC_en.md)
+- [📝 Output File Descriptions](../outs/scATAC_en.md)
+
+---
 
 ## ❓ Frequently Asked Questions
 

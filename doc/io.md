@@ -1,50 +1,40 @@
-# 📊 Reading Output Results for Analysis in R or Python
+# 📊 Output Analysis Guide
+
+<div align="center">
+
+**How to analyze dnbc4tools output in R and Python**
+
+[🧬 RNA Analysis](#scrna-analysis) • [🧪 ATAC Analysis](#scatac-analysis) 
+
+</div>
 
 ---
 
-> **This guide demonstrates how to import and analyze DNBelab C Series™ single-cell data using popular analysis frameworks.**
+## 🧬 scRNA Analysis <a id="scrna-analysis"></a>
 
----
-
-## 🧬 scRNA Analysis
-
-| Framework | Language | Description |
-|-----------|----------|-------------|
-| Seurat    | R        | Popular R package for single-cell analysis |
-| Scanpy    | Python   | Python-based single-cell analysis toolkit |
-
-### 📦 Seurat
-
-```R
+### R (Seurat)
+```r
 library(Seurat)
 counts.data <- Read10X(data.dir = "/outs/filter_matrix")
 ```
 
-### 🐍 Scanpy
-
+### Python (Scanpy)
 ```python
 import scanpy as sc
 
-### read h5ad
+# Read h5ad format
 adata = sc.read_h5ad('/outs/filter_feature.h5ad')
 
-### read matrix dir
+# Read matrix format
 adata = sc.read_10x_mtx('/outs/filter_matrix')
 ```
 
 ---
 
-## 🔬 scATAC Analysis
+## 🧪 scATAC Analysis <a id="scatac-analysis"></a>
 
-| Framework | Language | Description |
-|-----------|----------|-------------|
-| Signac    | R        | Extension of Seurat for scATAC-seq |
-| ArchR     | R        | Comprehensive scATAC-seq analysis |
-| AnnData   | Python   | Python data structure for scATAC |
-
-### 📦 Signac
-
-```R
+### R (Signac)
+```r
 require(magrittr)
 require(readr)
 require(Matrix)
@@ -64,9 +54,8 @@ mtx <- Matrix::readMM(mtx_path) %>%
   magrittr::set_colnames(barcodes$barcode)
 ```
 
-> **Including Reading Other Files with Metadata**
-
-```R
+**Including Reading Other Files with Metadata**
+```r
 require(magrittr)
 require(readr)
 require(Matrix)
@@ -114,8 +103,7 @@ read_signac_C4 <- function(mex_dir_path, fragments, singlecellmetadata){
 }
 ```
 
-### 📊 ArchR
-
+### R (ArchR)
 ```r
 library(ArchR)
 ArrowFiles <- createArrowFiles(
@@ -128,8 +116,7 @@ ArrowFiles <- createArrowFiles(
 )
 ```
 
-### 🐍 AnnData
-
+### Python (AnnData)
 ```python
 import os
 from scipy.sparse import csr_matrix
@@ -160,6 +147,16 @@ def read_atac_C4(path):
 
 ---
 
-## 📚 Additional Resources
+## 📊 Common Output Files <a id="common-output-files"></a>
 
-> **For more detailed information on analysis workflows, please refer to our [Analysis Workflow](./pipeline.md) documentation.**
+| **File Type** | **Description** | **Analysis** |
+|---------------|-----------------|-------------|
+| `filter_matrix/` | Filtered gene expression matrix | scRNA-seq |
+| `filter_peak_matrix/` | Filtered peak accessibility matrix | scATAC-seq |
+| `filter_feature.h5ad` | AnnData format (Python-ready) | scRNA-seq |
+| `fragments.tsv.gz` | Fragment file for ATAC analysis | scATAC-seq |
+| `singlecell.csv` | Cell metadata and QC metrics | All |
+
+---
+
+*For detailed output descriptions, see [Output Files Guide](./outs/outs.md)*

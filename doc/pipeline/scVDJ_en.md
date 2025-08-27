@@ -1,43 +1,33 @@
-# 🧬 DNBelab C Series HT scVDJ Analysis
+# 🧬 DNBelab C Series HT scVDJ Analysis Pipeline
 
-## 📋 Table of Contents
+<div align="center">
 
-- [📝 Overview](#-overview)
-- [🔄 Workflow Diagram](#-workflow-diagram)
-- [📌 Usage Notes](#-usage-notes)
-- [🧪 Analysis Steps](#-analysis-steps)
-  - [1️⃣ 5' Transcriptome Analysis](#️-5-transcriptome-analysis)
-  - [2️⃣ Prepare Files](#️-prepare-files)
-  - [3️⃣ Main Analysis Pipeline](#️-main-analysis-pipeline)
-- [📊 Results Interpretation](#-results-interpretation)
-- [❓ Frequently Asked Questions](#-frequently-asked-questions)
+**Complete Guide for Single-Cell VDJ Sequencing Data Analysis**
 
-## 📝 Overview
+[📋 Overview](#overview) • [📁 File Preparation](#file-preparation) • [🚀 Main Analysis Pipeline](#main-analysis-pipeline) • [📊 Results Interpretation](#results-interpretation)
+
+</div>
+
+---
+
+## 📋 Overview <a id="overview"></a>
 
 This document provides a detailed guide for analyzing single-cell VDJ sequencing data using dnbc4tools.
 
-## 🔄 Workflow Diagram
+**Workflow**: 5' Transcriptome Analysis → VDJ Library Processing → Sequence Assembly and Annotation → Cell Filtering → Clonotype Analysis → Analysis Report
 
-<p align="center">
+<div align="center">
   <img src="https://s2.loli.net/2024/09/27/WHFIaNpLV8xu4Pi.png" alt="Workflow Diagram" width="800">
-</p>
+</div>
 
-## 📌 Usage Notes
+> **Usage Note**: `$dnbc4tools` represents the executable program path, which needs to be replaced with the actual installation path when used. The backslash `\` is used to split commands across multiple lines in the command line for better readability.
 
-> [!Tip]
->
-> - `$dnbc4tools` represents the executable path. Replace this with the actual path before use. For example, if installed at `/opt/software/dnbc4tools3.0beta`, the command would be:
->
-> ```shell
-> /opt/software/dnbc4tools3.0beta/dnbc4tools vdj run ...
-> ```
->
-> - The backslash `\` is used to split long shell commands across multiple lines for readability. It signals that the command continues on the next line. If written in a single line, the backslash is not required.
+---
 
 
-## 🧪 Analysis Steps
+## 📁 File Preparation <a id="file-preparation"></a>
 
-### 1️⃣ 5' Transcriptome Analysis
+### 5' Transcriptome Analysis
 
 For transcriptome analysis, please refer to `dnbc4tools rna run`. The 5' transcriptome analysis main pipeline requires adding the `--end5` parameter to the standard single-cell RNA analysis workflow.
 
@@ -57,7 +47,7 @@ $dnbc4tools rna run \
 
 > **Note**: 5' transcriptome analysis is a prerequisite for VDJ analysis. This step must be completed before proceeding with subsequent analysis.
 
-### 2️⃣ Prepare Files
+### Required Files for VDJ Analysis
 
 The analysis requires the following files:
 
@@ -85,7 +75,7 @@ CELL726_N4,585934,4617,22660,1,ACCTACGGCGTTACTATGTG;CGACGCTCTCGACAGTTAGG;CGGCAGA
 CELL4010_N1,555308,4268,22554,1,AGAGAGTCGCAGCAAGCGAC
 ```
 
-### 3️⃣ Main Analysis Pipeline
+## 🚀 Main Analysis Pipeline <a id="main-analysis-pipeline"></a>
 
 The VDJ main analysis pipeline uses single-cell VDJ library sequencing data and the corresponding sample's 5' transcriptome analysis results. The pipeline includes the following steps:
 
@@ -95,7 +85,7 @@ The VDJ main analysis pipeline uses single-cell VDJ library sequencing data and 
 4. Filter cells based on assembly annotation results and 5' transcriptome cell identification
 5. Integrate results from all steps to generate an HTML report and output analysis results
 
-#### 3.1 TCR Analysis
+### TCR Analysis
 
 To run TCR analysis for a single sample, here is an example step or script template:
 
@@ -110,7 +100,7 @@ $dnbc4tools vdj run \
 	--threads 10
 ```
 
-#### 3.2 BCR Analysis
+### BCR Analysis
 
 To run BCR analysis for a single sample, here is an example step or script template:
 
@@ -125,7 +115,7 @@ $dnbc4tools vdj run \
 	--threads 10
 ```
 
-#### 3.3 Running Process
+### Running Process
 
 After automatic detection of dark reaction, the software begins running the analysis. Here is an example:
 
@@ -154,12 +144,13 @@ Chemistry(darkreaction) determined in fastqR1: darkreaction
 2025-04-24 02:53:58 Statistical analysis and report generation for results.
 ...done
 
-Analysis Finished Elapsed Time: 3:53:07
+Analysis Finished
+Elapsed Time: 3:53:07
 ```
 
 A successful run ends with `Analysis Finished`.
 
-## 📊 Results Interpretation
+## 📊 Results Interpretation <a id="results-interpretation"></a>
 
 After analysis completion, the output directory "outs" and logs directory will be generated. The outs directory includes:
 
@@ -179,10 +170,12 @@ After analysis completion, the output directory "outs" and logs directory will b
 └── metrics_summary.xls                      # Analysis quality metrics summary table
 ```
 
-- **Output Files**: For detailed usage, refer to the [Output File Documentation](../io.md).
-- **Results Interpretation**: For an explanation of the output files, see [Output File Annotations](../outs/scVDJ_en.md).
-- **Parameter Settings**: For details on analysis parameters, see [Analysis Parameter Settings](../parameter/scVDJ_en.md).
+**Related Documentation**:
+- [📋 Analysis Parameter Settings](../parameter/scVDJ_en.md)
+- [📝 Output File Descriptions](../outs/scVDJ_en.md)
+
+---
 
 ## ❓ Frequently Asked Questions
 
-*To be added later.*
+> `Content to be added`
