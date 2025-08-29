@@ -110,7 +110,7 @@ cd /opt/software/dnbc4tools3.0beta
 | 🎯 **Step** | 📚 **Action** |
 |---------------|----------------|
 | 1️⃣ | [**Quick Start Tutorial**](./quickstart.md) - Run your first analysis |
-| 2️⃣ | [**Download Sample Data**](./quickstart.md#sample-datasets) - Get test datasets |
+| 2️⃣ | [**Download Sample Data**](./dataset.md) - Get test datasets |
 | 3️⃣ | [**Explore Workflows**](./pipeline.md) - Choose your analysis type |
 | 4️⃣ | [**Understand Parameters**](./parameter/parameter.md) - Fine-tune your analysis |
 

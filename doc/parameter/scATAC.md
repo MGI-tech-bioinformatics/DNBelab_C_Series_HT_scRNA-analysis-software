@@ -611,12 +611,12 @@ genomeDir/
 │   ├── genome.fa           # 基因组序列文件
 │   └── genome.index        # Chromap索引文件
 ├── genes/
-│   └── genes.gtf          # 基因注释文件
+│   └── genes.gtf           # 基因注释文件
 ├── regions/
-│   ├── chrom.sizes        # 染色体大小文件
-│   ├── tss.bed           # TSS区域文件
-│   └── promoter.bed      # promoter区域文件
-└── ref.json              # 数据库配置文件
+│   ├── chrom.sizes         # 染色体大小文件
+│   ├── tss.bed             # TSS区域文件
+│   └── promoter.bed        # promoter区域文件
+└── ref.json                # 数据库配置文件
 </pre>
 </details>
 <strong>磁盘需求：</strong>人类基因组约10-15GB，其他物种按比例调整

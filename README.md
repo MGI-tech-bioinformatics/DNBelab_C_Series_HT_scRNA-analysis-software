@@ -68,6 +68,7 @@
 | [⚙️ **Parameters**](./doc/parameter/parameter.md) | Complete command reference and parameter settings |
 | [📖 **Output Reference**](./doc/outs/outs.md) | Understanding your results |
 | [📊 **Output Analysis**](./doc/io.md) | Analyze results in R and Python |
+| [🧬 **Demo Datasets**](./doc/dataset.md) | Access sample datasets for testing |
 
 
 ### 🔬 Analysis Workflows

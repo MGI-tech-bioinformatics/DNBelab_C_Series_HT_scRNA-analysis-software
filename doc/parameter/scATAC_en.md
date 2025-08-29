@@ -612,12 +612,12 @@ genomeDir/
 │   ├── genome.fa           # Genome sequence file
 │   └── genome.index        # Chromap index file
 ├── genes/
-│   └── genes.gtf          # Gene annotation file
+│   └── genes.gtf           # Gene annotation file
 ├── regions/
-│   ├── chrom.sizes        # Chromosome size file
-│   ├── tss.bed           # TSS region file
-│   └── promoter.bed      # Promoter region file
-└── ref.json              # Database configuration file
+│   ├── chrom.sizes         # Chromosome size file
+│   ├── tss.bed             # TSS region file
+│   └── promoter.bed        # Promoter region file
+└── ref.json                # Database configuration file
 </pre>
 </details>
 <strong>Disk Requirements:</strong> Human genome ~10-15GB, other species scale proportionally

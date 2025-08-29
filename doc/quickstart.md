@@ -230,14 +230,6 @@ $dnbc4tools vdj run \
 
 ---
 
-## 🆘 Troubleshooting
-
-**Common Issues:**
-- Check logs directory for detailed error messages
-- Ensure sufficient memory (50GB+ RAM) and disk space
-- Verify file paths and permissions
-- Confirm reference genome compatibility
-
 **Get Help:**
 - 📚 [Installation Guide](./installation.md) 
 - 🆘 [GitHub Issues](https://github.com/MGI-tech-bioinformatics/DNBelab_C_Series_HT_scRNA-analysis-software/issues)

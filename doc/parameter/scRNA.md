@@ -779,7 +779,7 @@ Analysis Settings:
 </br>
 </br>
 
-## 🧪 dnbc4tools rna mkref
+## 🧪 参考数据库构建 (mkref) <a id="参考数据库构建-mkref"></a>
 
 ### 📊 用法
 
@@ -1224,7 +1224,7 @@ genomeDir/
 </br>
 
 
-## 📚 dnbc4tools rna multi
+## 📚 多样本操作 (multi) <a id="多样本操作-multi"></a>
 
 ### 📊 用法
 
