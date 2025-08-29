@@ -96,7 +96,7 @@
 ### 📞 Contact Information
 
 - 🌐 **Website**: [www.mgitech.cn](https://www.mgitech.cn)
-- 📚 **Documentation**: [Detailed](https://lishuangshuang0616.github.io/DNBelab_C_Series_HT_scRNA-analysis-software/Document/README.html)
+- 📚 **Documentation**: [User Guide](https://lishuangshuang0616.github.io/DNBelab_C_Series_HT_scRNA-analysis-software/)
 ---
 
 ## 📝 What's New

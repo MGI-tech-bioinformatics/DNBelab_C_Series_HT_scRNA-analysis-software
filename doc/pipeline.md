@@ -62,8 +62,4 @@
 - 🧪 [ATAC Parameters](./parameter/scATAC_en.md) / [ATAC 参数](./parameter/scATAC.md)
 - 🦠 [VDJ Parameters](./parameter/scVDJ_en.md) / [VDJ 参数](./parameter/scVDJ.md)
 
-**Bilingual Support:**
-- [English Documentation](./parameter/parameter_en.md) 
-- [中文文档](./parameter/parameter.md)
-
 ---

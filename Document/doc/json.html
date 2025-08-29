@@ -142,11 +142,11 @@
 <ul>
 <li>cDNA：</li>
 </ul>
-<img src="file:////Users/lishuangshuang/Documents/scrna/DNBelab_C_Series_HT_scRNA-analysis-software/doc/images/cDNA_library.jpg" alt="1713246535520" style="zoom:14%;" />
+<img src="./images/cDNA_library.jpg" alt="1713246535520" style="zoom:14%;" />
 <ul>
 <li>oligo：</li>
 </ul>
- <img src="file:////Users/lishuangshuang/Documents/scrna/DNBelab_C_Series_HT_scRNA-analysis-software/doc/images/oligo_library.jpg" alt="59f71c7f64abbbefe09bb833914bb94" style="zoom:20%;" />
+ <img src="./images/oligo_library.jpg" alt="59f71c7f64abbbefe09bb833914bb94" style="zoom:20%;" />
 <p>A simple demo list below. The name field &quot;cell barcode tag&quot;, &quot;cell barcode&quot; and &quot;read 1&quot; are required. In the value filed, <code>CB</code> is the tag name for cell barcode and <code>UR</code> is the tag name for UMI. In the location field, <code>R1</code> is short for read 1, <code>R2</code> is for read 2. The cell barcode consists of two segments (<code>R1:1-10</code> and <code>R1:17-26</code>), first one from 1 to 10 bp of read 1 and the second one from 17 to 26 bp of read 1. And the program will export barcodes and UMI in the name filed of fastq, and base 1 to 100 of read 2 (<code>R2:1-100</code>) will be kept in the sequence filed. Predefined white-list is useful to correct barcodes and improve the number of reads per cell barcode. The &quot;distance&quot; and &quot;white list&quot; key in the config file is used to specify the cutoff distance and white-list barcodes. Barcode sequence not found at the white-list will be compared with each known candidate and calculate the hamming distance .</p>
 <pre><code class="language-json"><span class="hljs-punctuation">{</span>
     <span class="hljs-attr">&quot;cell barcode tag&quot;</span><span class="hljs-punctuation">:</span><span class="hljs-string">&quot;CB&quot;</span><span class="hljs-punctuation">,</span>

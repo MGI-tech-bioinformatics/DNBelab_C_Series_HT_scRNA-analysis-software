@@ -518,8 +518,8 @@ head<span class="hljs-punctuation">(</span>seurat_obj<span class="hljs-operator"
 <h3 id="️-anndata格式-h5ad-">🗃️ AnnData格式 (<code>.h5ad</code>) <a id="anndata-format-h5ad"></a></h3>
 <p><strong>格式概述:</strong> AnnData (&quot;Annotated Data&quot;) 是专为矩阵型数据设计的数据结构，特别适用于单细胞RNA测序数据分析。基于HDF5格式，提供高效的数据存储和访问能力。</p>
 <h4 id="️-数据结构">🏗️ 数据结构</h4>
-<div align="left">
-<img src="file:////Users/lishuangshuang/Documents/scrna/DNBelab_C_Series_HT_scRNA-analysis-software/doc/images/anndata.jpg" alt="AnnData格式结构图" width="400">
+<div align="center">
+<img src="../images/anndata.jpg" alt="AnnData格式结构图" width="400">
 </div>
 <table>
 <thead>
@@ -725,7 +725,9 @@ adata = sc.read_h5ad(<span class="hljs-string">&#x27;filter_feature.h5ad&#x27;</
 <p>⚠️ <strong>质量标准</strong>: 各项指标均提供了推荐阈值和质量等级，请结合具体实验目标进行综合评估。</p>
 </blockquote>
 <h3 id="-报告主要内容">📊 报告主要内容</h3>
-<img src="file:////Users/lishuangshuang/Documents/scrna/DNBelab_C_Series_HT_scRNA-analysis-software/doc/images/html_scrna1.png" alt="scRNA网页报告" width="500">
+<div align="center">
+<img src="../images/html_scrna1.png" alt="scRNA网页报告" width="500">
+</div>
 <h4 id="-细胞指标-cell-metrics-">🧬 细胞指标 (Cell Metrics) <a id="细胞指标"></a></h4>
 <div align="center">
 <p><strong>🎯 核心功能</strong>: 细胞识别、质量评估和基因表达统计，提供实验整体效果的关键指标</p>
@@ -1180,7 +1182,9 @@ adata = sc.read_h5ad(<span class="hljs-string">&#x27;filter_feature.h5ad&#x27;</
 <p><strong>🔍 细胞鉴定曲线图 (Barcode Rank Plot)</strong></p>
 <p><strong>🎯 分析目的</strong>: 可视化每个细胞的UMI数量分布，区分真实细胞与背景噪音。</p>
 <p><strong>📊 视觉编码</strong>: 🔵 蓝线（有效细胞）| ⬜ 灰线（背景噪音）| 🔷 蓝色渐变区（混合区域）</p>
-  <img src="file:////Users/lishuangshuang/Documents/scrna/DNBelab_C_Series_HT_scRNA-analysis-software/doc/images/html_scrna3.jpg" alt="scRNA网页报告" width="300">
+<div align="center">  
+  <img src="../images/html_scrna3.jpg" alt="scRNA网页报告" width="300">
+</div>
 <p><strong>📏 图表轴系详解</strong>:</p>
 <ul>
 <li><strong>X轴</strong>: Barcode Rank（细胞排序）- 按UMI总数降序排列（对数刻度）</li>
@@ -1238,7 +1242,9 @@ adata = sc.read_h5ad(<span class="hljs-string">&#x27;filter_feature.h5ad&#x27;</
 <hr>
 </br>
 </br>
-<img src="file:////Users/lishuangshuang/Documents/scrna/DNBelab_C_Series_HT_scRNA-analysis-software/doc/images/html_scrna2.png" alt="scRNA网页报告" width="500">
+<div align="center">
+<img src="../images/html_scrna2.png" alt="scRNA网页报告" width="500">
+</div>
 <h4 id="-可视化图表组二下游生物学分析-">📊 可视化图表组二：下游生物学分析 <a id="可视化图表组二"></a></h4>
 <div align="center">
 <p><strong>🎯 核心功能</strong>: 细胞聚类分析、差异基因识别、细胞类型注释和测序深度评估的综合展示</p>

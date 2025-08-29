@@ -141,7 +141,7 @@
             <h1 id="-dnbelab-c-series-ht-scatac-分析输出文档">🧬 DNBelab C Series HT scATAC 分析输出文档</h1>
 <div align="center">
 <p><strong>单细胞ATAC测序分析输出文件完整指南</strong></p>
-<p><a href="#%E8%BE%93%E5%87%BA%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84">📁 目录结构</a> • <a href="#%E8%AF%A6%E7%BB%86%E6%96%87%E4%BB%B6%E8%AF%B4%E6%98%8E">📋 文件详情</a> • <a href="#%E5%B3%B0%E7%9F%A9%E9%98%B5%E6%96%87%E4%BB%B6">🧬 数据矩阵</a> • <a href="#%E5%88%86%E6%9E%90%E6%8C%87%E6%A0%87%E6%B1%87%E6%80%BB">📊 分析结果</a> • <a href="#%E7%BD%91%E9%A1%B5%E6%8A%A5%E5%91%8A%E9%87%8A%E4%B9%89">📊 报告解读</a></p>
+<p><a href="#输出目录结构">📁 目录结构</a> • <a href="#详细文件说明">📋 文件详情</a> • <a href="#峰矩阵文件">🧬 数据矩阵</a> • <a href="#分析指标汇总">📊 分析结果</a> • <a href="#网页报告释义">📊 报告解读</a></p>
 </div>
 <hr>
 <h2 id="-概述-">📖 概述 <a id="概述"></a></h2>
@@ -411,13 +411,13 @@
 </table>
 <p><strong>文件格式</strong>: HTML网页格式，支持所有主流浏览器<br>
 <strong>用途</strong>: 提供分析结果的综合概述和深度解读<br>
-<strong>详细内容</strong>: 请查看 <a href="#%E7%BD%91%E9%A1%B5%E6%8A%A5%E5%91%8A%E9%87%8A%E4%B9%89">📊 网页报告释义</a> 部分</p>
+<strong>详细内容</strong>: 请查看 <a href="#网页报告释义">📊 网页报告释义</a> 部分</p>
 <hr>
 <h2 id="-文件格式说明-">📄 文件格式说明 <a id="文件格式说明"></a></h2>
 <blockquote>
 <p><strong>技术规范</strong>: 输出文件采用的标准格式详细说明</p>
 </blockquote>
-<h3 id="-market-matrix格式-mtxgz-">📊 Market Matrix格式 (<code>.mtx.gz</code>) <a id="market-matrix-format-mtxgz"></a></h3>
+<h3 id="-market-matrix-format-mtxgz-">📊 Market Matrix格式 (<code>.mtx.gz</code>) <a id="market-matrix-format-mtxgz"></a></h3>
 <p><strong>格式概述:</strong> Market Exchange Format (MEX) 是单细胞ATAC分析中广泛使用的稀疏矩阵存储标准，由三个核心文件组成，兼容性极佳。</p>
 <h4 id="文件组成">文件组成</h4>
 <ul>
@@ -471,9 +471,9 @@
 <blockquote>
 <p>⚠️ <strong>质量标准</strong>: 各项指标均提供了推荐阈值和质量等级，请结合具体实验目标进行综合评估。</p>
 </blockquote>
-<h3 id="-报告主要内容与结构">📊 报告主要内容与结构</h3>
+<h3 id="-报告主要内容">📊 报告主要内容</h3>
 <div align="center">
-  <img src="file:////Users/lishuangshuang/Documents/scrna/DNBelab_C_Series_HT_scRNA-analysis-software/doc/images/html_scatac1.png" alt="scATAC网页报告" width="500">
+    <img src="../images/html_scatac1.png" alt="scATAC网页报告" width="500">
 </div>
 <br>
 <h3 id="-核心分析指标详解">🧬 核心分析指标详解</h3>
@@ -771,10 +771,10 @@ cell barcode区域中碱基的质量值≥30的比例，Q30代表测序错误率
 <div align="center">
 <p><strong>🎯 核心功能</strong>: 细胞质量控制、片段分析和染色质可及性评估的多维度可视化展示</p>
 </div>
-<h5 id="-细胞排序图-barcode-rank-plot">📊 细胞排序图 (Barcode Rank Plot)</h5>
+<h5 id="-细胞排序分析图-cell-rank-plot-">📊 细胞排序分析图 (Cell Rank Plot) <a id="细胞排序分析图"></a></h5>
 <p><strong>图表功能:</strong> 可视化每个细胞在峰区域的片段数量分布，直观展示细胞质量控制结果和背景噪音水平。该图表用于区分已识别的有效细胞与背景细胞的分布差异。</p>
 <div align="center">
-  <img src="file:////Users/lishuangshuang/Documents/scrna/DNBelab_C_Series_HT_scRNA-analysis-software/doc/images/html_scatac3.jpg" alt="scATAC网页报告" width="300">
+  <img src="../images/html_scatac3.jpg" alt="scATAC网页报告" width="300">
 </div>
 <p><strong>技术规范与坐标系统:</strong></p>
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
@@ -954,7 +954,7 @@ cell barcode区域中碱基的质量值≥30的比例，Q30代表测序错误率
 </div>
 <hr>
 <div align="center">
-  <img src="file:////Users/lishuangshuang/Documents/scrna/DNBelab_C_Series_HT_scRNA-analysis-software/doc/images/html_scatac2.png" alt="scATAC网页报告" width="500">
+  <img src="../images/html_scatac2.png" alt="scATAC网页报告" width="500">
 </div>
 <h4 id="-其他核心指标-additional-key-metrics-">📊 其他核心指标 (Additional Key Metrics) <a id="其他核心指标"></a></h4>
 <div align="center">
