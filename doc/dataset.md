@@ -1,6 +1,6 @@
 # 🧬 DNBelab C Series Demo Datasets
 
-Demo datasets are hosted on CNG B (China National GeneBank). Due to human genetic resource regulations, only mouse sample data is provided.
+Demo datasets are hosted on CNGB (China National GeneBank). Due to human genetic resource regulations, only mouse sample data is provided.
 
 ## 📋 Navigation
 

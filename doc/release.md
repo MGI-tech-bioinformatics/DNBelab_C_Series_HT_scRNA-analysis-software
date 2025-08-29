@@ -26,7 +26,7 @@
 
 ## 📋 Release History <a id="release-history"></a>
 
-### 🔥 3.0 beta (June 16, 2025)
+### 🔥 3.0 beta (June 16, 2025) <a id="3.0-beta-june-16-2025"></a>
 
 #### 🧬 **RNA-Seq Enhancements**
 

@@ -1,30 +1,161 @@
-# 🧬 DNBelab C Series HT scATAC Analysis Output Documentation
+<!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>&#x1f9ec; DNBelab C Series HT scATAC Analysis Output Documentation</title>
+            <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
 
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only],
+.vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+.vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+            
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+<style>
+:root {
+  --color-note: #0969da;
+  --color-tip: #1a7f37;
+  --color-warning: #9a6700;
+  --color-severe: #bc4c00;
+  --color-caution: #d1242f;
+  --color-important: #8250df;
+}
+
+</style>
+<style>
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-note: #2f81f7;
+    --color-tip: #3fb950;
+    --color-warning: #d29922;
+    --color-severe: #db6d28;
+    --color-caution: #f85149;
+    --color-important: #a371f7;
+  }
+}
+
+</style>
+<style>
+.markdown-alert {
+  padding: 0.5rem 1rem;
+  margin-bottom: 16px;
+  color: inherit;
+  border-left: .25em solid #888;
+}
+
+.markdown-alert>:first-child {
+  margin-top: 0
+}
+
+.markdown-alert>:last-child {
+  margin-bottom: 0
+}
+
+.markdown-alert .markdown-alert-title {
+  display: flex;
+  font-weight: 500;
+  align-items: center;
+  line-height: 1
+}
+
+.markdown-alert .markdown-alert-title .octicon {
+  margin-right: 0.5rem;
+  display: inline-block;
+  overflow: visible !important;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
+
+.markdown-alert.markdown-alert-note {
+  border-left-color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-note .markdown-alert-title {
+  color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-important {
+  border-left-color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-important .markdown-alert-title {
+  color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-warning {
+  border-left-color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-warning .markdown-alert-title {
+  color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-tip {
+  border-left-color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-tip .markdown-alert-title {
+  color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-caution {
+  border-left-color: var(--color-caution);
+}
+
+.markdown-alert.markdown-alert-caution .markdown-alert-title {
+  color: var(--color-caution);
+}
+
+</style>
+        
+        </head>
+        <body class="vscode-body vscode-light">
+            <h1 id="-dnbelab-c-series-ht-scatac-analysis-output-documentation">🧬 DNBelab C Series HT scATAC Analysis Output Documentation</h1>
 <div align="center">
-
-**Complete Guide to Single-Cell ATAC Sequencing Analysis Output Files**
-
-[📁 Directory Structure](#directory-structure) • [📋 File Details](#detailed-file-description) • [🧬 Data Matrix](#peak-matrix-files) • [📊 Analysis Results](#analysis-metrics-summary) • [📊 Report Interpretation](#web-report-interpretation)
-
+<p><strong>Complete Guide to Single-Cell ATAC Sequencing Analysis Output Files</strong></p>
+<p><a href="#directory-structure">📁 Directory Structure</a> • <a href="#detailed-file-description">📋 File Details</a> • <a href="#peak-matrix-files">🧬 Data Matrix</a> • <a href="#analysis-metrics-summary">📊 Analysis Results</a> • <a href="#web-report-interpretation">📊 Report Interpretation</a></p>
 </div>
-
----
-
-## 📖 Overview <a id="overview"></a>
-
-After single-cell ATAC sequencing analysis is completed, standardized files and subdirectory structures will be generated in the specified output directory, specifically for chromatin accessibility analysis and epigenomic research. This document provides detailed descriptions of the content, format, and purpose of each output file to help users fully understand and efficiently utilize single-cell ATAC analysis results.
-
-> 💡 **Tip**: All output files adopt standard formats compatible with mainstream single-cell epigenomic analysis tools (such as Signac, ArchR, etc.), following internationally recognized data format specifications.
-
-> ⚠️ **Prerequisites**: High-quality single-cell ATAC sequencing data preprocessing is required
-
----
+<hr>
+<h2 id="-overview-">📖 Overview <a id="overview"></a></h2>
+<p>After single-cell ATAC sequencing analysis is completed, standardized files and subdirectory structures will be generated in the specified output directory, specifically for chromatin accessibility analysis and epigenomic research. This document provides detailed descriptions of the content, format, and purpose of each output file to help users fully understand and efficiently utilize single-cell ATAC analysis results.</p>
+<blockquote>
+<p>💡 <strong>Tip</strong>: All output files adopt standard formats compatible with mainstream single-cell epigenomic analysis tools (such as Signac, ArchR, etc.), following internationally recognized data format specifications.</p>
+</blockquote>
+<blockquote>
+<p>⚠️ <strong>Prerequisites</strong>: High-quality single-cell ATAC sequencing data preprocessing is required</p>
+</blockquote>
+<hr>
 </br>
-
-## 📁 Directory Structure <a id="directory-structure"></a>
-
-```
-.
+<h2 id="-directory-structure-">📁 Directory Structure <a id="directory-structure"></a></h2>
+<pre><code>.
 ├── alignment.fragments.sorted.tagged.bam       # Quality-controlled alignment results (analysis requires the 'need_bam' parameter)
 ├── alignment.fragments.sorted.tagged.bam.bai   # Index file for the alignment results
 ├── filter_peak_matrix/                         # Directory for the filtered peak matrix in MEX format
@@ -42,33 +173,24 @@ After single-cell ATAC sequencing analysis is completed, standardized files and 
 │   └── peaks.bed.gz                            # Raw peak location information
 ├── singlecell.csv                              # Summary table of cell information
 └── *_scATAC_report.html                        # Analysis report in HTML format
-```
-
----
+</code></pre>
+<hr>
 </br>
-
-## 📋 Detailed File Description <a id="detailed-file-description"></a>
-
-### 🧬 ATAC Fragment and Peak Files
-
+<h2 id="-detailed-file-description-">📋 Detailed File Description <a id="detailed-file-description"></a></h2>
+<h3 id="-atac-fragment-and-peak-files">🧬 ATAC Fragment and Peak Files</h3>
 <div align="center">
-
-**🎯 Core Content**: ATAC-seq fragment information and peak identification results, containing complete chromatin accessibility data and cell barcode tags
-
+<p><strong>🎯 Core Content</strong>: ATAC-seq fragment information and peak identification results, containing complete chromatin accessibility data and cell barcode tags</p>
 </div>
-
-#### 📄 fragments.tsv.gz
-
-**File Description:** This is a compressed TSV format file (BED-like format) containing ATAC-seq fragment information, with each line representing a unique ATAC-seq fragment. Fragment intervals are obtained by adjusting alignment intervals: the start position is moved 4bp forward from the leftmost alignment position, and the end position is moved 5bp backward from the rightmost alignment position, representing the center point of transposase cleavage sites.
-
-**Core Features:**
-- 🧬 **Fragment Identification**: Precisely locate the genomic coordinates of each chromatin accessibility fragment
-- 📊 **Quantitative Analysis**: Provide fragment support reads count and cell barcode information
-- 🗺️ **Visualization Support**: Compatible with BED format for IGV, UCSC and other genome browsers
-- 🔧 **Tool Compatibility**: Compatible with mainstream single-cell analysis tools such as ArchR, Signac
-
-**The file contains 5 columns of information:**
-
+<h4 id="-fragmentstsvgz">📄 fragments.tsv.gz</h4>
+<p><strong>File Description:</strong> This is a compressed TSV format file (BED-like format) containing ATAC-seq fragment information, with each line representing a unique ATAC-seq fragment. Fragment intervals are obtained by adjusting alignment intervals: the start position is moved 4bp forward from the leftmost alignment position, and the end position is moved 5bp backward from the rightmost alignment position, representing the center point of transposase cleavage sites.</p>
+<p><strong>Core Features:</strong></p>
+<ul>
+<li>🧬 <strong>Fragment Identification</strong>: Precisely locate the genomic coordinates of each chromatin accessibility fragment</li>
+<li>📊 <strong>Quantitative Analysis</strong>: Provide fragment support reads count and cell barcode information</li>
+<li>🗺️ <strong>Visualization Support</strong>: Compatible with BED format for IGV, UCSC and other genome browsers</li>
+<li>🔧 <strong>Tool Compatibility</strong>: Compatible with mainstream single-cell analysis tools such as ArchR, Signac</li>
+</ul>
+<p><strong>The file contains 5 columns of information:</strong></p>
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
@@ -99,27 +221,16 @@ After single-cell ATAC sequencing analysis is completed, standardized files and 
 </tr>
 </tbody>
 </table>
-
-**Purpose:** Used for visualizing and analyzing chromatin accessible regions, can be processed as a BED file. Compatible with ArchR, Signac and other tools.
-
-#### 📄 fragments.tsv.gz.tbi
-
-Tabix index file for the `fragments.tsv.gz` file, enabling fast random access to records in any genomic interval and improving data query efficiency.
-
-#### 📄 filtered.fragments.tsv.gz
-
-This is a quality-controlled and cell-filtered ATAC-seq fragment file stored in compressed TSV format (BED-like format).
-
-#### 📄 filtered.fragments.tsv.gz.tbi
-
-Tabix index file for the `filtered.fragments.tsv.gz` file, used for fast random access to quality-controlled fragment files. This index file supports genomic interval queries and improves retrieval efficiency for filtered data.
-
-#### 📄 alignment.fragments.sorted.tagged.bam
-
-**File Description:** This is a quality-controlled alignment result file stored in standard BAM format. The file contains ATAC-seq alignment information that has undergone quality control and filtering, with each read tagged with cell barcodes (`CB` tag) and molecular identifiers. The file is sorted by genomic coordinates for fast retrieval and analysis.
-
-**Cell and molecular barcode information is stored in the following TAG fields:**
-
+<p><strong>Purpose:</strong> Used for visualizing and analyzing chromatin accessible regions, can be processed as a BED file. Compatible with ArchR, Signac and other tools.</p>
+<h4 id="-fragmentstsvgztbi">📄 fragments.tsv.gz.tbi</h4>
+<p>Tabix index file for the <code>fragments.tsv.gz</code> file, enabling fast random access to records in any genomic interval and improving data query efficiency.</p>
+<h4 id="-filteredfragmentstsvgz">📄 filtered.fragments.tsv.gz</h4>
+<p>This is a quality-controlled and cell-filtered ATAC-seq fragment file stored in compressed TSV format (BED-like format).</p>
+<h4 id="-filteredfragmentstsvgztbi">📄 filtered.fragments.tsv.gz.tbi</h4>
+<p>Tabix index file for the <code>filtered.fragments.tsv.gz</code> file, used for fast random access to quality-controlled fragment files. This index file supports genomic interval queries and improves retrieval efficiency for filtered data.</p>
+<h4 id="-alignmentfragmentssortedtaggedbam">📄 alignment.fragments.sorted.tagged.bam</h4>
+<p><strong>File Description:</strong> This is a quality-controlled alignment result file stored in standard BAM format. The file contains ATAC-seq alignment information that has undergone quality control and filtering, with each read tagged with cell barcodes (<code>CB</code> tag) and molecular identifiers. The file is sorted by genomic coordinates for fast retrieval and analysis.</p>
+<p><strong>Cell and molecular barcode information is stored in the following TAG fields:</strong></p>
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
@@ -146,27 +257,16 @@ Tabix index file for the `filtered.fragments.tsv.gz` file, used for fast random 
 </tr>
 </tbody>
 </table>
-
-#### 📄 alignment.fragments.sorted.tagged.bam.bai
-
-Index file corresponding to the BAM file, used to achieve fast random access to any genomic region in the BAM file. This index file is a standard BAI format index generated using the `samtools index` command.
-
----
-
-### 📈 Peak Matrix Files <a id="peak-matrix-files"></a>
-
+<h4 id="-alignmentfragmentssortedtaggedbambai">📄 alignment.fragments.sorted.tagged.bam.bai</h4>
+<p>Index file corresponding to the BAM file, used to achieve fast random access to any genomic region in the BAM file. This index file is a standard BAI format index generated using the <code>samtools index</code> command.</p>
+<hr>
+<h3 id="-peak-matrix-files-">📈 Peak Matrix Files <a id="peak-matrix-files"></a></h3>
 <div align="center">
-
-**🎯 Core Content**: Single-cell peak signal count matrix, divided into raw data and quality-controlled filtered data, using standard sparse matrix format
-
+<p><strong>🎯 Core Content</strong>: Single-cell peak signal count matrix, divided into raw data and quality-controlled filtered data, using standard sparse matrix format</p>
 </div>
-
-#### 📁 Filtered Peak Matrix (`filter_peak_matrix/`)
-
-**Directory Description:** Contains three core files of the filtered peak matrix, using Market Matrix Exchange (MEX) standard format.
-
-**Core File Composition:**
-
+<h4 id="-filtered-peak-matrix-filter_peak_matrix">📁 Filtered Peak Matrix (<code>filter_peak_matrix/</code>)</h4>
+<p><strong>Directory Description:</strong> Contains three core files of the filtered peak matrix, using Market Matrix Exchange (MEX) standard format.</p>
+<p><strong>Core File Composition:</strong></p>
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
@@ -189,21 +289,17 @@ Index file corresponding to the BAM file, used to achieve fast random access to 
 </tr>
 </tbody>
 </table>
-
-**Advantages:**
-- 🔍 **High-Quality Data**: Contains only cells and peak regions identified as real cells through quality control
-- 💾 **Space Efficient**: Sparse matrix format saves storage space
-- 🔧 **Tool Compatibility**: Compatible with analysis tools such as Signac, ArchR
-
-**Purpose:** Mainly used for downstream bioinformatics analysis.  
-**Reference:** For matrix format details, see [Market Matrix Format Description](#market-matrix-format-mtxgz).
-
-#### 📁 Raw Peak Matrix (`raw_peak_matrix/`)
-
-**Directory Description:** Contains three core files of the raw peak matrix, using Market Matrix Exchange (MEX) standard format.
-
-**Core File Composition:**
-
+<p><strong>Advantages:</strong></p>
+<ul>
+<li>🔍 <strong>High-Quality Data</strong>: Contains only cells and peak regions identified as real cells through quality control</li>
+<li>💾 <strong>Space Efficient</strong>: Sparse matrix format saves storage space</li>
+<li>🔧 <strong>Tool Compatibility</strong>: Compatible with analysis tools such as Signac, ArchR</li>
+</ul>
+<p><strong>Purpose:</strong> Mainly used for downstream bioinformatics analysis.<br>
+<strong>Reference:</strong> For matrix format details, see <a href="#market-matrix-format-mtxgz">Market Matrix Format Description</a>.</p>
+<h4 id="-raw-peak-matrix-raw_peak_matrix">📁 Raw Peak Matrix (<code>raw_peak_matrix/</code>)</h4>
+<p><strong>Directory Description:</strong> Contains three core files of the raw peak matrix, using Market Matrix Exchange (MEX) standard format.</p>
+<p><strong>Core File Composition:</strong></p>
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
@@ -226,32 +322,23 @@ Index file corresponding to the BAM file, used to achieve fast random access to 
 </tr>
 </tbody>
 </table>
-
-**Advantages:**
-- 📊 **Complete Data**: Retains all original detection data without filtering
-- 🔍 **Quality Control Reference**: Used to evaluate filtering effectiveness and optimize quality control parameters
-- 🔄 **Re-analysis**: Supports re-filtering and analysis with different parameters
-- 💾 **Data Backup**: Serves as a complete backup of raw data
-
-**Purpose:** Stores unfiltered peak data for quality control and parameter optimization.  
-**Reference:** For matrix format details, see [Market Matrix Format Description](#market-matrix-format-mtxgz).
-
----
-
-### 📝 Analysis Metrics Summary <a id="analysis-metrics-summary"></a>
-
+<p><strong>Advantages:</strong></p>
+<ul>
+<li>📊 <strong>Complete Data</strong>: Retains all original detection data without filtering</li>
+<li>🔍 <strong>Quality Control Reference</strong>: Used to evaluate filtering effectiveness and optimize quality control parameters</li>
+<li>🔄 <strong>Re-analysis</strong>: Supports re-filtering and analysis with different parameters</li>
+<li>💾 <strong>Data Backup</strong>: Serves as a complete backup of raw data</li>
+</ul>
+<p><strong>Purpose:</strong> Stores unfiltered peak data for quality control and parameter optimization.<br>
+<strong>Reference:</strong> For matrix format details, see <a href="#market-matrix-format-mtxgz">Market Matrix Format Description</a>.</p>
+<hr>
+<h3 id="-analysis-metrics-summary-">📝 Analysis Metrics Summary <a id="analysis-metrics-summary"></a></h3>
 <div align="center">
-
-**🎯 Core Content**: Experimental quality evaluation and statistical metrics summary, providing complete data quality control information
-
+<p><strong>🎯 Core Content</strong>: Experimental quality evaluation and statistical metrics summary, providing complete data quality control information</p>
 </div>
-
-#### 📄 metrics_summary.xls
-
-**File Description:** Summary table of key analysis metrics, using Excel format. Contains statistical information on sequencing data quality, alignment rates, cell counts, peak detection numbers, etc.
-
-**Main Metrics Categories:**
-
+<h4 id="-metrics_summaryxls">📄 metrics_summary.xls</h4>
+<p><strong>File Description:</strong> Summary table of key analysis metrics, using Excel format. Contains statistical information on sequencing data quality, alignment rates, cell counts, peak detection numbers, etc.</p>
+<p><strong>Main Metrics Categories:</strong></p>
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
@@ -274,9 +361,7 @@ Index file corresponding to the BAM file, used to achieve fast random access to 
 </tr>
 </tbody>
 </table>
-
-**Quality Control Standards:**
-
+<p><strong>Quality Control Standards:</strong></p>
 <details open>
 <summary><strong>Recommended Quality Thresholds:</strong></summary>
 <ul>
@@ -289,25 +374,19 @@ Index file corresponding to the BAM file, used to achieve fast random access to 
 <li>✅ <strong>Duplicate sequence percentage</strong>: >15%</li>
 </ul>
 </details>
-
-**Purpose:** Used to evaluate data quality and analysis effectiveness.
-
-#### 📄 singlecell.csv
-
-**File Description:** Single-cell quality control and statistical information table, using CSV format. Contains quality control metrics such as cell barcodes, fragment counts, peak counts, as well as cell filtering results.
-
-**Core Features:**
-- 🔍 **Quality Control Metrics**: Detailed quality control parameters at cell level
-- 🔄 **Merging Information**: Cell barcode merging status and statistics
-- 🏷️ **Filtering Results**: Cell quality assessment and filtering status
-- 🔗 **Downstream Compatibility**: Supports downstream personalized analysis and cell quality assessment
-
-**Purpose:** Supports downstream personalized analysis and cell quality assessment.
-
-#### 📄 *_scATAC_report.html
-
-**File Description:** Complete analysis report, using HTML web format. Contains interactive visualization charts such as quality control indicators, clustering results, peak detection, TSS detection.
-
+<p><strong>Purpose:</strong> Used to evaluate data quality and analysis effectiveness.</p>
+<h4 id="-singlecellcsv">📄 singlecell.csv</h4>
+<p><strong>File Description:</strong> Single-cell quality control and statistical information table, using CSV format. Contains quality control metrics such as cell barcodes, fragment counts, peak counts, as well as cell filtering results.</p>
+<p><strong>Core Features:</strong></p>
+<ul>
+<li>🔍 <strong>Quality Control Metrics</strong>: Detailed quality control parameters at cell level</li>
+<li>🔄 <strong>Merging Information</strong>: Cell barcode merging status and statistics</li>
+<li>🏷️ <strong>Filtering Results</strong>: Cell quality assessment and filtering status</li>
+<li>🔗 <strong>Downstream Compatibility</strong>: Supports downstream personalized analysis and cell quality assessment</li>
+</ul>
+<p><strong>Purpose:</strong> Supports downstream personalized analysis and cell quality assessment.</p>
+<h4 id="-_scatac_reporthtml">📄 *_scATAC_report.html</h4>
+<p><strong>File Description:</strong> Complete analysis report, using HTML web format. Contains interactive visualization charts such as quality control indicators, clustering results, peak detection, TSS detection.</p>
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
@@ -330,34 +409,38 @@ Index file corresponding to the BAM file, used to achieve fast random access to 
 </tr>
 </tbody>
 </table>
-
-**File Format**: HTML web format, compatible with all mainstream browsers  
-**Purpose**: Provides comprehensive overview and in-depth interpretation of analysis results  
-**Detailed Content**: Please see [📊 Web Report Interpretation](#web-report-interpretation) section
-
----
-
-## 📄 File Format Description <a id="file-format-description"></a>
-
-> **Technical Specifications**: Detailed description of standard formats used in output files
-
-### 📊 Market Matrix Format (`.mtx.gz`) <a id="market-matrix-format-mtxgz"></a>
-
-**Format Overview:** Market Exchange Format (MEX) is a widely used sparse matrix storage standard in single-cell ATAC analysis, consisting of three core files with excellent compatibility.
-
-#### File Composition
-- **`matrix.mtx.gz`**: Compressed sparse matrix file.
-  - File header contains matrix dimension information (number of rows, columns, non-zero elements).
-  - Each line records one non-zero element: row index, column index, value.
-- **`barcodes.tsv.gz`**: Compressed cell barcode file.
-  - Each line contains one cell ID information.
-  - Line number corresponds to matrix column index (cells).
-  - Barcode format is typically: e.g., `CELL1_N2`, where `CELL1` is the cell ID and `N2` consists of two barcodes.
-- **`peaks.bed.gz`**: Compressed peak region information file.
-  - Each line contains three columns: chromosome, start position, end position.
-
-#### 🎯 Use Cases
-
+<p><strong>File Format</strong>: HTML web format, compatible with all mainstream browsers<br>
+<strong>Purpose</strong>: Provides comprehensive overview and in-depth interpretation of analysis results<br>
+<strong>Detailed Content</strong>: Please see <a href="#web-report-interpretation">📊 Web Report Interpretation</a> section</p>
+<hr>
+<h2 id="-file-format-description-">📄 File Format Description <a id="file-format-description"></a></h2>
+<blockquote>
+<p><strong>Technical Specifications</strong>: Detailed description of standard formats used in output files</p>
+</blockquote>
+<h3 id="-market-matrix-format-mtxgz-">📊 Market Matrix Format (<code>.mtx.gz</code>) <a id="market-matrix-format-mtxgz"></a></h3>
+<p><strong>Format Overview:</strong> Market Exchange Format (MEX) is a widely used sparse matrix storage standard in single-cell ATAC analysis, consisting of three core files with excellent compatibility.</p>
+<h4 id="file-composition">File Composition</h4>
+<ul>
+<li><strong><code>matrix.mtx.gz</code></strong>: Compressed sparse matrix file.
+<ul>
+<li>File header contains matrix dimension information (number of rows, columns, non-zero elements).</li>
+<li>Each line records one non-zero element: row index, column index, value.</li>
+</ul>
+</li>
+<li><strong><code>barcodes.tsv.gz</code></strong>: Compressed cell barcode file.
+<ul>
+<li>Each line contains one cell ID information.</li>
+<li>Line number corresponds to matrix column index (cells).</li>
+<li>Barcode format is typically: e.g., <code>CELL1_N2</code>, where <code>CELL1</code> is the cell ID and <code>N2</code> consists of two barcodes.</li>
+</ul>
+</li>
+<li><strong><code>peaks.bed.gz</code></strong>: Compressed peak region information file.
+<ul>
+<li>Each line contains three columns: chromosome, start position, end position.</li>
+</ul>
+</li>
+</ul>
+<h4 id="-use-cases">🎯 Use Cases</h4>
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
@@ -376,43 +459,29 @@ Index file corresponding to the BAM file, used to achieve fast random access to 
 </tr>
 </tbody>
 </table>
-
----
-
-## 📊 Web Report Interpretation <a id="web-report-interpretation"></a>
-
+<hr>
+<h2 id="-web-report-interpretation-">📊 Web Report Interpretation <a id="web-report-interpretation"></a></h2>
 <div align="center">
-
-**🎯 Overview**: The HTML web report provides comprehensive visualization and detailed interpretation of single-cell ATAC sequencing analysis results, including evaluation of key performance indicators to help users quickly understand experiment quality and analysis results
-
+<p><strong>🎯 Overview</strong>: The HTML web report provides comprehensive visualization and detailed interpretation of single-cell ATAC sequencing analysis results, including evaluation of key performance indicators to help users quickly understand experiment quality and analysis results</p>
 </div>
-
-HTML web report is a comprehensive display platform for single-cell ATAC sequencing analysis, integrating complete results from data quality control to downstream epigenomic analysis. The report uses interactive visualization design to help users quickly evaluate experiment quality, understand analysis results and guide subsequent research directions.
-
-> 💡 **Usage Recommendations**: It is recommended to view each indicator in the order presented in the report.
-
-> ⚠️ **Quality Standards**: Recommended thresholds and quality levels are provided for each indicator. Please conduct comprehensive evaluation combined with specific experimental objectives.
-
-### 📊 Main Report Content and Structure
-
+<p>HTML web report is a comprehensive display platform for single-cell ATAC sequencing analysis, integrating complete results from data quality control to downstream epigenomic analysis. The report uses interactive visualization design to help users quickly evaluate experiment quality, understand analysis results and guide subsequent research directions.</p>
+<blockquote>
+<p>💡 <strong>Usage Recommendations</strong>: It is recommended to view each indicator in the order presented in the report.</p>
+</blockquote>
+<blockquote>
+<p>⚠️ <strong>Quality Standards</strong>: Recommended thresholds and quality levels are provided for each indicator. Please conduct comprehensive evaluation combined with specific experimental objectives.</p>
+</blockquote>
+<h3 id="-main-report-content-and-structure">📊 Main Report Content and Structure</h3>
 <div align="center">
-  <img src="../images/html_scatac1.png" alt="scATAC Web Report" width="500">
+  <img src="file:////Users/lishuangshuang/Documents/scrna/DNBelab_C_Series_HT_scRNA-analysis-software/doc/images/html_scatac1.png" alt="scATAC Web Report" width="500">
 </div>
-
 <br>
-
-### 🧬 Core Analysis Metrics Explained
-
-#### 🧬 Cell Metrics
-
+<h3 id="-core-analysis-metrics-explained">🧬 Core Analysis Metrics Explained</h3>
+<h4 id="-cell-metrics">🧬 Cell Metrics</h4>
 <div align="center">
-
-**🎯 Core Function**: Cell identification, quality assessment and chromatin accessibility statistics, providing key indicators for overall experimental effectiveness
-
+<p><strong>🎯 Core Function</strong>: Cell identification, quality assessment and chromatin accessibility statistics, providing key indicators for overall experimental effectiveness</p>
 </div>
-
-**📊 Quality Control Standards:**
-
+<p><strong>📊 Quality Control Standards:</strong></p>
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
@@ -455,9 +524,7 @@ HTML web report is a comprehensive display platform for single-cell ATAC sequenc
 </tr>
 </tbody>
 </table>
-
-**🔍 Detailed Metric Explanations:**
-
+<p><strong>🔍 Detailed Metric Explanations:</strong></p>
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
@@ -564,17 +631,11 @@ Total number of open chromatin regions (peaks) identified through aggregate anal
 </tr>
 </tbody>
 </table>
-
-#### 🔬 Sequencing Metrics
-
+<h4 id="-sequencing-metrics">🔬 Sequencing Metrics</h4>
 <div align="center">
-
-**🎯 Core Function**: Basic quality assessment of sequencing data, including barcode identification rate, alignment quality and sequencing accuracy
-
+<p><strong>🎯 Core Function</strong>: Basic quality assessment of sequencing data, including barcode identification rate, alignment quality and sequencing accuracy</p>
 </div>
-
-**📊 Quality Control Standards:**
-
+<p><strong>📊 Quality Control Standards:</strong></p>
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
@@ -611,9 +672,7 @@ Total number of open chromatin regions (peaks) identified through aggregate anal
 </tr>
 </tbody>
 </table>
-
-**🔍 Detailed Metric Explanations:**
-
+<p><strong>🔍 Detailed Metric Explanations:</strong></p>
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
@@ -708,27 +767,17 @@ The proportion of all bases in sequencing reads with quality values ≥30, refle
 </tr>
 </tbody>
 </table>
-
----
-
-#### 📈 Visualization Chart 1
-
+<hr>
+<h4 id="-visualization-chart-1">📈 Visualization Chart 1</h4>
 <div align="center">
-
-**🎯 Core Function**: Multi-dimensional visualization display of cell quality control, fragment analysis and chromatin accessibility assessment
-
+<p><strong>🎯 Core Function</strong>: Multi-dimensional visualization display of cell quality control, fragment analysis and chromatin accessibility assessment</p>
 </div>
-
-##### 📊 Cell Rank Plot
-
-**Chart Function:** Visualizes the fragment count distribution in peak regions for each cell, intuitively displaying cell quality control results and background noise levels. This chart is used to distinguish the distribution differences between identified valid cells and background cells.
-
+<h5 id="-cell-rank-plot">📊 Cell Rank Plot</h5>
+<p><strong>Chart Function:</strong> Visualizes the fragment count distribution in peak regions for each cell, intuitively displaying cell quality control results and background noise levels. This chart is used to distinguish the distribution differences between identified valid cells and background cells.</p>
 <div align="center">
-  <img src="../images/html_scatac3.jpg" alt="scATAC Web Report" width="300">
+  <img src="file:////Users/lishuangshuang/Documents/scrna/DNBelab_C_Series_HT_scRNA-analysis-software/doc/images/html_scatac3.jpg" alt="scATAC Web Report" width="300">
 </div>
-
-**Technical Specifications and Coordinate System:**
-
+<p><strong>Technical Specifications and Coordinate System:</strong></p>
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
@@ -762,20 +811,16 @@ The total number of peak region fragments corresponding to each cell. Higher fra
 </tr>
 </tbody>
 </table>
-
-**Interactive Features:**
-- 🖱️ **Mouse Hover Display**: Detailed cell information including cell ranking position and fragment count
-- 📊 **Percentage Indicator**: Proportion of cells identified as real cells in the region where this cell is located (real cells in the region / total cells in the region)
-- 🎨 **Dynamic Gradient**: Higher percentage values correspond to deeper colors (blue), lower proportions correspond to lighter colors
-
----
-
-##### 📊 Droplet Beads Distribution
-
-**Chart Function:** Shows the distribution of cell barcode counts captured in real cell droplets. This chart dynamically changes according to adjustments in cell count filtering parameters.
-
-**Statistical Distribution Characteristics:**
-
+<p><strong>Interactive Features:</strong></p>
+<ul>
+<li>🖱️ <strong>Mouse Hover Display</strong>: Detailed cell information including cell ranking position and fragment count</li>
+<li>📊 <strong>Percentage Indicator</strong>: Proportion of cells identified as real cells in the region where this cell is located (real cells in the region / total cells in the region)</li>
+<li>🎨 <strong>Dynamic Gradient</strong>: Higher percentage values correspond to deeper colors (blue), lower proportions correspond to lighter colors</li>
+</ul>
+<hr>
+<h5 id="-droplet-beads-distribution">📊 Droplet Beads Distribution</h5>
+<p><strong>Chart Function:</strong> Shows the distribution of cell barcode counts captured in real cell droplets. This chart dynamically changes according to adjustments in cell count filtering parameters.</p>
+<p><strong>Statistical Distribution Characteristics:</strong></p>
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
@@ -798,15 +843,10 @@ The total number of peak region fragments corresponding to each cell. Higher fra
 </tr>
 </tbody>
 </table>
-
----
-
-##### 📊 Cell Data Distribution
-
-**Chart Function:** Multi-dimensionally displays the distribution of cell fragment counts, TSS proportions, and peak region fragment proportions, providing a comprehensive cell quality assessment.
-
-**Axis Technical Specifications:**
-
+<hr>
+<h5 id="-cell-data-distribution">📊 Cell Data Distribution</h5>
+<p><strong>Chart Function:</strong> Multi-dimensionally displays the distribution of cell fragment counts, TSS proportions, and peak region fragment proportions, providing a comprehensive cell quality assessment.</p>
+<p><strong>Axis Technical Specifications:</strong></p>
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
@@ -846,15 +886,10 @@ Proportion of fragments in peak regions.<br>
 </tr>
 </tbody>
 </table>
-
----
-
-##### 📊 Fragment Length Distribution
-
-**Chart Function:** Shows the distribution of transposase accessibility fragment insertion lengths (deduplicated fragments), providing direct evidence of chromatin structure integrity.
-
-**Nucleosome Characteristic Analysis:**
-
+<hr>
+<h5 id="-fragment-length-distribution">📊 Fragment Length Distribution</h5>
+<p><strong>Chart Function:</strong> Shows the distribution of transposase accessibility fragment insertion lengths (deduplicated fragments), providing direct evidence of chromatin structure integrity.</p>
+<p><strong>Nucleosome Characteristic Analysis:</strong></p>
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
@@ -899,9 +934,7 @@ Reflects higher-order organization of chromatin. Peak appearance suggests high-q
 </tr>
 </tbody>
 </table>
-
-**Quality Control Standards:**
-
+<p><strong>Quality Control Standards:</strong></p>
 <div style="padding: 15px; border-left: 4px solid #10b981; margin: 15px 0;">
 <strong>🔬 High-Quality Sample Characteristics:</strong>
 <ul>
@@ -911,7 +944,6 @@ Reflects higher-order organization of chromatin. Peak appearance suggests high-q
 <li>✅ Presence of multinucleosome cascade peaks</li>
 </ul>
 </div>
-
 <div style="padding: 15px; border-left: 4px solid #ef4444; margin: 15px 0;">
 <strong>⚠️ Quality Warning Indicators:</strong>
 <ul>
@@ -921,23 +953,15 @@ Reflects higher-order organization of chromatin. Peak appearance suggests high-q
 <li>❌ Increased abnormal high-molecular-weight fragments</li>
 </ul>
 </div>
-
----
-
+<hr>
 <div align="center">
-  <img src="../images/html_scatac2.png" alt="scATAC Web Report" width="500">
+  <img src="file:////Users/lishuangshuang/Documents/scrna/DNBelab_C_Series_HT_scRNA-analysis-software/doc/images/html_scatac2.png" alt="scATAC Web Report" width="500">
 </div>
-
-#### 📊 Other Key Metrics
-
+<h4 id="-other-key-metrics">📊 Other Key Metrics</h4>
 <div align="center">
-
-**🎯 Core Function**: Advanced metrics for sequencing saturation assessment, inter-cell similarity analysis and data quality control
-
+<p><strong>🎯 Core Function</strong>: Advanced metrics for sequencing saturation assessment, inter-cell similarity analysis and data quality control</p>
 </div>
-
-**📊 Core Metrics Detailed Explanation:**
-
+<p><strong>📊 Core Metrics Detailed Explanation:</strong></p>
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
@@ -989,23 +1013,14 @@ Used to distinguish whether pairs of beads are located in the same droplet.
 </tr>
 </tbody>
 </table>
-
----
-
-#### 📈 Visualization Chart 2
-
+<hr>
+<h4 id="-visualization-chart-2">📈 Visualization Chart 2</h4>
 <div align="center">
-
-**🎯 Core Function**: Advanced visualization display of cell clustering analysis, TSS enrichment patterns, saturation assessment and bead similarity
-
+<p><strong>🎯 Core Function</strong>: Advanced visualization display of cell clustering analysis, TSS enrichment patterns, saturation assessment and bead similarity</p>
 </div>
-
-##### 🌀 Cell Clustering Analysis Chart
-
-**Chart Function:** Displays chromatin accessibility pattern similarity between cells through dimensionality reduction and clustering algorithms, identifying potential cell types and states.
-
-**Dual Chart Technical Specifications:**
-
+<h5 id="-cell-clustering-analysis-chart">🌀 Cell Clustering Analysis Chart</h5>
+<p><strong>Chart Function:</strong> Displays chromatin accessibility pattern similarity between cells through dimensionality reduction and clustering algorithms, identifying potential cell types and states.</p>
+<p><strong>Dual Chart Technical Specifications:</strong></p>
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
@@ -1051,13 +1066,9 @@ Cell Fragment Count<br>
 </tr>
 </tbody>
 </table>
-
-##### 📈 Transcription Start Site (TSS) Enrichment Chart
-
-**Chart Function:** Displays fragment cleavage site distribution within ±1,000 bp upstream and downstream of transcription start sites (TSS) for all barcodes, providing direct evidence for chromatin accessibility and transcriptional activity.
-
-**Technical Specifications and Parameters:**
-
+<h5 id="-transcription-start-site-tss-enrichment-chart">📈 Transcription Start Site (TSS) Enrichment Chart</h5>
+<p><strong>Chart Function:</strong> Displays fragment cleavage site distribution within ±1,000 bp upstream and downstream of transcription start sites (TSS) for all barcodes, providing direct evidence for chromatin accessibility and transcriptional activity.</p>
+<p><strong>Technical Specifications and Parameters:</strong></p>
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
@@ -1076,19 +1087,15 @@ Cell Fragment Count<br>
 </tr>
 </tbody>
 </table>
-
-**Quality Assessment Standards:**
-- **✅ Ideal Sample**: Obvious signal peaks near TSS, indicating chromatin openness at transcription start sites, TSS enrichment score >4
-- **❌ Problematic Sample**: No obvious enrichment in TSS region or flat curve, possibly indicating sample degradation or chromatin structure disruption
-
----
-
-##### 📊 Single Cell Targeting Plot
-
-**Chart Function:** Scatter plot displaying two core metrics for each cell, used for cell quality control and cell identification effectiveness evaluation.
-
-**Axis Technical Specifications:**
-
+<p><strong>Quality Assessment Standards:</strong></p>
+<ul>
+<li><strong>✅ Ideal Sample</strong>: Obvious signal peaks near TSS, indicating chromatin openness at transcription start sites, TSS enrichment score &gt;4</li>
+<li><strong>❌ Problematic Sample</strong>: No obvious enrichment in TSS region or flat curve, possibly indicating sample degradation or chromatin structure disruption</li>
+</ul>
+<hr>
+<h5 id="-single-cell-targeting-plot">📊 Single Cell Targeting Plot</h5>
+<p><strong>Chart Function:</strong> Scatter plot displaying two core metrics for each cell, used for cell quality control and cell identification effectiveness evaluation.</p>
+<p><strong>Axis Technical Specifications:</strong></p>
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
@@ -1110,24 +1117,21 @@ Cell Fragment Count<br>
 </tr>
 </tbody>
 </table>
-
-**Data Distribution Interpretation Guide:**
-- **🟢 Upper Right Corner**: High fragment count + high TSS enrichment, representing real high-quality cells
-- **🔴 Lower Left Corner**: Low fragment count + low TSS enrichment, possibly background noise or empty droplets, should be filtered out
-- **📊 Ideal State**: Good separation between cell and non-cell barcodes (distribution separation)
-
----
-
-##### 📈 Saturation Curve
-
-**Chart Function:** Evaluates sequencing depth adequacy and data complexity, guiding sequencing strategy optimization and cost control.
-
-**Axis Technical Specifications:**
-- **X-axis**: Average reads pair count per cell (i.e., sequencing depth), directly reflecting sequencing cost and data volume
-- **Y-axis**: Median unique fragment count per cell (deduplicated fragments after PCR duplicate removal)
-
-**Curve Trend Analysis and Quality Assessment:**
-
+<p><strong>Data Distribution Interpretation Guide:</strong></p>
+<ul>
+<li><strong>🟢 Upper Right Corner</strong>: High fragment count + high TSS enrichment, representing real high-quality cells</li>
+<li><strong>🔴 Lower Left Corner</strong>: Low fragment count + low TSS enrichment, possibly background noise or empty droplets, should be filtered out</li>
+<li><strong>📊 Ideal State</strong>: Good separation between cell and non-cell barcodes (distribution separation)</li>
+</ul>
+<hr>
+<h5 id="-saturation-curve">📈 Saturation Curve</h5>
+<p><strong>Chart Function:</strong> Evaluates sequencing depth adequacy and data complexity, guiding sequencing strategy optimization and cost control.</p>
+<p><strong>Axis Technical Specifications:</strong></p>
+<ul>
+<li><strong>X-axis</strong>: Average reads pair count per cell (i.e., sequencing depth), directly reflecting sequencing cost and data volume</li>
+<li><strong>Y-axis</strong>: Median unique fragment count per cell (deduplicated fragments after PCR duplicate removal)</li>
+</ul>
+<p><strong>Curve Trend Analysis and Quality Assessment:</strong></p>
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
@@ -1154,20 +1158,16 @@ Cell Fragment Count<br>
 </tr>
 </tbody>
 </table>
-
-**Cost-Benefit Optimization Recommendations:**
-- **Low Saturation (<15%)**: Recommend increasing sequencing depth to improve data quality
-- **High Saturation (>50%)**: Consider reducing sequencing depth to save costs
-- **Optimal Range (20–40%)**: Best cost-effectiveness sequencing depth range
-
----
-
-##### 📊 Bead Similarity Ranking
-
-**Technical Background:** In C4 ATAC technology, there are cases where one droplet contains multiple beads, requiring similarity calculations to merge bead fragments from the same droplet to obtain accurate single-cell data.
-
-**Technical Metrics and Explanation:**
-
+<p><strong>Cost-Benefit Optimization Recommendations:</strong></p>
+<ul>
+<li><strong>Low Saturation (&lt;15%)</strong>: Recommend increasing sequencing depth to improve data quality</li>
+<li><strong>High Saturation (&gt;50%)</strong>: Consider reducing sequencing depth to save costs</li>
+<li><strong>Optimal Range (20–40%)</strong>: Best cost-effectiveness sequencing depth range</li>
+</ul>
+<hr>
+<h5 id="-bead-similarity-ranking">📊 Bead Similarity Ranking</h5>
+<p><strong>Technical Background:</strong> In C4 ATAC technology, there are cases where one droplet contains multiple beads, requiring similarity calculations to merge bead fragments from the same droplet to obtain accurate single-cell data.</p>
+<p><strong>Technical Metrics and Explanation:</strong></p>
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
@@ -1198,19 +1198,15 @@ Cell Fragment Count<br>
 </tr>
 </tbody>
 </table>
-
-**Color Differentiation and Merging Strategy:**
-- **🔵 Blue Region**: High similarity barcode pairs (Jaccard value above set threshold), identified as multiple beads from the same cell, will undergo merging
-- **⚪ Gray Region**: Low similarity barcode pairs (Jaccard value below set threshold), considered from different cells, will not be merged
-
-**Application Significance:** This chart is used to visualize the effectiveness of barcode merging strategies, helping determine optimal Jaccard similarity threshold through "inflection point" characteristics to achieve accurate data merging.
-
----
-
-## 🎯 Additional Resources <a id="additional-resources"></a>
-
-### 📚 Related Documentation
-
+<p><strong>Color Differentiation and Merging Strategy:</strong></p>
+<ul>
+<li><strong>🔵 Blue Region</strong>: High similarity barcode pairs (Jaccard value above set threshold), identified as multiple beads from the same cell, will undergo merging</li>
+<li><strong>⚪ Gray Region</strong>: Low similarity barcode pairs (Jaccard value below set threshold), considered from different cells, will not be merged</li>
+</ul>
+<p><strong>Application Significance:</strong> This chart is used to visualize the effectiveness of barcode merging strategies, helping determine optimal Jaccard similarity threshold through &quot;inflection point&quot; characteristics to achieve accurate data merging.</p>
+<hr>
+<h2 id="-additional-resources-">🎯 Additional Resources <a id="additional-resources"></a></h2>
+<h3 id="-related-documentation">📚 Related Documentation</h3>
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
@@ -1221,23 +1217,26 @@ Cell Fragment Count<br>
 <tbody>
 <tr>
 <td align="center"><strong>🚀 Quick Start</strong></td>
-<td><a href="../quickstart.md">Quick Start Guide</a> - Complete tutorial for first-time analysis</td>
+<td><a href="../quickstart.html">Quick Start Guide</a> - Complete tutorial for first-time analysis</td>
 </tr>
 <tr>
 <td align="center"><strong>⚙️ Parameter Reference</strong></td>
-<td><a href="../parameter/parameter.md">Parameter Reference Manual</a> - Detailed explanation of all configurable parameters</td>
+<td><a href="../parameter/parameter.html">Parameter Reference Manual</a> - Detailed explanation of all configurable parameters</td>
 </tr>
 <tr>
 <td align="center"><strong>🔬 Analysis Pipeline</strong></td>
-<td><a href="../pipeline.md">Analysis Pipeline Description</a> - Technical details of the entire analysis pipeline</td>
+<td><a href="../pipeline.html">Analysis Pipeline Description</a> - Technical details of the entire analysis pipeline</td>
 </tr>
 <tr>
 <td align="center"><strong>🔧 Installation Configuration</strong></td>
-<td><a href="../installation.md">Installation Configuration Guide</a> - System requirements, installation steps and environment configuration</td>
+<td><a href="../installation.html">Installation Configuration Guide</a> - System requirements, installation steps and environment configuration</td>
 </tr>
 </tbody>
 </table>
+<hr>
+<p><em>For more detailed information, please refer to the document links above or contact the technical support team.</em></p>
 
----
-
-*For more detailed information, please refer to the document links above or contact the technical support team.*
+            
+            
+        </body>
+        </html>

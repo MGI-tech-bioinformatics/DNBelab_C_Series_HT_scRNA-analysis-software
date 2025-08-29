@@ -12,7 +12,7 @@
 
 ## 🌍 Language Options <a id="language-options"></a>
 
-| 🇺🇸 **English** | 🇨🇳 **中文** |
+| **English** | **中文** |
 |:----------------:|:-------------:|
 | [RNA Outputs](./scRNA_en.md) | [RNA 输出](./scRNA.md) |
 | [ATAC Outputs](./scATAC_en.md) | [ATAC 输出](./scATAC.md) |

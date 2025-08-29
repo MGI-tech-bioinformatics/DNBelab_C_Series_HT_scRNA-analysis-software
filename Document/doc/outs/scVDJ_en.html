@@ -1,30 +1,161 @@
-# 🧬 DNBelab C Series HT scVDJ Analysis Output Documentation
+<!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>&#x1f9ec; DNBelab C Series HT scVDJ Analysis Output Documentation</title>
+            <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
 
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only],
+.vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+.vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+            
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+<style>
+:root {
+  --color-note: #0969da;
+  --color-tip: #1a7f37;
+  --color-warning: #9a6700;
+  --color-severe: #bc4c00;
+  --color-caution: #d1242f;
+  --color-important: #8250df;
+}
+
+</style>
+<style>
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-note: #2f81f7;
+    --color-tip: #3fb950;
+    --color-warning: #d29922;
+    --color-severe: #db6d28;
+    --color-caution: #f85149;
+    --color-important: #a371f7;
+  }
+}
+
+</style>
+<style>
+.markdown-alert {
+  padding: 0.5rem 1rem;
+  margin-bottom: 16px;
+  color: inherit;
+  border-left: .25em solid #888;
+}
+
+.markdown-alert>:first-child {
+  margin-top: 0
+}
+
+.markdown-alert>:last-child {
+  margin-bottom: 0
+}
+
+.markdown-alert .markdown-alert-title {
+  display: flex;
+  font-weight: 500;
+  align-items: center;
+  line-height: 1
+}
+
+.markdown-alert .markdown-alert-title .octicon {
+  margin-right: 0.5rem;
+  display: inline-block;
+  overflow: visible !important;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
+
+.markdown-alert.markdown-alert-note {
+  border-left-color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-note .markdown-alert-title {
+  color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-important {
+  border-left-color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-important .markdown-alert-title {
+  color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-warning {
+  border-left-color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-warning .markdown-alert-title {
+  color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-tip {
+  border-left-color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-tip .markdown-alert-title {
+  color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-caution {
+  border-left-color: var(--color-caution);
+}
+
+.markdown-alert.markdown-alert-caution .markdown-alert-title {
+  color: var(--color-caution);
+}
+
+</style>
+        
+        </head>
+        <body class="vscode-body vscode-light">
+            <h1 id="-dnbelab-c-series-ht-scvdj-analysis-output-documentation">🧬 DNBelab C Series HT scVDJ Analysis Output Documentation</h1>
 <div align="center">
-
-**Complete Guide to Single-Cell V(D)J Sequencing Analysis Output Files**
-
-[📁 Directory Structure](#output-directory-structure) • [📋 File Details](#detailed-file-description) • [🧬 VDJ Assembly](#vdj-assembly-and-annotation-files) • [📊 Clonotype Analysis](#clonotype-analysis-files) • [📊 Report Interpretation](#web-report-interpretation)
-
+<p><strong>Complete Guide to Single-Cell V(D)J Sequencing Analysis Output Files</strong></p>
+<p><a href="#output-directory-structure">📁 Directory Structure</a> • <a href="#detailed-file-description">📋 File Details</a> • <a href="#vdj-assembly-and-annotation-files">🧬 VDJ Assembly</a> • <a href="#clonotype-analysis-files">📊 Clonotype Analysis</a> • <a href="#web-report-interpretation">📊 Report Interpretation</a></p>
 </div>
-
----
-
-## 📖 Overview <a id="overview"></a>
-
-After single-cell VDJ analysis is completed, standardized files and subdirectory structures are generated in the specified output directory for immune receptor repertoire analysis. This document provides detailed descriptions of each output file's content, format, and purpose to help users fully understand and efficiently utilize V(D)J analysis results.
-
-> 💡 **Note**: VDJ analysis requires 5' RNA sequencing data, and all output files follow AIRR standards and are compatible with mainstream immunological analysis tools.
-
-> ⚠️ **Prerequisites**: 5' single-cell RNA sequencing analysis must be completed first
-
----
+<hr>
+<h2 id="-overview-">📖 Overview <a id="overview"></a></h2>
+<p>After single-cell VDJ analysis is completed, standardized files and subdirectory structures are generated in the specified output directory for immune receptor repertoire analysis. This document provides detailed descriptions of each output file's content, format, and purpose to help users fully understand and efficiently utilize V(D)J analysis results.</p>
+<blockquote>
+<p>💡 <strong>Note</strong>: VDJ analysis requires 5' RNA sequencing data, and all output files follow AIRR standards and are compatible with mainstream immunological analysis tools.</p>
+</blockquote>
+<blockquote>
+<p>⚠️ <strong>Prerequisites</strong>: 5' single-cell RNA sequencing analysis must be completed first</p>
+</blockquote>
+<hr>
 </br>
-
-## 📁 Output Directory Structure <a id="output-directory-structure"></a>
-
-```
-.
+<h2 id="-output-directory-structure-">📁 Output Directory Structure <a id="output-directory-structure"></a></h2>
+<pre><code>.
 ├── airr_annotations.tsv                    # AIRR standard format annotation file
 ├── all_contig_annotations.csv              # Annotation information for all assembled sequences
 ├── all_contig.fasta                        # FASTA file of all assembled sequences
@@ -38,33 +169,21 @@ After single-cell VDJ analysis is completed, standardized files and subdirectory
 ├── filtered_contig.fasta.fai               # Index file for filtered assembled sequences
 ├── metrics_summary.xls                     # Analysis quality metrics summary
 └── *_scVDJ_TR(IG)_report.html              # HTML format analysis report
-```
-
----
+</code></pre>
+<hr>
 </br>
-
-## 📋 Detailed File Description <a id="detailed-file-description"></a>
-
-### 🧬 VDJ Assembly and Annotation Files <a id="vdj-assembly-and-annotation-files"></a>
-
+<h2 id="-detailed-file-description-">📋 Detailed File Description <a id="detailed-file-description"></a></h2>
+<h3 id="-vdj-assembly-and-annotation-files-">🧬 VDJ Assembly and Annotation Files <a id="vdj-assembly-and-annotation-files"></a></h3>
 <div align="center">
-
-**🎯 Core Content**: V(D)J contig sequence assembly, precise annotation, and quality assessment results, covering complete information of TCR and BCR rearranged sequences
-
+<p><strong>🎯 Core Content</strong>: V(D)J contig sequence assembly, precise annotation, and quality assessment results, covering complete information of TCR and BCR rearranged sequences</p>
 </div>
-
-### 🧵 V(D)J Transcript Structure and Composition
-
-**Typical V(D)J Transcript Structure Diagram:**
-
+<h3 id="-vdj-transcript-structure-and-composition">🧵 V(D)J Transcript Structure and Composition</h3>
+<p><strong>Typical V(D)J Transcript Structure Diagram:</strong></p>
 <div align="left">
-  <img src="../images/vdj_transcript.png" alt="V(D)J Transcript Structure Diagram" width="650">
+  <img src="file:////Users/lishuangshuang/Documents/scrna/DNBelab_C_Series_HT_scRNA-analysis-software/doc/images/vdj_transcript.png" alt="V(D)J Transcript Structure Diagram" width="650">
 </div>
-
 <br>
-
-**🔍 Important Terminology:**
-
+<p><strong>🔍 Important Terminology:</strong></p>
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
@@ -91,41 +210,32 @@ After single-cell VDJ analysis is completed, standardized files and subdirectory
 </tr>
 </tbody>
 </table>
-
-> 🧬 **Technical Advantage**: The V(D)J analysis pipeline can precisely identify and provide amino acid and nucleotide sequences for framework regions (FWR) and complementarity determining regions (CDR). V(D)J annotation information for all assembled contigs and clonotype consensus sequences is output in multiple standard formats.
-
-### 🔍 Important Annotation Standards
-
-#### 📋 Full Length Sequence Criteria (Full Length)
-
+<blockquote>
+<p>🧬 <strong>Technical Advantage</strong>: The V(D)J analysis pipeline can precisely identify and provide amino acid and nucleotide sequences for framework regions (FWR) and complementarity determining regions (CDR). V(D)J annotation information for all assembled contigs and clonotype consensus sequences is output in multiple standard formats.</p>
+</blockquote>
+<h3 id="-important-annotation-standards">🔍 Important Annotation Standards</h3>
+<h4 id="-full-length-sequence-criteria-full-length">📋 Full Length Sequence Criteria (Full Length)</h4>
 <div style="padding: 15px; border-left: 4px solid #007bff; margin: 15px 0;">
-
-A contig sequence is considered **full-length** if it simultaneously meets the following strict conditions:
-
-- ✅ The contig sequence completely matches the 5' start region of the annotated V gene
-- ✅ The contig sequence fully extends to the 3' terminal region of the J gene
-
+<p>A contig sequence is considered <strong>full-length</strong> if it simultaneously meets the following strict conditions:</p>
+<ul>
+<li>✅ The contig sequence completely matches the 5' start region of the annotated V gene</li>
+<li>✅ The contig sequence fully extends to the 3' terminal region of the J gene</li>
+</ul>
 </div>
-
-#### 🧬 Productive Sequence Criteria (Productive)
-
+<h4 id="-productive-sequence-criteria-productive">🧬 Productive Sequence Criteria (Productive)</h4>
 <div style="padding: 15px; border-left: 4px solid #0ea5e9; margin: 15px 0;">
-
-A contig sequence is considered **productive** (functionally active) if it simultaneously meets all of the following conditions:
-
-- ✅ Meets all requirements for full-length sequences above
-- ✅ Contains a valid start codon (ATG) at the correct position
-- ✅ No premature stop codons exist in the V-J spanning region
-- ✅ V gene start codon and J gene stop codon maintain the same reading frame
-- ✅ Successfully identifies complete CDR3 variable region
-- ✅ V-J spanning region length conforms to biologically reasonable range for corresponding genes
-
+<p>A contig sequence is considered <strong>productive</strong> (functionally active) if it simultaneously meets all of the following conditions:</p>
+<ul>
+<li>✅ Meets all requirements for full-length sequences above</li>
+<li>✅ Contains a valid start codon (ATG) at the correct position</li>
+<li>✅ No premature stop codons exist in the V-J spanning region</li>
+<li>✅ V gene start codon and J gene stop codon maintain the same reading frame</li>
+<li>✅ Successfully identifies complete CDR3 variable region</li>
+<li>✅ V-J spanning region length conforms to biologically reasonable range for corresponding genes</li>
+</ul>
 </div>
-
-#### 🎯 High Confidence Sequence Criteria (High Confidence)
-
-**🔬 Expected Receptor Configurations for Different Cell Types:**
-
+<h4 id="-high-confidence-sequence-criteria-high-confidence">🎯 High Confidence Sequence Criteria (High Confidence)</h4>
+<p><strong>🔬 Expected Receptor Configurations for Different Cell Types:</strong></p>
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
@@ -147,13 +257,11 @@ A contig sequence is considered **productive** (functionally active) if it simul
 </tr>
 </tbody>
 </table>
-
-**🤔 Low Confidence Sequence Marking Principles:**
-
+<p><strong>🤔 Low Confidence Sequence Marking Principles:</strong></p>
 <div style="padding: 15px; border-left: 4px solid #ffc107; margin: 15px 0;">
-
-> ⚠️ **Important Note**: Additional productive contigs beyond normal configuration are usually abnormal and may originate from:
-
+<blockquote>
+<p>⚠️ <strong>Important Note</strong>: Additional productive contigs beyond normal configuration are usually abnormal and may originate from:</p>
+</blockquote>
 <table style="width:100%; border-collapse: collapse; margin: 10px 0;">
 <thead>
 <tr>
@@ -176,24 +284,18 @@ A contig sequence is considered **productive** (functionally active) if it simul
 </tr>
 </tbody>
 </table>
-
 </div>
-
-**📉 Low Confidence Sequence Criteria:**
-
+<p><strong>📉 Low Confidence Sequence Criteria:</strong></p>
 <div style="padding: 15px; border-left: 4px solid #ef4444; margin: 15px 0;">
-
-- ❌ Biologically highly unlikely abnormal receptor configuration patterns
-- ❌ Suspicious sequences with significantly low UMI molecular support
-- ❌ Obviously excessive additional productive chains beyond expected numbers
-
+<ul>
+<li>❌ Biologically highly unlikely abnormal receptor configuration patterns</li>
+<li>❌ Suspicious sequences with significantly low UMI molecular support</li>
+<li>❌ Obviously excessive additional productive chains beyond expected numbers</li>
+</ul>
 </div>
-
-#### airr_annotations.tsv  
-Contains annotated sequences and consensus sequences of V(D)J rearrangements in AIRR standard format. Provides detailed V, D, J gene call information, CIGAR strings, sequence alignment results, and nucleotide and amino acid sequences of CDR3 regions.
-
-**Important Field Descriptions**:
-
+<h4 id="airr_annotationstsv">airr_annotations.tsv</h4>
+<p>Contains annotated sequences and consensus sequences of V(D)J rearrangements in AIRR standard format. Provides detailed V, D, J gene call information, CIGAR strings, sequence alignment results, and nucleotide and amino acid sequences of CDR3 regions.</p>
+<p><strong>Important Field Descriptions</strong>:</p>
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
@@ -332,18 +434,15 @@ Contains annotated sequences and consensus sequences of V(D)J rearrangements in 
 </tr>
 </tbody>
 </table>
-
-
-#### 📄 all_contig_annotations.csv  
-
-**File Description**: Contains detailed annotation information for all contig sequences (from cells and background barcodes) in CSV text format. This file provides comprehensive information for each contig including cell ID, gene segment calls, CDR and FWR region sequences, productive status, etc.
-
-**Core Functional Features**:
-- 📊 **Comprehensive Coverage**: Contains contig data from all cells and background barcodes
-- 🧬 **Complete Annotation**: Provides complete V(D)J gene segment annotation information
-- 🔍 **Detailed Sequences**: Contains detailed CDR and FWR region sequence information
-- 🎯 **Quality Control Support**: Supports quality control and reliability assessment analysis
-
+<h4 id="-all_contig_annotationscsv">📄 all_contig_annotations.csv</h4>
+<p><strong>File Description</strong>: Contains detailed annotation information for all contig sequences (from cells and background barcodes) in CSV text format. This file provides comprehensive information for each contig including cell ID, gene segment calls, CDR and FWR region sequences, productive status, etc.</p>
+<p><strong>Core Functional Features</strong>:</p>
+<ul>
+<li>📊 <strong>Comprehensive Coverage</strong>: Contains contig data from all cells and background barcodes</li>
+<li>🧬 <strong>Complete Annotation</strong>: Provides complete V(D)J gene segment annotation information</li>
+<li>🔍 <strong>Detailed Sequences</strong>: Contains detailed CDR and FWR region sequence information</li>
+<li>🎯 <strong>Quality Control Support</strong>: Supports quality control and reliability assessment analysis</li>
+</ul>
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
@@ -478,40 +577,26 @@ Contains annotated sequences and consensus sequences of V(D)J rearrangements in 
 </tr>
 </tbody>
 </table>
-
-#### 📄 all_contig.fasta  
-
-**File Description**: Contains nucleotide sequences of all assembled contigs in standard FASTA format. Each sequence corresponds to one contig, with sequence identifiers as contig unique names.
-
-#### 📄 filtered_contig_annotations.csv  
-
-**File Description**: Contains annotation information for contigs from high-confidence cell-associated barcodes, which is a high-quality subset of `all_contig_annotations.csv`. Only includes annotation results for high-confidence contigs that passed quality filtering.
-
-#### 📄 filtered_contig.fasta  
-
-**File Description**: Contains nucleotide sequences of high-confidence contigs in FASTA format. Only includes high-quality contig sequences that passed quality filtering and cell calling.
-
-
----
-
-## 📊 Clonotype Lineage Analysis Files <a id="clonotype-analysis-files"></a>
-
+<h4 id="-all_contigfasta">📄 all_contig.fasta</h4>
+<p><strong>File Description</strong>: Contains nucleotide sequences of all assembled contigs in standard FASTA format. Each sequence corresponds to one contig, with sequence identifiers as contig unique names.</p>
+<h4 id="-filtered_contig_annotationscsv">📄 filtered_contig_annotations.csv</h4>
+<p><strong>File Description</strong>: Contains annotation information for contigs from high-confidence cell-associated barcodes, which is a high-quality subset of <code>all_contig_annotations.csv</code>. Only includes annotation results for high-confidence contigs that passed quality filtering.</p>
+<h4 id="-filtered_contigfasta">📄 filtered_contig.fasta</h4>
+<p><strong>File Description</strong>: Contains nucleotide sequences of high-confidence contigs in FASTA format. Only includes high-quality contig sequences that passed quality filtering and cell calling.</p>
+<hr>
+<h2 id="-clonotype-lineage-analysis-files-">📊 Clonotype Lineage Analysis Files <a id="clonotype-analysis-files"></a></h2>
 <div align="center">
-
-**🎯 Core Content**: Precise identification, frequency statistics, and CDR3 sequence diversity analysis of TCR and BCR clonotype lineages
-
+<p><strong>🎯 Core Content</strong>: Precise identification, frequency statistics, and CDR3 sequence diversity analysis of TCR and BCR clonotype lineages</p>
 </div>
-
-#### 📄 clonotypes.csv
-
-**File Description**: Clonotype statistical analysis CSV file providing detailed descriptive information for each unique clonotype, including clonotype frequency, relative proportions, and CDR3 sequence characteristics.
-
-**Core Functional Features**:
-- 📊 **Statistical Analysis**: Provides clonotype-level statistical information
-- 🧬 **CDR3 Data**: Contains complete CDR3 sequence data
-- 📈 **Frequency Analysis**: Supports frequency and relative proportion analysis
-- 🔬 **Immunomics**: Suitable for professional immune repertoire research
-
+<h4 id="-clonotypescsv">📄 clonotypes.csv</h4>
+<p><strong>File Description</strong>: Clonotype statistical analysis CSV file providing detailed descriptive information for each unique clonotype, including clonotype frequency, relative proportions, and CDR3 sequence characteristics.</p>
+<p><strong>Core Functional Features</strong>:</p>
+<ul>
+<li>📊 <strong>Statistical Analysis</strong>: Provides clonotype-level statistical information</li>
+<li>🧬 <strong>CDR3 Data</strong>: Contains complete CDR3 sequence data</li>
+<li>📈 <strong>Frequency Analysis</strong>: Supports frequency and relative proportion analysis</li>
+<li>🔬 <strong>Immunomics</strong>: Suitable for professional immune repertoire research</li>
+</ul>
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
@@ -542,30 +627,30 @@ Contains annotated sequences and consensus sequences of V(D)J rearrangements in 
 </tr>
 </tbody>
 </table>
-
-#### 📄 consensus.fasta
-
-**File Description**: Consensus sequences represent the highest frequency exact subclonotype sequences within each clonotype, ideally should be full-length sequences (from 5' UTR start to C gene primer binding site end).
-
-**Features and Advantages**:
-- 🧬 **Representative**: Representative sequence for each clonotype
-- 📊 **High Quality**: Generated based on high-frequency exact subclonotypes
-- 🔧 **Tool Compatibility**: Standard FASTA format, compatible with various analysis tools
-
-> **📝 Important Note**
-> - Consensus sequences are representative sequences generated through clonotype grouping algorithms
-> - The consensus sequence for each clonotype is identical to the most common sequence in that clonotype
-
-#### 📄 consensus_annotations.csv
-
-**File Description**: Consensus sequence annotation CSV file provides detailed annotation information for each clonotype consensus sequence, including V, D, J gene calls, CDR and FWR region sequences and other complete annotation content.
-
-**Functional Features**:
-- 🧬 **Clonotype Annotation**: Consensus sequence annotation based on clonotype grouping
-- 📊 **Complete Information**: Contains complete V(D)J gene segment information
-- 🔍 **Detailed Sequences**: Provides detailed sequence information for CDR and FWR regions
-- 🎯 **Analysis Support**: Supports clonotype-level sequence analysis
-
+<h4 id="-consensusfasta">📄 consensus.fasta</h4>
+<p><strong>File Description</strong>: Consensus sequences represent the highest frequency exact subclonotype sequences within each clonotype, ideally should be full-length sequences (from 5' UTR start to C gene primer binding site end).</p>
+<p><strong>Features and Advantages</strong>:</p>
+<ul>
+<li>🧬 <strong>Representative</strong>: Representative sequence for each clonotype</li>
+<li>📊 <strong>High Quality</strong>: Generated based on high-frequency exact subclonotypes</li>
+<li>🔧 <strong>Tool Compatibility</strong>: Standard FASTA format, compatible with various analysis tools</li>
+</ul>
+<blockquote>
+<p><strong>📝 Important Note</strong></p>
+<ul>
+<li>Consensus sequences are representative sequences generated through clonotype grouping algorithms</li>
+<li>The consensus sequence for each clonotype is identical to the most common sequence in that clonotype</li>
+</ul>
+</blockquote>
+<h4 id="-consensus_annotationscsv">📄 consensus_annotations.csv</h4>
+<p><strong>File Description</strong>: Consensus sequence annotation CSV file provides detailed annotation information for each clonotype consensus sequence, including V, D, J gene calls, CDR and FWR region sequences and other complete annotation content.</p>
+<p><strong>Functional Features</strong>:</p>
+<ul>
+<li>🧬 <strong>Clonotype Annotation</strong>: Consensus sequence annotation based on clonotype grouping</li>
+<li>📊 <strong>Complete Information</strong>: Contains complete V(D)J gene segment information</li>
+<li>🔍 <strong>Detailed Sequences</strong>: Provides detailed sequence information for CDR and FWR regions</li>
+<li>🎯 <strong>Analysis Support</strong>: Supports clonotype-level sequence analysis</li>
+</ul>
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
@@ -636,21 +721,13 @@ Contains annotated sequences and consensus sequences of V(D)J rearrangements in 
 </tr>
 </tbody>
 </table>
-
-### 📝 Analysis Metrics Summary <a id="analysis-metrics-summary"></a>
-
+<h3 id="-analysis-metrics-summary-">📝 Analysis Metrics Summary <a id="analysis-metrics-summary"></a></h3>
 <div align="center">
-
-**🎯 Core Content**: Comprehensive evaluation and statistical metric summary of V(D)J assembly quality, providing complete data quality control information
-
+<p><strong>🎯 Core Content</strong>: Comprehensive evaluation and statistical metric summary of V(D)J assembly quality, providing complete data quality control information</p>
 </div>
-
-#### 📄 metrics_summary.xls
-
-**File Description**: Contains all key metric statistics for V(D)J analysis, used to comprehensively evaluate data quality and analysis effectiveness. Provides sequencing quality, cell identification, gene mapping, assembly effectiveness, and other key performance parameters.
-
-**Main Metric Categories**:
-
+<h4 id="-metrics_summaryxls">📄 metrics_summary.xls</h4>
+<p><strong>File Description</strong>: Contains all key metric statistics for V(D)J analysis, used to comprehensively evaluate data quality and analysis effectiveness. Provides sequencing quality, cell identification, gene mapping, assembly effectiveness, and other key performance parameters.</p>
+<p><strong>Main Metric Categories</strong>:</p>
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
@@ -681,9 +758,7 @@ Contains annotated sequences and consensus sequences of V(D)J rearrangements in 
 </tr>
 </tbody>
 </table>
-
-**Quality Control Standards**:
-
+<p><strong>Quality Control Standards</strong>:</p>
 <details open>
 <summary><strong>Recommended Quality Thresholds:</strong></summary>
 <ul>
@@ -695,13 +770,9 @@ Contains annotated sequences and consensus sequences of V(D)J rearrangements in 
 <li>✅ <strong>Average Reads per Cell</strong>: >5,000</li>
 </ul>
 </details>
-
-**Purpose**: Used to evaluate data quality and analysis effectiveness.
-
-#### 📄 *_scVDJ_TR(IG)_report.html
-
-**File Description**: VDJ analysis interactive web report providing comprehensive visualization of analysis results.
-
+<p><strong>Purpose</strong>: Used to evaluate data quality and analysis effectiveness.</p>
+<h4 id="-_scvdj_trig_reporthtml">📄 *_scVDJ_TR(IG)_report.html</h4>
+<p><strong>File Description</strong>: VDJ analysis interactive web report providing comprehensive visualization of analysis results.</p>
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
@@ -728,48 +799,32 @@ Contains annotated sequences and consensus sequences of V(D)J rearrangements in 
 </tr>
 </tbody>
 </table>
-
-**File Format**: HTML web format, supports all mainstream browsers  
-**Purpose**: Provides comprehensive overview and in-depth interpretation of analysis results  
-**Detailed Content**: Please see [📊 Web Report Interpretation](#web-report-interpretation) section
-
-
----
-
-## 📊 Web Report Interpretation <a id="web-report-interpretation"></a>
-
+<p><strong>File Format</strong>: HTML web format, supports all mainstream browsers<br>
+<strong>Purpose</strong>: Provides comprehensive overview and in-depth interpretation of analysis results<br>
+<strong>Detailed Content</strong>: Please see <a href="#web-report-interpretation">📊 Web Report Interpretation</a> section</p>
+<hr>
+<h2 id="-web-report-interpretation-">📊 Web Report Interpretation <a id="web-report-interpretation"></a></h2>
 <div align="center">
-
-**🎯 Overview**: The HTML web report provides comprehensive visualization and detailed interpretation of single-cell V(D)J sequencing analysis results, including assessment of key performance indicators to help users quickly understand experimental quality and analysis results
-
+<p><strong>🎯 Overview</strong>: The HTML web report provides comprehensive visualization and detailed interpretation of single-cell V(D)J sequencing analysis results, including assessment of key performance indicators to help users quickly understand experimental quality and analysis results</p>
 </div>
-
-The HTML web report is a comprehensive display platform for single-cell VDJ sequencing analysis, integrating complete results from data quality control to downstream immune repertoire analysis. The report uses interactive visualization design to help users quickly evaluate experimental quality, understand analysis results and guide future research directions.
-
-> 💡 **Usage Recommendations**: It is recommended to view each indicator in the order presented in the report.
-
-> ⚠️ **Quality Standards**: Recommended thresholds and quality levels are provided for each indicator. Please conduct a comprehensive evaluation in combination with specific experimental objectives.
-
-### 📊 Main Report Content and Structure
-
+<p>The HTML web report is a comprehensive display platform for single-cell VDJ sequencing analysis, integrating complete results from data quality control to downstream immune repertoire analysis. The report uses interactive visualization design to help users quickly evaluate experimental quality, understand analysis results and guide future research directions.</p>
+<blockquote>
+<p>💡 <strong>Usage Recommendations</strong>: It is recommended to view each indicator in the order presented in the report.</p>
+</blockquote>
+<blockquote>
+<p>⚠️ <strong>Quality Standards</strong>: Recommended thresholds and quality levels are provided for each indicator. Please conduct a comprehensive evaluation in combination with specific experimental objectives.</p>
+</blockquote>
+<h3 id="-main-report-content-and-structure">📊 Main Report Content and Structure</h3>
 <div align="center">
-  <img src="../images/html_scvdj1.png" alt="scVDJ Web Report" width="500">
+  <img src="file:////Users/lishuangshuang/Documents/scrna/DNBelab_C_Series_HT_scRNA-analysis-software/doc/images/html_scvdj1.png" alt="scVDJ Web Report" width="500">
 </div>
-
 <br>
-
-### 🧬 Core Analysis Metrics Explained
-
-#### 🧬 VDJ Analysis Metrics <a id="vdj-analysis-metrics"></a>
-
+<h3 id="-core-analysis-metrics-explained">🧬 Core Analysis Metrics Explained</h3>
+<h4 id="-vdj-analysis-metrics-">🧬 VDJ Analysis Metrics <a id="vdj-analysis-metrics"></a></h4>
 <div align="center">
-
-**🎯 Core Function**: Cell identification, quality assessment and immune receptor assembly statistics, providing key indicators for overall experimental effectiveness
-
+<p><strong>🎯 Core Function</strong>: Cell identification, quality assessment and immune receptor assembly statistics, providing key indicators for overall experimental effectiveness</p>
 </div>
-
-**📊 Quality Control Standards:**
-
+<p><strong>📊 Quality Control Standards:</strong></p>
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
@@ -800,9 +855,7 @@ The HTML web report is a comprehensive display platform for single-cell VDJ sequ
 </tr>
 </tbody>
 </table>
-
-**🔍 Detailed Metric Explanations:**
-
+<p><strong>🔍 Detailed Metric Explanations:</strong></p>
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
@@ -913,17 +966,11 @@ Effective diversity of paired clonotypes, calculated as the inverse Simpson inde
 </tr>
 </tbody>
 </table>
-
-#### 🔬 Sequencing Metrics <a id="sequencing-metrics"></a>
-
+<h4 id="-sequencing-metrics-">🔬 Sequencing Metrics <a id="sequencing-metrics"></a></h4>
 <div align="center">
-
-**🎯 Core Function**: Basic quality assessment of sequencing data, including barcode identification rate, alignment quality and sequencing accuracy
-
+<p><strong>🎯 Core Function</strong>: Basic quality assessment of sequencing data, including barcode identification rate, alignment quality and sequencing accuracy</p>
 </div>
-
-**📊 Quality Control Standards:**
-
+<p><strong>📊 Quality Control Standards:</strong></p>
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
@@ -954,9 +1001,7 @@ Effective diversity of paired clonotypes, calculated as the inverse Simpson inde
 </tr>
 </tbody>
 </table>
-
-**🔍 Detailed Metric Explanations:**
-
+<p><strong>🔍 Detailed Metric Explanations:</strong></p>
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
@@ -1006,17 +1051,11 @@ Proportion of bases with sequencing accuracy higher than 99.9% (error rate <0.1%
 </tr>
 </tbody>
 </table>
-
-#### 🧬 Enrichment Metrics <a id="enrichment-metrics"></a>
-
+<h4 id="-enrichment-metrics-">🧬 Enrichment Metrics <a id="enrichment-metrics"></a></h4>
 <div align="center">
-
-**🎯 Core Function**: V(D)J gene enrichment efficiency assessment, reflecting immune receptor sequence capture effectiveness
-
+<p><strong>🎯 Core Function</strong>: V(D)J gene enrichment efficiency assessment, reflecting immune receptor sequence capture effectiveness</p>
 </div>
-
-**📊 Quality Control Standards:**
-
+<p><strong>📊 Quality Control Standards:</strong></p>
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
@@ -1035,9 +1074,7 @@ Proportion of bases with sequencing accuracy higher than 99.9% (error rate <0.1%
 </tr>
 </tbody>
 </table>
-
-**🔍 Detailed Metric Explanations:**
-
+<p><strong>🔍 Detailed Metric Explanations:</strong></p>
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
@@ -1091,17 +1128,11 @@ Proportion of reads with valid barcodes that partially or completely map to any 
 </tr>
 </tbody>
 </table>
-
-#### 🧬 V(D)J Annotation <a id="vdj-annotation"></a>
-
+<h4 id="-vdj-annotation-">🧬 V(D)J Annotation <a id="vdj-annotation"></a></h4>
 <div align="center">
-
-**🎯 Core Function**: Productive rearrangement pairing analysis, evaluating functional expression level of immune receptors
-
+<p><strong>🎯 Core Function</strong>: Productive rearrangement pairing analysis, evaluating functional expression level of immune receptors</p>
 </div>
-
-**📊 Quality Control Standards:**
-
+<p><strong>📊 Quality Control Standards:</strong></p>
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
@@ -1120,9 +1151,7 @@ Proportion of reads with valid barcodes that partially or completely map to any 
 </tr>
 </tbody>
 </table>
-
-**🔍 Detailed Metric Explanations:**
-
+<p><strong>🔍 Detailed Metric Explanations:</strong></p>
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
@@ -1200,25 +1229,16 @@ Proportion of cell-associated barcodes with (TRA, TRB) T cell receptor pairing w
 </tr>
 </tbody>
 </table>
-
-#### 📈 Visualization Chart 1 <a id="visualization-chart-1"></a>
-
+<h4 id="-visualization-chart-1-">📈 Visualization Chart 1 <a id="visualization-chart-1"></a></h4>
 <div align="center">
-
-**🎯 Core Function**: Multi-dimensional visualization display for V(D)J cell quality control, UMI analysis and immune receptor expression evaluation
-
+<p><strong>🎯 Core Function</strong>: Multi-dimensional visualization display for V(D)J cell quality control, UMI analysis and immune receptor expression evaluation</p>
 </div>
-
-#### 📊 V(D)J Cell Ranking Analysis Plot (V(D)J Barcode Rank Plot)
-
-**Chart Function**: Visualizes UMI count distribution for each cell (only counting UMIs from productive contigs), intuitively showing cell quality control results and background noise levels.
-
+<h4 id="-vdj-cell-ranking-analysis-plot-vdj-barcode-rank-plot">📊 V(D)J Cell Ranking Analysis Plot (V(D)J Barcode Rank Plot)</h4>
+<p><strong>Chart Function</strong>: Visualizes UMI count distribution for each cell (only counting UMIs from productive contigs), intuitively showing cell quality control results and background noise levels.</p>
 <div align="center">
-  <img src="../images/html_scvdj3.jpg" alt="V(D)J Cell Ranking Analysis Plot" width="400">
+  <img src="file:////Users/lishuangshuang/Documents/scrna/DNBelab_C_Series_HT_scRNA-analysis-software/doc/images/html_scvdj3.jpg" alt="V(D)J Cell Ranking Analysis Plot" width="400">
 </div>
-
-**Technical Specifications and Coordinate System:**
-
+<p><strong>Technical Specifications and Coordinate System:</strong></p>
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
@@ -1252,38 +1272,28 @@ Total UMI count corresponding to each cell. Higher UMI indicates more RNA molecu
 </tr>
 </tbody>
 </table>
-
-**Interactive Features**:
-- 🖱️ **Mouse Hover Display**: Detailed cell information including cell ranking position and UMI count
-- 📊 **Percentage Indicator**: Proportion of cells identified as real cells in the region where this cell is located (real cells in region/total cells in region)
-- 🎨 **Dynamic Gradient**: Higher percentage values have deeper colors (blue), lower proportions have lighter colors
-
+<p><strong>Interactive Features</strong>:</p>
+<ul>
+<li>🖱️ <strong>Mouse Hover Display</strong>: Detailed cell information including cell ranking position and UMI count</li>
+<li>📊 <strong>Percentage Indicator</strong>: Proportion of cells identified as real cells in the region where this cell is located (real cells in region/total cells in region)</li>
+<li>🎨 <strong>Dynamic Gradient</strong>: Higher percentage values have deeper colors (blue), lower proportions have lighter colors</li>
+</ul>
 <div style="padding: 15px; border-left: 4px solid #3b82f6; margin: 15px 0;">
 > 📊 <strong>Typical Sample Characteristics</strong><br>
 > • <strong>Steep Drop</strong>: Good separation between cell-associated barcodes and background<br>
 > • <strong>High-expressing Plasma Cells</strong>: VDJ-B data may show a group of cells with high UMI counts
 </div>
-
----
-
-#### 📊 Visualization Chart 2 <a id="visualization-chart-2"></a>
-
+<hr>
+<h4 id="-visualization-chart-2-">📊 Visualization Chart 2 <a id="visualization-chart-2"></a></h4>
 <div align="center">
-
-**🎯 Core Function**: Visualization display of clonotype abundance analysis and immune receptor diversity assessment
-
+<p><strong>🎯 Core Function</strong>: Visualization display of clonotype abundance analysis and immune receptor diversity assessment</p>
 </div>
-
-#### 📊 Clonotype Abundance Statistical Analysis
-
-**Chart Function**: Displays the relative abundance distribution of clonotypes and the concentration of immune responses in the sample.
-
+<h4 id="-clonotype-abundance-statistical-analysis">📊 Clonotype Abundance Statistical Analysis</h4>
+<p><strong>Chart Function</strong>: Displays the relative abundance distribution of clonotypes and the concentration of immune responses in the sample.</p>
 <div align="center">
-  <img src="../images/html_scvdj2.png" alt="scVDJ Clonotype Analysis Charts" width="500">
+  <img src="file:////Users/lishuangshuang/Documents/scrna/DNBelab_C_Series_HT_scRNA-analysis-software/doc/images/html_scvdj2.png" alt="scVDJ Clonotype Analysis Charts" width="500">
 </div>
-
-**Chart Technical Specifications:**
-
+<p><strong>Chart Technical Specifications:</strong></p>
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
@@ -1302,13 +1312,9 @@ Total UMI count corresponding to each cell. Higher UMI indicates more RNA molecu
 </tr>
 </tbody>
 </table>
-
----
-
-## 🎯 Additional Resources <a id="additional-resources"></a>
-
-### 📚 Related Documentation
-
+<hr>
+<h2 id="-additional-resources-">🎯 Additional Resources <a id="additional-resources"></a></h2>
+<h3 id="-related-documentation">📚 Related Documentation</h3>
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
@@ -1319,23 +1325,26 @@ Total UMI count corresponding to each cell. Higher UMI indicates more RNA molecu
 <tbody>
 <tr>
 <td align="center"><strong>🚀 Quick Start</strong></td>
-<td><a href="../quickstart.md">Quick Start Guide</a> - Complete tutorial for first-time analysis</td>
+<td><a href="../quickstart.html">Quick Start Guide</a> - Complete tutorial for first-time analysis</td>
 </tr>
 <tr>
 <td align="center"><strong>⚙️ Parameter Reference</strong></td>
-<td><a href="../parameter/parameter.md">Parameter Reference Manual</a> - Detailed description of all configurable parameters</td>
+<td><a href="../parameter/parameter.html">Parameter Reference Manual</a> - Detailed description of all configurable parameters</td>
 </tr>
 <tr>
 <td align="center"><strong>🔬 Analysis Pipeline</strong></td>
-<td><a href="../pipeline.md">Analysis Pipeline Description</a> - Technical details of the entire analysis process</td>
+<td><a href="../pipeline.html">Analysis Pipeline Description</a> - Technical details of the entire analysis process</td>
 </tr>
 <tr>
 <td align="center"><strong>🔧 Installation Configuration</strong></td>
-<td><a href="../installation.md">Installation Configuration Guide</a> - System requirements, installation steps and environment configuration</td>
+<td><a href="../installation.html">Installation Configuration Guide</a> - System requirements, installation steps and environment configuration</td>
 </tr>
 </tbody>
 </table>
+<hr>
+<p><em>For more detailed information, please refer to the documentation links above or contact the technical support team.</em></p>
 
----
-
-*For more detailed information, please refer to the documentation links above or contact the technical support team.*
+            
+            
+        </body>
+        </html>

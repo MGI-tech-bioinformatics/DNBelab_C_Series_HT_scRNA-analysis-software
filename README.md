@@ -4,7 +4,7 @@
 
 [![Github Release](https://img.shields.io/github/v/release/MGI-tech-bioinformatics/DNBelab_C_Series_HT_scRNA-analysis-software)](https://github.com/MGI-tech-bioinformatics/DNBelab_C_Series_HT_scRNA-analysis-software/releases)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-[![Documentation](https://img.shields.io/badge/docs-latest-brightgreen.svg)](./doc/)
+[![Documentation](https://img.shields.io/badge/docs-latest-brightgreen.svg)](./Document/README.html)
 [![Platform](https://img.shields.io/badge/platform-Linux-lightgrey.svg)](#system-requirements)
 
 **An open-source, flexible, and high-performance pipeline for analyzing high-throughput DNBelab C Series™ single-cell datasets.**
@@ -96,8 +96,7 @@
 ### 📞 Contact Information
 
 - 🌐 **Website**: [www.mgitech.cn](https://www.mgitech.cn)
-- 📚 **Documentation**: Always available in both [English](./doc/) and [中文](./doc/)
-
+- 📚 **Documentation**: [Always available](./Document/README.html)
 ---
 
 ## 📝 What's New

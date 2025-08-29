@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>&#x1f4cb; dnbc4tools Parameter Reference</title>
+            <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only],
+.vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+.vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+            
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+<style>
+:root {
+  --color-note: #0969da;
+  --color-tip: #1a7f37;
+  --color-warning: #9a6700;
+  --color-severe: #bc4c00;
+  --color-caution: #d1242f;
+  --color-important: #8250df;
+}
+
+</style>
+<style>
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-note: #2f81f7;
+    --color-tip: #3fb950;
+    --color-warning: #d29922;
+    --color-severe: #db6d28;
+    --color-caution: #f85149;
+    --color-important: #a371f7;
+  }
+}
+
+</style>
+<style>
+.markdown-alert {
+  padding: 0.5rem 1rem;
+  margin-bottom: 16px;
+  color: inherit;
+  border-left: .25em solid #888;
+}
+
+.markdown-alert>:first-child {
+  margin-top: 0
+}
+
+.markdown-alert>:last-child {
+  margin-bottom: 0
+}
+
+.markdown-alert .markdown-alert-title {
+  display: flex;
+  font-weight: 500;
+  align-items: center;
+  line-height: 1
+}
+
+.markdown-alert .markdown-alert-title .octicon {
+  margin-right: 0.5rem;
+  display: inline-block;
+  overflow: visible !important;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
+
+.markdown-alert.markdown-alert-note {
+  border-left-color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-note .markdown-alert-title {
+  color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-important {
+  border-left-color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-important .markdown-alert-title {
+  color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-warning {
+  border-left-color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-warning .markdown-alert-title {
+  color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-tip {
+  border-left-color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-tip .markdown-alert-title {
+  color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-caution {
+  border-left-color: var(--color-caution);
+}
+
+.markdown-alert.markdown-alert-caution .markdown-alert-title {
+  color: var(--color-caution);
+}
+
+</style>
+        
+        </head>
+        <body class="vscode-body vscode-light">
+            <h1 id="-dnbc4tools-parameter-reference">📋 dnbc4tools Parameter Reference</h1>
+<div align="center">
+<p><strong>Complete command-line parameter documentation for all dnbc4tools workflows</strong></p>
+<p><a href="#language-options">🌍 Language</a> • <a href="#parameter-categories">📋 Overview</a> • <a href="#single-cell-rna-analysis">🧬 RNA-seq</a> • <a href="#single-cell-atac-analysis">🧪 ATAC-seq</a> • <a href="#single-cell-vdj-analysis">🦠 VDJ-seq</a> • <a href="#utility-tools">🔧 Tools</a></p>
+</div>
+<hr>
+<h2 id="-language-options-">🌍 Language Options <a id="language-options"></a></h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"><strong>English</strong></th>
+<th style="text-align:center"><strong>中文</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><a href="./scRNA_en.html">RNA Parameters</a></td>
+<td style="text-align:center"><a href="./scRNA.html">RNA 参数</a></td>
+</tr>
+<tr>
+<td style="text-align:center"><a href="./scATAC_en.html">ATAC Parameters</a></td>
+<td style="text-align:center"><a href="./scATAC.html">ATAC 参数</a></td>
+</tr>
+<tr>
+<td style="text-align:center"><a href="./scVDJ_en.html">VDJ Parameters</a></td>
+<td style="text-align:center"><a href="./scVDJ.html">VDJ 参数</a></td>
+</tr>
+<tr>
+<td style="text-align:center"><a href="./tools_en.html">Tools Parameters</a></td>
+<td style="text-align:center"><a href="./tools.html">工具参数</a></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="-parameter-categories-">📋 Parameter Categories <a id="parameter-categories"></a></h2>
+<p>Each analysis command line option is divided into three categories:</p>
+<table>
+<thead>
+<tr>
+<th>🎯 <strong>Type</strong></th>
+<th>📋 <strong>Description</strong></th>
+<th>📝 <strong>Example</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Required Parameters</strong></td>
+<td>Must provide input values</td>
+<td><code>--cDNAfastq1</code>, <code>--genomeDir</code></td>
+</tr>
+<tr>
+<td><strong>Optional Parameters</strong></td>
+<td>Can provide input values or use defaults</td>
+<td><code>--threads</code>, <code>--name</code></td>
+</tr>
+<tr>
+<td><strong>Flag Parameters</strong></td>
+<td>Boolean switches (no input needed)</td>
+<td><code>--end5</code>, <code>--help</code></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>💡 <strong>Tip</strong>: Use <code>dnbc4tools &lt;command&gt; --help</code> to get detailed help information for any command.</p>
+</blockquote>
+<hr>
+<h2 id="-single-cell-rna-analysis-">🧬 Single-Cell RNA Analysis <a id="single-cell-rna-analysis"></a></h2>
+<blockquote>
+<p><strong>Workflow</strong>: Gene expression profiling at single-cell resolution</p>
+</blockquote>
+<h3 id="main-commands">Main Commands</h3>
+<table>
+<thead>
+<tr>
+<th>🔧 <strong>Command</strong></th>
+<th>🎯 <strong>Purpose</strong></th>
+<th>📚 <strong>Documentation</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>dnbc4tools rna run</code></td>
+<td>Complete RNA-seq analysis pipeline</td>
+<td><a href="./scRNA_en.html">📖 Details</a></td>
+</tr>
+<tr>
+<td><code>dnbc4tools rna mkref</code></td>
+<td>Build reference genome database</td>
+<td><a href="./scRNA_en.html">📖 Details</a></td>
+</tr>
+<tr>
+<td><code>dnbc4tools rna multi</code></td>
+<td>Multi-sample batch processing</td>
+<td><a href="./scRNA_en.html">📖 Details</a></td>
+</tr>
+</tbody>
+</table>
+<p><strong>dnbc4tools rna run</strong> performs complete single-cell RNA sequencing analysis:
+Quality control → Alignment → Cell detection → Matrix generation → Analysis → HTML reporting</p>
+<p>📊 <strong><a href="./scRNA_en.html">➡️ Complete RNA Parameters</a></strong></p>
+<hr>
+<h2 id="-single-cell-atac-analysis-">🧪 Single-Cell ATAC Analysis <a id="single-cell-atac-analysis"></a></h2>
+<blockquote>
+<p><strong>Workflow</strong>: Chromatin accessibility profiling at single-cell resolution</p>
+</blockquote>
+<h3 id="main-commands-1">Main Commands</h3>
+<table>
+<thead>
+<tr>
+<th>🔧 <strong>Command</strong></th>
+<th>🎯 <strong>Purpose</strong></th>
+<th>📚 <strong>Documentation</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>dnbc4tools atac run</code></td>
+<td>Complete ATAC-seq analysis pipeline</td>
+<td><a href="./scATAC_en.html">📖 Details</a></td>
+</tr>
+<tr>
+<td><code>dnbc4tools atac mkref</code></td>
+<td>Build reference genome database</td>
+<td><a href="./scATAC_en.html">📖 Details</a></td>
+</tr>
+<tr>
+<td><code>dnbc4tools atac multi</code></td>
+<td>Multi-sample batch processing</td>
+<td><a href="./scATAC_en.html">📖 Details</a></td>
+</tr>
+</tbody>
+</table>
+<p><strong>dnbc4tools atac run</strong> performs complete single-cell ATAC sequencing analysis:
+Data processing → Fragment generation → Peak calling → Cell detection → Analysis → HTML reporting</p>
+<p>📊 <strong><a href="./scATAC_en.html">➡️ Complete ATAC Parameters</a></strong></p>
+<hr>
+<h2 id="-single-cell-vdj-analysis-">🦠 Single-Cell VDJ Analysis <a id="single-cell-vdj-analysis"></a></h2>
+<blockquote>
+<p><strong>Workflow</strong>: Immune receptor repertoire profiling (requires 5' RNA-seq data)</p>
+</blockquote>
+<h3 id="main-commands-2">Main Commands</h3>
+<table>
+<thead>
+<tr>
+<th>🔧 <strong>Command</strong></th>
+<th>🎯 <strong>Purpose</strong></th>
+<th>📚 <strong>Documentation</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>dnbc4tools vdj run</code></td>
+<td>Complete VDJ analysis pipeline</td>
+<td><a href="./scVDJ_en.html">📖 Details</a></td>
+</tr>
+</tbody>
+</table>
+<p><strong>dnbc4tools vdj run</strong> performs complete single-cell VDJ sequencing analysis:
+Data filtering → Bead merging → VDJ alignment → Assembly → Cell filtering → HTML reporting</p>
+<p>📊 <strong><a href="./scVDJ_en.html">➡️ Complete VDJ Parameters</a></strong></p>
+<hr>
+<h2 id="-utility-tools-">🔧 Utility Tools <a id="utility-tools"></a></h2>
+<blockquote>
+<p><strong>Collection</strong>: Helper tools for data processing and format conversion</p>
+</blockquote>
+<h3 id="available-tools">Available Tools</h3>
+<table>
+<thead>
+<tr>
+<th>🔧 <strong>Tool</strong></th>
+<th>🎯 <strong>Purpose</strong></th>
+<th>📚 <strong>Documentation</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>dnbc4tools tools mkgtf</code></td>
+<td>GTF file operations and filtering</td>
+<td><a href="./tools_en.html">📖 Details</a></td>
+</tr>
+<tr>
+<td><code>bam2fastq</code></td>
+<td>Convert BAM files to FASTQ format</td>
+<td><a href="./tools_en.html">📖 Details</a></td>
+</tr>
+<tr>
+<td><code>chromsplit</code></td>
+<td>Split files by chromosome</td>
+<td><a href="./tools_en.html">📖 Details</a></td>
+</tr>
+<tr>
+<td><code>fqsubC4</code></td>
+<td>Extract reads by genomic region</td>
+<td><a href="./tools_en.html">📖 Details</a></td>
+</tr>
+</tbody>
+</table>
+<p>📊 <strong><a href="./tools_en.html">➡️ Complete Tools Parameters</a></strong></p>
+<hr>
+<h2 id="-quick-start-examples">🚀 Quick Start Examples</h2>
+<h3 id="rna-analysis">RNA Analysis</h3>
+<pre><code class="language-bash"><span class="hljs-comment"># Basic RNA-seq analysis</span>
+dnbc4tools rna run \
+    --cDNAfastq1 sample_cDNA_R1.fastq.gz \
+    --cDNAfastq2 sample_cDNA_R2.fastq.gz \
+    --oligofastq1 sample_oligo_R1.fastq.gz \
+    --oligofastq2 sample_oligo_R2.fastq.gz \
+    --genomeDir /path/to/reference \
+    --name sample_name \
+    --threads 20
+</code></pre>
+<h3 id="atac-analysis">ATAC Analysis</h3>
+<pre><code class="language-bash"><span class="hljs-comment"># Basic ATAC-seq analysis</span>
+dnbc4tools atac run \
+    --fastq1 sample_R1.fastq.gz \
+    --fastq2 sample_R2.fastq.gz \
+    --genomeDir /path/to/reference \
+    --name sample_name \
+    --threads 10
+</code></pre>
+<h3 id="vdj-analysis">VDJ Analysis</h3>
+<pre><code class="language-bash"><span class="hljs-comment"># VDJ analysis (requires prior 5&#x27; RNA analysis)</span>
+dnbc4tools vdj run \
+    --fq1 vdj_R1.fastq.gz \
+    --fq2 vdj_R2.fastq.gz \
+    --name sample_name \
+    --match /path/to/rna_output \
+    --<span class="hljs-built_in">type</span> TCR \
+    --threads 20
+</code></pre>
+<hr>
+<h2 id="-getting-help">🆘 Getting Help</h2>
+<h3 id="command-line-help">Command-Line Help</h3>
+<pre><code class="language-bash"><span class="hljs-comment"># General help</span>
+dnbc4tools --<span class="hljs-built_in">help</span>
+
+<span class="hljs-comment"># Workflow-specific help</span>
+dnbc4tools rna --<span class="hljs-built_in">help</span>
+dnbc4tools atac --<span class="hljs-built_in">help</span>
+dnbc4tools vdj --<span class="hljs-built_in">help</span>
+dnbc4tools tools --<span class="hljs-built_in">help</span>
+
+<span class="hljs-comment"># Command-specific help</span>
+dnbc4tools rna run --<span class="hljs-built_in">help</span>
+dnbc4tools atac run --<span class="hljs-built_in">help</span>
+</code></pre>
+<h3 id="documentation-resources">Documentation Resources</h3>
+<ul>
+<li>📚 <a href="../quickstart.html">Quick Start Guide</a></li>
+<li>📊 <a href="../outs/outs.html">Output File Reference</a></li>
+<li>🚀 <a href="../installation.html">Installation Guide</a></li>
+<li>🆘 <a href="https://github.com/MGI-tech-bioinformatics/DNBelab_C_Series_HT_scRNA-analysis-software/issues">GitHub Issues</a></li>
+</ul>
+<hr>
+<p><em>For detailed parameter descriptions, click on the workflow-specific documentation links above.</em></p>
+
+            
+            
+        </body>
+        </html>

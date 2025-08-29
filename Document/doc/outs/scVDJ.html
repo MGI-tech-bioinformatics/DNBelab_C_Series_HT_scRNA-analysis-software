@@ -1,30 +1,161 @@
-# 🧬 DNBelab C Series HT scVDJ 分析输出文档
+<!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>&#x1f9ec; DNBelab C Series HT scVDJ &#x5206;&#x6790;&#x8f93;&#x51fa;&#x6587;&#x6863;</title>
+            <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
 
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only],
+.vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+.vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+            
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+<style>
+:root {
+  --color-note: #0969da;
+  --color-tip: #1a7f37;
+  --color-warning: #9a6700;
+  --color-severe: #bc4c00;
+  --color-caution: #d1242f;
+  --color-important: #8250df;
+}
+
+</style>
+<style>
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-note: #2f81f7;
+    --color-tip: #3fb950;
+    --color-warning: #d29922;
+    --color-severe: #db6d28;
+    --color-caution: #f85149;
+    --color-important: #a371f7;
+  }
+}
+
+</style>
+<style>
+.markdown-alert {
+  padding: 0.5rem 1rem;
+  margin-bottom: 16px;
+  color: inherit;
+  border-left: .25em solid #888;
+}
+
+.markdown-alert>:first-child {
+  margin-top: 0
+}
+
+.markdown-alert>:last-child {
+  margin-bottom: 0
+}
+
+.markdown-alert .markdown-alert-title {
+  display: flex;
+  font-weight: 500;
+  align-items: center;
+  line-height: 1
+}
+
+.markdown-alert .markdown-alert-title .octicon {
+  margin-right: 0.5rem;
+  display: inline-block;
+  overflow: visible !important;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
+
+.markdown-alert.markdown-alert-note {
+  border-left-color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-note .markdown-alert-title {
+  color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-important {
+  border-left-color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-important .markdown-alert-title {
+  color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-warning {
+  border-left-color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-warning .markdown-alert-title {
+  color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-tip {
+  border-left-color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-tip .markdown-alert-title {
+  color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-caution {
+  border-left-color: var(--color-caution);
+}
+
+.markdown-alert.markdown-alert-caution .markdown-alert-title {
+  color: var(--color-caution);
+}
+
+</style>
+        
+        </head>
+        <body class="vscode-body vscode-light">
+            <h1 id="-dnbelab-c-series-ht-scvdj-分析输出文档">🧬 DNBelab C Series HT scVDJ 分析输出文档</h1>
 <div align="center">
-
-**单细胞V(D)J测序分析输出文件完整指南**
-
-[📁 目录结构](#输出目录结构) • [📋 文件详情](#详细文件说明) • [🧬 VDJ组装](#vdj组装和注释文件) • [📊 克隆型分析](#克隆型分析文件) • [📊 报告解读](#网页报告释义)
-
+<p><strong>单细胞V(D)J测序分析输出文件完整指南</strong></p>
+<p><a href="#%E8%BE%93%E5%87%BA%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84">📁 目录结构</a> • <a href="#%E8%AF%A6%E7%BB%86%E6%96%87%E4%BB%B6%E8%AF%B4%E6%98%8E">📋 文件详情</a> • <a href="#vdj%E7%BB%84%E8%A3%85%E5%92%8C%E6%B3%A8%E9%87%8A%E6%96%87%E4%BB%B6">🧬 VDJ组装</a> • <a href="#%E5%85%8B%E9%9A%86%E5%9E%8B%E5%88%86%E6%9E%90%E6%96%87%E4%BB%B6">📊 克隆型分析</a> • <a href="#%E7%BD%91%E9%A1%B5%E6%8A%A5%E5%91%8A%E9%87%8A%E4%B9%89">📊 报告解读</a></p>
 </div>
-
----
-
-## 📖 概述 <a id="概述"></a>
-
-单细胞VDJ分析完成后，会在指定的输出目录中生成标准化的文件和子目录结构，专门用于免疫受体库谱分析。本文档详细说明了每个输出文件的内容、格式和用途，帮助用户充分理解和高效利用V(D)J分析结果。
-
-> 💡 **提示**: VDJ分析需要基于5'端RNA测序数据，所有输出文件遵循AIRR标准并兼容主流免疫组学分析工具。
-
-> ⚠️ **前提条件**: 需要先完成5'端单细胞RNA测序分析
-
----
+<hr>
+<h2 id="-概述-">📖 概述 <a id="概述"></a></h2>
+<p>单细胞VDJ分析完成后，会在指定的输出目录中生成标准化的文件和子目录结构，专门用于免疫受体库谱分析。本文档详细说明了每个输出文件的内容、格式和用途，帮助用户充分理解和高效利用V(D)J分析结果。</p>
+<blockquote>
+<p>💡 <strong>提示</strong>: VDJ分析需要基于5'端RNA测序数据，所有输出文件遵循AIRR标准并兼容主流免疫组学分析工具。</p>
+</blockquote>
+<blockquote>
+<p>⚠️ <strong>前提条件</strong>: 需要先完成5'端单细胞RNA测序分析</p>
+</blockquote>
+<hr>
 </br>
-
-## 📁 输出目录结构 <a id="输出目录结构"></a>
-
-```
-.
+<h2 id="-输出目录结构-">📁 输出目录结构 <a id="输出目录结构"></a></h2>
+<pre><code>.
 ├── airr_annotations.tsv                    # AIRR标准格式的注释文件
 ├── all_contig_annotations.csv              # 所有组装序列的注释信息
 ├── all_contig.fasta                        # 所有组装序列的FASTA文件
@@ -38,33 +169,21 @@
 ├── filtered_contig.fasta.fai               # 过滤后组装序列的索引文件
 ├── metrics_summary.xls                     # 分析质量指标汇总表
 └── *_scVDJ_TR(IG)_report.html              # HTML格式的分析报告
-```
-
----
+</code></pre>
+<hr>
 </br>
-
-## 📋 文件详细说明 <a id="详细文件说明"></a>
-
-### 🧬 VDJ组装和注释文件 <a id="vdj组装和注释文件"></a>
-
+<h2 id="-文件详细说明-">📋 文件详细说明 <a id="详细文件说明"></a></h2>
+<h3 id="-vdj组装和注释文件-">🧬 VDJ组装和注释文件 <a id="vdj组装和注释文件"></a></h3>
 <div align="center">
-
-**🎯 核心内容**: V(D)J 重叠群序列组装、精确注释和质量评估结果，涵盖 TCR 和 BCR 重排序列的完整信息
-
+<p><strong>🎯 核心内容</strong>: V(D)J 重叠群序列组装、精确注释和质量评估结果，涵盖 TCR 和 BCR 重排序列的完整信息</p>
 </div>
-
-### 🧵 V(D)J 转录本结构与组成
-
-**典型 V(D)J 转录本结构示意：**
-
+<h3 id="-vdj-转录本结构与组成">🧵 V(D)J 转录本结构与组成</h3>
+<p><strong>典型 V(D)J 转录本结构示意：</strong></p>
 <div align="left">
-  <img src="../images/vdj_transcript.png" alt="V(D)J 转录本结构示意图" width="650">
+  <img src="file:////Users/lishuangshuang/Documents/scrna/DNBelab_C_Series_HT_scRNA-analysis-software/doc/images/vdj_transcript.png" alt="V(D)J 转录本结构示意图" width="650">
 </div>
-
 <br>
-
-**🔍 重要术语解释：**
-
+<p><strong>🔍 重要术语解释：</strong></p>
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
@@ -91,41 +210,32 @@
 </tr>
 </tbody>
 </table>
-
-> 🧬 **技术优势**: V(D)J 分析流程可精确识别并提供框架区（FWR）和互补决定区（CDR）的氨基酸与核苷酸序列。所有组装重叠群和克隆型共识序列的 V(D)J 注释信息均以多种标准格式输出。
-
-### 🔍 重要注释标准说明
-
-#### 📋 全长序列判定标准 (Full Length)
-
+<blockquote>
+<p>🧬 <strong>技术优势</strong>: V(D)J 分析流程可精确识别并提供框架区（FWR）和互补决定区（CDR）的氨基酸与核苷酸序列。所有组装重叠群和克隆型共识序列的 V(D)J 注释信息均以多种标准格式输出。</p>
+</blockquote>
+<h3 id="-重要注释标准说明">🔍 重要注释标准说明</h3>
+<h4 id="-全长序列判定标准-full-length">📋 全长序列判定标准 (Full Length)</h4>
 <div style="padding: 15px; border-left: 4px solid #007bff; margin: 15px 0;">
-
-重叠群序列被认定为 **全长序列** 须同时满足以下严格条件：
-
-- ✅ 重叠群序列完全匹配已注释 V 基因的 5' 起始区域
-- ✅ 重叠群序列完整延伸至 J 基因的 3' 末端区域
-
+<p>重叠群序列被认定为 <strong>全长序列</strong> 须同时满足以下严格条件：</p>
+<ul>
+<li>✅ 重叠群序列完全匹配已注释 V 基因的 5' 起始区域</li>
+<li>✅ 重叠群序列完整延伸至 J 基因的 3' 末端区域</li>
+</ul>
 </div>
-
-#### 🧬 生产性序列判定标准 (Productive)
-
+<h4 id="-生产性序列判定标准-productive">🧬 生产性序列判定标准 (Productive)</h4>
 <div style="padding: 15px; border-left: 4px solid #0ea5e9; margin: 15px 0;">
-
-重叠群序列被认定为 **生产性序列**（具有功能活性）须同时满足以下所有条件：
-
-- ✅ 符合上述全长序列的所有要求
-- ✅ 在正确位置包含有效的起始密码子（ATG）
-- ✅ V-J 跨越区域内不存在提前终止密码子
-- ✅ V 基因起始密码子与 J 基因终止密码子保持相同阅读框
-- ✅ 成功识别出完整的 CDR3 可变区域
-- ✅ V-J 跨越区域长度符合相应基因的生物学合理范围
-
+<p>重叠群序列被认定为 <strong>生产性序列</strong>（具有功能活性）须同时满足以下所有条件：</p>
+<ul>
+<li>✅ 符合上述全长序列的所有要求</li>
+<li>✅ 在正确位置包含有效的起始密码子（ATG）</li>
+<li>✅ V-J 跨越区域内不存在提前终止密码子</li>
+<li>✅ V 基因起始密码子与 J 基因终止密码子保持相同阅读框</li>
+<li>✅ 成功识别出完整的 CDR3 可变区域</li>
+<li>✅ V-J 跨越区域长度符合相应基因的生物学合理范围</li>
+</ul>
 </div>
-
-#### 🎯 高置信度序列判定 (High Confidence)
-
-**🔬 不同细胞类型的预期受体配置：**
-
+<h4 id="-高置信度序列判定-high-confidence">🎯 高置信度序列判定 (High Confidence)</h4>
+<p><strong>🔬 不同细胞类型的预期受体配置：</strong></p>
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
@@ -147,13 +257,11 @@
 </tr>
 </tbody>
 </table>
-
-**🤔 低置信度序列标记原则：**
-
+<p><strong>🤔 低置信度序列标记原则：</strong></p>
 <div style="padding: 15px; border-left: 4px solid #ffc107; margin: 15px 0;">
-
-> ⚠️ **重要提示**：超出正常配置的额外生产性重叠群通常为异常情况，可能源于：
-
+<blockquote>
+<p>⚠️ <strong>重要提示</strong>：超出正常配置的额外生产性重叠群通常为异常情况，可能源于：</p>
+</blockquote>
 <table style="width:100%; border-collapse: collapse; margin: 10px 0;">
 <thead>
 <tr>
@@ -176,24 +284,18 @@
 </tr>
 </tbody>
 </table>
-
 </div>
-
-**📉 低置信度序列的判定依据：**
-
+<p><strong>📉 低置信度序列的判定依据：</strong></p>
 <div style="padding: 15px; border-left: 4px solid #ef4444; margin: 15px 0;">
-
-- ❌ 生物学上极不可能存在的异常受体配置模式
-- ❌ UMI 分子支持度显著偏低的可疑序列
-- ❌ 明显超出预期数量的额外生产性链
-
+<ul>
+<li>❌ 生物学上极不可能存在的异常受体配置模式</li>
+<li>❌ UMI 分子支持度显著偏低的可疑序列</li>
+<li>❌ 明显超出预期数量的额外生产性链</li>
+</ul>
 </div>
-
-#### airr_annotations.tsv  
-包含V(D)J重排的注释序列和共识序列，采用AIRR标准格式。提供详细的V、D、J基因调用信息、CIGAR字符串、序列比对结果以及CDR3区域的核苷酸和氨基酸序列。
-
-**重要字段说明**：
-
+<h4 id="airr_annotationstsv">airr_annotations.tsv</h4>
+<p>包含V(D)J重排的注释序列和共识序列，采用AIRR标准格式。提供详细的V、D、J基因调用信息、CIGAR字符串、序列比对结果以及CDR3区域的核苷酸和氨基酸序列。</p>
+<p><strong>重要字段说明</strong>：</p>
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
@@ -332,18 +434,15 @@
 </tr>
 </tbody>
 </table>
-
-
-#### 📄 all_contig_annotations.csv  
-
-**文件描述**：包含所有重叠群序列（来自细胞和背景条形码）的详细注释信息，采用 CSV 文本格式。该文件提供每个重叠群的细胞 ID、基因片段调用、CDR 和 FWR 区域序列、生产性状态等全面信息。
-
-**核心功能特点**：
-- 📊 **全面覆盖**：包含所有细胞和背景条形码的重叠群数据
-- 🧬 **完整注释**：提供完整的 V(D)J 基因片段注释信息
-- 🔍 **详细序列**：包含详细的 CDR 和 FWR 区域序列信息
-- 🎯 **质控支持**：支持质量控制和可信度评估分析
-
+<h4 id="-all_contig_annotationscsv">📄 all_contig_annotations.csv</h4>
+<p><strong>文件描述</strong>：包含所有重叠群序列（来自细胞和背景条形码）的详细注释信息，采用 CSV 文本格式。该文件提供每个重叠群的细胞 ID、基因片段调用、CDR 和 FWR 区域序列、生产性状态等全面信息。</p>
+<p><strong>核心功能特点</strong>：</p>
+<ul>
+<li>📊 <strong>全面覆盖</strong>：包含所有细胞和背景条形码的重叠群数据</li>
+<li>🧬 <strong>完整注释</strong>：提供完整的 V(D)J 基因片段注释信息</li>
+<li>🔍 <strong>详细序列</strong>：包含详细的 CDR 和 FWR 区域序列信息</li>
+<li>🎯 <strong>质控支持</strong>：支持质量控制和可信度评估分析</li>
+</ul>
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
@@ -478,40 +577,26 @@
 </tr>
 </tbody>
 </table>
-
-#### 📄 all_contig.fasta  
-
-**文件描述**：包含所有组装重叠群的核苷酸序列，采用标准 FASTA 格式。每个序列对应一个重叠群，序列标识符为重叠群的唯一名称。
-
-#### 📄 filtered_contig_annotations.csv  
-
-**文件描述**：包含高置信度细胞相关条形码的重叠群注释信息，是 `all_contig_annotations.csv` 的优质子集。仅包含通过质量过滤的高置信度重叠群的注释结果。
-
-#### 📄 filtered_contig.fasta  
-
-**文件描述**：包含高置信度重叠群的核苷酸序列，采用 FASTA 格式。仅包含通过质量过滤和细胞调用的优质重叠群序列。
-
-
----
-
-## 📊 克隆型谱系分析文件 <a id="克隆型分析文件"></a>
-
+<h4 id="-all_contigfasta">📄 all_contig.fasta</h4>
+<p><strong>文件描述</strong>：包含所有组装重叠群的核苷酸序列，采用标准 FASTA 格式。每个序列对应一个重叠群，序列标识符为重叠群的唯一名称。</p>
+<h4 id="-filtered_contig_annotationscsv">📄 filtered_contig_annotations.csv</h4>
+<p><strong>文件描述</strong>：包含高置信度细胞相关条形码的重叠群注释信息，是 <code>all_contig_annotations.csv</code> 的优质子集。仅包含通过质量过滤的高置信度重叠群的注释结果。</p>
+<h4 id="-filtered_contigfasta">📄 filtered_contig.fasta</h4>
+<p><strong>文件描述</strong>：包含高置信度重叠群的核苷酸序列，采用 FASTA 格式。仅包含通过质量过滤和细胞调用的优质重叠群序列。</p>
+<hr>
+<h2 id="-克隆型谱系分析文件-">📊 克隆型谱系分析文件 <a id="克隆型分析文件"></a></h2>
 <div align="center">
-
-**🎯 核心内容**: TCR 和 BCR 克隆型谱系的精确识别、频率统计和 CDR3 序列多样性分析
-
+<p><strong>🎯 核心内容</strong>: TCR 和 BCR 克隆型谱系的精确识别、频率统计和 CDR3 序列多样性分析</p>
 </div>
-
-#### 📄 clonotypes.csv
-
-**文件描述：** 克隆型统计分析 CSV 文件，提供每个独特克隆型的详细描述信息，包含克隆型频率、相对比例和 CDR3 序列特征。
-
-**核心功能特点：**
-- 📊 **统计分析**：提供克隆型水平的统计信息
-- 🧬 **CDR3 数据**：包含完整的 CDR3 序列数据
-- 📈 **频率分析**：支持频率和相对比例分析
-- 🔬 **免疫组库**：适用于专业免疫组库研究
-
+<h4 id="-clonotypescsv">📄 clonotypes.csv</h4>
+<p><strong>文件描述：</strong> 克隆型统计分析 CSV 文件，提供每个独特克隆型的详细描述信息，包含克隆型频率、相对比例和 CDR3 序列特征。</p>
+<p><strong>核心功能特点：</strong></p>
+<ul>
+<li>📊 <strong>统计分析</strong>：提供克隆型水平的统计信息</li>
+<li>🧬 <strong>CDR3 数据</strong>：包含完整的 CDR3 序列数据</li>
+<li>📈 <strong>频率分析</strong>：支持频率和相对比例分析</li>
+<li>🔬 <strong>免疫组库</strong>：适用于专业免疫组库研究</li>
+</ul>
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
@@ -542,30 +627,30 @@
 </tr>
 </tbody>
 </table>
-
-#### 📄 consensus.fasta
-
-**文件描述：** 共识序列代表每个克隆型中最高频率的精确亚克隆型序列，理想情况下应为全长序列（从 5' UTR 起始到 C 基因引物结合位点结束）。
-
-**特点优势：**
-- 🧬 **代表性**：每个克隆型的代表性序列
-- 📊 **高质量**：基于高频率精确亚克隆型生成
-- 🔧 **工具兼容**：标准FASTA格式，兼容各类分析工具
-
-> **📝 重要说明**
-> - 共识序列通过克隆型分组算法生成的代表性序列
-> - 每个克隆型的共识序列与该克隆型中最常见的序列相同
-
-#### 📄 consensus_annotations.csv
-
-**文件描述：** 一致性序列注释CSV文件提供每个克隆型共识序列的详细注释信息，包含V、D、J基因调用、CDR和FWR区域序列等完整的注释内容。
-
-**功能特点：**
-- 🧬 **克隆型注释**：基于克隆型分组的共识序列注释
-- 📊 **完整信息**：包含完整的V(D)J基因片段信息
-- 🔍 **详细序列**：提供CDR和FWR区域的详细序列信息
-- 🎯 **分析支持**：支持克隆型水平的序列分析
-
+<h4 id="-consensusfasta">📄 consensus.fasta</h4>
+<p><strong>文件描述：</strong> 共识序列代表每个克隆型中最高频率的精确亚克隆型序列，理想情况下应为全长序列（从 5' UTR 起始到 C 基因引物结合位点结束）。</p>
+<p><strong>特点优势：</strong></p>
+<ul>
+<li>🧬 <strong>代表性</strong>：每个克隆型的代表性序列</li>
+<li>📊 <strong>高质量</strong>：基于高频率精确亚克隆型生成</li>
+<li>🔧 <strong>工具兼容</strong>：标准FASTA格式，兼容各类分析工具</li>
+</ul>
+<blockquote>
+<p><strong>📝 重要说明</strong></p>
+<ul>
+<li>共识序列通过克隆型分组算法生成的代表性序列</li>
+<li>每个克隆型的共识序列与该克隆型中最常见的序列相同</li>
+</ul>
+</blockquote>
+<h4 id="-consensus_annotationscsv">📄 consensus_annotations.csv</h4>
+<p><strong>文件描述：</strong> 一致性序列注释CSV文件提供每个克隆型共识序列的详细注释信息，包含V、D、J基因调用、CDR和FWR区域序列等完整的注释内容。</p>
+<p><strong>功能特点：</strong></p>
+<ul>
+<li>🧬 <strong>克隆型注释</strong>：基于克隆型分组的共识序列注释</li>
+<li>📊 <strong>完整信息</strong>：包含完整的V(D)J基因片段信息</li>
+<li>🔍 <strong>详细序列</strong>：提供CDR和FWR区域的详细序列信息</li>
+<li>🎯 <strong>分析支持</strong>：支持克隆型水平的序列分析</li>
+</ul>
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
@@ -636,21 +721,13 @@
 </tr>
 </tbody>
 </table>
-
-### 📝 分析指标汇总 <a id="分析指标汇总"></a>
-
+<h3 id="-分析指标汇总-">📝 分析指标汇总 <a id="分析指标汇总"></a></h3>
 <div align="center">
-
-**🎯 核心内容**: V(D)J 组装质量的全面评估和统计指标汇总，提供完整的数据质量控制信息
-
+<p><strong>🎯 核心内容</strong>: V(D)J 组装质量的全面评估和统计指标汇总，提供完整的数据质量控制信息</p>
 </div>
-
-#### 📄 metrics_summary.xls
-
-**文件描述：** 包含 V(D)J 分析的所有关键指标统计信息，用于综合评估数据质量和分析效果。提供测序质量、细胞识别、基因映射、组装效果等关键性能参数。
-
-**主要指标类别：**
-
+<h4 id="-metrics_summaryxls">📄 metrics_summary.xls</h4>
+<p><strong>文件描述：</strong> 包含 V(D)J 分析的所有关键指标统计信息，用于综合评估数据质量和分析效果。提供测序质量、细胞识别、基因映射、组装效果等关键性能参数。</p>
+<p><strong>主要指标类别：</strong></p>
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
@@ -681,9 +758,7 @@
 </tr>
 </tbody>
 </table>
-
-**质量控制标准：**
-
+<p><strong>质量控制标准：</strong></p>
 <details open>
 <summary><strong>推荐质量阈值：</strong></summary>
 <ul>
@@ -695,13 +770,9 @@
 <li>✅ <strong>每细胞平均读数</strong>: >5,000</li>
 </ul>
 </details>
-
-**用途：** 用于评估数据质量和分析效果。
-
-#### 📄 *_scVDJ_TR(IG)_report.html
-
-**文件描述：** VDJ分析交互式网页报告，提供全面的可视化分析结果展示。
-
+<p><strong>用途：</strong> 用于评估数据质量和分析效果。</p>
+<h4 id="-_scvdj_trig_reporthtml">📄 *_scVDJ_TR(IG)_report.html</h4>
+<p><strong>文件描述：</strong> VDJ分析交互式网页报告，提供全面的可视化分析结果展示。</p>
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
@@ -728,48 +799,32 @@
 </tr>
 </tbody>
 </table>
-
-**文件格式：** HTML网页格式，支持所有主流浏览器  
-**用途：** 提供分析结果的综合概述和深度解读  
-**详细内容：** 请查看 [📊 网页报告释义](#网页报告释义) 部分
-
-
----
-
-## 📊 网页报告释义 <a id="网页报告释义"></a>
-
+<p><strong>文件格式：</strong> HTML网页格式，支持所有主流浏览器<br>
+<strong>用途：</strong> 提供分析结果的综合概述和深度解读<br>
+<strong>详细内容：</strong> 请查看 <a href="#%E7%BD%91%E9%A1%B5%E6%8A%A5%E5%91%8A%E9%87%8A%E4%B9%89">📊 网页报告释义</a> 部分</p>
+<hr>
+<h2 id="-网页报告释义-">📊 网页报告释义 <a id="网页报告释义"></a></h2>
 <div align="center">
-
-**🎯 概述**: HTML 网页报告提供了单细胞 V(D)J 测序分析结果的全面可视化展示和详细解读，包含关键性能指标的评估，帮助用户快速了解实验质量和分析结果
-
+<p><strong>🎯 概述</strong>: HTML 网页报告提供了单细胞 V(D)J 测序分析结果的全面可视化展示和详细解读，包含关键性能指标的评估，帮助用户快速了解实验质量和分析结果</p>
 </div>
-
-HTML网页报告是单细胞VDJ测序分析的综合展示平台，整合了从数据质量控制到下游免疫组库分析的完整结果。该报告采用交互式可视化设计，帮助用户快速评估实验质量、理解分析结果并指导后续研究方向。
-
-> 💡 **使用建议**: 建议按照报告展示顺序依次查看各项指标。
-
-> ⚠️ **质量标准**: 各项指标均提供了推荐阈值和质量等级，请结合具体实验目标进行综合评估。
-
-### 📊 报告主要内容与结构
-
+<p>HTML网页报告是单细胞VDJ测序分析的综合展示平台，整合了从数据质量控制到下游免疫组库分析的完整结果。该报告采用交互式可视化设计，帮助用户快速评估实验质量、理解分析结果并指导后续研究方向。</p>
+<blockquote>
+<p>💡 <strong>使用建议</strong>: 建议按照报告展示顺序依次查看各项指标。</p>
+</blockquote>
+<blockquote>
+<p>⚠️ <strong>质量标准</strong>: 各项指标均提供了推荐阈值和质量等级，请结合具体实验目标进行综合评估。</p>
+</blockquote>
+<h3 id="-报告主要内容与结构">📊 报告主要内容与结构</h3>
 <div align="center">
-  <img src="../images/html_scvdj1.png" alt="scVDJ网页报告" width="500">
+  <img src="file:////Users/lishuangshuang/Documents/scrna/DNBelab_C_Series_HT_scRNA-analysis-software/doc/images/html_scvdj1.png" alt="scVDJ网页报告" width="500">
 </div>
-
 <br>
-
-### 🧬 核心分析指标详解
-
-#### 🧬 VDJ 分析指标 (VDJ Analysis Metrics) <a id="vdj分析指标"></a>
-
+<h3 id="-核心分析指标详解">🧬 核心分析指标详解</h3>
+<h4 id="-vdj-分析指标-vdj-analysis-metrics-">🧬 VDJ 分析指标 (VDJ Analysis Metrics) <a id="vdj分析指标"></a></h4>
 <div align="center">
-
-**🎯 核心功能**: 细胞识别、质量评估和免疫受体组装统计，提供实验整体效果的关键指标
-
+<p><strong>🎯 核心功能</strong>: 细胞识别、质量评估和免疫受体组装统计，提供实验整体效果的关键指标</p>
 </div>
-
-**📊 质量控制标准：**
-
+<p><strong>📊 质量控制标准：</strong></p>
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
@@ -800,9 +855,7 @@ HTML网页报告是单细胞VDJ测序分析的综合展示平台，整合了从�
 </tr>
 </tbody>
 </table>
-
-**🔍 详细指标解释：**
-
+<p><strong>🔍 详细指标解释：</strong></p>
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
@@ -913,17 +966,11 @@ HTML网页报告是单细胞VDJ测序分析的综合展示平台，整合了从�
 </tr>
 </tbody>
 </table>
-
-#### 🔬 测序指标 (Sequencing Metrics) <a id="测序指标"></a>
-
+<h4 id="-测序指标-sequencing-metrics-">🔬 测序指标 (Sequencing Metrics) <a id="测序指标"></a></h4>
 <div align="center">
-
-**🎯 核心功能**: 测序数据的基础质量评估，包括条形码识别率、比对质量和测序准确性
-
+<p><strong>🎯 核心功能</strong>: 测序数据的基础质量评估，包括条形码识别率、比对质量和测序准确性</p>
 </div>
-
-**📊 质量控制标准：**
-
+<p><strong>📊 质量控制标准：</strong></p>
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
@@ -954,9 +1001,7 @@ HTML网页报告是单细胞VDJ测序分析的综合展示平台，整合了从�
 </tr>
 </tbody>
 </table>
-
-**🔍 详细指标解释：**
-
+<p><strong>🔍 详细指标解释：</strong></p>
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
@@ -1004,17 +1049,11 @@ HTML网页报告是单细胞VDJ测序分析的综合展示平台，整合了从�
 </tr>
 </tbody>
 </table>
-
-#### 🧬 基因富集性能指标 (Enrichment Metrics) <a id="基因富集性能指标"></a>
-
+<h4 id="-基因富集性能指标-enrichment-metrics-">🧬 基因富集性能指标 (Enrichment Metrics) <a id="基因富集性能指标"></a></h4>
 <div align="center">
-
-**🎯 核心功能**: V(D)J基因富集效率评估，反映免疫受体序列的捕获效果
-
+<p><strong>🎯 核心功能</strong>: V(D)J基因富集效率评估，反映免疫受体序列的捕获效果</p>
 </div>
-
-**📊 质量控制标准：**
-
+<p><strong>📊 质量控制标准：</strong></p>
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
@@ -1033,9 +1072,7 @@ HTML网页报告是单细胞VDJ测序分析的综合展示平台，整合了从�
 </tr>
 </tbody>
 </table>
-
-**🔍 详细指标解释：**
-
+<p><strong>🔍 详细指标解释：</strong></p>
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
@@ -1089,17 +1126,11 @@ HTML网页报告是单细胞VDJ测序分析的综合展示平台，整合了从�
 </tr>
 </tbody>
 </table>
-
-#### 🧬 V(D)J 注释分析 (V(D)J Annotation) <a id="vdj注释分析"></a>
-
+<h4 id="-vdj-注释分析-vdj-annotation-">🧬 V(D)J 注释分析 (V(D)J Annotation) <a id="vdj注释分析"></a></h4>
 <div align="center">
-
-**🎯 核心功能**: 生产性重排配对分析，评估免疫受体的功能性表达水平
-
+<p><strong>🎯 核心功能</strong>: 生产性重排配对分析，评估免疫受体的功能性表达水平</p>
 </div>
-
-**📊 质量控制标准：**
-
+<p><strong>📊 质量控制标准：</strong></p>
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
@@ -1118,9 +1149,7 @@ HTML网页报告是单细胞VDJ测序分析的综合展示平台，整合了从�
 </tr>
 </tbody>
 </table>
-
-**🔍 详细指标解释：**
-
+<p><strong>🔍 详细指标解释：</strong></p>
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
@@ -1198,25 +1227,16 @@ HTML网页报告是单细胞VDJ测序分析的综合展示平台，整合了从�
 </tr>
 </tbody>
 </table>
-
-#### 📈 可视化图表1 <a id="可视化图表1"></a>
-
+<h4 id="-可视化图表1-">📈 可视化图表1 <a id="可视化图表1"></a></h4>
 <div align="center">
-
-**🎯 核心功能**: V(D)J细胞质量控制、UMI分析和免疫受体表达评估的多维度可视化展示
-
+<p><strong>🎯 核心功能</strong>: V(D)J细胞质量控制、UMI分析和免疫受体表达评估的多维度可视化展示</p>
 </div>
-
-#### 📊 V(D)J 细胞排序分析图 (V(D)J Barcode Rank Plot)
-
-**图表功能：** 可视化展示每个细胞的 UMI 数量分布（仅统计 productive contig 的 UMI），直观展示细胞质量控制结果和背景噪音水平。
-
+<h4 id="-vdj-细胞排序分析图-vdj-barcode-rank-plot">📊 V(D)J 细胞排序分析图 (V(D)J Barcode Rank Plot)</h4>
+<p><strong>图表功能：</strong> 可视化展示每个细胞的 UMI 数量分布（仅统计 productive contig 的 UMI），直观展示细胞质量控制结果和背景噪音水平。</p>
 <div align="center">
-  <img src="../images/html_scvdj3.jpg" alt="V(D)J 细胞排序分析图" width="400">
+  <img src="file:////Users/lishuangshuang/Documents/scrna/DNBelab_C_Series_HT_scRNA-analysis-software/doc/images/html_scvdj3.jpg" alt="V(D)J 细胞排序分析图" width="400">
 </div>
-
-**技术规范与坐标系统：**
-
+<p><strong>技术规范与坐标系统：</strong></p>
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
@@ -1250,38 +1270,28 @@ HTML网页报告是单细胞VDJ测序分析的综合展示平台，整合了从�
 </tr>
 </tbody>
 </table>
-
-**交互功能特性：**
-- 🖱️ **鼠标悬停显示**：细胞排序位置和UMI数量详细信息
-- 📊 **百分比指示**：细胞所处区域中被识别为真实细胞的比例（该区域真实细胞数/该区域总细胞数）
-- 🎨 **动态渐变**：百分比值越高颜色越深（蓝色），比例越低颜色越浅
-
+<p><strong>交互功能特性：</strong></p>
+<ul>
+<li>🖱️ <strong>鼠标悬停显示</strong>：细胞排序位置和UMI数量详细信息</li>
+<li>📊 <strong>百分比指示</strong>：细胞所处区域中被识别为真实细胞的比例（该区域真实细胞数/该区域总细胞数）</li>
+<li>🎨 <strong>动态渐变</strong>：百分比值越高颜色越深（蓝色），比例越低颜色越浅</li>
+</ul>
 <div style="padding: 15px; border-left: 4px solid #3b82f6; margin: 15px 0;">
 > 📊 <strong>典型样本特征</strong><br>
 > • <strong>陡峭下降</strong>：细胞相关条形码与背景之间有良好分离<br>
 > • <strong>高表达浆细胞</strong>：VDJ-B 数据中可能出现一组高 UMI 计数的细胞
 </div>
-
----
-
-#### 📊 可视化图表2 <a id="可视化图表2"></a>
-
+<hr>
+<h4 id="-可视化图表2-">📊 可视化图表2 <a id="可视化图表2"></a></h4>
 <div align="center">
-
-**🎯 核心功能**: 克隆型丰度分析和免疫受体多样性评估的可视化展示
-
+<p><strong>🎯 核心功能</strong>: 克隆型丰度分析和免疫受体多样性评估的可视化展示</p>
 </div>
-
-#### 📊 克隆型丰度统计分析
-
-**图表功能：** 展示样本中克隆型的相对丰度分布和免疫应答的集中程度。
-
+<h4 id="-克隆型丰度统计分析">📊 克隆型丰度统计分析</h4>
+<p><strong>图表功能：</strong> 展示样本中克隆型的相对丰度分布和免疫应答的集中程度。</p>
 <div align="center">
-  <img src="../images/html_scvdj2.png" alt="scVDJ 克隆型分析图表" width="500">
+  <img src="file:////Users/lishuangshuang/Documents/scrna/DNBelab_C_Series_HT_scRNA-analysis-software/doc/images/html_scvdj2.png" alt="scVDJ 克隆型分析图表" width="500">
 </div>
-
-**图表技术规范：**
-
+<p><strong>图表技术规范：</strong></p>
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
@@ -1300,13 +1310,9 @@ HTML网页报告是单细胞VDJ测序分析的综合展示平台，整合了从�
 </tr>
 </tbody>
 </table>
-
----
-
-## 🎯 更多资源 <a id="更多资源"></a>
-
-### 📚 相关文档
-
+<hr>
+<h2 id="-更多资源-">🎯 更多资源 <a id="更多资源"></a></h2>
+<h3 id="-相关文档">📚 相关文档</h3>
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
@@ -1317,23 +1323,26 @@ HTML网页报告是单细胞VDJ测序分析的综合展示平台，整合了从�
 <tbody>
 <tr>
 <td align="center"><strong>🚀 快速入门</strong></td>
-<td><a href="../quickstart.md">快速入门指南</a> - 第一次分析的完整教程</td>
+<td><a href="../quickstart.html">快速入门指南</a> - 第一次分析的完整教程</td>
 </tr>
 <tr>
 <td align="center"><strong>⚙️ 参数参考</strong></td>
-<td><a href="../parameter/parameter.md">参数参考手册</a> - 所有可配置参数的详细说明</td>
+<td><a href="../parameter/parameter.html">参数参考手册</a> - 所有可配置参数的详细说明</td>
 </tr>
 <tr>
 <td align="center"><strong>🔬 分析流程</strong></td>
-<td><a href="../pipeline.md">分析流程说明</a> - 整个分析流程的技术细节</td>
+<td><a href="../pipeline.html">分析流程说明</a> - 整个分析流程的技术细节</td>
 </tr>
 <tr>
 <td align="center"><strong>🔧 安装配置</strong></td>
-<td><a href="../installation.md">安装配置指南</a> - 系统要求、安装步骤和环境配置</td>
+<td><a href="../installation.html">安装配置指南</a> - 系统要求、安装步骤和环境配置</td>
 </tr>
 </tbody>
 </table>
+<hr>
+<p><em>更多详细信息请参考上方文档链接或联系技术支持团队。</em></p>
 
----
-
-*更多详细信息请参考上方文档链接或联系技术支持团队。*
+            
+            
+        </body>
+        </html>

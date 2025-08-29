@@ -1,19 +1,152 @@
-# 🧬 DNBelab C Series HT scATAC Analysis Parameters
+<!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>&#x1f9ec; DNBelab C Series HT scATAC Analysis Parameters</title>
+            <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
 
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only],
+.vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+.vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+<link href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+<style>
+:root {
+  --color-note: #0969da;
+  --color-tip: #1a7f37;
+  --color-warning: #9a6700;
+  --color-severe: #bc4c00;
+  --color-caution: #d1242f;
+  --color-important: #8250df;
+}
+
+</style>
+<style>
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-note: #2f81f7;
+    --color-tip: #3fb950;
+    --color-warning: #d29922;
+    --color-severe: #db6d28;
+    --color-caution: #f85149;
+    --color-important: #a371f7;
+  }
+}
+
+</style>
+<style>
+.markdown-alert {
+  padding: 0.5rem 1rem;
+  margin-bottom: 16px;
+  color: inherit;
+  border-left: .25em solid #888;
+}
+
+.markdown-alert>:first-child {
+  margin-top: 0
+}
+
+.markdown-alert>:last-child {
+  margin-bottom: 0
+}
+
+.markdown-alert .markdown-alert-title {
+  display: flex;
+  font-weight: 500;
+  align-items: center;
+  line-height: 1
+}
+
+.markdown-alert .markdown-alert-title .octicon {
+  margin-right: 0.5rem;
+  display: inline-block;
+  overflow: visible !important;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
+
+.markdown-alert.markdown-alert-note {
+  border-left-color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-note .markdown-alert-title {
+  color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-important {
+  border-left-color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-important .markdown-alert-title {
+  color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-warning {
+  border-left-color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-warning .markdown-alert-title {
+  color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-tip {
+  border-left-color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-tip .markdown-alert-title {
+  color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-caution {
+  border-left-color: var(--color-caution);
+}
+
+.markdown-alert.markdown-alert-caution .markdown-alert-title {
+  color: var(--color-caution);
+}
+
+</style>
+        
+        </head>
+        <body class="vscode-body vscode-light">
+            <h1 id="-dnbelab-c-series-ht-scatac-analysis-parameters">🧬 DNBelab C Series HT scATAC Analysis Parameters</h1>
 <div align="center">
-
-[🔬 Main Analysis Pipeline (run)](#main-analysis-pipeline-run) • [📊 Reference Database Construction (mkref)](#reference-database-construction-mkref) • [📋 Multi-sample Operations (multi)](#multi-sample-operations-multi)
-
+<p><a href="#main-analysis-pipeline-run">🔬 Main Analysis Pipeline (run)</a> • <a href="#reference-database-construction-mkref">📊 Reference Database Construction (mkref)</a> • <a href="#multi-sample-operations-multi">📋 Multi-sample Operations (multi)</a></p>
 </div>
-
----
-
-## 🔬 Main Analysis Pipeline (run) <a id="main-analysis-pipeline-run"></a>
-
-### 📊 Usage <a id="usage"></a>
-
-```shell
-$ dnbc4tools atac run
+<hr>
+<h2 id="-main-analysis-pipeline-run-">🔬 Main Analysis Pipeline (run) <a id="main-analysis-pipeline-run"></a></h2>
+<h3 id="-usage-">📊 Usage <a id="usage"></a></h3>
+<pre><code class="language-shell"><span class="hljs-meta prompt_">$ </span><span class="language-bash">dnbc4tools atac run</span>
 usage: dnbc4tools atac run [-h] 
 
 optional arguments:
@@ -22,48 +155,46 @@ optional arguments:
 Input Files:
   Choose ONE input method: either --fastqs (directory) OR individual FASTQ files (-1 and -2).
 
-  --fastqs <DIR>        Input directory containing paired-end FASTQ files. The pipeline automatically detects Read1/Read2 files. Example: ./fastq_dir
-  -1, --fastq1 <FILE> [<FILE> ...]
+  --fastqs &lt;DIR&gt;        Input directory containing paired-end FASTQ files. The pipeline automatically detects Read1/Read2 files. Example: ./fastq_dir
+  -1, --fastq1 &lt;FILE&gt; [&lt;FILE&gt; ...]
                         Read1 FASTQ file(s) for the ATAC library (supports wildcards and comma-separated lists). Example: sample1_L01_R1.fastq.gz,sample1_L02_R1.fastq.gz
-  -2, --fastq2 <FILE> [<FILE> ...]
+  -2, --fastq2 &lt;FILE&gt; [&lt;FILE&gt; ...]
                         Read2 FASTQ file(s) for the ATAC library (supports wildcards and comma-separated lists). Must match --fastq1 order. Example: sample1_L01_R2.fastq.gz,sample1_L02_R2.fastq.gz
 
 Basic Settings:
-  -n, --name <STR>      Unique identifier for the sample (e.g., sample1). Used for naming output files and reports.
-  -g, --genomeDir <DIR>
+  -n, --name &lt;STR&gt;      Unique identifier for the sample (e.g., sample1). Used for naming output files and reports.
+  -g, --genomeDir &lt;DIR&gt;
                         Path to reference genome directory. Must contain the required index and annotation resources.
-  -o, --outdir <DIR>    Output directory for results and reports [default: current directory]. Example: ./output
-  -t, --threads <INT>   Number of CPU threads for parallel processing [default: 10].
+  -o, --outdir &lt;DIR&gt;    Output directory for results and reports [default: current directory]. Example: ./output
+  -t, --threads &lt;INT&gt;   Number of CPU threads for parallel processing [default: 10].
 
 Library Settings:
   Configure sequencing library settings and dark cycles.
   Auto-detection is recommended for dark cycles.
   Use --customize to specify sequence structure patterns when needed.
 
-  --darkreaction <STR>  Dark cycle setting for ATAC library [default: auto]. Options: auto (automatic detection), R1R2 (both reads), R1 (Read1 only), R2 (Read2 only), unset (no dark cycles).
-  --customize <STR>     Customize read structure for barcode/sequence extraction, format: <type>,<read>:<start>-<end> separated by ';'. Types: cb (cell barcode), R1 (sequence from Read1), R2 (sequence from Read2). Example:
-                        "cb,R1:1-10;cb,R1:11-20;R1,R1:21-70;R2,R2:1-50".
+  --darkreaction &lt;STR&gt;  Dark cycle setting for ATAC library [default: auto]. Options: auto (automatic detection), R1R2 (both reads), R1 (Read1 only), R2 (Read2 only), unset (no dark cycles).
+  --customize &lt;STR&gt;     Customize read structure for barcode/sequence extraction, format: &lt;type&gt;,&lt;read&gt;:&lt;start&gt;-&lt;end&gt; separated by &#x27;;&#x27;. Types: cb (cell barcode), R1 (sequence from Read1), R2 (sequence from Read2). Example:
+                        &quot;cb,R1:1-10;cb,R1:11-20;R1,R1:21-70;R2,R2:1-50&quot;.
 
 Filtering Settings:
-  --forcecells <INT>    Force pipeline to use exactly this number of cells, overriding detection (e.g., 5000).
-  --frags_cutoff <INT>  Minimum number of unique fragments to retain a cell [default: 1000].
-  --tss_cutoff <FLOAT>  Minimum TSS proportion threshold to retain a cell [default: 0] (e.g., 0.2).
-  --jaccard_cutoff <FLOAT>
+  --forcecells &lt;INT&gt;    Force pipeline to use exactly this number of cells, overriding detection (e.g., 5000).
+  --frags_cutoff &lt;INT&gt;  Minimum number of unique fragments to retain a cell [default: 1000].
+  --tss_cutoff &lt;FLOAT&gt;  Minimum TSS proportion threshold to retain a cell [default: 0] (e.g., 0.2).
+  --jaccard_cutoff &lt;FLOAT&gt;
                         Jaccard similarity threshold for merging beads (e.g., 0.02).
-  --merge_cutoff <INT>  Minimum number of fragments when merging beads [default: 1000].
+  --merge_cutoff &lt;INT&gt;  Minimum number of fragments when merging beads [default: 1000].
 
 Analysis Settings:
   --need_bam            Enable generation of BAM files containing aligned reads. Note: generating BAM files increases computational time and disk space usage.
-  --sample_read_pairs <INT>
+  --sample_read_pairs &lt;INT&gt;
                         Subsample the specified number of read pairs from the input FASTQ files (e.g., 1000000).
-```
-
-### 📝 Parameter Description
-
-#### 🔴 Required Parameters
-
-> ⚠️ **Essential parameters that must be specified for successful analysis**
-
+</code></pre>
+<h3 id="-parameter-description">📝 Parameter Description</h3>
+<h4 id="-required-parameters">🔴 Required Parameters</h4>
+<blockquote>
+<p>⚠️ <strong>Essential parameters that must be specified for successful analysis</strong></p>
+</blockquote>
 <table>
 <thead>
 <tr>
@@ -106,13 +237,11 @@ Analysis Settings:
 </tr>
 </tbody>
 </table>
-
----
-
-#### 🟢 Input File Parameters
-
-> 📁 **Choose ONE input method: directory-based OR individual files**
-
+<hr>
+<h4 id="-input-file-parameters">🟢 Input File Parameters</h4>
+<blockquote>
+<p>📁 <strong>Choose ONE input method: directory-based OR individual files</strong></p>
+</blockquote>
 <table>
 <thead>
 <tr>
@@ -173,15 +302,15 @@ Analysis Settings:
 </tr>
 </tbody>
 </table>
-
-> ⚠️ **Input Method Selection:**
-> - **🔸 Method 1:** Use `--fastqs` to specify directory containing paired FASTQ files
-> - **🔸 Method 2:** Use `-1, --fastq1` and `-2, --fastq2` to specify R1 and R2 files separately
-
----
-
-#### 🟢 Basic Setting Parameters
-
+<blockquote>
+<p>⚠️ <strong>Input Method Selection:</strong></p>
+<ul>
+<li><strong>🔸 Method 1:</strong> Use <code>--fastqs</code> to specify directory containing paired FASTQ files</li>
+<li><strong>🔸 Method 2:</strong> Use <code>-1, --fastq1</code> and <code>-2, --fastq2</code> to specify R1 and R2 files separately</li>
+</ul>
+</blockquote>
+<hr>
+<h4 id="-basic-setting-parameters">🟢 Basic Setting Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -223,11 +352,8 @@ Analysis Settings:
 </tr>
 </tbody>
 </table>
-
----
-
-#### 🟢 Library Setting Parameters
-
+<hr>
+<h4 id="-library-setting-parameters">🟢 Library Setting Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -311,11 +437,8 @@ Analysis Settings:
 </tr>
 </tbody>
 </table>
-
----
-
-#### 🟢 Filtering Setting Parameters
-
+<hr>
+<h4 id="-filtering-setting-parameters">🟢 Filtering Setting Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -421,11 +544,8 @@ Analysis Settings:
 </tr>
 </tbody>
 </table>
-
----
-
-#### 🚩 Analysis Setting Parameters
-
+<hr>
+<h4 id="-analysis-setting-parameters">🚩 Analysis Setting Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -478,25 +598,17 @@ Analysis Settings:
 </tr>
 </tbody>
 </table>
-
----
-
+<hr>
 <div align="center">
-
-> 💡 **Analysis Recommendation**
-> 
-> For first-time analysis, it is recommended to use default parameters, then adjust parameters based on the result reports as needed.
-
+<blockquote>
+<p>💡 <strong>Analysis Recommendation</strong></p>
+<p>For first-time analysis, it is recommended to use default parameters, then adjust parameters based on the result reports as needed.</p>
+</blockquote>
 </div>
-
----
-
-## 📊 Reference Database Construction (mkref) <a id="reference-database-construction-mkref"></a>
-
-### 📊 Usage
-
-```shell
-$dnbc4tools atac mkref
+<hr>
+<h2 id="-reference-database-construction-mkref-">📊 Reference Database Construction (mkref) <a id="reference-database-construction-mkref"></a></h2>
+<h3 id="-usage">📊 Usage</h3>
+<pre><code class="language-shell"><span class="hljs-meta prompt_">$</span><span class="language-bash">dnbc4tools atac mkref</span>
 usage: dnbc4tools atac mkref [-h] 
 
 optional arguments:
@@ -505,27 +617,24 @@ optional arguments:
 Input files:
   Input genome FASTA and gene annotation GTF files. For mixed species analysis, use comma to separate multiple files.
 
-  --fasta <FILE>       Path to reference genome FASTA file. Multiple files separated by comma
-  --ingtf <FILE>       Path to gene annotation GTF file. Multiple files separated by comma
+  --fasta &lt;FILE&gt;       Path to reference genome FASTA file. Multiple files separated by comma
+  --ingtf &lt;FILE&gt;       Path to gene annotation GTF file. Multiple files separated by comma
 
 Basic settings:
-  --genomeDir <DIR>    Output directory for reference files [default: current directory]
-  --species <STR>      Species identifier. For mixed species analysis, use comma separated [default: undefined]
+  --genomeDir &lt;DIR&gt;    Output directory for reference files [default: current directory]
+  --species &lt;STR&gt;      Species identifier. For mixed species analysis, use comma separated [default: undefined]
 
 Advanced settings:
-  --tag <TYPE>         Select type to generate BED file [default: transcript]
-  --chrM <STR>         Mitochondrial chromosome identifier in reference genome [default: auto]
-  --chloroplast <STR>  Chloroplast chromosome name, particularly recommended for plants, e.g. "Pt"
-  --prefix <STR>       Filter chromosomes by prefix or full name. Not supported for mixed species
-  --kmer <INT>         k-mer length, this determines the size of the substrings being extracted [default: 17]
-  --window <INT>       Window size, this defines the number of consecutive k-mers within a window [default: 7]
+  --tag &lt;TYPE&gt;         Select type to generate BED file [default: transcript]
+  --chrM &lt;STR&gt;         Mitochondrial chromosome identifier in reference genome [default: auto]
+  --chloroplast &lt;STR&gt;  Chloroplast chromosome name, particularly recommended for plants, e.g. &quot;Pt&quot;
+  --prefix &lt;STR&gt;       Filter chromosomes by prefix or full name. Not supported for mixed species
+  --kmer &lt;INT&gt;         k-mer length, this determines the size of the substrings being extracted [default: 17]
+  --window &lt;INT&gt;       Window size, this defines the number of consecutive k-mers within a window [default: 7]
   --noindex            Only generate ref.json without building genome index
-```
-
-### 📝 Parameter Description
-
-#### 🔴 Required Parameters
-
+</code></pre>
+<h3 id="-parameter-description-1">📝 Parameter Description</h3>
+<h4 id="-required-parameters-1">🔴 Required Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -576,11 +685,8 @@ Advanced settings:
 </tr>
 </tbody>
 </table>
-
----
-
-#### 🟢 Output Setting Parameters
-
+<hr>
+<h4 id="-output-setting-parameters">🟢 Output Setting Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -645,11 +751,8 @@ genomeDir/
 </tr>
 </tbody>
 </table>
-
----
-
-#### 🟢 Genome Setting Parameters
-
+<hr>
+<h4 id="-genome-setting-parameters">🟢 Genome Setting Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -806,66 +909,58 @@ genomeDir/
 </tr>
 </tbody>
 </table>
-
-> [!TIP]
-> 
-> 📋 **Database Construction Notes**:
-> - Databases built using Chromap currently cannot handle extremely large genomes. Some species may not be suitable for scATAC analysis using this software, or kmer and window parameters may need to be adjusted to accommodate genome index construction.
-> - After database construction is completed, a ref.json file will be generated in the database directory to record key information.
-> 
-> 📋 **ref.json File Example**:
-> ```json
-> {
->     "species": "Homo_sapiens",
->     "input_fasta_files": [
->         "genome.fa"
->     ],
->     "input_gtf_files": [
->         "genes.gtf"
->     ],
->     "genome": "/database/scATAC/Homo_sapiens/fasta/genome.fa",
->     "index": "/database/scATAC/Homo_sapiens/fasta/genome.index",
->     "gtf": "/database/scATAC/Homo_sapiens/genes/genes.gtf",
->     "chrmt": "chrM",
->     "chloroplast": "None",
->     "chromeSize": "/database/scATAC/Homo_sapiens/regions/chrom.sizes",
->     "tss": "/database/scATAC/Homo_sapiens/regions/tss.bed",
->     "promoter": "/database/scATAC/Homo_sapiens/regions/promoter.bed",
->     "version": "3.0beta",
->     "blacklist": "None",
->     "genomesize": "hs"
-> }
-> ```
-> 
-> 📋 **Important Notes**:
-> - Chromosome names listed in the chromeSize file will be included in the fragments.tsv.gz file for analysis, while unlisted chromosomes will be excluded
-> - Since version 2.1.2, the blacklist parameter has been removed and blacklist files are no longer required. If needed, they can be added manually
-> - The number of fragments in blacklist regions will be recorded in the blacklist_region_fragments column of the metadata file output/singlecell.csv
-> - The genomesize value is used for MACS2 peak calling analysis. MACS2 has special identifiers for certain species, such as "hs" for humans
-
----
-
-## 📋 Multi-sample Operations (multi) <a id="multi-sample-operations-multi"></a>
-
-### 📊 Usage
-
-```shell
-$dnbc4tools atac multi
+<div class="markdown-alert markdown-alert-tip"><p class="markdown-alert-title"><svg class="octicon octicon-light-bulb mr-2" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M8 1.5c-2.363 0-4 1.69-4 3.75 0 .984.424 1.625.984 2.304l.214.253c.223.264.47.556.673.848.284.411.537.896.621 1.49a.75.75 0 0 1-1.484.211c-.04-.282-.163-.547-.37-.847a8.456 8.456 0 0 0-.542-.68c-.084-.1-.173-.205-.268-.32C3.201 7.75 2.5 6.766 2.5 5.25 2.5 2.31 4.863 0 8 0s5.5 2.31 5.5 5.25c0 1.516-.701 2.5-1.328 3.259-.095.115-.184.22-.268.319-.207.245-.383.453-.541.681-.208.3-.33.565-.37.847a.751.751 0 0 1-1.485-.212c.084-.593.337-1.078.621-1.489.203-.292.45-.584.673-.848.075-.088.147-.173.213-.253.561-.679.985-1.32.985-2.304 0-2.06-1.637-3.75-4-3.75ZM5.75 12h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM6 15.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75Z"></path></svg>Tip</p><p></p>
+<p>📋 <strong>Database Construction Notes</strong>:</p>
+<ul>
+<li>Databases built using Chromap currently cannot handle extremely large genomes. Some species may not be suitable for scATAC analysis using this software, or kmer and window parameters may need to be adjusted to accommodate genome index construction.</li>
+<li>After database construction is completed, a ref.json file will be generated in the database directory to record key information.</li>
+</ul>
+<p>📋 <strong>ref.json File Example</strong>:</p>
+<pre><code class="language-json"><span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;species&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Homo_sapiens&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;input_fasta_files&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+        <span class="hljs-string">&quot;genome.fa&quot;</span>
+    <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;input_gtf_files&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+        <span class="hljs-string">&quot;genes.gtf&quot;</span>
+    <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;genome&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;/database/scATAC/Homo_sapiens/fasta/genome.fa&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;index&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;/database/scATAC/Homo_sapiens/fasta/genome.index&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;gtf&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;/database/scATAC/Homo_sapiens/genes/genes.gtf&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;chrmt&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;chrM&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;chloroplast&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;None&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;chromeSize&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;/database/scATAC/Homo_sapiens/regions/chrom.sizes&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;tss&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;/database/scATAC/Homo_sapiens/regions/tss.bed&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;promoter&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;/database/scATAC/Homo_sapiens/regions/promoter.bed&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;version&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;3.0beta&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;blacklist&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;None&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;genomesize&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;hs&quot;</span>
+<span class="hljs-punctuation">}</span>
+</code></pre>
+<p>📋 <strong>Important Notes</strong>:</p>
+<ul>
+<li>Chromosome names listed in the chromeSize file will be included in the fragments.tsv.gz file for analysis, while unlisted chromosomes will be excluded</li>
+<li>Since version 2.1.2, the blacklist parameter has been removed and blacklist files are no longer required. If needed, they can be added manually</li>
+<li>The number of fragments in blacklist regions will be recorded in the blacklist_region_fragments column of the metadata file output/singlecell.csv</li>
+<li>The genomesize value is used for MACS2 peak calling analysis. MACS2 has special identifiers for certain species, such as &quot;hs&quot; for humans</li>
+</ul>
+</div>
+<hr>
+<h2 id="-multi-sample-operations-multi-">📋 Multi-sample Operations (multi) <a id="multi-sample-operations-multi"></a></h2>
+<h3 id="-usage-1">📊 Usage</h3>
+<pre><code class="language-shell"><span class="hljs-meta prompt_">$</span><span class="language-bash">dnbc4tools atac multi</span>
 usage: dnbc4tools atac multi [-h] 
 
 optional arguments:
   -h, --help            show this help message and exit
-  --list <LIST>         Path to the sample list file. Each line should contain sample name and FASTQ paths.
-  --outdir <OUTDIR>     Output directory. [default: current directory].
-  --threads <CORENUM>   Number of threads used for analysis. [default: 10].
-  --genomeDir <DATABASE>
+  --list &lt;LIST&gt;         Path to the sample list file. Each line should contain sample name and FASTQ paths.
+  --outdir &lt;OUTDIR&gt;     Output directory. [default: current directory].
+  --threads &lt;CORENUM&gt;   Number of threads used for analysis. [default: 10].
+  --genomeDir &lt;DATABASE&gt;
                         Path to the directory where genome files are stored.
-```
-
-### 📝 Parameter Description
-
-#### 🔴 Required Parameters
-
+</code></pre>
+<h3 id="-parameter-description-2">📝 Parameter Description</h3>
+<h4 id="-required-parameters-2">🔴 Required Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -932,27 +1027,23 @@ sample3	/absolute/path/sample3_R1.fastq.gz;/absolute/path/sample3_R2.fastq.gz
 </tr>
 </tbody>
 </table>
-
----
-
+<hr>
 <blockquote>
 📝 <strong>Parameter Inheritance</strong><br>
 For other analysis parameter settings, please refer to the corresponding parameters in the <code>dnbc4tools atac run</code> command.
 </blockquote>
-
----
-
+<hr>
 <div align="center">
-
-> 💡 **Professional Tips**
-> 
-> This documentation is continuously updated. If you find content errors or need additional information, feedback is welcome.
-> 
-> 📝 **Documentation Version:** 3.0 beta | **Last Updated:** 2025
-
----
-
-**🔬 DNBelab C Series HT scATAC Analysis Software**  
-*High-Performance Single-Cell ATAC Sequencing Data Analysis Pipeline*
-
+<blockquote>
+<p>💡 <strong>Professional Tips</strong></p>
+<p>This documentation is continuously updated. If you find content errors or need additional information, feedback is welcome.</p>
+<p>📝 <strong>Documentation Version:</strong> 3.0 beta | <strong>Last Updated:</strong> 2025</p>
+</blockquote>
+<hr>
+<p><strong>🔬 DNBelab C Series HT scATAC Analysis Software</strong><br>
+<em>High-Performance Single-Cell ATAC Sequencing Data Analysis Pipeline</em></p>
 </div>
+            <script async src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
+            
+        </body>
+        </html>

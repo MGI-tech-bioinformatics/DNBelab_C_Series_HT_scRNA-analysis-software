@@ -1,30 +1,161 @@
-# 🧬 DNBelab C Series HT scRNA 分析输出文档
+<!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>&#x1f9ec; DNBelab C Series HT scRNA &#x5206;&#x6790;&#x8f93;&#x51fa;&#x6587;&#x6863;</title>
+            <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
 
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only],
+.vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+.vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+            
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+<style>
+:root {
+  --color-note: #0969da;
+  --color-tip: #1a7f37;
+  --color-warning: #9a6700;
+  --color-severe: #bc4c00;
+  --color-caution: #d1242f;
+  --color-important: #8250df;
+}
+
+</style>
+<style>
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-note: #2f81f7;
+    --color-tip: #3fb950;
+    --color-warning: #d29922;
+    --color-severe: #db6d28;
+    --color-caution: #f85149;
+    --color-important: #a371f7;
+  }
+}
+
+</style>
+<style>
+.markdown-alert {
+  padding: 0.5rem 1rem;
+  margin-bottom: 16px;
+  color: inherit;
+  border-left: .25em solid #888;
+}
+
+.markdown-alert>:first-child {
+  margin-top: 0
+}
+
+.markdown-alert>:last-child {
+  margin-bottom: 0
+}
+
+.markdown-alert .markdown-alert-title {
+  display: flex;
+  font-weight: 500;
+  align-items: center;
+  line-height: 1
+}
+
+.markdown-alert .markdown-alert-title .octicon {
+  margin-right: 0.5rem;
+  display: inline-block;
+  overflow: visible !important;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
+
+.markdown-alert.markdown-alert-note {
+  border-left-color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-note .markdown-alert-title {
+  color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-important {
+  border-left-color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-important .markdown-alert-title {
+  color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-warning {
+  border-left-color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-warning .markdown-alert-title {
+  color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-tip {
+  border-left-color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-tip .markdown-alert-title {
+  color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-caution {
+  border-left-color: var(--color-caution);
+}
+
+.markdown-alert.markdown-alert-caution .markdown-alert-title {
+  color: var(--color-caution);
+}
+
+</style>
+        
+        </head>
+        <body class="vscode-body vscode-light">
+            <h1 id="-dnbelab-c-series-ht-scrna-分析输出文档">🧬 DNBelab C Series HT scRNA 分析输出文档</h1>
 <div align="center">
-
-**单细胞RNA测序分析输出文件完整指南**
-
-[📁 目录结构](#输出目录结构) • [📋 文件详情](#详细文件说明) • [🧬 数据矩阵](#特征矩阵文件) • [📊 分析结果](#分析结果目录-analysis) • [📊 报告解读](#网页报告释义)
-
+<p><strong>单细胞RNA测序分析输出文件完整指南</strong></p>
+<p><a href="#%E8%BE%93%E5%87%BA%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84">📁 目录结构</a> • <a href="#%E8%AF%A6%E7%BB%86%E6%96%87%E4%BB%B6%E8%AF%B4%E6%98%8E">📋 文件详情</a> • <a href="#%E7%89%B9%E5%BE%81%E7%9F%A9%E9%98%B5%E6%96%87%E4%BB%B6">🧬 数据矩阵</a> • <a href="#%E5%88%86%E6%9E%90%E7%BB%93%E6%9E%9C%E7%9B%AE%E5%BD%95-analysis">📊 分析结果</a> • <a href="#%E7%BD%91%E9%A1%B5%E6%8A%A5%E5%91%8A%E9%87%8A%E4%B9%89">📊 报告解读</a></p>
 </div>
-
----
+<hr>
 </br>
-
-## 📖 概述 <a id="概述"></a>
-
-单细胞RNA分析完成后，会在指定的输出目录中生成标准化的文件和子目录结构，专门用于基因表达谱分析和细胞类型鉴定。本文档详细说明了每个输出文件的内容、格式和用途，帮助用户充分理解和高效利用单细胞RNA分析结果。
-
-> 💡 **提示**: 所有输出文件均采用标准格式，兼容主流单细胞分析工具（如Scanpy、Seurat等），遵循国际通用的数据格式规范。
-
-> ⚠️ **前提条件**: 需要完成高质量的单细胞RNA测序数据预处理
-
----
-
-## 📁 输出目录结构 <a id="输出目录结构"></a>
-
-```
-.
+<h2 id="-概述-">📖 概述 <a id="概述"></a></h2>
+<p>单细胞RNA分析完成后，会在指定的输出目录中生成标准化的文件和子目录结构，专门用于基因表达谱分析和细胞类型鉴定。本文档详细说明了每个输出文件的内容、格式和用途，帮助用户充分理解和高效利用单细胞RNA分析结果。</p>
+<blockquote>
+<p>💡 <strong>提示</strong>: 所有输出文件均采用标准格式，兼容主流单细胞分析工具（如Scanpy、Seurat等），遵循国际通用的数据格式规范。</p>
+</blockquote>
+<blockquote>
+<p>⚠️ <strong>前提条件</strong>: 需要完成高质量的单细胞RNA测序数据预处理</p>
+</blockquote>
+<hr>
+<h2 id="-输出目录结构-">📁 输出目录结构 <a id="输出目录结构"></a></h2>
+<pre><code>.
 ├── analysis/                      # 下游分析结果目录
 │   ├── cluster.csv                # 细胞聚类结果文件
 │   ├── marker.csv                 # 差异表达基因标记文件
@@ -43,92 +174,70 @@
 │   └── matrix.mtx.gz              # 原始稀疏矩阵文件
 ├── singlecell.csv                 # 单细胞metadata信息表
 └── *_scRNA_report.html            # HTML格式的分析报告
-```
-
----
+</code></pre>
+<hr>
 </br>
-
-## 📋 详细文件说明 <a id="详细文件说明"></a>
-
-### 📊 分析结果目录 (`analysis/`) <a id="分析结果目录-analysis"></a>
-
+<h2 id="-详细文件说明-">📋 详细文件说明 <a id="详细文件说明"></a></h2>
+<h3 id="-分析结果目录-analysis-">📊 分析结果目录 (<code>analysis/</code>) <a id="分析结果目录-analysis"></a></h3>
 <div align="center">
-
-**🎯 核心内容**: 下游生物信息学分析结果，包括细胞聚类、差异基因和质控后数据
-
+<p><strong>🎯 核心内容</strong>: 下游生物信息学分析结果，包括细胞聚类、差异基因和质控后数据</p>
 </div>
-
-#### 📄 cluster.csv
-
-**文件描述：** 细胞聚类分析结果文件，采用 CSV 格式。包含细胞ID、聚类注释和降维坐标信息。
-
-**核心功能特点：**
-- 🗓️ **聚类结果**: 基于 Louvain 算法的无监督聚类结果
-- 🗺️ **降维坐标**: UMAP 降维结果坐标
-- 🏷️ **细胞标注**: 自动细胞类型注释结果（若可用）
-- 🔍 **质控信息**: 细胞 gene 和 UMI 数量统计值
-
-**用途：** 用于可视化细胞聚类和标识不同细胞类型。
-
-#### 📄 marker.csv
-
-**文件描述：** 各聚类的差异表达基因（标记基因）文件，采用 CSV 格式。记录基因ID、所属聚类、统计显著性和表达量差异等信息。
-
-**核心功能特点：**
-- 📊 **统计分析**: 包含 p 值、调整 p 值和倍数变化
-- 🎆 **表达比例**: 目标细胞类型中表达该基因的细胞比例
-- 🔍 **特异性评估**: 基因在特定细胞类型中的特异性表达
-- 📈 **排序优先**: 按统计显著性和倍数变化排序
-
-**用途：** 用于识别各细胞类型的特征基因。
-
-#### 📄 QC_Cluster.h5ad
-
-**文件描述：** 经过质控和聚类分析的单细胞数据，采用 AnnData 对象（H5AD 格式）。包含完整的分析数据和元数据。
-
-**核心功能特点：**
-- 🧬 **完整数据**: 包含质控、聚类、标记基因等全部分析结果
-- 🗓️ **元数据**: 细胞和基因的详细注释信息
-- 🗺️ **降维结果**: UMAP降维结果坐标
-- 🔧 **工具兼容**: 完全兼容 Scanpy 等分析工具
-
-**用途：** 兼容Scanpy等分析工具进行下游分析。  
-**参考：** 详细格式参考[AnnData格式说明](#anndata-format-h5ad)。
-
----
+<h4 id="-clustercsv">📄 cluster.csv</h4>
+<p><strong>文件描述：</strong> 细胞聚类分析结果文件，采用 CSV 格式。包含细胞ID、聚类注释和降维坐标信息。</p>
+<p><strong>核心功能特点：</strong></p>
+<ul>
+<li>🗓️ <strong>聚类结果</strong>: 基于 Louvain 算法的无监督聚类结果</li>
+<li>🗺️ <strong>降维坐标</strong>: UMAP 降维结果坐标</li>
+<li>🏷️ <strong>细胞标注</strong>: 自动细胞类型注释结果（若可用）</li>
+<li>🔍 <strong>质控信息</strong>: 细胞 gene 和 UMI 数量统计值</li>
+</ul>
+<p><strong>用途：</strong> 用于可视化细胞聚类和标识不同细胞类型。</p>
+<h4 id="-markercsv">📄 marker.csv</h4>
+<p><strong>文件描述：</strong> 各聚类的差异表达基因（标记基因）文件，采用 CSV 格式。记录基因ID、所属聚类、统计显著性和表达量差异等信息。</p>
+<p><strong>核心功能特点：</strong></p>
+<ul>
+<li>📊 <strong>统计分析</strong>: 包含 p 值、调整 p 值和倍数变化</li>
+<li>🎆 <strong>表达比例</strong>: 目标细胞类型中表达该基因的细胞比例</li>
+<li>🔍 <strong>特异性评估</strong>: 基因在特定细胞类型中的特异性表达</li>
+<li>📈 <strong>排序优先</strong>: 按统计显著性和倍数变化排序</li>
+</ul>
+<p><strong>用途：</strong> 用于识别各细胞类型的特征基因。</p>
+<h4 id="-qc_clusterh5ad">📄 QC_Cluster.h5ad</h4>
+<p><strong>文件描述：</strong> 经过质控和聚类分析的单细胞数据，采用 AnnData 对象（H5AD 格式）。包含完整的分析数据和元数据。</p>
+<p><strong>核心功能特点：</strong></p>
+<ul>
+<li>🧬 <strong>完整数据</strong>: 包含质控、聚类、标记基因等全部分析结果</li>
+<li>🗓️ <strong>元数据</strong>: 细胞和基因的详细注释信息</li>
+<li>🗺️ <strong>降维结果</strong>: UMAP降维结果坐标</li>
+<li>🔧 <strong>工具兼容</strong>: 完全兼容 Scanpy 等分析工具</li>
+</ul>
+<p><strong>用途：</strong> 兼容Scanpy等分析工具进行下游分析。<br>
+<strong>参考：</strong> 详细格式参考<a href="#anndata-format-h5ad">AnnData格式说明</a>。</p>
+<hr>
 </br>
-
-### 🧬 比对和注释文件 <a id="比对和注释文件"></a>
-
+<h3 id="-比对和注释文件-">🧬 比对和注释文件 <a id="比对和注释文件"></a></h3>
 <div align="center">
-
-**🎯 核心内容**: 原始测序数据比对到参考基因组的结果文件，包含完整的比对信息和细胞条形码标记
-
+<p><strong>🎯 核心内容</strong>: 原始测序数据比对到参考基因组的结果文件，包含完整的比对信息和细胞条形码标记</p>
 </div>
-
-#### 📄 anno_decon_sorted.bam
-
-**文件描述：** 按基因组坐标排序的比对文件，采用 BAM 格式。包含所有比对到参考基因组的 reads 信息。
-
-**核心功能特点：**
-- 🗺️ **排序优化**: 按基因组坐标排序，支持快速随机访问
-- 🏷️ **条形码标记**: 包含细胞条形码 (CB)、UMI (UB) 等关键标签
-- 🧬 **基因注释**: 包含基因 ID (GX)、基因名称 (GN) 等注释信息
-- 🎆 **质量控制**: 包含 reads 质量分数和比对质量信息
-
-**参考：** 具体参考[BAM格式说明](#bam-format-bam)。
-
-#### 📄 anno_decon_sorted.bam.bai
-
-**文件描述：** BAM 文件的索引文件，用于加速 BAM 文件的随机访问。
-
-**核心功能特点：**
-- ⚡ **高效访问**: 提高可视化和数据提取效率
-- 🔧 **工具兼容**: 支持 IGV、UCSC 等主流可视化工具
-- 📊 **格式支持**: 自动选择 BAI 或 CSI 格式
-
-**索引格式说明：**
-
+<h4 id="-anno_decon_sortedbam">📄 anno_decon_sorted.bam</h4>
+<p><strong>文件描述：</strong> 按基因组坐标排序的比对文件，采用 BAM 格式。包含所有比对到参考基因组的 reads 信息。</p>
+<p><strong>核心功能特点：</strong></p>
+<ul>
+<li>🗺️ <strong>排序优化</strong>: 按基因组坐标排序，支持快速随机访问</li>
+<li>🏷️ <strong>条形码标记</strong>: 包含细胞条形码 (CB)、UMI (UB) 等关键标签</li>
+<li>🧬 <strong>基因注释</strong>: 包含基因 ID (GX)、基因名称 (GN) 等注释信息</li>
+<li>🎆 <strong>质量控制</strong>: 包含 reads 质量分数和比对质量信息</li>
+</ul>
+<p><strong>参考：</strong> 具体参考<a href="#bam-format-bam">BAM格式说明</a>。</p>
+<h4 id="-anno_decon_sortedbambai">📄 anno_decon_sorted.bam.bai</h4>
+<p><strong>文件描述：</strong> BAM 文件的索引文件，用于加速 BAM 文件的随机访问。</p>
+<p><strong>核心功能特点：</strong></p>
+<ul>
+<li>⚡ <strong>高效访问</strong>: 提高可视化和数据提取效率</li>
+<li>🔧 <strong>工具兼容</strong>: 支持 IGV、UCSC 等主流可视化工具</li>
+<li>📊 <strong>格式支持</strong>: 自动选择 BAI 或 CSI 格式</li>
+</ul>
+<p><strong>索引格式说明：</strong></p>
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
@@ -147,34 +256,23 @@
 </tr>
 </tbody>
 </table>
-
----
-
-### 📈 特征矩阵文件 <a id="特征矩阵文件"></a>
-
+<hr>
+<h3 id="-特征矩阵文件-">📈 特征矩阵文件 <a id="特征矩阵文件"></a></h3>
 <div align="center">
-
-**🎯 核心内容**: 单细胞基因表达计数矩阵，分为原始数据和质控过滤后数据，采用标准稀疏矩阵格式
-
+<p><strong>🎯 核心内容</strong>: 单细胞基因表达计数矩阵，分为原始数据和质控过滤后数据，采用标准稀疏矩阵格式</p>
 </div>
-
-#### 📄 filter_feature.h5ad
-
-**文件描述：** 经过细胞鉴定后的特征矩阵，采用 AnnData 对象（H5AD 格式）。
-
-**核心功能特点：**
-- 🔧 **工具兼容**: 完全兼容 Scanpy 分析工具
-- 💾 **高效存储**: HDF5 格式提供高效的数据访问
-
-**用途：** 用于下游分析和可视化。  
-**参考：** 详细格式参考[AnnData格式说明](#anndata-format-h5ad)。
-
-#### 📁 过滤后的基因表达矩阵 (`filter_matrix/`)
-
-**目录描述：** 包含三个核心文件的过滤后表达矩阵，采用 Market Matrix Exchange (MEX) 标准格式。
-
-**核心文件组成：**
-
+<h4 id="-filter_featureh5ad">📄 filter_feature.h5ad</h4>
+<p><strong>文件描述：</strong> 经过细胞鉴定后的特征矩阵，采用 AnnData 对象（H5AD 格式）。</p>
+<p><strong>核心功能特点：</strong></p>
+<ul>
+<li>🔧 <strong>工具兼容</strong>: 完全兼容 Scanpy 分析工具</li>
+<li>💾 <strong>高效存储</strong>: HDF5 格式提供高效的数据访问</li>
+</ul>
+<p><strong>用途：</strong> 用于下游分析和可视化。<br>
+<strong>参考：</strong> 详细格式参考<a href="#anndata-format-h5ad">AnnData格式说明</a>。</p>
+<h4 id="-过滤后的基因表达矩阵-filter_matrix">📁 过滤后的基因表达矩阵 (<code>filter_matrix/</code>)</h4>
+<p><strong>目录描述：</strong> 包含三个核心文件的过滤后表达矩阵，采用 Market Matrix Exchange (MEX) 标准格式。</p>
+<p><strong>核心文件组成：</strong></p>
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
@@ -197,21 +295,17 @@
 </tr>
 </tbody>
 </table>
-
-**特点优势：**
-- 🔍 **高质量数据**: 仅包含通过细胞鉴定后的细胞
-- 💾 **空间高效**: 稀疏矩阵格式节省存储空间
-- 🔧 **工具兼容**: 兼容Seurat、Scanpy等分析工具
-
-**用途：** 主要用于下游生物信息学分析。  
-**参考：** 关于矩阵格式详见[Market Matrix格式说明](#market-matrix-format-mtxgz)。
-
-#### 📁 原始基因表达矩阵 (`raw_matrix/`)
-
-**目录描述：** 包含三个核心文件的原始表达矩阵，采用 Market Matrix Exchange (MEX) 标准格式。
-
-**核心文件组成：**
-
+<p><strong>特点优势：</strong></p>
+<ul>
+<li>🔍 <strong>高质量数据</strong>: 仅包含通过细胞鉴定后的细胞</li>
+<li>💾 <strong>空间高效</strong>: 稀疏矩阵格式节省存储空间</li>
+<li>🔧 <strong>工具兼容</strong>: 兼容Seurat、Scanpy等分析工具</li>
+</ul>
+<p><strong>用途：</strong> 主要用于下游生物信息学分析。<br>
+<strong>参考：</strong> 关于矩阵格式详见<a href="#market-matrix-format-mtxgz">Market Matrix格式说明</a>。</p>
+<h4 id="-原始基因表达矩阵-raw_matrix">📁 原始基因表达矩阵 (<code>raw_matrix/</code>)</h4>
+<p><strong>目录描述：</strong> 包含三个核心文件的原始表达矩阵，采用 Market Matrix Exchange (MEX) 标准格式。</p>
+<p><strong>核心文件组成：</strong></p>
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
@@ -234,32 +328,23 @@
 </tr>
 </tbody>
 </table>
-
-**特点优势：**
-- 📊 **完整数据**: 保留所有原始检测数据，未经过滤
-- 🔍 **质控参考**: 用于评估过滤效果和质控参数优化
-- 🔄 **重新分析**: 支持使用不同参数重新进行过滤和分析
-- 💾 **数据备份**: 作为原始数据的完整备份
-
-**用途：** 存储未经过滤的表达数据，用于质量控制和参数优化。  
-**参考：** 关于矩阵格式详见[Market Matrix格式说明](#market-matrix-format-mtxgz)。
-
----
-
-### 📝 分析指标汇总 <a id="分析指标汇总"></a>
-
+<p><strong>特点优势：</strong></p>
+<ul>
+<li>📊 <strong>完整数据</strong>: 保留所有原始检测数据，未经过滤</li>
+<li>🔍 <strong>质控参考</strong>: 用于评估过滤效果和质控参数优化</li>
+<li>🔄 <strong>重新分析</strong>: 支持使用不同参数重新进行过滤和分析</li>
+<li>💾 <strong>数据备份</strong>: 作为原始数据的完整备份</li>
+</ul>
+<p><strong>用途：</strong> 存储未经过滤的表达数据，用于质量控制和参数优化。<br>
+<strong>参考：</strong> 关于矩阵格式详见<a href="#market-matrix-format-mtxgz">Market Matrix格式说明</a>。</p>
+<hr>
+<h3 id="-分析指标汇总-">📝 分析指标汇总 <a id="分析指标汇总"></a></h3>
 <div align="center">
-
-**🎯 核心内容**: 实验质量评估和统计指标汇总，提供完整的数据质量控制信息
-
+<p><strong>🎯 核心内容</strong>: 实验质量评估和统计指标汇总，提供完整的数据质量控制信息</p>
 </div>
-
-#### 📄 metrics_summary.xls
-
-**文件描述：** 关键分析指标的汇总表，采用 Excel 格式。包含测序数据质量、比对率、细胞数量、基因检测数等统计信息。
-
-**主要指标类别：**
-
+<h4 id="-metrics_summaryxls">📄 metrics_summary.xls</h4>
+<p><strong>文件描述：</strong> 关键分析指标的汇总表，采用 Excel 格式。包含测序数据质量、比对率、细胞数量、基因检测数等统计信息。</p>
+<p><strong>主要指标类别：</strong></p>
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
@@ -286,9 +371,7 @@
 </tr>
 </tbody>
 </table>
-
-**质量控制标准：**
-
+<p><strong>质量控制标准：</strong></p>
 <details open>
 <summary><strong>推荐质量阈值：</strong></summary>
 <ul>
@@ -299,25 +382,19 @@
 <li>✅ <strong>每细胞平均reads数</strong>: >15,000</li>
 </ul>
 </details>
-
-**用途：** 用于评估数据质量和分析效果。
-
-#### 📄 singlecell.csv
-
-**文件描述：** 单细胞质量控制和统计信息表，采用 CSV 格式。包含细胞条形码、测序深度、检测基因数等质控指标，以及细胞合并状态和筛选结果。
-
-**核心功能特点：**
-- 🔍 **质控指标**: 细胞级别的详细质控参数
-- 🔄 **合并信息**: 细胞条形码合并状态和统计
-- 🏷️ **筛选结果**: 细胞质量评估和过滤状态
-- 🔗 **VDJ兼容**: 支持VDJ分析中的细胞筛选与合并操作
-
-**用途：** 支持下游个性化分析和VDJ分析中的细胞筛选与合并操作。
-
-#### 📄 *_scRNA_report.html
-
-**文件描述：** 完整的分析报告，采用 HTML 网页格式。包含质控指标、聚类结果、差异基因表达等交互式可视化图表。
-
+<p><strong>用途：</strong> 用于评估数据质量和分析效果。</p>
+<h4 id="-singlecellcsv">📄 singlecell.csv</h4>
+<p><strong>文件描述：</strong> 单细胞质量控制和统计信息表，采用 CSV 格式。包含细胞条形码、测序深度、检测基因数等质控指标，以及细胞合并状态和筛选结果。</p>
+<p><strong>核心功能特点：</strong></p>
+<ul>
+<li>🔍 <strong>质控指标</strong>: 细胞级别的详细质控参数</li>
+<li>🔄 <strong>合并信息</strong>: 细胞条形码合并状态和统计</li>
+<li>🏷️ <strong>筛选结果</strong>: 细胞质量评估和过滤状态</li>
+<li>🔗 <strong>VDJ兼容</strong>: 支持VDJ分析中的细胞筛选与合并操作</li>
+</ul>
+<p><strong>用途：</strong> 支持下游个性化分析和VDJ分析中的细胞筛选与合并操作。</p>
+<h4 id="-_scrna_reporthtml">📄 *_scRNA_report.html</h4>
+<p><strong>文件描述：</strong> 完整的分析报告，采用 HTML 网页格式。包含质控指标、聚类结果、差异基因表达等交互式可视化图表。</p>
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
@@ -340,36 +417,40 @@
 </tr>
 </tbody>
 </table>
-
-**文件格式**: HTML网页格式，支持所有主流浏览器  
-**用途**: 提供分析结果的综合概述
-**详细内容**: 请查看 [📊 网页报告释义](#网页报告释义) 部分
-
----
-
-## 📄 文件格式说明 <a id="文件格式说明"></a>
-
-> **技术规范**: 输出文件采用的标准格式详细说明
-
-### 📊 Market Matrix格式 (`.mtx.gz`) <a id="market-matrix-format-mtxgz"></a>
-
-**格式概述:** Market Exchange Format (MEX) 是单细胞分析中广泛使用的稀疏矩阵存储标准，由三个核心文件组成，兼容性极佳。
-
-#### 文件组成
-- **`matrix.mtx.gz`**: 压缩的稀疏矩阵文件。
-  - 文件头包含矩阵维度信息（行数、列数、非零元素数）。
-  - 每行记录一个非零元素：行索引、列索引、数值。
-- **`barcodes.tsv.gz`**: 压缩的细胞条形码文件。
-  - 每行包含一个细胞ID。
-  - 行号对应矩阵的列索引（细胞）。
-  - 格式通常为：例如`CELL1_N2`，其中`CELL1`为细胞ID，`N2`为由两个条形码组成。
-- **`features.tsv.gz`**: 压缩的特征信息文件。
-  - 每行包含三列：基因ID、基因名称、特征类型。
-  - 行号对应矩阵的行索引（基因/特征）。
-  - 特征类型包括：`Gene Expression`。
-
-#### 🎯 使用场景
-
+<p><strong>文件格式</strong>: HTML网页格式，支持所有主流浏览器<br>
+<strong>用途</strong>: 提供分析结果的综合概述
+<strong>详细内容</strong>: 请查看 <a href="#%E7%BD%91%E9%A1%B5%E6%8A%A5%E5%91%8A%E9%87%8A%E4%B9%89">📊 网页报告释义</a> 部分</p>
+<hr>
+<h2 id="-文件格式说明-">📄 文件格式说明 <a id="文件格式说明"></a></h2>
+<blockquote>
+<p><strong>技术规范</strong>: 输出文件采用的标准格式详细说明</p>
+</blockquote>
+<h3 id="-market-matrix格式-mtxgz-">📊 Market Matrix格式 (<code>.mtx.gz</code>) <a id="market-matrix-format-mtxgz"></a></h3>
+<p><strong>格式概述:</strong> Market Exchange Format (MEX) 是单细胞分析中广泛使用的稀疏矩阵存储标准，由三个核心文件组成，兼容性极佳。</p>
+<h4 id="文件组成">文件组成</h4>
+<ul>
+<li><strong><code>matrix.mtx.gz</code></strong>: 压缩的稀疏矩阵文件。
+<ul>
+<li>文件头包含矩阵维度信息（行数、列数、非零元素数）。</li>
+<li>每行记录一个非零元素：行索引、列索引、数值。</li>
+</ul>
+</li>
+<li><strong><code>barcodes.tsv.gz</code></strong>: 压缩的细胞条形码文件。
+<ul>
+<li>每行包含一个细胞ID。</li>
+<li>行号对应矩阵的列索引（细胞）。</li>
+<li>格式通常为：例如<code>CELL1_N2</code>，其中<code>CELL1</code>为细胞ID，<code>N2</code>为由两个条形码组成。</li>
+</ul>
+</li>
+<li><strong><code>features.tsv.gz</code></strong>: 压缩的特征信息文件。
+<ul>
+<li>每行包含三列：基因ID、基因名称、特征类型。</li>
+<li>行号对应矩阵的行索引（基因/特征）。</li>
+<li>特征类型包括：<code>Gene Expression</code>。</li>
+</ul>
+</li>
+</ul>
+<h4 id="-使用场景">🎯 使用场景</h4>
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
@@ -392,104 +473,120 @@
 </tr>
 </tbody>
 </table>
+<h4 id="-代码示例">💻 代码示例</h4>
+<p><strong>Python/Scanpy 完整流程：</strong></p>
+<pre><code class="language-python"><span class="hljs-keyword">import</span> scanpy <span class="hljs-keyword">as</span> sc
+<span class="hljs-keyword">import</span> pandas <span class="hljs-keyword">as</span> pd
 
-#### 💻 代码示例
-
-**Python/Scanpy 完整流程：**
-```python
-import scanpy as sc
-import pandas as pd
-
-# 读取MEX格式数据
+<span class="hljs-comment"># 读取MEX格式数据</span>
 adata = sc.read_10x_mtx(
-    'filter_matrix/',  # MEX文件目录
-    var_names='gene_symbols',  # 使用基因名作为变量名
-    cache=True  # 启用缓存加速后续读取
+    <span class="hljs-string">&#x27;filter_matrix/&#x27;</span>,  <span class="hljs-comment"># MEX文件目录</span>
+    var_names=<span class="hljs-string">&#x27;gene_symbols&#x27;</span>,  <span class="hljs-comment"># 使用基因名作为变量名</span>
+    cache=<span class="hljs-literal">True</span>  <span class="hljs-comment"># 启用缓存加速后续读取</span>
 )
 
-# 数据预处理
+<span class="hljs-comment"># 数据预处理</span>
 adata.var_names_make_unique()
 adata.obs_names_make_unique()
 
-# 查看数据结构
-print(f"细胞数量: {adata.n_obs}")
-print(f"基因数量: {adata.n_vars}")
-print(f"数据维度: {adata.shape}")
-```
+<span class="hljs-comment"># 查看数据结构</span>
+<span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;细胞数量: <span class="hljs-subst">{adata.n_obs}</span>&quot;</span>)
+<span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;基因数量: <span class="hljs-subst">{adata.n_vars}</span>&quot;</span>)
+<span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;数据维度: <span class="hljs-subst">{adata.shape}</span>&quot;</span>)
+</code></pre>
+<p><strong>R/Seurat 完整流程：</strong></p>
+<pre><code class="language-r">library<span class="hljs-punctuation">(</span>Seurat<span class="hljs-punctuation">)</span>
+library<span class="hljs-punctuation">(</span>dplyr<span class="hljs-punctuation">)</span>
 
-**R/Seurat 完整流程：**
-```r
-library(Seurat)
-library(dplyr)
+<span class="hljs-comment"># 读取MEX格式数据</span>
+counts <span class="hljs-operator">&lt;-</span> Read10X<span class="hljs-punctuation">(</span>data.dir <span class="hljs-operator">=</span> <span class="hljs-string">&quot;filter_matrix/&quot;</span><span class="hljs-punctuation">)</span>
 
-# 读取MEX格式数据
-counts <- Read10X(data.dir = "filter_matrix/")
+<span class="hljs-comment"># 创建Seurat对象</span>
+seurat_obj <span class="hljs-operator">&lt;-</span> CreateSeuratObject<span class="hljs-punctuation">(</span>
+  counts <span class="hljs-operator">=</span> counts<span class="hljs-punctuation">,</span>
+  project <span class="hljs-operator">=</span> <span class="hljs-string">&quot;scRNA_analysis&quot;</span><span class="hljs-punctuation">,</span>
+  min.cells <span class="hljs-operator">=</span> <span class="hljs-number">3</span><span class="hljs-punctuation">,</span>      <span class="hljs-comment"># 基因至少在3个细胞中表达</span>
+  min.features <span class="hljs-operator">=</span> <span class="hljs-number">200</span>  <span class="hljs-comment"># 细胞至少表达200个基因</span>
+<span class="hljs-punctuation">)</span>
 
-# 创建Seurat对象
-seurat_obj <- CreateSeuratObject(
-  counts = counts,
-  project = "scRNA_analysis",
-  min.cells = 3,      # 基因至少在3个细胞中表达
-  min.features = 200  # 细胞至少表达200个基因
-)
-
-# 查看数据信息
-print(paste("细胞数量:", ncol(seurat_obj)))
-print(paste("基因数量:", nrow(seurat_obj)))
-head(seurat_obj@meta.data)
-```
-
----
-
-### 🗃️ AnnData格式 (`.h5ad`) <a id="anndata-format-h5ad"></a>
-
-**格式概述:** AnnData ("Annotated Data") 是专为矩阵型数据设计的数据结构，特别适用于单细胞RNA测序数据分析。基于HDF5格式，提供高效的数据存储和访问能力。
-
-#### 🏗️ 数据结构
-
+<span class="hljs-comment"># 查看数据信息</span>
+print<span class="hljs-punctuation">(</span>paste<span class="hljs-punctuation">(</span><span class="hljs-string">&quot;细胞数量:&quot;</span><span class="hljs-punctuation">,</span> ncol<span class="hljs-punctuation">(</span>seurat_obj<span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span>
+print<span class="hljs-punctuation">(</span>paste<span class="hljs-punctuation">(</span><span class="hljs-string">&quot;基因数量:&quot;</span><span class="hljs-punctuation">,</span> nrow<span class="hljs-punctuation">(</span>seurat_obj<span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span>
+head<span class="hljs-punctuation">(</span>seurat_obj<span class="hljs-operator">@</span>meta.data<span class="hljs-punctuation">)</span>
+</code></pre>
+<hr>
+<h3 id="️-anndata格式-h5ad-">🗃️ AnnData格式 (<code>.h5ad</code>) <a id="anndata-format-h5ad"></a></h3>
+<p><strong>格式概述:</strong> AnnData (&quot;Annotated Data&quot;) 是专为矩阵型数据设计的数据结构，特别适用于单细胞RNA测序数据分析。基于HDF5格式，提供高效的数据存储和访问能力。</p>
+<h4 id="️-数据结构">🏗️ 数据结构</h4>
 <div align="left">
-<img src="../images/anndata.jpg" alt="AnnData格式结构图" width="400">
+<img src="file:////Users/lishuangshuang/Documents/scrna/DNBelab_C_Series_HT_scRNA-analysis-software/doc/images/anndata.jpg" alt="AnnData格式结构图" width="400">
 </div>
+<table>
+<thead>
+<tr>
+<th>📁 <strong>组件</strong></th>
+<th>🎯 <strong>功能</strong></th>
+<th>📏 <strong>维度</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>X</strong></td>
+<td>主表达矩阵</td>
+<td>n_cells × n_genes</td>
+</tr>
+<tr>
+<td><strong>obs</strong></td>
+<td>细胞元数据</td>
+<td>n_cells × n_obs_features</td>
+</tr>
+<tr>
+<td><strong>var</strong></td>
+<td>基因元数据</td>
+<td>n_genes × n_var_features</td>
+</tr>
+<tr>
+<td><strong>obsm</strong></td>
+<td>细胞多维数据</td>
+<td>n_cells × n_components</td>
+</tr>
+<tr>
+<td><strong>varm</strong></td>
+<td>基因多维数据</td>
+<td>n_genes × n_components</td>
+</tr>
+<tr>
+<td><strong>layers</strong></td>
+<td>多层数据</td>
+<td>n_cells × n_genes</td>
+</tr>
+<tr>
+<td><strong>uns</strong></td>
+<td>非结构化数据</td>
+<td>任意对象</td>
+</tr>
+</tbody>
+</table>
+<h4 id="-使用示例">💻 使用示例</h4>
+<p><strong>基础数据读取：</strong></p>
+<pre><code class="language-python"><span class="hljs-keyword">import</span> scanpy <span class="hljs-keyword">as</span> sc
+<span class="hljs-keyword">import</span> anndata <span class="hljs-keyword">as</span> ad
+<span class="hljs-keyword">import</span> pandas <span class="hljs-keyword">as</span> pd
+<span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np
 
-| 📁 **组件** | 🎯 **功能** | 📏 **维度** |
-|-------------|-------------|-------------|
-| **X** | 主表达矩阵 | n_cells × n_genes |
-| **obs** | 细胞元数据 | n_cells × n_obs_features |
-| **var** | 基因元数据 | n_genes × n_var_features |
-| **obsm** | 细胞多维数据 | n_cells × n_components |
-| **varm** | 基因多维数据 | n_genes × n_components |
-| **layers** | 多层数据 | n_cells × n_genes |
-| **uns** | 非结构化数据 | 任意对象 |
+<span class="hljs-comment"># 读取h5ad文件</span>
+adata = sc.read_h5ad(<span class="hljs-string">&#x27;filter_feature.h5ad&#x27;</span>)
 
-#### 💻 使用示例
-
-**基础数据读取：**
-```python
-import scanpy as sc
-import anndata as ad
-import pandas as pd
-import numpy as np
-
-# 读取h5ad文件
-adata = sc.read_h5ad('filter_feature.h5ad')
-
-# 查看数据结构
-print(adata)
-print(f"表达矩阵维度: {adata.shape}")
-print(f"细胞数量: {adata.n_obs}, 基因数量: {adata.n_vars}")
-```
-
----
-
-### 🧬 BAM格式 (`.bam`) <a id="bam-format-bam"></a>
-
-**格式概述:** BAM (Binary Alignment Map) 是二进制格式，用于存储与参考基因组对齐的测序数据。在单细胞RNA测序中，包含位置排序的reads，同时附带细胞和分子条形码信息。
-
-
-#### 🔬 BAM文件技术规范
-
-**文件特征分析：**
-
+<span class="hljs-comment"># 查看数据结构</span>
+<span class="hljs-built_in">print</span>(adata)
+<span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;表达矩阵维度: <span class="hljs-subst">{adata.shape}</span>&quot;</span>)
+<span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;细胞数量: <span class="hljs-subst">{adata.n_obs}</span>, 基因数量: <span class="hljs-subst">{adata.n_vars}</span>&quot;</span>)
+</code></pre>
+<hr>
+<h3 id="-bam格式-bam-">🧬 BAM格式 (<code>.bam</code>) <a id="bam-format-bam"></a></h3>
+<p><strong>格式概述:</strong> BAM (Binary Alignment Map) 是二进制格式，用于存储与参考基因组对齐的测序数据。在单细胞RNA测序中，包含位置排序的reads，同时附带细胞和分子条形码信息。</p>
+<h4 id="-bam文件技术规范">🔬 BAM文件技术规范</h4>
+<p><strong>文件特征分析：</strong></p>
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
@@ -516,11 +613,8 @@ print(f"细胞数量: {adata.n_obs}, 基因数量: {adata.n_vars}")
 </tr>
 </tbody>
 </table>
-
-#### 🏷️ 标签系统
-
-**🧬 细胞和分子标识标签：**
-
+<h4 id="️-标签系统">🏷️ 标签系统</h4>
+<p><strong>🧬 细胞和分子标识标签：</strong></p>
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
@@ -575,9 +669,7 @@ print(f"细胞数量: {adata.n_obs}, 基因数量: {adata.n_vars}")
 </tr>
 </tbody>
 </table>
-
-**🧬 基因注释和功能标签：**
-
+<p><strong>🧬 基因注释和功能标签：</strong></p>
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
@@ -620,42 +712,28 @@ print(f"细胞数量: {adata.n_obs}, 基因数量: {adata.n_vars}")
 </tr>
 </tbody>
 </table>
-
-
-
-
----
-
-## 📊 网页报告释义 <a id="网页报告释义"></a>
-
+<hr>
+<h2 id="-网页报告释义-">📊 网页报告释义 <a id="网页报告释义"></a></h2>
 <div align="center">
-
-**🎯 核心内容**: HTML网页报告提供单细胞RNA测序分析结果的全面可视化展示和详细解读，包含关键性能指标评估和生物学解释
-
+<p><strong>🎯 核心内容</strong>: HTML网页报告提供单细胞RNA测序分析结果的全面可视化展示和详细解读，包含关键性能指标评估和生物学解释</p>
 </div>
-
-HTML网页报告是单细胞RNA测序分析的综合展示平台，整合了从数据质量控制到下游生物学分析的完整结果。该报告采用交互式可视化设计，帮助用户快速评估实验质量、理解分析结果并指导后续研究方向。
-
-> 💡 **使用建议**: 建议按照报告展示顺序依次查看各项指标。
-
-> ⚠️ **质量标准**: 各项指标均提供了推荐阈值和质量等级，请结合具体实验目标进行综合评估。
-
-### 📊 报告主要内容
-
-<img src="../images/html_scrna1.png" alt="scRNA网页报告" width="500">
-
-#### 🧬 细胞指标 (Cell Metrics) <a id="细胞指标"></a>
-
+<p>HTML网页报告是单细胞RNA测序分析的综合展示平台，整合了从数据质量控制到下游生物学分析的完整结果。该报告采用交互式可视化设计，帮助用户快速评估实验质量、理解分析结果并指导后续研究方向。</p>
+<blockquote>
+<p>💡 <strong>使用建议</strong>: 建议按照报告展示顺序依次查看各项指标。</p>
+</blockquote>
+<blockquote>
+<p>⚠️ <strong>质量标准</strong>: 各项指标均提供了推荐阈值和质量等级，请结合具体实验目标进行综合评估。</p>
+</blockquote>
+<h3 id="-报告主要内容">📊 报告主要内容</h3>
+<img src="file:////Users/lishuangshuang/Documents/scrna/DNBelab_C_Series_HT_scRNA-analysis-software/doc/images/html_scrna1.png" alt="scRNA网页报告" width="500">
+<h4 id="-细胞指标-cell-metrics-">🧬 细胞指标 (Cell Metrics) <a id="细胞指标"></a></h4>
 <div align="center">
-
-**🎯 核心功能**: 细胞识别、质量评估和基因表达统计，提供实验整体效果的关键指标
-
+<p><strong>🎯 核心功能</strong>: 细胞识别、质量评估和基因表达统计，提供实验整体效果的关键指标</p>
 </div>
-
-**📊 质量控制参考标准：**
-
-> **注意**: 以下标准仅供参考，实际质量评估应考虑组织类型、细胞状态和实验目标等多种因素。不同样本间存在显著差异，建议结合具体实验背景进行判断。
-
+<p><strong>📊 质量控制参考标准：</strong></p>
+<blockquote>
+<p><strong>注意</strong>: 以下标准仅供参考，实际质量评估应考虑组织类型、细胞状态和实验目标等多种因素。不同样本间存在显著差异，建议结合具体实验背景进行判断。</p>
+</blockquote>
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
@@ -692,9 +770,7 @@ HTML网页报告是单细胞RNA测序分析的综合展示平台，整合了从�
 </tr>
 </tbody>
 </table>
-
-**🔍 详细指标解释：**
-
+<p><strong>🔍 详细指标解释：</strong></p>
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
@@ -822,19 +898,14 @@ HTML网页报告是单细胞RNA测序分析的综合展示平台，整合了从�
 </tr>
 </tbody>
 </table>
-
-#### 🔬 测序指标 (Sequencing Metrics) <a id="测序指标"></a>
-
+<h4 id="-测序指标-sequencing-metrics-">🔬 测序指标 (Sequencing Metrics) <a id="测序指标"></a></h4>
 <div align="center">
-
-**🎯 核心功能**: 测序数据的基础质量评估，包括条形码识别率、UMI质量和测序准确性
-
+<p><strong>🎯 核心功能</strong>: 测序数据的基础质量评估，包括条形码识别率、UMI质量和测序准确性</p>
 </div>
-
-**📊 质量控制参考标准：**
-
-> **注意**: 以下标准仅供参考，实际质量评估应考虑组织类型、细胞状态和实验目标等多种因素。不同样本间存在显著差异，建议结合具体实验背景进行判断。
-
+<p><strong>📊 质量控制参考标准：</strong></p>
+<blockquote>
+<p><strong>注意</strong>: 以下标准仅供参考，实际质量评估应考虑组织类型、细胞状态和实验目标等多种因素。不同样本间存在显著差异，建议结合具体实验背景进行判断。</p>
+</blockquote>
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
@@ -865,9 +936,7 @@ HTML网页报告是单细胞RNA测序分析的综合展示平台，整合了从�
 </tr>
 </tbody>
 </table>
-
-**🔍 详细指标解释：**
-
+<p><strong>🔍 详细指标解释：</strong></p>
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
@@ -937,21 +1006,17 @@ HTML网页报告是单细胞RNA测序分析的综合展示平台，整合了从�
 </tr>
 </tbody>
 </table>
-
-> **注：** 以上所有比例指标的计算均以原始测序读段总数（`Number of reads`）作为分母，这确保了各项指标之间的可比性和一致性。
-
-#### 🗺️ 比对指标 (Mapping Metrics) <a id="比对指标"></a>
-
+<blockquote>
+<p><strong>注：</strong> 以上所有比例指标的计算均以原始测序读段总数（<code>Number of reads</code>）作为分母，这确保了各项指标之间的可比性和一致性。</p>
+</blockquote>
+<h4 id="️-比对指标-mapping-metrics-">🗺️ 比对指标 (Mapping Metrics) <a id="比对指标"></a></h4>
 <div align="center">
-
-**🎯 核心功能**: 评估reads与参考基因组的比对质量，包括比对率、特异性和基因组区域分布
-
+<p><strong>🎯 核心功能</strong>: 评估reads与参考基因组的比对质量，包括比对率、特异性和基因组区域分布</p>
 </div>
-
-**📊 质量控制参考标准：**
-
-> **注意**: 以下标准仅供参考，实际质量评估应考虑组织类型、细胞状态和实验目标等多种因素。不同样本间存在显著差异，建议结合具体实验背景进行判断。
-
+<p><strong>📊 质量控制参考标准：</strong></p>
+<blockquote>
+<p><strong>注意</strong>: 以下标准仅供参考，实际质量评估应考虑组织类型、细胞状态和实验目标等多种因素。不同样本间存在显著差异，建议结合具体实验背景进行判断。</p>
+</blockquote>
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
@@ -988,9 +1053,7 @@ HTML网页报告是单细胞RNA测序分析的综合展示平台，整合了从�
 </tr>
 </tbody>
 </table>
-
-**🔍 详细指标解释：**
-
+<p><strong>🔍 详细指标解释：</strong></p>
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
@@ -1105,36 +1168,26 @@ HTML网页报告是单细胞RNA测序分析的综合展示平台，整合了从�
 </tr>
 </tbody>
 </table>
-
-> **注：** 以上所有比例指标的计算均以原始测序读段总数（`Number of reads`）作为分母，这确保了各项指标之间的可比性和一致性。
-
----
-
-### 📈 交互式可视化图表解读 <a id="交互式可视化图表解读"></a>
-
+<blockquote>
+<p><strong>注：</strong> 以上所有比例指标的计算均以原始测序读段总数（<code>Number of reads</code>）作为分母，这确保了各项指标之间的可比性和一致性。</p>
+</blockquote>
+<hr>
+<h3 id="-交互式可视化图表解读-">📈 交互式可视化图表解读 <a id="交互式可视化图表解读"></a></h3>
 <div align="center">
-
-**🎯 核心功能**: 提供全面的数据可视化分析，从细胞质量控制到下游生物学分析的完整展示
-
+<p><strong>🎯 核心功能</strong>: 提供全面的数据可视化分析，从细胞质量控制到下游生物学分析的完整展示</p>
 </div>
-
-#### 📊 可视化图表组一：细胞质量控制分析 <a id="可视化图表组一"></a>
-
-**🔍 细胞鉴定曲线图 (Barcode Rank Plot)**
-
-**🎯 分析目的**: 可视化每个细胞的UMI数量分布，区分真实细胞与背景噪音。
-
-**📊 视觉编码**: 🔵 蓝线（有效细胞）| ⬜ 灰线（背景噪音）| 🔷 蓝色渐变区（混合区域）
-
-  <img src="../images/html_scrna3.jpg" alt="scRNA网页报告" width="300">
-
-**📏 图表轴系详解**:
-- **X轴**: Barcode Rank（细胞排序）- 按UMI总数降序排列（对数刻度）
-- **Y轴**: UMI Counts（UMI计数）- 每个细胞的总UMI数量（对数刻度）
-- **交互**: 悬停显示细胞排序位置、UMI数量和该区段真实细胞比例
-
-**🔍 质量评估指导**:
-
+<h4 id="-可视化图表组一细胞质量控制分析-">📊 可视化图表组一：细胞质量控制分析 <a id="可视化图表组一"></a></h4>
+<p><strong>🔍 细胞鉴定曲线图 (Barcode Rank Plot)</strong></p>
+<p><strong>🎯 分析目的</strong>: 可视化每个细胞的UMI数量分布，区分真实细胞与背景噪音。</p>
+<p><strong>📊 视觉编码</strong>: 🔵 蓝线（有效细胞）| ⬜ 灰线（背景噪音）| 🔷 蓝色渐变区（混合区域）</p>
+  <img src="file:////Users/lishuangshuang/Documents/scrna/DNBelab_C_Series_HT_scRNA-analysis-software/doc/images/html_scrna3.jpg" alt="scRNA网页报告" width="300">
+<p><strong>📏 图表轴系详解</strong>:</p>
+<ul>
+<li><strong>X轴</strong>: Barcode Rank（细胞排序）- 按UMI总数降序排列（对数刻度）</li>
+<li><strong>Y轴</strong>: UMI Counts（UMI计数）- 每个细胞的总UMI数量（对数刻度）</li>
+<li><strong>交互</strong>: 悬停显示细胞排序位置、UMI数量和该区段真实细胞比例</li>
+</ul>
+<p><strong>🔍 质量评估指导</strong>:</p>
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
@@ -1153,13 +1206,9 @@ HTML网页报告是单细胞RNA测序分析的综合展示平台，整合了从�
 </tr>
 </tbody>
 </table>
-
-**🧪 液滴磁珠分布图（真实细胞）**: 展示真实细胞液滴中细胞条形码数量分布，理论符合泊松分布。
-
-**质量控制**: 磁珠集中在1个时检查：oligo文库测序深度（>50M reads）、cDNA/oligo文库匹配性
-
-**📏 细胞数据分布图**: 展示细胞基因数、UMI数、线粒体基因比例分布
-
+<p><strong>🧪 液滴磁珠分布图（真实细胞）</strong>: 展示真实细胞液滴中细胞条形码数量分布，理论符合泊松分布。</p>
+<p><strong>质量控制</strong>: 磁珠集中在1个时检查：oligo文库测序深度（&gt;50M reads）、cDNA/oligo文库匹配性</p>
+<p><strong>📏 细胞数据分布图</strong>: 展示细胞基因数、UMI数、线粒体基因比例分布</p>
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
@@ -1186,29 +1235,18 @@ HTML网页报告是单细胞RNA测序分析的综合展示平台，整合了从�
 </tr>
 </tbody>
 </table>
-  
----
+<hr>
 </br>
 </br>
-
-<img src="../images/html_scrna2.png" alt="scRNA网页报告" width="500">
-  
-#### 📊 可视化图表组二：下游生物学分析 <a id="可视化图表组二"></a>
-
+<img src="file:////Users/lishuangshuang/Documents/scrna/DNBelab_C_Series_HT_scRNA-analysis-software/doc/images/html_scrna2.png" alt="scRNA网页报告" width="500">
+<h4 id="-可视化图表组二下游生物学分析-">📊 可视化图表组二：下游生物学分析 <a id="可视化图表组二"></a></h4>
 <div align="center">
-
-**🎯 核心功能**: 细胞聚类分析、差异基因识别、细胞类型注释和测序深度评估的综合展示
-
+<p><strong>🎯 核心功能</strong>: 细胞聚类分析、差异基因识别、细胞类型注释和测序深度评估的综合展示</p>
 </div>
-
-**🎨 细胞聚类分析图 (Cluster Analysis)**
-
+<p><strong>🎨 细胞聚类分析图 (Cluster Analysis)</strong></p>
 <div style="padding: 15px; border-left: 4px solid #007bff; margin: 15px 0;">
-
-**🎯 分析目的**: 通过无监督聚类和降维可视化识别细胞亚群，并评估细胞质量分布
-
+<p><strong>🎯 分析目的</strong>: 通过无监督聚类和降维可视化识别细胞亚群，并评估细胞质量分布</p>
 </div>
-
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
@@ -1227,19 +1265,12 @@ HTML网页报告是单细胞RNA测序分析的综合展示平台，整合了从�
 </tr>
 </tbody>
 </table>
-
-**🔬 标记基因分析 (Marker Genes)**
-
+<p><strong>🔬 标记基因分析 (Marker Genes)</strong></p>
 <div style="padding: 15px; border-left: 4px solid #28a745; margin: 15px 0;">
-
-**🎯 功能描述**: 展示每个细胞聚类的特征性差异表达基因，用于识别和注释不同的细胞类型
-
-**📊 统计方法**: 对每个基因在目标聚类与其他所有聚类之间进行差异表达检验
-
+<p><strong>🎯 功能描述</strong>: 展示每个细胞聚类的特征性差异表达基因，用于识别和注释不同的细胞类型</p>
+<p><strong>📊 统计方法</strong>: 对每个基因在目标聚类与其他所有聚类之间进行差异表达检验</p>
 </div>
-
-**🔢 关键指标解释**:
-
+<p><strong>🔢 关键指标解释</strong>:</p>
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
@@ -1266,17 +1297,11 @@ HTML网页报告是单细胞RNA测序分析的综合展示平台，整合了从�
 </tr>
 </tbody>
 </table>
-
-**🔧 交互功能**: **聚类筛选**（下拉菜单选择特定聚类）| **基因搜索**（搜索框快速定位基因表达）
-
-**🧬 细胞类型自动注释 (Cell Type Annotation)**
-
+<p><strong>🔧 交互功能</strong>: <strong>聚类筛选</strong>（下拉菜单选择特定聚类）| <strong>基因搜索</strong>（搜索框快速定位基因表达）</p>
+<p><strong>🧬 细胞类型自动注释 (Cell Type Annotation)</strong></p>
 <div style="padding: 15px; border-left: 4px solid #0ea5e9; margin: 15px 0;">
-
-**🎯 注释原理**: 基于参考数据库进行细胞类型的自动识别和分类
-
+<p><strong>🎯 注释原理</strong>: 基于参考数据库进行细胞类型的自动识别和分类</p>
 </div>
-
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
@@ -1299,15 +1324,10 @@ HTML网页报告是单细胞RNA测序分析的综合展示平台，整合了从�
 </tr>
 </tbody>
 </table>
-
-**📈 测序饱和度分析 (Sequencing Saturation Analysis)**
-
+<p><strong>📈 测序饱和度分析 (Sequencing Saturation Analysis)</strong></p>
 <div style="padding: 15px; border-left: 4px solid #6f42c1; margin: 15px 0;">
-
-**🎯 分析目的**: 评估测序深度充分性和成本效益，指导实验设计优化
-
+<p><strong>🎯 分析目的</strong>: 评估测序深度充分性和成本效益，指导实验设计优化</p>
 </div>
-
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
@@ -1326,25 +1346,14 @@ HTML网页报告是单细胞RNA测序分析的综合展示平台，整合了从�
 </tr>
 </tbody>
 </table>
-
-**💡 质量评估标准**:
-
+<p><strong>💡 质量评估标准</strong>:</p>
 <div style="padding: 15px; border-left: 4px solid #ffc107; margin: 15px 0;">
-
-**✅ 理想状态**: 饱和度40-85%，基因检测曲线趋于平滑，细胞聚类清晰分离
-
-**⚠️ 需要优化**: 饱和度过低(<20%)或过高(>85%)，基因检测数持续上升，聚类边界模糊
-
+<p><strong>✅ 理想状态</strong>: 饱和度40-85%，基因检测曲线趋于平滑，细胞聚类清晰分离</p>
+<p><strong>⚠️ 需要优化</strong>: 饱和度过低(&lt;20%)或过高(&gt;85%)，基因检测数持续上升，聚类边界模糊</p>
 </div>
-
-
-
----
-
-## 🎯 更多资源 <a id="更多资源"></a>
-
-### 📚 相关文档
-
+<hr>
+<h2 id="-更多资源-">🎯 更多资源 <a id="更多资源"></a></h2>
+<h3 id="-相关文档">📚 相关文档</h3>
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
@@ -1355,24 +1364,26 @@ HTML网页报告是单细胞RNA测序分析的综合展示平台，整合了从�
 <tbody>
 <tr>
 <td align="center"><strong>🚀 快速入门</strong></td>
-<td><a href="../quickstart.md">快速入门指南</a> - 第一次分析的完整教程</td>
+<td><a href="../quickstart.html">快速入门指南</a> - 第一次分析的完整教程</td>
 </tr>
 <tr>
 <td align="center"><strong>⚙️ 参数参考</strong></td>
-<td><a href="../parameter/parameter.md">参数参考手册</a> - 所有可配置参数的详细说明</td>
+<td><a href="../parameter/parameter.html">参数参考手册</a> - 所有可配置参数的详细说明</td>
 </tr>
 <tr>
 <td align="center"><strong>🔬 分析流程</strong></td>
-<td><a href="../pipeline.md">分析流程说明</a> - 整个分析流程的技术细节</td>
+<td><a href="../pipeline.html">分析流程说明</a> - 整个分析流程的技术细节</td>
 </tr>
 <tr>
 <td align="center"><strong>🔧 安装配置</strong></td>
-<td><a href="../installation.md">安装配置指南</a> - 系统要求、安装步骤和环境配置</td>
+<td><a href="../installation.html">安装配置指南</a> - 系统要求、安装步骤和环境配置</td>
 </tr>
 </tbody>
 </table>
+<hr>
+<p><em>更多详细信息请参考上方文档链接或联系技术支持团队。</em></p>
 
-
----
-
-*更多详细信息请参考上方文档链接或联系技术支持团队。*
+            
+            
+        </body>
+        </html>

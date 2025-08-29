@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>&#x1f9ec; DNBelab C Series HT scATAC Analysis Pipeline</title>
+            <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only],
+.vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+.vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+<link href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+<style>
+:root {
+  --color-note: #0969da;
+  --color-tip: #1a7f37;
+  --color-warning: #9a6700;
+  --color-severe: #bc4c00;
+  --color-caution: #d1242f;
+  --color-important: #8250df;
+}
+
+</style>
+<style>
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-note: #2f81f7;
+    --color-tip: #3fb950;
+    --color-warning: #d29922;
+    --color-severe: #db6d28;
+    --color-caution: #f85149;
+    --color-important: #a371f7;
+  }
+}
+
+</style>
+<style>
+.markdown-alert {
+  padding: 0.5rem 1rem;
+  margin-bottom: 16px;
+  color: inherit;
+  border-left: .25em solid #888;
+}
+
+.markdown-alert>:first-child {
+  margin-top: 0
+}
+
+.markdown-alert>:last-child {
+  margin-bottom: 0
+}
+
+.markdown-alert .markdown-alert-title {
+  display: flex;
+  font-weight: 500;
+  align-items: center;
+  line-height: 1
+}
+
+.markdown-alert .markdown-alert-title .octicon {
+  margin-right: 0.5rem;
+  display: inline-block;
+  overflow: visible !important;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
+
+.markdown-alert.markdown-alert-note {
+  border-left-color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-note .markdown-alert-title {
+  color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-important {
+  border-left-color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-important .markdown-alert-title {
+  color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-warning {
+  border-left-color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-warning .markdown-alert-title {
+  color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-tip {
+  border-left-color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-tip .markdown-alert-title {
+  color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-caution {
+  border-left-color: var(--color-caution);
+}
+
+.markdown-alert.markdown-alert-caution .markdown-alert-title {
+  color: var(--color-caution);
+}
+
+</style>
+        
+        </head>
+        <body class="vscode-body vscode-light">
+            <h1 id="-dnbelab-c-series-ht-scatac-analysis-pipeline">🧬 DNBelab C Series HT scATAC Analysis Pipeline</h1>
+<div align="center">
+<p><strong>Complete Guide for Single-Cell ATAC Sequencing Data Analysis</strong></p>
+<p><a href="#overview">📋 Overview</a> • <a href="#file-preparation">📁 File Preparation</a> • <a href="#reference-database">📊 Reference Database</a> • <a href="#main-analysis-pipeline">🚀 Main Analysis Pipeline</a> • <a href="#results-interpretation">📊 Results Interpretation</a></p>
+</div>
+<hr>
+<h2 id="-overview-">📋 Overview <a id="overview"></a></h2>
+<p>This document provides a detailed guide for analyzing single-cell ATAC sequencing data using dnbc4tools.</p>
+<p><strong>Workflow</strong>: Raw Data → Quality Control → Alignment → Bead Merging → Peak Calling → Cell Identification → Dimensionality Reduction and Clustering → Analysis Report</p>
+<div align="center">
+  <img src="https://s2.loli.net/2024/09/27/exd1OyX3n4K8LGq.png" alt="Workflow Diagram" width="800">
+</div>
+<blockquote>
+<p><strong>Usage Note</strong>: <code>$dnbc4tools</code> represents the executable program path, which needs to be replaced with the actual installation path when used. The backslash <code>\</code> is used to split commands across multiple lines in the command line for better readability.</p>
+</blockquote>
+<hr>
+<h2 id="-file-preparation-">📁 File Preparation <a id="file-preparation"></a></h2>
+<p>The analysis requires FASTQ files:</p>
+<table>
+<thead>
+<tr>
+<th>File Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>ATAC Library</strong></td>
+<td>Sequencing data containing cell barcode and chromatin accessibility information</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Note</strong>: Ensure FASTQ files are of good quality and record their file paths for subsequent analysis.</p>
+</blockquote>
+<h2 id="-reference-database-">📊 Reference Database <a id="reference-database"></a></h2>
+<h3 id="file-requirements">File Requirements</h3>
+<table>
+<thead>
+<tr>
+<th>File Type</th>
+<th>Format</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Genome File</strong></td>
+<td>FASTA</td>
+<td>Contains the complete genome sequence of the species of interest, including chromosomes, mitochondria, and other genetic information, typically the primary assembly. These files provide the foundation for genome analysis and alignment.</td>
+</tr>
+<tr>
+<td><strong>Annotation File</strong></td>
+<td>GTF</td>
+<td>Contains detailed information about genes, transcripts, exons, and other functional regions in the genome. This file identifies the location, type, and related attributes of genes.</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Recommended Data Source</strong>: Preferably use files provided by the <a href="https://www.ensembl.org/index.html">Ensembl database</a>. Ensembl's GTF files include optional tags that facilitate filtering (through <code>dnbc4tools tools mkgtf</code>).</p>
+</blockquote>
+<p><strong>GTF File Requirements</strong>:</p>
+<ul>
+<li>Must include annotations of type &quot;gene&quot; or &quot;transcript&quot;</li>
+<li>GFF file format is not supported</li>
+<li>Genome file and annotation file must correspond to each other</li>
+</ul>
+<h3 id="gtf-file-processing-optional">GTF File Processing (Optional)</h3>
+<p>For detailed information on GTF file filtering, please <a href="./scRNA.html#22-using-dnbc4tools-tools-mkgtf-to-filter-gtf-files-optional">refer to the scRNA analysis pipeline</a>.</p>
+<h3 id="building-reference-database">Building Reference Database</h3>
+<p>Before running the dnbc4tools atac run analysis, we need to first build a reference database. This step requires annotation files (GTF) and reference genome (FASTA) to build index files for mapping and statistical analysis of sequencing reads.</p>
+<pre><code class="language-shell"><span class="hljs-meta prompt_">$</span><span class="language-bash">dnbc4tools atac mkref \
+  --fasta genome.fa \
+  --ingtf genes.gtf \
+  --species Mus_musculus</span>
+</code></pre>
+<p><strong>Output Results</strong>:</p>
+<p>After successful execution, a reference database directory will be created at the specified location, containing the following file structure:</p>
+<pre><code>/opt/database/Mus_musculus
+├── fasta
+│   ├── genome.fa                                 # Reference genome file
+│   ├── genome.fa.fai                             # Genome index file
+│   ├── genome.index                              # Chromap index file
+│   └── genome.index.log                          # Chromap index build log
+├── genes
+│   └── genes.gtf                                 # Gene annotation file
+├── ref.json                                      # Reference database configuration file
+└── regions
+    ├── chrom.sizes                               # Chromosome size information file
+    ├── promoter.bed                              # Promoter region annotation file
+    └── tss.bed                                   # Transcription start site annotation file
+</code></pre>
+<p>The ref.json file records the main information of the database:</p>
+<pre><code class="language-json"><span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;species&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Mus_musculus&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;input_fasta_files&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+        <span class="hljs-string">&quot;genome.fa&quot;</span>
+    <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;input_gtf_files&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+        <span class="hljs-string">&quot;genes.gtf&quot;</span>
+    <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;genome&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;/opt/database/Mus_musculus/fasta/genome.fa&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;index&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;/opt/database/Mus_musculus/fasta/genome.index&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;gtf&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;/opt/database/Mus_musculus/genes/genes.gtf&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;chrmt&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;chrM&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;chloroplast&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;None&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;chromeSize&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;/opt/database/Mus_musculus/regions/chrom.sizes&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;tss&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;/opt/database/Mus_musculus/regions/tss.bed&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;promoter&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;/opt/database/Mus_musculus/regions/promoter.bed&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;version&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;dnbc4tools 3.0beta&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;blacklist&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;None&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;genomesize&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;mm&quot;</span>
+<span class="hljs-punctuation">}</span>
+</code></pre>
+<blockquote>
+<p><strong>Note</strong>: Building a reference database may take a long time, depending on the genome size and computer performance. The software run analysis pipeline is compatible with legacy database versions.</p>
+</blockquote>
+<p>Printed information during execution, here is an example:</p>
+<pre><code class="language-shell">Creating new reference folder at /opt/database/Mus_musculus
+...done
+
+Writing genome FASTA file into reference folder...
+...done
+
+Indexing genome FASTA file...
+...done
+
+Writing genes GTF file into reference folder...
+...done
+
+Extracting TSS and promoter regions from GTF file...
+...done
+
+Generating Chromap genome index...
+...done
+
+Writing reference JSON file...
+...done
+
+Analysis Complete
+</code></pre>
+<h2 id="-main-analysis-pipeline-">🚀 Main Analysis Pipeline <a id="main-analysis-pipeline"></a></h2>
+<h3 id="multi-sample-batch-processing-optional">Multi-sample Batch Processing (Optional)</h3>
+<p>To simplify generating the main analysis pipeline for each sample individually, a configuration file can be used to generate a main pipeline shell script containing multiple samples. Here is an example step or script template:</p>
+<pre><code class="language-shell"><span class="hljs-meta prompt_">$</span><span class="language-bash">dnbc4tools atac multi \
+  --list sample.tsv \
+  --genomeDir /opt/database/Mus_musculus \
+  --threads 10</span>
+</code></pre>
+<p>The <code>sample.tsv</code> file is tab-separated (<code>\t</code>) and contains two columns:</p>
+<table>
+<thead>
+<tr>
+<th>Column</th>
+<th>Content</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Sample Name</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Library Sequencing Data</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Note</strong>:</p>
+<ul>
+<li>Multiple fastq files should be separated by commas (<code>,</code>).</li>
+<li>R1 and R2 files should be separated by semicolons (<code>;</code>).</li>
+</ul>
+</blockquote>
+<pre><code class="language-tsv">sample1	/data/sample1_R1.fq.gz;/data/sample1_R2.fq.gz
+sample2	/data/sample2_R1.fq.gz;/data/sample2_R2.fq.gz
+sample3	/data/sample3_1_R1.fq.gz,/data/sample3_2_R1.fq.gz;/data/sample3_1_R2.fq.gz,/data/sample3_2_R2.fq.gz
+</code></pre>
+<p>After running, the output will be:</p>
+<pre><code class="language-shell">sample1.sh
+sample2.sh
+sample3.sh
+</code></pre>
+<p>The content of <a href="http://sample1.sh">sample1.sh</a> is as follows:</p>
+<pre><code class="language-shell"><span class="hljs-meta prompt_">$</span><span class="language-bash"><span class="hljs-built_in">cat</span> sample1.sh</span>
+/opt/software/dnbc4tools3.0Beta/dnbc4tools atac run --name sample1 --fastq1 /data/sample1_R1.fq.gz --fastq2 /data/sample1_R2.fq.gz --genomeDir /opt/database/Mus_musculus --threads 10 
+</code></pre>
+<p>Execute step 4 for the main pipeline analysis.</p>
+</br>
+<h3 id="single-sample-analysis">Single Sample Analysis</h3>
+<p>The ATAC main analysis pipeline uses single-cell ATAC library sequencing data from a single sample. It generates fragments files for all beads after filtering and alignment. Beads are merged, and peak calling analysis is performed, utilizing fragment information in peak regions for cell identification. Subsequently, cell filtering, dimensionality reduction, and clustering are conducted. Finally, the results of each step are integrated to generate an HTML report and output the analysis results.</p>
+<p>To generate an expression matrix for a single sample, here is an example step or script template:</p>
+<pre><code class="language-shell"><span class="hljs-meta prompt_">$</span><span class="language-bash">dnbc4tools atac run \
+  --name sample \
+  --fastq1 /sample/data/test1_R1.fastq.gz,/sample/data/test2_R1.fastq.gz \
+  --fastq2 /sample/data/test1_R2.fastq.gz,/sample/data/test2_R2.fastq.gz \
+  --genomeDir /opt/database/Mus_musculus \
+  --threads 10</span>
+</code></pre>
+<p>After automatic detection of reagent version and dark reaction, the software begins the analysis. Here is an example log:</p>
+<pre><code class="language-shell">2025-06-03 16:24:27 Performing ATAC data processing
+Chemistry(darkreaction) determined in fastqR1: darkreaction
+Chemistry(darkreaction) determined in fastqR2: darkreaction
+
+2025-06-03 16:24:30 Performing quality control and alignment on raw data...
+...done
+
+2025-06-03 16:36:25 Computing bead similarity and merging beads within droplets...
+...done
+
+2025-06-03 16:38:21 Processing fragments for peak calling...
+...done
+
+2025-06-03 16:40:06 Generating raw peaks matrix...
+...done
+
+2025-06-03 16:47:30 Generating filtered peaks matrix...
+...done
+
+2025-06-03 16:50:52 Conducting dimensionality reduction and clustering...
+...done
+
+2025-06-03 16:54:44 Statistical analysis and report generation for results...
+...done
+
+Analysis Finished
+Elapsed Time: 0:30:43
+</code></pre>
+<p>A successful run ends with <code>Analysis Finished</code>.</p>
+<h2 id="-results-interpretation-">📊 Results Interpretation <a id="results-interpretation"></a></h2>
+<p>After the analysis is complete, the output directory <code>outs</code> and logs directory will be generated.</p>
+<pre><code>├── *_scATAC_report.html                     # Analysis results HTML report, including QC metrics, clustering results
+├── filter_peak_matrix                       # Filtered peak matrix in MEX format directory
+│   ├── barcodes.tsv.gz                      # Filtered cell barcode information
+│   ├── matrix.mtx.gz                        # Filtered peak signal data in sparse matrix format
+│   └── peaks.bed.gz                         # Filtered peak position information
+├── fragments.tsv.gz                         # Contains all fragments aligned to the genome
+├── fragments.tsv.gz.tbi                     # Index file for fragments, used for fast random access
+├── metrics_summary.xls                      # Analysis quality metrics summary table, including sequencing QC, alignment rate
+├── raw_peak_matrix                          # Raw peak matrix in MEX format directory
+│   ├── barcodes.tsv.gz                      # Raw cell barcode information
+│   ├── matrix.mtx.gz                        # Raw peak signal data in sparse matrix format
+│   └── peaks.bed.gz                         # Raw peak position information
+└── singlecell.csv                           # Cell information summary table, including fragment count, peak count, and cell identification for each cell ID
+</code></pre>
+<p><strong>Related Documentation</strong>:</p>
+<ul>
+<li><a href="../io.html">📊 Output File Usage</a></li>
+<li><a href="../parameter/scATAC_en.html">📋 Analysis Parameter Settings</a></li>
+<li><a href="../outs/scATAC_en.html">📝 Output File Descriptions</a></li>
+</ul>
+<hr>
+<h2 id="-frequently-asked-questions">❓ Frequently Asked Questions</h2>
+<blockquote>
+<p><code>Content to be added</code></p>
+</blockquote>
+
+            <script async src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
+            
+        </body>
+        </html>
