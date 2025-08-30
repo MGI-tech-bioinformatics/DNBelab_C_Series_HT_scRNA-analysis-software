@@ -11,6 +11,8 @@
 
 🧬 **scRNA-seq** | 🧪 **scATAC-seq** | 🦠 **scVDJ-seq**
 
+📚 **Documentation**: [User Guide](https://lishuangshuang0616.github.io/DNBelab_C_Series_HT_scRNA-analysis-software/Document/README.html)
+
 </div>
 
 ---
@@ -96,7 +98,6 @@
 ### 📞 Contact Information
 
 - 🌐 **Website**: [www.mgitech.cn](https://www.mgitech.cn)
-- 📚 **Documentation**: [User Guide](https://lishuangshuang0616.github.io/DNBelab_C_Series_HT_scRNA-analysis-software/Document/README.html)
 ---
 
 ## 📝 What's New
