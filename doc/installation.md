@@ -23,10 +23,17 @@ To run the *dnbc4tools* package on a Linux-based system, the following minimum r
 |------|----------|
 | **File Name** | dnbc4tools2.1.3.tar.gz |
 | **File Size** | 495M |
-| **MD5 Checksum** | dfda9a3f308aaa3fdaa6c2a971bb2821 |
+| **MD5 Checksum** | f17bb2cbd71726cbb296a1eb6ade697d |
 
 **Download Options:**
-- **BGI CloudDrive**: [dnbc4tools2.1.3.tar.gz](https://bgipan.genomics.cn/#/link/OnWQPBNDMG6aXkApEraT) (Access Code: Y8cv)
+- **CNGB link**: [dnbc4tools2.1.3.tar.gz](https://ftp2.cngb.org/pub/CNSA/data7/CNP0006367/Single_Cell/CSE0000448/dnbc4tools2.1.3.tar.gz)
+
+```shell
+#### Download using `wget`
+wget -O dnbc4tools2.1.3.tar.gz "ftp://ftp2.cngb.org/pub/CNSA/data7/CNP0006367/Single_Cell/CSE0000448/dnbc4tools2.1.3.tar.gz"
+#### Download using `curl`
+curl -o dnbc4tools2.1.3.tar.gz "ftp://ftp2.cngb.org/pub/CNSA/data7/CNP0006367/Single_Cell/CSE0000448/dnbc4tools2.1.3.tar.gz"
+```
 
 **New Features in dnbc4tools 2.1.3**
 
