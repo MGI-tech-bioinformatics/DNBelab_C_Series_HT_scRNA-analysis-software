@@ -282,11 +282,11 @@ Index file corresponding to the BAM file, used to achieve fast random access to 
 <ul>
 <li>✅ <strong>Valid barcode proportion</strong>: >70%</li>
 <li>✅ <strong>Q30 base quality</strong>: >75%</li>
-<li>✅ <strong>Genome alignment rate</strong>: >60%</li>
+<li>✅ <strong>Genome alignment rate</strong>: >50%</li>
 <li>✅ <strong>TSS enrichment score</strong>: >4</li>
 <li>✅ <strong>Peak region fragment proportion</strong>: >15%</li>
 <li>✅ <strong>TSS region fragment proportion</strong>: >10%</li>
-<li>✅ <strong>Duplicate sequence percentage</strong>: >15%</li>
+<li>✅ <strong>Duplicate sequence percentage</strong>: >10%</li>
 </ul>
 </details>
 
@@ -396,7 +396,7 @@ HTML web report is a comprehensive display platform for single-cell ATAC sequenc
 ### 📊 Main Report Content and Structure
 
 <div align="center">
-  <img src="../images/html_scatac1.png" alt="scATAC Web Report" width="500">
+<img src="../images/html_scatac1.png" alt="scATAC Web Report" width="500">
 </div>
 
 <br>
@@ -606,8 +606,8 @@ Total number of open chromatin regions (peaks) identified through aggregate anal
 <tr>
 <td align="center"><strong>Reads mapped to genome</strong></td>
 <td align="center">> 80%</td>
-<td align="center">60–80%</td>
-<td align="center">< 60%</td>
+<td align="center">50–80%</td>
+<td align="center">< 50%</td>
 </tr>
 </tbody>
 </table>
@@ -724,7 +724,7 @@ The proportion of all bases in sequencing reads with quality values ≥30, refle
 **Chart Function:** Visualizes the fragment count distribution in peak regions for each cell, intuitively displaying cell quality control results and background noise levels. This chart is used to distinguish the distribution differences between identified valid cells and background cells.
 
 <div align="center">
-  <img src="../images/html_scatac3.jpg" alt="scATAC Web Report" width="300">
+<img src="../images/html_scatac3.jpg" alt="scATAC Web Report" width="300">
 </div>
 
 **Technical Specifications and Coordinate System:**
@@ -925,7 +925,7 @@ Reflects higher-order organization of chromatin. Peak appearance suggests high-q
 ---
 
 <div align="center">
-  <img src="../images/html_scatac2.png" alt="scATAC Web Report" width="500">
+<img src="../images/html_scatac2.png" alt="scATAC Web Report" width="500">
 </div>
 
 #### 📊 Other Key Metrics
@@ -1156,7 +1156,7 @@ Cell Fragment Count<br>
 </table>
 
 **Cost-Benefit Optimization Recommendations:**
-- **Low Saturation (<15%)**: Recommend increasing sequencing depth to improve data quality
+- **Low Saturation (<10%)**: Recommend increasing sequencing depth to improve data quality
 - **High Saturation (>50%)**: Consider reducing sequencing depth to save costs
 - **Optimal Range (20–40%)**: Best cost-effectiveness sequencing depth range
 

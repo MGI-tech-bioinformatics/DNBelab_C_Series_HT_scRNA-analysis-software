@@ -282,11 +282,11 @@ BAM文件对应的索引文件，用于实现对BAM文件中任意基因组区�
 <ul>
 <li>✅ <strong>有效条形码比例</strong>: >70%</li>
 <li>✅ <strong>Q30碱基质量</strong>: >75%</li>
-<li>✅ <strong>基因组比对率</strong>: >60%</li>
+<li>✅ <strong>基因组比对率</strong>: >50%</li>
 <li>✅ <strong>TSS富集分数</strong>: >4</li>
 <li>✅ <strong>峰区域片段比例</strong>: >15%</li>
 <li>✅ <strong>TSS区域片段比例</strong>: >10%</li>
-<li>✅ <strong>重复序列百分比</strong>: >15%</li>
+<li>✅ <strong>重复序列百分比</strong>: >10%</li>
 </ul>
 </details>
 
@@ -396,7 +396,7 @@ HTML网页报告是单细胞ATAC测序分析的综合展示平台，整合了从
 ### 📊 报告主要内容与结构
 
 <div align="center">
-  <img src="../images/html_scatac1.png" alt="scATAC网页报告" width="500">
+<img src="../images/html_scatac1.png" alt="scATAC网页报告" width="500">
 </div>
 
 <br>
@@ -456,6 +456,7 @@ HTML网页报告是单细胞ATAC测序分析的综合展示平台，整合了从
 
 </tbody>
 </table>
+
 **🔍 详细指标解释：**
 
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
@@ -606,8 +607,8 @@ HTML网页报告是单细胞ATAC测序分析的综合展示平台，整合了从
 <tr>
 <td align="center"><strong>Reads mapped to genome</strong></td>
 <td align="center">> 80%</td>
-<td align="center">60–80%</td>
-<td align="center">< 60%</td>
+<td align="center">50–80%</td>
+<td align="center">< 50%</td>
 </tr>
 </tbody>
 </table>
@@ -723,7 +724,7 @@ cell barcode区域中碱基的质量值≥30的比例，Q30代表测序错误率
 **图表功能:** 可视化每个细胞在峰区域的片段数量分布，直观展示细胞质量控制结果和背景噪音水平。该图表用于区分已识别的有效细胞与背景细胞的分布差异。
 
 <div align="center">
-  <img src="../images/html_scatac3.jpg" alt="scATAC网页报告" width="300">
+<img src="../images/html_scatac3.jpg" alt="scATAC网页报告" width="300">
 </div>
 
 **技术规范与坐标系统:**
@@ -924,7 +925,7 @@ cell barcode区域中碱基的质量值≥30的比例，Q30代表测序错误率
 ---
 
 <div align="center">
-  <img src="../images/html_scatac2.png" alt="scATAC网页报告" width="500">
+<img src="../images/html_scatac2.png" alt="scATAC网页报告" width="500">
 </div>
 
 #### 📊 其他核心指标 (Additional Key Metrics) <a id="其他核心指标"></a>
@@ -1155,7 +1156,7 @@ cell barcode区域中碱基的质量值≥30的比例，Q30代表测序错误率
 </table>
 
 **成本效益优化建议:**
-- **低饱和度 (<15%)**: 建议增加测序深度以提高数据质量
+- **低饱和度 (<10%)**: 建议增加测序深度以提高数据质量
 - **高饱和度 (>50%)**: 可考虑降低测序深度以节约成本
 - **最优区间 (20–40%)**: 成本效益最佳的测序深度区间
 

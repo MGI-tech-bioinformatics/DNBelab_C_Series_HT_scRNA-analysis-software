@@ -57,8 +57,8 @@
 
 **典型 V(D)J 转录本结构示意：**
 
-<div align="left">
-  <img src="../images/vdj_transcript.png" alt="V(D)J 转录本结构示意图" width="650">
+<div align="center">
+<img src="../images/vdj_transcript.png" alt="V(D)J 转录本结构示意图" width="650">
 </div>
 
 <br>
@@ -687,10 +687,10 @@
 <details open>
 <summary><strong>推荐质量阈值：</strong></summary>
 <ul>
-<li>✅ <strong>有效条形码比例</strong>: >75%</li>
-<li>✅ <strong>Q30碱基质量</strong>: >80%（条形码和UMI区域）</li>
-<li>✅ <strong>V(D)J基因映射率</strong>: >40%</li>
-<li>✅ <strong>细胞内读数比例</strong>: >40%</li>
+<li>✅ <strong>有效条形码比例</strong>: >70%</li>
+<li>✅ <strong>Q30碱基质量</strong>: >75%（条形码和UMI区域）</li>
+<li>✅ <strong>V(D)J基因映射率</strong>: >30%</li>
+<li>✅ <strong>细胞内读数比例</strong>: >30%</li>
 <li>✅ <strong>配对生产性序列比例</strong>: >20%</li>
 <li>✅ <strong>每细胞平均读数</strong>: >5,000</li>
 </ul>
@@ -753,7 +753,7 @@ HTML网页报告是单细胞VDJ测序分析的综合展示平台，整合了从�
 ### 📊 报告主要内容与结构
 
 <div align="center">
-  <img src="../images/html_scvdj1.png" alt="scVDJ网页报告" width="500">
+<img src="../images/html_scvdj1.png" alt="scVDJ网页报告" width="500">
 </div>
 
 <br>
@@ -794,9 +794,9 @@ HTML网页报告是单细胞VDJ测序分析的综合展示平台，整合了从�
 </tr>
 <tr>
 <td align="center"><strong>Cells with productive V-J spanning pair</strong></td>
-<td align="center">≥ 20%</td>
-<td align="center">10–20%</td>
-<td align="center">< 10%</td>
+<td align="center">≥ 30%</td>
+<td align="center">20–30%</td>
+<td align="center">< 20%</td>
 </tr>
 </tbody>
 </table>
@@ -1027,9 +1027,9 @@ HTML网页报告是单细胞VDJ测序分析的综合展示平台，整合了从�
 <tbody>
 <tr>
 <td align="center"><strong>Reads mapped to any V(D)J gene</strong></td>
-<td align="center">≥ 40%</td>
-<td align="center">20–40%</td>
-<td align="center">< 20%</td>
+<td align="center">≥ 50%</td>
+<td align="center">30–50%</td>
+<td align="center">< 30%</td>
 </tr>
 </tbody>
 </table>
@@ -1052,7 +1052,7 @@ HTML网页报告是单细胞VDJ测序分析的综合展示平台，整合了从�
 <td>
 具有有效条形码且部分或完全映射到任意胚系 V(D)J 基因片段的读数占比。
 <div style="padding: 15px; border-left: 4px solid #f59e0b; margin: 15px 0;">
-> ⚠️ <strong>质量警告阈值</strong>：<40% 可能由以下原因导致：<br>
+> ⚠️ <strong>质量警告阈值</strong>：<30% 可能由以下原因导致：<br>
 > • 样本中 B 或 T 细胞比例偏低或富集不充分<br>
 > • 生物样本质量下降影响免疫细胞活力<br>
 > • 文库构建过程中靶向富集效率不佳<br>
@@ -1062,8 +1062,8 @@ HTML网页报告是单细胞VDJ测序分析的综合展示平台，整合了从�
 </tr>
 <tr>
 <td align="center">
-<strong>TRA vs TRB mapping ratio</strong><br>
-<em>TRA/TRB 特异性免疫受体链映射比例</em>
+<strong>Reads mapped to TRA/TRB/IGH/IGK/IGL</strong><br>
+<em>TRA/TRB/IGH/IGK/IGL 特异性免疫受体链映射比例</em>
 </td>
 <td>
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
@@ -1212,7 +1212,7 @@ HTML网页报告是单细胞VDJ测序分析的综合展示平台，整合了从�
 **图表功能：** 可视化展示每个细胞的 UMI 数量分布（仅统计 productive contig 的 UMI），直观展示细胞质量控制结果和背景噪音水平。
 
 <div align="center">
-  <img src="../images/html_scvdj3.jpg" alt="V(D)J 细胞排序分析图" width="400">
+<img src="../images/html_scvdj3.jpg" alt="V(D)J 细胞排序分析图" width="400">
 </div>
 
 **技术规范与坐标系统：**
@@ -1277,7 +1277,7 @@ HTML网页报告是单细胞VDJ测序分析的综合展示平台，整合了从�
 **图表功能：** 展示样本中克隆型的相对丰度分布和免疫应答的集中程度。
 
 <div align="center">
-  <img src="../images/html_scvdj2.png" alt="scVDJ 克隆型分析图表" width="500">
+<img src="../images/html_scvdj2.png" alt="scVDJ 克隆型分析图表" width="500">
 </div>
 
 **图表技术规范：**

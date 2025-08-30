@@ -447,7 +447,7 @@ head(seurat_obj@meta.data)
 
 #### 🏗️ 数据结构
 
-<div align="left">
+<div align="center">
 <img src="../images/anndata.jpg" alt="AnnData格式结构图" width="400">
 </div>
 
@@ -642,7 +642,9 @@ HTML网页报告是单细胞RNA测序分析的综合展示平台，整合了从�
 
 ### 📊 报告主要内容
 
+<div align="center">
 <img src="../images/html_scrna1.png" alt="scRNA网页报告" width="500">
+</div>
 
 #### 🧬 细胞指标 (Cell Metrics) <a id="细胞指标"></a>
 
@@ -668,9 +670,9 @@ HTML网页报告是单细胞RNA测序分析的综合展示平台，整合了从�
 <tbody>
 <tr>
 <td align="center"><strong>Mean reads per cell</strong></td>
-<td align="center">≥ 15,000</td>
-<td align="center">8,000–15,000</td>
-<td align="center">< 8,000</td>
+<td align="center">≥ 30,000</td>
+<td align="center">15,000–30,000</td>
+<td align="center">< 15,000</td>
 </tr>
 <tr>
 <td align="center"><strong>Median genes per cell</strong></td>
@@ -737,7 +739,7 @@ HTML网页报告是单细胞RNA测序分析的综合展示平台，整合了从�
 <ul>
 <li>计算方法为测序reads总数除以检测到的细胞数量</li>
 <li>该指标不依赖于reads的比对结果</li>
-<li>推荐值≥15,000 reads/细胞，但实际需求因细胞类型和研究目标而异</li>
+<li>推荐值≥30,000 reads/细胞，但实际需求因细胞类型和研究目标而异</li>
 </ul>
 </div>
 </td>
@@ -1126,7 +1128,9 @@ HTML网页报告是单细胞RNA测序分析的综合展示平台，整合了从�
 
 **📊 视觉编码**: 🔵 蓝线（有效细胞）| ⬜ 灰线（背景噪音）| 🔷 蓝色渐变区（混合区域）
 
-  <img src="../images/html_scrna3.jpg" alt="scRNA网页报告" width="300">
+  <div align="center">
+<img src="../images/html_scrna3.jpg" alt="scRNA网页报告" width="300">
+</div>
 
 **📏 图表轴系详解**:
 - **X轴**: Barcode Rank（细胞排序）- 按UMI总数降序排列（对数刻度）
@@ -1191,7 +1195,9 @@ HTML网页报告是单细胞RNA测序分析的综合展示平台，整合了从�
 </br>
 </br>
 
+<div align="center">
 <img src="../images/html_scrna2.png" alt="scRNA网页报告" width="500">
+</div>
   
 #### 📊 可视化图表组二：下游生物学分析 <a id="可视化图表组二"></a>
 

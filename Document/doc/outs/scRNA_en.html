@@ -375,7 +375,7 @@
 <li>✅ <strong>Valid Barcode Proportion</strong>: >70%</li>
 <li>✅ <strong>Q30 Base Quality</strong>: >75% (barcode and UMI regions)</li>
 <li>✅ <strong>Transcriptome Alignment Rate</strong>: >30%</li>
-<li>✅ <strong>Reads in Cells Proportion</strong>: >50% (nucleus samples >30%)</li>
+<li>✅ <strong>Reads in Cells Proportion</strong>: >50% (nuclear samples >30%)</li>
 <li>✅ <strong>Average Reads per Cell</strong>: >15,000</li>
 </ul>
 </details>
@@ -515,7 +515,7 @@ head<span class="hljs-punctuation">(</span>seurat_obj<span class="hljs-operator"
 <h3 id="️-anndata-format-h5ad-">🗃️ AnnData Format (<code>.h5ad</code>) <a id="anndata-format-h5ad"></a></h3>
 <p><strong>Format Overview:</strong> AnnData (&quot;Annotated Data&quot;) is a data structure designed for matrix-type data, particularly suitable for single-cell RNA sequencing data analysis. Based on HDF5 format, it provides efficient data storage and access capabilities.</p>
 <h4 id="️-data-structure">🏗️ Data Structure</h4>
-<div align="left">
+<div align="center">
 <img src="../images/anndata.jpg" alt="AnnData Format Structure Diagram" width="400">
 </div>
 <table>
@@ -722,7 +722,9 @@ adata = sc.read_h5ad(<span class="hljs-string">&#x27;filter_feature.h5ad&#x27;</
 <p>⚠️ <strong>Quality Standards</strong>: Recommended thresholds and quality levels are provided for each metric. Please conduct comprehensive evaluation in combination with specific experimental objectives.</p>
 </blockquote>
 <h3 id="-main-report-content">📊 Main Report Content</h3>
+<div align="center">
 <img src="../images/html_scrna1.png" alt="scRNA Web Report" width="500">
+</div>
 <h4 id="-cell-metrics-">🧬 Cell Metrics <a id="cell-metrics"></a></h4>
 <div align="center">
 <p><strong>🎯 Core Function</strong>: Cell identification, quality assessment and gene expression statistics, providing key indicators for overall experimental effectiveness</p>
@@ -740,9 +742,9 @@ adata = sc.read_h5ad(<span class="hljs-string">&#x27;filter_feature.h5ad&#x27;</
 <tbody>
 <tr>
 <td align="center"><strong>Mean reads per cell</strong></td>
-<td align="center">≥ 15,000</td>
-<td align="center">8,000–15,000</td>
-<td align="center">< 8,000</td>
+<td align="center">≥ 30,000</td>
+<td align="center">15,000–30,000</td>
+<td align="center">< 15,000</td>
 </tr>
 <tr>
 <td align="center"><strong>Median genes per cell</strong></td>
@@ -807,7 +809,7 @@ The average number of sequencing reads per cell, reflecting single-cell sequenci
 <ul>
 <li>Calculated as total sequencing reads divided by the number of detected cells</li>
 <li>This metric does not depend on read alignment results</li>
-<li>Recommended value ≥15,000 reads/cell, but actual requirements vary by cell type and research objectives</li>
+<li>Recommended value ≥30,000 reads/cell, but actual requirements vary by cell type and research objectives</li>
 </ul>
 </div>
 </td>
@@ -1168,7 +1170,9 @@ Controls whether reads aligned to intronic regions are included in gene expressi
 <p><strong>🔍 Cell Identification Curve Plot (Barcode Rank Plot)</strong></p>
 <p><strong>🎯 Analysis Purpose</strong>: Visualizes the UMI count distribution for each cell, distinguishing real cells from background noise.</p>
 <p><strong>📊 Visual Encoding</strong>: 🔵 Blue line (valid cells) | ⬜ Gray line (background noise) | 🔷 Blue gradient area (mixed region)</p>
-  <img src="../images/html_scrna3.jpg" alt="scRNA Web Report" width="300">
+  <div align="center">
+<img src="../images/html_scrna3.jpg" alt="scRNA Web Report" width="300">
+</div>
 <p><strong>📏 Chart Axis Details</strong>:</p>
 <ul>
 <li><strong>X-axis</strong>: Barcode Rank (cell ranking) - Ranked in descending order by total UMI count (logarithmic scale)</li>
@@ -1226,7 +1230,9 @@ Controls whether reads aligned to intronic regions are included in gene expressi
 <hr>
 </br>
 </br>
+<div align="center">
 <img src="../images/html_scrna2.png" alt="scRNA Web Report" width="500">
+</div>
 <h4 id="-visualization-chart-group-2-downstream-biological-analysis-">📊 Visualization Chart Group 2: Downstream Biological Analysis <a id="visualization-chart-group-2"></a></h4>
 <div align="center">
 <p><strong>🎯 Core Function</strong>: Comprehensive display of cell clustering analysis, differential gene identification, cell type annotation and sequencing depth evaluation</p>

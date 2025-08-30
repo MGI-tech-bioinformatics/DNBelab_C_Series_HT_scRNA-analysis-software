@@ -57,8 +57,8 @@ After single-cell VDJ analysis is completed, standardized files and subdirectory
 
 **Typical V(D)J Transcript Structure Diagram:**
 
-<div align="left">
-  <img src="../images/vdj_transcript.png" alt="V(D)J Transcript Structure Diagram" width="650">
+<div align="center">
+<img src="../images/vdj_transcript.png" alt="V(D)J Transcript Structure Diagram" width="650">
 </div>
 
 <br>
@@ -687,12 +687,12 @@ Contains annotated sequences and consensus sequences of V(D)J rearrangements in 
 <details open>
 <summary><strong>Recommended Quality Thresholds:</strong></summary>
 <ul>
-<li>✅ <strong>Valid Barcode Proportion</strong>: >75%</li>
-<li>✅ <strong>Q30 Base Quality</strong>: >80% (barcode and UMI regions)</li>
-<li>✅ <strong>V(D)J Gene Mapping Rate</strong>: >40%</li>
-<li>✅ <strong>Intracellular Read Proportion</strong>: >40%</li>
-<li>✅ <strong>Paired Productive Sequence Proportion</strong>: >20%</li>
-<li>✅ <strong>Average Reads per Cell</strong>: >5,000</li>
+<li>✅ <strong>Valid barcodes</strong>: >70%</li>
+<li>✅ <strong>Q30 Base Quality</strong>: >75% (barcode and UMI regions)</li>
+<li>✅ <strong>Reads mapped to any V(D)J gene</strong>: >30%</li>
+<li>✅ <strong>Fraction of Reads in Cells</strong>: >30%</li>
+<li>✅ <strong>Cells with productive V-J spanning pair</strong>: >20%</li>
+<li>✅ <strong>Mean reads per cell</strong>: >5,000</li>
 </ul>
 </details>
 
@@ -753,7 +753,7 @@ The HTML web report is a comprehensive display platform for single-cell VDJ sequ
 ### 📊 Main Report Content and Structure
 
 <div align="center">
-  <img src="../images/html_scvdj1.png" alt="scVDJ Web Report" width="500">
+<img src="../images/html_scvdj1.png" alt="scVDJ Web Report" width="500">
 </div>
 
 <br>
@@ -794,8 +794,8 @@ The HTML web report is a comprehensive display platform for single-cell VDJ sequ
 </tr>
 <tr>
 <td align="center"><strong>Cells with productive V-J spanning pair</strong></td>
-<td align="center">≥ 40%</td>
-<td align="center">20–40%</td>
+<td align="center">≥ 30%</td>
+<td align="center">20–30%</td>
 <td align="center">< 20%</td>
 </tr>
 </tbody>
@@ -1029,9 +1029,9 @@ Proportion of bases with sequencing accuracy higher than 99.9% (error rate <0.1%
 <tbody>
 <tr>
 <td align="center"><strong>Reads mapped to any V(D)J gene</strong></td>
-<td align="center">≥ 40%</td>
-<td align="center">20–40%</td>
-<td align="center">< 20%</td>
+<td align="center">≥ 50%</td>
+<td align="center">30–50%</td>
+<td align="center">< 30%</td>
 </tr>
 </tbody>
 </table>
@@ -1054,7 +1054,7 @@ Proportion of bases with sequencing accuracy higher than 99.9% (error rate <0.1%
 <td>
 Proportion of reads with valid barcodes that partially or completely map to any germline V(D)J gene segments.
 <div style="padding: 15px; border-left: 4px solid #f59e0b; margin: 15px 0;">
-> ⚠️ <strong>Quality Warning Threshold</strong>: <40% may be caused by the following reasons:<br>
+> ⚠️ <strong>Quality Warning Threshold</strong>: <30% may be caused by the following reasons:<br>
 > • Low proportion of B or T cells in sample or insufficient enrichment<br>
 > • Biological sample quality degradation affecting immune cell viability<br>
 > • Poor target enrichment efficiency during library construction<br>
@@ -1064,8 +1064,8 @@ Proportion of reads with valid barcodes that partially or completely map to any 
 </tr>
 <tr>
 <td align="center">
-<strong>TRA vs TRB mapping ratio</strong><br>
-<em>TRA/TRB Specific Immune Receptor Chain Mapping Proportion</em>
+<strong>Reads mapped to TRA/TRB/IGH/IGK/IGL</strong><br>
+<em>TRA/TRB/IGH/IGK/IGL Specific Immune Receptor Chain Mapping Proportion</em>
 </td>
 <td>
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
@@ -1214,7 +1214,7 @@ Proportion of cell-associated barcodes with (TRA, TRB) T cell receptor pairing w
 **Chart Function**: Visualizes UMI count distribution for each cell (only counting UMIs from productive contigs), intuitively showing cell quality control results and background noise levels.
 
 <div align="center">
-  <img src="../images/html_scvdj3.jpg" alt="V(D)J Cell Ranking Analysis Plot" width="400">
+<img src="../images/html_scvdj3.jpg" alt="V(D)J Cell Ranking Analysis Plot" width="400">
 </div>
 
 **Technical Specifications and Coordinate System:**
@@ -1279,7 +1279,7 @@ Total UMI count corresponding to each cell. Higher UMI indicates more RNA molecu
 **Chart Function**: Displays the relative abundance distribution of clonotypes and the concentration of immune responses in the sample.
 
 <div align="center">
-  <img src="../images/html_scvdj2.png" alt="scVDJ Clonotype Analysis Charts" width="500">
+<img src="../images/html_scvdj2.png" alt="scVDJ Clonotype Analysis Charts" width="500">
 </div>
 
 **Chart Technical Specifications:**

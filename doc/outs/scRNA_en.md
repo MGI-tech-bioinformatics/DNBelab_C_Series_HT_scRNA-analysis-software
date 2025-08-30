@@ -292,7 +292,7 @@ After single-cell RNA analysis is completed, a standardized file and subdirector
 <li>✅ <strong>Valid Barcode Proportion</strong>: >70%</li>
 <li>✅ <strong>Q30 Base Quality</strong>: >75% (barcode and UMI regions)</li>
 <li>✅ <strong>Transcriptome Alignment Rate</strong>: >30%</li>
-<li>✅ <strong>Reads in Cells Proportion</strong>: >50% (nucleus samples >30%)</li>
+<li>✅ <strong>Reads in Cells Proportion</strong>: >50% (nuclear samples >30%)</li>
 <li>✅ <strong>Average Reads per Cell</strong>: >15,000</li>
 </ul>
 </details>
@@ -444,7 +444,7 @@ head(seurat_obj@meta.data)
 
 #### 🏗️ Data Structure
 
-<div align="left">
+<div align="center">
 <img src="../images/anndata.jpg" alt="AnnData Format Structure Diagram" width="400">
 </div>
 
@@ -635,7 +635,9 @@ The HTML web report is a comprehensive display platform for single-cell RNA sequ
 
 ### 📊 Main Report Content
 
+<div align="center">
 <img src="../images/html_scrna1.png" alt="scRNA Web Report" width="500">
+</div>
 
 #### 🧬 Cell Metrics <a id="cell-metrics"></a>
 
@@ -659,9 +661,9 @@ The HTML web report is a comprehensive display platform for single-cell RNA sequ
 <tbody>
 <tr>
 <td align="center"><strong>Mean reads per cell</strong></td>
-<td align="center">≥ 15,000</td>
-<td align="center">8,000–15,000</td>
-<td align="center">< 8,000</td>
+<td align="center">≥ 30,000</td>
+<td align="center">15,000–30,000</td>
+<td align="center">< 15,000</td>
 </tr>
 <tr>
 <td align="center"><strong>Median genes per cell</strong></td>
@@ -728,7 +730,7 @@ The average number of sequencing reads per cell, reflecting single-cell sequenci
 <ul>
 <li>Calculated as total sequencing reads divided by the number of detected cells</li>
 <li>This metric does not depend on read alignment results</li>
-<li>Recommended value ≥15,000 reads/cell, but actual requirements vary by cell type and research objectives</li>
+<li>Recommended value ≥30,000 reads/cell, but actual requirements vary by cell type and research objectives</li>
 </ul>
 </div>
 </td>
@@ -1113,7 +1115,9 @@ Controls whether reads aligned to intronic regions are included in gene expressi
 
 **📊 Visual Encoding**: 🔵 Blue line (valid cells) | ⬜ Gray line (background noise) | 🔷 Blue gradient area (mixed region)
 
-  <img src="../images/html_scrna3.jpg" alt="scRNA Web Report" width="300">
+  <div align="center">
+<img src="../images/html_scrna3.jpg" alt="scRNA Web Report" width="300">
+</div>
 
 **📏 Chart Axis Details**:
 - **X-axis**: Barcode Rank (cell ranking) - Ranked in descending order by total UMI count (logarithmic scale)
@@ -1178,7 +1182,9 @@ Controls whether reads aligned to intronic regions are included in gene expressi
 </br>
 </br>
 
+<div align="center">
 <img src="../images/html_scrna2.png" alt="scRNA Web Report" width="500">
+</div>
   
 #### 📊 Visualization Chart Group 2: Downstream Biological Analysis <a id="visualization-chart-group-2"></a>
 
