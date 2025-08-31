@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>DNBelab C Series&trade; HT Single-Cell Analysis Software</title>
+            <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only],
+.vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+.vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+            
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+<style>
+:root {
+  --color-note: #0969da;
+  --color-tip: #1a7f37;
+  --color-warning: #9a6700;
+  --color-severe: #bc4c00;
+  --color-caution: #d1242f;
+  --color-important: #8250df;
+}
+
+</style>
+<style>
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-note: #2f81f7;
+    --color-tip: #3fb950;
+    --color-warning: #d29922;
+    --color-severe: #db6d28;
+    --color-caution: #f85149;
+    --color-important: #a371f7;
+  }
+}
+
+</style>
+<style>
+.markdown-alert {
+  padding: 0.5rem 1rem;
+  margin-bottom: 16px;
+  color: inherit;
+  border-left: .25em solid #888;
+}
+
+.markdown-alert>:first-child {
+  margin-top: 0
+}
+
+.markdown-alert>:last-child {
+  margin-bottom: 0
+}
+
+.markdown-alert .markdown-alert-title {
+  display: flex;
+  font-weight: 500;
+  align-items: center;
+  line-height: 1
+}
+
+.markdown-alert .markdown-alert-title .octicon {
+  margin-right: 0.5rem;
+  display: inline-block;
+  overflow: visible !important;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
+
+.markdown-alert.markdown-alert-note {
+  border-left-color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-note .markdown-alert-title {
+  color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-important {
+  border-left-color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-important .markdown-alert-title {
+  color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-warning {
+  border-left-color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-warning .markdown-alert-title {
+  color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-tip {
+  border-left-color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-tip .markdown-alert-title {
+  color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-caution {
+  border-left-color: var(--color-caution);
+}
+
+.markdown-alert.markdown-alert-caution .markdown-alert-title {
+  color: var(--color-caution);
+}
+
+</style>
+        
+        </head>
+        <body class="vscode-body vscode-light">
+            <div align="center">
+<h1 id="dnbelab-c-series-ht-single-cell-analysis-software">DNBelab C Series™ HT Single-Cell Analysis Software</h1>
+<p><a href="https://github.com/MGI-tech-bioinformatics/DNBelab_C_Series_HT_scRNA-analysis-software/releases"><img src="https://img.shields.io/github/v/release/MGI-tech-bioinformatics/DNBelab_C_Series_HT_scRNA-analysis-software" alt="Github Release"></a>
+<a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License"></a>
+<a href="./Document/README.html"><img src="https://img.shields.io/badge/docs-latest-brightgreen.svg" alt="Documentation"></a>
+<a href="#system-requirements"><img src="https://img.shields.io/badge/platform-Linux-lightgrey.svg" alt="Platform"></a></p>
+<p><strong>An open-source, flexible, and high-performance pipeline for analyzing high-throughput DNBelab C Series™ single-cell datasets.</strong></p>
+<p>🧬 <strong>scRNA-seq</strong> | 🧪 <strong>scATAC-seq</strong> | 🦠 <strong>scVDJ-seq</strong></p>
+</div>
+<hr>
+<h2 id="️-system-requirements">🖥️ System Requirements</h2>
+<table>
+<tr>
+<td><strong>🔧 Hardware</strong></td>
+<td><strong>📋 Specification</strong></td>
+<td><strong>💡 Recommendation</strong></td>
+</tr>
+<tr>
+<td>Processor</td>
+<td>x86-64 compatible</td>
+<td>Multi-core server CPU</td>
+</tr>
+<tr>
+<td>Memory</td>
+<td>50GB RAM minimum</td>
+<td>128GB+ recommended</td>
+</tr>
+<tr>
+<td>CPU Cores</td>
+<td>8 cores minimum</td>
+<td>16+ cores</td>
+</tr>
+<tr>
+<td>Storage</td>
+<td>SSD recommended</td>
+<td>High-speed SSD</td>
+</tr>
+<tr>
+<td>OS</td>
+<td>Linux 64-bit</td>
+<td>Ubuntu 20.04+ / CentOS 7+</td>
+</tr>
+</table>
+<hr>
+<h2 id="-quick-navigation">🚀 Quick Navigation</h2>
+<h3 id="-essential-documentation">📋 Essential Documentation</h3>
+</div>
+<table>
+<thead>
+<tr>
+<th>📖 <strong>Guide</strong></th>
+<th>🎯 <strong>Purpose</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="./doc/installation.html">📦 <strong>Installation</strong></a></td>
+<td>Set up dnbc4tools on your system</td>
+</tr>
+<tr>
+<td><a href="./doc/quickstart.html">⚡ <strong>Quick Start</strong></a></td>
+<td>Run your first analysis with sample data</td>
+</tr>
+<tr>
+<td><a href="./doc/pipeline.html">🧬 <strong>Pipeline Guide</strong></a></td>
+<td>In-depth workflow documentation</td>
+</tr>
+<tr>
+<td><a href="./doc/parameter/parameter.html">⚙️ <strong>Parameters</strong></a></td>
+<td>Complete command reference and parameter settings</td>
+</tr>
+<tr>
+<td><a href="./doc/outs/outs.html">📖 <strong>Output Reference</strong></a></td>
+<td>Understanding your results</td>
+</tr>
+<tr>
+<td><a href="./doc/io.html">📊 <strong>Output Analysis</strong></a></td>
+<td>Analyze results in R and Python</td>
+</tr>
+<tr>
+<td><a href="./doc/dataset.html">🧬 <strong>Demo Datasets</strong></a></td>
+<td>Access sample datasets for testing</td>
+</tr>
+</tbody>
+</table>
+<h3 id="-analysis-workflows">🔬 Analysis Workflows</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"><strong>scRNA-seq</strong></th>
+<th style="text-align:center"><strong>scATAC-seq</strong></th>
+<th style="text-align:center"><strong>scVDJ-seq</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Gene Expression<br/>Profiling</td>
+<td style="text-align:center">Chromatin Accessibility<br/>Analysis</td>
+<td style="text-align:center">Immune Receptor<br/>Repertoire</td>
+</tr>
+<tr>
+<td style="text-align:center"><a href="./doc/pipeline/scRNA_en.html">📖 Guide</a></td>
+<td style="text-align:center"><a href="./doc/pipeline/scATAC_en.html">📖 Guide</a></td>
+<td style="text-align:center"><a href="./doc/pipeline/scVDJ_en.html">📖 Guide</a></td>
+</tr>
+<tr>
+<td style="text-align:center"><a href="./doc/parameter/scRNA_en.html">⚙️ Parameters</a></td>
+<td style="text-align:center"><a href="./doc/parameter/scATAC_en.html">⚙️ Parameters</a></td>
+<td style="text-align:center"><a href="./doc/parameter/scVDJ_en.html">⚙️ Parameters</a></td>
+</tr>
+<tr>
+<td style="text-align:center"><a href="./doc/outs/scRNA_en.html">📊 Outputs</a></td>
+<td style="text-align:center"><a href="./doc/outs/scATAC_en.html">📊 Outputs</a></td>
+<td style="text-align:center"><a href="./doc/outs/scVDJ_en.html">📊 Outputs</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr>
+<h2 id="-support--community">🤝 Support &amp; Community</h2>
+<h3 id="get-help--stay-connected">Get Help &amp; Stay Connected</h3>
+<p><strong>Questions, Bug Reports, or Feature Requests:</strong><br>
+<a href="https://github.com/MGI-tech-bioinformatics/DNBelab_C_Series_HT_scRNA-analysis-software/issues">GitHub Issues</a></p>
+<h3 id="-contact-information">📞 Contact Information</h3>
+<ul>
+<li>🌐 <strong>Website</strong>: <a href="https://www.mgitech.cn">www.mgitech.cn</a></li>
+<li>📚 <strong>Documentation</strong>: <a href="./Document/README.html">Always available</a></li>
+</ul>
+<hr>
+<h2 id="-whats-new">📝 What's New</h2>
+<h3 id="-dnbc4tools-30-beta-highlights">🎉 dnbc4tools 3.0 Beta Highlights</h3>
+<details open>
+<summary><strong>🆕 New Features & Improvements</strong></summary>
+<h4 id="-rna-seq-enhancements">🧬 <strong>RNA-Seq Enhancements</strong></h4>
+<ul>
+<li>✨ <strong>Enhanced Annotation</strong>: Improved RNA annotation logic for higher accuracy</li>
+<li>📊 <strong>Interactive Reports</strong>: Upgraded HTML visualizations with better parameters</li>
+<li>🏷️ <strong>Extended Metadata</strong>: Added <code>gene_id</code> and <code>gene_name</code> to feature matrices</li>
+<li>🔍 <strong>Enriched BAM Files</strong>: Enhanced outputs with comprehensive metadata</li>
+<li>🐭🧑 <strong>Mixed-Species Analysis</strong>: Full support for human-mouse dual-species samples</li>
+</ul>
+<h4 id="-vdj-analysis-upgrades">🦠 <strong>VDJ Analysis Upgrades</strong></h4>
+<ul>
+<li>🔧 <strong>Algorithm Optimization</strong>: Refined V(D)J assembly and annotation</li>
+<li>📋 <strong>Standardized Output</strong>: Updated formats for better tool compatibility</li>
+</ul>
+<h4 id="-performance--usability">⚡ <strong>Performance &amp; Usability</strong></h4>
+<ul>
+<li>💾 <strong>Streamlined Storage</strong>: Reduced disk usage by removing intermediate files</li>
+<li>📂 <strong>Better Organization</strong>: Reorganized directories and logs for clarity</li>
+<li>🚀 <strong>Faster Processing</strong>: Multi-threading optimizations across all workflows</li>
+</ul>
+</details>
+<blockquote>
+<p>⚠️ <strong>Beta Notice</strong>: This version is feature-complete but may contain bugs. We welcome community testing and feedback! For production environments, please consider the <a href="https://github.com/MGI-tech-bioinformatics/DNBelab_C_Series_HT_scRNA-analysis-software/releases">latest stable release</a>.</p>
+</blockquote>
+<p>📖 <strong>Full Release History</strong>: <a href="./doc/release.html">Release Notes</a></p>
+<hr>
+
+            
+            
+        </body>
+        </html>

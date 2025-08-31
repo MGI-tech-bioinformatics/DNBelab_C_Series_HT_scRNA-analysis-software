@@ -1,12 +1,17 @@
 # 📦 DNBelab C Series™ Software Installation
 
+<div align="center">
+
+**Complete installation guide for the DNBelab C Series™ HT Single-Cell Analysis Software package**
+
+[🖥️ Requirements](#system-requirements) • [💾 Download](#software-download) • [🔧 Installation](#installation-process) • [✅ Verification](#verification--testing) 
+
+</div>
+
+
 ---
 
-> **Complete installation guide for the DNBelab C Series™ HT Single-Cell Analysis Software package**
-
----
-
-## 🖥️ System Requirements
+## 🖥️ System Requirements <a id="system-requirements"></a>
 
 | Category   | Requirement                                   |
 |------------|-----------------------------------------------|
@@ -22,45 +27,25 @@
 
 
 
-## 💾 Software Download
+## 💾 Software Download <a id="software-download"></a>
 
 ### dnbc4tools 3.0 beta (Released: Jun 16, 2025)
 
 | Package Details | Information                                  |
 |----------------|----------------------------------------------|
-| File Name      | dnbc4tools3.0beta_v2.tar.gz                   |
-| File Size      | 507M                                        |
-| MD5 Checksum   | 6989f298d0f4e47ab0c9f4af399c5161           |
+| File Name      | dnbc4tools3.0beta_v3.tar.gz                   |
+| File Size      | 511M                                        |
+| MD5 Checksum   | 9e6ec75d3a636477f6fab793ed7c418e           |
 
 ### Download Methods
 
 **Download Options:**
-- [Baidu Netdisk](https://pan.baidu.com/s/1puUnUhX4RMMIyKXKhM-IsA?pwd=6dcf) (Access Code: 6dcf)
-
-### New Features
-
-> **dnbc4tools 3.0 beta introduces:**
-> 
-> - **RNA-Seq Analysis Updates**
->   - **Enhanced Annotation Rules**: Improved RNA annotation logic for accuracy and compatibility.
->   - **HTML Report Upgrades**: Adjusted visualization parameters for better interactive exploration.
->   - **Expanded Feature Matrix**: Added `gene_id` and `gene_name` fields to the feature matrix.
->   - **BAM File Enrichment**: Enhanced BAM file outputs with additional metadata for downstream analysis.
->   - **Dual-Species Support**: Enabled library preparation and analysis for mixed-species samples.
-> 
-> - **VDJ Analysis Improvements**
->   - **Algorithm Optimization**: Refined V(D)J assembly and annotation algorithms for higher precision.
->   - **Standardized Outputs**: Updated result formats to align with mainstream analysis tools.
-> 
-> - **Pipeline Efficiency**
->   - **Streamlined Storage**: Removed intermediate files; only final results are retained to reduce storage usage.
->   - **Log & Directory Restructuring**: Reorganized analysis directories and logs for better traceability.
-
+- [BGI CloudDrive](https://bgipan.genomics.cn/#/link/uJg1pwI2raBYGMoJzjKw) (Access Code: voYF)
 ---
 
 
 
-## 🔧 Installation Process
+## 🔧 Installation Process <a id="installation-process"></a>
 
 > *dnbc4tools* is distributed as a tar.gz package with precompiled dependencies, making it compatible with most Linux environments without additional setup.
 
@@ -76,7 +61,7 @@ cd /opt/software
 tar -xzvf dnbc4tools3.0beta.tar.gz
 ```
 
-### Step 2: Verify Directory Structure
+### Step 2: Verify Directory Structure 
 
 After extraction, you should see the following directory structure:
 
@@ -88,23 +73,44 @@ After extraction, you should see the following directory structure:
 | `dnbc4tools3.0beta/misc` | Miscellaneous files |
 | `dnbc4tools3.0beta/sourceC4.bash` | Environment configuration script |
 
-### Step 3: Verify Installation
-
-Confirm that the installation was successful:
-
-```bash
-# View help information
-/opt/software/dnbc4tools3.0beta/dnbc4tools --help
-```
-
-> **Success!** Your *dnbc4tools* installation is now complete and ready for use.
-
 ---
 
-## 🔍 Next Steps
+## ✅ Verification & Testing <a id="verification--testing"></a>
 
-Now that you have successfully installed the software, you can:
+### Basic Functionality Test
 
-- Check the [Quick Start Guide](./quickstart.md) to begin your analysis.
-- Explore the [Analysis Workflows](./pipeline.md) for detailed pipeline information.
-- Review [Parameter Settings](./parameter/parameter_en.md) for configuration options.
+Confirm that the installation was successful by running these commands:
+
+```bash
+# Navigate to installation directory
+cd /opt/software/dnbc4tools3.0beta
+
+# Test basic functionality
+./dnbc4tools --help
+./dnbc4tools --version
+
+# Test specific modules
+./dnbc4tools rna --help
+./dnbc4tools atac --help
+./dnbc4tools vdj --help
+```
+
+
+## 🔄 Next Steps <a id="next-steps"></a>
+
+### 🎆 Congratulations! You've successfully installed dnbc4tools 3.0 beta!
+
+<div align="center">
+
+### 🏁 What's Next?
+
+</div>
+
+| 🎯 **Step** | 📚 **Action** |
+|---------------|----------------|
+| 1️⃣ | [**Quick Start Tutorial**](./quickstart.md) - Run your first analysis |
+| 2️⃣ | [**Download Sample Data**](./dataset.md) - Get test datasets |
+| 3️⃣ | [**Explore Workflows**](./pipeline.md) - Choose your analysis type |
+| 4️⃣ | [**Understand Parameters**](./parameter/parameter.md) - Fine-tune your analysis |
+
+---

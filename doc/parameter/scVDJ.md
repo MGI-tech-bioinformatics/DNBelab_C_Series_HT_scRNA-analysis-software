@@ -1,87 +1,599 @@
 # 🧬 DNBelab C Series HT scVDJ 分析参数
 
-## 📋 目录
-- [主分析流程 (run)](#dnbc4tools-vdj-run)
+<div align="center">
+
+[🔬 主分析流程 (run)](#主分析流程-run)
+
+</div>
 
 ---
 
-## 🔬 dnbc4tools vdj run
+## 🔬 主分析流程 (run) <a id="主分析流程-run"></a>
 
-### 📊 用法
+### 📊 用法 <a id="usage"></a>
 
 ```shell
-$dnbc4tools vdj run
+$ dnbc4tools vdj run -h
 usage: dnbc4tools vdj run [-h] 
 
 optional arguments:
   -h, --help            show this help message and exit
 
-Input Fastq Files:
-  Input FASTQ files (comma-separated) from same library.
-  Ensure consistent ordering between vdj R1/R2 files.
+Input Files:
+  Choose ONE input method: either --fastqs (directory) OR individual FASTQ files (-1 and -2).
 
-  -1, --fastq1 <FILE>   Input R1 fastq file(s)
-  -2, --fastq2 <FILE>   Input R2 fastq file(s)
+  --fastqs <DIR>        Input directory containing paired-end FASTQ files. The pipeline automatically detects Read1/Read2 files. Example: ./fastq_dir
+  -1, --fastq1 <FILE> [<FILE> ...]
+                        Read1 FASTQ file(s) (supports wildcards and comma-separated lists). Example: sample1_L01_R1.fastq.gz,sample1_L02_R1.fastq.gz
+  -2, --fastq2 <FILE> [<FILE> ...]
+                        Read2 FASTQ file(s) (supports wildcards and comma-separated lists). Must match --fastq1 order. Example: sample1_L01_R2.fastq.gz,sample1_L02_R2.fastq.gz
 
 Basic Settings:
-  -n, --name <STR>      Unique identifier for the sample
-  -r, --ref REF         Reference database: 'human'/'mouse' or path to custom reference
-  -c, --chain <STR>     VDJ receptor type (TR for T cell receptors, IG for B cell receptors)
-  -o, --outdir <DIR>    Output directory [default: current directory]
-  -t, --threads <INT>   Number of CPU threads [default: all available cores]
+  -n, --name <STR>      Unique identifier for the sample (e.g., sample1). Used for naming output files and reports.
+  -r, --ref REF         Reference database: 'human'/'mouse' (case-insensitive) or path to a custom reference directory containing reference.json. Examples: human | mouse | ./custom_vdj_ref
+  -c, --chain <STR>     VDJ receptor type: 'IG' (B-cell receptors) or 'TR' (T-cell receptors).
+  -o, --outdir <DIR>    Output directory for results and reports [default: current directory]. Example: ./output
+  -t, --threads <INT>   Number of CPU threads for parallel processing [default: all available cores] (e.g., 16).
   -s, --beadstrans <FILE>
-                        RNA analysis singlecell.csv file for filtering cells and merging beads information
+                        RNA analysis singlecell.csv file for filtering cells and merging beads information. When not provided, all cells will be kept by default (equivalent to --keep_all_cells).
 
 Library Settings:
-  Auto-detection recommended for dark cycles. Dark cycle modes can be "R1" and "unset"
-  For multiple files, ensure consistent settings.
-  customize: Specify sequence structure patterns.
-  Example customize: "cb,R1:1-10;cb,R1:11-20;umi,R1:21-30;R1,R1:31-120;R2,R2:1-150".
+  Auto-detection is recommended for dark cycles. Available modes include "R1" and "unset".
+  For multiple files, ensure consistent settings across all inputs.
+  customize: Specify sequence structure patterns for parsing.
 
-  -d, --darkreaction <STR>
-                        Sequencing dark cycles [default: auto]
-  -u, --customize <STR>
-                        Sequence structure patterns, filed format <type>,<read>:<start>-<end>
+  --darkreaction <STR>  Dark cycle setting for VDJ library [default: auto]. Use 'R1' if dark cycles occur in Read1; otherwise leave as 'auto' or 'unset'.
+  --customize <STR>     Sequence structure patterns, format: <type>,<read>:<start>-<end> separated by ';'. Types include: cb (cell barcode), umi (UMI) R1/R2 (sequence). Example:
+                        "cb,R1:1-10;cb,R1:11-20;umi,R1:21-30;R1,R1:31-120;R2,R2:1-150"
   --enrichment_primers <FILE>
-                        Custom inner enrichment primers file, one primer sequence per line
+                        Custom inner enrichment primers file (one primer sequence per line). Required when using a custom reference database.
 
 Analysis Settings:
-  --keep_all_cells      Keep all cells in analysis without RNA data filtering
-  --r2_only             Only use R2 reads for VDJ assembly. Manual setting required as software cannot auto-detect Read1 assembly needs.
+  --keep_all_cells      Keep all cells in analysis without RNA data filtering. If --beadstrans is not provided, this behavior is enabled by default.
+  --r2_only             Only use R2 reads for VDJ assembly. Manual setting required because Read1 assembly requirements cannot be auto-detected.
+  --sample_read_pairs <INT>
+                        Subsample the specified number of read pairs from the input FASTQ files (e.g., 1000000).
 ```
-
 
 ### 📝 参数说明
 
 #### 🔴 必需参数
 
-| 参数 | 描述 |
-|------|------|
-| **--name** | 定义样本的唯一标识符，将在生成的HTML报告中显示为样本ID。 |
-| **--fastq1<br>--fastq2** | 指定VDJ文库的R1和R2测序文件。<br><br>📌 **格式要求**：<br>- 多个FASTQ文件需以逗号分隔<br>- R1和R2文件必须保持相同的排序顺序<br>- 所有文件必须来自同一文库，测序模式和暗反应设置必须一致<br>- 不同实验或样本的数据不得合并分析 |
-| **--ref** | 指定参考数据库。<br><br>📌 **支持物种**：<br>- 软件自带人类和小鼠的参考数据库<br>- 可适配主流分析软件数据库 |
-| **--chain** | 指定分析的受体链类型。<br><br>📌 **可选值**：<br>- "TR"：T细胞受体<br>- "IG"：B细胞受体 |
+> ⚠️ **成功分析必须指定的基本参数**
+
+<table>
+<thead>
+<tr>
+<th width="20%" align="center"><strong>参数</strong></th>
+<th width="80%" align="left"><strong>描述与配置</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">
+<code><strong>-n, --name</strong></code>
+<br><br>
+<span style="color: #e74c3c; font-weight: bold;">📋 必需</span>
+</td>
+<td>
+<h4>🏷️ 样本唯一标识符</h4>
+<blockquote>
+<strong>功能：</strong>样本的唯一标识符（例如：sample1）<br>
+<strong>用途：</strong>用于命名输出文件和报告<br>
+<strong>显示：</strong>在生成的HTML报告中显示为样本 ID
+</blockquote>
+<strong>示例：</strong> <code>sample_VDJ_001</code>
+</td>
+</tr>
+<tr>
+<td align="center">
+<code><strong>-r, --ref</strong></code>
+<br><br>
+<span style="color: #e74c3c; font-weight: bold;">🧬 必需</span>
+</td>
+<td>
+<h4>🗂️ VDJ参考数据库</h4>
+<blockquote>
+<strong>功能：</strong>指定VDJ分析使用的参考数据库<br>
+<strong>内置支持：</strong>软件自带人类和小鼠的参考数据库<br>
+<strong>自定义支持：</strong>可适配主流分析软件数据库格式
+</blockquote>
+<details open>
+<summary><strong>支持的参考数据库：</strong></summary>
+<ul>
+<li><strong>human/Human：</strong>人类VDJ参考数据库（不区分大小写）</li>
+<li><strong>mouse/Mouse：</strong>小鼠VDJ参考数据库（不区分大小写）</li>
+<li><strong>自定义路径：</strong>包含reference.json的自定义参考目录</li>
+</ul>
+</details>
+<details open>
+<summary><strong>自定义数据库要求：</strong></summary>
+<ul>
+<li><strong>目录结构：</strong>必须包含reference.json配置文件</li>
+<li><strong>序列文件：</strong>V、D、J基因段的FASTA序列文件</li>
+<li><strong>注释文件：</strong>基因功能注释和编号信息</li>
+</ul>
+</details>
+<strong>示例：</strong> <code>human</code> 或 <code>./custom_vdj_ref</code>
+</td>
+</tr>
+<tr>
+<td align="center">
+<code><strong>-c, --chain</strong></code>
+<br><br>
+<span style="color: #e74c3c; font-weight: bold;">🔬 必需</span>
+</td>
+<td>
+<h4>🧬 受体链类型选择</h4>
+<blockquote>
+<strong>核心功能：</strong>指定分析的免疫受体类型<br>
+<strong>生物学意义：</strong>不同受体类型具有不同的基因重排机制和功能<br>
+<strong>分析影响：</strong>直接影响V(D)J基因段的识别和重组分析
+</blockquote>
+<details open>
+<summary><strong>受体类型详细说明：</strong></summary>
+<table>
+<tr><th width="15%">类型</th><th width="25%">全称</th><th width="20%">细胞来源</th><th width="20%">主要功能</th><th width="20%">基因重排特点</th></tr>
+<tr><td><strong>TR</strong></td><td>T-cell Receptor<br>T细胞受体</td><td>T淋巴细胞</td><td>细胞免疫、抗原识别</td><td>TCRα/β或TCRγ/δ链重组</td></tr>
+<tr><td><strong>IG</strong></td><td>Immunoglobulin<br>免疫球蛋白</td><td>B淋巴细胞</td><td>体液免疫、抗体产生</td><td>重链(H)和轻链(L)重组</td></tr>
+</table>
+</details>
+<strong>示例：</strong> <code>TR</code>（T细胞研究）或 <code>IG</code>（B细胞研究）
+</td>
+</tr>
+</tbody>
+</table>
+
+---
+
+#### 🟢 输入文件参数
+
+> 📁 **选择一种输入方式：基于目录 OR 单独指定文件**
+
+<table>
+<thead>
+<tr>
+<th width="20%" align="center"><strong>参数</strong></th>
+<th width="80%" align="left"><strong>描述与配置</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">
+<code><strong>--fastqs</strong></code>
+<br><br>
+<span style="color: #3498db; font-weight: bold;">🔄 方式1</span>
+</td>
+<td>
+<h4>📂 FASTQ 文件目录</h4>
+<blockquote>
+<strong>方法：</strong>基于目录的输入，自动检测<br>
+<strong>功能：</strong>流程自动检测目录中的配对读段文件<br>
+<strong>便利性：</strong>适合标准化的文件组织结构
+</blockquote>
+<details open>
+<summary><strong>目录结构要求：</strong></summary>
+<ul>
+<li><strong>文件命名：</strong>标准的R1/R2配对文件命名格式</li>
+<li><strong>自动检测：</strong>软件自动识别Read1和Read2文件</li>
+<li><strong>路径格式：</strong>支持相对路径和绝对路径</li>
+</ul>
+</details>
+<strong>示例：</strong> <code>./VDJ_fastq_dir</code>
+</td>
+</tr>
+<tr>
+<td align="center">
+<code><strong>-1, --fastq1</strong></code>
+<br><br>
+<span style="color: #3498db; font-weight: bold;">🔄 方式2A</span>
+</td>
+<td>
+<h4>📄 Read1 FASTQ 文件</h4>
+<blockquote>
+<strong>输入：</strong>VDJ文库的 Read1 FASTQ 文件<br>
+<strong>支持：</strong>通配符和逗号分隔的列表<br>
+<strong>内容：</strong>包含细胞条形码、UMI和部分VDJ序列信息<br>
+<strong>要求：</strong>必须与 fastq2 参数配对使用
+</blockquote>
+<details open>
+<summary><strong>文件格式要求：</strong></summary>
+<ul>
+<li><strong>多文件支持：</strong>支持多个测序批次的文件合并</li>
+<li><strong>通配符支持：</strong>可使用*等通配符批量指定文件</li>
+</ul>
+</details>
+<strong>示例：</strong> <code>sample1_L01_R1.fastq.gz,sample1_L02_R1.fastq.gz</code>
+</td>
+</tr>
+<tr>
+<td align="center">
+<code><strong>-2, --fastq2</strong></code>
+<br><br>
+<span style="color: #3498db; font-weight: bold;">🔄 方式2B</span>
+</td>
+<td>
+<h4>📄 Read2 FASTQ 文件</h4>
+<blockquote>
+<strong>输入：</strong>VDJ文库的 Read2 FASTQ 文件<br>
+<strong>支持：</strong>通配符和逗号分隔的列表<br>
+<strong>内容：</strong>主要包含VDJ重组序列的生物学信息<br>
+<strong>顺序：</strong>文件序列必须与 fastq1 完全匹配
+</blockquote>
+<details open>
+<summary><strong>配对关系要求：</strong></summary>
+<ul>
+<li><strong>顺序一致性：</strong>R1和R2文件必须严格按相同顺序排列</li>
+<li><strong>读段配对：</strong>每个R1文件必须有对应的R2文件</li>
+<li><strong>质量一致性：</strong>所有文件必须来自同一测序实验</li>
+</ul>
+</details>
+<strong>示例：</strong> <code>sample1_L01_R2.fastq.gz,sample1_L02_R2.fastq.gz</code>
+</td>
+</tr>
+</tbody>
+</table>
+
+> ⚠️ **输入方式选择：**
+> - **🔸 方式1：** 使用 `--fastqs` 指定包含配对文件的目录
+> - **🔸 方式2：** 使用 `-1/-2` 分别指定 R1/R2 文件
+
+> 📌 **格式要求：**
+> - 多个FASTQ文件应以逗号分隔
+> - R1和R2文件必须保持相同的排序顺序
+> - 所有文件必须来自同一文库，测序模式和暗反应设置必须一致
+> - 不同实验或样本的数据不得合并分析
 #### 🟢 基本设置参数
 
-| 参数 | 描述 |
-|------|------|
-| **--outdir** | 指定结果输出目录 [**默认值**：当前目录]<br>目录名称将基于`--name`参数提供的样本ID。 |
-| **--threads** | 设置分析过程使用的CPU线程数 [**默认值**：所有可用核心]<br>增加线程数可加速分析过程。 |
-| **--beadstrans** | 指定RNA分析结果中的细胞信息文件 [**可选参数**]<br><br>📌 **功能**：<br>- 提供RNA分析与VDJ分析之间的细胞对应关系<br>- 启用基于RNA分析结果的细胞过滤功能<br><br>📌 **使用要求**：<br>- 需先完成5' scRNA的分析<br>- 结果目录中应有名为"singlecell.csv"的文件<br><br>📌 **注意事项**：<br>- 不使用此参数仍可进行VDJ分析，但无法利用RNA数据进行细胞过滤和关联<br>- 旧版本中的"singlecell.csv"格式不再支持，需要重新处理5' RNA数据|
+<table>
+<thead>
+<tr>
+<th width="20%" align="center"><strong>参数</strong></th>
+<th width="80%" align="left"><strong>描述与配置</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">
+<code><strong>-o, --outdir</strong></code>
+<br><br>
+<span style="color: #27ae60; font-weight: bold;">📁 默认：当前目录</span>
+</td>
+<td>
+<h4>💾 输出目录设置</h4>
+<blockquote>
+<strong>功能：</strong>指定VDJ分析结果和报告的输出目录<br>
+<strong>存储：</strong>所有分析结果将保存在此目录中<br>
+<strong>组织：</strong>自动创建结构化的子目录
+</blockquote>
+<strong>示例：</strong> <code>./VDJ_analysis_output</code>
+</td>
+</tr>
+<tr>
+<td align="center">
+<code><strong>-t, --threads</strong></code>
+<br><br>
+<span style="color: #27ae60; font-weight: bold;">⚡ 默认：所有可用核心</span>
+</td>
+<td>
+<h4>🔧 并行处理线程数</h4>
+<blockquote>
+<strong>功能：</strong>用于并行处理的CPU线程数<br>
+<strong>性能：</strong>增加线程数可显著提高分析速度<br>
+<strong>建议：</strong>根据可用CPU核心数和内存容量进行调整
+</blockquote>
+<strong>示例：</strong> <code>16</code>（使用16个CPU线程）
+</td>
+</tr>
+<tr>
+<td align="center">
+<code><strong>-s, --beadstrans</strong></code>
+<br><br>
+<span style="color: #9b59b6; font-weight: bold;">🔗 可选</span>
+</td>
+<td>
+<h4>🧬 RNA-VDJ数据整合</h4>
+<blockquote>
+<strong>功能：</strong>提供RNA分析与VDJ分析之间的细胞对应关系<br>
+<strong>整合：</strong>启用基于RNA分析结果的细胞过滤功能<br>
+<strong>数据源：</strong>来自5' scRNA分析结果的singlecell.csv文件
+</blockquote>
+<details open>
+<summary><strong>使用要求：</strong></summary>
+<ul>
+<li><strong>前置分析：</strong>需先完成同一样本的5' scRNA分析</li>
+<li><strong>文件格式：</strong>必须是标准的singlecell.csv格式</li>
+<li><strong>细胞匹配：</strong>基于细胞条形码进行精确匹配</li>
+</ul>
+</details>
+<details open>
+<summary><strong>整合效果：</strong></summary>
+<ul>
+<li><strong>细胞过滤：</strong>仅保留RNA分析中识别的高质量细胞</li>
+<li><strong>数据关联：</strong>建立RNA表达与VDJ重组的对应关系</li>
+<li><strong>质量提升：</strong>提高VDJ分析结果的可靠性</li>
+</ul>
+</details>
+<strong>示例：</strong> <code>./RNA_analysis/singlecell.csv</code><br>
+<strong>⚠️ 注意：</strong>不使用此参数时，等效于启用 --keep_all_cells 选项
+</td>
+</tr>
+</tbody>
+</table>
+
+---
 
 #### 🟢 文库设置参数
 
-| 参数 | 描述 |
-|------|------|
-| **--darkreaction** | 设置暗反应模式 [**默认值**：auto]<br><br>📌 **功能**：<br>控制软件如何处理文库Read1序列结构中的暗反应设置。暗反应指不识别碱基的生化反应，通常设置为固定碱基。<br><br>📌 **识别逻辑**：<br>软件检查前200,000个序列的长度来确定暗反应的存在。<br><br>📌 **可选模式**：<br>- "R1"：R1为暗反应设置<br>- "unset"：无暗反应设置<br><br>💡 **建议**：使用自动检测(auto)模式。 |
-| **--customize** | 自定义序列结构 [**无默认值**]<br><br>📌 **用途**：<br>用于超出标准设置的特殊需求，直接定义序列结构信息，使用时需加上引号。<br><br>📌 **格式**：<br>分号分隔的字符串值：[R1\|R2\|cb\|umi],[R1\|R2]:start-end<br><br>📌 **示例**：<br>"cb,R1:1-10;cb,R1:11-20;umi,R1:21-30;R1,R1:31-120;R2,R2:1-150"<br>- "cb"表示细胞条形码信息<br>- "umi"表示分子标识符<br>- "R1"表示位于Read1上<br>- "1-10"表示序列的第1到10个位置 |
-| **--enrichment_primers** | 自定义内部富集引物文件 [**无默认值**]<br><br>📌 **格式**：<br>- 文本文件，每行一个引物序列<br>- 用于VDJ区域的特异性扩增，针对非人/鼠物种或自定义引物设计 |
+> 🔧 **针对不同文库制备方法和测序策略的专业配置选项**
+
+<table>
+<thead>
+<tr>
+<th width="20%" align="center"><strong>参数</strong></th>
+<th width="80%" align="left"><strong>描述与配置</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">
+<code><strong>--darkreaction</strong></code>
+<br><br>
+<span style="color: #f39c12; font-weight: bold;">🔧 默认：auto</span>
+</td>
+<td>
+<h4>🔬 暗反应循环设置</h4>
+<blockquote>
+<strong>技术原理：</strong>控制VDJ文库中暗反应循环的处理方式<br>
+<strong>暗反应定义：</strong>测序过程中不进行荧光检测的循环，用于优化序列质量<br>
+<strong>自动检测：</strong>推荐使用auto模式，软件会自动分析序列长度分布
+</blockquote>
+<details open>
+<summary><strong>配置选项说明：</strong></summary>
+<table>
+<tr><th>设置</th><th>说明</th><th>适用场景</th></tr>
+<tr><td><code>auto</code></td><td>自动检测（推荐）</td><td>标准VDJ分析流程</td></tr>
+<tr><td><code>R1</code></td><td>Read1有暗反应</td><td>特定暗反应设计的文库</td></tr>
+<tr><td><code>unset</code></td><td>无暗反应</td><td>标准MGI协议</td></tr>
+</table>
+</details>
+<details open>
+<summary><strong>自动检测逻辑：</strong></summary>
+<ul>
+<li><strong>采样分析：</strong>检查前200,000个序列的长度分布特征</li>
+<li><strong>模式识别：</strong>根据长度分布模式和固定序列信息推断暗反应设置</li>
+<li><strong>验证机制：</strong>检查识别结果与VDJ序列结构的一致性</li>
+</ul>
+</details>
+<strong>⚠️ 重要提示：</strong>错误的暗反应设置可能导致条形码提取失败或VDJ序列质量下降
+</td>
+</tr>
+<tr>
+<td align="center">
+<code><strong>--customize</strong></code>
+<br><br>
+<span style="color: #9b59b6; font-weight: bold;">⚙️ 高级</span>
+</td>
+<td>
+<h4>🛠️ 自定义序列结构配置</h4>
+<blockquote>
+<strong>高级功能：</strong>用于非标准VDJ文库设计或特殊实验需求的精确序列结构定义<br>
+<strong>优先级：</strong>覆盖darkreaction的自动检测结果<br>
+<strong>坐标系统：</strong>使用1-based坐标系统（第一个碱基为位置1）
+</blockquote>
+<details open>
+<summary><strong>语法格式详解：</strong></summary>
+<p><strong>基本格式：</strong><code>&lt;type&gt;,&lt;read&gt;:&lt;start&gt;-&lt;end&gt;</code></p>
+<table>
+<tr><th>类型</th><th>说明</th><th>示例</th><th>VDJ中的作用</th></tr>
+<tr><td><code>cb</code></td><td>细胞条形码序列</td><td><code>cb,R1:1-10</code></td><td>细胞身份识别</td></tr>
+<tr><td><code>umi</code></td><td>UMI（唯一分子标识符）</td><td><code>umi,R1:21-30</code></td><td>去除PCR重复和定量</td></tr>
+<tr><td><code>R1</code></td><td>Read1中的VDJ序列</td><td><code>R1,R1:31-120</code></td><td>V(D)J重组序列信息</td></tr>
+<tr><td><code>R2</code></td><td>Read2中的VDJ序列</td><td><code>R2,R2:1-150</code></td><td>完整的V(D)J序列</td></tr>
+</table>
+</details>
+<details open>
+<summary><strong>VDJ文库配置示例：</strong></summary>
+<p><strong>标准VDJ文库配置：</strong></p>
+<code>"cb,R1:1-10;cb,R1:11-20;umi,R1:21-30;R1,R1:31-120;R2,R2:1-150"</code>
+<ul>
+<li>第一个细胞条形码：R1的1-10位置</li>
+<li>第二个细胞条形码：R1的11-20位置</li>
+<li>UMI序列：R1的21-30位置</li>
+<li>VDJ序列部分1：R1的31-120位置</li>
+<li>VDJ序列部分2：R2的1-150位置</li>
+</ul>
+</details>
+<details open>
+<summary><strong>使用注意事项：</strong></summary>
+<ul>
+<li><strong>引号保护：</strong>参数必须用引号包围，避免shell解析错误</li>
+<li><strong>坐标范围：</strong>不能超出实际读段长度</li>
+<li><strong>生物学意义：</strong>确保VDJ序列部分能覆盖V、D、J基因段</li>
+<li><strong>质量检查：</strong>软件会验证配置的合理性</li>
+</ul>
+</details>
+<strong>⚠️ 风险提示：</strong>错误的自定义配置可能导致VDJ序列识别失败，建议仅在标准配置无法满足需求时使用
+</td>
+</tr>
+<tr>
+<td align="center">
+<code><strong>--enrichment_primers</strong></code>
+<br><br>
+<span style="color: #e67e22; font-weight: bold;">🧬 自定义</span>
+</td>
+<td>
+<h4>🎯 富集引物配置</h4>
+<blockquote>
+<strong>功能：</strong>指定用于VDJ区域特异性扩增的内部富集引物<br>
+<strong>应用：</strong>针对非人/鼠物种或自定义引物设计的VDJ文库<br>
+<strong>格式：</strong>文本文件，每行包含一个引物序列
+</blockquote>
+<details open>
+<summary><strong>引物文件格式要求：</strong></summary>
+<ul>
+<li><strong>文件格式：</strong>纯文本文件</li>
+<li><strong>序列格式：</strong>每行一个引物序列，仅包含ATCG碱基</li>
+<li><strong>序列方向：</strong>与PCR扩增时使用的内引物序列一致</li>
+<li><strong>质量要求：</strong>序列准确无误，避免影响VDJ序列识别</li>
+</ul>
+</details>
+<details open>
+<summary><strong>适用场景：</strong></summary>
+<ul>
+<li><strong>自定义物种：</strong>人类和小鼠以外的模式生物VDJ分析</li>
+<li><strong>特殊设计：</strong>使用非标准引物的VDJ文库制备</li>
+<li><strong>研究需求：</strong>特定V、D、J基因段的靶向分析</li>
+</ul>
+</details>
+<strong>文件示例：</strong>
+<pre>
+GTCCTCGGTGGCCTCCACGTG
+AGCACCTGGGGCCTCGGCCAC
+CCTGGACTCCTGGGCCCCAG
+</pre>
+<strong>⚠️ 注意：</strong>使用自定义参考数据库时必须提供此参数
+</td>
+</tr>
+</tbody>
+</table>
+
+---
 
 #### 🚩 分析设置参数
 
-| 参数 | 描述 |
-|------|------|
-| **--keep_all_cells** | 保留所有细胞 [**标志参数**]<br>不使用5'转录组的细胞获取情况对细胞进行过滤。 |
-| **--r2_only** | 仅使用R2数据进行组装 [**标志参数**]<br><br>📌 **适用场景**：<br>当测序时Read1仅测序了cell barcode和umi信息，而未测序插入片段时<br><br>⚠️ **注意事项**：<br>软件无法自动检测Read1是否需要用于组装，需手动设置 |
+> 🔧 **影响VDJ分析策略和结果质量的关键设置**
 
-> 💡 **分析建议**：首次分析时建议使用默认参数，获得结果报告后再根据需要调整参数。
+<table>
+<thead>
+<tr>
+<th width="20%" align="center"><strong>参数</strong></th>
+<th width="80%" align="left"><strong>描述与配置</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">
+<code><strong>--keep_all_cells</strong></code>
+<br><br>
+<span style="color: #e67e22; font-weight: bold;">🏳️ 标志</span>
+</td>
+<td>
+<h4>🔓 保留所有检测细胞</h4>
+<blockquote>
+<strong>功能：</strong>保留所有检测到的细胞，不使用RNA分析结果进行细胞过滤<br>
+<strong>策略：</strong>基于VDJ数据本身的质量指标进行细胞识别<br>
+<strong>自动触发：</strong>当未提供--beadstrans参数时自动启用
+</blockquote>
+<details open>
+<summary><strong>应用场景分析：</strong></summary>
+<ul>
+<li><strong>独立VDJ分析：</strong>仅进行VDJ分析，无对应的RNA数据</li>
+<li><strong>最大化细胞回收：</strong>保留所有可能的VDJ阳性细胞</li>
+<li><strong>数据探索：</strong>初步评估VDJ数据质量和细胞分布</li>
+<li><strong>比较分析：</strong>与RNA过滤结果进行对比研究</li>
+</ul>
+</details>
+<details open>
+<summary><strong>质量控制机制：</strong></summary>
+<ul>
+<li><strong>基于VDJ：</strong>仅基于VDJ重组序列质量进行判断</li>
+<li><strong>UMI阈值：</strong>使用VDJ特异性UMI数量阈值</li>
+<li><strong>重组完整性：</strong>检查V(D)J重组的完整性和准确性</li>
+</ul>
+</details>
+<strong>⚠️ 注意：</strong>可能包含RNA表达质量较低的细胞，建议结合后续质量评估
+</td>
+</tr>
+<tr>
+<td align="center">
+<code><strong>--r2_only</strong></code>
+<br><br>
+<span style="color: #e67e22; font-weight: bold;">🎯 标志</span>
+</td>
+<td>
+<h4>📖 仅使用Read2序列组装</h4>
+<blockquote>
+<strong>技术背景：</strong>针对Read1仅含条形码和UMI信息的文库设计<br>
+<strong>组装策略：</strong>仅使用Read2中的生物学序列进行VDJ重组分析<br>
+<strong>手动设置：</strong>软件无法自动检测，需要根据文库设计手动指定
+</blockquote>
+<details open>
+<summary><strong>适用的文库设计：</strong></summary>
+<ul>
+<li><strong>短Read1设计：</strong>Read1长度仅覆盖条形码和UMI区域</li>
+<li><strong>单端VDJ序列：</strong>完整的VDJ序列全部位于Read2中</li>
+<li><strong>成本优化设计：</strong>减少Read1测序深度以降低成本</li>
+</ul>
+</details>
+<details open>
+<summary><strong>分析影响：</strong></summary>
+<ul>
+<li><strong>序列信息减少：</strong>丧失Read1中可能的VDJ序列信息</li>
+<li><strong>重组检测：</strong>依赖Read2的完整性进行V(D)J重组识别</li>
+<li><strong>质量要求：</strong>对Read2的序列质量要求更高</li>
+</ul>
+</details>
+<details open>
+<summary><strong>技术检查建议：</strong></summary>
+<ul>
+<li><strong>序列长度分析：</strong>检查Read1是否包含生物学序列</li>
+<li><strong>文库构建确认：</strong>与实验记录核对文库设计方案</li>
+<li><strong>质量评估：</strong>比较使用前后的VDJ检测效果</li>
+</ul>
+</details>
+<strong>⚠️ 重要提示：</strong>错误使用可能导致VDJ检测敏感性下降，请根据实际文库设计选择
+</td>
+</tr>
+<tr>
+<td align="center">
+<code><strong>--sample_read_pairs</strong></code>
+<br><br>
+<span style="color: #9b59b6; font-weight: bold;">🔢 可选</span>
+</td>
+<td>
+<h4>🎲 子采样读段对数量</h4>
+<blockquote>
+<strong>功能：</strong>从输入FASTQ文件中子采样指定数量的读段对进行分析<br>
+<strong>目的：</strong>用于测试、调试或快速评估分析参数<br>
+<strong>影响：</strong>可能影响最终的细胞检测和VDJ重组定量结果
+</blockquote>
+<details open>
+<summary><strong>使用场景：</strong></summary>
+<ul>
+<li><strong>参数测试：</strong>快速测试不同分析参数的效果</li>
+<li><strong>计算资源限制：</strong>在资源受限环境下进行初步分析</li>
+<li><strong>质量评估：</strong>快速评估数据质量和分析流程</li>
+<li><strong>方法开发：</strong>算法开发和验证过程中的快速迭代</li>
+</ul>
+</details>
+<strong>示例：</strong> <code>10000000</code>（子采样10M读段对）<br>
+<strong>⚠️ 注意：</strong>子采样可能影响低频克隆型的检测，正式分析建议使用全部数据
+</td>
+</tr>
+</tbody>
+</table>
+
+> 💡 **分析策略建议：**
+> - **首次分析：** 建议使用默认参数，获得初步结果后根据HTML报告调整参数
+> - **参数优化：** 根据细胞回收率、VDJ检测率等指标进行针对性调整
+
+</br>
+</br>
+
+---
+
+<div align="center">
+
+> 💡 **提示**
+> 
+> 本文档持续更新中，如发现内容错误或需要补充的信息，欢迎反馈。
+> 
+> 📝 **文档版本：** 3.0 beta | **最后更新：** 2025年
+
+---
+
+**🧬 DNBelab C Series HT scVDJ Analysis Software**  
+*高性能单细胞免疫组库数据分析流程*
+
+</div>

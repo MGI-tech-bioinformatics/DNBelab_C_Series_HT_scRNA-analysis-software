@@ -1,19 +1,65 @@
-# Analysis Workflow
+# 🔬 Analysis Workflows
 
-The **dnbc4tools** analysis workflow integrates multiple submodules, each capable of performing specific tasks independently. This modular design allows users to flexibly select analysis content according to research needs.
+<div align="center">
 
----
+**Complete guide to dnbc4tools analysis pipelines**
 
-## 🔬 Available Analysis Types
+[🧬 RNA-seq](#single-cell-rna-workflow) • [🧪 ATAC-seq](#single-cell-atac-workflow) • [🦠 VDJ-seq](#single-cell-vdj-workflow) 
 
-| Type                  | Description                                                                 | Documentation                                                          |
-|-----------------------|-----------------------------------------------------------------------------|------------------------------------------------------------------------|
-| 🔬 Single-Cell RNA    | Gene expression profiling at scale with single-cell resolution. | [English](./pipeline/scRNA_en.md) / [中文](./pipeline/scRNA.md)         |
-| 🧪 Single-Cell ATAC   | Chromatin accessibility profiling at the single-cell level. | [English](./pipeline/scATAC_en.md) / [中文](./pipeline/scATAC.md)       |
-| 🦠 Single-Cell VDJ    | V(D)J repertoire profiling for the specificity of T and B cells. | [English](./pipeline/scVDJ_en.md) / [中文](./pipeline/scVDJ.md)         |
+</div>
 
 ---
 
-## ⚙️ Command Parameters
+## 🧬 Single-Cell RNA Workflow <a id="single-cell-rna-workflow"></a>
 
-> For detailed documentation of all available parameters for **dnbc4tools** commands, please refer to: [English](./parameter/parameter_en.md) / [中文](./parameter/parameter.md)
+> Gene expression profiling at single-cell resolution
+
+**Key Features:**
+- High-throughput processing for large datasets
+- Dual-species support (human-mouse)
+- 5' and 3' chemistry compatibility
+- Automated cell identification
+
+**📖 [Complete RNA Workflow Guide](./pipeline/scRNA_en.md) / [中文指南](./pipeline/scRNA.md)**
+
+---
+
+## 🧪 Single-Cell ATAC Workflow <a id="single-cell-atac-workflow"></a>
+
+> Chromatin accessibility profiling at single-cell resolution
+
+**Key Features:**
+- Advanced fragment processing
+- TSS enrichment analysis
+- Peak-based cell identification
+- Mitochondrial/chloroplast filtering
+
+**📖 [Complete ATAC Workflow Guide](./pipeline/scATAC_en.md) / [中文指南](./pipeline/scATAC.md)**
+
+---
+
+## 🦠 Single-Cell VDJ Workflow <a id="single-cell-vdj-workflow"></a>
+
+> Immune receptor repertoire profiling (requires 5' RNA-seq data)
+
+**Key Features:**
+- Integrated with 5' RNA analysis
+- Advanced assembly algorithms
+- TCR and BCR support
+- Clonotype identification
+
+**Prerequisites:** Completed 5' RNA-seq analysis
+
+**📖 [Complete VDJ Workflow Guide](./pipeline/scVDJ_en.md) / [中文指南](./pipeline/scVDJ.md)**
+
+---
+
+## ⚙️ Command Parameters <a id="command-parameters"></a>
+
+**Documentation:**
+- 📚 [Complete Parameter Reference](./parameter/parameter_en.md) / [参数参考](./parameter/parameter.md)
+- 🧬 [RNA Parameters](./parameter/scRNA_en.md) / [RNA 参数](./parameter/scRNA.md)
+- 🧪 [ATAC Parameters](./parameter/scATAC_en.md) / [ATAC 参数](./parameter/scATAC.md)
+- 🦠 [VDJ Parameters](./parameter/scVDJ_en.md) / [VDJ 参数](./parameter/scVDJ.md)
+
+---

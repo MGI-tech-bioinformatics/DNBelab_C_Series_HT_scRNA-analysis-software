@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>&#x1f4c1; Analysis Output Files Reference</title>
+            <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only],
+.vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+.vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+            
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+<style>
+:root {
+  --color-note: #0969da;
+  --color-tip: #1a7f37;
+  --color-warning: #9a6700;
+  --color-severe: #bc4c00;
+  --color-caution: #d1242f;
+  --color-important: #8250df;
+}
+
+</style>
+<style>
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-note: #2f81f7;
+    --color-tip: #3fb950;
+    --color-warning: #d29922;
+    --color-severe: #db6d28;
+    --color-caution: #f85149;
+    --color-important: #a371f7;
+  }
+}
+
+</style>
+<style>
+.markdown-alert {
+  padding: 0.5rem 1rem;
+  margin-bottom: 16px;
+  color: inherit;
+  border-left: .25em solid #888;
+}
+
+.markdown-alert>:first-child {
+  margin-top: 0
+}
+
+.markdown-alert>:last-child {
+  margin-bottom: 0
+}
+
+.markdown-alert .markdown-alert-title {
+  display: flex;
+  font-weight: 500;
+  align-items: center;
+  line-height: 1
+}
+
+.markdown-alert .markdown-alert-title .octicon {
+  margin-right: 0.5rem;
+  display: inline-block;
+  overflow: visible !important;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
+
+.markdown-alert.markdown-alert-note {
+  border-left-color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-note .markdown-alert-title {
+  color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-important {
+  border-left-color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-important .markdown-alert-title {
+  color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-warning {
+  border-left-color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-warning .markdown-alert-title {
+  color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-tip {
+  border-left-color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-tip .markdown-alert-title {
+  color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-caution {
+  border-left-color: var(--color-caution);
+}
+
+.markdown-alert.markdown-alert-caution .markdown-alert-title {
+  color: var(--color-caution);
+}
+
+</style>
+        
+        </head>
+        <body class="vscode-body vscode-light">
+            <h1 id="-analysis-output-files-reference">📁 Analysis Output Files Reference</h1>
+<div align="center">
+<p><strong>Complete documentation for all dnbc4tools analysis output files</strong></p>
+<p><a href="#language-options">🌍 Language</a> • <a href="#output-overview">📋 Overview</a> • <a href="#single-cell-rna-outputs">🧬 RNA Outputs</a> • <a href="#single-cell-atac-outputs">🧪 ATAC Outputs</a> • <a href="#single-cell-vdj-outputs">🦠 VDJ Outputs</a></p>
+</div>
+<hr>
+<h2 id="-language-options-">🌍 Language Options <a id="language-options"></a></h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"><strong>English</strong></th>
+<th style="text-align:center"><strong>中文</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><a href="./scRNA_en.html">RNA Outputs</a></td>
+<td style="text-align:center"><a href="./scRNA.html">RNA 输出</a></td>
+</tr>
+<tr>
+<td style="text-align:center"><a href="./scATAC_en.html">ATAC Outputs</a></td>
+<td style="text-align:center"><a href="./scATAC.html">ATAC 输出</a></td>
+</tr>
+<tr>
+<td style="text-align:center"><a href="./scVDJ_en.html">VDJ Outputs</a></td>
+<td style="text-align:center"><a href="./scVDJ.html">VDJ 输出</a></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="-output-overview-">📋 Output Overview <a id="output-overview"></a></h2>
+<p>This section provides comprehensive documentation for all output files generated by the <code>DNBelab C Series</code> single-cell analysis software. Each analysis pipeline (<code>scRNA</code>, <code>scATAC</code>, <code>scVDJ</code>) produces specific sets of output files designed for downstream analysis and visualization.</p>
+<blockquote>
+<p>💡 <strong>Tip</strong>: Each output type includes quality metrics, processed data files, and interactive HTML reports for immediate analysis.</p>
+</blockquote>
+<hr>
+<h2 id="-single-cell-rna-outputs-">🧬 Single-Cell RNA Outputs <a id="single-cell-rna-outputs"></a></h2>
+<blockquote>
+<p><strong>Pipeline</strong>: Gene expression profiling output files and quality metrics</p>
+</blockquote>
+<p><strong>Key Features:</strong></p>
+<ul>
+<li>Gene-barcode matrices in multiple formats</li>
+<li>Comprehensive quality control metrics</li>
+<li>Cell identification and filtering results</li>
+<li>Interactive visualization reports</li>
+</ul>
+<p>📊 <strong><a href="./scRNA_en.html">➡️ Complete RNA Output Guide</a> / <a href="./scRNA.html">中文指南</a></strong></p>
+<hr>
+<h2 id="-single-cell-atac-outputs-">🧪 Single-Cell ATAC Outputs <a id="single-cell-atac-outputs"></a></h2>
+<blockquote>
+<p><strong>Pipeline</strong>: Chromatin accessibility analysis output files and peak information</p>
+</blockquote>
+<p><strong>Key Features:</strong></p>
+<ul>
+<li>Peak-by-cell accessibility matrices</li>
+<li>Fragment file for downstream analysis</li>
+<li>TSS enrichment profiles</li>
+<li>Cell filtering and quality metrics</li>
+</ul>
+<p>📊 <strong><a href="./scATAC_en.html">➡️ Complete ATAC Output Guide</a> / <a href="./scATAC.html">中文指南</a></strong></p>
+<hr>
+<h2 id="-single-cell-vdj-outputs-">🦠 Single-Cell VDJ Outputs <a id="single-cell-vdj-outputs"></a></h2>
+<blockquote>
+<p><strong>Pipeline</strong>: V(D)J repertoire analysis output files and clonotype data</p>
+</blockquote>
+<p><strong>Key Features:</strong></p>
+<ul>
+<li>Full-length V(D)J sequence reconstruction</li>
+<li>Clonotype identification and grouping</li>
+<li>Cell-level receptor annotations</li>
+<li>Comprehensive assembly metrics</li>
+</ul>
+<p><strong>Prerequisites:</strong> Requires completed 5' RNA-seq analysis</p>
+<p>📊 <strong><a href="./scVDJ_en.html">➡️ Complete VDJ Output Guide</a> / <a href="./scVDJ.html">中文指南</a></strong></p>
+<hr>
+<h2 id="-output-file-help">🆘 Output File Help</h2>
+<h3 id="getting-started">Getting Started</h3>
+<ul>
+<li>📚 <a href="../quickstart.html">Quick Start Guide</a></li>
+<li>⚙️ <a href="../parameter/parameter.html">Parameter Reference</a></li>
+<li>🔬 <a href="../pipeline.html">Analysis Workflows</a></li>
+<li>🚀 <a href="../installation.html">Installation Guide</a></li>
+</ul>
+<h3 id="support-resources">Support Resources</h3>
+<ul>
+<li>🆘 <a href="https://github.com/MGI-tech-bioinformatics/DNBelab_C_Series_HT_scRNA-analysis-software/issues">GitHub Issues</a></li>
+<li>📖 <a href="../">Documentation Home</a></li>
+</ul>
+<hr>
+<p><em>For detailed output file descriptions, click on the analysis-specific documentation links above.</em></p>
+
+            
+            
+        </body>
+        </html>
