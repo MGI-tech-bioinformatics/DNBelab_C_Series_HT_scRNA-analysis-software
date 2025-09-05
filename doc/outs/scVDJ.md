@@ -1,3 +1,9 @@
+<div align="right">
+
+[🏠 主页](../../README.md) | [🌐 English](scVDJ_en.md)
+
+</div>
+
 # 🧬 DNBelab C Series HT scVDJ 分析输出文档
 
 <div align="center">
@@ -65,28 +71,29 @@
 
 **🔍 重要术语解释：**
 
+<!-- 表格内容 -->
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
-<th width="20%" align="center"><strong>组成区域</strong></th>
-<th width="30%" align="center"><strong>英文缩写</strong></th>
+<th width="20%" align="left"><strong>组成区域</strong></th>
+<th width="30%" align="left"><strong>英文缩写</strong></th>
 <th width="50%" align="left"><strong>生物学功能</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="center"><strong>非翻译区</strong></td>
-<td align="center">UTR (Untranslated Region)</td>
+<td align="left"><strong>非翻译区</strong></td>
+<td align="left">UTR (Untranslated Region)</td>
 <td>调控 mRNA 稳定性和翻译效率，不编码蛋白质</td>
 </tr>
 <tr>
-<td align="center"><strong>框架区</strong></td>
-<td align="center">FWR (Framework Region)</td>
+<td align="left"><strong>框架区</strong></td>
+<td align="left">FWR (Framework Region)</td>
 <td>维持免疫球蛋白折叠的保守性结构框架</td>
 </tr>
 <tr>
-<td align="center"><strong>互补决定区</strong></td>
-<td align="center">CDR (Complementarity Determining Region)</td>
+<td align="left"><strong>互补决定区</strong></td>
+<td align="left">CDR (Complementarity Determining Region)</td>
 <td>直接与抗原接触，决定结合特异性的关键可变区域</td>
 </tr>
 </tbody>
@@ -126,24 +133,25 @@
 
 **🔬 不同细胞类型的预期受体配置：**
 
+<!-- 表格内容 -->
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
-<th width="25%" align="center"><strong>细胞类型</strong></th>
-<th width="45%" align="center"><strong>标准受体配置</strong></th>
-<th width="30%" align="center"><strong>生物学意义</strong></th>
+<th width="25%" align="left"><strong>细胞类型</strong></th>
+<th width="45%" align="left"><strong>标准受体配置</strong></th>
+<th width="30%" align="left"><strong>生物学意义</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="center"><strong>T 细胞</strong></td>
-<td align="center">1 个生产性 TRA 链 + 1 个生产性 TRB 链</td>
-<td align="center">正常 TCR α/β 异源二聚体</td>
+<td align="left"><strong>T 细胞</strong></td>
+<td align="left">1 个生产性 TRA 链 + 1 个生产性 TRB 链</td>
+<td align="left">正常 TCR α/β 异源二聚体</td>
 </tr>
 <tr>
-<td align="center"><strong>B 细胞</strong></td>
-<td align="center">1 个生产性重链 + 1 个生产性轻链（κ 或 λ）</td>
-<td align="center">正常 BCR 重链/轻链配对</td>
+<td align="left"><strong>B 细胞</strong></td>
+<td align="left">1 个生产性重链 + 1 个生产性轻链（κ 或 λ）</td>
+<td align="left">正常 BCR 重链/轻链配对</td>
 </tr>
 </tbody>
 </table>
@@ -154,24 +162,25 @@
 
 > ⚠️ **重要提示**：超出正常配置的额外生产性重叠群通常为异常情况，可能源于：
 
+<!-- 表格内容 -->
 <table style="width:100%; border-collapse: collapse; margin: 10px 0;">
 <thead>
 <tr>
-<th width="20%" align="center"><strong>异常类型</strong></th>
+<th width="20%" align="left"><strong>异常类型</strong></th>
 <th width="80%" align="left"><strong>原因分析</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="center">🌍 <strong>环境污染</strong></td>
+<td align="left">🌍 <strong>环境污染</strong></td>
 <td>游离 mRNA 的非特异性捕获，可能来自外源污染或凋亡细胞释放的核酸</td>
 </tr>
 <tr>
-<td align="center">📎 <strong>双细胞事件</strong></td>
+<td align="left">📎 <strong>双细胞事件</strong></td>
 <td>液滴中包含多个细胞 (doublets)，导致无法区分不同细胞的受体信号</td>
 </tr>
 <tr>
-<td align="center">🔧 <strong>技术伪影</strong></td>
+<td align="left">🔧 <strong>技术伪影</strong></td>
 <td>PCR 扩增或测序过程中的人工序列，包括嵌合体序列或错误的引物结合</td>
 </tr>
 </tbody>
@@ -194,140 +203,141 @@
 
 **重要字段说明**：
 
+<!-- 表格内容 -->
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
-<th width="25%" align="center"><strong>字段名</strong></th>
+<th width="25%" align="left"><strong>字段名</strong></th>
 <th width="75%" align="left"><strong>详细描述</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="center"><code>cell_id</code></td>
+<td align="left"><code>cell_id</code></td>
 <td>该重排序列所属细胞的唯一标识符，用于关联单细胞数据</td>
 </tr>
 <tr>
-<td align="center"><code>clone_id</code></td>
+<td align="left"><code>clone_id</code></td>
 <td>克隆型编号，标识该重排序列归属的特定克隆群体，用于克隆型分析</td>
 </tr>
 <tr>
-<td align="center"><code>sequence_id</code></td>
+<td align="left"><code>sequence_id</code></td>
 <td>重叠群（重排序列）的唯一名称或标识符</td>
 </tr>
 <tr>
-<td align="center"><code>sequence</code></td>
+<td align="left"><code>sequence</code></td>
 <td>V(D)J 重排的完整核苷酸序列，包含所有可变、多样性和连接区域</td>
 </tr>
 <tr>
-<td align="center"><code>sequence_aa</code></td>
+<td align="left"><code>sequence_aa</code></td>
 <td>重排区域翻译获得的氨基酸序列，反映功能性蛋白产物</td>
 </tr>
 <tr>
-<td align="center"><code>productive</code></td>
+<td align="left"><code>productive</code></td>
 <td>标记该重排是否为生产性（具有生物学功能），需满足框内翻译和无终止密码子等条件</td>
 </tr>
 <tr>
-<td align="center"><code>rev_comp</code></td>
+<td align="left"><code>rev_comp</code></td>
 <td>指示序列是否为反向互补序列（默认：false），用于序列方向标记</td>
 </tr>
 <tr>
-<td align="center"><code>v_call</code></td>
+<td align="left"><code>v_call</code></td>
 <td>识别的 V（可变）基因片段名称</td>
 </tr>
 <tr>
-<td align="center"><code>v_cigar</code></td>
+<td align="left"><code>v_cigar</code></td>
 <td>V 基因比对的 CIGAR 字符串，记录比对的详细信息（匹配、插入、删除等）</td>
 </tr>
 <tr>
-<td align="center"><code>d_call</code></td>
+<td align="left"><code>d_call</code></td>
 <td>识别的 D（多样性）基因片段名称（仅适用于重链和 β 链）</td>
 </tr>
 <tr>
-<td align="center"><code>d_cigar</code></td>
+<td align="left"><code>d_cigar</code></td>
 <td>D 基因比对的 CIGAR 字符串，详细记录多样性区域的比对结果</td>
 </tr>
 <tr>
-<td align="center"><code>j_call</code></td>
+<td align="left"><code>j_call</code></td>
 <td>识别的 J（连接）基因片段名称，完成 V(D)J 重组的关键元件</td>
 </tr>
 <tr>
-<td align="center"><code>j_cigar</code></td>
+<td align="left"><code>j_cigar</code></td>
 <td>J 基因比对的 CIGAR 字符串，记录连接区域的精确比对信息</td>
 </tr>
 <tr>
-<td align="center"><code>c_call</code></td>
+<td align="left"><code>c_call</code></td>
 <td>识别的 C（恒定）基因片段名称，决定抗体/受体的功能类型</td>
 </tr>
 <tr>
-<td align="center"><code>c_cigar</code></td>
+<td align="left"><code>c_cigar</code></td>
 <td>C 基因比对的 CIGAR 字符串，记录恒定区域的比对详情</td>
 </tr>
 <tr>
-<td align="center"><code>sequence_alignment</code></td>
+<td align="left"><code>sequence_alignment</code></td>
 <td>V(D)J 重排区域与参考种系序列的详细比对结果，显示突变和变异</td>
 </tr>
 <tr>
-<td align="center"><code>germline_alignment</code></td>
+<td align="left"><code>germline_alignment</code></td>
 <td>推断的种系全长序列比对结果，用于体细胞突变分析</td>
 </tr>
 <tr>
-<td align="center"><code>junction</code></td>
+<td align="left"><code>junction</code></td>
 <td>V(D)J 重排连接区的核苷酸序列（CDR3 区域），决定抗原结合特异性</td>
 </tr>
 <tr>
-<td align="center"><code>junction_aa</code></td>
+<td align="left"><code>junction_aa</code></td>
 <td>重排连接区的氨基酸序列（CDR3 氨基酸），抗原识别的关键结构域</td>
 </tr>
 <tr>
-<td align="center"><code>junction_length</code></td>
+<td align="left"><code>junction_length</code></td>
 <td>CDR3 区域核苷酸序列长度（bp），影响抗原结合能力和特异性</td>
 </tr>
 <tr>
-<td align="center"><code>junction_aa_length</code></td>
+<td align="left"><code>junction_aa_length</code></td>
 <td>CDR3 区域氨基酸序列长度（aa），决定抗原结合环的空间结构</td>
 </tr>
 <tr>
-<td align="center"><code>v_sequence_start</code></td>
+<td align="left"><code>v_sequence_start</code></td>
 <td>V 区域在重排序列中的起始位置（1-based 坐标系统）</td>
 </tr>
 <tr>
-<td align="center"><code>v_sequence_end</code></td>
+<td align="left"><code>v_sequence_end</code></td>
 <td>V 区域在重排序列中的结束位置（1-based 坐标系统）</td>
 </tr>
 <tr>
-<td align="center"><code>d_sequence_start</code></td>
+<td align="left"><code>d_sequence_start</code></td>
 <td>D 区域在重排序列中的起始位置（1-based 坐标系统）</td>
 </tr>
 <tr>
-<td align="center"><code>d_sequence_end</code></td>
+<td align="left"><code>d_sequence_end</code></td>
 <td>D 区域在重排序列中的结束位置（1-based 坐标系统）</td>
 </tr>
 <tr>
-<td align="center"><code>j_sequence_start</code></td>
+<td align="left"><code>j_sequence_start</code></td>
 <td>J 区域在重排序列中的起始位置（1-based 坐标系统）</td>
 </tr>
 <tr>
-<td align="center"><code>j_sequence_end</code></td>
+<td align="left"><code>j_sequence_end</code></td>
 <td>J 区域在重排序列中的结束位置（1-based 坐标系统）</td>
 </tr>
 <tr>
-<td align="center"><code>c_sequence_start</code></td>
+<td align="left"><code>c_sequence_start</code></td>
 <td>C 区域在重排序列中的起始位置（1-based 坐标系统）</td>
 </tr>
 <tr>
-<td align="center"><code>c_sequence_end</code></td>
+<td align="left"><code>c_sequence_end</code></td>
 <td>C 区域在重排序列中的结束位置（1-based 坐标系统）</td>
 </tr>
 <tr>
-<td align="center"><code>consensus_count</code></td>
+<td align="left"><code>consensus_count</code></td>
 <td>支持该重排序列的总 reads 数量，反映测序深度和序列可信度</td>
 </tr>
 <tr>
-<td align="center"><code>duplicate_count</code></td>
+<td align="left"><code>duplicate_count</code></td>
 <td>支持该重排序列的独特 UMI 分子数量，用于去重和定量分析</td>
 </tr>
 <tr>
-<td align="center"><code>is_cell</code></td>
+<td align="left"><code>is_cell</code></td>
 <td>标记该重排是否来源于真实细胞（TRUE：细胞；FALSE：背景/空滴）</td>
 </tr>
 </tbody>
@@ -344,136 +354,137 @@
 - 🔍 **详细序列**：包含详细的 CDR 和 FWR 区域序列信息
 - 🎯 **质控支持**：支持质量控制和可信度评估分析
 
+<!-- 表格内容 -->
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
-<th width="25%" align="center"><strong>字段名</strong></th>
+<th width="25%" align="left"><strong>字段名</strong></th>
 <th width="75%" align="left"><strong>描述</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="center"><code>sample</code></td>
+<td align="left"><code>sample</code></td>
 <td>VDJ文库的样本名称</td>
 </tr>
 <tr>
-<td align="center"><code>barcode</code></td>
+<td align="left"><code>barcode</code></td>
 <td>该重叠群对应的细胞ID（或条形码）</td>
 </tr>
 <tr>
-<td align="center"><code>is_cell</code></td>
+<td align="left"><code>is_cell</code></td>
 <td>布尔值，指示该细胞ID是否被识别为细胞（TRUE为细胞，FALSE为背景）</td>
 </tr>
 <tr>
-<td align="center"><code>contig_id</code></td>
+<td align="left"><code>contig_id</code></td>
 <td>该重叠群的唯一标识符</td>
 </tr>
 <tr>
-<td align="center"><code>high_confidence</code></td>
+<td align="left"><code>high_confidence</code></td>
 <td>布尔值，指示该重叠群是否被标记为高置信度（不太可能是嵌合序列或其他伪影）</td>
 </tr>
 <tr>
-<td align="center"><code>length</code></td>
+<td align="left"><code>length</code></td>
 <td>重叠群序列的核苷酸长度（bp）</td>
 </tr>
 <tr>
-<td align="center"><code>chain</code></td>
+<td align="left"><code>chain</code></td>
 <td>与该重叠群相关的链类型：TRA、TRB、IGK、IGL或IGH</td>
 </tr>
 <tr>
-<td align="center"><code>v_gene</code></td>
+<td align="left"><code>v_gene</code></td>
 <td>得分最高的V基因片段，如TRAV1-1</td>
 </tr>
 <tr>
-<td align="center"><code>d_gene</code></td>
+<td align="left"><code>d_gene</code></td>
 <td>得分最高的D基因片段，如TRBD1</td>
 </tr>
 <tr>
-<td align="center"><code>j_gene</code></td>
+<td align="left"><code>j_gene</code></td>
 <td>得分最高的J基因片段，如TRAJ1-1</td>
 </tr>
 <tr>
-<td align="center"><code>full_length</code></td>
+<td align="left"><code>full_length</code></td>
 <td>布尔值，指示该重叠群是否被声明为全长序列</td>
 </tr>
 <tr>
-<td align="center"><code>productive</code></td>
+<td align="left"><code>productive</code></td>
 <td>布尔值，指示该重叠群是否被声明为生产性序列</td>
 </tr>
 <tr>
-<td align="center"><code>fwr1</code></td>
+<td align="left"><code>fwr1</code></td>
 <td>预测的FWR1氨基酸序列</td>
 </tr>
 <tr>
-<td align="center"><code>fwr1_nt</code></td>
+<td align="left"><code>fwr1_nt</code></td>
 <td>预测的FWR1核苷酸序列</td>
 </tr>
 <tr>
-<td align="center"><code>cdr1</code></td>
+<td align="left"><code>cdr1</code></td>
 <td>预测的CDR1氨基酸序列</td>
 </tr>
 <tr>
-<td align="center"><code>cdr1_nt</code></td>
+<td align="left"><code>cdr1_nt</code></td>
 <td>预测的CDR1核苷酸序列</td>
 </tr>
 <tr>
-<td align="center"><code>fwr2</code></td>
+<td align="left"><code>fwr2</code></td>
 <td>预测的FWR2氨基酸序列</td>
 </tr>
 <tr>
-<td align="center"><code>fwr2_nt</code></td>
+<td align="left"><code>fwr2_nt</code></td>
 <td>预测的FWR2核苷酸序列</td>
 </tr>
 <tr>
-<td align="center"><code>cdr2</code></td>
+<td align="left"><code>cdr2</code></td>
 <td>预测的CDR2氨基酸序列</td>
 </tr>
 <tr>
-<td align="center"><code>cdr2_nt</code></td>
+<td align="left"><code>cdr2_nt</code></td>
 <td>预测的CDR2核苷酸序列</td>
 </tr>
 <tr>
-<td align="center"><code>fwr3</code></td>
+<td align="left"><code>fwr3</code></td>
 <td>预测的FWR3氨基酸序列</td>
 </tr>
 <tr>
-<td align="center"><code>fwr3_nt</code></td>
+<td align="left"><code>fwr3_nt</code></td>
 <td>预测的FWR3核苷酸序列</td>
 </tr>
 <tr>
-<td align="center"><code>cdr3</code></td>
+<td align="left"><code>cdr3</code></td>
 <td>预测的CDR3氨基酸序列</td>
 </tr>
 <tr>
-<td align="center"><code>cdr3_nt</code></td>
+<td align="left"><code>cdr3_nt</code></td>
 <td>预测的CDR3核苷酸序列</td>
 </tr>
 <tr>
-<td align="center"><code>fwr4</code></td>
+<td align="left"><code>fwr4</code></td>
 <td>预测的FWR4氨基酸序列</td>
 </tr>
 <tr>
-<td align="center"><code>fwr4_nt</code></td>
+<td align="left"><code>fwr4_nt</code></td>
 <td>预测的FWR4核苷酸序列</td>
 </tr>
 <tr>
-<td align="center"><code>reads</code></td>
+<td align="left"><code>reads</code></td>
 <td>比对到该重叠群的reads数量</td>
 </tr>
 <tr>
-<td align="center"><code>umis</code></td>
+<td align="left"><code>umis</code></td>
 <td>比对到该重叠群的不同UMI数量</td>
 </tr>
 <tr>
-<td align="center"><code>raw_clonotype_id</code></td>
+<td align="left"><code>raw_clonotype_id</code></td>
 <td>分配给该细胞条形码的克隆型ID</td>
 </tr>
 <tr>
-<td align="center"><code>raw_consensus_id</code></td>
+<td align="left"><code>raw_consensus_id</code></td>
 <td>该重叠群被分配到的共识序列ID</td>
 </tr>
 <tr>
-<td align="center"><code>exact_subclonotype_id</code></td>
+<td align="left"><code>exact_subclonotype_id</code></td>
 <td>该细胞条形码被分配到的精确亚克隆型ID</td>
 </tr>
 </tbody>
@@ -512,32 +523,33 @@
 - 📈 **频率分析**：支持频率和相对比例分析
 - 🔬 **免疫组库**：适用于专业免疫组库研究
 
+<!-- 表格内容 -->
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
-<th width="25%" align="center"><strong>字段名</strong></th>
+<th width="25%" align="left"><strong>字段名</strong></th>
 <th width="75%" align="left"><strong>详细描述</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="center"><code>clonotype_id</code></td>
+<td align="left"><code>clonotype_id</code></td>
 <td>分配给该共识序列的克隆型唯一标识符，用于关联和追踪特定克隆群体的所有相关细胞</td>
 </tr>
 <tr>
-<td align="center"><code>frequency</code></td>
+<td align="left"><code>frequency</code></td>
 <td>观察到的具有该克隆型的细胞绝对数量，反映克隆扩增程度和免疫应答强度</td>
 </tr>
 <tr>
-<td align="center"><code>proportion</code></td>
+<td align="left"><code>proportion</code></td>
 <td>该克隆型细胞占总细胞群体的相对比例，用于评估克隆优势度和多样性分布</td>
 </tr>
 <tr>
-<td align="center"><code>cdr3s_aa</code></td>
+<td align="left"><code>cdr3s_aa</code></td>
 <td>以分号分隔的链:序列对列表，格式为"链名:CDR3氨基酸序列"。链名包括TRA、TRB、TRG、TRD（T细胞受体）和IGK、IGL、IGH（B细胞受体），CDR3氨基酸序列决定抗原结合特异性和功能活性</td>
 </tr>
 <tr>
-<td align="center"><code>cdr3s_nt</code></td>
+<td align="left"><code>cdr3s_nt</code></td>
 <td>以分号分隔的链:序列对列表，格式为"链名:CDR3核苷酸序列"。提供CDR3区域的DNA序列信息，用于体细胞突变分析、克隆进化追踪和分子标记设计</td>
 </tr>
 </tbody>
@@ -566,72 +578,73 @@
 - 🔍 **详细序列**：提供CDR和FWR区域的详细序列信息
 - 🎯 **分析支持**：支持克隆型水平的序列分析
 
+<!-- 表格内容 -->
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
-<th width="25%" align="center"><strong>字段名</strong></th>
+<th width="25%" align="left"><strong>字段名</strong></th>
 <th width="75%" align="left"><strong>描述</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="center"><code>clonotype_id</code></td>
+<td align="left"><code>clonotype_id</code></td>
 <td>分配给该一致性序列的克隆型ID，对应[clonotypes.csv](#clonotypes.csv)中的克隆型标识符</td>
 </tr>
 <tr>
-<td align="center"><code>consensus_id</code></td>
+<td align="left"><code>consensus_id</code></td>
 <td>该一致性序列的唯一标识符，用于关联FASTA文件中的序列</td>
 </tr>
 <tr>
-<td align="center"><code>sample</code></td>
+<td align="left"><code>sample</code></td>
 <td>VDJ文库的样本名称</td>
 </tr>
 <tr>
-<td align="center"><code>length</code></td>
+<td align="left"><code>length</code></td>
 <td>一致性序列的核苷酸长度</td>
 </tr>
 <tr>
-<td align="center"><code>chain</code></td>
+<td align="left"><code>chain</code></td>
 <td>与该一致性序列相关的链类型：TRA、TRB、IGK、IGL或IGH</td>
 </tr>
 <tr>
-<td align="center"><code>v_gene</code></td>
+<td align="left"><code>v_gene</code></td>
 <td>得分最高的V基因片段调用结果</td>
 </tr>
 <tr>
-<td align="center"><code>d_gene</code></td>
+<td align="left"><code>d_gene</code></td>
 <td>得分最高的D基因片段调用结果（如适用）</td>
 </tr>
 <tr>
-<td align="center"><code>j_gene</code></td>
+<td align="left"><code>j_gene</code></td>
 <td>得分最高的J基因片段调用结果</td>
 </tr>
 <tr>
-<td align="center"><code>c_gene</code></td>
+<td align="left"><code>c_gene</code></td>
 <td>得分最高的C基因片段调用结果</td>
 </tr>
 <tr>
-<td align="center"><code>full_length</code></td>
+<td align="left"><code>full_length</code></td>
 <td>布尔值，指示该一致性序列是否被声明为全长序列</td>
 </tr>
 <tr>
-<td align="center"><code>productive</code></td>
+<td align="left"><code>productive</code></td>
 <td>布尔值，指示该一致性序列是否被声明为生产性序列</td>
 </tr>
 <tr>
-<td align="center"><code>cdr3</code></td>
+<td align="left"><code>cdr3</code></td>
 <td>预测的CDR3氨基酸序列</td>
 </tr>
 <tr>
-<td align="center"><code>cdr3_nt</code></td>
+<td align="left"><code>cdr3_nt</code></td>
 <td>预测的CDR3核苷酸序列</td>
 </tr>
 <tr>
-<td align="center"><code>reads</code></td>
+<td align="left"><code>reads</code></td>
 <td>支持该一致性序列的reads总数</td>
 </tr>
 <tr>
-<td align="center"><code>umis</code></td>
+<td align="left"><code>umis</code></td>
 <td>支持该一致性序列的不同UMI数量</td>
 </tr>
 </tbody>
@@ -654,29 +667,29 @@
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
-<th width="20%" align="center"><strong>指标类别</strong></th>
+<th width="20%" align="left"><strong>指标类别</strong></th>
 <th width="80%" align="left"><strong>包含内容</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="center"><strong>📊 基本统计</strong></td>
+<td align="left"><strong>📊 基本统计</strong></td>
 <td>总读数、有效条形码比例、UMI质量、Q30碱基质量等基础测序指标</td>
 </tr>
 <tr>
-<td align="center"><strong>🧬 细胞识别</strong></td>
+<td align="left"><strong>🧬 细胞识别</strong></td>
 <td>估计细胞数量、细胞内读数比例、每细胞平均读数等细胞调用结果</td>
 </tr>
 <tr>
-<td align="center"><strong>🎯 基因映射</strong></td>
+<td align="left"><strong>🎯 基因映射</strong></td>
 <td>V(D)J基因映射比例、链特异性映射统计、基因利用度分析</td>
 </tr>
 <tr>
-<td align="center"><strong>🔬 组装质量</strong></td>
+<td align="left"><strong>🔬 组装质量</strong></td>
 <td>全长序列比例、生产性序列比例、CDR3识别成功率等组装效果评估</td>
 </tr>
 <tr>
-<td align="center"><strong>📈 克隆型分析</strong></td>
+<td align="left"><strong>📈 克隆型分析</strong></td>
 <td>克隆型多样性、配对成功率、主要克隆型频率等免疫组库特征</td>
 </tr>
 </tbody>
@@ -705,25 +718,25 @@
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
-<th width="25%" align="center"><strong>报告特点</strong></th>
+<th width="25%" align="left"><strong>报告特点</strong></th>
 <th width="75%" align="left"><strong>内容描述</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="center"><strong>📊 交互式图表</strong></td>
+<td align="left"><strong>📊 交互式图表</strong></td>
 <td>质控指标、重排分析、克隆型分析等可交互可视化图表</td>
 </tr>
 <tr>
-<td align="center"><strong>📈 统计汇总</strong></td>
+<td align="left"><strong>📈 统计汇总</strong></td>
 <td>关键性能指标的数值汇总和趋势分析</td>
 </tr>
 <tr>
-<td align="center"><strong>🎯 质量评估</strong></td>
+<td align="left"><strong>🎯 质量评估</strong></td>
 <td>数据质量综合评估和优化建议</td>
 </tr>
 <tr>
-<td align="center"><strong>🔍 详细解读</strong></td>
+<td align="left"><strong>🔍 详细解读</strong></td>
 <td>各项指标的生物学意义和技术解释</td>
 </tr>
 </tbody>
@@ -770,49 +783,51 @@ HTML网页报告是单细胞VDJ测序分析的综合展示平台，整合了从�
 
 **📊 质量控制标准：**
 
+<!-- 表格内容 -->
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
-<th width="25%" align="center"><strong>指标名称</strong></th>
-<th width="30%" align="center"><strong>推荐值</strong></th>
-<th width="30%" align="center"><strong>可接受</strong></th>
-<th width="15%" align="center"><strong>需优化</strong></th>
+<th width="25%" align="left"><strong>指标名称</strong></th>
+<th width="30%" align="left"><strong>推荐值</strong></th>
+<th width="30%" align="left"><strong>可接受</strong></th>
+<th width="15%" align="left"><strong>需优化</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="center"><strong>Mean reads per cell</strong></td>
-<td align="center">≥ 10,000</td>
-<td align="center">5,000–10,000</td>
-<td align="center">< 5,000</td>
+<td align="left"><strong>Mean reads per cell</strong></td>
+<td align="left">≥ 10,000</td>
+<td align="left">5,000–10,000</td>
+<td align="left">< 5,000</td>
 </tr>
 <tr>
-<td align="center"><strong>Fraction of Reads in Cells</strong></td>
-<td align="center">≥ 50%</td>
-<td align="center">30–50%</td>
-<td align="center">< 30%</td>
+<td align="left"><strong>Fraction of Reads in Cells</strong></td>
+<td align="left">≥ 50%</td>
+<td align="left">30–50%</td>
+<td align="left">< 30%</td>
 </tr>
 <tr>
-<td align="center"><strong>Cells with productive V-J spanning pair</strong></td>
-<td align="center">≥ 30%</td>
-<td align="center">20–30%</td>
-<td align="center">< 20%</td>
+<td align="left"><strong>Cells with productive V-J spanning pair</strong></td>
+<td align="left">≥ 30%</td>
+<td align="left">20–30%</td>
+<td align="left">< 20%</td>
 </tr>
 </tbody>
 </table>
 
 **🔍 详细指标解释：**
 
+<!-- 表格内容 -->
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
-<th width="30%" align="center"><strong>指标名称</strong></th>
+<th width="30%" align="left"><strong>指标名称</strong></th>
 <th width="70%" align="left"><strong>详细解释与技术要求</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="center">
+<td align="left">
 <strong>Estimated number of cells</strong><br>
 <em>估计细胞数量</em>
 </td>
@@ -825,7 +840,7 @@ HTML网页报告是单细胞VDJ测序分析的综合展示平台，整合了从�
 </td>
 </tr>
 <tr>
-<td align="center">
+<td align="left">
 <strong>Mean reads per cell</strong><br>
 <em>平均每细胞读数统计</em>
 </td>
@@ -842,7 +857,7 @@ HTML网页报告是单细胞VDJ测序分析的综合展示平台，整合了从�
 </td>
 </tr>
 <tr>
-<td align="center">
+<td align="left">
 <strong>Fraction of Reads in Cells</strong><br>
 <em>细胞内读数占比</em>
 </td>
@@ -855,7 +870,7 @@ HTML网页报告是单细胞VDJ测序分析的综合展示平台，整合了从�
 </td>
 </tr>
 <tr>
-<td align="center">
+<td align="left">
 <strong>Median TRA/TRB or IGH/IGK/IGL UMIs per cell</strong><br>
 <em>每细胞特异性链 UMI 中位数</em>
 </td>
@@ -864,7 +879,7 @@ HTML网页报告是单细胞VDJ测序分析的综合展示平台，整合了从�
 </td>
 </tr>
 <tr>
-<td align="center">
+<td align="left">
 <strong>Number of cells with TRA/TRB or IGH/IGK/IGL contig</strong><br>
 <em>含有TRA/TRB或IGH/IGK/IGL重组子的细胞</em>
 </td>
@@ -877,7 +892,7 @@ HTML网页报告是单细胞VDJ测序分析的综合展示平台，整合了从�
 </td>
 </tr>
 <tr>
-<td align="center">
+<td align="left">
 <strong>Cells with V-J spanning TRA/TRB or IGH/IGK/IGL contig</strong><br>
 <em>含有V-J跨区TRA/TRB或IGH/IGK/IGL重组子的细胞</em>
 </td>
@@ -889,7 +904,7 @@ HTML网页报告是单细胞VDJ测序分析的综合展示平台，整合了从�
 </td>
 </tr>
 <tr>
-<td align="center">
+<td align="left">
 <strong>Cells with productive TRA/TRB or IGH/IGK/IGL contig</strong><br>
 <em>含功能性TRA/TRB或IGH/IGK/IGL重组子的细胞</em>
 </td>
@@ -898,7 +913,7 @@ HTML网页报告是单细胞VDJ测序分析的综合展示平台，整合了从�
 </td>
 </tr>
 <tr>
-<td align="center">
+<td align="left">
 <strong>Paired clonotype diversity</strong><br>
 <em>配对克隆型多样性</em>
 </td>
@@ -924,49 +939,51 @@ HTML网页报告是单细胞VDJ测序分析的综合展示平台，整合了从�
 
 **📊 质量控制标准：**
 
+<!-- 表格内容 -->
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
-<th width="25%" align="center"><strong>指标名称</strong></th>
-<th width="30%" align="center"><strong>推荐值</strong></th>
-<th width="30%" align="center"><strong>可接受</strong></th>
-<th width="15%" align="center"><strong>需优化</strong></th>
+<th width="25%" align="left"><strong>指标名称</strong></th>
+<th width="30%" align="left"><strong>推荐值</strong></th>
+<th width="30%" align="left"><strong>可接受</strong></th>
+<th width="15%" align="left"><strong>需优化</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="center"><strong>Valid barcodes</strong></td>
-<td align="center">≥ 80%</td>
-<td align="center">70–80%</td>
-<td align="center">< 70%</td>
+<td align="left"><strong>Valid barcodes</strong></td>
+<td align="left">≥ 80%</td>
+<td align="left">70–80%</td>
+<td align="left">< 70%</td>
 </tr>
 <tr>
-<td align="center"><strong>Valid UMIs</strong></td>
-<td align="center">≥ 80%</td>
-<td align="center">70–80%</td>
-<td align="center">< 70%</td>
+<td align="left"><strong>Valid UMIs</strong></td>
+<td align="left">≥ 80%</td>
+<td align="left">70–80%</td>
+<td align="left">< 70%</td>
 </tr>
 <tr>
-<td align="center"><strong>Q30 Base Quality</strong></td>
-<td align="center">≥ 85%</td>
-<td align="center">75–85%</td>
-<td align="center">< 75%</td>
+<td align="left"><strong>Q30 Base Quality</strong></td>
+<td align="left">≥ 85%</td>
+<td align="left">75–85%</td>
+<td align="left">< 75%</td>
 </tr>
 </tbody>
 </table>
 
 **🔍 详细指标解释：**
 
+<!-- 表格内容 -->
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
-<th width="30%" align="center"><strong>指标名称</strong></th>
+<th width="30%" align="left"><strong>指标名称</strong></th>
 <th width="70%" align="left"><strong>详细解释与技术要求</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="center">
+<td align="left">
 <strong>Valid barcodes</strong><br>
 <em>有效条形码比例</em>
 </td>
@@ -978,7 +995,7 @@ HTML网页报告是单细胞VDJ测序分析的综合展示平台，整合了从�
 </td>
 </tr>
 <tr>
-<td align="center">
+<td align="left">
 <strong>Valid UMIs</strong><br>
 <em>有效 UMI 比例</em>
 </td>
@@ -990,7 +1007,7 @@ HTML网页报告是单细胞VDJ测序分析的综合展示平台，整合了从�
 </td>
 </tr>
 <tr>
-<td align="center">
+<td align="left">
 <strong>Q30 Base Quality</strong><br>
 <em>Q30 高质量碱基比例</em>
 </td>
@@ -1015,37 +1032,39 @@ HTML网页报告是单细胞VDJ测序分析的综合展示平台，整合了从�
 
 **📊 质量控制标准：**
 
+<!-- 表格内容 -->
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
-<th width="25%" align="center"><strong>指标类别</strong></th>
-<th width="25%" align="center"><strong>推荐值</strong></th>
-<th width="25%" align="center"><strong>可接受</strong></th>
-<th width="25%" align="center"><strong>需优化</strong></th>
+<th width="25%" align="left"><strong>指标类别</strong></th>
+<th width="25%" align="left"><strong>推荐值</strong></th>
+<th width="25%" align="left"><strong>可接受</strong></th>
+<th width="25%" align="left"><strong>需优化</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="center"><strong>Reads mapped to any V(D)J gene</strong></td>
-<td align="center">≥ 50%</td>
-<td align="center">30–50%</td>
-<td align="center">< 30%</td>
+<td align="left"><strong>Reads mapped to any V(D)J gene</strong></td>
+<td align="left">≥ 50%</td>
+<td align="left">30–50%</td>
+<td align="left">< 30%</td>
 </tr>
 </tbody>
 </table>
 
 **🔍 详细指标解释：**
 
+<!-- 表格内容 -->
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
-<th width="30%" align="center"><strong>指标名称</strong></th>
+<th width="30%" align="left"><strong>指标名称</strong></th>
 <th width="70%" align="left"><strong>详细解释与技术要求</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="center">
+<td align="left">
 <strong>Reads mapped to any V(D)J gene</strong><br>
 <em>泛 V(D)J 基因映射读数比例</em>
 </td>
@@ -1061,7 +1080,7 @@ HTML网页报告是单细胞VDJ测序分析的综合展示平台，整合了从�
 </td>
 </tr>
 <tr>
-<td align="center">
+<td align="left">
 <strong>Reads mapped to TRA/TRB/IGH/IGK/IGL</strong><br>
 <em>TRA/TRB/IGH/IGK/IGL 特异性免疫受体链映射比例</em>
 </td>
@@ -1069,17 +1088,17 @@ HTML网页报告是单细胞VDJ测序分析的综合展示平台，整合了从�
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
-<th width="30%" align="center"><strong>受体链类型</strong></th>
+<th width="30%" align="left"><strong>受体链类型</strong></th>
 <th width="70%" align="left"><strong>表达特征与生物学意义</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="center"><strong>TRA vs TRB</strong></td>
+<td align="left"><strong>TRA vs TRB</strong></td>
 <td>TRA（α 链）表达水平通常低于 TRB（β 链），反映 T 细胞受体的正常表达模式</td>
 </tr>
 <tr>
-<td align="center"><strong>IGH vs IGK/IGL</strong></td>
+<td align="left"><strong>IGH vs IGK/IGL</strong></td>
 <td>重链和轻链呈现配对表达特征，映射比例反映各免疫受体链的相对表达丰度</td>
 </tr>
 </tbody>
@@ -1100,37 +1119,39 @@ HTML网页报告是单细胞VDJ测序分析的综合展示平台，整合了从�
 
 **📊 质量控制标准：**
 
+<!-- 表格内容 -->
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
-<th width="25%" align="center"><strong>指标名称</strong></th>
-<th width="25%" align="center"><strong>推荐值</strong></th>
-<th width="25%" align="center"><strong>可接受</strong></th>
-<th width="25%" align="center"><strong>需优化</strong></th>
+<th width="25%" align="left"><strong>指标名称</strong></th>
+<th width="25%" align="left"><strong>推荐值</strong></th>
+<th width="25%" align="left"><strong>可接受</strong></th>
+<th width="25%" align="left"><strong>需优化</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="center"><strong>Cells with productive V-J spanning pair</strong></td>
-<td align="center">≥ 40%</td>
-<td align="center">20–40%</td>
-<td align="center">< 20%</td>
+<td align="left"><strong>Cells with productive V-J spanning pair</strong></td>
+<td align="left">≥ 40%</td>
+<td align="left">20–40%</td>
+<td align="left">< 20%</td>
 </tr>
 </tbody>
 </table>
 
 **🔍 详细指标解释：**
 
+<!-- 表格内容 -->
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
-<th width="30%" align="center"><strong>指标名称</strong></th>
+<th width="30%" align="left"><strong>指标名称</strong></th>
 <th width="70%" align="left"><strong>详细解释与技术要求</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="center">
+<td align="left">
 <strong>Number of Cells with Productive V-J Spanning Pair</strong><br>
 <em>具有生产性 V-J 跨越配对的细胞绝对数量</em>
 </td>
@@ -1139,7 +1160,7 @@ HTML网页报告是单细胞VDJ测序分析的综合展示平台，整合了从�
 </td>
 </tr>
 <tr>
-<td align="center">
+<td align="left">
 <strong>Cells with productive V-J spanning pair</strong><br>
 <em>生产性 V-J 跨越配对细胞比例</em>
 </td>
@@ -1155,7 +1176,7 @@ HTML网页报告是单细胞VDJ测序分析的综合展示平台，整合了从�
 </td>
 </tr>
 <tr>
-<td align="center">
+<td align="left">
 <strong>Cells with productive V-J spanning (IGK, IGH) pair</strong><br>
 <em>IGK/IGH 生产性配对细胞比例</em>
 </td>
@@ -1169,7 +1190,7 @@ HTML网页报告是单细胞VDJ测序分析的综合展示平台，整合了从�
 </td>
 </tr>
 <tr>
-<td align="center">
+<td align="left">
 <strong>Cells with productive V-J spanning (IGL, IGH) pair</strong><br>
 <em>IGL/IGH 生产性配对细胞比例</em>
 </td>
@@ -1183,7 +1204,7 @@ HTML网页报告是单细胞VDJ测序分析的综合展示平台，整合了从�
 </td>
 </tr>
 <tr>
-<td align="center">
+<td align="left">
 <strong>Cells with productive V-J spanning (TRA, TRB) pair</strong><br>
 <em>TRA/TRB 生产性配对细胞比例</em>
 </td>
@@ -1217,30 +1238,31 @@ HTML网页报告是单细胞VDJ测序分析的综合展示平台，整合了从�
 
 **技术规范与坐标系统：**
 
+<!-- 表格内容 -->
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
-<th width="20%" align="center"><strong>坐标轴</strong></th>
+<th width="20%" align="left"><strong>坐标轴</strong></th>
 <th width="80%" align="left"><strong>详细技术规范</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="center"><strong>X轴</strong><br><em>Barcode Rank</em></td>
+<td align="left"><strong>X轴</strong><br><em>Barcode Rank</em></td>
 <td>
 <strong>细胞排序（降序排列，对数刻度）</strong><br>
 所有检测到的细胞按 UMI 总数从高到低排序。排名越靠左，UMI 计数越高，代表可能是真实细胞；排名靠右的条形码 UMI 计数低，可能是空液滴或背景 RNA。
 </td>
 </tr>
 <tr>
-<td align="center"><strong>Y轴</strong><br><em>UMI Counts</em></td>
+<td align="left"><strong>Y轴</strong><br><em>UMI Counts</em></td>
 <td>
 <strong>UMI 计数（对数刻度）</strong><br>
 每个细胞对应的总 UMI 数量。UMI 越高，代表该液滴中捕获的 RNA 分子越多，越可能是真实细胞。
 </td>
 </tr>
 <tr>
-<td align="center"><strong>颜色编码</strong><br><em>Color Scheme</em></td>
+<td align="left"><strong>颜色编码</strong><br><em>Color Scheme</em></td>
 <td>
 <strong>细胞密度梯度显示</strong><br>
 • <span style="color: #0ea5e9;">🔵 蓝色线</span>：已识别的有效细胞<br>
@@ -1282,20 +1304,21 @@ HTML网页报告是单细胞VDJ测序分析的综合展示平台，整合了从�
 
 **图表技术规范：**
 
+<!-- 表格内容 -->
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
-<th width="40%" align="center"><strong>图表类型</strong></th>
+<th width="40%" align="left"><strong>图表类型</strong></th>
 <th width="60%" align="left"><strong>功能与应用</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="center"><strong>Top 10 Clonotypes</strong><br><em>前 10 个高频克隆型</em></td>
+<td align="left"><strong>Top 10 Clonotypes</strong><br><em>前 10 个高频克隆型</em></td>
 <td>柱状图显示样本中 10 个最丰富克隆型所占细胞的百分比（细胞比例统计）。直观反映克隆型的相对丰度分布和免疫应答的集中程度。</td>
 </tr>
 <tr>
-<td align="center"><strong>详细信息表格</strong><br><em>克隆型描述统计</em></td>
+<td align="left"><strong>详细信息表格</strong><br><em>克隆型描述统计</em></td>
 <td>提供丰度最高的前 10 种克隆型的完整描述信息，包括：克隆型 ID、CDR3 氨基酸/核苷酸序列、绝对频率以及相对比例的综合统计表格。</td>
 </tr>
 </tbody>
@@ -1307,28 +1330,29 @@ HTML网页报告是单细胞VDJ测序分析的综合展示平台，整合了从�
 
 ### 📚 相关文档
 
+<!-- 表格内容 -->
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
-<th width="30%" align="center"><strong>文档类型</strong></th>
+<th width="30%" align="left"><strong>文档类型</strong></th>
 <th width="70%" align="left"><strong>资源链接和描述</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="center"><strong>🚀 快速入门</strong></td>
+<td align="left"><strong>🚀 快速入门</strong></td>
 <td><a href="../quickstart.md">快速入门指南</a> - 第一次分析的完整教程</td>
 </tr>
 <tr>
-<td align="center"><strong>⚙️ 参数参考</strong></td>
+<td align="left"><strong>⚙️ 参数参考</strong></td>
 <td><a href="../parameter/parameter.md">参数参考手册</a> - 所有可配置参数的详细说明</td>
 </tr>
 <tr>
-<td align="center"><strong>🔬 分析流程</strong></td>
+<td align="left"><strong>🔬 分析流程</strong></td>
 <td><a href="../pipeline.md">分析流程说明</a> - 整个分析流程的技术细节</td>
 </tr>
 <tr>
-<td align="center"><strong>🔧 安装配置</strong></td>
+<td align="left"><strong>🔧 安装配置</strong></td>
 <td><a href="../installation.md">安装配置指南</a> - 系统要求、安装步骤和环境配置</td>
 </tr>
 </tbody>

@@ -1,3 +1,7 @@
+<div align="right">
+  <a href="../README.md">🏠 Home</a>
+</div>
+
 # ⚡ Quick Start Guide
 
 <div align="center">

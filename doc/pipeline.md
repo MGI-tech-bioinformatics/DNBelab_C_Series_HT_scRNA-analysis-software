@@ -1,3 +1,7 @@
+<div align="right">
+  <a href="../README.md">🏠 Home</a>
+</div>
+
 # 🔬 Analysis Workflows
 
 <div align="center">

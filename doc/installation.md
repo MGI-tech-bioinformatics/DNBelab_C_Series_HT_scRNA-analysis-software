@@ -1,3 +1,7 @@
+<div align="right">
+  <a href="../README.md">🏠 Home</a>
+</div>
+
 # 📦 DNBelab C Series™ Software Installation
 
 <div align="center">

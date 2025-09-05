@@ -138,7 +138,10 @@
         
         </head>
         <body class="vscode-body vscode-light">
-            <h1 id="-dnbelab-c-series-ht-scrna-analysis-output-documentation">🧬 DNBelab C Series HT scRNA Analysis Output Documentation</h1>
+            <div align="right">
+<p><a href="../../README.html">🏠 Home</a> | <a href="scRNA.html">🌐 中文</a></p>
+</div>
+<h1 id="-dnbelab-c-series-ht-scrna-analysis-output-documentation">🧬 DNBelab C Series HT scRNA Analysis Output Documentation</h1>
 <div align="center">
 <p><strong>Complete Guide to Single-Cell RNA Sequencing Analysis Output Files</strong></p>
 <p><a href="#directory-structure">📁 Directory Structure</a> • <a href="#detailed-file-description">📋 File Details</a> • <a href="#feature-matrix-files">🧬 Data Matrix</a> • <a href="#analysis-results-directory-analysis">📊 Analysis Results</a> • <a href="#web-report-interpretation">📊 Report Interpretation</a></p>
@@ -238,17 +241,17 @@
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
-<th width="20%" align="center"><strong>Format Type</strong></th>
+<th width="20%" align="left"><strong>Format Type</strong></th>
 <th width="80%" align="left"><strong>Usage Instructions</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="center"><strong>BAI Format</strong></td>
+<td align="left"><strong>BAI Format</strong></td>
 <td>Default generated index format with best compatibility, suitable for most analysis tools</td>
 </tr>
 <tr>
-<td align="center"><strong>CSI Format</strong></td>
+<td align="left"><strong>CSI Format</strong></td>
 <td>Automatically used when BAM file contains chromosomes longer than 2^29-1 bases, supporting larger genomes</td>
 </tr>
 </tbody>
@@ -273,21 +276,21 @@
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
-<th width="25%" align="center"><strong>File Name</strong></th>
+<th width="25%" align="left"><strong>File Name</strong></th>
 <th width="75%" align="left"><strong>Content Description</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="center"><code>barcodes.tsv.gz</code></td>
+<td align="left"><code>barcodes.tsv.gz</code></td>
 <td>Cell ID list, identifying cells that passed cell identification. Each line contains a cell ID sequence, corresponding to the matrix column index</td>
 </tr>
 <tr>
-<td align="center"><code>features.tsv.gz</code></td>
+<td align="left"><code>features.tsv.gz</code></td>
 <td>Complete gene/feature information file, containing gene ID, name, and type information. Each line contains three columns: gene ID, gene name, feature type, corresponding to the matrix row index</td>
 </tr>
 <tr>
-<td align="center"><code>matrix.mtx.gz</code></td>
+<td align="left"><code>matrix.mtx.gz</code></td>
 <td>Gene expression count matrix in Market Matrix format. Contains matrix dimension information and row, column indices and values of non-zero elements</td>
 </tr>
 </tbody>
@@ -306,21 +309,21 @@
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
-<th width="25%" align="center"><strong>File Name</strong></th>
+<th width="25%" align="left"><strong>File Name</strong></th>
 <th width="75%" align="left"><strong>Content Description</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="center"><code>barcodes.tsv.gz</code></td>
+<td align="left"><code>barcodes.tsv.gz</code></td>
 <td>Raw cell ID list, identifying cell ID information for all detected transcripts. Corresponds to the matrix column index</td>
 </tr>
 <tr>
-<td align="center"><code>features.tsv.gz</code></td>
+<td align="left"><code>features.tsv.gz</code></td>
 <td>Complete gene/feature information file. Contains gene ID, name, and type information</td>
 </tr>
 <tr>
-<td align="center"><code>matrix.mtx.gz</code></td>
+<td align="left"><code>matrix.mtx.gz</code></td>
 <td>Raw gene expression count matrix, containing all raw count data</td>
 </tr>
 </tbody>
@@ -345,25 +348,25 @@
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
-<th width="20%" align="center"><strong>Metric Category</strong></th>
+<th width="20%" align="left"><strong>Metric Category</strong></th>
 <th width="80%" align="left"><strong>Included Content</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="center"><strong>📊 Basic Statistics</strong></td>
+<td align="left"><strong>📊 Basic Statistics</strong></td>
 <td>Total reads count, valid barcode proportion, UMI quality, Q30 base quality, and other basic sequencing metrics</td>
 </tr>
 <tr>
-<td align="center"><strong>🧬 Cell Identification</strong></td>
+<td align="left"><strong>🧬 Cell Identification</strong></td>
 <td>Estimated cell count, transcript content proportion in cells, average reads per cell, and other cell calling results</td>
 </tr>
 <tr>
-<td align="center"><strong>🎯 Alignment Metrics</strong></td>
+<td align="left"><strong>🎯 Alignment Metrics</strong></td>
 <td>Genome alignment rate, transcriptome alignment rate, exon/intron proportion, and other alignment statistics</td>
 </tr>
 <tr>
-<td align="center"><strong>🔬 Quality Control</strong></td>
+<td align="left"><strong>🔬 Quality Control</strong></td>
 <td>Sequencing saturation, cell gene count, cell UMI count, total genes detected, and other quality control parameters</td>
 </tr>
 </tbody>
@@ -395,21 +398,21 @@
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
-<th width="25%" align="center"><strong>Report Features</strong></th>
+<th width="25%" align="left"><strong>Report Features</strong></th>
 <th width="75%" align="left"><strong>Content Description</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="center"><strong>📊 Interactive Charts</strong></td>
+<td align="left"><strong>📊 Interactive Charts</strong></td>
 <td>Interactive visualization charts for quality control indicators, cell clustering, marker genes, etc.</td>
 </tr>
 <tr>
-<td align="center"><strong>📈 Statistical Summary</strong></td>
+<td align="left"><strong>📈 Statistical Summary</strong></td>
 <td>Numerical summary and trend analysis of key performance indicators</td>
 </tr>
 <tr>
-<td align="center"><strong>🔍 Detailed Interpretation</strong></td>
+<td align="left"><strong>🔍 Detailed Interpretation</strong></td>
 <td>Biological significance and technical explanations of various metrics</td>
 </tr>
 </tbody>
@@ -451,21 +454,21 @@
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
-<th width="20%" align="center"><strong>Features</strong></th>
+<th width="20%" align="left"><strong>Features</strong></th>
 <th width="80%" align="left"><strong>Detailed Description</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="center"><strong>📊 Space Efficiency</strong></td>
+<td align="left"><strong>📊 Space Efficiency</strong></td>
 <td>Sparse matrix format stores only non-zero elements, saving significant storage space for single-cell data (typically over 95% zero values)</td>
 </tr>
 <tr>
-<td align="center"><strong>🔧 Compatibility</strong></td>
+<td align="left"><strong>🔧 Compatibility</strong></td>
 <td>Compatible with mainstream single-cell analysis tools: Scanpy, Seurat, etc.</td>
 </tr>
 <tr>
-<td align="center"><strong>🌐 Transferability</strong></td>
+<td align="left"><strong>🌐 Transferability</strong></td>
 <td>International standard format, facilitating data sharing, publication, and cross-platform collaborative analysis</td>
 </tr>
 </tbody>
@@ -587,25 +590,25 @@ adata = sc.read_h5ad(<span class="hljs-string">&#x27;filter_feature.h5ad&#x27;</
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
-<th width="25%" align="center"><strong>Technical Features</strong></th>
+<th width="25%" align="left"><strong>Technical Features</strong></th>
 <th width="75%" align="left"><strong>Detailed Description</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="center"><strong>🗂️ Compression Efficiency</strong></td>
+<td align="left"><strong>🗂️ Compression Efficiency</strong></td>
 <td>Compared to SAM format, BAM uses BGZF compression, reducing file size by approximately 60-80%, significantly lowering storage costs and transfer time</td>
 </tr>
 <tr>
-<td align="center"><strong>⚡ Access Speed</strong></td>
+<td align="left"><strong>⚡ Access Speed</strong></td>
 <td>Binary format supports fast random access, and with index files can achieve millisecond-level region retrieval and data extraction</td>
 </tr>
 <tr>
-<td align="center"><strong>🔄 Sorting Status</strong></td>
+<td align="left"><strong>🔄 Sorting Status</strong></td>
 <td>Sorted by genomic coordinate position (coordinate sorted), ensuring adjacent reads are stored consecutively in the file, optimizing I/O performance</td>
 </tr>
 <tr>
-<td align="center"><strong>🏷️ Rich Metadata</strong></td>
+<td align="left"><strong>🏷️ Rich Metadata</strong></td>
 <td>Contains complete read alignment information, quality scores, pairing status, and single-cell specific tags such as CB, UB, GX, etc.</td>
 </tr>
 </tbody>
@@ -615,53 +618,53 @@ adata = sc.read_h5ad(<span class="hljs-string">&#x27;filter_feature.h5ad&#x27;</
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
-<th width="10%" align="center"><strong>Tag</strong></th>
-<th width="20%" align="center"><strong>Data Type</strong></th>
-<th width="35%" align="center"><strong>Description</strong></th>
+<th width="10%" align="left"><strong>Tag</strong></th>
+<th width="20%" align="left"><strong>Data Type</strong></th>
+<th width="35%" align="left"><strong>Description</strong></th>
 <th width="35%" align="left"><strong>Biological Significance</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="center"><code>CB</code></td>
-<td align="center">String</td>
-<td align="center">Cell ID after merging cell barcodes</td>
+<td align="left"><code>CB</code></td>
+<td align="left">String</td>
+<td align="left">Cell ID after merging cell barcodes</td>
 <td>Used to assign reads to specific cells, information after cell barcode merging</td>
 </tr>
 <tr>
-<td align="center"><code>CC</code></td>
-<td align="center">String</td>
-<td align="center">Error-corrected cell barcode sequence</td>
+<td align="left"><code>CC</code></td>
+<td align="left">String</td>
+<td align="left">Error-corrected cell barcode sequence</td>
 <td>Error-corrected cell barcode</td>
 </tr>
 <tr>
-<td align="center"><code>CR</code></td>
-<td align="center">String</td>
-<td align="center">Raw sequencing cell barcode</td>
+<td align="left"><code>CR</code></td>
+<td align="left">String</td>
+<td align="left">Raw sequencing cell barcode</td>
 <td>Preserves raw sequencing information for quality assessment and error tracing</td>
 </tr>
 <tr>
-<td align="center"><code>CY</code></td>
-<td align="center">String</td>
-<td align="center">Cell barcode quality scores</td>
+<td align="left"><code>CY</code></td>
+<td align="left">String</td>
+<td align="left">Cell barcode quality scores</td>
 <td>Phred quality scores, assessing reliability of barcode sequencing</td>
 </tr>
 <tr>
-<td align="center"><code>UB</code></td>
-<td align="center">String</td>
-<td align="center">Error-corrected UMI sequence</td>
+<td align="left"><code>UB</code></td>
+<td align="left">String</td>
+<td align="left">Error-corrected UMI sequence</td>
 <td>Used for molecular deduplication, identifying PCR duplicates and original mRNA molecules</td>
 </tr>
 <tr>
-<td align="center"><code>UR</code></td>
-<td align="center">String</td>
-<td align="center">Raw sequencing UMI sequence</td>
+<td align="left"><code>UR</code></td>
+<td align="left">String</td>
+<td align="left">Raw sequencing UMI sequence</td>
 <td>Preserves raw UMI information for quality assessment and algorithm optimization</td>
 </tr>
 <tr>
-<td align="center"><code>UY</code></td>
-<td align="center">String</td>
-<td align="center">UMI quality scores</td>
+<td align="left"><code>UY</code></td>
+<td align="left">String</td>
+<td align="left">UMI quality scores</td>
 <td>Phred quality scores, assessing accuracy of UMI sequencing</td>
 </tr>
 </tbody>
@@ -670,41 +673,41 @@ adata = sc.read_h5ad(<span class="hljs-string">&#x27;filter_feature.h5ad&#x27;</
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
-<th width="10%" align="center"><strong>Tag</strong></th>
-<th width="20%" align="center"><strong>Data Type</strong></th>
-<th width="35%" align="center"><strong>Description</strong></th>
+<th width="10%" align="left"><strong>Tag</strong></th>
+<th width="20%" align="left"><strong>Data Type</strong></th>
+<th width="35%" align="left"><strong>Description</strong></th>
 <th width="35%" align="left"><strong>Functional Purpose</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="center"><code>GX</code></td>
-<td align="center">String</td>
-<td align="center">Ensembl ID</td>
+<td align="left"><code>GX</code></td>
+<td align="left">String</td>
+<td align="left">Ensembl ID</td>
 <td>Gene expression quantification</td>
 </tr>
 <tr>
-<td align="center"><code>GN</code></td>
-<td align="center">String</td>
-<td align="center">Gene name</td>
+<td align="left"><code>GN</code></td>
+<td align="left">String</td>
+<td align="left">Gene name</td>
 <td>Facilitates biological interpretation, supports gene function annotation</td>
 </tr>
 <tr>
-<td align="center"><code>TX</code></td>
-<td align="center">String</td>
-<td align="center">Transcript ID</td>
+<td align="left"><code>TX</code></td>
+<td align="left">String</td>
+<td align="left">Transcript ID</td>
 <td>Used for transcript-level expression analysis and alternative splicing research</td>
 </tr>
 <tr>
-<td align="center"><code>AN</code></td>
-<td align="center">String</td>
-<td align="center">Antisense transcript marker</td>
+<td align="left"><code>AN</code></td>
+<td align="left">String</td>
+<td align="left">Antisense transcript marker</td>
 <td>Identifies antisense RNA, evaluates library directionality and non-coding RNA expression</td>
 </tr>
 <tr>
-<td align="center"><code>RE</code></td>
-<td align="center">String</td>
-<td align="center">Genomic region type</td>
+<td align="left"><code>RE</code></td>
+<td align="left">String</td>
+<td align="left">Genomic region type</td>
 <td>Distinguishes exonic (E), intronic (N), and intergenic (I) regions, used for transcriptome feature analysis</td>
 </tr>
 </tbody>
@@ -733,36 +736,36 @@ adata = sc.read_h5ad(<span class="hljs-string">&#x27;filter_feature.h5ad&#x27;</
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
-<th width="25%" align="center"><strong>Metric Name</strong></th>
-<th width="30%" align="center"><strong>Recommended Value</strong></th>
-<th width="30%" align="center"><strong>Acceptable</strong></th>
-<th width="15%" align="center"><strong>Needs Optimization</strong></th>
+<th width="25%" align="left"><strong>Metric Name</strong></th>
+<th width="30%" align="left"><strong>Recommended Value</strong></th>
+<th width="30%" align="left"><strong>Acceptable</strong></th>
+<th width="15%" align="left"><strong>Needs Optimization</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="center"><strong>Mean reads per cell</strong></td>
-<td align="center">≥ 30,000</td>
-<td align="center">15,000–30,000</td>
-<td align="center">< 15,000</td>
+<td align="left"><strong>Mean reads per cell</strong></td>
+<td align="left">≥ 30,000</td>
+<td align="left">15,000–30,000</td>
+<td align="left">< 15,000</td>
 </tr>
 <tr>
-<td align="center"><strong>Median genes per cell</strong></td>
-<td align="center">≥ 1,000</td>
-<td align="center">500–1,000</td>
-<td align="center">< 500</td>
+<td align="left"><strong>Median genes per cell</strong></td>
+<td align="left">≥ 1,000</td>
+<td align="left">500–1,000</td>
+<td align="left">< 500</td>
 </tr>
 <tr>
-<td align="center"><strong>Fraction reads in cells</strong></td>
-<td align="center">≥ 60%</td>
-<td align="center">30–60%</td>
-<td align="center">< 30%</td>
+<td align="left"><strong>Fraction reads in cells</strong></td>
+<td align="left">≥ 60%</td>
+<td align="left">30–60%</td>
+<td align="left">< 30%</td>
 </tr>
 <tr>
-<td align="center"><strong>Sequencing saturation</strong></td>
-<td align="center">≥ 40%</td>
-<td align="center">20–40%</td>
-<td align="center">< 20%</td>
+<td align="left"><strong>Sequencing saturation</strong></td>
+<td align="left">≥ 40%</td>
+<td align="left">20–40%</td>
+<td align="left">< 20%</td>
 </tr>
 </tbody>
 </table>
@@ -770,13 +773,13 @@ adata = sc.read_h5ad(<span class="hljs-string">&#x27;filter_feature.h5ad&#x27;</
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
-<th width="30%" align="center"><strong>Metric Name</strong></th>
+<th width="30%" align="left"><strong>Metric Name</strong></th>
 <th width="70%" align="left"><strong>Detailed Explanation and Technical Requirements</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="center">
+<td align="left">
 <strong>Estimated number of cells</strong><br>
 <em>Estimated Cell Count</em>
 </td>
@@ -789,7 +792,7 @@ The number of barcodes associated with cells expressing target transcripts that 
 </td>
 </tr>
 <tr>
-<td align="center">
+<td align="left">
 <strong>Species</strong><br>
 <em>Species Information</em>
 </td>
@@ -798,7 +801,7 @@ Sample species origin or reference genome information, determined based on the r
 </td>
 </tr>
 <tr>
-<td align="center">
+<td align="left">
 <strong>Mean reads per cell</strong><br>
 <em>Average Reads per Cell Statistics</em>
 </td>
@@ -815,7 +818,7 @@ The average number of sequencing reads per cell, reflecting single-cell sequenci
 </td>
 </tr>
 <tr>
-<td align="center">
+<td align="left">
 <strong>Median/Mean UMI per cell</strong><br>
 <em>Median/Average UMI per Cell</em>
 </td>
@@ -831,7 +834,7 @@ The median/average number of unique molecular identifiers (UMI) detected in each
 </td>
 </tr>
 <tr>
-<td align="center">
+<td align="left">
 <strong>Median/Mean genes per cell</strong><br>
 <em>Median/Average Genes per Cell</em>
 </td>
@@ -847,7 +850,7 @@ The median/average number of genes detected in each cell, reflecting cellular tr
 </td>
 </tr>
 <tr>
-<td align="center">
+<td align="left">
 <strong>Total genes detected</strong><br>
 <em>Total Genes Detected</em>
 </td>
@@ -863,7 +866,7 @@ The total number of genes detected in the entire sample, requiring each gene to 
 </td>
 </tr>
 <tr>
-<td align="center">
+<td align="left">
 <strong>Fraction reads in cells</strong><br>
 <em>Fraction of Reads in Cells</em>
 </td>
@@ -876,7 +879,7 @@ The percentage of reads with real cell-related barcodes that align to the transc
 </td>
 </tr>
 <tr>
-<td align="center">
+<td align="left">
 <strong>Sequencing saturation</strong><br>
 <em>Sequencing Saturation</em>
 </td>
@@ -902,30 +905,30 @@ An indicator for assessing whether sequencing depth is sufficient, calculated as
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
-<th width="25%" align="center"><strong>Metric Name</strong></th>
-<th width="30%" align="center"><strong>Recommended Value</strong></th>
-<th width="30%" align="center"><strong>Acceptable</strong></th>
-<th width="15%" align="center"><strong>Needs Optimization</strong></th>
+<th width="25%" align="left"><strong>Metric Name</strong></th>
+<th width="30%" align="left"><strong>Recommended Value</strong></th>
+<th width="30%" align="left"><strong>Acceptable</strong></th>
+<th width="15%" align="left"><strong>Needs Optimization</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="center"><strong>Valid barcodes</strong></td>
-<td align="center">≥ 80%</td>
-<td align="center">70–80%</td>
-<td align="center">< 70%</td>
+<td align="left"><strong>Valid barcodes</strong></td>
+<td align="left">≥ 80%</td>
+<td align="left">70–80%</td>
+<td align="left">< 70%</td>
 </tr>
 <tr>
-<td align="center"><strong>Valid UMIs</strong></td>
-<td align="center">≥ 80%</td>
-<td align="center">70–80%</td>
-<td align="center">< 70%</td>
+<td align="left"><strong>Valid UMIs</strong></td>
+<td align="left">≥ 80%</td>
+<td align="left">70–80%</td>
+<td align="left">< 70%</td>
 </tr>
 <tr>
-<td align="center"><strong>Q30 Base Quality</strong></td>
-<td align="center">≥ 85%</td>
-<td align="center">75–85%</td>
-<td align="center">< 75%</td>
+<td align="left"><strong>Q30 Base Quality</strong></td>
+<td align="left">≥ 85%</td>
+<td align="left">75–85%</td>
+<td align="left">< 75%</td>
 </tr>
 </tbody>
 </table>
@@ -933,13 +936,13 @@ An indicator for assessing whether sequencing depth is sufficient, calculated as
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
-<th width="30%" align="center"><strong>Metric Name</strong></th>
+<th width="30%" align="left"><strong>Metric Name</strong></th>
 <th width="70%" align="left"><strong>Detailed Explanation and Technical Requirements</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="center">
+<td align="left">
 <strong>Number of reads</strong><br>
 <em>Read Count</em>
 </td>
@@ -948,7 +951,7 @@ The total number of sequencing read pairs allocated to this library, reflecting 
 </td>
 </tr>
 <tr>
-<td align="center">
+<td align="left">
 <strong>Valid barcodes</strong><br>
 <em>Valid Barcode Proportion</em>
 </td>
@@ -960,7 +963,7 @@ The proportion of sequencing reads whose barcodes can be successfully matched in
 </td>
 </tr>
 <tr>
-<td align="center">
+<td align="left">
 <strong>Corrected barcodes</strong><br>
 <em>Corrected Barcode Proportion</em>
 </td>
@@ -973,7 +976,7 @@ The proportion of reads where original sequencing barcodes are corrected through
 </td>
 </tr>
 <tr>
-<td align="center">
+<td align="left">
 <strong>Valid UMIs</strong><br>
 <em>Valid UMI Proportion</em>
 </td>
@@ -985,7 +988,7 @@ The proportion of UMI sequences extracted from reads that do not contain 'N' bas
 </td>
 </tr>
 <tr>
-<td align="center">
+<td align="left">
 <strong>Q30 Base Quality</strong><br>
 <em>Q30 High-Quality Base Proportion</em>
 </td>
@@ -1010,36 +1013,36 @@ Represents the proportion of bases with sequencing accuracy higher than 99.9% (i
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
-<th width="25%" align="center"><strong>Metric Name</strong></th>
-<th width="30%" align="center"><strong>Recommended Value</strong></th>
-<th width="30%" align="center"><strong>Acceptable</strong></th>
-<th width="15%" align="center"><strong>Needs Optimization</strong></th>
+<th width="25%" align="left"><strong>Metric Name</strong></th>
+<th width="30%" align="left"><strong>Recommended Value</strong></th>
+<th width="30%" align="left"><strong>Acceptable</strong></th>
+<th width="15%" align="left"><strong>Needs Optimization</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="center"><strong>Reads mapped to genome</strong></td>
-<td align="center">≥ 80%</td>
-<td align="center">50–80%</td>
-<td align="center">< 50%</td>
+<td align="left"><strong>Reads mapped to genome</strong></td>
+<td align="left">≥ 80%</td>
+<td align="left">50–80%</td>
+<td align="left">< 50%</td>
 </tr>
 <tr>
-<td align="center"><strong>Reads mapped confidently to genome</strong></td>
-<td align="center">≥ 60%</td>
-<td align="center">40–60%</td>
-<td align="center">< 40%</td>
+<td align="left"><strong>Reads mapped confidently to genome</strong></td>
+<td align="left">≥ 60%</td>
+<td align="left">40–60%</td>
+<td align="left">< 40%</td>
 </tr>
 <tr>
-<td align="center"><strong>Reads mapped confidently to transcriptome</strong></td>
-<td align="center">≥ 50%</td>
-<td align="center">30–50%</td>
-<td align="center">< 30%</td>
+<td align="left"><strong>Reads mapped confidently to transcriptome</strong></td>
+<td align="left">≥ 50%</td>
+<td align="left">30–50%</td>
+<td align="left">< 30%</td>
 </tr>
 <tr>
-<td align="center"><strong>Reads mapped antisense to gene</strong></td>
-<td align="center">< 10%</td>
-<td align="center">10–30%</td>
-<td align="center">> 30%</td>
+<td align="left"><strong>Reads mapped antisense to gene</strong></td>
+<td align="left">< 10%</td>
+<td align="left">10–30%</td>
+<td align="left">> 30%</td>
 </tr>
 </tbody>
 </table>
@@ -1047,13 +1050,13 @@ Represents the proportion of bases with sequencing accuracy higher than 99.9% (i
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
-<th width="30%" align="center"><strong>Metric Name</strong></th>
+<th width="30%" align="left"><strong>Metric Name</strong></th>
 <th width="70%" align="left"><strong>Detailed Explanation and Technical Requirements</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="center">
+<td align="left">
 <strong>Reads mapped to genome</strong><br>
 <em>Genome Alignment Reads</em>
 </td>
@@ -1066,7 +1069,7 @@ The proportion of all sequencing reads that successfully align to any position i
 </td>
 </tr>
 <tr>
-<td align="center">
+<td align="left">
 <strong>Reads mapped confidently to genome</strong><br>
 <em>Confident Genome Alignment</em>
 </td>
@@ -1079,7 +1082,7 @@ The proportion of reads that can be confidently aligned to the reference genome,
 </td>
 </tr>
 <tr>
-<td align="center">
+<td align="left">
 <strong>Reads mapped confidently to exonic regions</strong><br>
 <em>Exonic Region Alignment</em>
 </td>
@@ -1092,7 +1095,7 @@ Represents the proportion of reads confidently aligned to annotated exonic regio
 </td>
 </tr>
 <tr>
-<td align="center">
+<td align="left">
 <strong>Reads mapped confidently to intronic regions</strong><br>
 <em>Intronic Region Alignment</em>
 </td>
@@ -1105,7 +1108,7 @@ Represents the proportion of reads confidently aligned to annotated intronic reg
 </td>
 </tr>
 <tr>
-<td align="center">
+<td align="left">
 <strong>Reads mapped confidently to intergenic regions</strong><br>
 <em>Intergenic Region Alignment</em>
 </td>
@@ -1118,7 +1121,7 @@ Refers to the proportion of reads confidently aligned to regions that do not bel
 </td>
 </tr>
 <tr>
-<td align="center">
+<td align="left">
 <strong>Reads mapped confidently to transcriptome</strong><br>
 <em>Confident Transcriptome Alignment</em>
 </td>
@@ -1131,7 +1134,7 @@ Represents the proportion of reads that are confidently aligned to transcripts a
 </td>
 </tr>
 <tr>
-<td align="center">
+<td align="left">
 <strong>Reads mapped antisense to gene</strong><br>
 <em>Antisense Gene Alignment</em>
 </td>
@@ -1144,7 +1147,7 @@ Refers to the proportion of reads that successfully align to the transcriptome b
 </td>
 </tr>
 <tr>
-<td align="center">
+<td align="left">
 <strong>Include introns</strong><br>
 <em>Include Introns</em>
 </td>
@@ -1183,17 +1186,17 @@ Controls whether reads aligned to intronic regions are included in gene expressi
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
-<th width="30%" align="center"><strong>Pattern Characteristics</strong></th>
+<th width="30%" align="left"><strong>Pattern Characteristics</strong></th>
 <th width="70%" align="left"><strong>Quality Interpretation</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="center"><strong>✅ Ideal Pattern</strong></td>
+<td align="left"><strong>✅ Ideal Pattern</strong></td>
 <td>Clear "inflection point" distinguishing real cells from background, with steep decline in real cell region and gentle distribution in background region</td>
 </tr>
 <tr>
-<td align="center"><strong>⚠️ Abnormal Pattern</strong></td>
+<td align="left"><strong>⚠️ Abnormal Pattern</strong></td>
 <td>Lack of clear inflection point (low cell concentration), gentle decline (high background RNA)</td>
 </tr>
 </tbody>
@@ -1204,25 +1207,25 @@ Controls whether reads aligned to intronic regions are included in gene expressi
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
-<th width="25%" align="center"><strong>Metric</strong></th>
-<th width="35%" align="center"><strong>Common Range (Reference Value)</strong></th>
+<th width="25%" align="left"><strong>Metric</strong></th>
+<th width="35%" align="left"><strong>Common Range (Reference Value)</strong></th>
 <th width="40%" align="left"><strong>Abnormal Interpretation (Possible Causes)</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="center"><strong>Gene Count</strong></td>
-<td align="center">Most cells approximately 500–8000 genes</td>
+<td align="left"><strong>Gene Count</strong></td>
+<td align="left">Most cells approximately 500–8000 genes</td>
 <td align="left">Too low: Low-quality cells or RNA degradation; Too high: Possibly doublets/multiplets</td>
 </tr>
 <tr>
-<td align="center"><strong>UMI Count</strong></td>
-<td align="center">Most cells approximately 1,000–50,000</td>
+<td align="left"><strong>UMI Count</strong></td>
+<td align="left">Most cells approximately 1,000–50,000</td>
 <td align="left">Too low: Empty droplets or low RNA content; Too high: Doublets or library amplification bias</td>
 </tr>
 <tr>
-<td align="center"><strong>Mitochondrial Proportion</strong></td>
-<td align="center">Generally <10–20%</td>
+<td align="left"><strong>Mitochondrial Proportion</strong></td>
+<td align="left">Generally <10–20%</td>
 <td align="left">>20–25%: Cells under stress, apoptosis, or rupture</td>
 </tr>
 </tbody>
@@ -1244,17 +1247,17 @@ Controls whether reads aligned to intronic regions are included in gene expressi
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
-<th width="30%" align="center"><strong>Chart Composition</strong></th>
+<th width="30%" align="left"><strong>Chart Composition</strong></th>
 <th width="70%" align="left"><strong>Technical Details and Biological Significance</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="center"><strong>🎨 Left Clustering Chart</strong></td>
+<td align="left"><strong>🎨 Left Clustering Chart</strong></td>
 <td><strong>Algorithm</strong>: Louvain unsupervised clustering | <strong>Dimensionality Reduction</strong>: UMAP 2D projection | <strong>Encoding</strong>: Color differentiation of cell subpopulations | <strong>Significance</strong>: Cells with similar gene expression profiles grouped into the same cluster</td>
 </tr>
 <tr>
-<td align="center"><strong>📊 Right UMI Chart</strong></td>
+<td align="left"><strong>📊 Right UMI Chart</strong></td>
 <td><strong>Data</strong>: Total UMI count per cell | <strong>Coordinates</strong>: Same UMAP 2D coordinate system as left chart | <strong>Gradient</strong>: Blue→red color gradient | <strong>Quality Control</strong>: Identify high-quality cell regions and technical noise</td>
 </tr>
 </tbody>
@@ -1268,25 +1271,25 @@ Controls whether reads aligned to intronic regions are included in gene expressi
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
-<th width="20%" align="center"><strong>Statistical Metric</strong></th>
+<th width="20%" align="left"><strong>Statistical Metric</strong></th>
 <th width="80%" align="left"><strong>Meaning and Interpretation Guidance</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="center"><code>P-val</code></td>
+<td align="left"><code>P-val</code></td>
 <td>Statistical significance p-value for differential expression, smaller values indicate more significant differences. <strong>Threshold</strong>: < 0.05 significant, < 0.01 highly significant</td>
 </tr>
 <tr>
-<td align="center"><code>p_val_adj</code></td>
+<td align="left"><code>p_val_adj</code></td>
 <td>Bonferroni multiple testing corrected adjusted p-value, controlling false positive rate. <strong>Recommendation</strong>: Use adjusted p-value for final screening</td>
 </tr>
 <tr>
-<td align="center"><code>avg_log2FC</code></td>
+<td align="left"><code>avg_log2FC</code></td>
 <td>Average log2 fold change, representing expression fold change of target cluster relative to other clusters (log2 scale)</td>
 </tr>
 <tr>
-<td align="center"><code>pct.1</code> / <code>pct.2</code></td>
+<td align="left"><code>pct.1</code> / <code>pct.2</code></td>
 <td>Proportion of cells expressing the gene in target cluster/other clusters</td>
 </tr>
 </tbody>
@@ -1299,21 +1302,21 @@ Controls whether reads aligned to intronic regions are included in gene expressi
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
-<th width="25%" align="center"><strong>Technical Specifications</strong></th>
+<th width="25%" align="left"><strong>Technical Specifications</strong></th>
 <th width="75%" align="left"><strong>Detailed Description</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="center"><strong>📚 Reference Databases</strong></td>
+<td align="left"><strong>📚 Reference Databases</strong></td>
 <td><strong>scHCL</strong>: Single-cell Human Cell Landscape database | <strong>scMCA</strong>: Single-cell Mouse Cell Atlas database</td>
 </tr>
 <tr>
-<td align="center"><strong>🌍 Species Support</strong></td>
+<td align="left"><strong>🌍 Species Support</strong></td>
 <td><strong>Supported</strong>: Human, Mouse | <strong>Limitation</strong>: Automatic annotation not available for other species</td>
 </tr>
 <tr>
-<td align="center"><strong>⚠️ Usage Recommendations</strong></td>
+<td align="left"><strong>⚠️ Usage Recommendations</strong></td>
 <td><strong>Reference Nature</strong>: Annotation results are for reference only and need to be validated with biological background | <strong>Accuracy</strong>: Limited by reference database coverage | <strong>Recommendation</strong>: Combine with marker gene analysis for comprehensive judgment</td>
 </tr>
 </tbody>
@@ -1325,17 +1328,17 @@ Controls whether reads aligned to intronic regions are included in gene expressi
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
-<th width="30%" align="center"><strong>Chart Type</strong></th>
+<th width="30%" align="left"><strong>Chart Type</strong></th>
 <th width="70%" align="left"><strong>Technical Principles and Interpretation Guidance</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="center"><strong>📊 Left Saturation Curve</strong></td>
+<td align="left"><strong>📊 Left Saturation Curve</strong></td>
 <td><strong>Calculation</strong>: Saturation = 1 - (UMI count / reads count) | <strong>Interpretation</strong>: Smooth curve indicates sufficient sequencing</td>
 </tr>
 <tr>
-<td align="center"><strong>📈 Right Gene Count Curve</strong></td>
+<td align="left"><strong>📈 Right Gene Count Curve</strong></td>
 <td><strong>Metric</strong>: Median gene count per cell detected | <strong>Significance</strong>: Reflects transcriptome complexity | <strong>Optimization</strong>: Guides sequencing depth and experimental design improvement</td>
 </tr>
 </tbody>
@@ -1351,26 +1354,26 @@ Controls whether reads aligned to intronic regions are included in gene expressi
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
-<th width="30%" align="center"><strong>Document Type</strong></th>
+<th width="30%" align="left"><strong>Document Type</strong></th>
 <th width="70%" align="left"><strong>Resource Links and Description</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="center"><strong>🚀 Quick Start</strong></td>
+<td align="left"><strong>🚀 Quick Start</strong></td>
 <td><a href="../quickstart.html">Quick Start Guide</a> - Complete tutorial for first analysis</td>
 </tr>
 <tr>
-<td align="center"><strong>⚙️ Parameter Reference</strong></td>
+<td align="left"><strong>⚙️ Parameter Reference</strong></td>
 <td><a href="../parameter/parameter.html">Parameter Reference Manual</a> - Detailed description of all configurable parameters</td>
 </tr>
 <tr>
-<td align="center"><strong>🔬 Analysis Pipeline</strong></td>
+<td align="left"><strong>🔬 Analysis Pipeline</strong></td>
 <td><a href="../pipeline.html">Analysis Pipeline Description</a> - Technical details of the entire analysis pipeline</td>
 </tr>
 <tr>
-<td align="center"><strong>🔧 Installation Configuration</strong></td>
-<td><a href="../installation.html">Installation Configuration Guide</a> - System requirements, installation steps, and environment configuration</td>
+<td align="left"><strong>🔧 Installation Configuration</strong></td>
+<td><a href="../installation.html">Installation Configuration Guide</a> - System requirements, installation steps and environment configuration</td>
 </tr>
 </tbody>
 </table>

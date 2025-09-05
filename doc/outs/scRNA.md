@@ -1,3 +1,9 @@
+<div align="right">
+
+[🏠 主页](../../README.md) | [🌐 English](scRNA_en.md)
+
+</div>
+
 # 🧬 DNBelab C Series HT scRNA 分析输出文档
 
 <div align="center">
@@ -132,17 +138,17 @@
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
-<th width="20%" align="center"><strong>格式类型</strong></th>
-<th width="80%" align="left"><strong>使用说明</strong></th>
+<th width="20%" align="left"><strong>格式类型</strong></th>
+<th width="80" align="left"><strong>使用说明</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="center"><strong>BAI 格式</strong></td>
+<td align="left"><strong>BAI 格式</strong></td>
 <td>默认生成的索引格式，兼容性最佳，适用于大多数分析工具</td>
 </tr>
 <tr>
-<td align="center"><strong>CSI 格式</strong></td>
+<td align="left"><strong>CSI 格式</strong></td>
 <td>当BAM文件包含染色体长度超过2^29-1个碱基时自动使用，支持更大的基因组</td>
 </tr>
 </tbody>
@@ -178,21 +184,21 @@
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
-<th width="25%" align="center"><strong>文件名</strong></th>
+<th width="25%" align="left"><strong>文件名</strong></th>
 <th width="75%" align="left"><strong>内容描述</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="center"><code>barcodes.tsv.gz</code></td>
+<td align="left"><code>barcodes.tsv.gz</code></td>
 <td>细胞ID列表，标识通过细胞鉴定后的细胞。每行包含一个细胞ID序列，对应矩阵的列索引</td>
 </tr>
 <tr>
-<td align="center"><code>features.tsv.gz</code></td>
+<td align="left"><code>features.tsv.gz</code></td>
 <td>完整的基因/特征信息文件，包含基因ID、名称和类型信息。每行包含三列：基因ID、基因名称、特征类型，对应矩阵的行索引</td>
 </tr>
 <tr>
-<td align="center"><code>matrix.mtx.gz</code></td>
+<td align="left"><code>matrix.mtx.gz</code></td>
 <td>基因表达计数矩阵，采用 Market Matrix 格式。包含矩阵维度信息和非零元素的行、列索引及数值</td>
 </tr>
 </tbody>
@@ -212,24 +218,25 @@
 
 **核心文件组成：**
 
+<!-- 表格内容 -->
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
-<th width="25%" align="center"><strong>文件名</strong></th>
+<th width="25%" align="left"><strong>文件名</strong></th>
 <th width="75%" align="left"><strong>内容描述</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="center"><code>barcodes.tsv.gz</code></td>
+<td align="left"><code>barcodes.tsv.gz</code></td>
 <td>原始细胞ID列表，标识所有检测到转录本的细胞ID信息。对应矩阵的列索引</td>
 </tr>
 <tr>
-<td align="center"><code>features.tsv.gz</code></td>
+<td align="left"><code>features.tsv.gz</code></td>
 <td>完整的基因/特征信息文件。包含基因ID、名称和类型信息</td>
 </tr>
 <tr>
-<td align="center"><code>matrix.mtx.gz</code></td>
+<td align="left"><code>matrix.mtx.gz</code></td>
 <td>原始基因表达计数矩阵，包含所有原始计数数据</td>
 </tr>
 </tbody>
@@ -263,25 +270,25 @@
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
-<th width="20%" align="center"><strong>指标类别</strong></th>
+<th width="20%" align="left"><strong>指标类别</strong></th>
 <th width="80%" align="left"><strong>包含内容</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="center"><strong>📊 基本统计</strong></td>
+<td align="left"><strong>📊 基本统计</strong></td>
 <td>总 reads数、有效条形码比例、UMI质量、Q30碱基质量等基础测序指标</td>
 </tr>
 <tr>
-<td align="center"><strong>🧬 细胞识别</strong></td>
+<td align="left"><strong>🧬 细胞识别</strong></td>
 <td>估计细胞数量、细胞内转录本含量比例、每细胞平均reads数等细胞调用结果</td>
 </tr>
 <tr>
-<td align="center"><strong>🎯 比对指标</strong></td>
+<td align="left"><strong>🎯 比对指标</strong></td>
 <td>基因组比对率、转录组比对率、外显子/内含子比例等比对统计</td>
 </tr>
 <tr>
-<td align="center"><strong>🔬 质量控制</strong></td>
+<td align="left"><strong>🔬 质量控制</strong></td>
 <td>测序饱和度、细胞基因数、细胞UMI数、检测到的总基因数等质控参数</td>
 </tr>
 </tbody>
@@ -321,21 +328,21 @@
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
-<th width="25%" align="center"><strong>报告特点</strong></th>
+<th width="25%" align="left"><strong>报告特点</strong></th>
 <th width="75%" align="left"><strong>内容描述</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="center"><strong>📊 交互式图表</strong></td>
+<td align="left"><strong>📊 交互式图表</strong></td>
 <td>质控指标、细胞聚类、标记基因等可交互可视化图表</td>
 </tr>
 <tr>
-<td align="center"><strong>📈 统计汇总</strong></td>
+<td align="left"><strong>📈 统计汇总</strong></td>
 <td>关键性能指标的数值汇总和趋势分析</td>
 </tr>
 <tr>
-<td align="center"><strong>🔍 详细解读</strong></td>
+<td align="left"><strong>🔍 详细解读</strong></td>
 <td>各项指标的生物学意义和技术解释</td>
 </tr>
 </tbody>
@@ -373,21 +380,21 @@
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
-<th width="20%" align="center"><strong>特性</strong></th>
+<th width="20%" align="left"><strong>特性</strong></th>
 <th width="80%" align="left"><strong>详细说明</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="center"><strong>📊 空间效率</strong></td>
+<td align="left"><strong>📊 空间效率</strong></td>
 <td>稀疏矩阵格式仅存储非零元素，对于单细胞数据（通常95%以上为零值）可节省大量存储空间</td>
 </tr>
 <tr>
-<td align="center"><strong>🔧 兼容性</strong></td>
+<td align="left"><strong>🔧 兼容性</strong></td>
 <td>兼容主流单细胞分析工具：Scanpy、Seurat等</td>
 </tr>
 <tr>
-<td align="center"><strong>🌐 传输性</strong></td>
+<td align="left"><strong>🌐 传输性</strong></td>
 <td>国际标准格式，便于数据共享、发表和跨平台协作分析</td>
 </tr>
 </tbody>
@@ -493,25 +500,25 @@ print(f"细胞数量: {adata.n_obs}, 基因数量: {adata.n_vars}")
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
-<th width="25%" align="center"><strong>技术特性</strong></th>
+<th width="25%" align="left"><strong>技术特性</strong></th>
 <th width="75%" align="left"><strong>详细说明</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="center"><strong>🗂️ 压缩效率</strong></td>
+<td align="left"><strong>🗂️ 压缩效率</strong></td>
 <td>相比SAM格式，BAM采用BGZF压缩，文件大小减少约60-80%，显著降低存储成本和传输时间</td>
 </tr>
 <tr>
-<td align="center"><strong>⚡ 访问速度</strong></td>
+<td align="left"><strong>⚡ 访问速度</strong></td>
 <td>二进制格式支持快速随机访问，配合索引文件可实现毫秒级别的区域检索和数据提取</td>
 </tr>
 <tr>
-<td align="center"><strong>🔄 排序状态</strong></td>
+<td align="left"><strong>🔄 排序状态</strong></td>
 <td>按基因组坐标位置排序（coordinate sorted），确保相邻reads在文件中连续存储，优化I/O性能</td>
 </tr>
 <tr>
-<td align="center"><strong>🏷️ 元数据丰富</strong></td>
+<td align="left"><strong>🏷️ 元数据丰富</strong></td>
 <td>包含完整的reads比对信息、质量分数、配对状态，以及单细胞特有的CB、UB、GX等标签</td>
 </tr>
 </tbody>
@@ -524,53 +531,53 @@ print(f"细胞数量: {adata.n_obs}, 基因数量: {adata.n_vars}")
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
-<th width="10%" align="center"><strong>标签</strong></th>
-<th width="20%" align="center"><strong>数据类型</strong></th>
-<th width="35%" align="center"><strong>描述</strong></th>
+<th width="10%" align="left"><strong>标签</strong></th>
+<th width="20%" align="left"><strong>数据类型</strong></th>
+<th width="35%" align="left"><strong>描述</strong></th>
 <th width="35%" align="left"><strong>生物学意义</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="center"><code>CB</code></td>
-<td align="center">字符串</td>
-<td align="center">细胞条形码合并后的细胞ID</td>
+<td align="left"><code>CB</code></td>
+<td align="left">字符串</td>
+<td align="left">细胞条形码合并后的细胞ID</td>
 <td>用于将reads归属到特定细胞，经过细胞条形码合并的信息</td>
 </tr>
 <tr>
-<td align="center"><code>CC</code></td>
-<td align="center">字符串</td>
-<td align="center">经过错误校正细胞条形码序列</td>
+<td align="left"><code>CC</code></td>
+<td align="left">字符串</td>
+<td align="left">经过错误校正细胞条形码序列</td>
 <td>经过错误校正的细胞条形码</td>
 </tr>
 <tr>
-<td align="center"><code>CR</code></td>
-<td align="center">字符串</td>
-<td align="center">原始测序细胞条形码</td>
+<td align="left"><code>CR</code></td>
+<td align="left">字符串</td>
+<td align="left">原始测序细胞条形码</td>
 <td>保留原始测序信息，用于质量评估和错误追溯</td>
 </tr>
 <tr>
-<td align="center"><code>CY</code></td>
-<td align="center">字符串</td>
-<td align="center">细胞条形码质量分数</td>
+<td align="left"><code>CY</code></td>
+<td align="left">字符串</td>
+<td align="left">细胞条形码质量分数</td>
 <td>Phred质量分数，评估条形码测序的可靠性</td>
 </tr>
 <tr>
-<td align="center"><code>UB</code></td>
-<td align="center">字符串</td>
-<td align="center">错误校正后的UMI序列</td>
+<td align="left"><code>UB</code></td>
+<td align="left">字符串</td>
+<td align="left">错误校正后的UMI序列</td>
 <td>用于分子去重，识别PCR重复和原始mRNA分子</td>
 </tr>
 <tr>
-<td align="center"><code>UR</code></td>
-<td align="center">字符串</td>
-<td align="center">原始测序UMI序列</td>
+<td align="left"><code>UR</code></td>
+<td align="left">字符串</td>
+<td align="left">原始测序UMI序列</td>
 <td>保留原始UMI信息，用于质量评估和算法优化</td>
 </tr>
 <tr>
-<td align="center"><code>UY</code></td>
-<td align="center">字符串</td>
-<td align="center">UMI质量分数</td>
+<td align="left"><code>UY</code></td>
+<td align="left">字符串</td>
+<td align="left">UMI质量分数</td>
 <td>Phred质量分数，评估UMI测序的准确性</td>
 </tr>
 </tbody>
@@ -581,41 +588,41 @@ print(f"细胞数量: {adata.n_obs}, 基因数量: {adata.n_vars}")
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
-<th width="10%" align="center"><strong>标签</strong></th>
-<th width="20%" align="center"><strong>数据类型</strong></th>
-<th width="35%" align="center"><strong>描述</strong></th>
+<th width="10%" align="left"><strong>标签</strong></th>
+<th width="20%" align="left"><strong>数据类型</strong></th>
+<th width="35%" align="left"><strong>描述</strong></th>
 <th width="35%" align="left"><strong>功能用途</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="center"><code>GX</code></td>
-<td align="center">字符串</td>
-<td align="center">Ensembl ID</td>
+<td align="left"><code>GX</code></td>
+<td align="left">字符串</td>
+<td align="left">Ensembl ID</td>
 <td>基因表达定量</td>
 </tr>
 <tr>
-<td align="center"><code>GN</code></td>
-<td align="center">字符串</td>
-<td align="center">基因名称</td>
+<td align="left"><code>GN</code></td>
+<td align="left">字符串</td>
+<td align="left">基因名称</td>
 <td>便于生物学解释，支持基因功能注释</td>
 </tr>
 <tr>
-<td align="center"><code>TX</code></td>
-<td align="center">字符串</td>
-<td align="center">转录本ID</td>
+<td align="left"><code>TX</code></td>
+<td align="left">字符串</td>
+<td align="left">转录本ID</td>
 <td>用于转录本水平的表达分析和可变剪接研究</td>
 </tr>
 <tr>
-<td align="center"><code>AN</code></td>
-<td align="center">字符串</td>
-<td align="center">反义转录本标记</td>
+<td align="left"><code>AN</code></td>
+<td align="left">字符串</td>
+<td align="left">反义转录本标记</td>
 <td>识别反义RNA，评估文库方向性和非编码RNA表达</td>
 </tr>
 <tr>
-<td align="center"><code>RE</code></td>
-<td align="center">字符串</td>
-<td align="center">基因组区域类型</td>
+<td align="left"><code>RE</code></td>
+<td align="left">字符串</td>
+<td align="left">基因组区域类型</td>
 <td>区分外显子(E)、内含子(N)、基因间区(I)，用于转录组特征分析</td>
 </tr>
 </tbody>
@@ -661,36 +668,36 @@ HTML网页报告是单细胞RNA测序分析的综合展示平台，整合了从�
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
-<th width="25%" align="center"><strong>指标名称</strong></th>
-<th width="30%" align="center"><strong>推荐值</strong></th>
-<th width="30%" align="center"><strong>可接受</strong></th>
-<th width="15%" align="center"><strong>需优化</strong></th>
+<th width="25%" align="left"><strong>指标名称</strong></th>
+<th width="30%" align="left"><strong>推荐值</strong></th>
+<th width="30%" align="left"><strong>可接受</strong></th>
+<th width="15%" align="left"><strong>需优化</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="center"><strong>Mean reads per cell</strong></td>
-<td align="center">≥ 30,000</td>
-<td align="center">15,000–30,000</td>
-<td align="center">< 15,000</td>
+<td align="left"><strong>Mean reads per cell</strong></td>
+<td align="left">≥ 30,000</td>
+<td align="left">15,000–30,000</td>
+<td align="left">< 15,000</td>
 </tr>
 <tr>
-<td align="center"><strong>Median genes per cell</strong></td>
-<td align="center">≥ 1,000</td>
-<td align="center">500–1,000</td>
-<td align="center">< 500</td>
+<td align="left"><strong>Median genes per cell</strong></td>
+<td align="left">≥ 1,000</td>
+<td align="left">500–1,000</td>
+<td align="left">< 500</td>
 </tr>
 <tr>
-<td align="center"><strong>Fraction reads in cells</strong></td>
-<td align="center">≥ 60%</td>
-<td align="center">30–60%</td>
-<td align="center">< 30%</td>
+<td align="left"><strong>Fraction reads in cells</strong></td>
+<td align="left">≥ 60%</td>
+<td align="left">30–60%</td>
+<td align="left">< 30%</td>
 </tr>
 <tr>
-<td align="center"><strong>Sequencing saturation</strong></td>
-<td align="center">≥ 40%</td>
-<td align="center">20–40%</td>
-<td align="center">< 20%</td>
+<td align="left"><strong>Sequencing saturation</strong></td>
+<td align="left">≥ 40%</td>
+<td align="left">20–40%</td>
+<td align="left">< 20%</td>
 </tr>
 </tbody>
 </table>
@@ -700,13 +707,13 @@ HTML网页报告是单细胞RNA测序分析的综合展示平台，整合了从�
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
-<th width="30%" align="center"><strong>指标名称</strong></th>
+<th width="30%" align="left"><strong>指标名称</strong></th>
 <th width="70%" align="left"><strong>详细解释与技术要求</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="center">
+<td align="left">
 <strong>Estimated number of cells</strong><br>
 <em>估计细胞数量</em>
 </td>
@@ -719,7 +726,7 @@ HTML网页报告是单细胞RNA测序分析的综合展示平台，整合了从�
 </td>
 </tr>
 <tr>
-<td align="center">
+<td align="left">
 <strong>Species</strong><br>
 <em>物种信息</em>
 </td>
@@ -728,7 +735,7 @@ HTML网页报告是单细胞RNA测序分析的综合展示平台，整合了从�
 </td>
 </tr>
 <tr>
-<td align="center">
+<td align="left">
 <strong>Mean reads per cell</strong><br>
 <em>平均reads数</em>
 </td>
@@ -745,7 +752,7 @@ HTML网页报告是单细胞RNA测序分析的综合展示平台，整合了从�
 </td>
 </tr>
 <tr>
-<td align="center">
+<td align="left">
 <strong>Median/Mean UMI per cell</strong><br>
 <em>细胞中位/平均UMI数</em>
 </td>
@@ -761,7 +768,7 @@ HTML网页报告是单细胞RNA测序分析的综合展示平台，整合了从�
 </td>
 </tr>
 <tr>
-<td align="center">
+<td align="left">
 <strong>Median/Mean genes per cell</strong><br>
 <em>细胞中位/平均基因数</em>
 </td>
@@ -777,7 +784,7 @@ HTML网页报告是单细胞RNA测序分析的综合展示平台，整合了从�
 </td>
 </tr>
 <tr>
-<td align="center">
+<td align="left">
 <strong>Total genes detected</strong><br>
 <em>检测到的总基因数</em>
 </td>
@@ -793,7 +800,7 @@ HTML网页报告是单细胞RNA测序分析的综合展示平台，整合了从�
 </td>
 </tr>
 <tr>
-<td align="center">
+<td align="left">
 <strong>Fraction reads in cells</strong><br>
 <em>细胞内reads比例</em>
 </td>
@@ -806,7 +813,7 @@ HTML网页报告是单细胞RNA测序分析的综合展示平台，整合了从�
 </td>
 </tr>
 <tr>
-<td align="center">
+<td align="left">
 <strong>Sequencing saturation</strong><br>
 <em>测序饱和度</em>
 </td>
@@ -837,49 +844,51 @@ HTML网页报告是单细胞RNA测序分析的综合展示平台，整合了从�
 
 > **注意**: 以下标准仅供参考，实际质量评估应考虑组织类型、细胞状态和实验目标等多种因素。不同样本间存在显著差异，建议结合具体实验背景进行判断。
 
+<!-- 表格内容 -->
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
-<th width="25%" align="center"><strong>指标名称</strong></th>
-<th width="30%" align="center"><strong>推荐值</strong></th>
-<th width="30%" align="center"><strong>可接受</strong></th>
-<th width="15%" align="center"><strong>需优化</strong></th>
+<th width="25%" align="left"><strong>指标名称</strong></th>
+<th width="30%" align="left"><strong>推荐值</strong></th>
+<th width="30%" align="left"><strong>可接受</strong></th>
+<th width="15%" align="left"><strong>需优化</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="center"><strong>Valid barcodes</strong></td>
-<td align="center">≥ 80%</td>
-<td align="center">70–80%</td>
-<td align="center">< 70%</td>
+<td align="left"><strong>Valid barcodes</strong></td>
+<td align="left">≥ 80%</td>
+<td align="left">70–80%</td>
+<td align="left">< 70%</td>
 </tr>
 <tr>
-<td align="center"><strong>Valid UMIs</strong></td>
-<td align="center">≥ 80%</td>
-<td align="center">70–80%</td>
-<td align="center">< 70%</td>
+<td align="left"><strong>Valid UMIs</strong></td>
+<td align="left">≥ 80%</td>
+<td align="left">70–80%</td>
+<td align="left">< 70%</td>
 </tr>
 <tr>
-<td align="center"><strong>Q30 Base Quality</strong></td>
-<td align="center">≥ 85%</td>
-<td align="center">75–85%</td>
-<td align="center">< 75%</td>
+<td align="left"><strong>Q30 Base Quality</strong></td>
+<td align="left">≥ 85%</td>
+<td align="left">75–85%</td>
+<td align="left">< 75%</td>
 </tr>
 </tbody>
 </table>
 
 **🔍 详细指标解释：**
 
+<!-- 表格内容 -->
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
-<th width="30%" align="center"><strong>指标名称</strong></th>
+<th width="30%" align="left"><strong>指标名称</strong></th>
 <th width="70%" align="left"><strong>详细解释与技术要求</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="center">
+<td align="left">
 <strong>Number of reads</strong><br>
 <em>读段数量</em>
 </td>
@@ -888,7 +897,7 @@ HTML网页报告是单细胞RNA测序分析的综合展示平台，整合了从�
 </td>
 </tr>
 <tr>
-<td align="center">
+<td align="left">
 <strong>Valid barcodes</strong><br>
 <em>有效条形码</em>
 </td>
@@ -900,7 +909,7 @@ HTML网页报告是单细胞RNA测序分析的综合展示平台，整合了从�
 </td>
 </tr>
 <tr>
-<td align="center">
+<td align="left">
 <strong>Corrected barcodes</strong><br>
 <em>纠错条形码</em>
 </td>
@@ -913,7 +922,7 @@ HTML网页报告是单细胞RNA测序分析的综合展示平台，整合了从�
 </td>
 </tr>
 <tr>
-<td align="center">
+<td align="left">
 <strong>Valid UMIs</strong><br>
 <em>有效UMI</em>
 </td>
@@ -925,7 +934,7 @@ HTML网页报告是单细胞RNA测序分析的综合展示平台，整合了从�
 </td>
 </tr>
 <tr>
-<td align="center">
+<td align="left">
 <strong>Q30 Base Quality</strong><br>
 <em>Q30碱基质量</em>
 </td>
@@ -954,55 +963,57 @@ HTML网页报告是单细胞RNA测序分析的综合展示平台，整合了从�
 
 > **注意**: 以下标准仅供参考，实际质量评估应考虑组织类型、细胞状态和实验目标等多种因素。不同样本间存在显著差异，建议结合具体实验背景进行判断。
 
+<!-- 表格内容 -->
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
-<th width="25%" align="center"><strong>指标名称</strong></th>
-<th width="30%" align="center"><strong>推荐值</strong></th>
-<th width="30%" align="center"><strong>可接受</strong></th>
-<th width="15%" align="center"><strong>需优化</strong></th>
+<th width="25%" align="left"><strong>指标名称</strong></th>
+<th width="30%" align="left"><strong>推荐值</strong></th>
+<th width="30%" align="left"><strong>可接受</strong></th>
+<th width="15%" align="left"><strong>需优化</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="center"><strong>Reads mapped to genome</strong></td>
-<td align="center">≥ 80%</td>
-<td align="center">50–80%</td>
-<td align="center">< 50%</td>
+<td align="left"><strong>Reads mapped to genome</strong></td>
+<td align="left">≥ 80%</td>
+<td align="left">50–80%</td>
+<td align="left">< 50%</td>
 </tr>
 <tr>
-<td align="center"><strong>Reads mapped confidently to genome</strong></td>
-<td align="center">≥ 60%</td>
-<td align="center">40–60%</td>
-<td align="center">< 40%</td>
+<td align="left"><strong>Reads mapped confidently to genome</strong></td>
+<td align="left">≥ 60%</td>
+<td align="left">40–60%</td>
+<td align="left">< 40%</td>
 </tr>
 <tr>
-<td align="center"><strong>Reads mapped confidently to transcriptome</strong></td>
-<td align="center">≥ 50%</td>
-<td align="center">30–50%</td>
-<td align="center">< 30%</td>
+<td align="left"><strong>Reads mapped confidently to transcriptome</strong></td>
+<td align="left">≥ 50%</td>
+<td align="left">30–50%</td>
+<td align="left">< 30%</td>
 </tr>
 <tr>
-<td align="center"><strong>Reads mapped antisense to gene</strong></td>
-<td align="center">< 10%</td>
-<td align="center">10–30%</td>
-<td align="center">> 30%</td>
+<td align="left"><strong>Reads mapped antisense to gene</strong></td>
+<td align="left">< 10%</td>
+<td align="left">10–30%</td>
+<td align="left">> 30%</td>
 </tr>
 </tbody>
 </table>
 
 **🔍 详细指标解释：**
 
+<!-- 表格内容 -->
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
-<th width="30%" align="center"><strong>指标名称</strong></th>
+<th width="30%" align="left"><strong>指标名称</strong></th>
 <th width="70%" align="left"><strong>详细解释与技术要求</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="center">
+<td align="left">
 <strong>Reads mapped to genome</strong><br>
 <em>基因组比对读段</em>
 </td>
@@ -1015,7 +1026,7 @@ HTML网页报告是单细胞RNA测序分析的综合展示平台，整合了从�
 </td>
 </tr>
 <tr>
-<td align="center">
+<td align="left">
 <strong>Reads mapped confidently to genome</strong><br>
 <em>基因组置信比对</em>
 </td>
@@ -1028,7 +1039,7 @@ HTML网页报告是单细胞RNA测序分析的综合展示平台，整合了从�
 </td>
 </tr>
 <tr>
-<td align="center">
+<td align="left">
 <strong>Reads mapped confidently to exonic regions</strong><br>
 <em>外显子区域比对</em>
 </td>
@@ -1041,7 +1052,7 @@ HTML网页报告是单细胞RNA测序分析的综合展示平台，整合了从�
 </td>
 </tr>
 <tr>
-<td align="center">
+<td align="left">
 <strong>Reads mapped confidently to intronic regions</strong><br>
 <em>内含子区域比对</em>
 </td>
@@ -1054,7 +1065,7 @@ HTML网页报告是单细胞RNA测序分析的综合展示平台，整合了从�
 </td>
 </tr>
 <tr>
-<td align="center">
+<td align="left">
 <strong>Reads mapped confidently to intergenic regions</strong><br>
 <em>基因间区域比对</em>
 </td>
@@ -1067,7 +1078,7 @@ HTML网页报告是单细胞RNA测序分析的综合展示平台，整合了从�
 </td>
 </tr>
 <tr>
-<td align="center">
+<td align="left">
 <strong>Reads mapped confidently to transcriptome</strong><br>
 <em>转录组置信比对</em>
 </td>
@@ -1080,7 +1091,7 @@ HTML网页报告是单细胞RNA测序分析的综合展示平台，整合了从�
 </td>
 </tr>
 <tr>
-<td align="center">
+<td align="left">
 <strong>Reads mapped antisense to gene</strong><br>
 <em>反义基因比对</em>
 </td>
@@ -1093,7 +1104,7 @@ HTML网页报告是单细胞RNA测序分析的综合展示平台，整合了从�
 </td>
 </tr>
 <tr>
-<td align="center">
+<td align="left">
 <strong>Include introns</strong><br>
 <em>包含内含子</em>
 </td>
@@ -1139,20 +1150,21 @@ HTML网页报告是单细胞RNA测序分析的综合展示平台，整合了从�
 
 **🔍 质量评估指导**:
 
+<!-- 表格内容 -->
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
-<th width="30%" align="center"><strong>特征模式</strong></th>
+<th width="30%" align="left"><strong>特征模式</strong></th>
 <th width="70%" align="left"><strong>质量解读</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="center"><strong>✅ 理想模式</strong></td>
+<td align="left"><strong>✅ 理想模式</strong></td>
 <td>明显"拐点"区分真实细胞和背景，真实细胞区域陡峭下降，背景区域平缓分布</td>
 </tr>
 <tr>
-<td align="center"><strong>⚠️ 异常模式</strong></td>
+<td align="left"><strong>⚠️ 异常模式</strong></td>
 <td>缺乏明显拐点（细胞浓度过低）、平缓下降（背景RNA过高）</td>
 </tr>
 </tbody>
@@ -1164,28 +1176,29 @@ HTML网页报告是单细胞RNA测序分析的综合展示平台，整合了从�
 
 **📏 细胞数据分布图**: 展示细胞基因数、UMI数、线粒体基因比例分布
 
+<!-- 表格内容 -->
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
-<th width="25%" align="center"><strong>指标</strong></th>
-<th width="35%" align="center"><strong>常见范围（参考值）</strong></th>
+<th width="25%" align="left"><strong>指标</strong></th>
+<th width="35%" align="left"><strong>常见范围（参考值）</strong></th>
 <th width="40%" align="left"><strong>异常解读（可能原因）</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="center"><strong>基因数</strong></td>
-<td align="center">多数细胞约 500–8000 个基因</td>
+<td align="left"><strong>基因数</strong></td>
+<td align="left">多数细胞约 500–8000 个基因</td>
 <td align="left">过低：低质量细胞或RNA降解； 过高：可能为双细胞/多细胞</td>
 </tr>
 <tr>
-<td align="center"><strong>UMI数</strong></td>
-<td align="center">多数细胞约 1,000–50,000 个</td>
+<td align="left"><strong>UMI数</strong></td>
+<td align="left">多数细胞约 1,000–50,000 个</td>
 <td align="left">过低：空液滴或低RNA含量； 过高：双细胞或文库扩增偏差</td>
 </tr>
 <tr>
-<td align="center"><strong>线粒体比例</strong></td>
-<td align="center">一般 <10–20%</td>
+<td align="left"><strong>线粒体比例</strong></td>
+<td align="left">一般 <10–20%</td>
 <td align="left">>20–25%：细胞处于压力、凋亡或破裂状态</td>
 </tr>
 </tbody>
@@ -1215,20 +1228,21 @@ HTML网页报告是单细胞RNA测序分析的综合展示平台，整合了从�
 
 </div>
 
+<!-- 表格内容 -->
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
-<th width="30%" align="center"><strong>图表组成</strong></th>
+<th width="30%" align="left"><strong>图表组成</strong></th>
 <th width="70%" align="left"><strong>技术详解和生物学意义</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="center"><strong>🎨 左侧聚类图</strong></td>
+<td align="left"><strong>🎨 左侧聚类图</strong></td>
 <td><strong>算法</strong>: Louvain无监督聚类 | <strong>降维</strong>: UMAP二维投影 | <strong>编码</strong>: 颜色区分细胞亚群 | <strong>意义</strong>: 相似基因表达谱细胞归为同一聚类</td>
 </tr>
 <tr>
-<td align="center"><strong>📊 右侧UMI图</strong></td>
+<td align="left"><strong>📊 右侧UMI图</strong></td>
 <td><strong>数据</strong>: 每细胞总UMI数量 | <strong>坐标</strong>: 与左图UMAP一致 | <strong>梯度</strong>: 蓝→红颜色梯度 | <strong>质控</strong>: 识别高质量细胞区域和技术噪音</td>
 </tr>
 </tbody>
@@ -1246,28 +1260,29 @@ HTML网页报告是单细胞RNA测序分析的综合展示平台，整合了从�
 
 **🔢 关键指标解释**:
 
+<!-- 表格内容 -->
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
-<th width="20%" align="center"><strong>统计指标</strong></th>
+<th width="20%" align="left"><strong>统计指标</strong></th>
 <th width="80%" align="left"><strong>含义和解读指导</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="center"><code>P-val</code></td>
+<td align="left"><code>P-val</code></td>
 <td>差异表达的统计显著性p值，数值越小表示差异越显著。<strong>阈值</strong>: < 0.05显著，< 0.01高度显著</td>
 </tr>
 <tr>
-<td align="center"><code>p_val_adj</code></td>
+<td align="left"><code>p_val_adj</code></td>
 <td>经Bonferroni多重检验校正后的调整p值，控制假阳性率。<strong>推荐</strong>: 使用调整p值进行最终筛选</td>
 </tr>
 <tr>
-<td align="center"><code>avg_log2FC</code></td>
+<td align="left"><code>avg_log2FC</code></td>
 <td>平均对数倍数变化（log2尺度）</td>
 </tr>
 <tr>
-<td align="center"><code>pct.1</code> / <code>pct.2</code></td>
+<td align="left"><code>pct.1</code> / <code>pct.2</code></td>
 <td>目标聚类/其他聚类中表达该基因的细胞比例</td>
 </tr>
 </tbody>
@@ -1283,24 +1298,25 @@ HTML网页报告是单细胞RNA测序分析的综合展示平台，整合了从�
 
 </div>
 
+<!-- 表格内容 -->
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
-<th width="25%" align="center"><strong>技术规格</strong></th>
+<th width="25%" align="left"><strong>技术规格</strong></th>
 <th width="75%" align="left"><strong>详细说明</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="center"><strong>📚 参考数据库</strong></td>
+<td align="left"><strong>📚 参考数据库</strong></td>
 <td><strong>scHCL</strong>: 人类单细胞景观数据库 (Single-cell Human Cell Landscape) | <strong>scMCA</strong>: 小鼠细胞图谱数据库 (Single-cell Mouse Cell Atlas)</td>
 </tr>
 <tr>
-<td align="center"><strong>🌍 物种支持</strong></td>
+<td align="left"><strong>🌍 物种支持</strong></td>
 <td><strong>支持</strong>: Human（人类）、Mouse（小鼠） | <strong>限制</strong>: 其他物种暂不提供自动注释功能</td>
 </tr>
 <tr>
-<td align="center"><strong>⚠️ 使用建议</strong></td>
+<td align="left"><strong>⚠️ 使用建议</strong></td>
 <td><strong>参考性质</strong>: 注释结果仅供参考，需结合生物学背景验证 | <strong>准确性</strong>: 受参考数据库覆盖范围限制 | <strong>推荐</strong>: 结合标记基因综合判断</td>
 </tr>
 </tbody>
@@ -1314,20 +1330,21 @@ HTML网页报告是单细胞RNA测序分析的综合展示平台，整合了从�
 
 </div>
 
+<!-- 表格内容 -->
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
-<th width="30%" align="center"><strong>图表类型</strong></th>
+<th width="30%" align="left"><strong>图表类型</strong></th>
 <th width="70%" align="left"><strong>技术原理和解读指导</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="center"><strong>📊 左侧饱和度曲线</strong></td>
+<td align="left"><strong>📊 左侧饱和度曲线</strong></td>
 <td><strong>计算</strong>: 饱和度 = 1 - (UMI数 / reads数) | <strong>解读</strong>: 曲线平滑表明测序充足</td>
 </tr>
 <tr>
-<td align="center"><strong>📈 右侧基因数曲线</strong></td>
+<td align="left"><strong>📈 右侧基因数曲线</strong></td>
 <td><strong>指标</strong>: 每细胞检测基因数中位数 | <strong>意义</strong>: 反映转录组复杂性 | <strong>优化</strong>: 指导测序深度和实验设计改进</td>
 </tr>
 </tbody>
@@ -1351,28 +1368,29 @@ HTML网页报告是单细胞RNA测序分析的综合展示平台，整合了从�
 
 ### 📚 相关文档
 
+<!-- 表格内容 -->
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
-<th width="30%" align="center"><strong>文档类型</strong></th>
+<th width="30%" align="left"><strong>文档类型</strong></th>
 <th width="70%" align="left"><strong>资源链接和描述</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="center"><strong>🚀 快速入门</strong></td>
+<td align="left"><strong>🚀 快速入门</strong></td>
 <td><a href="../quickstart.md">快速入门指南</a> - 第一次分析的完整教程</td>
 </tr>
 <tr>
-<td align="center"><strong>⚙️ 参数参考</strong></td>
+<td align="left"><strong>⚙️ 参数参考</strong></td>
 <td><a href="../parameter/parameter.md">参数参考手册</a> - 所有可配置参数的详细说明</td>
 </tr>
 <tr>
-<td align="center"><strong>🔬 分析流程</strong></td>
+<td align="left"><strong>🔬 分析流程</strong></td>
 <td><a href="../pipeline.md">分析流程说明</a> - 整个分析流程的技术细节</td>
 </tr>
 <tr>
-<td align="center"><strong>🔧 安装配置</strong></td>
+<td align="left"><strong>🔧 安装配置</strong></td>
 <td><a href="../installation.md">安装配置指南</a> - 系统要求、安装步骤和环境配置</td>
 </tr>
 </tbody>

@@ -1,3 +1,9 @@
+<div align="right">
+
+[🏠 Home](../../README.md) • [中文](scATAC.md)
+
+</div>
+
 # 🧬 DNBelab C Series HT scATAC Analysis Parameters
 
 <div align="center">

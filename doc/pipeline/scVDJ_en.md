@@ -1,3 +1,9 @@
+<div align="right">
+
+[🏠 Home](../../README.md) | [🌐 中文](scVDJ.md)
+
+</div>
+
 # 🧬 DNBelab C Series HT scVDJ Analysis Pipeline
 
 <div align="center">

@@ -1,3 +1,9 @@
+<div align="right">
+
+[🏠 Home](../../README.md) • [中文](tools.md)
+
+</div>
+
 # 🧬 DNBelab C Series HT Tool-based Analysis Parameters
 
 <div align="center">

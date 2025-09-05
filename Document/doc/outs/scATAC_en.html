@@ -138,7 +138,10 @@
         
         </head>
         <body class="vscode-body vscode-light">
-            <h1 id="-dnbelab-c-series-ht-scatac-analysis-output-documentation">🧬 DNBelab C Series HT scATAC Analysis Output Documentation</h1>
+            <div align="right">
+<p><a href="../../README.html">🏠 Home</a> | <a href="scATAC.html">🌐 中文</a></p>
+</div>
+<h1 id="-dnbelab-c-series-ht-scatac-analysis-output-documentation">🧬 DNBelab C Series HT scATAC Analysis Output Documentation</h1>
 <div align="center">
 <p><strong>Complete Guide to Single-Cell ATAC Sequencing Analysis Output Files</strong></p>
 <p><a href="#directory-structure">📁 Directory Structure</a> • <a href="#detailed-file-description">📋 File Details</a> • <a href="#peak-matrix-files">🧬 Data Matrix</a> • <a href="#analysis-metrics-summary">📊 Analysis Results</a> • <a href="#web-report-interpretation">📊 Report Interpretation</a></p>
@@ -194,29 +197,29 @@
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
-<th width="20%" align="center"><strong>Field Name</strong></th>
+<th width="20%" align="left"><strong>Field Name</strong></th>
 <th width="80%" align="left"><strong>Detailed Description</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="center"><code>chrom</code></td>
+<td align="left"><code>chrom</code></td>
 <td>Reference genome chromosome name, identifying the chromosome location of the fragment</td>
 </tr>
 <tr>
-<td align="center"><code>chromStart</code></td>
+<td align="left"><code>chromStart</code></td>
 <td>Adjusted start position of fragment on chromosome (0-based coordinate system), corrected by transposase cleavage site</td>
 </tr>
 <tr>
-<td align="center"><code>chromEnd</code></td>
+<td align="left"><code>chromEnd</code></td>
 <td>Adjusted end position of fragment on chromosome (exclusive), corrected by transposase cleavage site</td>
 </tr>
 <tr>
-<td align="center"><code>barcode</code></td>
+<td align="left"><code>barcode</code></td>
 <td>Cell ID identifier, corresponding to the <code>CB</code> tag in BAM file, used to assign fragments to specific cells</td>
 </tr>
 <tr>
-<td align="center"><code>readSupport</code></td>
+<td align="left"><code>readSupport</code></td>
 <td>Total number of read pairs associated with this fragment (including unique and duplicate reads)</td>
 </tr>
 </tbody>
@@ -234,25 +237,25 @@
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
-<th width="15%" align="center"><strong>Tag</strong></th>
-<th width="15%" align="center"><strong>Type</strong></th>
+<th width="15%" align="left"><strong>Tag</strong></th>
+<th width="15%" align="left"><strong>Type</strong></th>
 <th width="70%" align="left"><strong>Description</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="center"><code>CB</code></td>
-<td align="center">Z</td>
+<td align="left"><code>CB</code></td>
+<td align="left">Z</td>
 <td>Cell barcode identifier after error correction and cell merging</td>
 </tr>
 <tr>
-<td align="center"><code>CC</code></td>
-<td align="center">Z</td>
+<td align="left"><code>CC</code></td>
+<td align="left">Z</td>
 <td>Error-corrected cell barcode sequence</td>
 </tr>
 <tr>
-<td align="center"><code>CR</code></td>
-<td align="center">Z</td>
+<td align="left"><code>CR</code></td>
+<td align="left">Z</td>
 <td>Cell barcode sequence reported by sequencer</td>
 </tr>
 </tbody>
@@ -270,21 +273,21 @@
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
-<th width="25%" align="center"><strong>File Name</strong></th>
+<th width="25%" align="left"><strong>File Name</strong></th>
 <th width="75%" align="left"><strong>Content Description</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="center"><code>barcodes.tsv.gz</code></td>
+<td align="left"><code>barcodes.tsv.gz</code></td>
 <td>Cell ID list, identifying high-quality cells that passed quality control. Each line contains one cell ID information, corresponding to the column index of the matrix</td>
 </tr>
 <tr>
-<td align="center"><code>peaks.bed.gz</code></td>
+<td align="left"><code>peaks.bed.gz</code></td>
 <td>Peak region position information file, stored in BED format. Contains chromosome, start position and end position, corresponding to the row index of the matrix</td>
 </tr>
 <tr>
-<td align="center"><code>matrix.mtx.gz</code></td>
+<td align="left"><code>matrix.mtx.gz</code></td>
 <td>Peak region count matrix, using Market Matrix format. Contains matrix dimension information and non-zero elements' row, column indices and values</td>
 </tr>
 </tbody>
@@ -303,21 +306,21 @@
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
-<th width="25%" align="center"><strong>File Name</strong></th>
+<th width="25%" align="left"><strong>File Name</strong></th>
 <th width="75%" align="left"><strong>Content Description</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="center"><code>barcodes.tsv.gz</code></td>
+<td align="left"><code>barcodes.tsv.gz</code></td>
 <td>Raw cell ID list, identifying all detected cells (including low-quality cells and empty droplets). Corresponds to the column index of the matrix</td>
 </tr>
 <tr>
-<td align="center"><code>peaks.bed.gz</code></td>
+<td align="left"><code>peaks.bed.gz</code></td>
 <td>Complete peak region position information file, containing all detected peak regions. Contains chromosome, start position and end position information</td>
 </tr>
 <tr>
-<td align="center"><code>matrix.mtx.gz</code></td>
+<td align="left"><code>matrix.mtx.gz</code></td>
 <td>Raw peak region count matrix, containing all raw count data</td>
 </tr>
 </tbody>
@@ -342,21 +345,21 @@
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
-<th width="20%" align="center"><strong>Metrics Category</strong></th>
+<th width="20%" align="left"><strong>Metrics Category</strong></th>
 <th width="80%" align="left"><strong>Content</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="center"><strong>📊 Basic Statistics</strong></td>
+<td align="left"><strong>📊 Basic Statistics</strong></td>
 <td>Total read pairs, valid barcode proportion, Q30 base quality and other basic sequencing metrics</td>
 </tr>
 <tr>
-<td align="center"><strong>🧬 Cell Identification</strong></td>
+<td align="left"><strong>🧬 Cell Identification</strong></td>
 <td>Estimated cell count, peak region fragment proportion, TSS region fragment proportion, peak detection count, TSS enrichment and other cell calling results</td>
 </tr>
 <tr>
-<td align="center"><strong>🎯 Alignment Metrics</strong></td>
+<td align="left"><strong>🎯 Alignment Metrics</strong></td>
 <td>Genome alignment rate, mitochondrial proportion and other alignment statistics</td>
 </tr>
 </tbody>
@@ -390,21 +393,21 @@
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
-<th width="25%" align="center"><strong>Report Features</strong></th>
+<th width="25%" align="left"><strong>Report Features</strong></th>
 <th width="75%" align="left"><strong>Content Description</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="center"><strong>📊 Interactive Charts</strong></td>
+<td align="left"><strong>📊 Interactive Charts</strong></td>
 <td>Interactive visualization charts for quality control indicators, cell clustering, peak analysis, etc.</td>
 </tr>
 <tr>
-<td align="center"><strong>📈 Statistical Summary</strong></td>
+<td align="left"><strong>📈 Statistical Summary</strong></td>
 <td>Numerical summary and trend analysis of key performance indicators</td>
 </tr>
 <tr>
-<td align="center"><strong>🔍 Detailed Interpretation</strong></td>
+<td align="left"><strong>🔍 Detailed Interpretation</strong></td>
 <td>Biological significance and technical explanations of various indicators</td>
 </tr>
 </tbody>
@@ -444,17 +447,17 @@
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
-<th width="20%" align="center"><strong>Features</strong></th>
+<th width="20%" align="left"><strong>Features</strong></th>
 <th width="80%" align="left"><strong>Detailed Description</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="center"><strong>📊 Space Efficiency</strong></td>
+<td align="left"><strong>📊 Space Efficiency</strong></td>
 <td>Sparse matrix format stores only non-zero elements, saving significant storage space for single-cell ATAC data (typically over 95% are zero values)</td>
 </tr>
 <tr>
-<td align="center"><strong>🌐 Transportability</strong></td>
+<td align="left"><strong>🌐 Transportability</strong></td>
 <td>International standard format, facilitating data sharing, publication and cross-platform collaborative analysis</td>
 </tr>
 </tbody>
@@ -485,42 +488,42 @@
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
-<th width="25%" align="center"><strong>Metric Name</strong></th>
-<th width="30%" align="center"><strong>Recommended Value</strong></th>
-<th width="30%" align="center"><strong>Acceptable</strong></th>
-<th width="15%" align="center"><strong>Needs Optimization</strong></th>
+<th width="25%" align="left"><strong>Metric Name</strong></th>
+<th width="30%" align="left"><strong>Recommended Value</strong></th>
+<th width="30%" align="left"><strong>Acceptable</strong></th>
+<th width="15%" align="left"><strong>Needs Optimization</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="center"><strong>Median fragments per cell</strong></td>
-<td align="center">≥ 10,000</td>
-<td align="center">2,000–10,000</td>
-<td align="center">< 2,000</td>
+<td align="left"><strong>Median fragments per cell</strong></td>
+<td align="left">≥ 10,000</td>
+<td align="left">2,000–10,000</td>
+<td align="left">< 2,000</td>
 </tr>
 <tr>
-<td align="center"><strong>TSS enrichment score</strong></td>
-<td align="center">≥ 6</td>
-<td align="center">4–6</td>
-<td align="center">< 4</td>
+<td align="left"><strong>TSS enrichment score</strong></td>
+<td align="left">≥ 6</td>
+<td align="left">4–6</td>
+<td align="left">< 4</td>
 </tr>
 <tr>
-<td align="center"><strong>Median fraction of fragments overlapping peaks</strong></td>
-<td align="center">≥ 30%</td>
-<td align="center">15–30%</td>
-<td align="center">< 15%</td>
+<td align="left"><strong>Median fraction of fragments overlapping peaks</strong></td>
+<td align="left">≥ 30%</td>
+<td align="left">15–30%</td>
+<td align="left">< 15%</td>
 </tr>
 <tr>
-<td align="center"><strong>Median fraction of fragments overlapping TSS</strong></td>
-<td align="center">≥ 20%</td>
-<td align="center">10–20%</td>
-<td align="center">< 10%</td>
+<td align="left"><strong>Median fraction of fragments overlapping TSS</strong></td>
+<td align="left">≥ 20%</td>
+<td align="left">10–20%</td>
+<td align="left">< 10%</td>
 </tr>
 <tr>
-<td align="center"><strong>Fraction fragments in cells</strong></td>
-<td align="center">≥ 50%</td>
-<td align="center">20–50%</td>
-<td align="center">< 20%</td>
+<td align="left"><strong>Fraction fragments in cells</strong></td>
+<td align="left">≥ 50%</td>
+<td align="left">20–50%</td>
+<td align="left">< 20%</td>
 </tr>
 </tbody>
 </table>
@@ -528,13 +531,13 @@
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
-<th width="30%" align="center"><strong>Metric Name</strong></th>
+<th width="30%" align="left"><strong>Metric Name</strong></th>
 <th width="70%" align="left"><strong>Detailed Explanation and Technical Requirements</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="center">
+<td align="left">
 <strong>Estimated number of cells</strong><br>
 <em>Estimated Cell Count</em>
 </td>
@@ -547,7 +550,7 @@ The number of cells identified as real cells (rather than background noise or em
 </td>
 </tr>
 <tr>
-<td align="center">
+<td align="left">
 <strong>Species</strong><br>
 <em>Species Information</em>
 </td>
@@ -556,7 +559,7 @@ Displays the species origin or reference genome information of the sample, deriv
 </td>
 </tr>
 <tr>
-<td align="center">
+<td align="left">
 <strong>Median fragments per cell</strong><br>
 <em>Median Fragment Count per Cell</em>
 </td>
@@ -573,7 +576,7 @@ The median number of fragments identified as valid in each cell, reflecting the 
 </td>
 </tr>
 <tr>
-<td align="center">
+<td align="left">
 <strong>Mean raw read pairs per cell</strong><br>
 <em>Average Raw Read Pairs per Cell</em>
 </td>
@@ -582,7 +585,7 @@ Total raw sequencing read pairs divided by detected cell count, used to assess r
 </td>
 </tr>
 <tr>
-<td align="center">
+<td align="left">
 <strong>Fraction overlapping peaks</strong><br>
 <em>Fragment Overlap Peak Region Proportion</em>
 </td>
@@ -595,7 +598,7 @@ In each cell, the proportion of fragments overlapping with identified peak regio
 </td>
 </tr>
 <tr>
-<td align="center">
+<td align="left">
 <strong>Fraction overlapping TSS</strong><br>
 <em>TSS Region Fragment Overlap Proportion</em>
 </td>
@@ -608,7 +611,7 @@ In each cell, the proportion of fragments falling within TSS±2kb regions, a key
 </td>
 </tr>
 <tr>
-<td align="center">
+<td align="left">
 <strong>Fraction of fragments in cells</strong><br>
 <em>Cell Fragment Proportion</em>
 </td>
@@ -621,7 +624,7 @@ The proportion of fragments successfully attributed to real cell IDs among all v
 </td>
 </tr>
 <tr>
-<td align="center">
+<td align="left">
 <strong>Number of peaks</strong><br>
 <em>Identified Peak Count</em>
 </td>
@@ -639,36 +642,36 @@ Total number of open chromatin regions (peaks) identified through aggregate anal
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
-<th width="25%" align="center"><strong>Metric Category</strong></th>
-<th width="25%" align="center"><strong>Recommended Value</strong></th>
-<th width="25%" align="center"><strong>Acceptable</strong></th>
-<th width="25%" align="center"><strong>Needs Optimization</strong></th>
+<th width="25%" align="left"><strong>Metric Category</strong></th>
+<th width="25%" align="left"><strong>Recommended Value</strong></th>
+<th width="25%" align="left"><strong>Acceptable</strong></th>
+<th width="25%" align="left"><strong>Needs Optimization</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="center"><strong>Valid barcodes</strong></td>
-<td align="center">≥ 80%</td>
-<td align="center">70–80%</td>
-<td align="center">< 70%</td>
+<td align="left"><strong>Valid barcodes</strong></td>
+<td align="left">≥ 80%</td>
+<td align="left">70–80%</td>
+<td align="left">< 70%</td>
 </tr>
 <tr>
-<td align="center"><strong>Q30 bases in barcode</strong></td>
-<td align="center">> 85%</td>
-<td align="center">75–85%</td>
-<td align="center">< 75%</td>
+<td align="left"><strong>Q30 bases in barcode</strong></td>
+<td align="left">> 85%</td>
+<td align="left">75–85%</td>
+<td align="left">< 75%</td>
 </tr>
 <tr>
-<td align="center"><strong>Q30 bases in read</strong></td>
-<td align="center">> 85%</td>
-<td align="center">75–85%</td>
-<td align="center">< 75%</td>
+<td align="left"><strong>Q30 bases in read</strong></td>
+<td align="left">> 85%</td>
+<td align="left">75–85%</td>
+<td align="left">< 75%</td>
 </tr>
 <tr>
-<td align="center"><strong>Reads mapped to genome</strong></td>
-<td align="center">> 80%</td>
-<td align="center">50–80%</td>
-<td align="center">< 50%</td>
+<td align="left"><strong>Reads mapped to genome</strong></td>
+<td align="left">> 80%</td>
+<td align="left">50–80%</td>
+<td align="left">< 50%</td>
 </tr>
 </tbody>
 </table>
@@ -676,13 +679,13 @@ Total number of open chromatin regions (peaks) identified through aggregate anal
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
-<th width="30%" align="center"><strong>Metric Name</strong></th>
+<th width="30%" align="left"><strong>Metric Name</strong></th>
 <th width="70%" align="left"><strong>Detailed Explanation and Technical Requirements</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="center">
+<td align="left">
 <strong>Total read pairs</strong><br>
 <em>Total Sequencing Read Pairs</em>
 </td>
@@ -691,7 +694,7 @@ Total number of sequencing read pairs allocated to the sample, representing the 
 </td>
 </tr>
 <tr>
-<td align="center">
+<td align="left">
 <strong>Valid barcodes</strong><br>
 <em>Valid Barcode Proportion</em>
 </td>
@@ -703,7 +706,7 @@ The proportion of cell barcodes that can be successfully matched to the preset w
 </td>
 </tr>
 <tr>
-<td align="center">
+<td align="left">
 <strong>Reads mapped to genome</strong><br>
 <em>Genome Alignment Rate</em>
 </td>
@@ -717,7 +720,7 @@ The proportion of all reads that successfully align to any position on the refer
 </td>
 </tr>
 <tr>
-<td align="center">
+<td align="left">
 <strong>Mitochondria reads ratio</strong><br>
 <em>Mitochondrial Reads Proportion</em>
 </td>
@@ -726,7 +729,7 @@ The proportion of reads that align to the mitochondrial genome. Excessively high
 </td>
 </tr>
 <tr>
-<td align="center">
+<td align="left">
 <strong>Nucleosome-free regions</strong><br>
 <em>Nucleosome-Free Region Proportion</em>
 </td>
@@ -735,7 +738,7 @@ The proportion of fragments from open chromatin regions. High proportion indicat
 </td>
 </tr>
 <tr>
-<td align="center">
+<td align="left">
 <strong>Mono-nucleosome regions</strong><br>
 <em>Mononucleosome Region Proportion</em>
 </td>
@@ -744,7 +747,7 @@ The proportion of fragments containing single nucleosome regions, reflecting the
 </td>
 </tr>
 <tr>
-<td align="center">
+<td align="left">
 <strong>Q30 bases in barcode</strong><br>
 <em>Barcode Q30 Base Proportion</em>
 </td>
@@ -757,7 +760,7 @@ The proportion of bases with quality values ≥30 in the cell barcode region, wh
 </td>
 </tr>
 <tr>
-<td align="center">
+<td align="left">
 <strong>Q30 bases in read</strong><br>
 <em>Read Q30 Base Proportion</em>
 </td>
@@ -781,27 +784,27 @@ The proportion of all bases in sequencing reads with quality values ≥30, refle
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
-<th width="20%" align="center"><strong>Axis</strong></th>
+<th width="20%" align="left"><strong>Axis</strong></th>
 <th width="80%" align="left"><strong>Detailed Technical Specifications</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="center"><strong>X-axis</strong><br><em>Barcode Rank</em></td>
+<td align="left"><strong>X-axis</strong><br><em>Barcode Rank</em></td>
 <td>
 <strong>Cell Ranking (Descending Order, Logarithmic Scale)</strong><br>
 All detected cells are ranked by total fragment count in peak regions from high to low. The further left the ranking, the higher the fragment count, representing likely real cells; barcodes ranked to the right have low fragment counts, possibly empty droplets or background noise.
 </td>
 </tr>
 <tr>
-<td align="center"><strong>Y-axis</strong><br><em>Fragment Counts</em></td>
+<td align="left"><strong>Y-axis</strong><br><em>Fragment Counts</em></td>
 <td>
 <strong>Total Peak Region Fragments (Logarithmic Scale)</strong><br>
 The total number of peak region fragments corresponding to each cell. Higher fragment counts indicate more open chromatin regions captured in that droplet, making it more likely to be a real cell.
 </td>
 </tr>
 <tr>
-<td align="center"><strong>Color Coding</strong><br><em>Color Scheme</em></td>
+<td align="left"><strong>Color Coding</strong><br><em>Color Scheme</em></td>
 <td>
 <strong>Cell Density Gradient Display</strong><br>
 • <span style="color: #0ea5e9;">🔵 Blue Line</span>: Identified valid cells<br>
@@ -824,17 +827,17 @@ The total number of peak region fragments corresponding to each cell. Higher fra
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
-<th width="25%" align="center"><strong>Distribution Characteristics</strong></th>
+<th width="25%" align="left"><strong>Distribution Characteristics</strong></th>
 <th width="75%" align="left"><strong>Technical Explanation and Quality Control Significance</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="center"><strong>Theoretical Distribution</strong></td>
+<td align="left"><strong>Theoretical Distribution</strong></td>
 <td>Bead count distribution in droplets theoretically follows a <strong>Poisson distribution</strong>, reflecting the statistical characteristics of the random capture process</td>
 </tr>
 <tr>
-<td align="center"><strong>Actual Influencing Factors</strong></td>
+<td align="left"><strong>Actual Influencing Factors</strong></td>
 <td>
 • <strong>Sequencing Saturation</strong>: When low, beads may not be effectively merged<br>
 • <strong>Droplet Size Variation</strong>: Affects bead capture efficiency<br>
@@ -850,15 +853,15 @@ The total number of peak region fragments corresponding to each cell. Higher fra
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
-<th width="25%" align="center"><strong>Metric Type</strong></th>
-<th width="25%" align="center"><strong>Data Range</strong></th>
+<th width="25%" align="left"><strong>Metric Type</strong></th>
+<th width="25%" align="left"><strong>Data Range</strong></th>
 <th width="50%" align="left"><strong>Biological Significance and Quality Standards</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="center"><strong>Fragment Count</strong><br><em>Fragments</em></td>
-<td align="center">1,000 – 50,000</td>
+<td align="left"><strong>Fragment Count</strong><br><em>Fragments</em></td>
+<td align="left">1,000 – 50,000</td>
 <td>
 Total fragment count for each cell.<br>
 • ✅ <strong>High-Quality</strong>: >10,000<br>
@@ -867,16 +870,16 @@ Total fragment count for each cell.<br>
 </td>
 </tr>
 <tr>
-<td align="center"><strong>TSS Proportion</strong><br><em>TSS Proportion</em></td>
-<td align="center">5% – 90%</td>
+<td align="left"><strong>TSS Proportion</strong><br><em>TSS Proportion</em></td>
+<td align="left">5% – 90%</td>
 <td>
 Proportion of fragments in transcription start site regions.<br>
 Reflects chromatin openness in transcriptionally active regions and sequencing specificity
 </td>
 </tr>
 <tr>
-<td align="center"><strong>Peak Region Proportion</strong><br><em>Peak Proportion</em></td>
-<td align="center">5% – 90%</td>
+<td align="left"><strong>Peak Region Proportion</strong><br><em>Peak Proportion</em></td>
+<td align="left">5% – 90%</td>
 <td>
 Proportion of fragments in peak regions.<br>
 • ✅ <strong>Recommended Value</strong>: >30%<br>
@@ -893,39 +896,39 @@ Proportion of fragments in peak regions.<br>
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
-<th width="20%" align="center"><strong>Fragment Length Range</strong></th>
-<th width="25%" align="center"><strong>Chromatin Structure</strong></th>
+<th width="20%" align="left"><strong>Fragment Length Range</strong></th>
+<th width="25%" align="left"><strong>Chromatin Structure</strong></th>
 <th width="55%" align="left"><strong>Biological Significance and Quality Assessment</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="center"><strong>50–200 bp</strong></td>
-<td align="center">Nucleosome-Free Regions</td>
+<td align="left"><strong>50–200 bp</strong></td>
+<td align="left">Nucleosome-Free Regions</td>
 <td>
 <strong>Open Chromatin Marker</strong><br>
 High proportion indicates good chromatin accessibility and transposase activity. The ~10.5 bp sawtooth pattern reflects DNA double helix structure
 </td>
 </tr>
 <tr>
-<td align="center"><strong>200–400 bp</strong></td>
-<td align="center">Mononucleosome Regions</td>
+<td align="left"><strong>200–400 bp</strong></td>
+<td align="left">Mononucleosome Regions</td>
 <td>
 <strong>Chromatin Structure Integrity</strong><br>
 Approximately 147 bp core nucleosome + linker region. Peak appearance indicates intact nucleosome structure
 </td>
 </tr>
 <tr>
-<td align="center"><strong>400–600 bp</strong></td>
-<td align="center">Dinucleosome Regions</td>
+<td align="left"><strong>400–600 bp</strong></td>
+<td align="left">Dinucleosome Regions</td>
 <td>
 <strong>Higher-Order Chromatin Structure</strong><br>
 Reflects higher-order organization of chromatin. Peak appearance suggests high-quality samples
 </td>
 </tr>
 <tr>
-<td align="center"><strong>Periodic Pattern</strong></td>
-<td align="center">Overall Assessment</td>
+<td align="left"><strong>Periodic Pattern</strong></td>
+<td align="left">Overall Assessment</td>
 <td>
 <strong>Sample Quality Indicator</strong><br>
 • ✅ <strong>Ideal</strong>: Clear ~150 bp periodic pattern<br>
@@ -965,18 +968,18 @@ Reflects higher-order organization of chromatin. Peak appearance suggests high-q
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
-<th width="25%" align="center"><strong>Metric Name</strong></th>
-<th width="20%" align="center"><strong>Recommended Threshold</strong></th>
+<th width="25%" align="left"><strong>Metric Name</strong></th>
+<th width="20%" align="left"><strong>Recommended Threshold</strong></th>
 <th width="55%" align="left"><strong>Technical Meaning and Biological Significance</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="center">
+<td align="left">
 <strong>Percent duplicates</strong><br>
 <em>Duplicate Sequence Percentage</em>
 </td>
-<td align="center">
+<td align="left">
 ≥ 20%<br>
 <span style="color: #10b981;">📊 High-Quality: >30%</span><br>
 <span style="color: #f59e0b;">⚠️ Low Saturation: <10%</span>
@@ -992,11 +995,11 @@ Proportion of fragments identified as PCR duplicates. Depends on library complex
 </td>
 </tr>
 <tr>
-<td align="center">
+<td align="left">
 <strong>Jaccard threshold</strong><br>
 <em>Jaccard Similarity Threshold</em>
 </td>
-<td align="center">
+<td align="left">
 <span style="color: #10b981;">🎯 Auto-optimized</span><br>
 <span style="color: #6366f1;">🔧 Otsu Algorithm</span>
 </td>
@@ -1024,18 +1027,18 @@ Used to distinguish whether pairs of beads are located in the same droplet.
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
-<th width="20%" align="center"><strong>Chart Type</strong></th>
-<th width="25%" align="center"><strong>Data Source</strong></th>
+<th width="20%" align="left"><strong>Chart Type</strong></th>
+<th width="25%" align="left"><strong>Data Source</strong></th>
 <th width="55%" align="left"><strong>Technical Features and Biological Significance</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="center">
+<td align="left">
 <strong>Left Chart</strong><br>
 <em>Cell Type Clustering Chart</em>
 </td>
-<td align="center">
+<td align="left">
 Chromatin Accessibility Data<br>
 <span style="color: #8b5cf6;">🧮 Louvain Algorithm</span>
 </td>
@@ -1048,11 +1051,11 @@ Chromatin Accessibility Data<br>
 </td>
 </tr>
 <tr>
-<td align="center">
+<td align="left">
 <strong>Right Chart</strong><br>
 <em>Fragment Count Distribution Chart</em>
 </td>
-<td align="center">
+<td align="left">
 Cell Fragment Count<br>
 <span style="color: #ef4444;">🔥 Quantity Gradient</span>
 </td>
@@ -1072,17 +1075,17 @@ Cell Fragment Count<br>
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
-<th width="15%" align="center"><strong>Technical Parameters</strong></th>
+<th width="15%" align="left"><strong>Technical Parameters</strong></th>
 <th width="85%" align="left"><strong>Detailed Explanation and Biological Significance</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="center"><strong>X-axis</strong><br><em>Genomic Position</em></td>
+<td align="left"><strong>X-axis</strong><br><em>Genomic Position</em></td>
 <td>TSS upstream and downstream ±1,000 bp interval, statistically analyzed with 50 bp windows, covering most possible promoter and regulatory element regions</td>
 </tr>
 <tr>
-<td align="center"><strong>Y-axis</strong><br><em>Signal Intensity</em></td>
+<td align="left"><strong>Y-axis</strong><br><em>Signal Intensity</em></td>
 <td>Normalized fragment density signal, normalized by the minimum value in local windows, reflecting transposase cleavage frequency at that position</td>
 </tr>
 </tbody>
@@ -1099,20 +1102,20 @@ Cell Fragment Count<br>
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
-<th width="15%" align="center"><strong>Axis</strong></th>
-<th width="30%" align="center"><strong>Data Type</strong></th>
+<th width="15%" align="left"><strong>Axis</strong></th>
+<th width="30%" align="left"><strong>Data Type</strong></th>
 <th width="55%" align="left"><strong>Technical Meaning and Quality Control Significance</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="center"><strong>X-axis</strong></td>
-<td align="center">Fragment Counts<br><em>Fragment Count</em></td>
+<td align="left"><strong>X-axis</strong></td>
+<td align="left">Fragment Counts<br><em>Fragment Count</em></td>
 <td>Total fragments corresponding to this barcode, reflecting overall chromatin accessibility level in the cell, typically set >1,000 as cell filtering standard</td>
 </tr>
 <tr>
-<td align="center"><strong>Y-axis</strong></td>
-<td align="center">TSS Enrichment<br><em>TSS Enrichment Proportion</em></td>
+<td align="left"><strong>Y-axis</strong></td>
+<td align="left">TSS Enrichment<br><em>TSS Enrichment Proportion</em></td>
 <td>Proportion of fragments falling within TSS±2kb region for this barcode, reflecting cell transcriptional activity</td>
 </tr>
 </tbody>
@@ -1135,25 +1138,25 @@ Cell Fragment Count<br>
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
-<th width="20%" align="center"><strong>Curve Stage</strong></th>
-<th width="25%" align="center"><strong>Feature Description</strong></th>
+<th width="20%" align="left"><strong>Curve Stage</strong></th>
+<th width="25%" align="left"><strong>Feature Description</strong></th>
 <th width="55%" align="left"><strong>Biological Significance and Experimental Guidance</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="center">📈 <strong>Initial Stage</strong></td>
-<td align="center">Rapid curve rise</td>
+<td align="left">📈 <strong>Initial Stage</strong></td>
+<td align="left">Rapid curve rise</td>
 <td><strong>Linear Growth Stage</strong>, indicating that more deduplicated unique fragments can be obtained as sequencing depth increases, high cost-effectiveness</td>
 </tr>
 <tr>
-<td align="center">📊 <strong>Saturation Stage</strong></td>
-<td align="center">Curve gradually flattens</td>
+<td align="left">📊 <strong>Saturation Stage</strong></td>
+<td align="left">Curve gradually flattens</td>
 <td><strong>Diminishing Returns Stage</strong>, indicating that most accessibility regions have been adequately detected, continued increase in sequencing depth yields limited benefits</td>
 </tr>
 <tr>
-<td align="center">🎯 <strong>Quality Standard</strong></td>
-<td align="center">Saturation >20%</td>
+<td align="left">🎯 <strong>Quality Standard</strong></td>
+<td align="left">Saturation >20%</td>
 <td><strong>Recommended Quality Threshold</strong>, saturation greater than 20% is recommended; low saturation may indicate sample quality issues or insufficient sequencing depth</td>
 </tr>
 </tbody>
@@ -1171,13 +1174,13 @@ Cell Fragment Count<br>
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
-<th width="20%" align="center"><strong>Technical Parameters</strong></th>
+<th width="20%" align="left"><strong>Technical Parameters</strong></th>
 <th width="80%" align="left"><strong>Detailed Explanation and Application Significance</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="center">
+<td align="left">
 <strong>Jaccard Index</strong><br>
 <em>Similarity Indicator</em>
 </td>
@@ -1189,11 +1192,11 @@ Cell Fragment Count<br>
 </td>
 </tr>
 <tr>
-<td align="center"><strong>X-axis</strong><br><em>Ranking Position</em></td>
+<td align="left"><strong>X-axis</strong><br><em>Ranking Position</em></td>
 <td>All barcode pairs, ranked from high to low by Jaccard similarity value, used to identify similarity distribution patterns</td>
 </tr>
 <tr>
-<td align="center"><strong>Y-axis</strong><br><em>Similarity Value</em></td>
+<td align="left"><strong>Y-axis</strong><br><em>Similarity Value</em></td>
 <td>Jaccard Index value (logarithmic coordinate display), logarithmic coordinates help better display details in low similarity regions</td>
 </tr>
 </tbody>
@@ -1210,25 +1213,25 @@ Cell Fragment Count<br>
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
-<th width="30%" align="center"><strong>Document Type</strong></th>
+<th width="30%" align="left"><strong>Document Type</strong></th>
 <th width="70%" align="left"><strong>Resource Links and Description</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="center"><strong>🚀 Quick Start</strong></td>
+<td align="left"><strong>🚀 Quick Start</strong></td>
 <td><a href="../quickstart.html">Quick Start Guide</a> - Complete tutorial for first-time analysis</td>
 </tr>
 <tr>
-<td align="center"><strong>⚙️ Parameter Reference</strong></td>
+<td align="left"><strong>⚙️ Parameter Reference</strong></td>
 <td><a href="../parameter/parameter.html">Parameter Reference Manual</a> - Detailed explanation of all configurable parameters</td>
 </tr>
 <tr>
-<td align="center"><strong>🔬 Analysis Pipeline</strong></td>
+<td align="left"><strong>🔬 Analysis Pipeline</strong></td>
 <td><a href="../pipeline.html">Analysis Pipeline Description</a> - Technical details of the entire analysis pipeline</td>
 </tr>
 <tr>
-<td align="center"><strong>🔧 Installation Configuration</strong></td>
+<td align="left"><strong>🔧 Installation Configuration</strong></td>
 <td><a href="../installation.html">Installation Configuration Guide</a> - System requirements, installation steps and environment configuration</td>
 </tr>
 </tbody>
