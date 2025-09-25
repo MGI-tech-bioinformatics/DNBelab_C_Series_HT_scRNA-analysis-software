@@ -190,7 +190,7 @@ Usage Examples:
 
 > 📄 **Professional Conversion Tool**
 > 
-> Efficient BAM file operation tool specifically designed for converting C4 RNA BAM files to FASTQ files. Supports multi-threaded parallel processing and flexible output configuration.
+> This is an efficient tool for converting C4 RNA BAM files back into FASTQ format. It supports multi-threaded parallel processing and flexible output configuration. Supports multi-threaded parallel processing and flexible output configuration.
 
 ### 📊 Usage <a id="usage-bam2fastq"></a>
 

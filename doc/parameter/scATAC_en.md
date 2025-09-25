@@ -309,7 +309,7 @@ Analysis Settings:
 </details>
 <strong>⚠️ Important Notes:</strong>
 <ul>
-<li>Must use quotes when using to avoid shell command parsing errors</li>
+<li>Must be enclosed in quotes to prevent shell command parsing errors</li>
 <li>Coordinate ranges cannot exceed actual read length</li>
 <li>Incorrect configuration may lead to data loss or analysis failure</li>
 </ul>
@@ -413,7 +413,7 @@ Analysis Settings:
 <td align="center">
 <code><strong>--merge_cutoff</strong></code>
 <br><br>
-<span style="color: #27ae60; font-weight: bold;">🔗 Default: 1000</span>
+<span style="color: #27ae60; font-weight: bold;">🔗 Default: 500</span>
 </td>
 <td>
 <h4>🧡 Bead Merging Fragments Threshold</h4>

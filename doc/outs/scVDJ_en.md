@@ -18,11 +18,11 @@
 
 ## 📖 Overview <a id="overview"></a>
 
-After single-cell VDJ analysis is completed, standardized files and subdirectory structures are generated in the specified output directory for immune receptor repertoire analysis. This document provides detailed descriptions of each output file's content, format, and purpose to help users fully understand and efficiently utilize V(D)J analysis results.
+Upon completion of the single-cell VDJ analysis, the pipeline generates a standardized structure of files and subdirectories in the specified output directory for immune receptor repertoire analysis. This document provides detailed descriptions of each output file's content, format, and purpose to help users fully understand and efficiently utilize V(D)J analysis results.
 
 > 💡 **Note**: VDJ analysis requires 5' RNA sequencing data, and all output files follow AIRR standards and are compatible with mainstream immunological analysis tools.
 
-> ⚠️ **Prerequisites**: 5' single-cell RNA sequencing analysis must be completed first
+> ⚠️ **Prerequisites**: Completion of 5' single-cell RNA sequencing analysis is required.
 
 ---
 </br>

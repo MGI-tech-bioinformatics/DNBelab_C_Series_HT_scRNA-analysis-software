@@ -1,30 +1,30 @@
 <div align="right">
-  <a href="../README.md">🏠 Home</a>
+  <a href="../README.md">Home</a>
 </div>
 
-# ⚡ Quick Start Guide
+# Quick Start Guide
 
 <div align="center">
 
 **Get started with dnbc4tools**
 
-[🧬 RNA-seq](#single-cell-rna-analysis) • [🧪 ATAC-seq](#single-cell-atac-analysis) • [🦠 VDJ-seq](#single-cell-vdj-analysis) 
+[◆ RNA-seq](#single-cell-rna-analysis) • [◆ ATAC-seq](#single-cell-atac-analysis) • [◆ VDJ-seq](#single-cell-vdj-analysis) 
 
 </div>
 
 ---
 
-## 📝 Prerequisites
+## Prerequisites
 
 **Before starting:**
 - dnbc4tools installed ([Installation Guide](./installation.md))
 - Replace `$dnbc4tools` with your actual installation path
 - Example: `/opt/software/dnbc4tools3.0beta/dnbc4tools`
-- Use `\` for multi-line commands (optional for single lines)
+- The backslash `\` is used to split a single command across multiple lines for improved readability. It is optional for commands written on a single line.
 
 ---
 
-## 🧬 Single-Cell RNA Analysis <a id="single-cell-rna-analysis"></a>
+## ◆ Single-Cell RNA Analysis <a id="single-cell-rna-analysis"></a>
 
 > Gene expression profiling at single-cell resolution
 
@@ -86,7 +86,7 @@ $dnbc4tools rna run \
 
 ---
 
-## 🧪 Single-Cell ATAC Analysis <a id="single-cell-atac-analysis"></a>
+## ◆ Single-Cell ATAC Analysis <a id="single-cell-atac-analysis"></a>
 
 > Chromatin accessibility profiling at single-cell resolution
 
@@ -136,11 +136,11 @@ $dnbc4tools atac run \
 
 ---
 
-## 🦠 Single-Cell VDJ Analysis <a id="single-cell-vdj-analysis"></a>
+## ◆ Single-Cell VDJ Analysis <a id="single-cell-vdj-analysis"></a>
 
 > Immune receptor repertoire profiling (requires 5' RNA-seq data)
 
-⚠️ **Prerequisites**: Complete 5' scRNA analysis first to establish cell-bead correspondence.
+**Prerequisites**: Complete 5' scRNA analysis first to establish cell-bead correspondence.
 
 ### Step 1: 5' RNA Analysis
 
@@ -209,7 +209,7 @@ $dnbc4tools vdj run \
 
 ---
 
-## 🔧 Command Reference <a id="command-reference"></a>
+## ◆ Command Reference <a id="command-reference"></a>
 
 ### Essential Commands Summary
 
@@ -223,19 +223,19 @@ $dnbc4tools vdj run \
 | GTF Processing | `dnbc4tools tools mkgtf` | Filter and process GTF files |
 
 ### Parameter Documentation
-- 📚 [Complete Parameter Reference](./parameter/parameter.md)
-- 🧬 [RNA-specific Parameters](./parameter/scRNA_en.md) 
-- 🧪 [ATAC-specific Parameters](./parameter/scATAC_en.md)
-- 🦠 [VDJ-specific Parameters](./parameter/scVDJ_en.md)
+- [Complete Parameter Reference](./parameter/parameter.md)
+- [RNA-specific Parameters](./parameter/scRNA_en.md)
+- [ATAC-specific Parameters](./parameter/scATAC_en.md)
+- [VDJ-specific Parameters](./parameter/scVDJ_en.md)
 
 ### Output Analysis
-- 📊 [Output File Guide](./outs/outs.md)
-- 🔧 [R/Python Usage](./io.md)
+- [Output File Guide](./outs/outs.md)
+- [R/Python Usage](./io.md)
 
 ---
 
 **Get Help:**
-- 📚 [Installation Guide](./installation.md) 
-- 🆘 [GitHub Issues](https://github.com/MGI-tech-bioinformatics/DNBelab_C_Series_HT_scRNA-analysis-software/issues)
+- [Installation Guide](./installation.md) 
+- [GitHub Issues](https://github.com/MGI-tech-bioinformatics/DNBelab_C_Series_HT_scRNA-analysis-software/issues)
 
 ---

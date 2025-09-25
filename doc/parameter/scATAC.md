@@ -416,7 +416,7 @@ Analysis Settings:
 <td align="center">
 <code><strong>--merge_cutoff</strong></code>
 <br><br>
-<span style="color: #27ae60; font-weight: bold;">🔗 默认：1000</span>
+<span style="color: #27ae60; font-weight: bold;">🔗 默认：500</span>
 </td>
 <td>
 <h4>🧲 磁珠合并fragments阈值</h4>

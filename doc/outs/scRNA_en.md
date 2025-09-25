@@ -18,11 +18,11 @@
 
 ## 📖 Overview <a id="overview"></a>
 
-After single-cell RNA analysis is completed, a standardized file and subdirectory structure will be generated in the specified output directory, specifically for gene expression profile analysis and cell type identification. This document provides detailed descriptions of the content, format, and purpose of each output file to help users fully understand and efficiently utilize single-cell RNA analysis results.
+Upon completion of the single-cell RNA analysis, the pipeline generates a standardized structure of files and subdirectories in the specified output directory. These outputs are tailored for gene expression profiling and cell type identification. This document provides detailed descriptions of the content, format, and purpose of each output file to help users fully understand and efficiently utilize single-cell RNA analysis results.
 
 > 💡 **Tip**: All output files use standard formats compatible with mainstream single-cell analysis tools (such as Scanpy, Seurat, etc.) and follow internationally recognized data format specifications.
 
-> ⚠️ **Prerequisites**: High-quality single-cell RNA sequencing data preprocessing needs to be completed
+Prerequisites: High-quality single-cell RNA sequencing data preprocessing is required.
 
 ---
 

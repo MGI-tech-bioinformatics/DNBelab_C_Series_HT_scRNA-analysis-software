@@ -41,7 +41,7 @@ Basic Settings:
   -o, --outdir <DIR>    Output directory for results and reports [default: current directory]. Example: ./output
   -t, --threads <INT>   Number of CPU threads for parallel processing [default: all available cores] (e.g., 16).
   -s, --beadstrans <FILE>
-                        RNA analysis singlecell.csv file for filtering cells and merging beads information. When not provided, all cells will be kept by default (equivalent to --keep_all_cells).
+                        Path to the `singlecell.csv` file from a 5' scRNA analysis. This file is used to filter cells and merge bead information, linking the VDJ data to the RNA expression data. If not provided, all cells are kept by default.
 
 Library Settings:
   Auto-detection is recommended for dark cycles. Available modes include "R1" and "unset".
