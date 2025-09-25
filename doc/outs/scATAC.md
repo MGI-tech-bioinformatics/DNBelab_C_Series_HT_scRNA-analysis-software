@@ -1,3 +1,9 @@
+<div align="right">
+
+[🏠 主页](../../README.md) | [🌐 English](scATAC_en.md)
+
+</div>
+
 # 🧬 DNBelab C Series HT scATAC 分析输出文档
 
 <div align="center">
@@ -72,29 +78,29 @@
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
-<th width="20%" align="center"><strong>字段名</strong></th>
+<th width="20%" align="left"><strong>字段名</strong></th>
 <th width="80%" align="left"><strong>详细描述</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="center"><code>chrom</code></td>
+<td align="left"><code>chrom</code></td>
 <td>参考基因组染色体名称，标识片段所在的染色体位置</td>
 </tr>
 <tr>
-<td align="center"><code>chromStart</code></td>
+<td align="left"><code>chromStart</code></td>
 <td>片段在染色体上的调整起始位置（0-based坐标系统），经过转座酶切割位点修正</td>
 </tr>
 <tr>
-<td align="center"><code>chromEnd</code></td>
+<td align="left"><code>chromEnd</code></td>
 <td>片段在染色体上的调整结束位置（不包含该位置），经过转座酶切割位点修正</td>
 </tr>
 <tr>
-<td align="center"><code>barcode</code></td>
+<td align="left"><code>barcode</code></td>
 <td>细胞ID标识符，对应BAM文件中的<code>CB</code>标签，用于将片段归属到特定细胞</td>
 </tr>
 <tr>
-<td align="center"><code>readSupport</code></td>
+<td align="left"><code>readSupport</code></td>
 <td>与该片段相关的总读段对数（包括唯一和重复读段）</td>
 </tr>
 </tbody>
@@ -123,25 +129,25 @@
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
-<th width="15%" align="center"><strong>标签</strong></th>
-<th width="15%" align="center"><strong>类型</strong></th>
+<th width="15%" align="left"><strong>标签</strong></th>
+<th width="15%" align="left"><strong>类型</strong></th>
 <th width="70%" align="left"><strong>描述</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="center"><code>CB</code></td>
-<td align="center">Z</td>
+<td align="left"><code>CB</code></td>
+<td align="left">Z</td>
 <td>经过错误校正和细胞合并处理后的细胞条形码标识符</td>
 </tr>
 <tr>
-<td align="center"><code>CC</code></td>
-<td align="center">Z</td>
+<td align="left"><code>CC</code></td>
+<td align="left">Z</td>
 <td>经过错误校正细胞条形码序列</td>
 </tr>
 <tr>
-<td align="center"><code>CR</code></td>
-<td align="center">Z</td>
+<td align="left"><code>CR</code></td>
+<td align="left">Z</td>
 <td>测序仪报告的细胞条形码序列</td>
 </tr>
 </tbody>
@@ -170,21 +176,21 @@ BAM文件对应的索引文件，用于实现对BAM文件中任意基因组区�
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
-<th width="25%" align="center"><strong>文件名</strong></th>
+<th width="25%" align="left"><strong>文件名</strong></th>
 <th width="75%" align="left"><strong>内容描述</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="center"><code>barcodes.tsv.gz</code></td>
+<td align="left"><code>barcodes.tsv.gz</code></td>
 <td>细胞ID列表，标识通过质控筛选的高质量细胞。每行包含一个细胞ID信息，对应矩阵的列索引</td>
 </tr>
 <tr>
-<td align="center"><code>peaks.bed.gz</code></td>
+<td align="left"><code>peaks.bed.gz</code></td>
 <td>峰区域位置信息文件，采用BED格式存储。包含染色体、起始位置和结束位置，对应矩阵的行索引</td>
 </tr>
 <tr>
-<td align="center"><code>matrix.mtx.gz</code></td>
+<td align="left"><code>matrix.mtx.gz</code></td>
 <td>峰区域计数矩阵，采用 Market Matrix 格式。包含矩阵维度信息和非零元素的行、列索引及数值</td>
 </tr>
 </tbody>
@@ -207,21 +213,21 @@ BAM文件对应的索引文件，用于实现对BAM文件中任意基因组区�
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
-<th width="25%" align="center"><strong>文件名</strong></th>
+<th width="25%" align="left"><strong>文件名</strong></th>
 <th width="75%" align="left"><strong>内容描述</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="center"><code>barcodes.tsv.gz</code></td>
+<td align="left"><code>barcodes.tsv.gz</code></td>
 <td>原始细胞ID列表，标识所有检测到的细胞（包括低质量细胞和空液滴）。对应矩阵的列索引</td>
 </tr>
 <tr>
-<td align="center"><code>peaks.bed.gz</code></td>
+<td align="left"><code>peaks.bed.gz</code></td>
 <td>完整的峰区域位置信息文件，包含所有检测到的峰区域。包含染色体、起始位置和结束位置信息</td>
 </tr>
 <tr>
-<td align="center"><code>matrix.mtx.gz</code></td>
+<td align="left"><code>matrix.mtx.gz</code></td>
 <td>原始峰区域计数矩阵，包含所有原始计数数据</td>
 </tr>
 </tbody>
@@ -255,21 +261,21 @@ BAM文件对应的索引文件，用于实现对BAM文件中任意基因组区�
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
-<th width="20%" align="center"><strong>指标类别</strong></th>
+<th width="20%" align="left"><strong>指标类别</strong></th>
 <th width="80%" align="left"><strong>包含内容</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="center"><strong>📊 基本统计</strong></td>
+<td align="left"><strong>📊 基本统计</strong></td>
 <td>总读段对数、有效条形码比例、Q30碱基质量等基础测序指标</td>
 </tr>
 <tr>
-<td align="center"><strong>🧬 细胞识别</strong></td>
+<td align="left"><strong>🧬 细胞识别</strong></td>
 <td>估计细胞数量、峰区域片段占比、TSS区域片段占比、峰检测数量、TSS富集等细胞调用结果</td>
 </tr>
 <tr>
-<td align="center"><strong>🎯 比对指标</strong></td>
+<td align="left"><strong>🎯 比对指标</strong></td>
 <td>基因组比对率、线粒体比例等比对统计</td>
 </tr>
 </tbody>
@@ -311,21 +317,21 @@ BAM文件对应的索引文件，用于实现对BAM文件中任意基因组区�
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
-<th width="25%" align="center"><strong>报告特点</strong></th>
+<th width="25%" align="left"><strong>报告特点</strong></th>
 <th width="75%" align="left"><strong>内容描述</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="center"><strong>📊 交互式图表</strong></td>
+<td align="left"><strong>📊 交互式图表</strong></td>
 <td>质控指标、细胞聚类、峰分析等可交互可视化图表</td>
 </tr>
 <tr>
-<td align="center"><strong>📈 统计汇总</strong></td>
+<td align="left"><strong>📈 统计汇总</strong></td>
 <td>关键性能指标的数值汇总和趋势分析</td>
 </tr>
 <tr>
-<td align="center"><strong>🔍 详细解读</strong></td>
+<td align="left"><strong>🔍 详细解读</strong></td>
 <td>各项指标的生物学意义和技术解释</td>
 </tr>
 </tbody>
@@ -361,17 +367,17 @@ BAM文件对应的索引文件，用于实现对BAM文件中任意基因组区�
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
-<th width="20%" align="center"><strong>特性</strong></th>
+<th width="20%" align="left"><strong>特性</strong></th>
 <th width="80%" align="left"><strong>详细说明</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="center"><strong>📊 空间效率</strong></td>
+<td align="left"><strong>📊 空间效率</strong></td>
 <td>稀疏矩阵格式仅存储非零元素，对于单细胞ATAC数据（通常95%以上为零值）可节省大量存储空间</td>
 </tr>
 <tr>
-<td align="center"><strong>🌐 传输性</strong></td>
+<td align="left"><strong>🌐 传输性</strong></td>
 <td>国际标准格式，便于数据共享、发表和跨平台协作分析</td>
 </tr>
 </tbody>
@@ -416,42 +422,42 @@ HTML网页报告是单细胞ATAC测序分析的综合展示平台，整合了从
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
-<th width="25%" align="center"><strong>指标名称</strong></th>
-<th width="30%" align="center"><strong>推荐值</strong></th>
-<th width="30%" align="center"><strong>可接受</strong></th>
-<th width="15%" align="center"><strong>需优化</strong></th>
+<th width="25%" align="left"><strong>指标名称</strong></th>
+<th width="30%" align="left"><strong>推荐值</strong></th>
+<th width="30%" align="left"><strong>可接受</strong></th>
+<th width="15%" align="left"><strong>需优化</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="center"><strong>Median fragments per cell</strong></td>
-<td align="center">≥ 10,000</td>
-<td align="center">2,000–10,000</td>
-<td align="center">< 2,000</td>
+<td align="left"><strong>Median fragments per cell</strong></td>
+<td align="left">≥ 10,000</td>
+<td align="left">2,000–10,000</td>
+<td align="left">< 2,000</td>
 </tr>
 <tr>
-<td align="center"><strong>TSS enrichment score</strong></td>
-<td align="center">≥ 6</td>
-<td align="center">4–6</td>
-<td align="center">< 4</td>
+<td align="left"><strong>TSS enrichment score</strong></td>
+<td align="left">≥ 6</td>
+<td align="left">4–6</td>
+<td align="left">< 4</td>
 </tr>
 <tr>
-<td align="center"><strong>Median fraction of fragments overlapping peaks</strong></td>
-<td align="center">≥ 30%</td>
-<td align="center">15–30%</td>
-<td align="center">< 15%</td>
+<td align="left"><strong>Median fraction of fragments overlapping peaks</strong></td>
+<td align="left">≥ 30%</td>
+<td align="left">15–30%</td>
+<td align="left">< 15%</td>
 </tr>
 <tr>
-<td align="center"><strong>Median fraction of fragments overlapping TSS</strong></td>
-<td align="center">≥ 20%</td>
-<td align="center">10–20%</td>
-<td align="center">< 10%</td>
+<td align="left"><strong>Median fraction of fragments overlapping TSS</strong></td>
+<td align="left">≥ 20%</td>
+<td align="left">10–20%</td>
+<td align="left">< 10%</td>
 </tr>
 <tr>
-<td align="center"><strong>Fraction fragments in cells</strong></td>
-<td align="center">≥ 50%</td>
-<td align="center">20–50%</td>
-<td align="center">< 20%</td>
+<td align="left"><strong>Fraction fragments in cells</strong></td>
+<td align="left">≥ 50%</td>
+<td align="left">20–50%</td>
+<td align="left">< 20%</td>
 </tr>
 
 </tbody>
@@ -462,13 +468,13 @@ HTML网页报告是单细胞ATAC测序分析的综合展示平台，整合了从
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
-<th width="30%" align="center"><strong>指标名称</strong></th>
+<th width="30%" align="left"><strong>指标名称</strong></th>
 <th width="70%" align="left"><strong>详细解释与技术要求</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="center">
+<td align="left">
 <strong>Estimated number of cells</strong><br>
 <em>估计细胞数量</em>
 </td>
@@ -481,7 +487,7 @@ HTML网页报告是单细胞ATAC测序分析的综合展示平台，整合了从
 </td>
 </tr>
 <tr>
-<td align="center">
+<td align="left">
 <strong>Species</strong><br>
 <em>物种信息</em>
 </td>
@@ -490,7 +496,7 @@ HTML网页报告是单细胞ATAC测序分析的综合展示平台，整合了从
 </td>
 </tr>
 <tr>
-<td align="center">
+<td align="left">
 <strong>Median fragments per cell</strong><br>
 <em>每细胞中位片段数</em>
 </td>
@@ -507,7 +513,7 @@ HTML网页报告是单细胞ATAC测序分析的综合展示平台，整合了从
 </td>
 </tr>
 <tr>
-<td align="center">
+<td align="left">
 <strong>Mean raw read pairs per cell</strong><br>
 <em>每细胞平均原始读段对数</em>
 </td>
@@ -516,7 +522,7 @@ HTML网页报告是单细胞ATAC测序分析的综合展示平台，整合了从
 </td>
 </tr>
 <tr>
-<td align="center">
+<td align="left">
 <strong>Fraction overlapping peaks</strong><br>
 <em>片段重叠峰区域比例</em>
 </td>
@@ -529,7 +535,7 @@ HTML网页报告是单细胞ATAC测序分析的综合展示平台，整合了从
 </td>
 </tr>
 <tr>
-<td align="center">
+<td align="left">
 <strong>Fraction overlapping TSS</strong><br>
 <em>TSS区域片段重叠比例</em>
 </td>
@@ -542,7 +548,7 @@ HTML网页报告是单细胞ATAC测序分析的综合展示平台，整合了从
 </td>
 </tr>
 <tr>
-<td align="center">
+<td align="left">
 <strong>Fraction of fragments in cells</strong><br>
 <em>细胞内片段比例</em>
 </td>
@@ -555,7 +561,7 @@ HTML网页报告是单细胞ATAC测序分析的综合展示平台，整合了从
 </td>
 </tr>
 <tr>
-<td align="center">
+<td align="left">
 <strong>Number of peaks</strong><br>
 <em>识别峰数量</em>
 </td>
@@ -579,36 +585,36 @@ HTML网页报告是单细胞ATAC测序分析的综合展示平台，整合了从
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
-<th width="25%" align="center"><strong>指标类别</strong></th>
-<th width="25%" align="center"><strong>推荐值</strong></th>
-<th width="25%" align="center"><strong>可接受</strong></th>
-<th width="25%" align="center"><strong>需优化</strong></th>
+<th width="25%" align="left"><strong>指标类别</strong></th>
+<th width="25%" align="left"><strong>推荐值</strong></th>
+<th width="25%" align="left"><strong>可接受</strong></th>
+<th width="25%" align="left"><strong>需优化</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="center"><strong>Valid barcodes</strong></td>
-<td align="center">≥ 80%</td>
-<td align="center">70–80%</td>
-<td align="center">< 70%</td>
+<td align="left"><strong>Valid barcodes</strong></td>
+<td align="left">≥ 80%</td>
+<td align="left">70–80%</td>
+<td align="left">< 70%</td>
 </tr>
 <tr>
-<td align="center"><strong>Q30 bases in barcode</strong></td>
-<td align="center">> 85%</td>
-<td align="center">75–85%</td>
-<td align="center">< 75%</td>
+<td align="left"><strong>Q30 bases in barcode</strong></td>
+<td align="left">> 85%</td>
+<td align="left">75–85%</td>
+<td align="left">< 75%</td>
 </tr>
 <tr>
-<td align="center"><strong>Q30 bases in read</strong></td>
-<td align="center">> 85%</td>
-<td align="center">75–85%</td>
-<td align="center">< 75%</td>
+<td align="left"><strong>Q30 bases in read</strong></td>
+<td align="left">> 85%</td>
+<td align="left">75–85%</td>
+<td align="left">< 75%</td>
 </tr>
 <tr>
-<td align="center"><strong>Reads mapped to genome</strong></td>
-<td align="center">> 80%</td>
-<td align="center">50–80%</td>
-<td align="center">< 50%</td>
+<td align="left"><strong>Reads mapped to genome</strong></td>
+<td align="left">> 80%</td>
+<td align="left">50–80%</td>
+<td align="left">< 50%</td>
 </tr>
 </tbody>
 </table>
@@ -618,13 +624,13 @@ HTML网页报告是单细胞ATAC测序分析的综合展示平台，整合了从
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
-<th width="30%" align="center"><strong>指标名称</strong></th>
+<th width="30%" align="left"><strong>指标名称</strong></th>
 <th width="70%" align="left"><strong>详细解释与技术要求</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="center">
+<td align="left">
 <strong>Total read pairs</strong><br>
 <em>测序读段对总数</em>
 </td>
@@ -633,7 +639,7 @@ HTML网页报告是单细胞ATAC测序分析的综合展示平台，整合了从
 </td>
 </tr>
 <tr>
-<td align="center">
+<td align="left">
 <strong>Valid barcodes</strong><br>
 <em>有效条形码比例</em>
 </td>
@@ -645,7 +651,7 @@ HTML网页报告是单细胞ATAC测序分析的综合展示平台，整合了从
 </td>
 </tr>
 <tr>
-<td align="center">
+<td align="left">
 <strong>Reads mapped to genome</strong><br>
 <em>基因组比对率</em>
 </td>
@@ -659,7 +665,7 @@ HTML网页报告是单细胞ATAC测序分析的综合展示平台，整合了从
 </td>
 </tr>
 <tr>
-<td align="center">
+<td align="left">
 <strong>Mitochondria reads ratio</strong><br>
 <em>线粒体reads比例</em>
 </td>
@@ -668,7 +674,7 @@ HTML网页报告是单细胞ATAC测序分析的综合展示平台，整合了从
 </td>
 </tr>
 <tr>
-<td align="center">
+<td align="left">
 <strong>Nucleosome-free regions</strong><br>
 <em>无核小体区域比例</em>
 </td>
@@ -677,7 +683,7 @@ HTML网页报告是单细胞ATAC测序分析的综合展示平台，整合了从
 </td>
 </tr>
 <tr>
-<td align="center">
+<td align="left">
 <strong>Mono-nucleosome regions</strong><br>
 <em>单核小体区域比例</em>
 </td>
@@ -686,7 +692,7 @@ HTML网页报告是单细胞ATAC测序分析的综合展示平台，整合了从
 </td>
 </tr>
 <tr>
-<td align="center">
+<td align="left">
 <strong>Q30 bases in barcode</strong><br>
 <em>条形码Q30碱基比例</em>
 </td>
@@ -698,7 +704,7 @@ cell barcode区域中碱基的质量值≥30的比例，Q30代表测序错误率
 </td>
 </tr>
 <tr>
-<td align="center">
+<td align="left">
 <strong>Q30 bases in read</strong><br>
 <em>读段Q30碱基比例</em>
 </td>
@@ -732,27 +738,27 @@ cell barcode区域中碱基的质量值≥30的比例，Q30代表测序错误率
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
-<th width="20%" align="center"><strong>坐标轴</strong></th>
+<th width="20%" align="left"><strong>坐标轴</strong></th>
 <th width="80%" align="left"><strong>详细技术规范</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="center"><strong>X轴</strong><br><em>Barcode Rank</em></td>
+<td align="left"><strong>X轴</strong><br><em>Barcode Rank</em></td>
 <td>
 <strong>细胞排序（降序排列，对数刻度）</strong><br>
 所有检测到的细胞按峰区域片段总数从高到低排序。排名越靠左，片段计数越高，代表可能是真实细胞；排名靠右的条形码片段计数低，可能是空液滴或背景噪音。
 </td>
 </tr>
 <tr>
-<td align="center"><strong>Y轴</strong><br><em>Fragment Counts</em></td>
+<td align="left"><strong>Y轴</strong><br><em>Fragment Counts</em></td>
 <td>
 <strong>峰区域片段总数（对数刻度）</strong><br>
 每个细胞对应的峰区域片段总数量。片段数量越高，代表该液滴中捕获的开放染色质区域越多，越可能是真实细胞。
 </td>
 </tr>
 <tr>
-<td align="center"><strong>颜色编码</strong><br><em>Color Scheme</em></td>
+<td align="left"><strong>颜色编码</strong><br><em>Color Scheme</em></td>
 <td>
 <strong>细胞密度梯度显示</strong><br>
 • <span style="color: #0ea5e9;">🔵 蓝色线</span>：已识别的有效细胞<br>
@@ -779,17 +785,17 @@ cell barcode区域中碱基的质量值≥30的比例，Q30代表测序错误率
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
-<th width="25%" align="center"><strong>分布特征</strong></th>
+<th width="25%" align="left"><strong>分布特征</strong></th>
 <th width="75%" align="left"><strong>技术解释与质量控制意义</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="center"><strong>理论分布</strong></td>
+<td align="left"><strong>理论分布</strong></td>
 <td>液滴中磁珠数量分布理论上符合<strong>泊松分布</strong>，反映随机捕获过程的统计特性</td>
 </tr>
 <tr>
-<td align="center"><strong>实际影响因素</strong></td>
+<td align="left"><strong>实际影响因素</strong></td>
 <td>
 • <strong>测序饱和度</strong>：较低时可能导致磁珠无法有效合并<br>
 • <strong>液滴大小变异</strong>：影响磁珠捕获效率<br>
@@ -810,15 +816,15 @@ cell barcode区域中碱基的质量值≥30的比例，Q30代表测序错误率
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
-<th width="25%" align="center"><strong>指标类型</strong></th>
-<th width="25%" align="center"><strong>数据范围</strong></th>
+<th width="25%" align="left"><strong>指标类型</strong></th>
+<th width="25%" align="left"><strong>数据范围</strong></th>
 <th width="50%" align="left"><strong>生物学意义与质量标准</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="center"><strong>片段数</strong><br><em>Fragments</em></td>
-<td align="center">1,000 – 50,000</td>
+<td align="left"><strong>片段数</strong><br><em>Fragments</em></td>
+<td align="left">1,000 – 50,000</td>
 <td>
 每个细胞的总片段数量。<br>
 • ✅ <strong>优质</strong>: >10,000<br>
@@ -827,16 +833,16 @@ cell barcode区域中碱基的质量值≥30的比例，Q30代表测序错误率
 </td>
 </tr>
 <tr>
-<td align="center"><strong>TSS占比</strong><br><em>TSS Proportion</em></td>
-<td align="center">5% – 90%</td>
+<td align="left"><strong>TSS占比</strong><br><em>TSS Proportion</em></td>
+<td align="left">5% – 90%</td>
 <td>
 转录起始位点区域片段比例。<br>
 反映染色质在转录活跃区域的开放程度和测序特异性
 </td>
 </tr>
 <tr>
-<td align="center"><strong>Peak区域占比</strong><br><em>Peak Proportion</em></td>
-<td align="center">5% – 90%</td>
+<td align="left"><strong>Peak区域占比</strong><br><em>Peak Proportion</em></td>
+<td align="left">5% – 90%</td>
 <td>
 峰区域片段比例。<br>
 • ✅ <strong>推荐值</strong>: >30%<br>
@@ -858,39 +864,39 @@ cell barcode区域中碱基的质量值≥30的比例，Q30代表测序错误率
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
-<th width="20%" align="center"><strong>片段长度范围</strong></th>
-<th width="25%" align="center"><strong>染色质结构</strong></th>
+<th width="20%" align="left"><strong>片段长度范围</strong></th>
+<th width="25%" align="left"><strong>染色质结构</strong></th>
 <th width="55%" align="left"><strong>生物学意义与质量评估</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="center"><strong>50–200 bp</strong></td>
-<td align="center">无核小体区域</td>
+<td align="left"><strong>50–200 bp</strong></td>
+<td align="left">无核小体区域</td>
 <td>
 <strong>开放染色质标志</strong><br>
 高比例表示良好的染色质可及性和转座酶活性。出现~10.5 bp锯齿状模式反映DNA双螺旋结构
 </td>
 </tr>
 <tr>
-<td align="center"><strong>200–400 bp</strong></td>
-<td align="center">单核小体区域</td>
+<td align="left"><strong>200–400 bp</strong></td>
+<td align="left">单核小体区域</td>
 <td>
 <strong>染色质结构完整性</strong><br>
 约147 bp核心核小体 + 连接区域。峰值出现表明核小体结构保持完整
 </td>
 </tr>
 <tr>
-<td align="center"><strong>400–600 bp</strong></td>
-<td align="center">双核小体区域</td>
+<td align="left"><strong>400–600 bp</strong></td>
+<td align="left">双核小体区域</td>
 <td>
 <strong>高级染色质结构</strong><br>
 反映染色质的高级组织结构。出现此峰提示样本质量优良
 </td>
 </tr>
 <tr>
-<td align="center"><strong>周期性模式</strong></td>
-<td align="center">整体评估</td>
+<td align="left"><strong>周期性模式</strong></td>
+<td align="left">整体评估</td>
 <td>
 <strong>样本质量指示器</strong><br>
 • ✅ <strong>理想</strong>: 约150 bp周期性模式清晰<br>
@@ -941,18 +947,18 @@ cell barcode区域中碱基的质量值≥30的比例，Q30代表测序错误率
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
-<th width="25%" align="center"><strong>指标名称</strong></th>
-<th width="20%" align="center"><strong>推荐阈值</strong></th>
+<th width="25%" align="left"><strong>指标名称</strong></th>
+<th width="20%" align="left"><strong>推荐阈值</strong></th>
 <th width="55%" align="left"><strong>技术含义与生物学意义</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="center">
+<td align="left">
 <strong>Percent duplicates</strong><br>
 <em>重复序列百分比</em>
 </td>
-<td align="center">
+<td align="left">
 ≥ 20%<br>
 <span style="color: #10b981;">📊 优质: >30%</span><br>
 <span style="color: #f59e0b;">⚠️ 低饱和: <10%</span>
@@ -968,11 +974,11 @@ cell barcode区域中碱基的质量值≥30的比例，Q30代表测序错误率
 </td>
 </tr>
 <tr>
-<td align="center">
+<td align="left">
 <strong>Jaccard threshold</strong><br>
 <em>Jaccard相似度阈值</em>
 </td>
-<td align="center">
+<td align="left">
 <span style="color: #10b981;">🎯 自动优化</span><br>
 <span style="color: #6366f1;">🔧 Otsu算法</span>
 </td>
@@ -1009,18 +1015,18 @@ cell barcode区域中碱基的质量值≥30的比例，Q30代表测序错误率
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
-<th width="20%" align="center"><strong>图表类型</strong></th>
-<th width="25%" align="center"><strong>数据来源</strong></th>
+<th width="20%" align="left"><strong>图表类型</strong></th>
+<th width="25%" align="left"><strong>数据来源</strong></th>
 <th width="55%" align="left"><strong>技术特征与生物学意义</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="center">
+<td align="left">
 <strong>左侧图表</strong><br>
 <em>细胞类型聚类图</em>
 </td>
-<td align="center">
+<td align="left">
 染色质可及性数据<br>
 <span style="color: #8b5cf6;">🧮 Louvain算法</span>
 </td>
@@ -1033,11 +1039,11 @@ cell barcode区域中碱基的质量值≥30的比例，Q30代表测序错误率
 </td>
 </tr>
 <tr>
-<td align="center">
+<td align="left">
 <strong>右侧图表</strong><br>
 <em>片段数分布图</em>
 </td>
-<td align="center">
+<td align="left">
 细胞片段计数<br>
 <span style="color: #ef4444;">🔥 数量梯度</span>
 </td>
@@ -1061,17 +1067,17 @@ cell barcode区域中碱基的质量值≥30的比例，Q30代表测序错误率
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
-<th width="15%" align="center"><strong>技术参数</strong></th>
+<th width="15%" align="left"><strong>技术参数</strong></th>
 <th width="85%" align="left"><strong>详细解释与生物学意义</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="center"><strong>X轴</strong><br><em>基因组位置</em></td>
+<td align="left"><strong>X轴</strong><br><em>基因组位置</em></td>
 <td>TSS上下游 ±1,000 bp区间，以50 bp为窗口进行统计，涵盖了大部分可能的启动子和调控元件区域</td>
 </tr>
 <tr>
-<td align="center"><strong>Y轴</strong><br><em>信号强度</em></td>
+<td align="left"><strong>Y轴</strong><br><em>信号强度</em></td>
 <td>归一化的片段密度信号，按局部窗口内的最小值进行归一化标准化，反映转座酶在该位置的切割频率</td>
 </tr>
 </tbody>
@@ -1092,20 +1098,20 @@ cell barcode区域中碱基的质量值≥30的比例，Q30代表测序错误率
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
-<th width="15%" align="center"><strong>坐标轴</strong></th>
-<th width="30%" align="center"><strong>数据类型</strong></th>
+<th width="15%" align="left"><strong>坐标轴</strong></th>
+<th width="30%" align="left"><strong>数据类型</strong></th>
 <th width="55%" align="left"><strong>技术含义与质控意义</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="center"><strong>X轴</strong></td>
-<td align="center">Fragment Counts<br><em>片段计数</em></td>
+<td align="left"><strong>X轴</strong></td>
+<td align="left">Fragment Counts<br><em>片段计数</em></td>
 <td>该 barcode 对应的总片段数，反映细胞内染色质可及性的整体水平，通常设置>1,000作为细胞过滤标准</td>
 </tr>
 <tr>
-<td align="center"><strong>Y轴</strong></td>
-<td align="center">TSS Enrichment<br><em>TSS富集比例</em></td>
+<td align="left"><strong>Y轴</strong></td>
+<td align="left">TSS Enrichment<br><em>TSS富集比例</em></td>
 <td>该 barcode 中落在 TSS±2kb 区域内的片段比例，反映细胞转录活性</td>
 </tr>
 </tbody>
@@ -1131,25 +1137,25 @@ cell barcode区域中碱基的质量值≥30的比例，Q30代表测序错误率
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
-<th width="20%" align="center"><strong>曲线阶段</strong></th>
-<th width="25%" align="center"><strong>特征描述</strong></th>
+<th width="20%" align="left"><strong>曲线阶段</strong></th>
+<th width="25%" align="left"><strong>特征描述</strong></th>
 <th width="55%" align="left"><strong>生物学意义与实验指导</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="center">📈 <strong>初期阶段</strong></td>
-<td align="center">曲线快速上升</td>
+<td align="left">📈 <strong>初期阶段</strong></td>
+<td align="left">曲线快速上升</td>
 <td><strong>线性增长阶段</strong>，表示随着测序深度增加，能够获得更多的去重后唯一片段，投入产出比高</td>
 </tr>
 <tr>
-<td align="center">📊 <strong>饱和阶段</strong></td>
-<td align="center">曲线逐渐平缓</td>
+<td align="left">📊 <strong>饱和阶段</strong></td>
+<td align="left">曲线逐渐平缓</td>
 <td><strong>收益递减阶段</strong>，表明大部分可及性区域已被充分检测，继续增加测序深度收益有限</td>
 </tr>
 <tr>
-<td align="center">🎯 <strong>质量标准</strong></td>
-<td align="center">饱和度 >20%</td>
+<td align="left">🎯 <strong>质量标准</strong></td>
+<td align="left">饱和度 >20%</td>
 <td><strong>推荐质量阈值</strong>，建议饱和度大于20%，过低的饱和度可能提示样本质量问题或测序深度不足</td>
 </tr>
 </tbody>
@@ -1171,13 +1177,13 @@ cell barcode区域中碱基的质量值≥30的比例，Q30代表测序错误率
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
-<th width="20%" align="center"><strong>技术参数</strong></th>
+<th width="20%" align="left"><strong>技术参数</strong></th>
 <th width="80%" align="left"><strong>详细解释与应用意义</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="center">
+<td align="left">
 <strong>Jaccard Index</strong><br>
 <em>相似性指标</em>
 </td>
@@ -1189,11 +1195,11 @@ cell barcode区域中碱基的质量值≥30的比例，Q30代表测序错误率
 </td>
 </tr>
 <tr>
-<td align="center"><strong>X轴</strong><br><em>排序位置</em></td>
+<td align="left"><strong>X轴</strong><br><em>排序位置</em></td>
 <td>所有条形码对，按Jaccard相似性值从高到低排序，用于识别相似度的分布模式</td>
 </tr>
 <tr>
-<td align="center"><strong>Y轴</strong><br><em>相似性值</em></td>
+<td align="left"><strong>Y轴</strong><br><em>相似性值</em></td>
 <td>Jaccard Index值（对数坐标显示），对数坐标有助于更好地展示低相似性区域的细节</td>
 </tr>
 </tbody>
@@ -1214,25 +1220,25 @@ cell barcode区域中碱基的质量值≥30的比例，Q30代表测序错误率
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
-<th width="30%" align="center"><strong>文档类型</strong></th>
+<th width="30%" align="left"><strong>文档类型</strong></th>
 <th width="70%" align="left"><strong>资源链接和描述</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="center"><strong>🚀 快速入门</strong></td>
+<td align="left"><strong>🚀 快速入门</strong></td>
 <td><a href="../quickstart.md">快速入门指南</a> - 第一次分析的完整教程</td>
 </tr>
 <tr>
-<td align="center"><strong>⚙️ 参数参考</strong></td>
+<td align="left"><strong>⚙️ 参数参考</strong></td>
 <td><a href="../parameter/parameter.md">参数参考手册</a> - 所有可配置参数的详细说明</td>
 </tr>
 <tr>
-<td align="center"><strong>🔬 分析流程</strong></td>
+<td align="left"><strong>🔬 分析流程</strong></td>
 <td><a href="../pipeline.md">分析流程说明</a> - 整个分析流程的技术细节</td>
 </tr>
 <tr>
-<td align="center"><strong>🔧 安装配置</strong></td>
+<td align="left"><strong>🔧 安装配置</strong></td>
 <td><a href="../installation.md">安装配置指南</a> - 系统要求、安装步骤和环境配置</td>
 </tr>
 </tbody>

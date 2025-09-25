@@ -139,7 +139,10 @@
         
         </head>
         <body class="vscode-body vscode-light">
-            <h1 id="-dnbelab-c-series-ht-scvdj-analysis-parameters">🧬 DNBelab C Series HT scVDJ Analysis Parameters</h1>
+            <div align="right">
+<p><a href="../../README.html">🏠 Home</a> • <a href="scVDJ.html">中文</a></p>
+</div>
+<h1 id="-dnbelab-c-series-ht-scvdj-analysis-parameters">🧬 DNBelab C Series HT scVDJ Analysis Parameters</h1>
 <div align="center">
 <p><a href="#main-analysis-pipeline-run">🔬 Main Analysis Pipeline (run)</a></p>
 </div>
@@ -168,7 +171,7 @@ Basic Settings:
   -o, --outdir &lt;DIR&gt;    Output directory for results and reports [default: current directory]. Example: ./output
   -t, --threads &lt;INT&gt;   Number of CPU threads for parallel processing [default: all available cores] (e.g., 16).
   -s, --beadstrans &lt;FILE&gt;
-                        RNA analysis singlecell.csv file for filtering cells and merging beads information. When not provided, all cells will be kept by default (equivalent to --keep_all_cells).
+                        Path to the `singlecell.csv` file from a 5&#x27; scRNA analysis. This file is used to filter cells and merge bead information, linking the VDJ data to the RNA expression data. If not provided, all cells are kept by default.
 
 Library Settings:
   Auto-detection is recommended for dark cycles. Available modes include &quot;R1&quot; and &quot;unset&quot;.

@@ -2,7 +2,7 @@
         <html>
         <head>
             <meta charset="UTF-8">
-            <title>&#x1f4ca; Output Analysis Guide</title>
+            <title>Output Analysis Guide</title>
             <style>
 /* From extension vscode.github */
 /*---------------------------------------------------------------------------------------------
@@ -139,13 +139,16 @@
         
         </head>
         <body class="vscode-body vscode-light">
-            <h1 id="-output-analysis-guide">📊 Output Analysis Guide</h1>
+            <div align="right">
+  <a href="../README.html">Home</a>
+</div>
+<h1 id="output-analysis-guide">Output Analysis Guide</h1>
 <div align="center">
 <p><strong>How to analyze dnbc4tools output in R and Python</strong></p>
-<p><a href="#scrna-analysis">🧬 RNA Analysis</a> • <a href="#scatac-analysis">🧪 ATAC Analysis</a></p>
+<p><a href="#scrna-analysis">RNA Analysis</a> • <a href="#scatac-analysis">ATAC Analysis</a></p>
 </div>
 <hr>
-<h2 id="-scrna-analysis-">🧬 scRNA Analysis <a id="scrna-analysis"></a></h2>
+<h2 id="scrna-analysis-">scRNA Analysis <a id="scrna-analysis"></a></h2>
 <h3 id="r-seurat">R (Seurat)</h3>
 <pre><code class="language-r">library<span class="hljs-punctuation">(</span>Seurat<span class="hljs-punctuation">)</span>
 counts.data <span class="hljs-operator">&lt;-</span> Read10X<span class="hljs-punctuation">(</span>data.dir <span class="hljs-operator">=</span> <span class="hljs-string">&quot;/outs/filter_matrix&quot;</span><span class="hljs-punctuation">)</span>
@@ -160,7 +163,7 @@ adata = sc.read_h5ad(<span class="hljs-string">&#x27;/outs/filter_feature.h5ad&#
 adata = sc.read_10x_mtx(<span class="hljs-string">&#x27;/outs/filter_matrix&#x27;</span>)
 </code></pre>
 <hr>
-<h2 id="-scatac-analysis-">🧪 scATAC Analysis <a id="scatac-analysis"></a></h2>
+<h2 id="scatac-analysis-">scATAC Analysis <a id="scatac-analysis"></a></h2>
 <h3 id="r-signac">R (Signac)</h3>
 <pre><code class="language-r">require<span class="hljs-punctuation">(</span>magrittr<span class="hljs-punctuation">)</span>
 require<span class="hljs-punctuation">(</span>readr<span class="hljs-punctuation">)</span>
@@ -180,7 +183,7 @@ mtx <span class="hljs-operator">&lt;-</span> Matrix<span class="hljs-operator">:
   magrittr<span class="hljs-operator">::</span>set_rownames<span class="hljs-punctuation">(</span>features<span class="hljs-operator">$</span>feature<span class="hljs-punctuation">)</span> <span class="hljs-operator">%&gt;%</span>
   magrittr<span class="hljs-operator">::</span>set_colnames<span class="hljs-punctuation">(</span>barcodes<span class="hljs-operator">$</span>barcode<span class="hljs-punctuation">)</span>
 </code></pre>
-<p><strong>Including Reading Other Files with Metadata</strong></p>
+<p><strong>Example: Creating a Seurat Object with Metadata</strong></p>
 <pre><code class="language-r">require<span class="hljs-punctuation">(</span>magrittr<span class="hljs-punctuation">)</span>
 require<span class="hljs-punctuation">(</span>readr<span class="hljs-punctuation">)</span>
 require<span class="hljs-punctuation">(</span>Matrix<span class="hljs-punctuation">)</span>
@@ -266,7 +269,7 @@ ArrowFiles <span class="hljs-operator">&lt;-</span> createArrowFiles<span class=
     <span class="hljs-keyword">return</span> adata
 </code></pre>
 <hr>
-<h2 id="-common-output-files-">📊 Common Output Files <a id="common-output-files"></a></h2>
+<h2 id="common-output-files-">Common Output Files <a id="common-output-files"></a></h2>
 <table>
 <thead>
 <tr>

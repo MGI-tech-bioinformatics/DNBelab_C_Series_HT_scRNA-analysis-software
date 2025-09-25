@@ -1,16 +1,20 @@
-# 📊 Output Analysis Guide
+<div align="right">
+  <a href="../README.md">Home</a>
+</div>
+
+# Output Analysis Guide
 
 <div align="center">
 
 **How to analyze dnbc4tools output in R and Python**
 
-[🧬 RNA Analysis](#scrna-analysis) • [🧪 ATAC Analysis](#scatac-analysis) 
+[RNA Analysis](#scrna-analysis) • [ATAC Analysis](#scatac-analysis) 
 
 </div>
 
 ---
 
-## 🧬 scRNA Analysis <a id="scrna-analysis"></a>
+## scRNA Analysis <a id="scrna-analysis"></a>
 
 ### R (Seurat)
 ```r
@@ -31,7 +35,7 @@ adata = sc.read_10x_mtx('/outs/filter_matrix')
 
 ---
 
-## 🧪 scATAC Analysis <a id="scatac-analysis"></a>
+## scATAC Analysis <a id="scatac-analysis"></a>
 
 ### R (Signac)
 ```r
@@ -54,7 +58,7 @@ mtx <- Matrix::readMM(mtx_path) %>%
   magrittr::set_colnames(barcodes$barcode)
 ```
 
-**Including Reading Other Files with Metadata**
+**Example: Creating a Seurat Object with Metadata**
 ```r
 require(magrittr)
 require(readr)
@@ -147,7 +151,7 @@ def read_atac_C4(path):
 
 ---
 
-## 📊 Common Output Files <a id="common-output-files"></a>
+## Common Output Files <a id="common-output-files"></a>
 
 | **File Type** | **Description** | **Analysis** |
 |---------------|-----------------|-------------|

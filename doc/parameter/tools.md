@@ -1,3 +1,9 @@
+<div align="right">
+
+[🏠 主页](../../README.md) • [English](tools_en.md)
+
+</div>
+
 # 🧬 DNBelab C Series HT 工具类分析参数
 
 <div align="center">

@@ -139,7 +139,10 @@
         
         </head>
         <body class="vscode-body vscode-light">
-            <h1 id="-dnbelab-c-series-ht-scrna-analysis-pipeline">🧬 DNBelab C Series HT scRNA Analysis Pipeline</h1>
+            <div align="right">
+<p><a href="../../README.html">🏠 Home</a> | <a href="scRNA.html">🌐 中文</a></p>
+</div>
+<h1 id="-dnbelab-c-series-ht-scrna-analysis-pipeline">🧬 DNBelab C Series HT scRNA Analysis Pipeline</h1>
 <div align="center">
 <p><strong>Complete Guide for Single-Cell RNA Sequencing Data Analysis</strong></p>
 <p><a href="#overview">📋 Overview</a> • <a href="#file-preparation">📁 File Preparation</a> • <a href="#reference-database">📊 Reference Database</a> • <a href="#main-analysis-pipeline">🚀 Main Analysis Pipeline</a> • <a href="#results-interpretation">📊 Results Interpretation</a></p>
@@ -442,7 +445,7 @@ sample3.sh
 <p>Execute step 4 for the main pipeline analysis.</p>
 </br>
 <h3 id="single-sample-analysis">Single Sample Analysis</h3>
-<p>The RNA main analysis pipeline processes single-cell RNA cDNA and oligo library sequencing data for a single sample. This pipeline includes quality control, alignment, and functional region annotation. Subsequently, the system merges beads to identify cells and generates both raw and filtered gene expression matrices. Next, the analysis performs cell filtering, dimensionality reduction, clustering, and annotation on this matrix, ultimately generating an HTML format report and outputting analysis results.</p>
+<p>The main RNA analysis pipeline processes sequencing data from the cDNA and oligo libraries of a single sample. The workflow includes quality control, alignment, and functional region annotation. Subsequently, the system identifies cells by merging beads and generates both raw and filtered gene expression matrices. Finally, the pipeline performs cell filtering, dimensionality reduction, clustering, and annotation to produce the final analysis results and an HTML report.</p>
 <p>To generate expression matrices for a single sample, here is an example step or script template:</p>
 <pre><code class="language-shell"><span class="hljs-meta prompt_">$</span><span class="language-bash">dnbc4tools rna run \
   --name sample \

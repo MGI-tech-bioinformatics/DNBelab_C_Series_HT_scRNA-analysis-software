@@ -1,3 +1,9 @@
+<div align="right">
+
+[🏠 Home](../../README.md) • [中文](scRNA.md)
+
+</div>
+
 # 🧬 DNBelab C Series HT scRNA Analysis Parameters
 
 <div align="center">
@@ -175,7 +181,7 @@ Analysis Settings:
 <strong>Purpose:</strong> Used for gene expression data analysis<br>
 <strong>Requirement:</strong> Must be paired with cDNAfastq2 parameter
 </blockquote>
-<strong>Example:</strong> <code>sample1_cDNA_R1.fastq.gz,sample2_cDNA_R1.fastq.gz</code>
+<strong>Example:</strong> <code>sample_cDNA_L01_R1.fastq.gz,sample_cDNA_L02_R1.fastq.gz</code>
 </td>
 </tr>
 <tr>
@@ -192,7 +198,7 @@ Analysis Settings:
 <strong>Order:</strong> File order must exactly match cDNAfastq1<br>
 <strong>Requirement:</strong> Must be paired with cDNAfastq1 parameter
 </blockquote>
-<strong>Example:</strong> <code>sample1_cDNA_R2.fastq.gz,sample2_cDNA_R2.fastq.gz</code>
+<strong>Example:</strong> <code>sample_cDNA_L01_R2.fastq.gz,sample_cDNA_L02_R2.fastq.gz</code>
 </td>
 </tr>
 <tr>
@@ -209,7 +215,7 @@ Analysis Settings:
 <strong>Purpose:</strong> Used for barcode merging and cell identification<br>
 <strong>Requirement:</strong> Must be paired with oligofastq2 parameter
 </blockquote>
-<strong>Example:</strong> <code>sample1_oligo_R1.fastq.gz</code>
+<strong>Example:</strong> <code>sample_oligo_R1.fastq.gz</code>
 </td>
 </tr>
 <tr>
@@ -226,7 +232,7 @@ Analysis Settings:
 <strong>Order:</strong> File order must exactly match oligofastq1<br>
 <strong>Requirement:</strong> Must be paired with oligofastq1 parameter
 </blockquote>
-<strong>Example:</strong> <code>sample1_oligo_R2.fastq.gz</code>
+<strong>Example:</strong> <code>sample_oligo_R2.fastq.gz</code>
 </td>
 </tr>
 </tbody>
@@ -616,7 +622,7 @@ Analysis Settings:
 <blockquote>
 <strong>Advanced Function:</strong> For non-standard library designs or special experimental requirements with precise sequence structure definition<br>
 <strong>Priority:</strong> Overrides chemistry and darkreaction auto detection results<br>
-<strong>Dual Configuration:</strong> Requires separate specification for cDNA and oligo libraries (use parameter twice)<br>
+<strong>Dual Configuration:</strong> This parameter must be specified twice, once for the cDNA library and once for the oligo library.<br>
 <strong>Coordinate System:</strong> Uses 1-based coordinate system (first base is position 1)
 </blockquote>
 <details open>

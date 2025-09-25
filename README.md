@@ -9,9 +9,11 @@
 
 **An open-source, flexible, and high-performance pipeline for analyzing high-throughput DNBelab C Series™ single-cell datasets.**
 
+The official command-line tool for this pipeline is named `dnbc4tools`.
+
 🧬 **scRNA-seq** | 🧪 **scATAC-seq** | 🦠 **scVDJ-seq**
 
-📚 **Documentation**: [User Guide](https://lishuangshuang0616.github.io/DNBelab_C_Series_HT_scRNA-analysis-software/Document/README.html)
+📚 **Documentation**: [**User Guide**](https://lishuangshuang0616.github.io/DNBelab_C_Series_HT_scRNA-analysis-software/Document/README.html)
 
 </div>
 
@@ -21,9 +23,9 @@
 
 <table>
 <tr>
-<td><strong>🔧 Hardware</strong></td>
-<td><strong>📋 Specification</strong></td>
-<td><strong>💡 Recommendation</strong></td>
+<td><strong>Hardware</strong></td>
+<td><strong>Specification</strong></td>
+<td><strong>Recommendation</strong></td>
 </tr>
 <tr>
 <td>Processor</td>
@@ -54,79 +56,72 @@
 
 ---
 
-## 🚀 Quick Navigation
+## 📚 Documentation
 
+### Essential Documentation
 
-### 📋 Essential Documentation
-
-
-</div>
-
-| 📖 **Guide** | 🎯 **Purpose** |
+| Guide | Purpose |
 |---------------|----------------|
-| [📦 **Installation**](./doc/installation.md) | Set up dnbc4tools on your system |
-| [⚡ **Quick Start**](./doc/quickstart.md) | Run your first analysis with sample data |
-| [🧬 **Pipeline Guide**](./doc/pipeline.md) | In-depth workflow documentation |
-| [⚙️ **Parameters**](./doc/parameter/parameter.md) | Complete command reference and parameter settings |
-| [📖 **Output Reference**](./doc/outs/outs.md) | Understanding your results |
-| [📊 **Output Analysis**](./doc/io.md) | Analyze results in R and Python |
-| [🧬 **Demo Datasets**](./doc/dataset.md) | Access sample datasets for testing |
+| [Installation](./doc/installation.md) | Set up dnbc4tools on your system |
+| [Quick Start](./doc/quickstart.md) | Run your first analysis with sample data |
+| [Pipeline Guide](./doc/pipeline.md) | In-depth workflow documentation |
+| [Parameters](./doc/parameter/parameter.md) | Complete command reference and parameter settings |
+| [Output Reference](./doc/outs/outs.md) | Understanding your results |
+| [Output Analysis](./doc/io.md) | Analyze results in R and Python |
+| [Demo Datasets](./doc/dataset.md) | Access sample datasets for testing |
 
+### Analysis Workflows
 
-### 🔬 Analysis Workflows
-
-
-| **scRNA-seq** | **scATAC-seq** | **scVDJ-seq** |
+| scRNA-seq | scATAC-seq | scVDJ-seq |
 |:-------------:|:--------------:|:-------------:|
 | Gene Expression<br/>Profiling | Chromatin Accessibility<br/>Analysis | Immune Receptor<br/>Repertoire |
-| [📖 Guide](./doc/pipeline/scRNA_en.md) | [📖 Guide](./doc/pipeline/scATAC_en.md) | [📖 Guide](./doc/pipeline/scVDJ_en.md) |
-| [⚙️ Parameters](./doc/parameter/scRNA_en.md) | [⚙️ Parameters](./doc/parameter/scATAC_en.md) | [⚙️ Parameters](./doc/parameter/scVDJ_en.md) |
-| [📊 Outputs](./doc/outs/scRNA_en.md) | [📊 Outputs](./doc/outs/scATAC_en.md) | [📊 Outputs](./doc/outs/scVDJ_en.md) |
+| [Guide](./doc/pipeline/scRNA_en.md) | [Guide](./doc/pipeline/scATAC_en.md) | [Guide](./doc/pipeline/scVDJ_en.md) |
+| [Parameters](./doc/parameter/scRNA_en.md) | [Parameters](./doc/parameter/scATAC_en.md) | [Parameters](./doc/parameter/scVDJ_en.md) |
+| [Outputs](./doc/outs/scRNA_en.md) | [Outputs](./doc/outs/scATAC_en.md) | [Outputs](./doc/outs/scVDJ_en.md) |
 
 </div>
 
 ---
 
-## 🤝 Support & Community
+## 🤝 Support and Community
 
-
-### Get Help & Stay Connected
+### Get Help
 
 **Questions, Bug Reports, or Feature Requests:**  
 [GitHub Issues](https://github.com/MGI-tech-bioinformatics/DNBelab_C_Series_HT_scRNA-analysis-software/issues)
 
-### 📞 Contact Information
+### Contact Information
 
-- 🌐 **Website**: [www.mgitech.cn](https://www.mgitech.cn)
+- **Website**: [www.mgitech.cn](https://www.mgitech.cn)
 ---
 
-## 📝 What's New
+## 🚀 What's New
 
-### 🎉 dnbc4tools 3.0 Beta Highlights
+### dnbc4tools 3.0 Beta Highlights
 
 <details open>
-<summary><strong>🆕 New Features & Improvements</strong></summary>
+<summary><strong>New Features & Improvements</strong></summary>
 
-#### 🧬 **RNA-Seq Enhancements**
-- ✨ **Enhanced Annotation**: Improved RNA annotation logic for higher accuracy
-- 📊 **Interactive Reports**: Upgraded HTML visualizations with better parameters
-- 🏷️ **Extended Metadata**: Added `gene_id` and `gene_name` to feature matrices
-- 🔍 **Enriched BAM Files**: Enhanced outputs with comprehensive metadata
-- 🐭🧑 **Mixed-Species Analysis**: Full support for human-mouse dual-species samples
+#### RNA-Seq Enhancements
+- **Enhanced Annotation**: Improved RNA annotation logic for higher accuracy
+- **Interactive Reports**: Upgraded HTML visualizations with better parameters
+- **Extended Metadata**: Added `gene_id` and `gene_name` to feature matrices
+- **Enriched BAM Files**: Enhanced outputs with comprehensive metadata
+- **Mixed-Species Analysis**: Full support for dual-species samples
 
-#### 🦠 **VDJ Analysis Upgrades**
-- 🔧 **Algorithm Optimization**: Refined V(D)J assembly and annotation
-- 📋 **Standardized Output**: Updated formats for better tool compatibility
+#### VDJ Analysis Upgrades
+- **Algorithm Optimization**: Refined V(D)J assembly and annotation
+- **Standardized Output**: Updated formats for better tool compatibility
 
-#### ⚡ **Performance & Usability**
-- 💾 **Streamlined Storage**: Reduced disk usage by removing intermediate files
-- 📂 **Better Organization**: Reorganized directories and logs for clarity
-- 🚀 **Faster Processing**: Multi-threading optimizations across all workflows
+#### Performance & Usability
+- **Streamlined Storage**: Reduced disk usage by removing intermediate files
+- **Better Organization**: Reorganized directories and logs for clarity
+- **Faster Processing**: Multi-threading optimizations across all workflows
 
 </details>
 
-> ⚠️ **Beta Notice**: This version is feature-complete but may contain bugs. We welcome community testing and feedback! For production environments, please consider the [latest stable release](https://github.com/MGI-tech-bioinformatics/DNBelab_C_Series_HT_scRNA-analysis-software/releases).
+> **Beta Notice**: This version is feature-complete but may contain bugs. We welcome community testing and feedback! For production environments, please consider the [latest stable release](https://github.com/MGI-tech-bioinformatics/DNBelab_C_Series_HT_scRNA-analysis-software/releases).
 
-📖 **Full Release History**: [Release Notes](./doc/release.md)
+**Full Release History**: [Release Notes](./doc/release.md)
 
 ---

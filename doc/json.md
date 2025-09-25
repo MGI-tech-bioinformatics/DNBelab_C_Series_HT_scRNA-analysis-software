@@ -1,3 +1,9 @@
+<div align="right">
+  <a href="../README.md">Home</a>
+</div>
+
+# JSON Configuration
+
 The library structure of the `scRNAv2HT` reagent.
 
 - cDNA：
@@ -46,7 +52,6 @@ A simple demo list below. The name field "cell barcode tag", "cell barcode" and 
     }
 }
 ```
-
 
 
 A list of support keys in config file shows here.

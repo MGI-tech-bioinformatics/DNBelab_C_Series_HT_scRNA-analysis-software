@@ -1,3 +1,9 @@
+<div align="right">
+
+[🏠 Home](../../README.md) | [🌐 中文](scRNA.md)
+
+</div>
+
 # 🧬 DNBelab C Series HT scRNA Analysis Pipeline
 
 <div align="center">
@@ -305,7 +311,7 @@ Execute step 4 for the main pipeline analysis.
 
 ### Single Sample Analysis
 
-The RNA main analysis pipeline processes single-cell RNA cDNA and oligo library sequencing data for a single sample. This pipeline includes quality control, alignment, and functional region annotation. Subsequently, the system merges beads to identify cells and generates both raw and filtered gene expression matrices. Next, the analysis performs cell filtering, dimensionality reduction, clustering, and annotation on this matrix, ultimately generating an HTML format report and outputting analysis results.
+The main RNA analysis pipeline processes sequencing data from the cDNA and oligo libraries of a single sample. The workflow includes quality control, alignment, and functional region annotation. Subsequently, the system identifies cells by merging beads and generates both raw and filtered gene expression matrices. Finally, the pipeline performs cell filtering, dimensionality reduction, clustering, and annotation to produce the final analysis results and an HTML report.
 
 To generate expression matrices for a single sample, here is an example step or script template:
 

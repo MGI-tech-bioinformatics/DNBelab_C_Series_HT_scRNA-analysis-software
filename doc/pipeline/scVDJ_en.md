@@ -1,3 +1,9 @@
+<div align="right">
+
+[🏠 Home](../../README.md) | [🌐 中文](scVDJ.md)
+
+</div>
+
 # 🧬 DNBelab C Series HT scVDJ Analysis Pipeline
 
 <div align="center">
@@ -77,7 +83,7 @@ CELL4010_N1,555308,4268,22554,1,AGAGAGTCGCAGCAAGCGAC
 
 ## 🚀 Main Analysis Pipeline <a id="main-analysis-pipeline"></a>
 
-The VDJ main analysis pipeline uses single-cell VDJ library sequencing data and the corresponding sample's 5' transcriptome analysis results. The pipeline includes the following steps:
+The main VDJ analysis pipeline integrates single-cell VDJ library sequencing data with the corresponding sample's 5' transcriptome analysis results. The pipeline includes the following key steps:
 
 1. Filter the data and merge beads using the 5' transcriptome results
 2. Align the VDJ gene regions and extract the corresponding reads

@@ -1,14 +1,20 @@
-# 🧬 DNBelab C Series Demo Datasets
+<div align="right">
+  <a href="../README.md">Home</a>
+</div>
+
+# DNBelab C Series Demo Datasets
 
 Demo datasets are hosted on CNGB (China National GeneBank). Due to human genetic resource regulations, only mouse sample data is provided.
 
-## 📋 Navigation
+---
 
-[scRNA-seq v3 Data](#scrna-seq-v3-data) • [scVDJ-seq Data](#scvdj-seq-data) • [scATAC-seq Data](#scatac-seq-data)
+## Navigation
+
+[◆ scRNA-seq v3 Data](#scrna-seq-v3-data) • [◆ scVDJ-seq Data](#scvdj-seq-data) • [◆ scATAC-seq Data](#scatac-seq-data)
 
 ---
 
-## scRNA-seq v3 Data <a id="scrna-seq-v3-data"></a>
+## ◆ scRNA-seq v3 Data <a id="scrna-seq-v3-data"></a>
 
 **Project URL:** https://db.cngb.org/data_resources/project/CNP0005575/
 
@@ -30,7 +36,7 @@ You can click on "Sample" or "Experiment" to access specific sample information:
 
 ---
 
-## scVDJ-seq Data <a id="scvdj-seq-data"></a>
+## ◆ scVDJ-seq Data <a id="scvdj-seq-data"></a>
 
 **Project URL:** https://db.cngb.org/data_resources/project/CNP0006116/
 
@@ -46,7 +52,7 @@ If you don't need to analyze 5' RNA data, you can directly download the `singlec
 
 ---
 
-## scATAC-seq Data <a id="scatac-seq-data"></a>
+## ◆ scATAC-seq Data <a id="scatac-seq-data"></a>
 
 **Project URL:** https://db.cngb.org/data_resources/project/CNP0004369
 

@@ -1,3 +1,9 @@
+<div align="right">
+
+[🏠 主页](../../README.md) | [🌐 English](scATAC_en.md)
+
+</div>
+
 # 🧬 DNBelab C Series HT scATAC 分析流程
 
 <div align="center">

@@ -2,7 +2,7 @@
         <html>
         <head>
             <meta charset="UTF-8">
-            <title>&#x26a1; Quick Start Guide</title>
+            <title>Quick Start Guide</title>
             <style>
 /* From extension vscode.github */
 /*---------------------------------------------------------------------------------------------
@@ -139,22 +139,25 @@
         
         </head>
         <body class="vscode-body vscode-light">
-            <h1 id="-quick-start-guide">⚡ Quick Start Guide</h1>
+            <div align="right">
+  <a href="../README.html">Home</a>
+</div>
+<h1 id="quick-start-guide">Quick Start Guide</h1>
 <div align="center">
 <p><strong>Get started with dnbc4tools</strong></p>
-<p><a href="#single-cell-rna-analysis">🧬 RNA-seq</a> • <a href="#single-cell-atac-analysis">🧪 ATAC-seq</a> • <a href="#single-cell-vdj-analysis">🦠 VDJ-seq</a></p>
+<p><a href="#single-cell-rna-analysis">◆ RNA-seq</a> • <a href="#single-cell-atac-analysis">◆ ATAC-seq</a> • <a href="#single-cell-vdj-analysis">◆ VDJ-seq</a></p>
 </div>
 <hr>
-<h2 id="-prerequisites">📝 Prerequisites</h2>
+<h2 id="prerequisites">Prerequisites</h2>
 <p><strong>Before starting:</strong></p>
 <ul>
 <li>dnbc4tools installed (<a href="./installation.html">Installation Guide</a>)</li>
 <li>Replace <code>$dnbc4tools</code> with your actual installation path</li>
 <li>Example: <code>/opt/software/dnbc4tools3.0beta/dnbc4tools</code></li>
-<li>Use <code>\</code> for multi-line commands (optional for single lines)</li>
+<li>The backslash <code>\</code> is used to split a single command across multiple lines for improved readability. It is optional for commands written on a single line.</li>
 </ul>
 <hr>
-<h2 id="-single-cell-rna-analysis-">🧬 Single-Cell RNA Analysis <a id="single-cell-rna-analysis"></a></h2>
+<h2 id="-single-cell-rna-analysis-">◆ Single-Cell RNA Analysis <a id="single-cell-rna-analysis"></a></h2>
 <blockquote>
 <p>Gene expression profiling at single-cell resolution</p>
 </blockquote>
@@ -205,7 +208,7 @@ gzip -d gencode.vM23.primary_assembly.annotation.gtf.gz
     --threads 30
 </code></pre>
 <hr>
-<h2 id="-single-cell-atac-analysis-">🧪 Single-Cell ATAC Analysis <a id="single-cell-atac-analysis"></a></h2>
+<h2 id="-single-cell-atac-analysis-">◆ Single-Cell ATAC Analysis <a id="single-cell-atac-analysis"></a></h2>
 <blockquote>
 <p>Chromatin accessibility profiling at single-cell resolution</p>
 </blockquote>
@@ -246,11 +249,11 @@ gzip -d gencode.vM23.primary_assembly.annotation.gtf.gz
     --threads 10
 </code></pre>
 <hr>
-<h2 id="-single-cell-vdj-analysis-">🦠 Single-Cell VDJ Analysis <a id="single-cell-vdj-analysis"></a></h2>
+<h2 id="-single-cell-vdj-analysis-">◆ Single-Cell VDJ Analysis <a id="single-cell-vdj-analysis"></a></h2>
 <blockquote>
 <p>Immune receptor repertoire profiling (requires 5' RNA-seq data)</p>
 </blockquote>
-<p>⚠️ <strong>Prerequisites</strong>: Complete 5' scRNA analysis first to establish cell-bead correspondence.</p>
+<p><strong>Prerequisites</strong>: Complete 5' scRNA analysis first to establish cell-bead correspondence.</p>
 <h3 id="step-1-5-rna-analysis">Step 1: 5' RNA Analysis</h3>
 <p><strong>5' scRNA-seq Analysis</strong></p>
 <pre><code class="language-bash"><span class="hljs-variable">$dnbc4tools</span> rna run \
@@ -305,7 +308,7 @@ gzip -d gencode.vM23.primary_assembly.annotation.gtf.gz
     --chain IG
 </code></pre>
 <hr>
-<h2 id="-command-reference-">🔧 Command Reference <a id="command-reference"></a></h2>
+<h2 id="-command-reference-">◆ Command Reference <a id="command-reference"></a></h2>
 <h3 id="essential-commands-summary">Essential Commands Summary</h3>
 <table>
 <thead>
@@ -350,21 +353,21 @@ gzip -d gencode.vM23.primary_assembly.annotation.gtf.gz
 </table>
 <h3 id="parameter-documentation">Parameter Documentation</h3>
 <ul>
-<li>📚 <a href="./parameter/parameter.html">Complete Parameter Reference</a></li>
-<li>🧬 <a href="./parameter/scRNA_en.html">RNA-specific Parameters</a></li>
-<li>🧪 <a href="./parameter/scATAC_en.html">ATAC-specific Parameters</a></li>
-<li>🦠 <a href="./parameter/scVDJ_en.html">VDJ-specific Parameters</a></li>
+<li><a href="./parameter/parameter.html">Complete Parameter Reference</a></li>
+<li><a href="./parameter/scRNA_en.html">RNA-specific Parameters</a></li>
+<li><a href="./parameter/scATAC_en.html">ATAC-specific Parameters</a></li>
+<li><a href="./parameter/scVDJ_en.html">VDJ-specific Parameters</a></li>
 </ul>
 <h3 id="output-analysis">Output Analysis</h3>
 <ul>
-<li>📊 <a href="./outs/outs.html">Output File Guide</a></li>
-<li>🔧 <a href="./io.html">R/Python Usage</a></li>
+<li><a href="./outs/outs.html">Output File Guide</a></li>
+<li><a href="./io.html">R/Python Usage</a></li>
 </ul>
 <hr>
 <p><strong>Get Help:</strong></p>
 <ul>
-<li>📚 <a href="./installation.html">Installation Guide</a></li>
-<li>🆘 <a href="https://github.com/MGI-tech-bioinformatics/DNBelab_C_Series_HT_scRNA-analysis-software/issues">GitHub Issues</a></li>
+<li><a href="./installation.html">Installation Guide</a></li>
+<li><a href="https://github.com/MGI-tech-bioinformatics/DNBelab_C_Series_HT_scRNA-analysis-software/issues">GitHub Issues</a></li>
 </ul>
 <hr>
 

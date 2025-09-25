@@ -1,3 +1,9 @@
+<div align="right">
+
+[🏠 Home](../../README.md) | [🌐 中文](scATAC.md)
+
+</div>
+
 # 🧬 DNBelab C Series HT scATAC Analysis Pipeline
 
 <div align="center">
@@ -112,7 +118,7 @@ The ref.json file records the main information of the database:
 }
 ```
 
-> **Note**: Building a reference database may take a long time, depending on the genome size and computer performance. The software run analysis pipeline is compatible with legacy database versions.
+> **Note**: Building a reference database may take a long time, depending on the genome size and computer performance. The analysis pipeline is backward-compatible with reference databases created by previous software versions.
 
 Printed information during execution, here is an example:
 

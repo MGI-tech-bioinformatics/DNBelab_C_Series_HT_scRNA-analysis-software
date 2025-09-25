@@ -1,16 +1,20 @@
-# 🔬 Analysis Workflows
+<div align="right">
+  <a href="../README.md">Home</a>
+</div>
+
+# Analysis Workflows
 
 <div align="center">
 
 **Complete guide to dnbc4tools analysis pipelines**
 
-[🧬 RNA-seq](#single-cell-rna-workflow) • [🧪 ATAC-seq](#single-cell-atac-workflow) • [🦠 VDJ-seq](#single-cell-vdj-workflow) 
+[RNA-seq](#single-cell-rna-workflow) • [ATAC-seq](#single-cell-atac-workflow) • [VDJ-seq](#single-cell-vdj-workflow) 
 
 </div>
 
 ---
 
-## 🧬 Single-Cell RNA Workflow <a id="single-cell-rna-workflow"></a>
+## Single-Cell RNA Workflow <a id="single-cell-rna-workflow"></a>
 
 > Gene expression profiling at single-cell resolution
 
@@ -20,11 +24,11 @@
 - 5' and 3' chemistry compatibility
 - Automated cell identification
 
-**📖 [Complete RNA Workflow Guide](./pipeline/scRNA_en.md) / [中文指南](./pipeline/scRNA.md)**
+**[Complete RNA Workflow Guide](./pipeline/scRNA_en.md) / [中文指南](./pipeline/scRNA.md)**
 
 ---
 
-## 🧪 Single-Cell ATAC Workflow <a id="single-cell-atac-workflow"></a>
+## Single-Cell ATAC Workflow <a id="single-cell-atac-workflow"></a>
 
 > Chromatin accessibility profiling at single-cell resolution
 
@@ -34,11 +38,11 @@
 - Peak-based cell identification
 - Mitochondrial/chloroplast filtering
 
-**📖 [Complete ATAC Workflow Guide](./pipeline/scATAC_en.md) / [中文指南](./pipeline/scATAC.md)**
+**[Complete ATAC Workflow Guide](./pipeline/scATAC_en.md) / [中文指南](./pipeline/scATAC.md)**
 
 ---
 
-## 🦠 Single-Cell VDJ Workflow <a id="single-cell-vdj-workflow"></a>
+## Single-Cell VDJ Workflow <a id="single-cell-vdj-workflow"></a>
 
 > Immune receptor repertoire profiling (requires 5' RNA-seq data)
 
@@ -50,16 +54,16 @@
 
 **Prerequisites:** Completed 5' RNA-seq analysis
 
-**📖 [Complete VDJ Workflow Guide](./pipeline/scVDJ_en.md) / [中文指南](./pipeline/scVDJ.md)**
+**[Complete VDJ Workflow Guide](./pipeline/scVDJ_en.md) / [中文指南](./pipeline/scVDJ.md)**
 
 ---
 
-## ⚙️ Command Parameters <a id="command-parameters"></a>
+## Command Parameters <a id="command-parameters"></a>
 
 **Documentation:**
-- 📚 [Complete Parameter Reference](./parameter/parameter_en.md) / [参数参考](./parameter/parameter.md)
-- 🧬 [RNA Parameters](./parameter/scRNA_en.md) / [RNA 参数](./parameter/scRNA.md)
-- 🧪 [ATAC Parameters](./parameter/scATAC_en.md) / [ATAC 参数](./parameter/scATAC.md)
-- 🦠 [VDJ Parameters](./parameter/scVDJ_en.md) / [VDJ 参数](./parameter/scVDJ.md)
+- [Complete Parameter Reference](./parameter/parameter_en.md) / [参数参考](./parameter/parameter.md)
+- [RNA Parameters](./parameter/scRNA_en.md) / [RNA 参数](./parameter/scRNA.md)
+- [ATAC Parameters](./parameter/scATAC_en.md) / [ATAC 参数](./parameter/scATAC.md)
+- [VDJ Parameters](./parameter/scVDJ_en.md) / [VDJ 参数](./parameter/scVDJ.md)
 
 ---

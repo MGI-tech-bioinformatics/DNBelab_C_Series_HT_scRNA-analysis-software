@@ -1,34 +1,38 @@
-# 📝 Release Notes
+<div align="right">
+  <a href="../README.md">Home</a>
+</div>
+
+# Release Notes
 
 <div align="center">
 
 **Official release history of DNBelab C Series™ HT Single-Cell Analysis Software**
 
-[🔥 Latest](#latest-release) • [📋 All Versions](#release-history) • [🔍 Version Guide](#version-selection-guide)
+[◆ Latest Release](#latest-release) • [◆ All Versions](#release-history) • [◆ Version Guide](#version-selection-guide)
 
 </div>
 
 ---
 
-## 🔥 Latest Release <a id="latest-release"></a>
+## ◆ Latest Release <a id="latest-release"></a>
 
 **dnbc4tools 3.0 beta** (June 16, 2025) - [See Details](#30-beta-june-16-2025)
 
-✨ **Key Highlights:**
+**Key Highlights:**
 - Enhanced RNA annotation and dual-species support
 - Improved VDJ assembly algorithms  
 - Streamlined storage and better performance
 - Updated output formats for better compatibility
 
-> ⚠️ **Beta Notice**: This version is feature-complete but may contain bugs. Community testing and feedback are welcome! For production use, consider the [latest stable release](https://github.com/MGI-tech-bioinformatics/DNBelab_C_Series_HT_scRNA-analysis-software/releases).
+> <strong>Beta Notice</strong>: This version is feature-complete but may contain bugs. Community testing and feedback are welcome! For production environments, please use the [latest stable release](https://github.com/MGI-tech-bioinformatics/DNBelab_C_Series_HT_scRNA-analysis-software/releases).
 
 ---
 
-## 📋 Release History <a id="release-history"></a>
+## ◆ Release History <a id="release-history"></a>
 
-### 🔥 3.0 beta (June 16, 2025) <a id="3.0-beta-june-16-2025"></a>
+### 3.0 beta (June 16, 2025) <a id="30-beta-june-16-2025"></a>
 
-#### 🧬 **RNA-Seq Enhancements**
+#### RNA-Seq Enhancements
 
 **Alignment & Annotation**
 - Prioritized exonic loci for improved annotation accuracy
@@ -57,19 +61,19 @@
 - Reduced memory usage and runtime under high thread counts
 - Automatic temporary file cleanup to save storage
 
-#### 🧪 **ATAC-Seq Enhancements**
+#### ATAC-Seq Enhancements
 
 **QC & Reporting**
 - Q30 statistics for both cell barcodes and reads
 - Insert size distribution from deduplicated fragments
 
 **Technical Updates**
-- Upgraded chromap to v0.3.1
+- Upgraded chromap to v0.3.3
 - Improved barcode correction algorithm (two 10bp segments with 1 mismatch each)
 - Enhanced BAM output with CC/CB tags
 - Excludes mitochondrial/chloroplast fragments in TSS/peak calculations
 
-#### 🦠 **VDJ Enhancements**
+#### VDJ Enhancements
 
 **Assembly & Annotation**
 - Advanced per-cell assembly algorithms for full-length contigs
@@ -89,7 +93,7 @@
 - Support for single-end, paired-end, and variable-length reads
 - Custom reference support for non-human/mouse species
 
-#### 🔄 **Cross-Module Improvements**
+#### Cross-Module Improvements
 - Standardized `customize` parameter across all modules
 - Significant storage reduction through optimized file structure
 - Stricter GTF validation with backward compatibility
@@ -97,7 +101,7 @@
 
 ---
 
-### 🧬 2.1.3 (October 9, 2024)
+### 2.1.3 (October 9, 2024)
 
 **New Features**
 - Added RNA 5' transcriptome analysis module
@@ -112,7 +116,7 @@
 
 ---
 
-### 🔬 2.1.2 (April 24, 2024)
+### 2.1.2 (April 24, 2024)
 
 **ATAC Analysis Improvements**
 - Updated algorithm: Jaccard-based merging → cell calling via peak fragments
@@ -126,7 +130,7 @@
 
 ---
 
-### 📊 2.1.1 (September 21, 2023)
+### 2.1.1 (September 21, 2023)
 
 **RNA Workflow Optimization**
 - Bead merging analysis using oligo data before cell calling
@@ -138,7 +142,7 @@
 
 ---
 
-### 🧪 2.1.0 (July 28, 2023)
+### 2.1.0 (July 28, 2023)
 
 **Major Addition**
 - **New ATAC analysis module**
@@ -151,7 +155,7 @@
 
 ---
 
-### ⚙️ 2.0.7 (November 4, 2022)
+### 2.0.7 (November 4, 2022)
 
 **Automation & Parameters**
 - Automatic recognition of reagent versions and sequencing dark cycles
@@ -164,7 +168,7 @@
 
 ---
 
-### 🐳 2.0.6 (September 19, 2022)
+### 2.0.6 (September 19, 2022)
 
 **Container & Reliability**
 - Added Singularity container support
@@ -173,7 +177,7 @@
 
 ---
 
-### 🐋 2.0.5 (August 19, 2022)
+### 2.0.5 (August 19, 2022)
 
 **Container & Format Support**
 - Added Docker image version
@@ -182,7 +186,7 @@
 
 ---
 
-### 🚀 2.0.0 (June 20, 2022)
+### 2.0.0 (June 20, 2022)
 
 **Major Release**
 - **Command-line interface support**
@@ -193,7 +197,7 @@
 
 ---
 
-## 🔍 Version Selection Guide <a id="version-selection-guide"></a>
+## ◆ Version Selection Guide <a id="version-selection-guide"></a>
 
 | **Version** | **Key Features** | **Recommended Use Cases** |
 |-------------|------------------|---------------------------|
@@ -201,7 +205,7 @@
 | **2.1.0+** | ATAC analysis support | ATAC-seq analysis |
 | **2.0.0+** | Command-line interface | Standard 3' RNA analysis |
 
-### 📦 Historical Versions
+### Historical Versions
 
 Additional version information available at [GitHub Releases](https://github.com/MGI-tech-bioinformatics/DNBelab_C_Series_HT_scRNA-analysis-software/releases).
 

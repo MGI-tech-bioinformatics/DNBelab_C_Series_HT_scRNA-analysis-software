@@ -139,7 +139,10 @@
         
         </head>
         <body class="vscode-body vscode-light">
-            <h1 id="-dnbelab-c-series-ht-scatac-analysis-parameters">🧬 DNBelab C Series HT scATAC Analysis Parameters</h1>
+            <div align="right">
+<p><a href="../../README.html">🏠 Home</a> • <a href="scATAC.html">中文</a></p>
+</div>
+<h1 id="-dnbelab-c-series-ht-scatac-analysis-parameters">🧬 DNBelab C Series HT scATAC Analysis Parameters</h1>
 <div align="center">
 <p><a href="#main-analysis-pipeline-run">🔬 Main Analysis Pipeline (run)</a> • <a href="#reference-database-construction-mkref">📊 Reference Database Construction (mkref)</a> • <a href="#multi-sample-operations-multi">📋 Multi-sample Operations (multi)</a></p>
 </div>
@@ -429,7 +432,7 @@ Analysis Settings:
 </details>
 <strong>⚠️ Important Notes:</strong>
 <ul>
-<li>Must use quotes when using to avoid shell command parsing errors</li>
+<li>Must be enclosed in quotes to prevent shell command parsing errors</li>
 <li>Coordinate ranges cannot exceed actual read length</li>
 <li>Incorrect configuration may lead to data loss or analysis failure</li>
 </ul>
@@ -530,7 +533,7 @@ Analysis Settings:
 <td align="center">
 <code><strong>--merge_cutoff</strong></code>
 <br><br>
-<span style="color: #27ae60; font-weight: bold;">🔗 Default: 1000</span>
+<span style="color: #27ae60; font-weight: bold;">🔗 Default: 500</span>
 </td>
 <td>
 <h4>🧡 Bead Merging Fragments Threshold</h4>
