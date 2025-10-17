@@ -2,7 +2,7 @@
         <html>
         <head>
             <meta charset="UTF-8">
-            <title>DNBelab C Series Demo Datasets</title>
+            <title>&#x1f52c; Analysis Workflows</title>
             <style>
 /* From extension vscode.github */
 /*---------------------------------------------------------------------------------------------
@@ -139,49 +139,75 @@
         </head>
         <body class="vscode-body vscode-light">
             <div align="right">
-  <a href="../README.html">Home</a>
+  <a href="../README.html">🏠 Home</a>
 </div>
-<h1 id="dnbelab-c-series-demo-datasets">DNBelab C Series Demo Datasets</h1>
-<p>Demo datasets are hosted on CNGB (China National GeneBank). Due to human genetic resource regulations, only mouse sample data is provided.</p>
+<h1 id="-analysis-workflows">🔬 Analysis Workflows</h1>
+<div align="center">
+<p><strong>A complete guide to the dnbc4tools analysis pipelines</strong></p>
+</div>
 <hr>
-<table style="width:100%; border-collapse: collapse; margin: 1.5em 0;">
-  <thead style="background-color: #f2f2f2; border-bottom: 2px solid #ddd;">
-    <tr>
-      <th style="padding: 12px 15px; border: 1px solid #ddd; text-align: left;">Analysis Type</th>
-      <th style="padding: 12px 15px; border: 1px solid #ddd; text-align: left;">Sample Information</th>
-      <th style="padding: 12px 15px; border: 1px solid #ddd; text-align: left;">Project Link</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="padding: 12px 15px; border: 1px solid #ddd;"><b>scRNA-seq v3</b></td>
-      <td style="padding: 12px 15px; border: 1px solid #ddd;">Mouse sample with separate cDNA (large) and Oligo (small) libraries.</td>
-      <td style="padding: 12px 15px; border: 1px solid #ddd;"><a href="https://db.cngb.org/data_resources/project/CNP0005575/" target="_blank">CNP0005575</a></td>
-    </tr>
-    <tr>
-      <td style="padding: 12px 15px; border: 1px solid #ddd;"><b>scVDJ-seq</b></td>
-      <td style="padding: 12px 15px; border: 1px solid #ddd;">Mouse spleen tissue, including 5' RNA, TCR, and BCR data.</td>
-      <td style="padding: 12px 15px; border: 1px solid #ddd;"><a href="https://db.cngb.org/data_resources/project/CNP0006116/" target="_blank">CNP0006116</a></td>
-    </tr>
-    <tr>
-      <td style="padding: 12px 15px; border: 1px solid #ddd;"><b>scATAC-seq</b></td>
-      <td style="padding: 12px 15px; border: 1px solid #ddd;">Mouse brain tissue.</td>
-      <td style="padding: 12px 15px; border: 1px solid #ddd;"><a href="https://db.cngb.org/data_resources/project/CNP0004369" target="_blank">CNP0004369</a></td>
-    </tr>
-  </tbody>
+<h2 id="-analysis-pipelines">🧬 Analysis Pipelines</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Analysis Type</th>
+<th style="text-align:left">Description &amp; Key Features</th>
+<th style="text-align:left">Documentation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>🧬 Single-Cell RNA</strong></td>
+<td style="text-align:left"><strong>Workflow</strong>: Gene expression profiling at single-cell resolution. <br> <ul><li>High-throughput processing for large datasets</li><li>Dual-species support (human-mouse)</li><li>5' and 3' chemistry compatibility</li><li>Automated cell identification</li></ul></td>
+<td style="text-align:left"><a href="./scRNA_en.html"><strong>➡️ English Guide</strong></a> <br> <a href="./scRNA.html"><strong>➡️ 中文指南</strong></a></td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>🧪 Single-Cell ATAC</strong></td>
+<td style="text-align:left"><strong>Workflow</strong>: Chromatin accessibility profiling at single-cell resolution. <br> <ul><li>Advanced fragment processing</li><li>TSS enrichment analysis</li><li>Peak-based cell identification</li><li>Mitochondrial/chloroplast filtering</li></ul></td>
+<td style="text-align:left"><a href="./scATAC_en.html"><strong>➡️ English Guide</strong></a> <br> <a href="./scATAC.html"><strong>➡️ 中文指南</strong></a></td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>🦠 Single-Cell VDJ</strong></td>
+<td style="text-align:left"><strong>Workflow</strong>: Immune receptor repertoire profiling (requires 5' RNA-seq data). <br> <ul><li>Integrated with 5' RNA analysis</li><li>Advanced assembly algorithms</li><li>TCR and BCR support</li><li>Clonotype identification</li></ul></td>
+<td style="text-align:left"><a href="./scVDJ_en.html"><strong>➡️ English Guide</strong></a> <br> <a href="./scVDJ.html"><strong>➡️ 中文指南</strong></a></td>
+</tr>
+</tbody>
 </table>
 <hr>
-<h2 id="notes-on-data-usage">Notes on Data Usage</h2>
-<div style="background-color: #e7f3fe; border-left: 6px solid #2196F3; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
-💡 **scVDJ-seq Tip**: If you don't need to analyze the 5' RNA data, you can directly download the `singlecell.csv` file from the 5' RNA data directory on the FTP server to use as input for the VDJ pipeline.
-</div>
-<div style="background-color: #e7f3fe; border-left: 6px solid #2196F3; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
-💡 **General Tip**: For all datasets, you can click the project link, navigate to the "Sample" or "Experiment" tabs, and find the FTP link to download the raw data for analysis.
-</div>
-<div align="center">
-  <img src="file:////Users/lishuangshuang/Documents/scrna/DNBelab_C_Series_HT_scRNA-analysis-software/doc/images/scrna_v3_datasets2.jpg" alt="scRNA-seq v3 Sample Details" width="800">
-  <p><i>Example: Finding the FTP download link in the CNGB project page.</i></p>
-</div>
+<h2 id="-command-parameters">📚 Command Parameters</h2>
+<details>
+<summary><strong>Click to expand parameter documentation</strong></summary>
+<br>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Category</th>
+<th style="text-align:left">Resource</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>⚙️ General Parameters</strong></td>
+<td style="text-align:left"><a href="../parameter/parameter_en.html">Parameter Reference</a> / <a href="../parameter/parameter.html">参数参考</a></td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>🧬 RNA Parameters</strong></td>
+<td style="text-align:left"><a href="./parameter/scRNA_en.html">RNA Parameters Guide</a> / <a href="./parameter/scRNA.html">RNA 参数</a></td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>🧪 ATAC Parameters</strong></td>
+<td style="text-align:left"><a href="./parameter/scATAC_en.html">ATAC Parameters Guide</a> / <a href="./parameter/scATAC.html">ATAC 参数</a></td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>🦠 VDJ Parameters</strong></td>
+<td style="text-align:left"><a href="./parameter/scVDJ_en.html">VDJ Parameters Guide</a> / <a href="./parameter/scVDJ.html">VDJ 参数</a></td>
+</tr>
+</tbody>
+</table>
+</details>
+<hr>
+<p><em>This document serves as a top-level index. For detailed file descriptions, please refer to the analysis-specific guides linked above.</em></p>
+
             
             
         </body>

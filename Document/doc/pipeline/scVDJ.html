@@ -154,9 +154,9 @@
 <div align="center">
   <img src="https://s2.loli.net/2024/09/27/WHFIaNpLV8xu4Pi.png" alt="工作流程图" width="800">
 </div>
-<blockquote>
-<p><strong>使用说明</strong>：<code>$dnbc4tools</code> 代表可执行程序路径，使用时需要替换为实际安装路径。换行符 <code>\</code> 用于在命令行中将命令分为多行，以提高可读性。</p>
-</blockquote>
+<div style="background-color: #e7f3fe; border-left: 6px solid #2196F3; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
+💡 **使用说明**：`$dnbc4tools` 代表可执行程序路径，使用时需要替换为实际安装路径。换行符 `\` 用于在命令行中将命令分为多行，以提高可读性。
+</div>
 <hr>
 <h2 id="-文件准备-">📁 文件准备 <a id="文件准备"></a></h2>
 <h3 id="5端转录组分析">5端转录组分析</h3>
@@ -172,35 +172,35 @@
 	--threads 30 \
 	--end5</span>
 </code></pre>
-<blockquote>
-<p><strong>注意</strong>：5端转录组分析是VDJ分析的前提，需要先完成此步骤才能进行后续分析。</p>
-</blockquote>
+<div style="background-color: #fffbe6; border-left: 6px solid #ffc107; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
+⚠️ **注意**：5端转录组分析是VDJ分析的前提，需要先完成此步骤才能进行后续分析。
+</div>
 <h3 id="vdj分析所需文件">VDJ分析所需文件</h3>
 <p>分析需要以下文件：</p>
-<table>
-<thead>
-<tr>
-<th>文件类型</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>FASTQ文件</strong></td>
-<td>VDJ文库测序数据，包含TCR或BCR序列信息</td>
-</tr>
-<tr>
-<td><strong>singlecell.csv文件</strong></td>
-<td>5端转录组分析结果中的细胞信息文件</td>
-</tr>
-</tbody>
+<table style="width:100%; border-collapse: collapse; margin: 1.5em 0; box-shadow: 0 2px 3px rgba(0,0,0,0.1);">
+  <thead style="background-color: #f2f2f2; border-bottom: 2px solid #ddd;">
+    <tr>
+      <th style="padding: 12px 15px; border: 1px solid #ddd; text-align: left;">文件类型</th>
+      <th style="padding: 12px 15px; border: 1px solid #ddd; text-align: left;">说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;"><b>FASTQ文件</b></td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;">VDJ文库测序数据，包含TCR或BCR序列信息</td>
+    </tr>
+    <tr>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;"><b>singlecell.csv文件</b></td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;">5端转录组分析结果中的细胞信息文件</td>
+    </tr>
+  </tbody>
 </table>
 <p>分析需要5'端转录组分析结果目录中的 <code>singlecell.csv</code> 文件。该文件包含 <code>cell</code> 和 <code>barcode</code> 列的合并信息，以及 <code>is_cell_barcode</code> 列（1表示细胞，0表示非细胞），用于鉴定有效的细胞。</p>
-<blockquote>
-<p><strong>注意</strong>：确保singlecell.csv文件路径正确，该文件是连接转录组和VDJ分析的关键。</p>
-</blockquote>
+<div style="background-color: #fffbe6; border-left: 6px solid #ffc107; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
+⚠️ **注意**：确保singlecell.csv文件路径正确，该文件是连接转录组和VDJ分析的关键。
+</div>
 <p>参考示例文件内容：</p>
-<pre><code class="language-shell">cell,reads,gene,umi,is_cell_barcode,barcode
+<pre><code class="language-csv">cell,reads,gene,umi,is_cell_barcode,barcode
 CELL1118_N3,1485813,5693,57580,1,AGATCGCCTACGATCACGAT;GGTGGAAGGTGAGAGAAGCG;GTAGTTCTAGGCTAAGTACT
 CELL1651_N3,805447,4881,32131,1,ATCTCAAGCCCACCGTGTGT;CATCAATTAAGTGATCGCAT;CCTAACTGAGGAACGCTTAG
 CELL4_N3,820269,5649,30326,1,AACACCTGATCGTTCAATAA;AATTCGAAGGTAGTCGGAAT;CACATGTTACATGTTCTATA
@@ -211,6 +211,7 @@ CELL1332_N6,580950,4702,22953,1,AGGTGTAAGCCTACCGGACC;CGCACTCACCTAACATTGTG;CTTGCC
 CELL726_N4,585934,4617,22660,1,ACCTACGGCGTTACTATGTG;CGACGCTCTCGACAGTTAGG;CGGCAGAGTCTTGGCGCTTA;TCCGACCGTATCTTCATCTC
 CELL4010_N1,555308,4268,22554,1,AGAGAGTCGCAGCAAGCGAC
 </code></pre>
+<hr>
 <h2 id="-主分析流程-">🚀 主分析流程 <a id="主分析流程"></a></h2>
 <p>VDJ主分析流程结合了单细胞VDJ文库测序数据和对应样本的5'转录组分析结果，包含以下关键步骤：</p>
 <ol>
@@ -271,21 +272,23 @@ Chemistry(darkreaction) determined in fastqR1: darkreaction
 Analysis Finished Elapsed Time: 3:53:07
 </code></pre>
 <p>成功的运行会以 <code>Analysis Finished</code> 结束。</p>
+<hr>
 <h2 id="-结果解析-">📊 结果解析 <a id="结果解析"></a></h2>
 <p>分析完成后，将生成结果输出目录outs，logs日志目录，其中outs目录包括：</p>
-<pre><code>├── airr_annotations.tsv                     # AIRR标准格式的免疫受体注释文件
-├── all_contig_annotations.csv               # 所有contig序列的注释信息
-├── all_contig.fasta                         # 所有contig序列的FASTA文件
-├── all_contig.fasta.fai                     # 所有contig序列的FASTA索引文件
-├── *_scVDJ_IG_report.html                   # VDJ分析结果HTML报告
-├── clonotypes.csv                           # 克隆型信息表，包含频率和序列特征
-├── consensus_annotations.csv                # 一致性序列的注释信息
-├── consensus.fasta                          # 一致性序列的FASTA文件
-├── consensus.fasta.fai                      # 一致性序列的FASTA索引文件
-├── filtered_contig_annotations.csv          # 过滤后的contig序列注释信息
-├── filtered_contig.fasta                    # 过滤后的contig序列FASTA文件
-├── filtered_contig.fasta.fai                # 过滤后的contig序列FASTA索引文件
-└── metrics_summary.xls                      # 分析质量指标汇总表
+<pre><code>. 
+├── airr_annotations.tsv
+├── all_contig_annotations.csv
+├── all_contig.fasta
+├── all_contig.fasta.fai
+├── *_scVDJ_IG_report.html
+├── clonotypes.csv
+├── consensus_annotations.csv
+├── consensus.fasta
+├── consensus.fasta.fai
+├── filtered_contig_annotations.csv
+├── filtered_contig.fasta
+├── filtered_contig.fasta.fai
+└── metrics_summary.xls
 </code></pre>
 <p><strong>相关文档</strong>：</p>
 <ul>

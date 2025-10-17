@@ -2,7 +2,7 @@
         <html>
         <head>
             <meta charset="UTF-8">
-            <title>JSON Configuration</title>
+            <title>JSON Configuration Guide</title>
             <style>
 /* From extension vscode.github */
 /*---------------------------------------------------------------------------------------------
@@ -141,17 +141,33 @@
             <div align="right">
   <a href="../README.html">Home</a>
 </div>
-<h1 id="json-configuration">JSON Configuration</h1>
-<p>The library structure of the <code>scRNAv2HT</code> reagent.</p>
+<h1 id="json-configuration-guide">JSON Configuration Guide</h1>
+<p>This document explains the JSON configuration used to define the library structure for <code>dnbc4tools</code>.</p>
+<hr>
+<h2 id="library-structures">Library Structures</h2>
+<p>The configuration accommodates the specific structures of the <code>scRNAv2HT</code> reagent libraries.</p>
+<div style="display: flex; justify-content: space-around; align-items: center; flex-wrap: wrap; margin: 1.5em 0;">
+  <div style="text-align: center; margin: 1em;">
+    <h4>cDNA Library Structure</h4>
+    <img src="file:////Users/lishuangshuang/Documents/scrna/DNBelab_C_Series_HT_scRNA-analysis-software/doc/images/cDNA_library.jpg" alt="cDNA Library Structure" style="width: 500px; max-width: 100%;">
+  </div>
+  <div style="text-align: center; margin: 1em;">
+    <h4>Oligo Library Structure</h4>
+    <img src="file:////Users/lishuangshuang/Documents/scrna/DNBelab_C_Series_HT_scRNA-analysis-software/doc/images/oligo_library.jpg" alt="Oligo Library Structure" style="width: 500px; max-width: 100%;">
+  </div>
+</div>
+<hr>
+<h2 id="json-configuration-explained">JSON Configuration Explained</h2>
+<p>The JSON configuration file defines how to parse barcodes, UMIs, and reads from your FASTQ files. Here are the key concepts:</p>
 <ul>
-<li>cDNA：</li>
+<li><strong>Required Fields</strong>: The <code>&quot;cell barcode tag&quot;</code>, <code>&quot;cell barcode&quot;</code>, and <code>&quot;read 1&quot;</code> fields are mandatory.</li>
+<li><strong>Tags</strong>: In the <code>value</code> field, <code>CB</code> is the suggested tag name for the corrected cell barcode, and <code>UR</code> is for the UMI.</li>
+<li><strong>Location</strong>: The <code>location</code> field specifies the read (<code>R1</code> or <code>R2</code>) and the base pair coordinates. For example, <code>&quot;R1:1-10&quot;</code> refers to bases 1-10 of read 1.</li>
+<li><strong>Barcode Segments</strong>: A cell barcode can be composed of multiple segments from different locations (e.g., <code>&quot;R1:1-10&quot;</code> and <code>&quot;R1:17-26&quot;</code>).</li>
+<li><strong>Output</strong>: The program will export the parsed barcodes and UMIs into the name field of the output FASTQ. The sequence specified by <code>&quot;read 1&quot;</code> (e.g., <code>&quot;R2:1-100&quot;</code>) will be kept in the sequence field.</li>
+<li><strong>Whitelist Correction</strong>: A predefined <code>&quot;white list&quot;</code> can be provided to correct barcode sequences. Barcodes not found in the whitelist are compared against it, and if the hamming <code>&quot;distance&quot;</code> is within the specified cutoff, the barcode is corrected.</li>
 </ul>
-<img src="./images/cDNA_library.jpg" alt="1713246535520" style="zoom:14%;" />
-<ul>
-<li>oligo：</li>
-</ul>
- <img src="./images/oligo_library.jpg" alt="59f71c7f64abbbefe09bb833914bb94" style="zoom:20%;" />
-<p>A simple demo list below. The name field &quot;cell barcode tag&quot;, &quot;cell barcode&quot; and &quot;read 1&quot; are required. In the value filed, <code>CB</code> is the tag name for cell barcode and <code>UR</code> is the tag name for UMI. In the location field, <code>R1</code> is short for read 1, <code>R2</code> is for read 2. The cell barcode consists of two segments (<code>R1:1-10</code> and <code>R1:17-26</code>), first one from 1 to 10 bp of read 1 and the second one from 17 to 26 bp of read 1. And the program will export barcodes and UMI in the name filed of fastq, and base 1 to 100 of read 2 (<code>R2:1-100</code>) will be kept in the sequence filed. Predefined white-list is useful to correct barcodes and improve the number of reads per cell barcode. The &quot;distance&quot; and &quot;white list&quot; key in the config file is used to specify the cutoff distance and white-list barcodes. Barcode sequence not found at the white-list will be compared with each known candidate and calculate the hamming distance .</p>
+<h3 id="example-json-configuration">Example JSON Configuration</h3>
 <pre><code class="language-json"><span class="hljs-punctuation">{</span>
     <span class="hljs-attr">&quot;cell barcode tag&quot;</span><span class="hljs-punctuation">:</span><span class="hljs-string">&quot;CB&quot;</span><span class="hljs-punctuation">,</span>
     <span class="hljs-attr">&quot;cell barcode&quot;</span><span class="hljs-punctuation">:</span><span class="hljs-punctuation">[</span>
@@ -161,116 +177,77 @@
             <span class="hljs-attr">&quot;white list&quot;</span><span class="hljs-punctuation">:</span><span class="hljs-punctuation">[</span>
                 <span class="hljs-string">&quot;TAACAGCCAA&quot;</span><span class="hljs-punctuation">,</span>
                 <span class="hljs-string">&quot;CTAAGAGTCC&quot;</span><span class="hljs-punctuation">,</span>
-                ...
-                <span class="hljs-string">&quot;GTCTTCGGCT&quot;</span>
+                <span class="hljs-string">&quot;...&quot;</span>
             <span class="hljs-punctuation">]</span>
 	<span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
 	<span class="hljs-punctuation">{</span>
-	    <span class="hljs-attr">&quot;location&quot;</span><span class="hljs-punctuation">:</span><span class="hljs-string">&quot;R1:11-20&quot;</span>
+	    <span class="hljs-attr">&quot;location&quot;</span><span class="hljs-punctuation">:</span><span class="hljs-string">&quot;R1:11-20&quot;</span><span class="hljs-punctuation">,</span>
             <span class="hljs-attr">&quot;distance&quot;</span><span class="hljs-punctuation">:</span><span class="hljs-string">&quot;1&quot;</span><span class="hljs-punctuation">,</span>
             <span class="hljs-attr">&quot;white list&quot;</span><span class="hljs-punctuation">:</span><span class="hljs-punctuation">[</span>
                 <span class="hljs-string">&quot;TAACAGCCAA&quot;</span><span class="hljs-punctuation">,</span>
                 <span class="hljs-string">&quot;CTAAGAGTCC&quot;</span><span class="hljs-punctuation">,</span>
-                ...
-                <span class="hljs-string">&quot;GTCTTCGGCT&quot;</span>
+                <span class="hljs-string">&quot;...&quot;</span>
             <span class="hljs-punctuation">]</span>
-	<span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+	<span class="hljs-punctuation">}</span>
     <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
     <span class="hljs-attr">&quot;UMI tag&quot;</span><span class="hljs-punctuation">:</span><span class="hljs-string">&quot;UR&quot;</span><span class="hljs-punctuation">,</span>
     <span class="hljs-attr">&quot;UMI&quot;</span><span class="hljs-punctuation">:</span><span class="hljs-punctuation">{</span>
-	<span class="hljs-attr">&quot;location&quot;</span><span class="hljs-punctuation">:</span><span class="hljs-string">&quot;R1:21-30&quot;</span><span class="hljs-punctuation">,</span>
+	<span class="hljs-attr">&quot;location&quot;</span><span class="hljs-punctuation">:</span><span class="hljs-string">&quot;R1:21-30&quot;</span>
     <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
     <span class="hljs-attr">&quot;read 1&quot;</span><span class="hljs-punctuation">:</span><span class="hljs-punctuation">{</span>
-	<span class="hljs-attr">&quot;location&quot;</span><span class="hljs-punctuation">:</span><span class="hljs-string">&quot;R2:1-100&quot;</span><span class="hljs-punctuation">,</span>
+	<span class="hljs-attr">&quot;location&quot;</span><span class="hljs-punctuation">:</span><span class="hljs-string">&quot;R2:1-100&quot;</span>
     <span class="hljs-punctuation">}</span>
 <span class="hljs-punctuation">}</span>
 </code></pre>
-<p>A list of support keys in config file shows here.</p>
-<table>
-<thead>
-<tr>
-<th>key</th>
-<th>comment</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>cell barcode tag</td>
-<td>SAM tag for cell barcode, after corrected. &quot;CB&quot; is suggested.</td>
-</tr>
-<tr>
-<td>cell barcode</td>
-<td>JSON array for cell barcode segments</td>
-</tr>
-<tr>
-<td>cell barcode raw tag</td>
-<td>SAM tag for raw cell barcode; &quot;CR&quot; is suggested.</td>
-</tr>
-<tr>
-<td>cell barcode raw qual tag</td>
-<td>SAM tag for cell barcode sequence quality; &quot;CY&quot; is suggested.</td>
-</tr>
-<tr>
-<td>distance</td>
-<td>minimal Hamming distance</td>
-</tr>
-<tr>
-<td>white list</td>
-<td>white list for cell barcodes</td>
-</tr>
-<tr>
-<td>location</td>
-<td>location of sequence in read 1 or 2</td>
-</tr>
-<tr>
-<td>sample barcode tag</td>
-<td>SAM tag for sample barcode</td>
-</tr>
-<tr>
-<td>sample barcode</td>
-<td>SAM tag for sample barcode sequence quality</td>
-</tr>
-<tr>
-<td>UMI tag</td>
-<td>SAM tag for UMI; &quot;UR&quot; is suggested for raw UMI; &quot;UB&quot; is suggested for corrected UMI</td>
-</tr>
-<tr>
-<td>UMI qual tag</td>
-<td>SAM tag for UMI sequence quality</td>
-</tr>
-<tr>
-<td>UMI</td>
-<td>location value for the UMI</td>
-</tr>
-<tr>
-<td>read 1</td>
-<td>read 1 location</td>
-</tr>
-<tr>
-<td>read 2</td>
-<td>read 2 location</td>
-</tr>
-</tbody>
+<hr>
+<h2 id="supported-keys">Supported Keys</h2>
+<p>Here is a list of all supported keys in the configuration file.</p>
+<table style="width:100%; border-collapse: collapse; margin: 1.5em 0; box-shadow: 0 2px 3px rgba(0,0,0,0.1);">
+  <thead style="background-color: #f2f2f2; border-bottom: 2px solid #ddd;">
+    <tr>
+      <th style="padding: 12px 15px; border: 1px solid #ddd; text-align: left;">Key</th>
+      <th style="padding: 12px 15px; border: 1px solid #ddd; text-align: left;">Comment</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td style="padding: 12px 15px; border: 1px solid #ddd;"><code>cell barcode tag</code></td><td style="padding: 12px 15px; border: 1px solid #ddd;">SAM tag for the corrected cell barcode. "CB" is suggested.</td></tr>
+    <tr><td style="padding: 12px 15px; border: 1px solid #ddd;"><code>cell barcode</code></td><td style="padding: 12px 15px; border: 1px solid #ddd;">A JSON array defining the segments of the cell barcode.</td></tr>
+    <tr><td style="padding: 12px 15px; border: 1px solid #ddd;"><code>cell barcode raw tag</code></td><td style="padding: 12px 15px; border: 1px solid #ddd;">SAM tag for the raw cell barcode sequence. "CR" is suggested.</td></tr>
+    <tr><td style="padding: 12px 15px; border: 1px solid #ddd;"><code>cell barcode raw qual tag</code></td><td style="padding: 12px 15px; border: 1px solid #ddd;">SAM tag for the quality score of the raw cell barcode. "CY" is suggested.</td></tr>
+    <tr><td style="padding: 12px 15px; border: 1px solid #ddd;"><code>distance</code></td><td style="padding: 12px 15px; border: 1px solid #ddd;">The minimum Hamming distance for barcode correction.</td></tr>
+    <tr><td style="padding: 12px 15px; border: 1px solid #ddd;"><code>white list</code></td><td style="padding: 12px 15px; border: 1px solid #ddd;">A list of valid barcode sequences for correction.</td></tr>
+    <tr><td style="padding: 12px 15px; border: 1px solid #ddd;"><code>location</code></td><td style="padding: 12px 15px; border: 1px solid #ddd;">The sequence location in read 1 or read 2 (e.g., "R1:1-10").</td></tr>
+    <tr><td style="padding: 12px 15px; border: 1px solid #ddd;"><code>sample barcode tag</code></td><td style="padding: 12px 15px; border: 1px solid #ddd;">SAM tag for the sample barcode.</td></tr>
+    <tr><td style="padding: 12px 15px; border: 1px solid #ddd;"><code>sample barcode</code></td><td style="padding: 12px 15px; border: 1px solid #ddd;">Defines the sample barcode segments.</td></tr>
+    <tr><td style="padding: 12px 15px; border: 1px solid #ddd;"><code>UMI tag</code></td><td style="padding: 12px 15px; border: 1px solid #ddd;">SAM tag for the UMI. "UR" is suggested for raw UMI, "UB" for corrected.</td></tr>
+    <tr><td style="padding: 12px 15px; border: 1px solid #ddd;"><code>UMI qual tag</code></td><td style="padding: 12px 15px; border: 1px solid #ddd;">SAM tag for the UMI sequence quality.</td></tr>
+    <tr><td style="padding: 12px 15px; border: 1px solid #ddd;"><code>UMI</code></td><td style="padding: 12px 15px; border: 1px solid #ddd;">Defines the location of the UMI.</td></tr>
+    <tr><td style="padding: 12px 15px; border: 1px solid #ddd;"><code>read 1</code></td><td style="padding: 12px 15px; border: 1px solid #ddd;">Defines the location of read 1 sequence to keep.</td></tr>
+    <tr><td style="padding: 12px 15px; border: 1px solid #ddd;"><code>read 2</code></td><td style="padding: 12px 15px; border: 1px solid #ddd;">Defines the location of read 2 sequence to keep.</td></tr>
+  </tbody>
 </table>
-<p>Positional information when both R1 of cDNA and R1R2 of oligo undergo dark reactions.</p>
-<pre><code class="language-shell">cDNA 
-cell barcode:R1:1-10,R1:11-20
-umi:R1:21-30
-read 1:R2:1-100
-oligo
-cell barcode:R1:1-10,R1:11-20
-read 1:R2:1-30
-</code></pre>
-<p>Positional information when R1 of cDNA and R1 of oligo both undergo dark reactions, and R2 of oligo does not undergo dark reaction.</p>
-<pre><code class="language-shell">cDNA 
-cell barcode:R1:1-10,R1:11-20
-umi:R1:21-30
-read 1:R2:1-100
-oligo
-cell barcode:R1:1-10,R1:11-20
-read 1:R2:1-10,R2:17-26,R2:33-42
-</code></pre>
-
+<hr>
+<h2 id="positional-information-examples">Positional Information Examples</h2>
+<div style="background-color: #f8f9fa; border: 1px solid #dee2e6; padding: 1px 20px; margin: 20px 0; border-radius: 8px;">
+<h4>Scenario 1: Dark reaction on cDNA R1 and Oligo R1/R2</h4>
+<ul>
+  <li><b>cDNA - Cell Barcode:</b> <code>R1:1-10,R1:11-20</code></li>
+  <li><b>cDNA - UMI:</b> <code>R1:21-30</code></li>
+  <li><b>cDNA - Read 1:</b> <code>R2:1-100</code></li>
+  <li><b>Oligo - Cell Barcode:</b> <code>R1:1-10,R1:11-20</code></li>
+  <li><b>Oligo - Read 1:</b> <code>R2:1-30</code></li>
+</ul>
+</div>
+<div style="background-color: #f8f9fa; border: 1px solid #dee2e6; padding: 1px 20px; margin: 20px 0; border-radius: 8px;">
+<h4>Scenario 2: Dark reaction on cDNA R1 and Oligo R1 (Oligo R2 is normal)</h4>
+<ul>
+  <li><b>cDNA - Cell Barcode:</b> <code>R1:1-10,R1:11-20</code></li>
+  <li><b>cDNA - UMI:</b> <code>R1:21-30</code></li>
+  <li><b>cDNA - Read 1:</b> <code>R2:1-100</code></li>
+  <li><b>Oligo - Cell Barcode:</b> <code>R1:1-10,R1:11-20</code></li>
+  <li><b>Oligo - Read 1:</b> <code>R2:1-10,R2:17-26,R2:33-42</code></li>
+</ul>
+</div>
             
             
         </body>
