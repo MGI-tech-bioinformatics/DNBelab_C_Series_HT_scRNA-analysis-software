@@ -19,8 +19,8 @@
 ### 📊 用法 <a id="usage"></a>
 
 ```shell
-$ dnbc4tools rna run -h
-usage: dnbc4tools rna run [-h]
+$ dnbc4tools rna run
+usage: dnbc4tools rna run [OPTIONS]
 
 optional arguments:
   -h, --help            show this help message and exit
@@ -78,56 +78,29 @@ Analysis Settings:
 
 > ⚠️ **成功分析必须指定的基本参数**
 
-<table>
-<thead>
-<tr>
-<th width="20%" align="center"><strong>参数</strong></th>
-<th width="80%" align="left"><strong>描述与配置</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="center">
-<code><strong>-n, --name</strong></code>
-<br><br>
-<span style="color: #e74c3c; font-weight: bold;">📋 必需</span>
-</td>
-<td>
-<h4>🏷️ 样本唯一标识符</h4>
-<blockquote>
-<strong>功能：</strong>样本的唯一标识符（例如：sample1）<br>
-<strong>用途：</strong>用于命名输出文件和报告<br>
-<strong>显示：</strong>在生成的HTML报告中显示为样本 ID
-</blockquote>
-<strong>示例：</strong> <code>sample_001</code>
-</td>
-</tr>
-<tr>
-<td align="center">
-<code><strong>-g, --genomeDir</strong></code>
-<br><br>
-<span style="color: #e74c3c; font-weight: bold;">📋 必需</span>
-</td>
-<td>
-<h4>🗂️ 参考基因组目录路径</h4>
-<blockquote>
-<strong>功能：</strong>指向参考基因组目录的路径<br>
-<strong>要求：</strong>必须包含 STAR 索引和注释资源<br>
-<strong>内容：</strong>包含基因组序列、GTF 注释文件、STAR 比对索引等必要文件
-</blockquote>
-<details open>
-<summary><strong>双物种支持功能：</strong></summary>
+<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<h4><code>-n, --name</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(必需)</span></h4>
+<p>为本次分析提供一个唯一的样本名称。</p>
 <ul>
-<li><strong>支持使用：</strong><code>dnbc4tools rna mkref</code> 创建的双物种参考数据库</li>
-<li><strong>自动识别：</strong>双物种分析会自动识别不同物种的基因</li>
-<li><strong>统计信息：</strong>自动生成物种分离的统计信息，评估样本中不同物种的比例</li>
+  <li><strong>功能:</strong> 该名称将用作所有输出文件和HTML报告的前缀。</li>
+  <li><strong>显示:</strong> 在最终的网页报告中，此名称将作为样本ID显示。</li>
 </ul>
-</details>
-<strong>示例：</strong> <code>/path/to/genome/database</code>
-</td>
-</tr>
-</tbody>
-</table>
+<p><strong>默认值:</strong> 无</p>
+<p><strong>示例:</strong></p>
+<pre><code>--name sample_001</code></pre>
+</div>
+
+<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<h4><code>-g, --genomeDir</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(必需)</span></h4>
+<p>指定参考基因组目录的路径。</p>
+<ul>
+  <li><strong>要求:</strong> 目录必须包含由 <code>mkref</code> 命令生成的索引和注释资源。</li>
+  <li><strong>内容:</strong> 包含基因组序列、STAR 比对索引等。</li>
+</ul>
+<p><strong>默认值:</strong> 无</p>
+<p><strong>示例:</strong></p>
+<pre><code>--genomeDir /path/to/genome/database</code></pre>
+</div>
 
 ---
 
@@ -135,657 +108,361 @@ Analysis Settings:
 
 > 📁 **选择一种输入方式：基于目录 OR 单独指定文件**
 
-<table>
-<thead>
-<tr>
-<th width="20%" align="center"><strong>参数</strong></th>
-<th width="80%" align="left"><strong>描述与配置</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="center">
-<code><strong>--fastqs</strong></code>
-<br><br>
-<span style="color: #3498db; font-weight: bold;">🔄 方式1</span>
-</td>
-<td>
-<h4>📂 FASTQ 文件目录</h4>
-<blockquote>
-<strong>方法：</strong>基于目录的输入，自动检测<br>
-<strong>功能：</strong>流程自动检测 cDNA 和 oligo 文件夹中的配对文件<br>
-<strong>互斥：</strong>不能与单独的 cDNA/oligo 文件同时使用
-</blockquote>
-<details open>
-<summary><strong>目录结构要求：</strong></summary>
+<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<h4><code>--fastqs</code> <span style="font-size: 0.8em; font-weight: normal; color: #3498db;">(方式1)</span></h4>
+<p>指定包含所有FASTQ文件的目录路径。</p>
 <ul>
-<li><strong>cDNA 文件夹：</strong>包含 cDNA 文库的 R1 和 R2 文件</li>
-<li><strong>oligo 文件夹：</strong>包含 oligo 文库的 R1 和 R2 文件</li>
-<li><strong>文件命名：</strong>需要遵循标准命名规范</li>
+  <li><strong>功能:</strong> 流程会自动检测此目录下（包含cDNA和oligo两个子目录）的配对文件。</li>
+  <li><strong>注意:</strong> 这是一个便捷选项，不能与 <code>--cDNAfastq1</code> / <code>--cDNAfastq2</code> / <code>--oligofastq1</code> / <code>--oligofastq2</code> 同时使用。</li>
 </ul>
-</details>
-<strong>示例：</strong> <code>./fastq_directory</code>
-</td>
-</tr>
-<tr>
-<td align="center">
-<code><strong>-c1, --cDNAfastq1</strong></code>
-<br><br>
-<span style="color: #3498db; font-weight: bold;">🔄 方式2A</span>
-</td>
-<td>
-<h4>📄 cDNA Read1 FASTQ 文件</h4>
-<blockquote>
-<strong>输入：</strong>cDNA 文库的 Read1 FASTQ 文件<br>
-<strong>支持：</strong>通配符和逗号分隔的列表<br>
-<strong>用途：</strong>用于基因表达数据分析<br>
-<strong>要求：</strong>必须与 cDNAfastq2 参数配对使用
-</blockquote>
-<strong>示例：</strong> <code>sample_cDNA_L01_R1.fastq.gz,sample_cDNA_L02_R1.fastq.gz</code>
-</td>
-</tr>
-<tr>
-<td align="center">
-<code><strong>-c2, --cDNAfastq2</strong></code>
-<br><br>
-<span style="color: #3498db; font-weight: bold;">🔄 方式2B</span>
-</td>
-<td>
-<h4>📄 cDNA Read2 FASTQ 文件</h4>
-<blockquote>
-<strong>输入：</strong>cDNA 文库的 Read2 FASTQ 文件<br>
-<strong>支持：</strong>通配符和逗号分隔的列表<br>
-<strong>顺序：</strong>文件序列必须与 cDNAfastq1 完全匹配<br>
-<strong>要求：</strong>必须与 cDNAfastq1 参数配对使用
-</blockquote>
-<strong>示例：</strong> <code>sample_cDNA_L01_R2.fastq.gz,sample_cDNA_L02_R2.fastq.gz</code>
-</td>
-</tr>
-<tr>
-<td align="center">
-<code><strong>-i1, --oligofastq1</strong></code>
-<br><br>
-<span style="color: #3498db; font-weight: bold;">🔄 方式2C</span>
-</td>
-<td>
-<h4>📄 oligo Read1 FASTQ 文件</h4>
-<blockquote>
-<strong>输入：</strong>oligo 文库的 Read1 FASTQ 文件<br>
-<strong>支持：</strong>通配符和逗号分隔的列表<br>
-<strong>用途：</strong>用于条形码合并和细胞识别<br>
-<strong>要求：</strong>必须与 oligofastq2 参数配对使用
-</blockquote>
-<strong>示例：</strong> <code>sample_oligo_R1.fastq.gz</code>
-</td>
-</tr>
-<tr>
-<td align="center">
-<code><strong>-i2, --oligofastq2</strong></code>
-<br><br>
-<span style="color: #3498db; font-weight: bold;">🔄 方式2D</span>
-</td>
-<td>
-<h4>📄 oligo Read2 FASTQ 文件</h4>
-<blockquote>
-<strong>输入：</strong>oligo 文库的 Read2 FASTQ 文件<br>
-<strong>支持：</strong>通配符和逗号分隔的列表<br>
-<strong>顺序：</strong>文件序列必须与 oligofastq1 完全匹配<br>
-<strong>要求：</strong>必须与 oligofastq1 参数配对使用
-</blockquote>
-<strong>示例：</strong> <code>sample_oligo_R2.fastq.gz</code>
-</td>
-</tr>
-</tbody>
-</table>
+<p><strong>默认值:</strong> 无</p>
+<p><strong>示例:</strong></p>
+<pre><code>--fastqs ./fastq_directory</code></pre>
+</div>
+
+<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<h4><code>-c1, --cDNAfastq1</code> <span style="font-size: 0.8em; font-weight: normal; color: #3498db;">(方式2A)</span></h4>
+<p>单独指定一个或多个cDNA Read1 FASTQ文件。</p>
+<ul>
+  <li><strong>支持:</strong> 可以使用通配符 (<code>*</code>) 匹配文件，使用逗号分隔来指定多个文件。</li>
+  <li><strong>要求:</strong> 必须与 <code>--cDNAfastq2</code> 参数配对使用，且文件顺序必须完全匹配。</li>
+</ul>
+<p><strong>默认值:</strong> 无</p>
+<p><strong>示例:</strong></p>
+<pre><code>--cDNAfastq1 sample_cDNA_L01_R1.fastq.gz,sample_cDNA_L02_R1.fastq.gz</code></pre>
+</div>
+
+<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<h4><code>-c2, --cDNAfastq2</code> <span style="font-size: 0.8em; font-weight: normal; color: #3498db;">(方式2B)</span></h4>
+<p>单独指定一个或多个cDNA Read2 FASTQ文件。</p>
+<ul>
+  <li><strong>支持:</strong> 可以使用通配符 (<code>*</code>) 匹配文件，使用逗号分隔来指定多个文件。</li>
+  <li><strong>要求:</strong> 必须与 <code>--cDNAfastq1</code> 参数配对使用，且文件顺序必须完全匹配。</li>
+</ul>
+<p><strong>默认值:</strong> 无</p>
+<p><strong>示例:</strong></p>
+<pre><code>--cDNAfastq2 sample_cDNA_L01_R2.fastq.gz,sample_cDNA_L02_R2.fastq.gz</code></pre>
+</div>
+
+<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<h4><code>-i1, --oligofastq1</code> <span style="font-size: 0.8em; font-weight: normal; color: #3498db;">(方式2C)</span></h4>
+<p>单独指定一个或多个oligo Read1 FASTQ文件。</p>
+<ul>
+  <li><strong>支持:</strong> 可以使用通配符 (<code>*</code>) 匹配文件，使用逗号分隔来指定多个文件。</li>
+  <li><strong>要求:</strong> 必须与 <code>--oligofastq2</code> 参数配对使用，且文件顺序必须完全匹配。</li>
+</ul>
+<p><strong>默认值:</strong> 无</p>
+<p><strong>示例:</strong></p>
+<pre><code>--oligofastq1 sample_oligo_R1.fastq.gz</code></pre>
+</div>
+
+<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<h4><code>-i2, --oligofastq2</code> <span style="font-size: 0.8em; font-weight: normal; color: #3498db;">(方式2D)</span></h4>
+<p>单独指定一个或多个oligo Read2 FASTQ文件。</p>
+<ul>
+  <li><strong>支持:</strong> 可以使用通配符 (<code>*</code>) 匹配文件，使用逗号分隔来指定多个文件。</li>
+  <li><strong>要求:</strong> 必须与 <code>--oligofastq1</code> 参数配对使用，且文件顺序必须完全匹配。</li>
+</ul>
+<p><strong>默认值:</strong> 无</p>
+<p><strong>示例:</strong></p>
+<pre><code>--oligofastq2 sample_oligo_R2.fastq.gz</code></pre>
+</div>
 
 > ⚠️ **输入方式选择：**
-> - **🔸 方式1：** 使用 `--fastqs` 指定包含 cDNA 和 oligo 子文件夹的目录
-> - **🔸 方式2：** 使用 `-c1/-c2/-i1/-i2` 分别指定 cDNA 和 oligo 的 R1/R2 文件
+> - **🔸 方式1：** 使用`--fastqs`指定包含cDNA和oligo子文件夹的目录
+> - **🔸 方式2：** 使用`-c1, --cDNAfastq1`, `-c2, --cDNAfastq2`, `-i1, --oligofastq1`, `-i2, --oligofastq2`分别指定R1和R2文件
 
-> 📌 **格式要求：**
-> - 多个 FASTQ 文件应以逗号分隔
-> - R1 和 R2 文件必须保持相同的排序
-> - 所有文件必须来自同一文库，测序模式和暗反应设置需保持一致
-> - 不同实验或样本的数据不得合并分析
-
+> ⚠️ **重要提示：** 参数下所有文件必须来自同一文库，测序模式和暗反应设置保持一致，不同文库的数据不能合并分析。
 
 ---
 
 #### 🟢 基本设置参数
 
-<table>
-<thead>
-<tr>
-<th width="20%" align="center"><strong>参数</strong></th>
-<th width="80%" align="left"><strong>描述与配置</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="center">
-<code><strong>-o, --outdir</strong></code>
-<br><br>
-<span style="color: #27ae60; font-weight: bold;">📁 默认：当前目录</span>
-</td>
-<td>
-<h4>💾 输出目录</h4>
-<blockquote>
-<strong>功能：</strong>结果和报告的输出目录<br>
-<strong>存储：</strong>所有分析结果将保存在此目录中<br>
-<strong>组织：</strong>自动创建结构化的子目录
-</blockquote>
-<strong>示例：</strong> <code>./output_results</code>
-</td>
-</tr>
-<tr>
-<td align="center">
-<code><strong>-t, --threads</strong></code>
-<br><br>
-<span style="color: #27ae60; font-weight: bold;">⚡ 默认：所有可用核心</span>
-</td>
-<td>
-<h4>🔧 并行处理线程数</h4>
-<blockquote>
-<strong>功能：</strong>用于并行处理的 CPU 线程数<br>
-<strong>性能：</strong>增加线程数可显著提高分析速度<br>
-<strong>建议：</strong>根据可用 CPU 核心数进行调整
-</blockquote>
-<details open>
-<summary><strong>性能优化建议：</strong></summary>
+<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<h4><code>-o, --outdir</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(可选)</span></h4>
+<p>指定所有分析结果和报告的输出目录。</p>
 <ul>
-<li><strong>小型数据集：</strong>8-20 线程通常足够</li>
-<li><strong>大型数据集：</strong>20-50 线程可获得更好性能</li>
+  <li><strong>功能:</strong> 所有分析结果将保存在此目录中，流程会自动创建以样本名命名的结构化子目录。</li>
 </ul>
-</details>
-</td>
-</tr>
-</tbody>
-</table>
+<p><strong>默认值:</strong> <code>./</code> (当前目录)</p>
+<p><strong>示例:</strong></p>
+<pre><code>--outdir ./output_results</code></pre>
+</div>
+
+<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<h4><code>-t, --threads</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(可选)</span></h4>
+<p>设置分析过程中可使用的CPU线程数。</p>
+<ul>
+  <li><strong>功能:</strong> 增加线程数可显著提高分析速度。</li>
+  <li><strong>建议:</strong> 根据可用的CPU核心数进行调整，以获得最佳性能。</li>
+</ul>
+<p><strong>默认值:</strong> <code>使用所有可用的CPU核心</code></p>
+<p><strong>示例:</strong></p>
+<pre><code>--threads 16</code></pre>
+</div>
 
 ---
 
-#### 🟢 细胞识别参数
+#### 🟢 过滤设置参数
 
-<table>
-<thead>
-<tr>
-<th width="20%" align="center"><strong>参数</strong></th>
-<th width="80%" align="left"><strong>描述与配置</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="center">
-<code><strong>--calling_method</strong></code>
-<br><br>
-<span style="color: #f39c12; font-weight: bold;">🔧 默认：emptydrops</span>
-</td>
-<td>
-<h4>🔭 细胞识别方法</h4>
-<blockquote>
-<strong>核心功能：</strong>用于区分真实细胞和空滴的算法选择<br>
-<strong>统计原理：</strong>通过不同算法分析 UMI 分布模式来识别真实细胞<br>
-<strong>精度影响：</strong>直接影响细胞识别的精确度和灵敏度
-</blockquote>
-<details open>
-<summary><strong>方法对比分析：</strong></summary>
-<table>
-<tr>
-<th width="15%">方法</th>
-<th width="25%">技术原理</th>
-<th width="15%">灵敏度</th>
-<th width="15%">特异性</th>
-<th width="15%">计算复杂度</th>
-<th width="15%">适用场景</th>
-</tr>
-<tr>
-<td><strong>barcoderanks</strong></td>
-<td>基于总 UMI 计数的经验性阈值，通过 UMI 排序曲线拐点识别细胞</td>
-<td>中等，易丢失低 RNA 含量细胞</td>
-<td>中等，易误判高背景空液滴</td>
-<td>低，快速运行</td>
-<td>快速初步分析，可视化探索</td>
-</tr>
-<tr>
-<td><strong>emptydrops</strong></td>
-<td>基于表达谱统计检验（Dirichlet-multinomial），两步策略：初步筛选+统计检验</td>
-<td>高，能检测低表达细胞</td>
-<td>高，FDR 控制减少假阳性</td>
-<td>高，依赖 Monte Carlo 模拟</td>
-<td>标准分析（推荐），高精度需求</td>
-</tr>
-</table>
-</details>
-
-<details open>
-<summary><strong>emptydrops 方法详细步骤：</strong></summary>
-<ol>
-<li><strong>初步筛选：</strong>根据预期细胞数量（<code>--expectcells</code>）捕获高 UMI 区域的细胞</li>
-<li><strong>统计检验：</strong>将 UMI 数量高于最小阈值（<code>--minumi</code>）的细胞与背景进行差异比较</li>
-<li><strong>结果判定：</strong>显著差异的被判定为真实细胞</li>
-</ol>
-</details>
-</td>
-</tr>
-<tr>
-<td align="center">
-<code><strong>--expectcells</strong></code>
-<br><br>
-<span style="color: #f39c12; font-weight: bold;">🎯 默认：auto</span>
-</td>
-<td>
-<h4>📈 预期回收细胞数量</h4>
-<blockquote>
-<strong>算法指导：</strong>为 emptydrops 算法提供初步筛选的指导信息<br>
-<strong>自动检测：</strong>auto 模式会根据 UMI 分布特征自动估算细胞数量<br>
-<strong>手动调节：</strong>根据实验设计和预期提供更精确的指导
-</blockquote>
-
-<details open>
-<summary><strong>设置建议策略：</strong></summary>
+<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<h4><code>--calling_method</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(可选)</span></h4>
+<p>设定细胞识别方法，用于区分真实细胞和空滴。</p>
 <ul>
-<li><strong>实验指导：</strong>建议填写为投入有效细胞数量的 50%</li>
-<li><strong>无先验信息：</strong>若未提供投入细胞数，建议使用默认自动检测</li>
-<li><strong>调试策略：</strong>可通过查看 UMI rank 图来估算合适的细胞数量</li>
-</ul>
-</details>
-<strong>示例：</strong> <code>3000</code>（预期 3000 个细胞）
-</td>
-</tr>
-<tr>
-<td align="center">
-<code><strong>--forcecells</strong></code>
-<br><br>
-<span style="color: #e67e22; font-weight: bold;">🎯 覆盖</span>
-</td>
-<td>
-<h4>🔒 强制使用指定细胞数量</h4>
-<blockquote>
-<strong>功能：</strong>强制流程使用确切的细胞数量，覆盖检测结果<br>
-<strong>选择：</strong>根据 UMI 的排序结果，选择排序靠前的特定数量的细胞<br>
-<strong>优先级：</strong>最高优先级 - 覆盖所有其他过滤条件
-</blockquote>
 <details open>
-<summary><strong>使用场景：</strong></summary>
-<ul>
-<li><strong>标准化分析：</strong>对比实验需要保持一致的细胞数量</li>
-<li><strong>下游分析：</strong>为下游分析软件提供固定数量的细胞</li>
-<li><strong>特殊需求：</strong>针对特定实验设计的精确控制</li>
-<li><strong>算法异常处理：</strong>当算法分析的细胞数量和细胞鉴定曲线图存在问题时的强制校正</li>
-</ul>
+  <summary><strong>方法对比分析</strong></summary>
+  <div style="margin-top: 10px;">
+    <h5 style="margin-bottom: 5px; font-size: 1.1em;">barcoderanks</h5>
+    <ul style="margin: 0; padding-left: 20px;">
+      <li><strong>原理:</strong> 基于总 UMI 计数的经验性阈值，通过 UMI 排序曲线的“拐点”识别细胞。</li>
+      <li><strong>适用场景:</strong> 快速初步分析，或在细胞与背景区分明显的场景。</li>
+    </ul>
+  </div>
+  <div style="margin-top: 15px;">
+    <h5 style="margin-bottom: 5px; font-size: 1.1em;">emptydrops (默认)</h5>
+    <ul style="margin: 0; padding-left: 20px;">
+      <li><strong>原理:</strong> 基于表达谱的统计检验，判断细胞表达谱是否显著区别于背景 RNA。</li>
+      <li><strong>适用场景:</strong> 标准分析（推荐），能精确识别低 RNA 含量的细胞并控制假阳性。</li>
+    </ul>
+  </div>
 </details>
-<strong>示例：</strong> <code>5000</code>（强制 5000 个细胞）
-</td>
-</tr>
-<tr>
-<td align="center">
-<code><strong>--minumi</strong></code>
-<br><br>
-<span style="color: #27ae60; font-weight: bold;">🔢 默认：1000</span>
-</td>
-<td>
-<h4>📉 最小 UMI 数量阈值</h4>
-<blockquote>
-<strong>质量控制核心：</strong>设定细胞级别的最低 UMI 数量要求，直接影响数据质量<br>
-<strong>生物学意义：</strong>UMI 数量反映细胞中捕获的 mRNA 分子数量，是评估细胞状态的重要指标<br>
-<strong>过滤机制：</strong>UMI 数量低于此阈值的细胞被认为数据质量不佳，将从后续分析中排除<br>
-<strong>平衡考虑：</strong>阈值过低保留低质量细胞，过高可能丢失有效细胞
-</blockquote>
-<details open>
-<summary><strong>优化设置建议：</strong></summary>
-<ul>
-<li><strong>初次分析：</strong>使用默认值 1000，观察结果报告中 UMI 分布</li>
-<li><strong>调整策略：</strong>根据 UMI 直方图和细胞数量统计进行优化</li>
-<li><strong>数据类型影响：</strong>不同组织类型和实验条件可能需要不同的阈值设置</li>
 </ul>
-</details>
-</td>
-</tr>
-</tbody>
-</table>
+<p><strong>默认值:</strong> <code>emptydrops</code></p>
+<p><strong>示例:</strong></p>
+<pre><code># 切换为barcoderanks方法进行细胞识别
+dnbc4tools rna run --name sample1 --fastqs ./fq --genomeDir ./ref --calling_method barcoderanks</code></pre>
+</div>
 
----
+<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<h4><code>--expectcells</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(可选)</span></h4>
+<p>设定预期的细胞回收数量。</p>
+<ul>
+  <li><strong>功能:</strong> 为emptydrops算法提供初步筛选的指导信息。</li>
+  <li><strong>建议:</strong> 默认推荐使用<code>auto</code>模式，该模式会根据UMI分布特征自动估算细胞数量。若已知有效细胞数量，也可手动设置为该数量的50%作为初步筛选依据。</li>
+</ul>
+<p><strong>默认值:</strong> <code>auto</code></p>
+<p><strong>示例:</strong></p>
+<pre><code># 预期回收3000个细胞
+dnbc4tools rna run --name sample1 --fastqs ./fq --genomeDir ./ref --expectcells 3000</code></pre>
+</div>
 
-### 📊 细胞识别分析建议 <a id="cell-identification-analysis"></a>
+<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<h4><code>--forcecells</code> <span style="font-size: 0.8em; font-weight: normal; color: #e67e22;">(可选)</span></h4>
+<p>强制流程使用确切的细胞数量，此参数会覆盖软件的自动细胞检测结果。</p>
+<ul>
+  <li><strong>功能:</strong> 当您希望分析一个预先知道数量的细胞群体时使用。</li>
+  <li><strong>优先级:</strong> 这是最高优先级的过滤参数。</li>
+</ul>
+<p><strong>默认值:</strong> 无</p>
+<p><strong>示例:</strong></p>
+<pre><code># 强制输出5000个细胞进行分析
+dnbc4tools rna run --name sample1 --fastqs ./fq --genomeDir ./ref --forcecells 5000</code></pre>
+</div>
 
-> 💡 **专业指导**
-> 
+<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<h4><code>--minumi</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(可选)</span></h4>
+<p>设定用于保留细胞的最低UMI数量。</p>
+<ul>
+  <li><strong>功能:</strong> 这是核心的细胞质量控制参数。低于此阈值的细胞被认为数据质量不佳，将从后续分析中排除。</li>
+  <li><strong>建议:</strong> 初次分析可使用默认值，然后根据网页报告中“UMI计数分布图”来确定更合适的阈值。</li>
+</ul>
+<p><strong>默认值:</strong> <code>1000</code></p>
+<p><strong>示例:</strong></p>
+<pre><code># 将细胞过滤的UMI阈值降低到500
+dnbc4tools rna run --name sample1 --fastqs ./fq --genomeDir ./ref --minumi 500</code></pre>
+</div>
+
+> [!NOTE]
+> #### 💡 细胞识别分析建议
+>
 > 细胞识别是单细胞分析的关键步骤，正确的参数设置和结果解读直接影响后续分析的质量和可信度。
+>
+> <details>
+> <summary><strong>点击查看诊断与策略</strong></summary>
+>
+> <div style="margin-top:10px;">
+>
+> **1. 细胞数量异常**
+> <div style="padding-left: 15px;">
+> <p><strong>细胞数量过低</strong><br>
+>   <small><strong>症状:</strong> 检出细胞数 < 预期的50%。<br>
+>   <strong>原因:</strong> UMI阈值过高、空滴污染严重、文库质量差。<br>
+>   <strong>方案:</strong> 降低 <code>--minumi</code>，调整 <code>--expectcells</code>，检查原始数据质量。</small></p>
+> <p><strong>细胞数量过高</strong><br>
+>   <small><strong>症状:</strong> 检出细胞数 > 预期的200%。<br>
+>   <strong>原因:</strong> 细胞计数不准确、UMI阈值过低、背景噪声高。<br>
+>   <strong>方案:</strong> 提高 <code>--minumi</code>，使用 <code>--forcecells</code> 限制数量。</small></p>
+> <p><strong>UMI分布异常</strong><br>
+>   <small><strong>症状:</strong> UMI rank图无明显拐点。<br>
+>   <strong>原因:</strong> 测序深度不足、文库多样性差、技术失败。<br>
+>   <strong>方案:</strong> 增加测序深度，重新构建文库。</small></p>
+> </div>
+>
+> **2. 细胞鉴定曲线图异常**
+> <div style="padding-left: 15px;">
+> <p><strong>平缓下降无拐点</strong><br>
+>   <small><strong>含义:</strong> 真实细胞和背景空滴难以区分。<br>
+>   <strong>方案:</strong> 使用 <code>--forcecells</code> 设定保守的细胞数量，结合下游质控。</small></p>
+> <p><strong>多个拐点</strong><br>
+>   <small><strong>含义:</strong> 存在不同细胞群体或双联体污染。<br>
+>   <strong>方案:</strong> 选择主要拐点对应的细胞数，后续进行双联体检测和去除。</small></p>
+> <p><strong>陡峭下降</strong><br>
+>   <small><strong>含义:</strong> 高质量细胞与背景区分明显，为理想情况。<br>
+>   <strong>方案:</strong> 使用默认 emptydrops 算法，可适当降低 <code>--minumi</code>。</small></p>
+> <p><strong>噪声波动严重</strong><br>
+>   <small><strong>含义:</strong> 技术噪声高，数据质量差。<br>
+>   <strong>方案:</strong> 增加 <code>--minumi</code> 阈值，考虑重新测序或优化实验条件。</small></p>
+> </div>
+>
+> <hr>
+>
+> > **最佳实践提示**
+> >
+> > 首次分析建议使用默认参数获得初步结果，然后根据HTML报告中的统计信息和可视化图表进行针对性的参数调整。
+>
+> </div>
+> </details>
 
-#### 🔍 细胞数量异常诊断与处理策略
-
-<table>
-<thead>
-<tr>
-<th width="25%" align="center"><strong>异常类型</strong></th>
-<th width="25%" align="center"><strong>症状表现</strong></th>
-<th width="25%" align="center"><strong>可能原因</strong></th>
-<th width="25%" align="center"><strong>处理方案</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left"><strong>细胞数量过低</strong></td>
-<td align="left">检出细胞数 < 预期的50%</td>
-<td align="left">UMI阈值过高、空滴污染严重、文库质量差</td>
-<td align="left">降低 <code>--minumi</code>，调整 <code>--expectcells</code>，检查原始数据质量</td>
-</tr>
-<tr>
-<td align="left"><strong>细胞数量过高</strong></td>
-<td align="left">检出细胞数 > 预期的200%</td>
-<td align="left">细胞计数不准确、UMI阈值过低、背景噪声高</td>
-<td align="left">提高 <code>--minumi</code>，使用 <code>--forcecells</code> 限制数量</td>
-</tr>
-<tr>
-<td align="left"><strong>UMI分布异常</strong></td>
-<td align="left">UMI rank图无明显拐点</td>
-<td align="left">测序深度不足、文库多样性差、技术失败（如反转录效率差，导致真实细胞信号很弱）</td>
-<td align="left">增加测序深度，重新构建文库</td>
-</tr>
-</tbody>
-</table>
-
-#### 📈 细胞鉴定曲线图异常分析
-
-<table>
-<thead>
-<tr>
-<th width="30%" align="center"><strong>曲线异常模式</strong></th>
-<th width="35%" align="center"><strong>生物学含义</strong></th>
-<th width="35%" align="center"><strong>技术解决方案</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left"><strong>平缓下降无拐点</strong></td>
-<td align="left">真实细胞和背景空滴难以区分</td>
-<td align="left">使用 <code>--forcecells</code> 设定保守的细胞数量，结合下游质控</td>
-</tr>
-<tr>
-<td align="left"><strong>多个拐点</strong></td>
-<td align="left">存在不同细胞群体或双联体污染</td>
-<td align="left">选择主要拐点对应的细胞数，后续进行双联体检测和去除</td>
-</tr>
-<tr>
-<td align="left"><strong>陡峭下降</strong></td>
-<td align="left">高质量细胞与背景区分明显，理想情况</td>
-<td align="left">使用默认 <code>emptydrops</code> 算法，可适当降低 <code>--minumi</code></td>
-</tr>
-<tr>
-<td align="left"><strong>噪声波动严重</strong></td>
-<td align="left">技术噪声高，数据质量差</td>
-<td align="left">增加 <code>--minumi</code> 阈值，考虑重新测序或优化实验条件</td>
-</tr>
-</tbody>
-</table>
-
-> ⚡ **最佳实践提示**
-> 
-> 首次分析建议使用默认参数获得初步结果，然后根据HTML报告中的统计信息和可视化图表进行针对性的参数调整。记录每次参数修改的效果，建立适合您实验条件的标准化分析流程。
 
 ---
 
 #### 🟢 文库设置参数
 
-<table>
-<thead>
-<tr>
-<th width="20%" align="center"><strong>参数</strong></th>
-<th width="80%" align="left"><strong>描述与配置</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="center">
-<code><strong>--chemistry</strong></code>
-<br><br>
-<span style="color: #f39c12; font-weight: bold;">🔧 默认：auto</span>
-</td>
-<td>
-<h4>🧪 试剂盒版本设置</h4>
-<blockquote>
-<strong>核心功能：</strong>指定 scRNA 试剂盒的化学反应版本，决定条形码和 UMI 序列结构<br>
-<strong>自动检测：</strong>推荐使用 auto 模式，软件会根据数据特征自动识别试剂盒版本<br>
-<strong>版本影响：</strong>不同版本具有不同的条形码长度、UMI 长度和序列位置
-</blockquote>
-<details open>
-<summary><strong>支持的试剂盒版本：</strong></summary>
-<table>
-<tr><th>版本</th><th>条形码长度</th><th>UMI长度</th><th>适用场景</th></tr>
-<tr><td><code>scRNAv1HT</code></td><td>20bp (10+10)</td><td>10bp</td><td>第一代高通量试剂盒</td></tr>
-<tr><td><code>scRNAv2HT</code></td><td>20bp (10+10)</td><td>10bp</td><td>第二代高通量试剂盒</td></tr>
-<tr><td><code>scRNAv3HT</code></td><td>20bp (10+10)</td><td>10bp</td><td>第三代高通量试剂盒</td></tr>
-<tr><td><code>scRNA5Pv1</code></td><td>20bp (10+10)</td><td>10bp</td><td>5'端测序专用试剂盒</td></tr>
-</table>
-</details>
-<details open>
-<summary><strong>自动检测机制：</strong></summary>
+<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<h4><code>--chemistry</code> <span style="font-size: 0.8em; font-weight: normal; color: #f39c12;">(可选)</span></h4>
+<p>配置scRNA试剂盒的化学反应版本，决定条形码和 UMI 的序列结构。</p>
 <ul>
-<li><strong>数据分析：</strong>检查前 200,000 个读段的序列结构</li>
-<li><strong>版本判断：</strong>根据条形码和 UMI 位置模式识别试剂盒版本</li>
-<li><strong>失败处理：</strong>无法识别时会提示手动指定版本</li>
+  <li><strong>功能:</strong> 指导软件正确解析条形码和UMI序列结构。
+    <ul style="margin-top: 5px;">
+      <li><strong>支持版本:</strong> <code>scRNAv1HT</code>, <code>scRNAv2HT</code>, <code>scRNAv3HT</code>, <code>scRNA5Pv1</code></li>
+    </ul>
+  </li>
+  <li><strong>智能检测 (auto):</strong> 默认设置。软件通过分析前 200,000 个读段的序列结构，根据条形码和 UMI 的位置模式来自动识别试剂盒版本。如果无法识别，流程会提示需要手动指定。<strong>强烈推荐初次分析时使用。</strong></li>
 </ul>
-</details>
-<strong>⚠️ 重要提示：</strong>错误的试剂盒版本设置会导致条形码和 UMI 提取失败
-</td>
-</tr>
-<tr>
-<td align="center">
-<code><strong>--darkreaction</strong></code>
-<br><br>
-<span style="color: #f39c12; font-weight: bold;">🔧 默认：auto</span>
-</td>
-<td>
-<h4>🔬 暗反应循环设置</h4>
-<blockquote>
-<strong>技术原理：</strong>控制 cDNA 和 oligo 文库中暗反应循环的处理方式<br>
-<strong>暗反应定义：</strong>测序过程中不进行荧光检测的循环，用于优化序列质量<br>
-<strong>双文库配置：</strong>需要分别为 cDNA 文库和 oligo 文库指定暗反应设置<br>
-<strong>自动检测：</strong>推荐使用 auto 模式，软件会自动分析序列长度分布
-</blockquote>
-<details open>
-<summary><strong>配置格式规范：</strong></summary>
-<p><strong>基本格式：</strong><code>&lt;cDNA设置&gt;,&lt;oligo设置&gt;</code></p>
-<table>
-<tr><th>配置</th><th>说明</th><th>适用场景</th></tr>
-<tr><td><code>auto</code></td><td>自动检测（推荐）</td><td>标准分析流程</td></tr>
-<tr><td><code>R1R2</code></td><td>R1和R2都有暗反应</td><td>暗反应设计的文库</td></tr>
-<tr><td><code>R1</code></td><td>仅Read1有暗反应</td><td>单端暗反应设计</td></tr>
-<tr><td><code>unset</code></td><td>无暗反应</td><td>标准MGI协议</td></tr>
-</table>
-</details>
-<details open>
-<summary><strong>实际配置示例：</strong></summary>
+<p><strong>默认值:</strong> <code>auto</code></p>
+<p><strong>示例:</strong></p>
+<pre><code># 场景: 已知文库为scRNAv2HT且自动分析失败
+dnbc4tools rna run --name sample2 --fastqs ./fq --genomeDir ./ref --chemistry scRNAv2HT</code></pre>
+<p><strong>⚠️ 重要提示：</strong>不正确的设置可能导致细胞条形码识别失败。仅在了解文库结构或自动检测失败时手动指定。</p>
+</div>
+
+<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<h4><code>--darkreaction</code> <span style="font-size: 0.8em; font-weight: normal; color: #f39c12;">(可选)</span></h4>
+<p>配置cDNA和oligo文库的暗循环（dark cycle）设置。</p>
 <ul>
-<li><code>"R1,R1R2"</code> - cDNA文库R1暗反应，oligo文库R1R2暗反应</li>
-<li><code>"R1,R1"</code> - 两个文库都是R1暗反应</li>
-<li><code>"unset,unset"</code> - 两个文库都无暗反应</li>
+  <li><strong>功能:</strong> 指导软件正确解析因测序化学（如MGI平台）产生的暗反应周期。
+    <ul style="margin-top: 5px;">
+      <li><strong>配置格式:</strong> <code>&lt;cDNA设置&gt;,&lt;oligo设置&gt;</code> (使用逗号分隔)。</li>
+      <li><strong>支持选项:</strong> <code>auto</code> (自动检测), <code>R1R2</code> (双端), <code>R1</code> (仅R1), <code>unset</code> (无)。</li>
+    </ul>
+  </li>
+  <li><strong>智能检测 (auto):</strong> 默认设置。软件通过分析前 200,000 个读段的序列结构，根据序列长度和固定序列位置来自动识别试剂盒版本。如果无法识别，流程会提示需要手动指定。<strong> 强烈推荐初次分析时使用。</strong></li>
 </ul>
-</details>
-<details open>
-<summary><strong>自动检测逻辑：</strong></summary>
+<p><strong>默认值:</strong> <code>auto</code></p>
+<p><strong>示例:</strong></p>
+<pre><code># 示例1: cDNA文库R1有暗循环, oligo文库双端有暗循环
+--darkreaction R1,R1R2</code></pre>
+
+<pre><code># 示例2: 两个文库都仅R1有暗循环
+--darkreaction R1,R1</code></pre>
+
+<pre><code># 示例3: 两个文库都无暗循环
+--darkreaction unset,unset</code></pre>
+<p><strong>⚠️ 重要提示：</strong>不正确的设置可能导致细胞条形码识别失败。仅在了解文库结构或自动检测失败时手动指定。</p>
+</div>
+
+<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<h4><code>--customize</code> <span style="font-size: 0.8em; font-weight: normal; color: #9b59b6;">(高级)</span></h4>
+<p>为非标准文库精确定义条形码（barcode）、UMI和有效序列（read）的提取结构。此参数为高级功能，会覆盖 <code>--chemistry</code> 和 <code>--darkreaction</code> 的设置。</p>
 <ul>
-<li><strong>采样分析：</strong>检查前 200,000 个序列的长度分布</li>
-<li><strong>模式识别：</strong>根据长度模式和固定序列信息推断暗反应设置</li>
-<li><strong>验证机制：</strong>检查识别结果的合理性</li>
+  <li><strong>语法格式:</strong> <code>"&lt;type&gt;,&lt;read&gt;:&lt;start&gt;-&lt;end&gt;"</code>，多个段落以分号(<code>;</code>)分隔。
+    <ul style="margin-top: 5px;">
+      <li><strong>参数类型 (type):</strong>
+          <ul>
+            <li><code>cb</code>: 细胞条形码 (Cell Barcode)</li>
+            <li><code>umi</code>: UMI (唯一分子标识符)</li>
+            <li><code>R1</code>: Read1 中的有效DNA序列</li>
+            <li><code>R2</code>: Read2 中的有效DNA序列 (仅适用于双端测序)</li>
+          </ul>
+      </li>
+    </ul>
+  </li>
+  <li><strong>双重配置:</strong> 需要分别为 cDNA 和 oligo 文库指定两次 <code>--customize</code> 参数。</li>
+  <li><strong>注意事项:</strong>
+      <ul>
+        <li>整个参数字符串必须用引号包裹。</li>
+        <li>坐标为1-based，且不能超过读长。</li>
+      </ul>
+  </li>
 </ul>
-</details>
-</td>
-</tr>
-<tr>
-<td align="center">
-<code><strong>--customize</strong></code>
-<br><br>
-<span style="color: #9b59b6; font-weight: bold;">⚙️ 可选</span>
-</td>
-<td>
-<h4>🛠️ 自定义序列结构配置</h4>
-<blockquote>
-<strong>高级功能：</strong>用于非标准文库设计或特殊实验需求的精确序列结构定义<br>
-<strong>优先级：</strong>覆盖 chemistry 和 darkreaction 的自动检测结果<br>
-<strong>双重配置：</strong>需要分别为 cDNA 和 oligo 文库指定两次参数<br>
-<strong>坐标系统：</strong>使用 1-based 坐标系统（第一个碱基为位置1）
-</blockquote>
-<details open>
-<summary><strong>语法格式详解：</strong></summary>
-<p><strong>基本格式：</strong><code>&lt;type&gt;,&lt;read&gt;:&lt;start&gt;-&lt;end&gt;</code></p>
-<table>
-<tr><th>类型</th><th>说明</th><th>示例</th></tr>
-<tr><td><code>cb</code></td><td>细胞条形码序列</td><td><code>cb,R1:1-10</code></td></tr>
-<tr><td><code>umi</code></td><td>UMI（唯一分子标识符）</td><td><code>umi,R1:21-30</code></td></tr>
-<tr><td><code>R1</code></td><td>Read1中的生物序列</td><td><code>R1,R2:1-100</code></td></tr>
-<tr><td><code>R2</code></td><td>Read2中的生物序列</td><td><code>R2,R2:1-100</code></td></tr>
-</table>
-</details>
-<details open>
-<summary><strong>配置示例解析：</strong></summary>
-<p><strong>cDNA 文库配置：</strong></p>
-<code>"cb,R1:1-10;cb,R1:11-20;umi,R1:21-30;R1,R2:1-100"</code>
-<ul>
-<li>第一个细胞条形码：R1 的 1-10 位置</li>
-<li>第二个细胞条形码：R1 的 11-20 位置</li>
-<li>UMI 序列：R1 的 21-30 位置</li>
-<li>生物序列：R2 的 1-100 位置</li>
-</ul>
-<p><strong>oligo 文库配置：</strong></p>
-<code>"cb,R1:1-10;cb,R1:11-20;R1,R2:1-30"</code>
-<ul>
-<li>条形码提取：与 cDNA 文库相同位置</li>
-<li>序列长度：通常较短，用于条形码验证</li>
-</ul>
-</details>
-<details open>
-<summary><strong>使用注意事项：</strong></summary>
-<ul>
-<li><strong>引号保护：</strong>参数必须用引号包围，避免 shell 解析错误</li>
-<li><strong>坐标范围：</strong>不能超出实际读段长度</li>
-<li><strong>双重指定：</strong>需要使用 --customize 两次，分别配置 cDNA 和 oligo</li>
-<li><strong>验证检查：</strong>软件会验证配置的合理性</li>
-</ul>
-</details>
-<strong>⚠️ 风险提示：</strong>错误的自定义配置可能导致数据丢失或分析失败，建议仅在标准配置无法满足需求时使用
-</td>
-</tr>
-</tbody>
-</table>
+<p><strong>示例：</strong></p>
+<pre><code># 以cDNA文库为例，结构: Barcode 1(1-10bp) + Barcode 2(11-20bp) + UMI(21-30bp) in R1; 序列(1-100bp) in R2
+--customize "cb,R1:1-10;cb,R1:11-20;umi,R1:21-30;R1,R2:1-100"</code></pre>
+<pre><code># 以cDNA文库为例，结构: Barcode 1(7-16bp) + Barcode 2(23-32bp) + UMI(38-47bp) in R1; 序列(1-100bp) in R2
+--customize "cb,R1:7-16;cb,R1:23-32;umi,R1:38-47;R1,R2:1-100"</code></pre>
+<pre><code># 以cDNA文库为例，5端转录本同时利用双端数据
+--customize "cb,R1:1-10;cb,R1:11-20;umi,R1:21-30;R1,R1:31-120;R2,R2:1-150"</code></pre>
+<pre><code># 示例: 为cDNA和oligo文库分别自定义序列结构
+--customize "cb,R1:1-10;cb,R1:11-20;umi,R1:21-30;R1,R2:1-100" --customize "cb,R1:1-10;cb,R1:11-20;R1,R2:1-30"</code></pre>
+<p><strong>⚠️ 风险提示：</strong>错误的自定义配置可能导致数据丢失或分析失败，建议仅在标准配置无法满足需求时使用。</p>
+</div>
+
+---
 
 #### 🚩 分析设置参数
 
-<table>
-<thead>
-<tr>
-<th width="20%" align="center"><strong>参数</strong></th>
-<th width="80%" align="left"><strong>描述与配置</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="center">
-<code><strong>--no_introns</strong></code>
-<br><br>
-<span style="color: #e74c3c; font-weight: bold;">⚡ 标志</span>
-</td>
-<td>
-<h4>📝 过滤内含子区域</h4>
-<blockquote>
-<strong>核心功能：</strong>在分析过程中过滤掉来自内含子区域的 reads<br>
-<strong>生物学意义：</strong>仅保留来自外显子区域的 reads 进行表达量化<br>
-<strong>数据质量：</strong>去除正在加工的 pre-mRNA，提高结果可信度<br>
-<strong>适用场景：</strong>针对成熟 mRNA 的分析，避免未成熟转录本干扰
-</blockquote>
-<details open>
-<summary><strong>技术原理：</strong></summary>
+<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<h4><code>--no_introns</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(标志)</span></h4>
+<p>启用此参数以在分析过程中过滤掉来自内含子区域的reads。</p>
 <ul>
-<li><strong>过滤机制：</strong>基于 GTF 注释文件中的 exon 区域信息</li>
-<li><strong>数据准确性：</strong>避免将未加工的原始转录本计入成熟基因表达</li>
+  <li><strong>功能:</strong> 仅保留来自外显子区域的reads进行表达量化，避免未成熟转录本干扰。</li>
 </ul>
-</td>
-</tr>
-<tr>
-<td align="center">
-<code><strong>--end5</strong></code>
-<br><br>
-<span style="color: #e74c3c; font-weight: bold;">⚡ 标志</span>
-</td>
-<td>
-<h4>🔄 5'端转录组分析</h4>
-<blockquote>
-<strong>核心功能：</strong>启用 5' 端单细胞转录组数据分析模式<br>
-<strong>技术特性：</strong>专门针对 5'端捕获的 mRNA 进行优化分析<br>
-<strong>适用试剂：</strong>需要使用支持 5'端测序的专用试剂盒<br>
-<strong>数据特点：</strong>5'端数据具有不同的序列结构和注释策略
-</blockquote>
-<strong>⚠️ 重要提示：</strong>仅在使用 5'端 scRNA 试剂盒时使用此参数
-</td>
-</tr>
-<tr>
-<td align="center">
-<code><strong>--no_bam</strong></code>
-<br><br>
-<span style="color: #e74c3c; font-weight: bold;">⚡ 标志</span>
-</td>
-<td>
-<h4>📄 跳过 BAM 文件生成</h4>
-<blockquote>
-<strong>核心功能：</strong>跳过 BAM 文件的生成步骤，节省时间和磁盘空间<br>
-<strong>性能优化：</strong>显著减少计算时间和存储需求<br>
-<strong>适用场景：</strong>仅需要基本表达矩阵的分析<br>
-<strong>功能限制：</strong>无法进行需要 BAM 文件的下游分析
-</blockquote>
-<details open>
-<summary><strong>资源节约效果：</strong></summary>
-<ul>
-<li><strong>时间节省：</strong>减少 30-50% 的运行时间</li>
-<li><strong>磁盘空间：</strong>节省大量磁盘存储空间（通常数 GB）</li>
-<li><strong>I/O 负载：</strong>显著减少磁盘 I/O 操作</li>
-</ul>
-</details>
-<strong>建议：</strong>仅需要基本表达分析时使用，可显著提高分析效率
-</td>
-</tr>
-<tr>
-<td align="center">
-<code><strong>--sample_read_pairs</strong></code>
-<br><br>
-<span style="color: #9b59b6; font-weight: bold;">🎲 可选</span>
-</td>
-<td>
-<h4>🔬 读段对子采样</h4>
-<blockquote>
-<strong>核心功能：</strong>从输入 cDNA FASTQ 文件中子采样指定数量的读段对<br>
-<strong>实用目的：</strong>用于快速测试或大数据集的初步分析<br>
-<strong>性能优势：</strong>显著减少计算时间和资源消耗<br>
-<strong>使用场景：</strong>参数优化、快速验证、资源限制环境
-</blockquote>
-<details open>
-<summary><strong>子采样策略：</strong></summary>
-<ul>
-<li><strong>数据保留：</strong>仅对 cDNA 文件进行子采样，oligo 文件保持完整</li>
-<li><strong>比例保持：</strong>保持 R1 和 R2 读段的配对关系</li>
-</ul>
-</details>
-<details open>
-<summary><strong>注意事项：</strong></summary>
-<ul>
-<li><strong>代表性：</strong>采样数量越少，结果代表性越低</li>
-<li><strong>重现性：</strong>相同参数的子采样具有一定的可重现性</li>
-</ul>
-</details>
-<strong>示例：</strong> <code>100000000</code>（100M个读段对）
-</td>
-</tr>
-</tbody>
-</table>
+<p><strong>默认值:</strong> 不设置此参数则包含内含子区域的reads</p>
+</div>
 
-> 💡 **分析建议**: 
-> - 首次分析建议使用默认参数，获得结果报告后根据需要调整参数
-> - 双物种分析时，可通过基因名前缀区分不同物种来源的表达
-> - 双物种分析结果中会自动生成物种分离的统计信息，帮助评估样本中不同物种的比例
+<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<h4><code>--end5</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(标志)</span></h4>
+<p>启用5'端单细胞转录组数据分析模式。</p>
+<ul>
+  <li><strong>功能:</strong> 专门针对5'端捕获的mRNA进行分析。</li>
+  <li><strong>注意:</strong> 仅在使用5'端scRNA试剂盒时使用此参数。</li>
+</ul>
+<p><strong>默认值:</strong> 不设置此参数</p>
+</div>
 
-</br>
-</br>
+<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<h4><code>--no_bam</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(标志)</span></h4>
+<p>启用此参数以跳过BAM文件的生成。</p>
+<ul>
+  <li><strong>功能:</strong> 节省时间和磁盘空间，显著减少计算时间和存储需求。</li>
+  <li><strong>注意:</strong> 无法进行需要BAM文件的下游分析。</li>
+</ul>
+<p><strong>默认值:</strong> 不设置此参数则生成BAM文件</p>
+</div>
 
-## 🧪 参考数据库构建 (mkref) <a id="参考数据库构建-mkref"></a>
+<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<h4><code>--sample_read_pairs</code> <span style="font-size: 0.8em; font-weight: normal; color: #9b59b6;">(可选)</span></h4>
+<p>从输入的cDNA FASTQ文件中提取指定数量的读段对进行分析。</p>
+<ul>
+  <li><strong>功能:</strong> 用于在完整分析前对大数据集进行快速测试，或在资源有限时进行降采样分析。</li>
+</ul>
+<p><strong>默认值:</strong> 无 (使用全部数据)</p>
+<p><strong>示例:</strong></p>
+<pre><code>--sample_read_pairs 100000000</code></pre>
+</div>
+
+---
+<div align="center">
+
+> 💡 **分析建议**
+> 
+> 首次分析时建议使用默认参数，获得结果报告后再根据需要调整参数。
+
+</div>
+
+---
+
+## 📊 参考数据库构建 (mkref) <a id="参考数据库构建-mkref"></a>
 
 ### 📊 用法
 
@@ -823,338 +500,180 @@ Advanced Settings:
 
 #### 🔴 必需参数
 
-> ⚠️ **成功构建参考数据库必须指定的基本参数**
+<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<h4><code>--fasta</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(必需)</span></h4>
+<p>提供参考基因组序列文件。</p>
+<ul>
+  <li><strong>要求:</strong> 标准FASTA格式，建议使用primary组装版本。</li>
+</ul>
+<p><strong>默认值:</strong> 无</p>
+<p><strong>示例:</strong></p>
+<pre><code>--fasta Homo_sapiens.GRCh38.dna.primary_assembly.fa</code></pre>
+</div>
 
-<table>
-<thead>
-<tr>
-<th width="20%" align="center"><strong>参数</strong></th>
-<th width="80%" align="left"><strong>描述与配置</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="center">
-<code><strong>--fasta</strong></code>
-<br><br>
-<span style="color: #e74c3c; font-weight: bold;">🧬 必需</span>
-</td>
-<td>
-<h4>🗂️ 参考基因组FASTA文件</h4>
-<blockquote>
-<strong>核心功能：</strong>提供参考基因组序列信息，用于STAR索引构建和序列比对<br>
-<strong>文件要求：</strong>标准FASTA格式，包含完整的基因组序列<br>
-<strong>版本建议：</strong>优先使用primary组装版本
-</blockquote>
-<details open>
-<summary><strong>双物种分析配置：</strong></summary>
+<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<h4><code>--ingtf</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(必需)</span></h4>
+<p>提供基因结构注释文件。</p>
 <ul>
-<li><strong>文件分隔：</strong>使用逗号分隔多个FASTA文件</li>
-<li><strong>顺序匹配：</strong>必须与GTF文件顺序一一对应</li>
-<li><strong>物种前缀：</strong>自动为每个基因添加物种标识前缀</li>
-<li><strong>混合基因组：</strong>合并为单一基因组文件，便于比对</li>
+  <li><strong>功能:</strong> 用于基因表达量化和注释。</li>
+  <li><strong>要求:</strong> 标准GTF格式。
+      <ul style="margin-top: 5px;">
+        <li><strong>必需特征:</strong> 必须包含 <code>gene</code>/ <code>transcript</code>, <code>exon</code> 类型的注释条目。</li>
+        <li><strong>必需属性:</strong> 必须包含 <code>gene_id</code>/ <code>gene_name</code>, <code>transcript_id</code>/ <code>transcript_name</code> 属性。</li>
+        <li><strong>染色体名称:</strong> 必须与FASTA基因组文件中的染色体名称一致。</li>
+        <li><strong>坐标:</strong> 起始和终止坐标必须合理。</li>
+      </ul>
+  </li>
 </ul>
-</details>
-<strong>示例：</strong> <code>Homo_sapiens.GRCh38.dna.primary_assembly.fa</code><br>
-<strong>双物种示例：</strong> <code>human.fa,mouse.fa</code>
-</td>
-</tr>
-<tr>
-<td align="center">
-<code><strong>--ingtf</strong></code>
-<br><br>
-<span style="color: #e74c3c; font-weight: bold;">📋 必需</span>
-</td>
-<td>
-<h4>📊 基因注释GTF文件</h4>
-<blockquote>
-<strong>核心功能：</strong>提供基因结构注释信息，用于基因表达量化和注释<br>
-<strong>格式要求：</strong>标准GTF格式，严格不支持GFF或GFF3格式<br>
-<strong>内容要求：</strong>必须包含完整的基因和外显子注释信息
-</blockquote>
-<details open>
-<summary><strong>GTF文件质量检查标准：</strong></summary>
-<ul>
-<li><strong>必需特征类型：</strong>gene/transcript、exon</li>
-<li><strong>必需属性：</strong>gene_id/gene_name、transcript_id/transcript_name</li>
-<li><strong>染色体匹配：</strong>染色体名称必须与FASTA文件一致</li>
-<li><strong>坐标有效性：</strong>起始和终止坐标必须合理</li>
-</ul>
-</details>
-<details open>
-<summary><strong>双物种注释处理：</strong></summary>
-<ul>
-<li><strong>基因重命名：</strong>自动添加物种前缀避免基因名冲突</li>
-<li><strong>注释合并：</strong>将多个物种的GTF文件合并为统一格式</li>
-<li><strong>ID标准化：</strong>确保基因和转录本ID的唯一性</li>
-</ul>
-</details>
-<strong>示例：</strong> <code>Homo_sapiens.GRCh38.108.gtf</code><br>
-<strong>双物种示例：</strong> <code>human.gtf,mouse.gtf</code>
-</td>
-</tr>
-</tbody>
-</table>
+<p><strong>默认值:</strong> 无</p>
+<p><strong>示例:</strong></p>
+<pre><code>--ingtf Homo_sapiens.GRCh38.108.gtf</code></pre>
+</div>
+
+> [!NOTE]
+> **双物种分析配置**
+>
+> 如需进行双物种分析，`--fasta` 和 `--ingtf` 参数均支持以逗号分隔的方式提供两个物种的文件路径。
+>
+> - **示例:** `--fasta human.fa,mouse.fa --ingtf human.gtf,mouse.gtf`
+> - **重要提示:** 请确保FASTA文件、GTF文件以及<code>--species</code>参数的顺序严格一致，即每个FASTA文件与其对应的GTF文件和物种参数在列表中位置保持一致。
+
 
 ---
 
-#### 🟢 输出设置参数
+#### 🟢 设置参数
 
-<table>
-<thead>
-<tr>
-<th width="20%" align="center"><strong>参数</strong></th>
-<th width="80%" align="left"><strong>描述与配置</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="center">
-<code><strong>--genomeDir</strong></code>
-<br><br>
-<span style="color: #27ae60; font-weight: bold;">📁 默认：当前目录</span>
-</td>
-<td>
-<h4>🗃️ 数据库输出目录</h4>
-<blockquote>
-<strong>功能：</strong>指定存储所有生成参考文件的目录路径<br>
-<strong>结构：</strong>自动创建规范化的目录结构和文件组织<br>
-<strong>权限：</strong>确保有足够的磁盘空间和写入权限
-</blockquote>
-<details open>
-<summary><strong>目录结构预览：</strong></summary>
-<pre>
-genomeDir/
-├── fasta/
-│   └── genome.fa          # 处理后的基因组序列文件
-├── genes/
-│   └── genes.gtf          # 处理后的基因注释文件
-├── star/
-│   ├── SA                 # STAR索引文件
-│   ├── SAindex            # STAR索引核心文件
-│   ├── chrLength.txt      # 染色体长度信息
-│   ├── chrName.txt        # 染色体名称信息
-│   ├── chrNameLength.txt  # 染色体名称和长度
-│   ├── chrStart.txt       # 染色体起始位置
-│   ├── Genome             # 基因组序列压缩文件
-│   ├── genomeParameters.txt # 基因组参数配置
-│   ├── Log.out            # STAR索引构建日志
-│   ├── sjdbInfo.txt       # 剪切位点数据库信息
-│   ├── sjdbList.fromGTF.out.tab # GTF提取的剪切位点
-│   ├── sjdbList.out.tab   # 所有剪切位点列表
-│   └── mtgene.list        # 线粒体基因列表
-└── ref.json               # 数据库配置和元信息文件
-</pre>
-</details>
-<details open>
-<summary><strong>磁盘空间需求估算：</strong></summary>
-<table>
-<tr><th>物种</th><th>基因组大小</th><th>索引大小</th><th>总需求</th></tr>
-<tr><td>人类 (GRCh38)</td><td>~3.2GB</td><td>~25GB</td><td>~30GB</td></tr>
-<tr><td>小鼠 (GRCm39)</td><td>~2.7GB</td><td>~22GB</td><td>~27GB</td></tr>
-<tr><td>双物种 (人+鼠)</td><td>~6GB</td><td>~50GB</td><td>~60GB</td></tr>
-</table>
-</details>
-<strong>示例：</strong> <code>/path/to/genome/database</code>
-</td>
-</tr>
-<tr>
-<td align="center">
-<code><strong>--species</strong></code>
-<br><br>
-<span style="color: #f39c12; font-weight: bold;">🏷️ 默认：undefined</span>
-</td>
-<td>
-<h4>🔬 物种标识符设置</h4>
-<blockquote>
-<strong>功能：</strong>指定用于构建参考数据库的物种名称标识<br>
-<strong>用途：</strong>记录在ref.json配置文件中，影响细胞注释和质量控制<br>
-<strong>特殊功能：</strong>某些物种具有特定的细胞类型注释数据库支持
-</blockquote>
-<details open>
-<summary><strong>支持细胞注释的物种：</strong></summary>
-<table>
-<tr><th>标准名称</th><th>别名</th><th>注释数据库</th><th>细胞类型</th></tr>
-<tr><td>Homo_sapiens</td><td>Human, hg38</td><td>✅ 支持</td><td>多种人类细胞类型</td></tr>
-<tr><td>Mus_musculus</td><td>Mouse, mm10</td><td>✅ 支持</td><td>多种小鼠细胞类型</td></tr>
-<tr><td>其他物种</td><td>自定义</td><td>❌ 无</td><td>仅基础分析</td></tr>
-</table>
-</details>
-<details open>
-<summary><strong>双物种分析配置：</strong></summary>
+<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<h4><code>--genomeDir</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(可选)</span></h4>
+<p>指定生成的参考数据库的输出目录。</p>
 <ul>
-<li><strong>命名格式：</strong>使用逗号分隔多个物种名称</li>
-<li><strong>顺序要求：</strong>必须与FASTA和GTF文件顺序严格一致</li>
-<li><strong>基因前缀：</strong>自动为基因添加物种前缀，如hg38_GENE1, mm10_GENE2</li>
-<li><strong>统计分离：</strong>结果中自动生成物种分离的统计信息</li>
+  <li><strong>功能:</strong> 所有生成的参考文件（索引、注释等）都将存储在此目录中。</li>
+  <details style="margin-top: 10px;" open>
+  <summary><strong>目录结构预览</strong></summary>
+  <pre style=padding: 10px; border-radius: 5px; margin-top: 5px;">
+  genomeDir/
+  ├── fasta/
+  │   └── genome.fa          # 处理后的基因组序列文件
+  ├── genes/
+  │   └── genes.gtf          # 处理后的基因注释文件
+  ├── star/
+  │   ├── SA                 # STAR索引文件
+  │   ├── SAindex            # STAR索引核心文件
+  │   ├── chrLength.txt      # 染色体长度信息
+  │   ├── chrName.txt        # 染色体名称信息
+  │   ├── chrNameLength.txt  # 染色体名称和长度
+  │   ├── chrStart.txt       # 染色体起始位置
+  │   ├── Genome             # 基因组序列压缩文件
+  │   ├── genomeParameters.txt # 基因组参数配置
+  │   ├── Log.out            # STAR索引构建日志
+  │   ├── sjdbInfo.txt       # 剪切位点数据库信息
+  │   ├── sjdbList.fromGTF.out.tab # GTF提取的剪切位点
+  │   ├── sjdbList.out.tab   # 所有剪切位点列表
+  │   └── mtgene.list        # 线粒体基因列表
+  └── ref.json               # 数据库配置和元信息文件
+  </pre>
+  </details>
 </ul>
-</details>
-<strong>单物种示例：</strong> <code>Homo_sapiens</code> 或 <code>hg38</code><br>
-<strong>双物种示例：</strong> <code>hg38,mm10</code>
-</td>
-</tr>
-<tr>
-<td align="center">
-<code><strong>--threads</strong></code>
-<br><br>
-<span style="color: #27ae60; font-weight: bold;">⚡ 默认：10</span>
-</td>
-<td>
-<h4>🔧 并行处理线程数</h4>
-<blockquote>
-<strong>功能：</strong>控制STAR索引构建过程中使用的CPU线程数量<br>
-<strong>性能影响：</strong>增加线程数可显著缩短索引构建时间<br>
-<strong>资源平衡：</strong>需要平衡线程数与可用内存的关系
-</blockquote>
-</td>
-</tr>
-</tbody>
-</table>
+
+<p><strong>默认值:</strong> <code>./</code> (当前目录)</p>
+<p><strong>示例:</strong></p>
+<pre><code>dnbc4tools rna mkref --fasta genome.fa --ingtf genes.gtf --genomeDir /database/scRNA/GRCh38</code></pre>
+</div>
+
+<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<h4><code>--species</code> <span style="font-size: 0.8em; font-weight: normal; color: #f39c12;">(可选)</span></h4>
+<p>为参考数据库指定一个或多个物种名称。</p>
+<ul>
+  <li><strong>功能:</strong> 该名称会记录在配置文件中，用于后续分析中的物种识别、基因注释和细胞注释。</li>
+  <details style="margin-top: 10px;" open>
+  <summary><strong>双物种分析配置</strong></summary>
+  <ul style="margin-top: 5px; padding-left: 20px;">
+    <li><strong>命名格式:</strong> 使用逗号分隔多个物种名称 (例如: <code>hg38,mm10</code>)。</li>
+    <li><strong>顺序要求:</strong> 必须与 <code>--fasta</code> 和 <code>--ingtf</code> 文件顺序严格一致。</li>
+    <li><strong>自动处理:</strong> 流程会自动为基因添加物种前缀 (如 <code>hg38_GENE1</code>)，并在结果中分离统计信息。</li>
+  </ul>
+  </details>
+
+  <details style="margin-top: 10px;" open>
+  <summary><strong>细胞注释支持</strong></summary>
+  <p style="margin-top: 5px;">为特定物种提供此参数，可启用下游的自动细胞类型注释功能。</p>
+  <ul style="padding-left: 20px;">
+    <li><strong>支持:</strong> <code>Homo_sapiens</code> (或 <code>hg38</code>), <code>Mus_musculus</code> (或 <code>mm10</code>)。</li>
+    <li><strong>不支持:</strong> 其他物种不支持细胞注释。</li>
+  </ul>
+  </details>
+</ul>
+<p style="margin-top: 15px;"><strong>默认值:</strong> <code>undefined</code></p>
+<p><strong>示例:</strong></p>
+<pre><code># 单物种
+--species Homo_sapiens</code></pre>
+<pre><code># 双物种 (人+鼠)
+--species hg38,mm10</code></pre>
+</div>
+
+<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<h4><code>--threads</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(可选)</span></h4>
+<p>设置STAR索引构建过程中可使用的CPU线程数。</p>
+<ul>
+  <li><strong>性能影响:</strong> 增加线程数可显著缩短索引构建时间。</li>
+  <li><strong>资源平衡:</strong> 需要注意平衡线程数与可用内存（RAM）的关系，过多的线程可能会导致内存不足。</li>
+</ul>
+<p><strong>默认值:</strong> <code>10</code></p>
+<p><strong>示例:</strong></p>
+<pre><code>--threads 16</code></pre>
+</div>
 
 ---
 
 #### 🟢 高级设置参数
 
-> 🔧 **专业用户配置选项 - 针对特殊需求和性能优化**
+<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<h4><code>--chrM</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(可选)</span></h4>
+<p>指定线粒体染色体的名称。</p>
+<ul>
+  <li><strong>功能:</strong> 用于展示细胞质量情况。线粒体基因表达过高通常表示细胞应激或死亡状态。</li>
+  <li><strong>自动检测:</strong> 默认会从常见名称（如 <code>chrM</code>, <code>MT</code>）中自动识别。</li>
+</ul>
+<p><strong>默认值:</strong> <code>auto</code></p>
+<p><strong>示例:</strong></p>
+<pre><code># 如果线粒体染色体名称为"mitochondrion"
+dnbc4tools rna mkref --fasta genome.fa --ingtf genes.gtf --chrM mitochondrion</code></pre>
+</div>
 
-<table>
-<thead>
-<tr>
-<th width="20%" align="center"><strong>参数</strong></th>
-<th width="80%" align="left"><strong>描述与配置</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="center">
-<code><strong>--chrM</strong></code>
-<br><br>
-<span style="color: #27ae60; font-weight: bold;">🔍 默认：auto</span>
-</td>
-<td>
-<h4>🧬 线粒体染色体识别设置</h4>
-<blockquote>
-<strong>核心功能：</strong>识别并标记线粒体染色体，用于后续的质量控制和细胞分析<br>
-<strong>自动检测：</strong>系统自动在常见命名规范中查找线粒体染色体<br>
-<strong>质控重要性：</strong>线粒体基因表达过高通常表示细胞应激或死亡状态
-</blockquote>
-<details open>
-<summary><strong>自动识别命名列表：</strong></summary>
+<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<h4><code>--limitram</code> <span style="font-size: 0.8em; font-weight: normal; color: #e67e22;">(可选)</span></h4>
+<p>设定STAR基因组索引生成过程的最大可用内存（以GB为单位）。</p>
 <ul>
-<li><code>chrM</code> - 人类、小鼠等哺乳动物的标准命名</li>
-<li><code>MT</code> - 某些数据库使用的简化命名格式</li>
-<li><code>chrMT</code> - 带染色体前缀的标准命名</li>
-<li><code>mt, Mt</code> - 大小写变体，兼容不同数据源</li>
+  <li><strong>功能:</strong> 合理的内存限制可以避免系统内存耗尽，提高索引构建成功率。</li>
 </ul>
-</details>
-<details open>
-<summary><strong>双物种线粒体配置：</strong></summary>
+<p><strong>默认值:</strong> 无</p>
+<p><strong>示例:</strong></p>
+<pre><code>--limitram 64</code></pre>
+</div>
+
+<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<h4><code>--extra-args</code> <span style="font-size: 0.8em; font-weight: normal; color: #9b59b6;">(高级)</span></h4>
+<p>直接向STAR索引生成传递额外的命令行参数。</p>
 <ul>
-<li><strong>配置格式：</strong>使用逗号分隔不同物种的线粒体染色体</li>
-<li><strong>示例配置：</strong><code>--chrM chrM,MT</code>（人类和小鼠）</li>
-<li><strong>物种标记：</strong>双物种分析中会自动添加物种前缀</li>
-<li><strong>统计分离：</strong>分别统计各物种的线粒体基因表达</li>
+  <li><strong>功能:</strong> 用于特殊需求和性能优化。</li>
+  <li><strong>注意:</strong> 不当的参数设置可能导致索引构建失败或后续分析问题。</li>
 </ul>
-</details>
-<details open>
-<summary><strong>线粒体基因功能：</strong></summary>
+<p><strong>默认值:</strong> 无</p>
+<p><strong>示例:</strong></p>
+<pre><code>--extra-args "--sjdbOverhang 99 --runThreadN 20"</code></pre>
+</div>
+
+<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<h4><code>--noindex</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(标志)</span></h4>
+<p>如果设置此参数，将只生成配置文件而不构建基因组索引。</p>
 <ul>
-<li><strong>mtgene.list生成：</strong>自动生成线粒体基因列表文件</li>
-<li><strong>质量控制指标：</strong>计算线粒体基因表达比例</li>
-<li><strong>细胞过滤：</strong>基于线粒体基因比例过滤低质量细胞</li>
-<li><strong>报告展示：</strong>在质量控制报告中突出显示线粒体统计</li>
+  <li><strong>功能:</strong> 当索引文件已存在时，使用此参数可以跳过耗时的索引构建步骤。</li>
 </ul>
-</details>
-<strong>手动设置示例：</strong> <code>chrM</code> 或 <code>chrM,MT</code>（双物种）
-</td>
-</tr>
-<tr>
-<td align="center">
-<code><strong>--limitram</strong></code>
-<br><br>
-<span style="color: #e67e22; font-weight: bold;">💾 可选</span>
-</td>
-<td>
-<h4>🧮 内存限制配置</h4>
-<blockquote>
-<strong>功能说明：</strong>设定STAR基因组索引生成过程的最大可用内存（以GB为单位）<br>
-<strong>性能影响：</strong>合理的内存限制可以避免系统内存耗尽，提高索引构建成功率<br>
-<strong>适用场景：</strong>在内存受限的服务器环境中进行大型基因组索引构建
-</blockquote>
-</td>
-</tr>
-<tr>
-<td align="center">
-<code><strong>--extra-args</strong></code>
-<br><br>
-<span style="color: #9b59b6; font-weight: bold;">⚙️ 高级</span>
-</td>
-<td>
-<h4>🔧 STAR额外参数传递</h4>
-<blockquote>
-<strong>高级功能：</strong>直接向STAR索引生成传递额外的命令行参数<br>
-<strong>覆盖机制：</strong>传递的参数如与默认参数冲突，将覆盖默认设置<br>
-<strong>风险警告：</strong>不当的参数设置可能导致索引构建失败或后续分析问题
-</blockquote>
-<details open>
-<summary><strong>常用STAR参数示例：</strong></summary>
-<table>
-<tr><th>参数</th><th>功能</th><th>推荐值</th><th>使用场景</th></tr>
-<tr><td>--sjdbOverhang</td><td>剪接位点检测窗口</td><td>读长-1</td><td>特定读长优化</td></tr>
-<tr><td>--runThreadN</td><td>线程数覆盖</td><td>CPU核心数</td><td>性能调优</td></tr>
-<tr><td>--genomeSAindexNbases</td><td>基因组索引参数</td><td>自动计算</td><td>小基因组调优</td></tr>
-<tr><td>--genomeChrBinNbits</td><td>染色体分箱参数</td><td>自动计算</td><td>大基因组调优</td></tr>
-</table>
-</details>
-<details open>
-<summary><strong>参数格式要求：</strong></summary>
-<ul>
-<li><strong>格式规范：</strong>使用空格分隔的参数字符串</li>
-<li><strong>引号保护：</strong>整个参数字符串需要用引号包围</li>
-<li><strong>值传递：</strong>参数名和参数值都需要完整指定</li>
-<li><strong>语法检查：</strong>确保STAR参数语法正确</li>
-</ul>
-</details>
-<strong>使用示例：</strong> <code>"--sjdbOverhang 99 --runThreadN 20"</code>
-<br><strong>⚠️ 警告：</strong>仅在熟悉STAR参数的情况下使用，错误配置可能影响分析质量
-</td>
-</tr>
-<tr>
-<td align="center">
-<code><strong>--noindex</strong></code>
-<br><br>
-<span style="color: #e74c3c; font-weight: bold;">🚫 跳过标志</span>
-</td>
-<td>
-<h4>⚡ 跳过STAR索引构建</h4>
-<blockquote>
-<strong>使用场景：</strong>当数据库已经通过STAR构建完成时，跳过耗时的索引步骤<br>
-<strong>功能限制：</strong>仅生成ref.json配置文件和基本目录结构<br>
-<strong>前提条件：</strong>目标目录中已存在有效的STAR索引文件
-</blockquote>
-<details open>
-<summary><strong>适用情况分析：</strong></summary>
-<ul>
-<li><strong>重复构建：</strong>相同基因组的多次数据库配置更新</li>
-<li><strong>参数调整：</strong>仅需更新ref.json而保留现有索引</li>
-<li><strong>时间节省：</strong>跳过数小时的索引构建过程</li>
-<li><strong>测试调试：</strong>快速测试数据库配置的正确性</li>
-</ul>
-</details>
-<details open>
-<summary><strong>验证检查项目：</strong></summary>
-<ul>
-<li><strong>索引文件完整性：</strong>检查SA、SAindex等核心文件</li>
-<li><strong>基因组匹配：</strong>确认索引对应的基因组版本正确</li>
-<li><strong>GTF兼容性：</strong>验证GTF文件与索引的兼容性</li>
-<li><strong>权限检查：</strong>确保索引文件可读且路径正确</li>
-</ul>
-</details>
-<strong>⚠️ 使用风险：</strong>如果现有索引不完整或不兼容，可能导致后续分析失败
-</td>
-</tr>
-</tbody>
-</table>
+<p><strong>默认值:</strong> 不设置</p>
+<p><strong>示例:</strong></p>
+<pre><code># 仅生成配置文件，不构建索引
+dnbc4tools rna mkref --fasta genome.fa --ingtf genes.gtf --noindex</code></pre>
+</div>
 
 > [!TIP]
 > 
@@ -1179,13 +698,7 @@ genomeDir/
 >     ],
 >     "mtgenes": "/database/scRNA/Homo_sapiens/star/mtgene.list",
 >     "species": "Homo_sapiens",
->     "version": "dnbc4tools 3.0beta",
->     "build_date": "2025-01-15",
->     "parameters": {
->         "genomeSAindexNbases": 14,
->         "genomeChrBinNbits": 18,
->         "sjdbOverhang": 100
->     }
+>     "version": "dnbc4tools 3.0beta"
 > }
 > ```
 > 
@@ -1206,17 +719,7 @@ genomeDir/
 >     ],
 >     "mtgenes": "/database/scRNA/hg38_and_mm10/star/mtgene.list",
 >     "species": "hg38_and_mm10",
->     "version": "dnbc4tools 3.0beta",
->     "build_date": "2025-01-15",
->     "species_mapping": {
->         "hg38": "Homo_sapiens",
->         "mm10": "Mus_musculus"
->     },
->     "gene_count": {
->         "hg38": 58812,
->         "mm10": 54232,
->         "total": 113044
->     }
+>     "version": "dnbc4tools 3.0beta"
 > }
 > ```
 > 
@@ -1226,11 +729,8 @@ genomeDir/
 > - 定期检查Ensembl等数据库更新，及时更新参考基因组和注释文件
 
 ---
-</br>
-</br>
 
-
-## 📚 多样本操作 (multi) <a id="多样本操作-multi"></a>
+## 📋 多样本操作 (multi) <a id="多样本操作-multi"></a>
 
 ### 📊 用法
 
@@ -1252,121 +752,34 @@ optional arguments:
 
 #### 🔴 必需参数
 
-<table>
-<thead>
-<tr>
-<th width="20%" align="center"><strong>参数</strong></th>
-<th width="80%" align="left"><strong>描述与配置</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="center">
-<code><strong>--list</strong></code>
-<br><br>
-<span style="color: #e74c3c; font-weight: bold;">📋 必需</span>
-</td>
-<td>
-<h4>📄 样本列表文件</h4>
-<blockquote>
-<strong>核心功能：</strong>指定包含多个样本信息的列表文件路径<br>
-<strong>文件格式：</strong>使用制表符(\t)分隔的文本文件<br>
-<strong>列结构：</strong>第一列为样本名称，第二列为cDNA数据路径，第三列为oligo数据路径
-</blockquote>
-<details open>
-<summary><strong>路径格式规则：</strong></summary>
+<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<h4><code>--list</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(必需)</span></h4>
+<p>指定包含多个样本信息的列表文件路径。</p>
 <ul>
-<li><strong>多个fastq文件：</strong>使用逗号(,)分隔</li>
-<li><strong>R1和R2文件：</strong>使用分号(;)分隔</li>
-<li><strong>路径类型：</strong>支持绝对路径和相对路径</li>
+  <li><strong>文件格式:</strong> 使用制表符(<code>\t</code>)分隔的文本文件，建议UTF-8编码。</li>
+  <li><strong>列结构:</strong>
+      <ol>
+          <li>样本名称</li>
+          <li>cDNA 数据路径</li>
+          <li>oligo 数据路径</li>
+      </ol>
+  </li>
+  <details open>
+  <summary><strong>路径格式规则</strong></summary>
+  <ul style="margin-top: 5px;">
+      <li><strong>多个FASTQ文件:</strong> 同一文库的多个FASTQ文件路径使用逗号(<code>,</code>)分隔。</li>
+      <li><strong>R1和R2文件:</strong> 配对的R1和R2文件路径使用分号(<code>;</code>)分隔。</li>
+      <li><strong>路径类型:</strong> 支持绝对路径和相对路径。</li>
+  </ul>
+  </details>
 </ul>
-</details>
-<details open>
-<summary><strong>文件示例：</strong></summary>
-<pre>
-sample1\tsample1_cDNA_R1.fq.gz,sample1_cDNA_R2.fq.gz\tsample1_oligo_R1.fq.gz,sample1_oligo_R2.fq.gz
-sample2\tsample2_cDNA_R1.fq.gz;sample2_cDNA_R2.fq.gz\tsample2_oligo_R1.fq.gz;sample2_oligo_R2.fq.gz
-</pre>
-</details>
-</td>
-</tr>
-<tr>
-<td align="center">
-<code><strong>--genomeDir</strong></code>
-<br><br>
-<span style="color: #e74c3c; font-weight: bold;">🗂️ 必需</span>
-</td>
-<td>
-<h4>👾 参考基因组数据库路径</h4>
-<blockquote>
-<strong>功能：</strong>指向包含基因组文件的目录路径<br>
-<strong>要求：</strong>必须是通过<code>dnbc4tools rna mkref</code>构建的完整数据库<br>
-<strong>统一性：</strong>所有样本必须使用相同的参考数据库
-</blockquote>
-</td>
-</tr>
-</tbody>
-</table>
-
----
-
-#### 🟢 基本设置参数
-
-<table>
-<thead>
-<tr>
-<th width="20%" align="center"><strong>参数</strong></th>
-<th width="80%" align="left"><strong>描述与配置</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="center">
-<code><strong>--outdir</strong></code>
-<br><br>
-<span style="color: #27ae60; font-weight: bold;">📁 默认：当前目录</span>
-</td>
-<td>
-<h4>💾 输出目录配置</h4>
-<blockquote>
-<strong>功能：</strong>指定所有样本分析结果的输出目录<br>
-<strong>结构：</strong>为每个样本自动创建独立的子目录<br>
-<strong>空间需求：</strong>确保有足够的磁盘空间存储所有样本结果
-</blockquote>
-</td>
-</tr>
-<tr>
-<td align="center">
-<code><strong>--threads</strong></code>
-<br><br>
-<span style="color: #27ae60; font-weight: bold;">⚡ 默认：20</span>
-</td>
-<td>
-<h4>🔧 并行计算资源配置</h4>
-<blockquote>
-<strong>功能：</strong>指定批量分析过程中使用的CPU线程数<br>
-<strong>资源调度：</strong>自动在多个样本间智能分配计算资源<br>
-<strong>性能优化：</strong>适当增加线程数可显著提高批量处理效率
-</blockquote>
-</td>
-</tr>
-<tr>
-<td align="center">
-<code><strong>--end5</strong></code>
-<br><br>
-<span style="color: #e74c3c; font-weight: bold;">⚡ 标志</span>
-</td>
-<td>
-<h4>🔄 5'端转录组分析模式</h4>
-<blockquote>
-<strong>特殊功能：</strong>启用5'端单细胞转录组数据分析模式<br>
-<strong>适用范围：</strong>仅适用于使用 5'端 scRNA 试剂盒的所有样本<br>
-<strong>统一性：</strong>所有样本必须使用相同的文库构建方法
-</blockquote>
-</td>
-</tr>
-</tbody>
-</table>
+<p style="margin-top: 15px;"><strong>默认值:</strong> 无</p>
+<summary><strong>示例：</strong></summary>
+<pre><code># 示例1: SampleA, cDNA和oligo各有1对R1/R2文件
+SampleA	/path/to/A_cDNA_R1.fq.gz;/path/to/A_cDNA_R2.fq.gz	/path/to/A_oligo_R1.fq.gz;/path/to/A_oligo_R2.fq.gz</code></pre>
+<pre><code># 示例2: SampleB, cDNA有2对R1/R2文件, oligo有1对R1/R2文件
+SampleB	/path/to/B_cDNA_L01_R1.fq.gz,/path/to/B_cDNA_L02_R1.fq.gz;/path/to/B_cDNA_L01_R2.fq.gz,/path/to/B_cDNA_L02_R2.fq.gz	/path/to/B_oligo_R1.fq.gz;/path/to/B_oligo_R2.fq.gz</code></pre>
+</div>
 
 > 📝 **参数继承说明**
 > 

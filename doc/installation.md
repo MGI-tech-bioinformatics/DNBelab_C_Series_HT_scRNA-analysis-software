@@ -16,15 +16,40 @@
 
 ## ◆ System Requirements <a id="system-requirements"></a>
 
-| Category   | Requirement                                |
-|------------|--------------------------------------------|
-| Processor  | x86-64 compatible processors               |
-| Memory     | 50GB RAM or higher                         |
-| CPU        | Minimum 8 cores, 16+ cores recommended     |
-| Storage    | Sufficient disk space for data processing  |
-| OS         | Linux 64-bit (CentOS 7.x, Ubuntu 20.04+)   |
+<table style="width:100%; border-collapse: collapse; margin: 1.5em 0; box-shadow: 0 2px 3px rgba(0,0,0,0.1);">
+  <thead style="background-color: #f2f2f2; border-bottom: 2px solid #ddd;">
+    <tr>
+      <th style="padding: 12px 15px; border: 1px solid #ddd; text-align: left;">Category</th>
+      <th style="padding: 12px 15px; border: 1px solid #ddd; text-align: left;">Requirement</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;"><b>Processor</b></td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;">x86-64 compatible processors</td>
+    </tr>
+    <tr>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;"><b>Memory</b></td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;">50GB RAM or higher (128GB+ recommended)</td>
+    </tr>
+    <tr>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;"><b>CPU</b></td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;">Minimum 8 cores (16+ cores recommended)</td>
+    </tr>
+    <tr>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;"><b>Storage</b></td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;">Sufficient disk space for data processing (SSD recommended)</td>
+    </tr>
+    <tr>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;"><b>OS</b></td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;">Linux 64-bit (CentOS 7.x, Ubuntu 20.04+)</td>
+    </tr>
+  </tbody>
+</table>
 
-> Compatible with higher software and hardware configurations.
+<div style="background-color: #e7f3fe; border-left: 6px solid #2196F3; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
+💡 Compatible with higher software and hardware configurations.
+</div>
 
 ---
 
@@ -32,22 +57,40 @@
 
 ### dnbc4tools 3.0 beta (Released: Jun 16, 2025)
 
-| Package Details | Information                            |
-|-----------------|----------------------------------------|
-| File Name       | dnbc4tools3.0beta_v4.tar.gz            |
-| File Size       | 499M                                   |
-| MD5 Checksum    | 27ff83eaac260cb487b22410e8f1e41a      |
-
-### Download Methods
-
-**Download Options:**
-- [BGI CloudDrive](https://bgipan.genomics.cn/#/link/NFXxDnr9wqHjAYQqHILu) (Access Code: rMok)
+<table style="width:100%; border-collapse: collapse; margin: 1.5em 0; box-shadow: 0 2px 3px rgba(0,0,0,0.1);">
+  <thead style="background-color: #f2f2f2; border-bottom: 2px solid #ddd;">
+    <tr>
+      <th style="padding: 12px 15px; border: 1px solid #ddd; text-align: left;">Package Details</th>
+      <th style="padding: 12px 15px; border: 1px solid #ddd; text-align: left;">Information</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;"><b>File Name</b></td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;">dnbc4tools3.0beta_v4.tar.gz</td>
+    </tr>
+    <tr>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;"><b>File Size</b></td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;">499M</td>
+    </tr>
+    <tr>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;"><b>MD5 Checksum</b></td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;">27ff83eaac260cb487b22410e8f1e41a</td>
+    </tr>
+    <tr>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;"><b>Download</b></td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;"><a href="https://bgipan.genomics.cn/#/link/NFXxDnr9wqHjAYQqHILu" target="_blank">BGI CloudDrive</a> (Access Code: rMok)</td>
+    </tr>
+  </tbody>
+</table>
 
 ---
 
 ## ◆ Installation Process <a id="installation-process"></a>
 
-> *dnbc4tools* is distributed as a self-contained `tar.gz` package that includes all precompiled dependencies. This allows it to run on most Linux environments without requiring additional setup.
+<div style="background-color: #e7f3fe; border-left: 6px solid #2196F3; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
+*dnbc4tools* is distributed as a self-contained `tar.gz` package that includes all precompiled dependencies. This allows it to run on most Linux environments without requiring additional setup.
+</div>
 
 ### Step 1: Extract the Package
 
@@ -65,13 +108,36 @@ tar -xzvf dnbc4tools3.0beta.tar.gz
 
 After extraction, you should see the following directory structure:
 
-| Component                          | Description                        |
-|------------------------------------|------------------------------------|
-| `dnbc4tools3.0beta/dnbc4tools`     | Main executable                    |
-| `dnbc4tools3.0beta/external`       | External dependencies              |
-| `dnbc4tools3.0beta/lib`            | Library files                      |
-| `dnbc4tools3.0beta/misc`           | Miscellaneous files                |
-| `dnbc4tools3.0beta/sourceC4.bash`  | Environment configuration script   |
+<table style="width:100%; border-collapse: collapse; margin: 1.5em 0; box-shadow: 0 2px 3px rgba(0,0,0,0.1);">
+  <thead style="background-color: #f2f2f2; border-bottom: 2px solid #ddd;">
+    <tr>
+      <th style="padding: 12px 15px; border: 1px solid #ddd; text-align: left;">Component</th>
+      <th style="padding: 12px 15px; border: 1px solid #ddd; text-align: left;">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;">`dnbc4tools3.0beta/dnbc4tools`</td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;">Main executable</td>
+    </tr>
+    <tr>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;">`dnbc4tools3.0beta/external`</td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;">External dependencies</td>
+    </tr>
+    <tr>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;">`dnbc4tools3.0beta/lib`</td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;">Library files</td>
+    </tr>
+    <tr>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;">`dnbc4tools3.0beta/misc`</td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;">Miscellaneous files</td>
+    </tr>
+    <tr>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;">`dnbc4tools3.0beta/sourceC4.bash`</td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;">Environment configuration script</td>
+    </tr>
+  </tbody>
+</table>
 
 ---
 
@@ -97,21 +163,11 @@ cd /opt/software/dnbc4tools3.0beta
 
 ---
 
-## Next Steps <a id="next-steps"></a>
+## ◆ Next Steps <a id="next-steps"></a>
 
-### Congratulations! You've successfully installed dnbc4tools 3.0 beta!
+Congratulations! You've successfully installed dnbc4tools 3.0 beta! Here's what you can do next:
 
-<div align="center">
-
-### What's Next?
-
-</div>
-
-| Action                                                       |
-|--------------------------------------------------------------|
-| [**Quick Start Tutorial**](./quickstart.md) - Run your first analysis |
-| [**Download Sample Data**](./dataset.md) - Get test datasets  |
-| [**Explore Workflows**](./pipeline.md) - Choose your analysis type |
-| [**Understand Parameters**](./parameter/parameter.md) - Fine-tune your analysis |
-
----
+- 🚀 **[Run the Quick Start Tutorial](./quickstart.md)** to perform your first analysis.
+- 🧪 **[Download Sample Data](./dataset.md)** to test the pipelines.
+- 🔬 **[Explore Analysis Workflows](./pipeline/pipeline.md)** to choose your analysis type.
+- ⚙️ **[Review Command Parameters](./parameter/parameter.md)** to fine-tune your analysis.

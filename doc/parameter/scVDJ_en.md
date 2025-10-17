@@ -20,7 +20,7 @@
 
 ```shell
 $ dnbc4tools vdj run -h
-usage: dnbc4tools vdj run [-h] 
+usage: dnbc4tools vdj run [OPTIONS] 
 
 optional arguments:
   -h, --help            show this help message and exit
@@ -36,12 +36,12 @@ Input Files:
 
 Basic Settings:
   -n, --name <STR>      Unique identifier for the sample (e.g., sample1). Used for naming output files and reports.
-  -r, --ref REF         Reference database: 'human'/'mouse' (case-insensitive) or path to a custom reference directory containing reference.json. Examples: human | mouse | ./custom_vdj_ref
+  -r, --ref <REF>         Reference database: 'human'/'mouse' (case-insensitive) or path to a custom reference directory containing reference.json. Examples: human | mouse | ./custom_vdj_ref
   -c, --chain <STR>     VDJ receptor type: 'IG' (B-cell receptors) or 'TR' (T-cell receptors).
   -o, --outdir <DIR>    Output directory for results and reports [default: current directory]. Example: ./output
   -t, --threads <INT>   Number of CPU threads for parallel processing [default: all available cores] (e.g., 16).
   -s, --beadstrans <FILE>
-                        Path to the `singlecell.csv` file from a 5' scRNA analysis. This file is used to filter cells and merge bead information, linking the VDJ data to the RNA expression data. If not provided, all cells are kept by default.
+                        RNA analysis singlecell.csv file for filtering cells and merging beads information. When not provided, all cells will be kept by default (equivalent to --keep_all_cells).
 
 Library Settings:
   Auto-detection is recommended for dark cycles. Available modes include "R1" and "unset".
@@ -65,542 +65,245 @@ Analysis Settings:
 
 #### 🔴 Required Parameters
 
-> ⚠️ **Essential parameters for successful analysis**
+> ⚠️ **Essential parameters that must be specified for a successful analysis**
 
-<table>
-<thead>
-<tr>
-<th width="20%" align="center"><strong>Parameter</strong></th>
-<th width="80%" align="left"><strong>Description & Configuration</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="center">
-<code><strong>-n, --name</strong></code>
-<br><br>
-<span style="color: #e74c3c; font-weight: bold;">📋 Required</span>
-</td>
-<td>
-<h4>🏷️ Sample Unique Identifier</h4>
-<blockquote>
-<strong>Function:</strong> Unique identifier for the sample (e.g., sample1)<br>
-<strong>Purpose:</strong> Used for naming output files and reports<br>
-<strong>Display:</strong> Appears as sample ID in generated HTML reports
-</blockquote>
-<strong>Example:</strong> <code>sample_VDJ_001</code>
-</td>
-</tr>
-<tr>
-<td align="center">
-<code><strong>-r, --ref</strong></code>
-<br><br>
-<span style="color: #e74c3c; font-weight: bold;">🧬 Required</span>
-</td>
-<td>
-<h4>🗂️ VDJ Reference Database</h4>
-<blockquote>
-<strong>Function:</strong> Specifies the reference database for VDJ analysis<br>
-<strong>Built-in Support:</strong> Software includes human and mouse reference databases<br>
-<strong>Custom Support:</strong> Compatible with mainstream analysis software database formats
-</blockquote>
-<details open>
-<summary><strong>Supported Reference Databases:</strong></summary>
+<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<h4><code>-n, --name</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(Required)</span></h4>
+<p>Provide a unique name for this analysis run.</p>
 <ul>
-<li><strong>human/Human:</strong> Human VDJ reference database (case-insensitive)</li>
-<li><strong>mouse/Mouse:</strong> Mouse VDJ reference database (case-insensitive)</li>
-<li><strong>Custom Path:</strong> Custom reference directory containing reference.json</li>
+  <li><strong>Function:</strong> This name will be used as a prefix for all output files and the HTML report.</li>
+  <li><strong>Display:</strong> In the final web report, this name will be shown as the Sample ID.</li>
 </ul>
-</details>
-<details open>
-<summary><strong>Custom Database Requirements:</strong></summary>
+<p><strong>Default:</strong> None</p>
+<p><strong>Example:</strong></p>
+<pre><code>--name sample_VDJ_001</code></pre>
+</div>
+
+<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<h4><code>-r, --ref</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(Required)</span></h4>
+<p>Specify the reference database to be used for VDJ analysis.</p>
 <ul>
-<li><strong>Directory Structure:</strong> Must contain reference.json configuration file</li>
-<li><strong>Sequence Files:</strong> FASTA sequence files for V, D, J gene segments</li>
-<li><strong>Annotation Files:</strong> Gene function annotations and numbering information</li>
+    <li><strong>Function:</strong> Specifies the reference database for VDJ analysis.</li>
+    <li><strong>Built-in Support:</strong> The software comes with reference databases for human (<code>human</code>) and mouse (<code>mouse</code>).</li>
+    <li><strong>Custom Support:</strong> A path to a custom reference directory containing a <code>reference.json</code> file can be provided.</li>
 </ul>
-</details>
-<strong>Example:</strong> <code>human</code> or <code>./custom_vdj_ref</code>
-</td>
-</tr>
-<tr>
-<td align="center">
-<code><strong>-c, --chain</strong></code>
-<br><br>
-<span style="color: #e74c3c; font-weight: bold;">🔬 Required</span>
-</td>
-<td>
-<h4>🧬 Receptor Chain Type Selection</h4>
-<blockquote>
-<strong>Core Function:</strong> Specifies the type of immune receptor for analysis<br>
-<strong>Biological Significance:</strong> Different receptor types have distinct gene rearrangement mechanisms and functions<br>
-<strong>Analysis Impact:</strong> Directly affects V(D)J gene segment identification and recombination analysis
-</blockquote>
-<details open>
-<summary><strong>Detailed Receptor Type Description:</strong></summary>
-<table>
-<tr><th width="15%">Type</th><th width="25%">Full Name</th><th width="20%">Cell Origin</th><th width="20%">Primary Function</th><th width="20%">Gene Rearrangement</th></tr>
-<tr><td><strong>TR</strong></td><td>T-cell Receptor</td><td>T lymphocytes</td><td>Cellular immunity, antigen recognition</td><td>TCRα/β or TCRγ/δ chain recombination</td></tr>
-<tr><td><strong>IG</strong></td><td>Immunoglobulin</td><td>B lymphocytes</td><td>Humoral immunity, antibody production</td><td>Heavy chain (H) and light chain (L) recombination</td></tr>
-</table>
-</details>
-<strong>Example:</strong> <code>TR</code> (T-cell research) or <code>IG</code> (B-cell research)
-</td>
-</tr>
-</tbody>
-</table>
+<p><strong>Default:</strong> None</p>
+<p><strong>Examples:</strong></p>
+<pre><code># Use the built-in human reference database
+--ref human</code></pre>
+
+<pre><code># Use a custom reference database
+--ref ./custom_vdj_ref</code></pre>
+</div>
+
+<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<h4><code>-c, --chain</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(Required)</span></h4>
+<p>Specify the type of immune receptor to be analyzed.</p>
+<ul>
+    <li><strong>Core Function:</strong> Specifies the immune receptor type for analysis, directly impacting the identification and recombination analysis of V(D)J gene segments.</li>
+    <li><strong><code>TR</code>:</strong> T-cell Receptor, for T-cell studies.</li>
+    <li><strong><code>IG</code>:</strong> Immunoglobulin, for B-cell studies.</li>
+</ul>
+<p><strong>Default:</strong> None</p>
+<p><strong>Examples:</strong></p>
+<pre><code># Analyze T-cell receptors
+--chain TR</code></pre>
+
+<pre><code># Analyze B-cell receptors
+--chain IG</code></pre>
+</div>
 
 ---
 
 #### 🟢 Input File Parameters
 
-> 📁 **Choose ONE input method: directory-based OR individual file specification**
+> 📁 **Choose one input method: Directory-based OR specify individual files**
 
-<table>
-<thead>
-<tr>
-<th width="20%" align="center"><strong>Parameter</strong></th>
-<th width="80%" align="left"><strong>Description & Configuration</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="center">
-<code><strong>--fastqs</strong></code>
-<br><br>
-<span style="color: #3498db; font-weight: bold;">🔄 Method 1</span>
-</td>
-<td>
-<h4>📂 FASTQ File Directory</h4>
-<blockquote>
-<strong>Method:</strong> Directory-based input with automatic detection<br>
-<strong>Function:</strong> Pipeline automatically detects paired-end files in directory<br>
-<strong>Convenience:</strong> Suitable for standardized file organization structures
-</blockquote>
-<details open>
-<summary><strong>Directory Structure Requirements:</strong></summary>
+<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<h4><code>--fastqs</code> <span style="font-size: 0.8em; font-weight: normal; color: #3498db;">(Method 1)</span></h4>
+<p>Specify the path to the directory containing all FASTQ files.</p>
 <ul>
-<li><strong>File Naming:</strong> Standard R1/R2 paired file naming format</li>
-<li><strong>Auto Detection:</strong> Software automatically identifies Read1 and Read2 files</li>
-<li><strong>Path Format:</strong> Supports both relative and absolute paths</li>
+  <li><strong>Function:</strong> The pipeline will automatically detect paired files (R1/R2) within this directory.</li>
+  <li><strong>Note:</strong> This is a convenience option and cannot be used simultaneously with <code>--fastq1</code> / <code>--fastq2</code>.</li>
 </ul>
-</details>
-<strong>Example:</strong> <code>./VDJ_fastq_dir</code>
-</td>
-</tr>
-<tr>
-<td align="center">
-<code><strong>-1, --fastq1</strong></code>
-<br><br>
-<span style="color: #3498db; font-weight: bold;">🔄 Method 2A</span>
-</td>
-<td>
-<h4>📄 Read1 FASTQ Files</h4>
-<blockquote>
-<strong>Input:</strong> Read1 FASTQ files from VDJ library<br>
-<strong>Support:</strong> Wildcards and comma-separated lists<br>
-<strong>Content:</strong> Contains cell barcodes, UMI, and partial VDJ sequence information<br>
-<strong>Requirement:</strong> Must be used in conjunction with fastq2 parameter
-</blockquote>
-<details open>
-<summary><strong>File Format Requirements:</strong></summary>
+<p><strong>Default:</strong> None</p>
+<p><strong>Example:</strong></p>
+<pre><code>--fastqs ./VDJ_fastq_dir</code></pre>
+</div>
+
+<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<h4><code>-1, --fastq1</code> <span style="font-size: 0.8em; font-weight: normal; color: #3498db;">(Method 2A)</span></h4>
+<p>Specify one or more Read1 FASTQ files for the VDJ library individually.</p>
 <ul>
-<li><strong>Multi-file Support:</strong> Supports merging files from multiple sequencing batches</li>
-<li><strong>Wildcard Support:</strong> Can use wildcards like * for batch file specification</li>
+  <li><strong>Support:</strong> You can use wildcards (<code>*</code>) to match files or a comma-separated list for multiple files.</li>
+  <li><strong>Requirement:</strong> Must be used in pairs with the <code>--fastq2</code> parameter, and the file order must match exactly.</li>
 </ul>
-</details>
-<strong>Example:</strong> <code>sample1_L01_R1.fastq.gz,sample1_L02_R1.fastq.gz</code>
-</td>
-</tr>
-<tr>
-<td align="center">
-<code><strong>-2, --fastq2</strong></code>
-<br><br>
-<span style="color: #3498db; font-weight: bold;">🔄 Method 2B</span>
-</td>
-<td>
-<h4>📄 Read2 FASTQ Files</h4>
-<blockquote>
-<strong>Input:</strong> Read2 FASTQ files from VDJ library<br>
-<strong>Support:</strong> Wildcards and comma-separated lists<br>
-<strong>Content:</strong> Primarily contains biological information of VDJ recombination sequences<br>
-<strong>Order:</strong> File sequence must exactly match fastq1
-</blockquote>
-<details open>
-<summary><strong>Pairing Relationship Requirements:</strong></summary>
+<p><strong>Default:</strong> None</p>
+<p><strong>Example:</strong></p>
+<pre><code>--fastq1 sample1_L01_R1.fastq.gz,sample1_L02_R1.fastq.gz</code></pre>
+</div>
+
+<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<h4><code>-2, --fastq2</code> <span style="font-size: 0.8em; font-weight: normal; color: #3498db;">(Method 2B)</span></h4>
+<p>Specify one or more Read2 FASTQ files for the VDJ library individually.</p>
 <ul>
-<li><strong>Order Consistency:</strong> R1 and R2 files must be arranged in strictly same order</li>
-<li><strong>Read Pairing:</strong> Each R1 file must have corresponding R2 file</li>
-<li><strong>Quality Consistency:</strong> All files must be from the same sequencing experiment</li>
+  <li><strong>Support:</strong> You can use wildcards (<code>*</code>) to match files or a comma-separated list for multiple files.</li>
+  <li><strong>Requirement:</strong> Must be used in pairs with the <code>--fastq1</code> parameter, and the file order must match exactly.</li>
 </ul>
-</details>
-<strong>Example:</strong> <code>sample1_L01_R2.fastq.gz,sample1_L02_R2.fastq.gz</code>
-</td>
-</tr>
-</tbody>
-</table>
+<p><strong>Default:</strong> None</p>
+<p><strong>Example:</strong></p>
+<pre><code>--fastq2 sample1_L01_R2.fastq.gz,sample1_L02_R2.fastq.gz</code></pre>
+</div>
 
 > ⚠️ **Input Method Selection:**
-> - **🔸 Method 1:** Use `--fastqs` to specify directory containing paired files
-> - **🔸 Method 2:** Use `-1/-2` to specify R1/R2 files separately
+> - **🔸 Method 1:** Use `--fastqs` to specify a directory containing paired files.
+> - **🔸 Method 2:** Use `-1, --fastq1` and `-2, --fastq2` to specify R1 and R2 files respectively.
 
-> 📌 **Format Requirements:**
-> - Multiple FASTQ files should be comma-separated
-> - R1 and R2 files must maintain the same sorting order
-> - All files must be from the same library with consistent sequencing mode and dark reaction settings
-> - Data from different experiments or samples must not be merged for analysis
+> ⚠️ **Important Note:** All files under a parameter must come from the same library, with consistent sequencing mode and dark reaction settings. Data from different libraries cannot be merged for analysis.
+---
 
-#### 🟢 Basic Settings Parameters
+#### 🟢 Basic Settings
 
-<table>
-<thead>
-<tr>
-<th width="20%" align="center"><strong>Parameter</strong></th>
-<th width="80%" align="left"><strong>Description & Configuration</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="center">
-<code><strong>-o, --outdir</strong></code>
-<br><br>
-<span style="color: #27ae60; font-weight: bold;">📁 Default: Current Directory</span>
-</td>
-<td>
-<h4>💾 Output Directory Setting</h4>
-<blockquote>
-<strong>Function:</strong> Specifies output directory for VDJ analysis results and reports<br>
-<strong>Storage:</strong> All analysis results will be saved in this directory<br>
-<strong>Organization:</strong> Automatically creates structured subdirectories
-</blockquote>
-<strong>Example:</strong> <code>./VDJ_analysis_output</code>
-</td>
-</tr>
-<tr>
-<td align="center">
-<code><strong>-t, --threads</strong></code>
-<br><br>
-<span style="color: #27ae60; font-weight: bold;">⚡ Default: All Available Cores</span>
-</td>
-<td>
-<h4>🔧 Parallel Processing Thread Count</h4>
-<blockquote>
-<strong>Function:</strong> Number of CPU threads for parallel processing<br>
-<strong>Performance:</strong> Increasing thread count can significantly improve analysis speed<br>
-<strong>Recommendation:</strong> Adjust based on available CPU cores and memory capacity
-</blockquote>
-<strong>Example:</strong> <code>16</code> (using 16 CPU threads)
-</td>
-</tr>
-<tr>
-<td align="center">
-<code><strong>-s, --beadstrans</strong></code>
-<br><br>
-<span style="color: #9b59b6; font-weight: bold;">🔗 Optional</span>
-</td>
-<td>
-<h4>🧬 RNA-VDJ Data Integration</h4>
-<blockquote>
-<strong>Function:</strong> Provides cell correspondence between RNA and VDJ analysis<br>
-<strong>Integration:</strong> Enables cell filtering based on RNA analysis results<br>
-<strong>Data Source:</strong> singlecell.csv file from 5' scRNA analysis results
-</blockquote>
-<details open>
-<summary><strong>Usage Requirements:</strong></summary>
+<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<h4><code>-o, --outdir</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(Optional)</span></h4>
+<p>Specify the output directory for all analysis results and reports.</p>
 <ul>
-<li><strong>Prerequisite Analysis:</strong> Requires prior completion of 5' scRNA analysis for the same sample</li>
-<li><strong>File Format:</strong> Must be standard singlecell.csv format</li>
-<li><strong>Cell Matching:</strong> Precise matching based on cell barcodes</li>
+  <li><strong>Function:</strong> All analysis results will be saved in this directory, and the pipeline will automatically create a structured subdirectory named after the sample.</li>
 </ul>
-</details>
-<details open>
-<summary><strong>Integration Effects:</strong></summary>
+<p><strong>Default:</strong> <code>./</code> (current directory)</p>
+<p><strong>Example:</strong></p>
+<pre><code>--outdir ./VDJ_analysis_output</code></pre>
+</div>
+
+<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<h4><code>-t, --threads</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(Optional)</span></h4>
+<p>Set the number of CPU threads to be used during the analysis.</p>
 <ul>
-<li><strong>Cell Filtering:</strong> Retains only high-quality cells identified in RNA analysis</li>
-<li><strong>Data Association:</strong> Establishes correspondence between RNA expression and VDJ recombination</li>
-<li><strong>Quality Improvement:</strong> Enhances reliability of VDJ analysis results</li>
+  <li><strong>Function:</strong> Increasing the number of threads can significantly speed up the analysis.</li>
+  <li><strong>Recommendation:</strong> Adjust based on the number of available CPU cores for optimal performance.</li>
 </ul>
-</details>
-<strong>Example:</strong> <code>./RNA_analysis/singlecell.csv</code><br>
-<strong>⚠️ Note:</strong> When this parameter is not used, it's equivalent to enabling --keep_all_cells option
-</td>
-</tr>
-</tbody>
-</table>
+<p><strong>Default:</strong> <code>Use all available CPU cores</code></p>
+<p><strong>Example:</strong></p>
+<pre><code>--threads 16</code></pre>
+</div>
+
+<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<h4><code>-s, --beadstrans</code> <span style="font-size: 0.8em; font-weight: normal; color: #9b59b6;">(Optional)</span></h4>
+<p>Provide the <code>singlecell.csv</code> file from a scRNA analysis for cell filtering and information integration.</p>
+<ul>
+  <li><strong>Function:</strong> By integrating results from a 5' scRNA analysis, this enables bead merging and cell filtering, thereby establishing a precise correspondence between the single-cell RNA expression profile and the VDJ recombination sequence.</li>
+  <li><strong>Requirement:</strong> Using this feature requires providing the <code>singlecell.csv</code> output file from a 5' scRNA analysis of the same sample.</li>
+  <li><strong>Note:</strong> If this parameter is not specified, the bead merging step will be skipped, and all detected cells will be retained by default (equivalent to enabling <code>--keep_all_cells</code>).</li>
+</ul>
+<p><strong>Default:</strong> None</p>
+<p><strong>Example:</strong></p>
+<pre><code>--beadstrans ./RNA_analysis_output/outs/singlecell.csv</code></pre>
+</div>
 
 ---
 
-#### 🟢 Library Settings Parameters
+#### 🟢 Library Settings
 
-> 🔧 **Professional configuration options for different library preparation methods and sequencing strategies**
+<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<h4><code>--darkreaction</code> <span style="font-size: 0.8em; font-weight: normal; color: #f39c12;">(Optional)</span></h4>
+<p>Configure the dark cycle settings for the VDJ library.</p>
+<ul>
+  <li><strong>Function:</strong> Guides the software to correctly parse dark reaction cycles generated by the sequencing chemistry.</li>
+  <li><strong>Smart Detection (auto):</strong> Default setting. The software automatically identifies the structure by analyzing the sequence. <strong>Highly recommended for initial analysis.</strong></li>
+  <li><strong>Manual Settings:</strong> Options are <code>R1</code> (dark cycle in Read1) or <code>unset</code> (no dark cycle).</li>
+</ul>
+<p><strong>Default:</strong> <code>auto</code></p>
+<p><strong>Example:</strong></p>
+<pre><code># Dark cycle present in Read1
+--darkreaction R1</code></pre>
+<p><strong>⚠️ Important Note:</strong> Incorrect settings may lead to cell barcode identification failure. Specify manually only if you know the library structure or if auto-detection fails.</p>
+</div>
 
-<table>
-<thead>
-<tr>
-<th width="20%" align="center"><strong>Parameter</strong></th>
-<th width="80%" align="left"><strong>Description & Configuration</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="center">
-<code><strong>--darkreaction</strong></code>
-<br><br>
-<span style="color: #f39c12; font-weight: bold;">🔧 Default: auto</span>
-</td>
-<td>
-<h4>🔬 Dark Reaction Cycle Settings</h4>
-<blockquote>
-<strong>Technical Principle:</strong> Controls the processing of dark reaction cycles in VDJ libraries<br>
-<strong>Dark Reaction Definition:</strong> Sequencing cycles without fluorescent detection, used to optimize sequence quality<br>
-<strong>Auto Detection:</strong> Auto mode is recommended; software automatically analyzes sequence length distribution
-</blockquote>
-<details open>
-<summary><strong>Configuration Options Description:</strong></summary>
-<table>
-<tr><th>Setting</th><th>Description</th><th>Applicable Scenario</th></tr>
-<tr><td><code>auto</code></td><td>Auto detection (recommended)</td><td>Standard VDJ analysis pipeline</td></tr>
-<tr><td><code>R1</code></td><td>Read1 has dark reaction</td><td>Libraries with specific dark reaction design</td></tr>
-<tr><td><code>unset</code></td><td>No dark reaction</td><td>Standard MGI protocol</td></tr>
-</table>
-</details>
-<details open>
-<summary><strong>Auto Detection Logic:</strong></summary>
+<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<h4><code>--customize</code> <span style="font-size: 0.8em; font-weight: normal; color: #9b59b6;">(Advanced)</span></h4>
+<p>Precisely define the extraction structure for barcodes, UMIs, and effective sequences (reads) for non-standard libraries. This is an advanced feature that overrides <code>--darkreaction</code> settings.</p>
 <ul>
-<li><strong>Sampling Analysis:</strong> Examines length distribution characteristics of first 200,000 sequences</li>
-<li><strong>Pattern Recognition:</strong> Infers dark reaction settings based on length distribution patterns and fixed sequence information</li>
-<li><strong>Validation Mechanism:</strong> Checks consistency between identified results and VDJ sequence structure</li>
+  <li><strong>Syntax:</strong> <code>"&lt;type&gt;,&lt;read&gt;:&lt;start&gt;-&lt;end&gt;"</code>, with multiple segments separated by semicolons (<code>;</code>).
+    <ul style="margin-top: 5px;">
+      <li><strong>Parameter Types (type):</strong> <code>cb</code> (cell barcode), <code>umi</code> (UMI), <code>R1</code>/<code>R2</code> (effective sequence).</li>
+    </ul>
+  </li>
+  <li><strong>Notes:</strong>
+      <ul>
+        <li>The entire parameter string must be enclosed in quotes.</li>
+        <li>Coordinates are 1-based and cannot exceed the read length.</li>
+      </ul>
+  </li>
 </ul>
-</details>
-<strong>⚠️ Important Note:</strong> Incorrect dark reaction settings may lead to barcode extraction failure or VDJ sequence quality degradation
-</td>
-</tr>
-<tr>
-<td align="center">
-<code><strong>--customize</strong></code>
-<br><br>
-<span style="color: #9b59b6; font-weight: bold;">⚙️ Advanced</span>
-</td>
-<td>
-<h4>🛠️ Custom Sequence Structure Configuration</h4>
-<blockquote>
-<strong>Advanced Function:</strong> For precise sequence structure definition in non-standard VDJ library designs or special experimental requirements<br>
-<strong>Priority:</strong> Overrides auto detection results from darkreaction<br>
-<strong>Coordinate System:</strong> Uses 1-based coordinate system (first base is position 1)
-</blockquote>
-<details open>
-<summary><strong>Syntax Format Details:</strong></summary>
-<p><strong>Basic Format:</strong><code>&lt;type&gt;,&lt;read&gt;:&lt;start&gt;-&lt;end&gt;</code></p>
-<table>
-<tr><th>Type</th><th>Description</th><th>Example</th><th>Role in VDJ</th></tr>
-<tr><td><code>cb</code></td><td>Cell barcode sequence</td><td><code>cb,R1:1-10</code></td><td>Cell identity identification</td></tr>
-<tr><td><code>umi</code></td><td>UMI (Unique Molecular Identifier)</td><td><code>umi,R1:21-30</code></td><td>PCR duplicate removal and quantification</td></tr>
-<tr><td><code>R1</code></td><td>VDJ sequence in Read1</td><td><code>R1,R1:31-120</code></td><td>V(D)J recombination sequence information</td></tr>
-<tr><td><code>R2</code></td><td>VDJ sequence in Read2</td><td><code>R2,R2:1-150</code></td><td>Complete V(D)J sequence</td></tr>
-</table>
-</details>
-<details open>
-<summary><strong>VDJ Library Configuration Example:</strong></summary>
-<p><strong>Standard VDJ Library Configuration:</strong></p>
-<code>"cb,R1:1-10;cb,R1:11-20;umi,R1:21-30;R1,R1:31-120;R2,R2:1-150"</code>
+<p><strong>Example:</strong></p>
+<pre><code># Example of a standard VDJ library configuration
+--customize "cb,R1:1-10;cb,R1:11-20;umi,R1:21-30;R1,R1:31-120;R2,R2:1-150"</code></pre>
+<p><strong>⚠️ Risk Warning:</strong> Incorrect custom configurations can lead to data loss or analysis failure. Use only when standard configurations do not meet your needs.</p>
+</div>
+
+<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<h4><code>--enrichment_primers</code> <span style="font-size: 0.8em; font-weight: normal; color: #e67e22;">(Optional)</span></h4>
+<p>Specify a file containing internal enrichment primers for VDJ region-specific amplification.</p>
 <ul>
-<li>First cell barcode: R1 positions 1-10</li>
-<li>Second cell barcode: R1 positions 11-20</li>
-<li>UMI sequence: R1 positions 21-30</li>
-<li>VDJ sequence part 1: R1 positions 31-120</li>
-<li>VDJ sequence part 2: R2 positions 1-150</li>
+  <li><strong>Application:</strong> For VDJ libraries designed for non-human/mouse species or using custom primers.</li>
+  <li><strong>Format:</strong> A plain text file with one primer sequence per line.</li>
+  <li><strong>Requirement:</strong> This parameter is required when using a custom reference database.</li>
 </ul>
-</details>
-<details open>
-<summary><strong>Usage Precautions:</strong></summary>
-<ul>
-<li><strong>Quote Protection:</strong> Parameter must be enclosed in quotes to avoid shell parsing errors</li>
-<li><strong>Coordinate Range:</strong> Cannot exceed actual read length</li>
-<li><strong>Biological Significance:</strong> Ensure VDJ sequence parts can cover V, D, J gene segments</li>
-<li><strong>Quality Check:</strong> Software will validate configuration reasonableness</li>
-</ul>
-</details>
-<strong>⚠️ Risk Warning:</strong> Incorrect custom configuration may lead to VDJ sequence identification failure; recommend using only when standard configuration cannot meet requirements
-</td>
-</tr>
-<tr>
-<td align="center">
-<code><strong>--enrichment_primers</strong></code>
-<br><br>
-<span style="color: #e67e22; font-weight: bold;">🧬 Custom</span>
-</td>
-<td>
-<h4>🎯 Enrichment Primer Configuration</h4>
-<blockquote>
-<strong>Function:</strong> Specifies inner enrichment primers for VDJ region-specific amplification<br>
-<strong>Application:</strong> For non-human/mouse species or VDJ libraries with custom primer designs<br>
-<strong>Format:</strong> Text file with one primer sequence per line
-</blockquote>
-<details open>
-<summary><strong>Primer File Format Requirements:</strong></summary>
-<ul>
-<li><strong>File Format:</strong> Plain text file</li>
-<li><strong>Sequence Format:</strong> One primer sequence per line, containing only ATCG bases</li>
-<li><strong>Sequence Orientation:</strong> Consistent with inner primer sequences used in PCR amplification</li>
-<li><strong>Quality Requirements:</strong> Accurate sequences to avoid affecting VDJ sequence identification</li>
-</ul>
-</details>
-<details open>
-<summary><strong>Applicable Scenarios:</strong></summary>
-<ul>
-<li><strong>Custom Species:</strong> VDJ analysis for model organisms other than human and mouse</li>
-<li><strong>Special Design:</strong> VDJ library preparation using non-standard primers</li>
-<li><strong>Research Needs:</strong> Targeted analysis of specific V, D, J gene segments</li>
-</ul>
-</details>
-<strong>File Example:</strong>
-<pre>
-GTCCTCGGTGGCCTCCACGTG
+<p><strong>Default:</strong> None</p>
+<p><strong>Example file content:</strong></p>
+<pre><code>GTCCTCGGTGGCCTCCACGTG
 AGCACCTGGGGCCTCGGCCAC
-CCTGGACTCCTGGGCCCCAG
-</pre>
-<strong>⚠️ Note:</strong> This parameter is required when using custom reference databases
-</td>
-</tr>
-</tbody>
-</table>
+CCTGGACTCCTGGGCCCCAG</code></pre>
+</div>
 
 ---
 
-#### 🚩 Analysis Settings Parameters
+#### 🚩 Analysis Settings
 
-> 🔧 **Key settings affecting VDJ analysis strategy and result quality**
+<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<h4><code>--keep_all_cells</code> <span style="font-size: 0.8em; font-weight: normal; color: #e67e22;">(Flag)</span></h4>
+<p>Enable this parameter to retain all detected cells without filtering based on RNA data.</p>
+<ul>
+  <li><strong>Function:</strong> This behavior is automatically enabled when the <code>--beadstrans</code> parameter is not provided. It is suitable for standalone VDJ analysis or when maximizing cell recovery is desired.</li>
+</ul>
+<p><strong>Default:</strong> Not set (but enabled by default if <code>--beadstrans</code> is absent)</p>
+</div>
 
-<table>
-<thead>
-<tr>
-<th width="20%" align="center"><strong>Parameter</strong></th>
-<th width="80%" align="left"><strong>Description & Configuration</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="center">
-<code><strong>--keep_all_cells</strong></code>
-<br><br>
-<span style="color: #e67e22; font-weight: bold;">🏳️ Flag</span>
-</td>
-<td>
-<h4>🔓 Retain All Detected Cells</h4>
-<blockquote>
-<strong>Function:</strong> Retains all detected cells without using RNA analysis results for cell filtering<br>
-<strong>Strategy:</strong> Cell identification based on VDJ data quality metrics itself<br>
-<strong>Auto Trigger:</strong> Automatically enabled when --beadstrans parameter is not provided
-</blockquote>
-<details open>
-<summary><strong>Application Scenario Analysis:</strong></summary>
+<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<h4><code>--r2_only</code> <span style="font-size: 0.8em; font-weight: normal; color: #e67e22;">(Flag)</span></h4>
+<p>Enable this parameter to use only Read2 sequences for VDJ assembly.</p>
 <ul>
-<li><strong>Independent VDJ Analysis:</strong> VDJ analysis only, without corresponding RNA data</li>
-<li><strong>Maximize Cell Recovery:</strong> Retain all possible VDJ-positive cells</li>
-<li><strong>Data Exploration:</strong> Preliminary assessment of VDJ data quality and cell distribution</li>
-<li><strong>Comparative Analysis:</strong> Comparison study with RNA filtering results</li>
+  <li><strong>Function:</strong> Suitable for library designs where Read1 contains only barcode and UMI information.</li>
+  <li><strong>Note:</strong> The software cannot auto-detect this situation; it must be specified manually based on the library design.</li>
 </ul>
-</details>
-<details open>
-<summary><strong>Quality Control Mechanism:</strong></summary>
-<ul>
-<li><strong>VDJ-based:</strong> Judgment based solely on VDJ recombination sequence quality</li>
-<li><strong>UMI Threshold:</strong> Uses VDJ-specific UMI count thresholds</li>
-<li><strong>Recombination Integrity:</strong> Checks completeness and accuracy of V(D)J recombination</li>
-</ul>
-</details>
-<strong>⚠️ Note:</strong> May include cells with lower RNA expression quality; recommend combining with subsequent quality assessment
-</td>
-</tr>
-<tr>
-<td align="center">
-<code><strong>--r2_only</strong></code>
-<br><br>
-<span style="color: #e67e22; font-weight: bold;">🎯 Flag</span>
-</td>
-<td>
-<h4>📖 Read2-only Sequence Assembly</h4>
-<blockquote>
-<strong>Technical Background:</strong> For library designs where Read1 contains only barcode and UMI information<br>
-<strong>Assembly Strategy:</strong> Uses only biological sequences in Read2 for VDJ recombination analysis<br>
-<strong>Manual Setting:</strong> Software cannot auto-detect; requires manual specification based on library design
-</blockquote>
-<details open>
-<summary><strong>Applicable Library Designs:</strong></summary>
-<ul>
-<li><strong>Short Read1 Design:</strong> Read1 length only covers barcode and UMI regions</li>
-<li><strong>Single-end VDJ Sequence:</strong> Complete VDJ sequence entirely located in Read2</li>
-<li><strong>Cost-optimized Design:</strong> Reduces Read1 sequencing depth to lower costs</li>
-</ul>
-</details>
-<details open>
-<summary><strong>Analysis Impact:</strong></summary>
-<ul>
-<li><strong>Reduced Sequence Information:</strong> Loss of potential VDJ sequence information in Read1</li>
-<li><strong>Recombination Detection:</strong> Relies on Read2 completeness for V(D)J recombination identification</li>
-<li><strong>Quality Requirements:</strong> Higher quality requirements for Read2 sequences</li>
-</ul>
-</details>
-<details open>
-<summary><strong>Technical Check Recommendations:</strong></summary>
-<ul>
-<li><strong>Sequence Length Analysis:</strong> Check if Read1 contains biological sequences</li>
-<li><strong>Library Construction Confirmation:</strong> Cross-check with experimental records for library design scheme</li>
-<li><strong>Quality Assessment:</strong> Compare VDJ detection effectiveness before and after usage</li>
-</ul>
-</details>
-<strong>⚠️ Important Note:</strong> Incorrect usage may reduce VDJ detection sensitivity; please select based on actual library design
-</td>
-</tr>
-<tr>
-<td align="center">
-<code><strong>--sample_read_pairs</strong></code>
-<br><br>
-<span style="color: #9b59b6; font-weight: bold;">🔢 Optional</span>
-</td>
-<td>
-<h4>🎲 Subsample Read Pair Count</h4>
-<blockquote>
-<strong>Function:</strong> Subsample specified number of read pairs from input FASTQ files for analysis<br>
-<strong>Purpose:</strong> For testing, debugging, or rapid evaluation of analysis parameters<br>
-<strong>Impact:</strong> May affect final cell detection and VDJ recombination quantification results
-</blockquote>
-<details open>
-<summary><strong>Usage Scenarios:</strong></summary>
-<ul>
-<li><strong>Parameter Testing:</strong> Rapid testing of different analysis parameter effects</li>
-<li><strong>Resource Limitations:</strong> Preliminary analysis in resource-constrained environments</li>
-<li><strong>Quality Assessment:</strong> Quick evaluation of data quality and analysis pipeline</li>
-<li><strong>Method Development:</strong> Rapid iteration during algorithm development and validation</li>
-</ul>
-</details>
-<strong>Example:</strong> <code>10000000</code> (subsample 10M read pairs)<br>
-<strong>⚠️ Note:</strong> Subsampling may affect detection of low-frequency clonotypes; recommend using full data for formal analysis
-</td>
-</tr>
-</tbody>
-</table>
+<p><strong>Default:</strong> Not set</p>
+</div>
 
-> 💡 **Analysis Strategy Recommendations:**
-> - **First Analysis:** Recommend using default parameters, then adjust parameters based on HTML report after obtaining initial results
-> - **Parameter Optimization:** Make targeted adjustments based on cell recovery rate, VDJ detection rate, and other metrics
-
-</br>
-</br>
+<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<h4><code>--sample_read_pairs</code> <span style="font-size: 0.8em; font-weight: normal; color: #9b59b6;">(Optional)</span></h4>
+<p>Extract a specified number of read pairs from the input FASTQ files for analysis.</p>
+<ul>
+  <li><strong>Function:</strong> Used for quick testing of large datasets before a full analysis, or for down-sampling analysis when resources are limited.</li>
+  <li><strong>Note:</strong> Subsampling may affect the detection of low-frequency clonotypes. It is recommended to use the full dataset for formal analysis.</li>
+</ul>
+<p><strong>Default:</strong> None (uses all data)</p>
+<p><strong>Example:</strong></p>
+<pre><code>--sample_read_pairs 10000000</code></pre>
+</div>
 
 ---
 
 <div align="center">
 
-> 💡 **Note**
+> 💡 **Tip**
 > 
-> This document is continuously updated. If you find content errors or need additional information, feedback is welcome.
+> This document is continuously updated. If you find any errors or have information to add, your feedback is welcome.
 > 
 > 📝 **Document Version:** 3.0 beta | **Last Updated:** 2025
 
 ---
 
 **🧬 DNBelab C Series HT scVDJ Analysis Software**  
-*High-performance Single-cell Immune Repertoire Data Analysis Pipeline*
+*High-performance single-cell immune repertoire data analysis pipeline*
 
 </div>

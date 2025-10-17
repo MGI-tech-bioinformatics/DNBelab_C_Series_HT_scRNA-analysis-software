@@ -8,9 +8,9 @@
 
 <div align="center">
 
-**Complete Guide for Single-Cell ATAC Sequencing Data Analysis**
+**A Complete Guide to Single-Cell ATAC Sequencing Data Analysis**
 
-[📋 Overview](#overview) • [📁 File Preparation](#file-preparation) • [📊 Reference Database](#reference-database) • [🚀 Main Analysis Pipeline](#main-analysis-pipeline) • [📊 Results Interpretation](#results-interpretation)
+[📋 Overview](#overview) • [📁 File Preparation](#file-preparation) • [📊 Reference Data](#reference-data) • [🚀 Main Pipeline](#main-pipeline) • [📊 Results Interpretation](#results-interpretation)
 
 </div>
 
@@ -20,13 +20,15 @@
 
 This document provides a detailed guide for analyzing single-cell ATAC sequencing data using dnbc4tools.
 
-**Workflow**: Raw Data → Quality Control → Alignment → Bead Merging → Peak Calling → Cell Identification → Dimensionality Reduction and Clustering → Analysis Report
+**Workflow**: Raw Data → Quality Control → Alignment → Bead Merging → Peak Calling → Cell Identification → Dimensionality Reduction & Clustering → Analysis Report
 
 <div align="center">
   <img src="https://s2.loli.net/2024/09/27/exd1OyX3n4K8LGq.png" alt="Workflow Diagram" width="800">
 </div>
 
-> **Usage Note**: `$dnbc4tools` represents the executable program path, which needs to be replaced with the actual installation path when used. The backslash `\` is used to split commands across multiple lines in the command line for better readability.
+<div style="background-color: #e7f3fe; border-left: 6px solid #2196F3; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
+💡 **Usage Note**: `$dnbc4tools` represents the executable path and must be replaced with the actual installation path. The backslash `\` is used to split a command across multiple lines for readability.
+</div>
 
 ---
 
@@ -34,66 +36,98 @@ This document provides a detailed guide for analyzing single-cell ATAC sequencin
 
 The analysis requires FASTQ files:
 
-| File Type | Description |
-|-----------|-------------|
-| **ATAC Library** | Sequencing data containing cell barcode and chromatin accessibility information |
+<table style="width:100%; border-collapse: collapse; margin: 1.5em 0; box-shadow: 0 2px 3px rgba(0,0,0,0.1);">
+  <thead style="background-color: #f2f2f2; border-bottom: 2px solid #ddd;">
+    <tr>
+      <th style="padding: 12px 15px; border: 1px solid #ddd; text-align: left;">File Type</th>
+      <th style="padding: 12px 15px; border: 1px solid #ddd; text-align: left;">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;"><b>ATAC Library</b></td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;">Sequencing data containing cell barcodes and chromatin accessibility information.</td>
+    </tr>
+  </tbody>
+</table>
 
-> **Note**: Ensure FASTQ files are of good quality and record their file paths for subsequent analysis.
+<div style="background-color: #fffbe6; border-left: 6px solid #ffc107; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
+⚠️ **Note**: Ensure that the FASTQ files are of good quality and record their paths for subsequent analysis.
+</div>
 
-## 📊 Reference Database <a id="reference-database"></a>
+---
+
+## 📊 Reference Data <a id="reference-data"></a>
 
 ### File Requirements
 
-| File Type | Format | Description |
-|-----------|--------|-------------|
-| **Genome File** | FASTA | Contains the complete genome sequence of the species of interest, including chromosomes, mitochondria, and other genetic information, typically the primary assembly. These files provide the foundation for genome analysis and alignment. |
-| **Annotation File** | GTF | Contains detailed information about genes, transcripts, exons, and other functional regions in the genome. This file identifies the location, type, and related attributes of genes. |
+<table style="width:100%; border-collapse: collapse; margin: 1.5em 0; box-shadow: 0 2px 3px rgba(0,0,0,0.1);">
+  <thead style="background-color: #f2f2f2; border-bottom: 2px solid #ddd;">
+    <tr>
+      <th style="padding: 12px 15px; border: 1px solid #ddd; text-align: left;">File Type</th>
+      <th style="padding: 12px 15px; border: 1px solid #ddd; text-align: left;">Format</th>
+      <th style="padding: 12px 15px; border: 1px solid #ddd; text-align: left;">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;"><b>Genome File</b></td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;">FASTA</td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;">Contains the complete genome sequence of a species, including chromosomes, mitochondria, and other genetic information, typically the primary assembly. This file provides the foundation for genome analysis and alignment.</td>
+    </tr>
+    <tr>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;"><b>Annotation File</b></td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;">GTF</td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;">Contains detailed information about genes, transcripts, exons, and other functional regions in the genome. This file identifies the location, type, and related attributes of genes.</td>
+    </tr>
+  </tbody>
+</table>
 
-> **Recommended Data Source**: Preferably use files provided by the [Ensembl database](https://www.ensembl.org/index.html). Ensembl's GTF files include optional tags that facilitate filtering (through `dnbc4tools tools mkgtf`).
+<div style="background-color: #e7f3fe; border-left: 6px solid #2196F3; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
+💡 **Recommended Data Source**: It is recommended to use files from the [Ensembl database](https://www.ensembl.org/index.html). Ensembl's GTF files contain optional tags that facilitate filtering with `dnbc4tools tools mkgtf`.
+</div>
 
 **GTF File Requirements**:
-- Must include annotations of type "gene" or "transcript"
-- GFF file format is not supported
-- Genome file and annotation file must correspond to each other
+- Must include annotations of type "gene" or "transcript".
+- The GFF file format is not supported.
+- The genome file and annotation file must be from corresponding versions.
 
 ### GTF File Processing (Optional)
 
-For detailed information on GTF file filtering, please [refer to the scRNA analysis pipeline](./scRNA.md#22-using-dnbc4tools-tools-mkgtf-to-filter-gtf-files-optional).
+For details on GTF file filtering, please [refer to the scRNA analysis pipeline](./scRNA.md#gtf-file-processing-optional).
 
-### Building Reference Database
+### Build Reference Database
 
-Before running the dnbc4tools atac run analysis, we need to first build a reference database. This step requires annotation files (GTF) and reference genome (FASTA) to build index files for mapping and statistical analysis of sequencing reads.
-
-
+Before running the `dnbc4tools atac run` analysis, a reference database must be built. This step requires an annotation file (GTF) and a reference genome (FASTA) to create index files for read alignment and statistical analysis.
 
 ```shell
 $dnbc4tools atac mkref \
   --fasta genome.fa \
   --ingtf genes.gtf \
-  --species Mus_musculus
+  --species Mus_musculus 
 ```
 
-**Output Results**:
+**Output**:
 
-After successful execution, a reference database directory will be created at the specified location, containing the following file structure:
+Upon successful execution, a reference database directory will be created at the specified location with the following structure:
 
 ```
 /opt/database/Mus_musculus
 ├── fasta
-│   ├── genome.fa                                 # Reference genome file
-│   ├── genome.fa.fai                             # Genome index file
-│   ├── genome.index                              # Chromap index file
-│   └── genome.index.log                          # Chromap index build log
+│   ├── genome.fa
+│   ├── genome.fa.fai
+│   ├── genome.index
+│   └── genome.index.log
 ├── genes
-│   └── genes.gtf                                 # Gene annotation file
-├── ref.json                                      # Reference database configuration file
+│   └── genes.gtf
+├── ref.json
 └── regions
-    ├── chrom.sizes                               # Chromosome size information file
-    ├── promoter.bed                              # Promoter region annotation file
-    └── tss.bed                                   # Transcription start site annotation file
+    ├── chrom.sizes
+    ├── promoter.bed
+    └── tss.bed
 ```
 
-The ref.json file records the main information of the database:
+The `ref.json` file records the main information of the database:
 
 ```json
 {
@@ -118,9 +152,11 @@ The ref.json file records the main information of the database:
 }
 ```
 
-> **Note**: Building a reference database may take a long time, depending on the genome size and computer performance. The analysis pipeline is backward-compatible with reference databases created by previous software versions.
+<div style="background-color: #fffbe6; border-left: 6px solid #ffc107; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
+⚠️ **Note**: Building the reference database can be time-consuming, depending on the genome size and computational resources. The main analysis pipeline is compatible with older database versions.
+</div>
 
-Printed information during execution, here is an example:
+The following information will be printed during runtime:
 
 ```shell
 Creating new reference folder at /opt/database/Mus_musculus
@@ -147,11 +183,13 @@ Writing reference JSON file...
 Analysis Complete
 ```
 
-## 🚀 Main Analysis Pipeline <a id="main-analysis-pipeline"></a>
+---
 
-### Multi-sample Batch Processing (Optional)
+## 🚀 Main Pipeline <a id="main-pipeline"></a>
 
-To simplify generating the main analysis pipeline for each sample individually, a configuration file can be used to generate a main pipeline shell script containing multiple samples. Here is an example step or script template:
+### Multi-Sample Batch Processing (Optional)
+
+To simplify the analysis of multiple samples, you can use a configuration file to generate a shell script for each sample.
 
 ```shell
 $dnbc4tools atac multi \
@@ -162,14 +200,30 @@ $dnbc4tools atac multi \
 
 The `sample.tsv` file is tab-separated (`\t`) and contains two columns:
 
-| Column | Content |
-|--------|---------|
-| 1      | Sample Name |
-| 2      | Library Sequencing Data |
+<table style="width:100%; border-collapse: collapse; margin: 1.5em 0; box-shadow: 0 2px 3px rgba(0,0,0,0.1);">
+  <thead style="background-color: #f2f2f2; border-bottom: 2px solid #ddd;">
+    <tr>
+      <th style="padding: 12px 15px; border: 1px solid #ddd; text-align: left;">Column</th>
+      <th style="padding: 12px 15px; border: 1px solid #ddd; text-align: left;">Content</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;">1</td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;">Sample Name</td>
+    </tr>
+    <tr>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;">2</td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;">Library Sequencing Data</td>
+    </tr>
+  </tbody>
+</table>
 
-> **Note**:
-> - Multiple fastq files should be separated by commas (`,`).
-> - R1 and R2 files should be separated by semicolons (`;`).
+<div style="background-color: #fffbe6; border-left: 6px solid #ffc107; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
+⚠️ **Note**:
+- Multiple FASTQ files should be separated by commas (`,`).
+- R1 and R2 files should be separated by semicolons (`;`).
+</div>
 
 ```tsv
 sample1	/data/sample1_R1.fq.gz;/data/sample1_R2.fq.gz
@@ -177,7 +231,7 @@ sample2	/data/sample2_R1.fq.gz;/data/sample2_R2.fq.gz
 sample3	/data/sample3_1_R1.fq.gz,/data/sample3_2_R1.fq.gz;/data/sample3_1_R2.fq.gz,/data/sample3_2_R2.fq.gz
 ```
 
-After running, the output will be:
+After execution, a shell script is generated for each sample:
 
 ```shell
 sample1.sh
@@ -185,22 +239,20 @@ sample2.sh
 sample3.sh
 ```
 
-The content of sample1.sh is as follows:
+Example content of `sample1.sh`:
 
 ```shell
 $cat sample1.sh
 /opt/software/dnbc4tools3.0Beta/dnbc4tools atac run --name sample1 --fastq1 /data/sample1_R1.fq.gz --fastq2 /data/sample1_R2.fq.gz --genomeDir /opt/database/Mus_musculus --threads 10 
 ```
 
-Execute step 4 for the main pipeline analysis.
+You can then execute these scripts to run the main analysis.
 
-</br>
+### Single-Sample Analysis
 
-### Single Sample Analysis
+The ATAC main analysis pipeline processes single-cell ATAC library data from a single sample. It filters and aligns reads to generate a fragments file for all beads. Beads are then merged, and peak calling is performed. Cell identification is done using the fragment information within the peak regions. This is followed by cell filtering, dimensionality reduction, and clustering. Finally, the results from all steps are integrated to generate an HTML report and other output files.
 
-The ATAC main analysis pipeline uses single-cell ATAC library sequencing data from a single sample. It generates fragments files for all beads after filtering and alignment. Beads are merged, and peak calling analysis is performed, utilizing fragment information in peak regions for cell identification. Subsequently, cell filtering, dimensionality reduction, and clustering are conducted. Finally, the results of each step are integrated to generate an HTML report and output the analysis results.
-
-To generate an expression matrix for a single sample, here is an example step or script template:
+Example script for generating an expression matrix for a single sample:
 
 ```shell
 $dnbc4tools atac run \
@@ -211,7 +263,7 @@ $dnbc4tools atac run \
   --threads 10
 ```
 
-After automatic detection of reagent version and dark reaction, the software begins the analysis. Here is an example log:
+After auto-detecting the reagent version and dark reaction, the software begins the analysis. Here is an example:
 
 ```shell
 2025-06-03 16:24:27 Performing ATAC data processing
@@ -239,35 +291,38 @@ Chemistry(darkreaction) determined in fastqR2: darkreaction
 2025-06-03 16:54:44 Statistical analysis and report generation for results...
 ...done
 
-Analysis Finished
-Elapsed Time: 0:30:43
+Analysis Finished Elapsed Time: 0:30:43
 ```
 
-A successful run ends with `Analysis Finished`.
+A successful run will end with `Analysis Finished`.
+
+---
 
 ## 📊 Results Interpretation <a id="results-interpretation"></a>
 
-After the analysis is complete, the output directory `outs` and logs directory will be generated.
+Upon completion, `outs` (outputs) and `logs` directories will be generated.
 
 ```
-├── *_scATAC_report.html                     # Analysis results HTML report, including QC metrics, clustering results
-├── filter_peak_matrix                       # Filtered peak matrix in MEX format directory
-│   ├── barcodes.tsv.gz                      # Filtered cell barcode information
-│   ├── matrix.mtx.gz                        # Filtered peak signal data in sparse matrix format
-│   └── peaks.bed.gz                         # Filtered peak position information
-├── fragments.tsv.gz                         # Contains all fragments aligned to the genome
-├── fragments.tsv.gz.tbi                     # Index file for fragments, used for fast random access
-├── metrics_summary.xls                      # Analysis quality metrics summary table, including sequencing QC, alignment rate
-├── raw_peak_matrix                          # Raw peak matrix in MEX format directory
-│   ├── barcodes.tsv.gz                      # Raw cell barcode information
-│   ├── matrix.mtx.gz                        # Raw peak signal data in sparse matrix format
-│   └── peaks.bed.gz                         # Raw peak position information
-└── singlecell.csv                           # Cell information summary table, including fragment count, peak count, and cell identification for each cell ID
+. 
+├── *_scATAC_report.html
+├── filter_peak_matrix/
+│   ├── barcodes.tsv.gz
+│   ├── matrix.mtx.gz
+│   └── peaks.bed.gz
+├── fragments.tsv.gz
+├── fragments.tsv.gz.tbi
+├── metrics_summary.xls
+├── raw_peak_matrix/
+│   ├── barcodes.tsv.gz
+│   ├── matrix.mtx.gz
+│   └── peaks.bed.gz
+└── singlecell.csv
 ```
+
 **Related Documentation**:
 - [📊 Output File Usage](../io.md)
-- [📋 Analysis Parameter Settings](../parameter/scATAC_en.md)
-- [📝 Output File Descriptions](../outs/scATAC_en.md)
+- [📋 Analysis Parameter Settings](../parameter/scATAC.md)
+- [📝 Output File Descriptions](../outs/scATAC.md)
 
 ---
 

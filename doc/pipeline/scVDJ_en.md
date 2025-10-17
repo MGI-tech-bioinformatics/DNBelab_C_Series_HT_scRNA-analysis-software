@@ -1,6 +1,6 @@
 <div align="right">
 
-[🏠 Home](../../README.md) | [🌐 中文](scVDJ.md)
+[🏠 Home](../../README.md) • [中文](scVDJ.md)
 
 </div>
 
@@ -8,9 +8,9 @@
 
 <div align="center">
 
-**Complete Guide for Single-Cell VDJ Sequencing Data Analysis**
+**A Complete Guide to Single-Cell VDJ Sequencing Data Analysis**
 
-[📋 Overview](#overview) • [📁 File Preparation](#file-preparation) • [🚀 Main Analysis Pipeline](#main-analysis-pipeline) • [📊 Results Interpretation](#results-interpretation)
+[📋 Overview](#overview) • [📁 File Preparation](#file-preparation) • [🚀 Main Pipeline](#main-pipeline) • [📊 Results Interpretation](#results-interpretation)
 
 </div>
 
@@ -20,24 +20,25 @@
 
 This document provides a detailed guide for analyzing single-cell VDJ sequencing data using dnbc4tools.
 
-**Workflow**: 5' Transcriptome Analysis → VDJ Library Processing → Sequence Assembly and Annotation → Cell Filtering → Clonotype Analysis → Analysis Report
+**Workflow**: 5' Transcriptome Analysis → VDJ Library Processing → Sequence Assembly & Annotation → Cell Filtering → Clonotype Analysis → Analysis Report
 
 <div align="center">
   <img src="https://s2.loli.net/2024/09/27/WHFIaNpLV8xu4Pi.png" alt="Workflow Diagram" width="800">
 </div>
 
-> **Usage Note**: `$dnbc4tools` represents the executable program path, which needs to be replaced with the actual installation path when used. The backslash `\` is used to split commands across multiple lines in the command line for better readability.
+<div style="background-color: #e7f3fe; border-left: 6px solid #2196F3; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
+💡 **Usage Note**: `$dnbc4tools` represents the executable path and must be replaced with the actual installation path. The backslash `\` is used to split a command across multiple lines for readability.
+</div>
 
 ---
-
 
 ## 📁 File Preparation <a id="file-preparation"></a>
 
 ### 5' Transcriptome Analysis
 
-For transcriptome analysis, please refer to `dnbc4tools rna run`. The 5' transcriptome analysis main pipeline requires adding the `--end5` parameter to the standard single-cell RNA analysis workflow.
+For transcriptome analysis, please refer to `dnbc4tools rna run`. The 5' transcriptome analysis pipeline requires adding the `--end5` parameter to the standard single-cell RNA analysis workflow.
 
-To generate an expression matrix for a single sample, here is an example step or script template:
+Here is an example script to generate an expression matrix for a single sample:
 
 ```shell
 $dnbc4tools rna run \
@@ -51,24 +52,42 @@ $dnbc4tools rna run \
 	--end5
 ```
 
-> **Note**: 5' transcriptome analysis is a prerequisite for VDJ analysis. This step must be completed before proceeding with subsequent analysis.
+<div style="background-color: #fffbe6; border-left: 6px solid #ffc107; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
+⚠️ **Note**: 5' transcriptome analysis is a prerequisite for VDJ analysis and must be completed first.
+</div>
 
 ### Required Files for VDJ Analysis
 
 The analysis requires the following files:
 
-| File Type | Description |
-|-----------|-------------|
-| **FASTQ files** | VDJ library sequencing data containing TCR or BCR sequence information |
-| **singlecell.csv file** | Cell information file from 5' transcriptome analysis results |
+<table style="width:100%; border-collapse: collapse; margin: 1.5em 0; box-shadow: 0 2px 3px rgba(0,0,0,0.1);">
+  <thead style="background-color: #f2f2f2; border-bottom: 2px solid #ddd;">
+    <tr>
+      <th style="padding: 12px 15px; border: 1px solid #ddd; text-align: left;">File Type</th>
+      <th style="padding: 12px 15px; border: 1px solid #ddd; text-align: left;">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;"><b>FASTQ Files</b></td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;">VDJ library sequencing data containing TCR or BCR sequence information.</td>
+    </tr>
+    <tr>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;"><b>singlecell.csv File</b></td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;">The cell information file from the 5' transcriptome analysis results.</td>
+    </tr>
+  </tbody>
+</table>
 
-The analysis requires the `singlecell.csv` file from the 5' transcriptome analysis output directory. This file contains merged information from the `cell` and `barcode` columns, along with an `is_cell_barcode` column (1 for a cell, 0 for a non-cell) to identify valid cells.
+The analysis requires the `singlecell.csv` file from the 5' transcriptome analysis output directory. This file contains merged information from the `cell` and `barcode` columns, as well as an `is_cell_barcode` column (1 for a cell, 0 for a non-cell), which is used to identify valid cells.
 
-> **Note**: Ensure the singlecell.csv file path is correct, as this file is key to connecting transcriptome and VDJ analysis.
+<div style="background-color: #fffbe6; border-left: 6px solid #ffc107; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
+⚠️ **Note**: Ensure the path to the `singlecell.csv` file is correct, as this file is crucial for linking the transcriptome and VDJ analyses.
+</div>
 
-Reference example file content:
+Example file content:
 
-```shell
+```csv
 cell,reads,gene,umi,is_cell_barcode,barcode
 CELL1118_N3,1485813,5693,57580,1,AGATCGCCTACGATCACGAT;GGTGGAAGGTGAGAGAAGCG;GTAGTTCTAGGCTAAGTACT
 CELL1651_N3,805447,4881,32131,1,ATCTCAAGCCCACCGTGTGT;CATCAATTAAGTGATCGCAT;CCTAACTGAGGAACGCTTAG
@@ -81,19 +100,21 @@ CELL726_N4,585934,4617,22660,1,ACCTACGGCGTTACTATGTG;CGACGCTCTCGACAGTTAGG;CGGCAGA
 CELL4010_N1,555308,4268,22554,1,AGAGAGTCGCAGCAAGCGAC
 ```
 
-## 🚀 Main Analysis Pipeline <a id="main-analysis-pipeline"></a>
+---
 
-The main VDJ analysis pipeline integrates single-cell VDJ library sequencing data with the corresponding sample's 5' transcriptome analysis results. The pipeline includes the following key steps:
+## 🚀 Main Pipeline <a id="main-pipeline"></a>
 
-1. Filter the data and merge beads using the 5' transcriptome results
-2. Align the VDJ gene regions and extract the corresponding reads
-3. Perform de novo assembly and annotation
-4. Filter cells based on assembly annotation results and 5' transcriptome cell identification
-5. Integrate results from all steps to generate an HTML report and output analysis results
+The main VDJ pipeline combines single-cell VDJ library data with the 5' transcriptome results from the same sample. It includes these key steps:
+
+1.  Filter data and merge beads using the 5' transcriptome results.
+2.  Align reads to VDJ gene segments and extract them.
+3.  Perform de novo assembly and annotation.
+4.  Filter cells based on the assembly annotations and cell calls from the 5' transcriptome.
+5.  Integrate results from all steps to generate an HTML report and other output files.
 
 ### TCR Analysis
 
-To run TCR analysis for a single sample, here is an example step or script template:
+To run TCR analysis for a single sample, use the following example script:
 
 ```shell
 $dnbc4tools vdj run \
@@ -108,7 +129,7 @@ $dnbc4tools vdj run \
 
 ### BCR Analysis
 
-To run BCR analysis for a single sample, here is an example step or script template:
+To run BCR analysis for a single sample, use the following example script:
 
 ```shell
 $dnbc4tools vdj run \
@@ -121,9 +142,9 @@ $dnbc4tools vdj run \
 	--threads 10
 ```
 
-### Running Process
+### Execution Process
 
-After automatic detection of dark reaction, the software begins running the analysis. Here is an example:
+After auto-detecting the dark reaction, the software begins the analysis. Here is an example:
 
 ```shell
 2025-04-23 23:01:01 Performing VDJ data processing
@@ -150,35 +171,37 @@ Chemistry(darkreaction) determined in fastqR1: darkreaction
 2025-04-24 02:53:58 Statistical analysis and report generation for results.
 ...done
 
-Analysis Finished
-Elapsed Time: 3:53:07
+Analysis Finished Elapsed Time: 3:53:07
 ```
 
-A successful run ends with `Analysis Finished`.
+A successful run will end with `Analysis Finished`.
+
+---
 
 ## 📊 Results Interpretation <a id="results-interpretation"></a>
 
-After analysis completion, the output directory "outs" and logs directory will be generated. The outs directory includes:
+Upon completion, `outs` (outputs) and `logs` directories will be generated. The `outs` directory includes:
 
 ```
-├── airr_annotations.tsv                     # Immune receptor annotation file in AIRR standard format
-├── all_contig_annotations.csv               # Annotation information for all contig sequences
-├── all_contig.fasta                         # FASTA file of all contig sequences
-├── all_contig.fasta.fai                     # FASTA index file for all contig sequences
-├── *_scVDJ_IG_report.html                   # VDJ analysis results HTML report
-├── clonotypes.csv                           # Clonotype information table, including frequency and sequence features
-├── consensus_annotations.csv                # Annotation information for consensus sequences
-├── consensus.fasta                          # FASTA file of consensus sequences
-├── consensus.fasta.fai                      # FASTA index file for consensus sequences
-├── filtered_contig_annotations.csv          # Annotation information for filtered contig sequences
-├── filtered_contig.fasta                    # FASTA file of filtered contig sequences
-├── filtered_contig.fasta.fai                # FASTA index file for filtered contig sequences
-└── metrics_summary.xls                      # Analysis quality metrics summary table
+. 
+├── airr_annotations.tsv
+├── all_contig_annotations.csv
+├── all_contig.fasta
+├── all_contig.fasta.fai
+├── *_scVDJ_IG_report.html
+├── clonotypes.csv
+├── consensus_annotations.csv
+├── consensus.fasta
+├── consensus.fasta.fai
+├── filtered_contig_annotations.csv
+├── filtered_contig.fasta
+├── filtered_contig.fasta.fai
+└── metrics_summary.xls
 ```
 
 **Related Documentation**:
-- [📋 Analysis Parameter Settings](../parameter/scVDJ_en.md)
-- [📝 Output File Descriptions](../outs/scVDJ_en.md)
+- [📋 Analysis Parameter Settings](../parameter/scVDJ.md)
+- [📝 Output File Descriptions](../outs/scVDJ.md)
 
 ---
 

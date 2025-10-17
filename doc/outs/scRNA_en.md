@@ -8,9 +8,9 @@
 
 <div align="center">
 
-**Complete Guide to Single-Cell RNA Sequencing Analysis Output Files**
+**A Complete Guide to Single-Cell RNA Sequencing Analysis Output Files**
 
-[📁 Directory Structure](#directory-structure) • [📋 File Details](#detailed-file-description) • [🧬 Data Matrix](#feature-matrix-files) • [📊 Analysis Results](#analysis-results-directory-analysis) • [📊 Report Interpretation](#web-report-interpretation)
+[📁 Directory Structure](#output-directory-structure) • [📋 File Details](#detailed-file-description) • [🧬 Data Matrix](#feature-matrix-files) • [📊 Analysis Results](#analysis-results-directory-analysis) • [📊 Report Interpretation](#web-report-interpretation)
 
 </div>
 
@@ -18,15 +18,13 @@
 
 ## 📖 Overview <a id="overview"></a>
 
-Upon completion of the single-cell RNA analysis, the pipeline generates a standardized structure of files and subdirectories in the specified output directory. These outputs are tailored for gene expression profiling and cell type identification. This document provides detailed descriptions of the content, format, and purpose of each output file to help users fully understand and efficiently utilize single-cell RNA analysis results.
+After the single-cell RNA analysis is complete, a standardized file and subdirectory structure is generated in the specified output directory, specifically for gene expression profile analysis and cell type identification. This document details the content, format, and purpose of each output file to help users fully understand and efficiently utilize the single-cell RNA analysis results.
 
 > 💡 **Tip**: All output files use standard formats compatible with mainstream single-cell analysis tools (such as Scanpy, Seurat, etc.) and follow internationally recognized data format specifications.
 
-Prerequisites: High-quality single-cell RNA sequencing data preprocessing is required.
-
 ---
 
-## 📁 Directory Structure <a id="directory-structure"></a>
+## 📁 Output Directory Structure <a id="output-directory-structure"></a>
 
 ```
 .
@@ -54,102 +52,164 @@ Prerequisites: High-quality single-cell RNA sequencing data preprocessing is req
 
 ## 📋 Detailed File Description <a id="detailed-file-description"></a>
 
-### 📊 Analysis Results Directory (`analysis/`) <a id="analysis-results-directory-analysis"></a>
-
-<div align="center">
-
-**🎯 Core Content**: Downstream bioinformatics analysis results, including cell clustering, differential genes, and post-quality control data
-
-</div>
-
-#### 📄 cluster.csv
-
-**File Description:** Cell clustering analysis results file in CSV format. Contains cell ID, clustering annotations, and dimensionality reduction coordinate information.
-
-**Core Features:**
-- 🗓️ **Clustering Results**: Unsupervised clustering results based on the Louvain algorithm
-- 🗺️ **Dimensionality Reduction Coordinates**: UMAP dimensionality reduction result coordinates
-- 🏷️ **Cell Annotation**: Automatic cell type annotation results (if available)
-- 🔍 **Quality Control Information**: Cell gene and UMI count statistics
-
-**Purpose:** Used for visualizing cell clustering and identifying different cell types.
-
-#### 📄 marker.csv
-
-**File Description:** Differentially expressed genes (marker genes) file for each cluster in CSV format. Records information such as gene ID, affiliated cluster, statistical significance, and expression level differences.
-
-**Core Features:**
-- 📊 **Statistical Analysis**: Contains p-values, adjusted p-values, and fold changes
-- 🎆 **Expression Proportion**: Proportion of cells expressing this gene in the target cell type
-- 🔍 **Specificity Assessment**: Specific expression of genes in specific cell types
-- 📈 **Priority Sorting**: Sorted by statistical significance and fold change
-
-**Purpose:** Used to identify characteristic genes of each cell type.
-
-#### 📄 QC_Cluster.h5ad
-
-**File Description:** Single-cell data after quality control and clustering analysis in AnnData object (H5AD format). Contains complete analysis data and metadata.
-
-**Core Features:**
-- 🧬 **Complete Data**: Contains all analysis results including quality control, clustering, and marker genes
-- 🗓️ **Metadata**: Detailed annotation information for cells and genes
-- 🗺️ **Dimensionality Reduction Results**: UMAP dimensionality reduction result coordinates
-- 🔧 **Tool Compatibility**: Fully compatible with analysis tools like Scanpy
-
-**Purpose:** Compatible with analysis tools like Scanpy for downstream analysis.  
-**Reference:** For detailed format, see [AnnData Format Description](#anndata-format-h5ad).
-
----
-
 ### 🧬 Alignment and Annotation Files <a id="alignment-and-annotation-files"></a>
 
 <div align="center">
 
-**🎯 Core Content**: Result files of aligning raw sequencing data to the reference genome, containing complete alignment information and cell barcode tags
+**🎯 Core Content**: Result files from aligning raw sequencing data to the reference genome, containing complete alignment information and cell barcode tags.
 
 </div>
 
+<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
+
 #### 📄 anno_decon_sorted.bam
 
-**File Description:** Alignment file sorted by genomic coordinates in BAM format. Contains information for all reads aligned to the reference genome.
+This is the scRNA-seq alignment result file containing all raw data.
 
-**Core Features:**
-- 🗺️ **Sorting Optimization**: Sorted by genomic coordinates, supporting fast random access
-- 🏷️ **Barcode Tagging**: Contains key tags such as cell barcodes (CB) and UMIs (UB)
-- 🧬 **Gene Annotation**: Contains annotation information such as gene ID (GX) and gene name (GN)
-- 🎆 **Quality Control**: Contains read quality scores and alignment quality information
+*   **Core Purpose**:
+    *   **In-depth Analysis and Visualization**: Can be used for deep visualization in genome browsers like IGV to inspect alignment situations and splicing patterns at specific gene loci.
+    *   **Custom Analysis**: Provides raw input for users who need to directly manipulate alignment-level data, such as for alternative splicing analysis, RNA velocity analysis, etc.
 
-**Reference:** For details, see [BAM Format Description](#bam-format-bam).
+*   **Content and Format**:
+    *   Uses the international standard **BAM (Binary Alignment Map)** format.
+    *   The file is **sorted by genomic coordinates** and indexed (the `.bai` file), allowing for fast random access.
+    *   Each read is tagged with cell origin, UMI, and gene annotation information through TAG fields.
+
+*   **Key TAG Field Descriptions**:
+    *   The BAM file uses rich TAG fields to store single-cell specific information, mainly divided into cell/molecule identifiers and gene annotations.
+
+    **🧬 Cell and Molecular Identifier Tags:**
+
+    <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
+    <thead>
+    <tr>
+    <th width="10%" align="left"><strong>Tag</strong></th>
+    <th width="15%" align="left"><strong>Type</strong></th>
+    <th width="37%" align="left"><strong>Description</strong></th>
+    <th width="38%" align="left"><strong>Biological Significance</strong></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <td align="left"><code>CB</code></td>
+    <td align="left">String</td>
+    <td align="left">Cell ID after merging cell barcodes</td>
+    <td>Used to assign reads to a specific cell; it is the final cell ID after error correction and merging.</td>
+    </tr>
+    <tr>
+    <td align="left"><code>CC</code></td>
+    <td align="left">String</td>
+    <td align="left">Error-corrected cell barcode sequence</td>
+    <td>The corrected cell barcode, an intermediate step in generating the <code>CB</code> tag.</td>
+    </tr>
+    <tr>
+    <td align="left"><code>CR</code></td>
+    <td align="left">String</td>
+    <td align="left">Raw sequencing cell barcode</td>
+    <td>Retains original sequencing information for quality assessment and error tracing.</td>
+    </tr>
+    <tr>
+    <td align="left"><code>CY</code></td>
+    <td align="left">String</td>
+    <td align="left">Cell barcode quality score</td>
+    <td>Phred quality score, assessing the reliability of barcode sequencing.</td>
+    </tr>
+    <tr>
+    <td align="left"><code>UB</code></td>
+    <td align="left">String</td>
+    <td align="left">Error-corrected UMI sequence</td>
+    <td>Used for molecular deduplication to identify PCR duplicates and original mRNA molecules.</td>
+    </tr>
+    <tr>
+    <td align="left"><code>UR</code></td>
+    <td align="left">String</td>
+    <td align="left">Raw sequencing UMI sequence</td>
+    <td>Retains original UMI information for quality assessment and algorithm optimization.</td>
+    </tr>
+    <tr>
+    <td align="left"><code>UY</code></td>
+    <td align="left">String</td>
+    <td align="left">UMI quality score</td>
+    <td>Phred quality score, assessing the accuracy of UMI sequencing.</td>
+    </tr>
+    </tbody>
+    </table>
+
+    **🧬 Gene Annotation and Functional Tags:**
+
+    <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
+    <thead>
+    <tr>
+    <th width="10%" align="left"><strong>Tag</strong></th>
+    <th width="15%" align="left"><strong>Type</strong></th>
+    <th width="37%" align="left"><strong>Description</strong></th>
+    <th width="38%" align="left"><strong>Functional Purpose</strong></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <td align="left"><code>GX</code></td>
+    <td align="left">String</td>
+    <td align="left">Ensembl ID</td>
+    <td>The primary ID for gene expression quantification.</td>
+    </tr>
+    <tr>
+    <td align="left"><code>GN</code></td>
+    <td align="left">String</td>
+    <td align="left">Gene name</td>
+    <td>Facilitates biological interpretation and supports gene function annotation.</td>
+    </tr>
+    <tr>
+    <td align="left"><code>TX</code></td>
+    <td align="left">String</td>
+    <td align="left">Transcript ID</td>
+    <td>Used for transcript-level expression analysis and alternative splicing studies.</td>
+    </tr>
+    <tr>
+    <td align="left"><code>AN</code></td>
+    <td align="left">String</td>
+    <td align="left">Antisense transcript tag</td>
+    <td>Identifies antisense RNA, assessing library directionality and non-coding RNA expression.</td>
+    </tr>
+    <tr>
+    <td align="left"><code>RE</code></td>
+    <td align="left">String</td>
+    <td align="left">Genomic region type</td>
+    <td>Distinguishes between Exon (E), Intron (N), and Intergenic (I) regions for transcriptome feature analysis.</td>
+    </tr>
+    </tbody>
+    </table>
+
+<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
 
 #### 📄 anno_decon_sorted.bam.bai
 
-**File Description:** Index file for BAM file, used to accelerate random access to BAM files.
+The index file for `anno_decon_sorted.bam`.
 
-**Core Features:**
-- ⚡ **Efficient Access**: Improves visualization and data extraction efficiency
-- 🔧 **Tool Compatibility**: Supports mainstream visualization tools such as IGV and UCSC
-- 📊 **Format Support**: Automatically selects BAI or CSI format
+*   **Core Purpose**:
+    *   **Fast Data Access**: Allows tools like IGV and Samtools to quickly jump to and read alignment data for any genomic region without loading the entire BAM file.
+    *   **Performance Guarantee**: Ensures performance for all random access operations on the BAM file.
+*   **Format and Description**:
+    *   The index file is generated by the `samtools index` command. To accommodate genomes of different sizes, the pipeline automatically selects the appropriate index format (BAI or CSI).
 
-**Index Format Description:**
-
-<table style="width:100%; border-collapse: collapse; margin: 15px 0;">
-<thead>
-<tr>
-<th width="20%" align="left"><strong>Format Type</strong></th>
-<th width="80%" align="left"><strong>Usage Instructions</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left"><strong>BAI Format</strong></td>
-<td>Default generated index format with best compatibility, suitable for most analysis tools</td>
-</tr>
-<tr>
-<td align="left"><strong>CSI Format</strong></td>
-<td>Automatically used when BAM file contains chromosomes longer than 2^29-1 bases, supporting larger genomes</td>
-</tr>
-</tbody>
-</table>
+        <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
+        <thead>
+        <tr>
+        <th width="20%" align="left"><strong>Format Type</strong></th>
+        <th width="80%" align="left"><strong>Usage Instructions</strong></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+        <td align="left"><strong>BAI Format</strong></td>
+        <td>The default index format, offering the best compatibility and suitable for most analysis tools and genomes.</td>
+        </tr>
+        <tr>
+        <td align="left"><strong>CSI Format</strong></td>
+        <td>Automatically generated when the BAM file contains chromosomes longer than 512 Mbp (2^29-1 bp) to support very large genomes.</td>
+        </tr>
+        </tbody>
+        </table>
 
 ---
 
@@ -157,95 +217,130 @@ Prerequisites: High-quality single-cell RNA sequencing data preprocessing is req
 
 <div align="center">
 
-**🎯 Core Content**: Single-cell gene expression count matrix, divided into raw data and quality control filtered data, using standard sparse matrix format
+**🎯 Core Content**: Single-cell gene expression count matrices, divided into raw and quality-controlled filtered data, using standard sparse matrix or AnnData format.
 
 </div>
 
-#### 📄 filter_feature.h5ad
-
-**File Description:** Feature matrix after cell identification in AnnData object (H5AD format).
-
-**Core Features:**
-- 🔧 **Tool Compatibility**: Fully compatible with Scanpy analysis tools
-- 💾 **Efficient Storage**: HDF5 format provides efficient data access
-
-**Purpose:** Used for downstream analysis and visualization.  
-**Reference:** For detailed format, see [AnnData Format Description](#anndata-format-h5ad).
-
 #### 📁 Filtered Gene Expression Matrix (`filter_matrix/`)
 
-**Directory Description:** Filtered expression matrix containing three core files, using Market Matrix Exchange (MEX) standard format.
+Contains the gene expression count matrix after filtering for high-quality cells, which is the core data for downstream quantitative analysis.
 
-**Core File Composition:**
+*   **Core Purpose**:
+    *   **Downstream Quantitative Analysis**: Serves as the **primary input** for analyses such as cell clustering and differential expression analysis.
+    *   **High-Quality Data**: Includes only barcodes identified as real cells, ensuring the accuracy of the analysis results.
 
-<table style="width:100%; border-collapse: collapse; margin: 15px 0;">
-<thead>
-<tr>
-<th width="25%" align="left"><strong>File Name</strong></th>
-<th width="75%" align="left"><strong>Content Description</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left"><code>barcodes.tsv.gz</code></td>
-<td>Cell ID list, identifying cells that passed cell identification. Each line contains a cell ID sequence, corresponding to the matrix column index</td>
-</tr>
-<tr>
-<td align="left"><code>features.tsv.gz</code></td>
-<td>Complete gene/feature information file, containing gene ID, name, and type information. Each line contains three columns: gene ID, gene name, feature type, corresponding to the matrix row index</td>
-</tr>
-<tr>
-<td align="left"><code>matrix.mtx.gz</code></td>
-<td>Gene expression count matrix in Market Matrix format. Contains matrix dimension information and row, column indices and values of non-zero elements</td>
-</tr>
-</tbody>
-</table>
+*   **Content and Format**:
+    *   Uses the standard **Market Matrix Exchange (MEX)** format (for more on matrix formats, see [Market Matrix Format Description](#market-matrix-format-mtxgz)), consisting of the following three compressed files:
+        <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
+        <thead>
+        <tr>
+        <th width="25%" align="left"><strong>File Name</strong></th>
+        <th width="75%" align="left"><strong>Content Description</strong></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+        <td align="left"><code>barcodes.tsv.gz</code></td>
+        <td>A list of cell IDs, identifying high-quality cells that passed QC. Each line contains one cell ID, corresponding to the column index of the matrix.</td>
+        </tr>
+        <tr>
+        <td align="left"><code>features.tsv.gz</code></td>
+        <td>A gene/feature information file, containing gene ID, name, and type. Each line contains three columns of information, corresponding to the row index of the matrix.</td>
+        </tr>
+        <tr>
+        <td align="left"><code>matrix.mtx.gz</code></td>
+        <td>The gene expression count matrix in Market Matrix format. Contains matrix dimension information and the row, column indices, and values of non-zero elements.</td>
+        </tr>
+        </tbody>
+        </table>
 
-**Features and Advantages:**
-- 🔍 **High-Quality Data**: Contains only cells that passed cell identification
-- 💾 **Space Efficient**: Sparse matrix format saves storage space
-- 🔧 **Tool Compatibility**: Compatible with analysis tools such as Seurat and Scanpy
+*   **Format Advantages**:
+    *   **Space Efficient**: The sparse matrix format (`.mtx`) only stores non-zero elements, greatly saving storage space.
+    *   **Highly Compatible**: The MEX format is a standard in the single-cell community, compatible with almost all mainstream analysis tools like Seurat and Scanpy.
 
-**Purpose:** Mainly used for downstream bioinformatics analysis.  
-**Reference:** For matrix format details, see [Market Matrix Format Description](#market-matrix-format-mtxgz).
+<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
 
 #### 📁 Raw Gene Expression Matrix (`raw_matrix/`)
 
-**Directory Description:** Raw expression matrix containing three core files, using Market Matrix Exchange (MEX) standard format.
+Contains the raw gene expression count matrix for all detected cell barcodes (unfiltered).
 
-**Core File Composition:**
+*   **Core Purpose**:
+    *   **Quality Control Assessment**: Can be used to evaluate the effectiveness of cell filtering or to perform manual filtering based on custom criteria.
+    *   **Data Integrity**: Retains all original data, which can be used for deep mining or re-analysis if needed.
 
-<table style="width:100%; border-collapse: collapse; margin: 15px 0;">
-<thead>
-<tr>
-<th width="25%" align="left"><strong>File Name</strong></th>
-<th width="75%" align="left"><strong>Content Description</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left"><code>barcodes.tsv.gz</code></td>
-<td>Raw cell ID list, identifying cell ID information for all detected transcripts. Corresponds to the matrix column index</td>
-</tr>
-<tr>
-<td align="left"><code>features.tsv.gz</code></td>
-<td>Complete gene/feature information file. Contains gene ID, name, and type information</td>
-</tr>
-<tr>
-<td align="left"><code>matrix.mtx.gz</code></td>
-<td>Raw gene expression count matrix, containing all raw count data</td>
-</tr>
-</tbody>
-</table>
+*   **Content and Format**:
+    *   Uses the standard **Market Matrix Exchange (MEX)** format, with a file composition identical to the `filter_matrix/` directory.
+    *   Includes all detected barcodes, including high-quality cells, low-quality cells, and background droplets.
 
-**Features and Advantages:**
-- 📊 **Complete Data**: Retains all raw detection data, unfiltered
-- 🔍 **Quality Control Reference**: Used to evaluate filtering effectiveness and optimize quality control parameters
-- 🔄 **Re-analysis**: Supports re-filtering and analysis with different parameters
-- 💾 **Data Backup**: Complete backup of raw data
+<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
 
-**Purpose:** Stores unfiltered expression data for quality control and parameter optimization.  
-**Reference:** For matrix format details, see [Market Matrix Format Description](#market-matrix-format-mtxgz).
+#### 📄 filter_feature.h5ad
+
+The feature matrix after cell identification and filtering, stored in AnnData (`.h5ad`) format. It is an alternative and supplement to the contents of the `filter_matrix/` directory.
+
+*   **Core Purpose**:
+    *   **Python Ecosystem Integration**: Serves as the standard input format for Python single-cell analysis libraries like `scanpy`, seamlessly connecting to downstream analysis.
+    *   **Data Integration**: A single file can encapsulate the expression matrix, cell metadata, and gene metadata, making it easy to manage and share.
+*   **Content and Format**:
+    *   A binary format based on HDF5. For details, refer to the [AnnData Format Description](#anndata-format-h5ad).
+
+---
+
+### 📊 Analysis Results Directory (`analysis/`) <a id="analysis-results-directory-analysis"></a>
+
+<div align="center">
+
+**🎯 Core Content**: Results of downstream bioinformatics analysis, including cell clustering, differential genes, and post-QC data.
+
+</div>
+
+<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
+
+#### 📄 cluster.csv
+
+The cell clustering analysis result file in CSV format. It contains each cell's ID, its assigned cluster, dimensionality reduction coordinates, and key QC metrics.
+
+*   **Core Purpose**:
+    *   **Clustering Result Visualization**: Can be directly used in plotting software to visualize UMAP dimensionality reduction results.
+    *   **Basis for Cell Annotation**: Provides basic grouping information for manual or automatic cell type annotation.
+*   **Content and Format**:
+    *   Each row represents a high-quality cell, with major columns including:
+        *   `Barcode`: Cell ID
+        *   `Cluster`: The cluster number the cell belongs to
+        *   `UMAP_1`, `UMAP_2`: The 2D coordinates from UMAP dimensionality reduction
+        *   `nGene`, `nUMI`: The number of genes and UMIs detected in each cell
+
+<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
+
+#### 📄 marker.csv
+
+A list of differentially expressed genes (marker genes) for each cluster, in CSV format. It records information such as the significance of each gene's expression in a specific cluster and changes in expression levels.
+
+*   **Core Purpose**:
+    *   **Cell Type Identification**: By looking up known marker genes for cell types, it allows for biological annotation of unsupervised clustering results.
+    *   **Functional Enrichment Analysis**: Can be used as an input gene list for subsequent functional enrichment analyses like GO and KEGG.
+*   **Content and Format**:
+    *   Each row represents the differential expression information of a gene in a cluster, with major columns including:
+        *   `cluster`: The cluster number for which the gene is a marker
+        *   `gene`: Gene name
+        *   `avg_log2FC`: Average log2 fold change
+        *   `p_val_adj`: Adjusted p-value, assessing statistical significance
+        *   `pct.1`, `pct.2`: The proportion of cells expressing the gene in the target cluster versus other clusters
+
+<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
+
+#### 📄 QC_Cluster.h5ad
+
+A single-cell data object that has undergone complete quality control, dimensionality reduction, and clustering analysis, in AnnData (`.h5ad`) format. It integrates the upstream expression matrix with downstream analysis results.
+
+*   **Core Purpose**:
+    *   **Analysis Reproduction and Exploration**: Contains the complete analysis workflow and results, and can be directly loaded in `scanpy` for in-depth exploratory analysis or visualization.
+    *   **Data Delivery**: Serves as a delivery file for final analysis results, with a clear structure and complete information.
+*   **Content and Format**:
+    *   Builds on `filter_feature.h5ad` by adding the following information:
+        *   `obs`: Contains cell metadata such as clustering results (`cluster`).
+        *   `obsm`: Contains dimensionality reduction coordinates (`X_umap`).
+        *   `uns`: Contains unstructured results such as marker genes (`marker_genes`).
 
 ---
 
@@ -253,200 +348,126 @@ Prerequisites: High-quality single-cell RNA sequencing data preprocessing is req
 
 <div align="center">
 
-**🎯 Core Content**: Experimental quality assessment and statistical metrics summary, providing complete data quality control information
+**🎯 Core Content**: A summary of experimental quality assessment and statistical metrics, providing comprehensive data quality control information.
 
 </div>
 
 #### 📄 metrics_summary.xls
 
-**File Description:** Summary table of key analysis metrics in Excel format. Contains statistical information such as sequencing data quality, alignment rates, cell counts, and gene detection numbers.
+A summary table of key analysis metrics in Excel format, providing a comprehensive assessment of the overall quality of the experiment.
 
-**Main Metric Categories:**
+*   **Core Purpose**:
+    *   **Quality Assessment**: Quickly evaluate core metrics such as sequencing data quality, alignment efficiency, and cell identification results.
+    *   **Results Overview**: Provides a comprehensive understanding of the analysis results without needing to view all files.
 
-<table style="width:100%; border-collapse: collapse; margin: 15px 0;">
-<thead>
-<tr>
-<th width="20%" align="left"><strong>Metric Category</strong></th>
-<th width="80%" align="left"><strong>Included Content</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left"><strong>📊 Basic Statistics</strong></td>
-<td>Total reads count, valid barcode proportion, UMI quality, Q30 base quality, and other basic sequencing metrics</td>
-</tr>
-<tr>
-<td align="left"><strong>🧬 Cell Identification</strong></td>
-<td>Estimated cell count, transcript content proportion in cells, average reads per cell, and other cell calling results</td>
-</tr>
-<tr>
-<td align="left"><strong>🎯 Alignment Metrics</strong></td>
-<td>Genome alignment rate, transcriptome alignment rate, exon/intron proportion, and other alignment statistics</td>
-</tr>
-<tr>
-<td align="left"><strong>🔬 Quality Control</strong></td>
-<td>Sequencing saturation, cell gene count, cell UMI count, total genes detected, and other quality control parameters</td>
-</tr>
-</tbody>
-</table>
+*   **Content and Format**:
+    *   Includes three main categories of key metrics:
+        <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
+        <thead>
+        <tr>
+        <th width="20%" align="left"><strong>Metric Category</strong></th>
+        <th width="80%" align="left"><strong>Included Content</strong></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+        <td align="left"><strong>Basic Statistics</strong></td>
+        <td>Total reads, valid barcode ratio, UMI quality, Q30 base quality, and other basic sequencing metrics.</td>
+        </tr>
+        <tr>
+        <td align="left"><strong>Cell Identification</strong></td>
+        <td>Estimated number of cells, median genes/UMIs per cell, sequencing saturation, and other cell calling results.</td>
+        </tr>
+        <tr>
+        <td align="left"><strong>Alignment Metrics</strong></td>
+        <td>Genome alignment rate, transcriptome alignment rate, exon/intron ratio, and other alignment statistics.</td>
+        </tr>
+        </tbody>
+        </table>
+    *   Includes recommended quality control standards for user convenience:
+        <details open>
+        <summary><strong>Recommended Quality Thresholds:</strong></summary>
+        <ul>
+        <li>✅ <strong>Valid Barcode Fraction</strong>: >70%</li>
+        <li>✅ <strong>Q30 Base Quality</strong>: >75% (for barcode and UMI regions)</li>
+        <li>✅ <strong>Reads Mapped Confidently to Transcriptome</strong>: >30%</li>
+        <li>✅ <strong>Fraction Reads in Cells</strong>: >50% (or >30% for nuclear samples)</li>
+        <li>✅ <strong>Mean Reads per Cell</strong>: >15,000</li>
+        </ul>
+        </details>
 
-**Quality Control Standards:**
-
-<details open>
-<summary><strong>Recommended Quality Thresholds:</strong></summary>
-<ul>
-<li>✅ <strong>Valid Barcode Proportion</strong>: >70%</li>
-<li>✅ <strong>Q30 Base Quality</strong>: >75% (barcode and UMI regions)</li>
-<li>✅ <strong>Transcriptome Alignment Rate</strong>: >30%</li>
-<li>✅ <strong>Reads in Cells Proportion</strong>: >50% (nuclear samples >30%)</li>
-<li>✅ <strong>Average Reads per Cell</strong>: >15,000</li>
-</ul>
-</details>
-
-**Purpose:** Used to evaluate data quality and analysis effectiveness.
+<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
 
 #### 📄 singlecell.csv
 
-**File Description:** Single-cell quality control and statistical information table in CSV format. Contains quality control metrics such as cell barcodes, sequencing depth, and detected gene counts, as well as cell merging status and filtering results.
+A single-cell level quality control information table in CSV format, recording detailed statistical data for each cell barcode.
 
-**Core Features:**
-- 🔍 **Quality Control Metrics**: Detailed quality control parameters at the cell level
-- 🔄 **Merging Information**: Cell barcode merging status and statistics
-- 🏷️ **Filtering Results**: Cell quality assessment and filtering status
-- 🔗 **VDJ Compatibility**: Supports cell filtering and merging operations in VDJ analysis
+*   **Core Purpose**:
+    *   **Fine-grained QC**: Allows users to perform more detailed cell filtering and analysis based on custom criteria.
+    *   **Input for Downstream Analysis**: Can be used as cell metadata input for downstream analysis tools, supporting cell filtering and bead merging operations in VDJ analysis.
 
-**Purpose:** Supports downstream personalized analysis and cell filtering and merging operations in VDJ analysis.
+*   **Content and Format**:
+    *   Each row represents a cell barcode.
+    *   Major columns include: UMI count, gene count, mitochondrial gene fraction, and whether it was identified as a high-quality cell, bead merging information, etc.
+
+<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
 
 #### 📄 *_scRNA_report.html
 
-**File Description:** Complete analysis report in HTML web format. Contains interactive visualization charts such as quality control indicators, clustering results, and differential gene expression.
+An interactive comprehensive analysis report in HTML web format.
 
-<table style="width:100%; border-collapse: collapse; margin: 15px 0;">
-<thead>
-<tr>
-<th width="25%" align="left"><strong>Report Features</strong></th>
-<th width="75%" align="left"><strong>Content Description</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left"><strong>📊 Interactive Charts</strong></td>
-<td>Interactive visualization charts for quality control indicators, cell clustering, marker genes, etc.</td>
-</tr>
-<tr>
-<td align="left"><strong>📈 Statistical Summary</strong></td>
-<td>Numerical summary and trend analysis of key performance indicators</td>
-</tr>
-<tr>
-<td align="left"><strong>🔍 Detailed Interpretation</strong></td>
-<td>Biological significance and technical explanations of various metrics</td>
-</tr>
-</tbody>
-</table>
+*   **Core Purpose**:
+    *   **Result Visualization**: Intuitively displays key analysis results such as QC results, cell clustering, and marker genes in the form of interactive charts.
+    *   **Result Interpretation**: Provides biological significance and technical explanations for various metrics to help users deeply interpret the data.
+    *   **Convenient Sharing**: A single HTML file, easy to circulate and share.
 
-**File Format**: HTML web format, compatible with all mainstream browsers  
-**Purpose**: Provides comprehensive overview of analysis results  
-**Detailed Content**: Please see [📊 Web Report Interpretation](#web-report-interpretation) section
+*   **Content and Format**:
+    *   Can be opened in any modern browser without an internet connection.
+    *   For a detailed interpretation of the report, please refer to the [Web Report Interpretation](#web-report-interpretation) section below.
 
 ---
 
 ## 📄 File Format Description <a id="file-format-description"></a>
 
-> **Technical Specifications**: Detailed description of standard formats used for output files
+> **Technical Specifications**: Detailed descriptions of the standard formats used for output files.
 
-### 📊 Market Matrix Format (`.mtx.gz`) <a id="market-matrix-format-mtxgz"></a>
+#### 📊 Market Matrix Format (`.mtx.gz`) <a id="market-matrix-format-mtxgz"></a>
+The Market Exchange Format (MEX) is a standard format used in single-cell analysis for storing sparse count matrices, offering advantages of space efficiency and high compatibility.
 
-**Format Overview:** Market Exchange Format (MEX) is a widely used sparse matrix storage standard in single-cell analysis, consisting of three core files with excellent compatibility.
+*   **Core Advantages**:
+    *   **Space Efficient**: The sparse matrix only stores non-zero elements, which can greatly save storage space for single-cell data where over 95% of values are typically zero.
+    *   **Highly Compatible**: As an international standard format, it can be directly read by almost all mainstream analysis tools like Seurat and Scanpy.
 
-#### File Composition
-- **`matrix.mtx.gz`**: Compressed sparse matrix file.
-  - File header contains matrix dimension information (number of rows, columns, non-zero elements).
-  - Each line records one non-zero element: row index, column index, value.
-- **`barcodes.tsv.gz`**: Compressed cell barcode file.
-  - Each line contains one cell ID.
-  - Line number corresponds to matrix column index (cells).
-  - Format is typically: e.g., `CELL1_N2`, where `CELL1` is the cell ID and `N2` consists of two barcodes.
-- **`features.tsv.gz`**: Compressed feature information file.
-  - Each line contains three columns: gene ID, gene name, feature type.
-  - Line number corresponds to matrix row index (genes/features).
-  - Feature types include: `Gene Expression`.
-
-#### 🎯 Usage Scenarios
-
-<table style="width:100%; border-collapse: collapse; margin: 15px 0;">
-<thead>
-<tr>
-<th width="20%" align="left"><strong>Features</strong></th>
-<th width="80%" align="left"><strong>Detailed Description</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left"><strong>📊 Space Efficiency</strong></td>
-<td>Sparse matrix format stores only non-zero elements, saving significant storage space for single-cell data (typically over 95% zero values)</td>
-</tr>
-<tr>
-<td align="left"><strong>🔧 Compatibility</strong></td>
-<td>Compatible with mainstream single-cell analysis tools: Scanpy, Seurat, etc.</td>
-</tr>
-<tr>
-<td align="left"><strong>🌐 Transferability</strong></td>
-<td>International standard format, facilitating data sharing, publication, and cross-platform collaborative analysis</td>
-</tr>
-</tbody>
-</table>
-
-#### 💻 Code Examples
-
-**Python/Scanpy Complete Workflow:**
-```python
-import scanpy as sc
-import pandas as pd
-
-# Read MEX format data
-adata = sc.read_10x_mtx(
-    'filter_matrix/',  # MEX file directory
-    var_names='gene_symbols',  # Use gene names as variable names
-    cache=True  # Enable cache to accelerate subsequent reads
-)
-
-# Data preprocessing
-adata.var_names_make_unique()
-adata.obs_names_make_unique()
-
-# View data structure
-print(f"Cell count: {adata.n_obs}")
-print(f"Gene count: {adata.n_vars}")
-print(f"Data dimensions: {adata.shape}")
-```
-
-**R/Seurat Complete Workflow:**
-```r
-library(Seurat)
-library(dplyr)
-
-# Read MEX format data
-counts <- Read10X(data.dir = "filter_matrix/")
-
-# Create Seurat object
-seurat_obj <- CreateSeuratObject(
-  counts = counts,
-  project = "scRNA_analysis",
-  min.cells = 3,      # Gene expressed in at least 3 cells
-  min.features = 200  # Cell expresses at least 200 genes
-)
-
-# View data information
-print(paste("Cell count:", ncol(seurat_obj)))
-print(paste("Gene count:", nrow(seurat_obj)))
-head(seurat_obj@meta.data)
-```
+*   **File Composition**:
+    *   A complete MEX format dataset consists of the following **three files**:
+        <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
+        <thead>
+        <tr>
+        <th width="25%" align="left"><strong>File Name</strong></th>
+        <th width="75%" align="left"><strong>Description</strong></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+        <td align="left"><code>matrix.mtx.gz</code></td>
+        <td>A compressed sparse matrix file. The header contains matrix dimensions, and each subsequent line records the position (row/column index) and value of a non-zero element.</td>
+        </tr>
+        <tr>
+        <td align="left"><code>barcodes.tsv.gz</code></td>
+        <td>A compressed cell barcode file. Each line is a cell ID, and the line number corresponds to the matrix's <strong>column</strong>. The format is, for example, `CELL1_N2`, where `CELL1` is the cell ID and `N2` consists of two barcodes.</td>
+        </tr>
+        <tr>
+        <td align="left"><code>features.tsv.gz</code></td>
+        <td>A compressed feature (gene) file. Each line contains information like gene ID and gene name, and the line number corresponds to the matrix's <strong>row</strong>.</td>
+        </tr>
+        </tbody>
+        </table>
 
 ---
 
 ### 🗃️ AnnData Format (`.h5ad`) <a id="anndata-format-h5ad"></a>
 
-**Format Overview:** AnnData ("Annotated Data") is a data structure designed for matrix-type data, particularly suitable for single-cell RNA sequencing data analysis. Based on HDF5 format, it provides efficient data storage and access capabilities.
+**Format Overview:** AnnData ("Annotated Data") is a data structure designed for matrix-like data, particularly suitable for single-cell RNA sequencing data analysis. Based on the HDF5 format, it provides efficient data storage and access capabilities.
 
 #### 🏗️ Data Structure
 
@@ -464,204 +485,48 @@ head(seurat_obj@meta.data)
 | **layers** | Multi-layer data | n_cells × n_genes |
 | **uns** | Unstructured data | Any object |
 
-#### 💻 Usage Examples
-
-**Basic Data Reading:**
-```python
-import scanpy as sc
-import anndata as ad
-import pandas as pd
-import numpy as np
-
-# Read h5ad file
-adata = sc.read_h5ad('filter_feature.h5ad')
-
-# View data structure
-print(adata)
-print(f"Expression matrix dimensions: {adata.shape}")
-print(f"Cell count: {adata.n_obs}, Gene count: {adata.n_vars}")
-```
-
----
-
-### 🧬 BAM Format (`.bam`) <a id="bam-format-bam"></a>
-
-**Format Overview:** BAM (Binary Alignment Map) is a binary format used to store sequencing data aligned to a reference genome. In single-cell RNA sequencing, it contains position-sorted reads, along with cell and molecular barcode information.
-
-#### 🔬 BAM File Technical Specifications
-
-**File Feature Analysis:**
-
-<table style="width:100%; border-collapse: collapse; margin: 15px 0;">
-<thead>
-<tr>
-<th width="25%" align="left"><strong>Technical Features</strong></th>
-<th width="75%" align="left"><strong>Detailed Description</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left"><strong>🗂️ Compression Efficiency</strong></td>
-<td>Compared to SAM format, BAM uses BGZF compression, reducing file size by approximately 60-80%, significantly lowering storage costs and transfer time</td>
-</tr>
-<tr>
-<td align="left"><strong>⚡ Access Speed</strong></td>
-<td>Binary format supports fast random access, and with index files can achieve millisecond-level region retrieval and data extraction</td>
-</tr>
-<tr>
-<td align="left"><strong>🔄 Sorting Status</strong></td>
-<td>Sorted by genomic coordinate position (coordinate sorted), ensuring adjacent reads are stored consecutively in the file, optimizing I/O performance</td>
-</tr>
-<tr>
-<td align="left"><strong>🏷️ Rich Metadata</strong></td>
-<td>Contains complete read alignment information, quality scores, pairing status, and single-cell specific tags such as CB, UB, GX, etc.</td>
-</tr>
-</tbody>
-</table>
-
-#### 🏷️ Tag System
-
-**🧬 Cell and Molecular Identifier Tags:**
-
-<table style="width:100%; border-collapse: collapse; margin: 15px 0;">
-<thead>
-<tr>
-<th width="10%" align="left"><strong>Tag</strong></th>
-<th width="20%" align="left"><strong>Data Type</strong></th>
-<th width="35%" align="left"><strong>Description</strong></th>
-<th width="35%" align="left"><strong>Biological Significance</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left"><code>CB</code></td>
-<td align="left">String</td>
-<td align="left">Cell ID after merging cell barcodes</td>
-<td>Used to assign reads to specific cells, information after cell barcode merging</td>
-</tr>
-<tr>
-<td align="left"><code>CC</code></td>
-<td align="left">String</td>
-<td align="left">Error-corrected cell barcode sequence</td>
-<td>Error-corrected cell barcode</td>
-</tr>
-<tr>
-<td align="left"><code>CR</code></td>
-<td align="left">String</td>
-<td align="left">Raw sequencing cell barcode</td>
-<td>Preserves raw sequencing information for quality assessment and error tracing</td>
-</tr>
-<tr>
-<td align="left"><code>CY</code></td>
-<td align="left">String</td>
-<td align="left">Cell barcode quality scores</td>
-<td>Phred quality scores, assessing reliability of barcode sequencing</td>
-</tr>
-<tr>
-<td align="left"><code>UB</code></td>
-<td align="left">String</td>
-<td align="left">Error-corrected UMI sequence</td>
-<td>Used for molecular deduplication, identifying PCR duplicates and original mRNA molecules</td>
-</tr>
-<tr>
-<td align="left"><code>UR</code></td>
-<td align="left">String</td>
-<td align="left">Raw sequencing UMI sequence</td>
-<td>Preserves raw UMI information for quality assessment and algorithm optimization</td>
-</tr>
-<tr>
-<td align="left"><code>UY</code></td>
-<td align="left">String</td>
-<td align="left">UMI quality scores</td>
-<td>Phred quality scores, assessing accuracy of UMI sequencing</td>
-</tr>
-</tbody>
-</table>
-
-**🧬 Gene Annotation and Functional Tags:**
-
-<table style="width:100%; border-collapse: collapse; margin: 15px 0;">
-<thead>
-<tr>
-<th width="10%" align="left"><strong>Tag</strong></th>
-<th width="20%" align="left"><strong>Data Type</strong></th>
-<th width="35%" align="left"><strong>Description</strong></th>
-<th width="35%" align="left"><strong>Functional Purpose</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left"><code>GX</code></td>
-<td align="left">String</td>
-<td align="left">Ensembl ID</td>
-<td>Gene expression quantification</td>
-</tr>
-<tr>
-<td align="left"><code>GN</code></td>
-<td align="left">String</td>
-<td align="left">Gene name</td>
-<td>Facilitates biological interpretation, supports gene function annotation</td>
-</tr>
-<tr>
-<td align="left"><code>TX</code></td>
-<td align="left">String</td>
-<td align="left">Transcript ID</td>
-<td>Used for transcript-level expression analysis and alternative splicing research</td>
-</tr>
-<tr>
-<td align="left"><code>AN</code></td>
-<td align="left">String</td>
-<td align="left">Antisense transcript marker</td>
-<td>Identifies antisense RNA, evaluates library directionality and non-coding RNA expression</td>
-</tr>
-<tr>
-<td align="left"><code>RE</code></td>
-<td align="left">String</td>
-<td align="left">Genomic region type</td>
-<td>Distinguishes exonic (E), intronic (N), and intergenic (I) regions, used for transcriptome feature analysis</td>
-</tr>
-</tbody>
-</table>
-
 ---
 
 ## 📊 Web Report Interpretation <a id="web-report-interpretation"></a>
 
 <div align="center">
 
-**🎯 Core Content**: HTML web report provides comprehensive visualization display and detailed interpretation of single-cell RNA sequencing analysis results, including key performance indicator evaluation and biological explanation
+**🎯 Overview**: The HTML web report provides a comprehensive visual display and detailed interpretation of single-cell RNA sequencing analysis results, including the evaluation of key performance indicators, to help users quickly understand the experimental quality and analysis results.
 
 </div>
 
-The HTML web report is a comprehensive display platform for single-cell RNA sequencing analysis, integrating complete results from data quality control to downstream biological analysis. The report uses interactive visualization design to help users quickly assess experimental quality, understand analysis results, and guide future research directions.
+The HTML web report is a comprehensive display platform for single-cell RNA sequencing analysis, integrating complete results from data quality control to downstream biological analysis. The report uses an interactive visual design to help users quickly assess experimental quality, understand analysis results, and guide future research directions.
 
-> 💡 **Usage Recommendations**: It is recommended to view each metric in the order presented in the report.
+> 💡 **Usage Suggestion**: It is recommended to review the metrics in the order they are presented in the report.
 
-> ⚠️ **Quality Standards**: Recommended thresholds and quality levels are provided for each metric. Please conduct comprehensive evaluation in combination with specific experimental objectives.
+> ⚠️ **Quality Standards**: Each metric is provided with recommended thresholds and quality levels. Please conduct a comprehensive evaluation based on specific experimental goals.
 
-### 📊 Main Report Content
+### 📊 Main Content and Structure of the Report
 
 <div align="center">
 <img src="../images/html_scrna1.png" alt="scRNA Web Report" width="500">
 </div>
 
+### 🧬 Detailed Explanation of Core Analysis Metrics
+
 #### 🧬 Cell Metrics <a id="cell-metrics"></a>
 
 <div align="center">
 
-**🎯 Core Function**: Cell identification, quality assessment and gene expression statistics, providing key indicators for overall experimental effectiveness
+**🎯 Core Function**: Cell identification, quality assessment, and gene expression statistics, providing key indicators of the overall effectiveness of the experiment.
 
 </div>
 
 **📊 Quality Control Standards:**
+> **Note**: The following standards are for reference only. Actual quality assessment should consider multiple factors such as tissue type, cell state, and experimental goals. Significant differences may exist between different samples, and it is recommended to make judgments based on the specific experimental context.
 
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
 <th width="25%" align="left"><strong>Metric Name</strong></th>
-<th width="30%" align="left"><strong>Recommended Value</strong></th>
+<th width="30%" align="left"><strong>Recommended</strong></th>
 <th width="30%" align="left"><strong>Acceptable</strong></th>
-<th width="15%" align="left"><strong>Needs Optimization</strong></th>
+<th width="15%" align="left"><strong>Needs Improvement</strong></th>
 </tr>
 </thead>
 <tbody>
@@ -708,10 +573,12 @@ The HTML web report is a comprehensive display platform for single-cell RNA sequ
 <em>Estimated Cell Count</em>
 </td>
 <td>
-The number of barcodes associated with cells expressing target transcripts that are identified as real cells (rather than background noise or empty droplets) in the sequencing data.
 <ul>
-<li>📊 <strong>Influencing Factors</strong>: Number of loaded cells and proportion of cells expressing target transcripts</li>
-<li>⚠️ <strong>Abnormal Causes</strong>: Inaccurate cell counting, poor cell lysis effect, sample or library quality issues, low sequencing depth</li>
+<li><strong>Definition</strong>: The total number of valid cells (as opposed to background noise or empty droplets) identified from the sequencing data.</li>
+<li><strong>Calculation Process</strong>: After merging cell barcodes from the same droplet, real cells are predicted based on an empty-droplet model (EmptyDrops).</li>
+<li><strong>Quality Interpretation</strong>: 
+<ul><li><strong>Abnormal Causes</strong>: Inaccurate cell counting, cell lysis, poor sample or library quality, low sequencing depth.</li></ul>
+</li>
 </ul>
 </td>
 </tr>
@@ -721,56 +588,53 @@ The number of barcodes associated with cells expressing target transcripts that 
 <em>Species Information</em>
 </td>
 <td>
-Sample species origin or reference genome information, determined based on the reference database used during analysis. Ensure the analysis uses the correct reference genome version.
+<ul>
+<li><strong>Definition</strong>: The species or reference genome version used for the analysis.</li>
+<li><strong>Description</strong>: This information comes from the reference genome provided during library construction and is used to ensure the accuracy of alignment and annotation.</li>
+</ul>
 </td>
 </tr>
 <tr>
 <td align="left">
 <strong>Mean reads per cell</strong><br>
-<em>Average Reads per Cell Statistics</em>
+<em>Mean Reads per Cell</em>
 </td>
 <td>
-The average number of sequencing reads per cell, reflecting single-cell sequencing depth.
-<div style="padding: 10px; border-left: 4px solid #0ea5e9; margin: 10px 0;">
-<strong>🔬 Technical Requirements</strong>
 <ul>
-<li>Calculated as total sequencing reads divided by the number of detected cells</li>
-<li>This metric does not depend on read alignment results</li>
-<li>Recommended value ≥30,000 reads/cell, but actual requirements vary by cell type and research objectives</li>
+<li><strong>Definition</strong>: The average number of raw sequencing reads allocated to each cell.</li>
+<li><strong>Calculation</strong>: `Total number of raw sequencing reads / Estimated number of cells`</li>
+<li><strong>Quality Interpretation</strong>: A value ≥ 30,000 is recommended to ensure sufficient transcript coverage.</li>
 </ul>
-</div>
 </td>
 </tr>
 <tr>
 <td align="left">
 <strong>Median/Mean UMI per cell</strong><br>
-<em>Median/Average UMI per Cell</em>
+<em>Median/Mean UMIs per Cell</em>
 </td>
 <td>
-The median/average number of unique molecular identifiers (UMI) detected in each cell, used to assess gene expression levels in single-cell sequencing.
-<div style="padding: 10px; border-left: 4px solid #0ea5e9; margin: 10px 0;">
-<strong>🔬 Technical Requirements</strong>
 <ul>
-<li>This metric is affected by cell type, sequencing depth, and library quality</li>
-<li>Low values may indicate insufficient sequencing depth or poor sample quality</li>
+<li><strong>Definition</strong>: The median/mean number of unique molecular identifiers (UMIs) detected in each cell.</li>
+<li><strong>Biological Significance</strong>: Used to assess the gene expression level of single-cell sequencing, more accurately reflecting the abundance of original mRNA molecules than read counts.</li>
+<li><strong>Quality Interpretation</strong>: This metric is affected by cell type, sequencing depth, and library quality. A low value may indicate insufficient sequencing depth or poor sample quality.</li>
 </ul>
-</div>
 </td>
 </tr>
 <tr>
 <td align="left">
 <strong>Median/Mean genes per cell</strong><br>
-<em>Median/Average Genes per Cell</em>
+<em>Median/Mean Genes per Cell</em>
 </td>
 <td>
-The median/average number of genes detected in each cell, reflecting cellular transcriptome complexity.
-<div style="padding: 10px; border-left: 4px solid #0ea5e9; margin: 10px 0;">
-<strong>🔬 Technical Requirements</strong>
 <ul>
-<li>This metric is affected by cell type, sequencing depth, and library quality</li>
-<li>Low values may result from biological factors (low transcriptional activity) or technical factors (insufficient sequencing depth)</li>
+<li><strong>Definition</strong>: The median/mean number of genes detected within a single cell.</li>
+<li><strong>Biological Significance</strong>: This metric directly reflects the complexity of the single-cell transcriptome and the sequencing depth. A higher value indicates better single-cell data quality.</li>
+<li><strong>Quality Interpretation</strong>:
+<ul>
+<li><strong>Note</strong>: This value is highly dependent on cell type and sequencing depth. Cell types with low transcript content (such as blood cells) may have a lower value.</li>
 </ul>
-</div>
+</li>
+</ul>
 </td>
 </tr>
 <tr>
@@ -779,14 +643,11 @@ The median/average number of genes detected in each cell, reflecting cellular tr
 <em>Total Genes Detected</em>
 </td>
 <td>
-The total number of genes detected in the entire sample, requiring each gene to be detected with at least one UMI count in at least one cell.
-<div style="padding: 10px; border-left: 4px solid #0ea5e9; margin: 10px 0;">
-<strong>🔬 Technical Requirements</strong>
 <ul>
-<li>This metric reflects overall sample transcriptome complexity</li>
-<li>Low values may indicate insufficient sequencing depth or poor sample quality</li>
+<li><strong>Definition</strong>: The total number of genes detected in the entire sample, requiring each gene to have at least one UMI count in at least one cell.</li>
+<li><strong>Biological Significance</strong>: Reflects the overall transcriptome complexity of the sample and whether the sequencing was comprehensive.</li>
+<li><strong>Quality Interpretation</strong>: A low value may indicate insufficient sequencing depth or a uniform cell type in the sample.</li>
 </ul>
-</div>
 </td>
 </tr>
 <tr>
@@ -795,11 +656,13 @@ The total number of genes detected in the entire sample, requiring each gene to 
 <em>Fraction of Reads in Cells</em>
 </td>
 <td>
-The percentage of reads with real cell-related barcodes that align to the transcriptome out of all valid barcoded reads that align to the transcriptome.
-<div style="padding: 10px; border-left: 4px solid #22c55e; margin: 10px 0;">
-> ✅ <strong>High Proportion Indicates</strong>: Good cell capture efficiency and low background noise<br>
-> ⚠️ <strong>Low Proportion Reasons</strong>: A lot of free mRNA in the sample or empty droplets exist
-</div>
+<ul>
+<li><strong>Definition</strong>: The proportion of reads successfully assigned to high-quality cell IDs among all validly aligned reads (with valid barcodes/UMIs and confidently mapped to the transcriptome).</li>
+<li><strong>Biological Significance</strong>: Reflects the efficiency of cell capture and the signal-to-noise ratio.</li>
+<li><strong>Quality Interpretation</strong>:
+<ul><li><strong>Quality Issues</strong>: A low proportion may indicate poor sample quality (e.g., extensive cell fragmentation releasing free-floating RNA) or abnormalities in library construction.</li></ul>
+</li>
+</ul>
 </td>
 </tr>
 <tr>
@@ -808,37 +671,36 @@ The percentage of reads with real cell-related barcodes that align to the transc
 <em>Sequencing Saturation</em>
 </td>
 <td>
-An indicator for assessing whether sequencing depth is sufficient, calculated as 1-(UMI count/reads count).
-<div style="padding: 10px; border-left: 4px solid #0ea5e9; margin: 10px 0;">
-<strong>🔬 Technical Requirements</strong>
 <ul>
-<li>When sequencing saturation is high or the curve growth is gentle, it indicates that continuing to increase sequencing depth will not significantly increase the number of detected genes, suggesting that current sequencing depth is adequate</li>
-<li>This metric is affected by library complexity, sequencing depth, and experimental analysis objectives</li>
-<li>Low sequencing saturation indicates that a large portion of library complexity has not yet been captured by sequencing</li>
+<li><strong>Definition</strong>: A metric to assess whether sequencing depth is sufficient, calculated as `1 - (number of deduplicated UMIs / total number of reads)`.</li>
+<li><strong>Biological Significance</strong>: Reflects library complexity and the cost-effectiveness of sequencing. High saturation means that increasing sequencing depth yields diminishing returns in discovering new genes.</li>
+<li><strong>Typical Range</strong>: A range of 40% – 85% is considered ideal.</li>
 </ul>
-</div>
 </td>
 </tr>
 </tbody>
 </table>
 
+<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
+
 #### 🔬 Sequencing Metrics <a id="sequencing-metrics"></a>
 
 <div align="center">
 
-**🎯 Core Function**: Basic quality assessment of sequencing data, including barcode identification rate, UMI quality and sequencing accuracy
+**🎯 Core Function**: Basic quality assessment of sequencing data, including barcode identification rate, UMI quality, and sequencing accuracy.
 
 </div>
 
 **📊 Quality Control Standards:**
+> **Note**: The following standards are for reference only. Actual quality assessment should consider multiple factors such as tissue type, cell state, and experimental goals. Significant differences may exist between different samples, and it is recommended to make judgments based on the specific experimental context.
 
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
-<th width="25%" align="left"><strong>Metric Name</strong></th>
-<th width="30%" align="left"><strong>Recommended Value</strong></th>
-<th width="30%" align="left"><strong>Acceptable</strong></th>
-<th width="15%" align="left"><strong>Needs Optimization</strong></th>
+<th width="25%" align="left"><strong>Metric Category</strong></th>
+<th width="25%" align="left"><strong>Recommended</strong></th>
+<th width="25%" align="left"><strong>Acceptable</strong></th>
+<th width="25%" align="left"><strong>Needs Improvement</strong></th>
 </tr>
 </thead>
 <tbody>
@@ -876,84 +738,77 @@ An indicator for assessing whether sequencing depth is sufficient, calculated as
 <tr>
 <td align="left">
 <strong>Number of reads</strong><br>
-<em>Read Count</em>
+<em>Total Number of Reads</em>
 </td>
 <td>
-The total number of sequencing read pairs allocated to this library, reflecting the overall scale of sequencing data. More reads theoretically provide more comprehensive coverage of the cellular transcriptome.
-</td>
-</tr>
-<tr>
-<td align="left">
-<strong>Valid barcodes</strong><br>
-<em>Valid Barcode Proportion</em>
-</td>
-<td>
-The proportion of sequencing reads whose barcodes can be successfully matched in the preset whitelist.
 <ul>
-<li>✅ <strong>High Proportion Indicates</strong>: Accurate cell identification, low sample contamination level, and good library construction quality</li>
+<li><strong>Definition</strong>: The total number of raw sequencing read pairs assigned to this sample.</li>
+<li><strong>Significance</strong>: Represents the overall data volume of this sequencing run. Theoretically, a higher number of reads provides more comprehensive coverage of the cell's transcriptome.</li>
 </ul>
 </td>
 </tr>
 <tr>
 <td align="left">
-<strong>Corrected barcodes</strong><br>
-<em>Corrected Barcode Proportion</em>
+<strong>Valid barcodes</strong><br>
+<em>Valid Barcode Fraction</em>
 </td>
 <td>
-The proportion of reads where original sequencing barcodes are corrected through error correction algorithms and successfully recovered to valid barcodes in the whitelist.
 <ul>
-<li>⚙️ <strong>Technical Principle</strong>: Corrects sequencing errors in barcodes using Hamming distance algorithm</li>
-<li>⚡ <strong>Optimization Significance</strong>: Improves barcode recognition efficiency and reduces barcode loss due to sequencing errors</li>
+<li><strong>Definition</strong>: The proportion of all reads whose Cell Barcode can be matched to a preset whitelist (after error correction).</li>
+<li><strong>Biological Significance</strong>: Reflects the effectiveness of cell labeling.</li>
+<li><strong>Quality Interpretation</strong>: A very low proportion usually indicates sample quality issues leading to barcode degradation and adapter contamination, or a high error rate during the sequencing process.</li>
 </ul>
 </td>
 </tr>
 <tr>
 <td align="left">
 <strong>Valid UMIs</strong><br>
-<em>Valid UMI Proportion</em>
+<em>Valid UMI Fraction</em>
 </td>
 <td>
-The proportion of UMI sequences extracted from reads that do not contain 'N' bases and are not homopolymers (such as AAAAAA).
 <ul>
-<li>🔬 <strong>Technical Significance</strong>: A high proportion indicates good UMI quality, which is beneficial for accurately distinguishing PCR duplicates subsequently</li>
+<li><strong>Definition</strong>: The proportion of all reads whose Unique Molecular Identifier (UMI) sequence does not contain 'N' bases and is not a homopolymer (e.g., AAAAAA).</li>
+<li><strong>Biological Significance</strong>: Reflects the sequencing quality of the UMI sequence, which is key for accurate molecular counting.</li>
 </ul>
 </td>
 </tr>
 <tr>
 <td align="left">
-<strong>Q30 Base Quality</strong><br>
-<em>Q30 High-Quality Base Proportion</em>
+<strong>Q30 bases in barcode/UMI/read</strong><br>
+<em>Q30 Base Fraction</em>
 </td>
 <td>
-Represents the proportion of bases with sequencing accuracy higher than 99.9% (i.e., error rate lower than 0.1%), evaluated separately for different segments:
 <ul>
-<li>📊 <strong>Evaluation Regions</strong>: Barcode region (cell identity recognition), UMI region (molecular counting), RNA read region (sequencing quality)</li>
-<li>📋 <strong>Calculation Basis</strong>: Using the total number of original sequencing reads as the denominator</li>
+<li><strong>Definition</strong>: The proportion of bases with a sequencing quality score of Q30 or higher in the cell barcode, UMI, and RNA read sequences.</li>
+<li><strong>Significance</strong>: Q30 represents a sequencing error rate of less than 0.1%. This metric directly affects the accuracy of cell identification, molecular counting, and gene alignment.</li>
 </ul>
 </td>
 </tr>
 </tbody>
 </table>
 
-> **Note:** All proportion metrics above are calculated using the total number of original sequencing reads (`Number of reads`) as the denominator, ensuring comparability and consistency between various metrics.
+> **Note**: All proportions above are calculated based on the total number of raw sequencing reads (Number of Reads), ensuring comparability and consistency across metrics.
+
+<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
 
 #### 🗺️ Mapping Metrics <a id="mapping-metrics"></a>
 
 <div align="center">
 
-**🎯 Core Function**: Assessing the quality of reads alignment to the reference genome, including alignment rate, specificity and genomic region distribution
+**🎯 Core Function**: To assess the quality of read alignment to the reference genome, including alignment rate, specificity, and genomic region distribution.
 
 </div>
 
 **📊 Quality Control Standards:**
+> **Note**: The following standards are for reference only. Actual quality assessment should consider multiple factors such as tissue type, cell state, and experimental goals. Significant differences may exist between different samples, and it is recommended to make judgments based on the specific experimental context.
 
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
 <th width="25%" align="left"><strong>Metric Name</strong></th>
-<th width="30%" align="left"><strong>Recommended Value</strong></th>
+<th width="30%" align="left"><strong>Recommended</strong></th>
 <th width="30%" align="left"><strong>Acceptable</strong></th>
-<th width="15%" align="left"><strong>Needs Optimization</strong></th>
+<th width="15%" align="left"><strong>Needs Improvement</strong></th>
 </tr>
 </thead>
 <tbody>
@@ -964,21 +819,15 @@ Represents the proportion of bases with sequencing accuracy higher than 99.9% (i
 <td align="left">< 50%</td>
 </tr>
 <tr>
-<td align="left"><strong>Reads mapped confidently to genome</strong></td>
-<td align="left">≥ 60%</td>
-<td align="left">40–60%</td>
-<td align="left">< 40%</td>
-</tr>
-<tr>
 <td align="left"><strong>Reads mapped confidently to transcriptome</strong></td>
 <td align="left">≥ 50%</td>
-<td align="left">30–50%</td>
+<td align="left">30-50%</td>
 <td align="left">< 30%</td>
 </tr>
 <tr>
 <td align="left"><strong>Reads mapped antisense to gene</strong></td>
 <td align="left">< 10%</td>
-<td align="left">10–30%</td>
+<td align="left">10-30%</td>
 <td align="left">> 30%</td>
 </tr>
 </tbody>
@@ -997,91 +846,89 @@ Represents the proportion of bases with sequencing accuracy higher than 99.9% (i
 <tr>
 <td align="left">
 <strong>Reads mapped to genome</strong><br>
-<em>Genome Alignment Reads</em>
+<em>Genome Alignment Rate</em>
 </td>
 <td>
-The proportion of all sequencing reads that successfully align to any position in the reference genome, including unique alignments and multiple alignments.
 <ul>
-<li>✅ <strong>High Proportion Indicates</strong>: Good sample quality, reference genome match, and sequencing quality</li>
-<li>⚠️ <strong>Abnormal Causes</strong>: Poor sample quality, reference genome mismatch, or sequencing quality issues</li>
+<li><strong>Definition</strong>: The proportion of all reads that successfully align to any location on the reference genome (including unique and multiple alignments).</li>
+<li><strong>Quality Interpretation</strong>:
+<ul><li><strong>Needs Attention</strong>: A rate below 50% may indicate sample contamination (e.g., bacteria) or species mismatch.</li></ul>
+</li>
 </ul>
 </td>
 </tr>
 <tr>
 <td align="left">
 <strong>Reads mapped confidently to genome</strong><br>
-<em>Confident Genome Alignment</em>
+<em>Confident Genome Alignment Rate</em>
 </td>
 <td>
-The proportion of reads that can be confidently aligned to the reference genome, mainly from unique alignments.
 <ul>
-<li>🔬 <strong>Technical Principle</strong>: For multi-mapping reads that align to both a single exonic site and one or more non-exonic sites, the exonic site is selected and these reads are also retained and counted as confident alignments</li>
-<li>⚡ <strong>Quality Significance</strong>: Better reflects the reliability and biological relevance of read positioning</li>
-</ul>
-</td>
-</tr>
-<tr>
-<td align="left">
-<strong>Reads mapped confidently to exonic regions</strong><br>
-<em>Exonic Region Alignment</em>
-</td>
-<td>
-Represents the proportion of reads confidently aligned to annotated exonic regions.
-<ul>
-<li>🧬 <strong>Classification Criteria</strong>: When at least 50% of a read's sequence overlaps with exons, the read is classified as exonic alignment</li>
-<li>🎯 <strong>Biological Significance</strong>: Reflects effective mRNA capture efficiency</li>
-</ul>
-</td>
-</tr>
-<tr>
-<td align="left">
-<strong>Reads mapped confidently to intronic regions</strong><br>
-<em>Intronic Region Alignment</em>
-</td>
-<td>
-Represents the proportion of reads confidently aligned to annotated intronic regions.
-<ul>
-<li>🧬 <strong>Classification Criteria</strong>: When reads do not meet exonic classification criteria but intersect with intronic regions, they are classified as intronic alignment</li>
-<li>🔬 <strong>Biological Significance</strong>: This portion usually appears in incompletely spliced mRNA or when detecting nuclear RNA</li>
-</ul>
-</td>
-</tr>
-<tr>
-<td align="left">
-<strong>Reads mapped confidently to intergenic regions</strong><br>
-<em>Intergenic Region Alignment</em>
-</td>
-<td>
-Refers to the proportion of reads confidently aligned to regions that do not belong to any annotated genes (i.e., intergenic regions).
-<ul>
-<li>🧬 <strong>Classification Criteria</strong>: When reads meet neither exonic nor intronic classification criteria, they are classified as intergenic region alignment</li>
-<li>⚠️ <strong>Abnormal Indication</strong>: An excessively high proportion may suggest non-specific amplification in the library or incomplete reference annotation</li>
+<li><strong>Definition</strong>: The proportion of all reads that align with high quality (STAR MAPQ value of 255) to a <strong>unique</strong> location on the genome.</li>
+<li><strong>Technical Detail</strong>: For multi-mapping reads, they are corrected to confident reads in one specific case: when the read aligns to both an exonic region and one or more non-exonic regions, the pipeline accepts its alignment in the exonic region and retains it.</li>
+<li><strong>Biological Significance</strong>: This forms the basis of valid data for gene expression quantification and regional analysis. A low proportion may be caused by repetitive sequences, poor sequence quality, or a mismatched reference genome.</li>
 </ul>
 </td>
 </tr>
 <tr>
 <td align="left">
 <strong>Reads mapped confidently to transcriptome</strong><br>
-<em>Confident Transcriptome Alignment</em>
+<em>Confident Transcriptome Alignment Rate</em>
 </td>
 <td>
-Represents the proportion of reads that are confidently aligned to transcripts and can be uniquely attributed to a single gene.
 <ul>
-<li>🧬 <strong>Technical Principle</strong>: When read alignment positions have multiple overlapping genes, these reads are filtered out to ensure accuracy of gene expression quantification</li>
-<li>🎯 <strong>Quality Assessment</strong>: This is an important metric for assessing library quality, with higher proportions indicating more specific and reliable captured mRNA</li>
+<li><strong>Definition</strong>: The proportion of all reads that can be uniquely aligned with high confidence to a <strong>single gene</strong> (including exons and introns by default).</li>
+<li><strong>Technical Detail</strong>: To ensure quantification accuracy, if a read's alignment region overlaps with multiple different genes, the read is considered of ambiguous origin and filtered out.</li>
+<li><strong>Biological Significance</strong>: This is a core metric for assessing library quality and data reliability. A higher proportion means more valid data for downstream quantitative analysis and more reliable results.</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td align="left">
+<strong>Reads mapped confidently to exonic regions</strong><br>
+<em>Exonic Region Alignment Rate</em>
+</td>
+<td>
+<ul>
+<li><strong>Definition</strong>: The proportion of reads confidently mapped to the genome that fall into annotated <strong>exonic</strong> regions.</li>
+<li><strong>Technical Detail</strong>: A read is considered confidently mapped to an exonic region only if at least 50% of it falls within an exonic region.</li>
+<li><strong>Biological Significance</strong>: This is the main source of mature mRNA and a core metric for assessing library quality. In standard whole-cell scRNA-seq, this proportion should be high.</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td align="left">
+<strong>Reads mapped confidently to intronic regions</strong><br>
+<em>Intronic Region Alignment Rate</em>
+</td>
+<td>
+<ul>
+<li><strong>Definition</strong>: The proportion of reads confidently mapped to the genome that fall into annotated <strong>intronic</strong> regions.</li>
+<li><strong>Technical Detail</strong>: A read is considered confidently mapped to an intronic region only if it does not meet the criteria for exonic region classification and intersects with an intronic region.</li>
+<li><strong>Biological Significance</strong>: A high proportion usually indicates the capture of a large amount of unspliced pre-mRNA. This is expected in nuclear sequencing (snRNA-seq).</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td align="left">
+<strong>Reads mapped confidently to intergenic regions</strong><br>
+<em>Intergenic Region Alignment Rate</em>
+</td>
+<td>
+<ul>
+<li><strong>Definition</strong>: The proportion of reads confidently mapped to the genome that do not fall into any annotated gene (including exons and introns).</li>
+<li><strong>Quality Interpretation</strong>: An excessively high proportion may suggest incomplete gene annotation or non-specific amplification in the library.</li>
 </ul>
 </td>
 </tr>
 <tr>
 <td align="left">
 <strong>Reads mapped antisense to gene</strong><br>
-<em>Antisense Gene Alignment</em>
-</td>
-<td>
-Refers to the proportion of reads that successfully align to the transcriptome but in the opposite direction to annotated genes.
+<em>Antisense Alignment Rate</em>
+</td><td>
 <ul>
-<li>🎯 <strong>Normal Range</strong>: <30%</li>
-<li>⚠️ <strong>Abnormal Indication</strong>: When an abnormally high proportion is detected, it usually suggests that 3' and 5' ends were not correctly distinguished during the analysis process</li>
+<li><strong>Definition</strong>: The proportion of reads that successfully align to a gene region but in the opposite direction to the annotated gene.</li>
+<li><strong>Quality Interpretation</strong>: An excessively high proportion may indicate directionality issues during library construction or the presence of unknown antisense transcripts.</li>
 </ul>
 </td>
 </tr>
@@ -1091,254 +938,138 @@ Refers to the proportion of reads that successfully align to the transcriptome b
 <em>Include Introns</em>
 </td>
 <td>
-Controls whether reads aligned to intronic regions are included in gene expression counting.
 <ul>
-<li>⚙️ <strong>Enabled State</strong>: When set to True, reads from intronic regions are counted toward the expression of the corresponding gene</li>
-<li>⚙️ <strong>Disabled State</strong>: When set to False, only reads from exonic regions are counted toward gene expression</li>
+<li><strong>Definition</strong>: Controls whether reads aligned to intronic regions are included in gene expression counts.</li>
+<li><strong>Enabled State (Default)</strong>: When set to `True`, reads from intronic regions <strong>are counted</strong> towards the expression of the corresponding gene. This mode captures gene activity more comprehensively, especially suitable for nuclear sequencing or scenarios requiring pre-mRNA analysis.</li>
+<li><strong>Disabled State</strong>: When set to `False`, <strong>only exonic</strong> reads are counted towards gene expression. This mode focuses on the quantification of mature mRNA.</li>
 </ul>
 </td>
 </tr>
 </tbody>
 </table>
 
-> **Note:** All proportion metrics above are calculated using the total number of original sequencing reads (`Number of reads`) as the denominator, ensuring comparability and consistency between various metrics.
+> **Note**: All proportions above are calculated based on the total number of raw sequencing reads (Number of Reads), ensuring comparability and consistency across metrics.
 
----
+<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
 
 ### 📈 Interactive Visualization Chart Interpretation <a id="interactive-visualization-chart-interpretation"></a>
 
 <div align="center">
 
-**🎯 Core Function**: Provides comprehensive data visualization analysis, from cell quality control to complete downstream biological analysis display
+**🎯 Core Function**: Provides comprehensive data visualization analysis, from cell quality control to a complete display of downstream biological analysis.
 
 </div>
 
-#### 📊 Visualization Chart Group 1: Cell Quality Control Analysis <a id="visualization-chart-group-1"></a>
+#### 📊 Visualization Chart Group One: Cell Quality Control Analysis <a id="visualization-chart-group-one"></a>
 
-**🔍 Cell Identification Curve Plot (Barcode Rank Plot)**
 
-**🎯 Analysis Purpose**: Visualizes the UMI count distribution for each cell, distinguishing real cells from background noise.
+##### 📊 Barcode Rank Plot
 
-**📊 Visual Encoding**: 🔵 Blue line (valid cells) | ⬜ Gray line (background noise) | 🔷 Blue gradient area (mixed region)
+**Chart Function**:
+This plot distinguishes high-quality real cells from background noise by ranking all cells by their UMI count.
 
-  <div align="center">
+<div align="center">
 <img src="../images/html_scrna3.jpg" alt="scRNA Web Report" width="300">
 </div>
 
-**📏 Chart Axis Details**:
-- **X-axis**: Barcode Rank (cell ranking) - Ranked in descending order by total UMI count (logarithmic scale)
-- **Y-axis**: UMI Counts (UMI count) - Total UMI count for each cell (logarithmic scale)
-- **Interaction**: Hover to display cell ranking position, UMI count, and proportion of real cells in that segment
+**How to Interpret**:
+*   **Visual Encoding**: 🔵 Blue line (valid cells) | ⬜ Gray line (background noise) | 🔷 Blue gradient area (mixed region)
+*   **Chart Axes Explained**: 
+    - **X-axis**: Barcode Rank - Sorted by total UMI count in descending order (log scale)
+    - **Y-axis**: UMI Counts - Total UMI count for each cell (log scale)
+    - **Interaction**: Hover to display cell rank, UMI count, and the proportion of real cells in that segment
+*   **Quality Assessment Guide**: 
+    - **Ideal Pattern**: A clear "knee point" distinguishes real cells from the background, with a steep drop in the real cell region and a flat distribution in the background region.
+    - **Abnormal Pattern**: Lack of a clear knee point (cell concentration too low), or a gradual decline (background RNA too high).
 
-**🔍 Quality Assessment Guidance**:
+<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
 
-<table style="width:100%; border-collapse: collapse; margin: 15px 0;">
-<thead>
-<tr>
-<th width="30%" align="left"><strong>Pattern Characteristics</strong></th>
-<th width="70%" align="left"><strong>Quality Interpretation</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left"><strong>✅ Ideal Pattern</strong></td>
-<td>Clear "inflection point" distinguishing real cells from background, with steep decline in real cell region and gentle distribution in background region</td>
-</tr>
-<tr>
-<td align="left"><strong>⚠️ Abnormal Pattern</strong></td>
-<td>Lack of clear inflection point (low cell concentration), gentle decline (high background RNA)</td>
-</tr>
-</tbody>
-</table>
+##### 📊 Droplet Beads Distribution
 
-**🧪 Droplet Bead Distribution (Real Cells)**: Shows the distribution of cell barcode counts in real cell droplets, theoretically following a Poisson distribution.
+**Chart Function**:
+Displays the distribution of the number of captured cell barcodes (Beads) in real cell droplets.
 
-**Quality Control**: When beads are concentrated at 1, check: oligo library sequencing depth (>50M reads), cDNA/oligo library compatibility
+**How to Interpret**:
+*   **Theoretical Distribution**: The distribution of beads in droplets theoretically follows a **Poisson distribution**, reflecting the statistical properties of the random capture process in the micro-reaction system.
+*   **Actual Influences**: The final distribution is affected by experimental factors such as sequencing saturation, droplet size uniformity, and cell concentration.
 
-**📏 Cell Data Distribution Chart**: Shows distribution of cell gene count, UMI count, and mitochondrial gene proportion
+<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
 
-<table style="width:100%; border-collapse: collapse; margin: 15px 0;">
-<thead>
-<tr>
-<th width="25%" align="left"><strong>Metric</strong></th>
-<th width="35%" align="left"><strong>Common Range (Reference Value)</strong></th>
-<th width="40%" align="left"><strong>Abnormal Interpretation (Possible Causes)</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left"><strong>Gene Count</strong></td>
-<td align="left">Most cells approximately 500–8000 genes</td>
-<td align="left">Too low: Low-quality cells or RNA degradation; Too high: Possibly doublets/multiplets</td>
-</tr>
-<tr>
-<td align="left"><strong>UMI Count</strong></td>
-<td align="left">Most cells approximately 1,000–50,000</td>
-<td align="left">Too low: Empty droplets or low RNA content; Too high: Doublets or library amplification bias</td>
-</tr>
-<tr>
-<td align="left"><strong>Mitochondrial Proportion</strong></td>
-<td align="left">Generally <10–20%</td>
-<td align="left">>20–25%: Cells under stress, apoptosis, or rupture</td>
-</tr>
-</tbody>
-</table>
-  
+##### 📊 Cell Data Distribution
+
+**Chart Function**:
+Through three separate violin plots, it shows the distribution of high-quality cells across three key quality metrics: **number of genes (nGenes)**, **number of UMIs (nUMI)**, and **mitochondrial gene percentage (percent.mt)**.
+
+**How to Interpret**:
+*   **Number of Genes and UMIs**: The higher the center of the distribution (the widest part), the higher the transcriptome complexity and capture efficiency of the cells.
+*   **Mitochondrial Gene Percentage**: The distribution should be concentrated at a low percentage (usually < 10-20%). A high percentage may indicate cell apoptosis or stress.
+
+</br>
+
 ---
-</br>
-</br>
 
 <div align="center">
 <img src="../images/html_scrna2.png" alt="scRNA Web Report" width="500">
 </div>
-  
-#### 📊 Visualization Chart Group 2: Downstream Biological Analysis <a id="visualization-chart-group-2"></a>
+
+#### 📊 Visualization Chart Group Two: Downstream Biological Analysis <a id="visualization-chart-group-two"></a>
 
 <div align="center">
 
-**🎯 Core Function**: Comprehensive display of cell clustering analysis, differential gene identification, cell type annotation and sequencing depth evaluation
+**🎯 Core Function**: A comprehensive display of cell clustering analysis, differential gene identification, cell type annotation, and sequencing depth assessment.
 
 </div>
 
-**🎨 Cell Clustering Analysis Chart (Cluster Analysis)**
+##### 🌀 Cluster Analysis
 
-<div style="padding: 15px; border-left: 4px solid #007bff; margin: 15px 0;">
+**Chart Function**:
+Using UMAP dimensionality reduction and the Louvain clustering algorithm, cells with similar gene expression patterns are grouped together in a 2D space, thereby identifying potential cell subpopulations.
 
-**🎯 Analysis Purpose**: Identify cell subpopulations through unsupervised clustering and dimensionality reduction visualization, and assess cell quality distribution
+**How to Interpret**:
+*   **Left Plot (Cell Type Clustering)**: Each point represents a cell, and different colors represent different cell clusters. Cells that are close in space have more similar gene expression profiles.
+*   **Right Plot (UMI Count Distribution)**: On the same UMAP space, a color gradient shows the total UMI count for each cell. This can be used to help assess the reliability of the clustering results, for example, whether certain clusters are composed of low-quality cells.
 
-</div>
+<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
 
-<table style="width:100%; border-collapse: collapse; margin: 15px 0;">
-<thead>
-<tr>
-<th width="30%" align="left"><strong>Chart Composition</strong></th>
-<th width="70%" align="left"><strong>Technical Details and Biological Significance</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left"><strong>🎨 Left Clustering Chart</strong></td>
-<td><strong>Algorithm</strong>: Louvain unsupervised clustering | <strong>Dimensionality Reduction</strong>: UMAP 2D projection | <strong>Encoding</strong>: Color differentiation of cell subpopulations | <strong>Significance</strong>: Cells with similar gene expression profiles grouped into the same cluster</td>
-</tr>
-<tr>
-<td align="left"><strong>📊 Right UMI Chart</strong></td>
-<td><strong>Data</strong>: Total UMI count per cell | <strong>Coordinates</strong>: Same UMAP 2D coordinate system as left chart | <strong>Gradient</strong>: Blue→red color gradient | <strong>Quality Control</strong>: Identify high-quality cell regions and technical noise</td>
-</tr>
-</tbody>
-</table>
+##### 📈 Marker Genes Analysis
 
-**🔬 Marker Gene Analysis (Marker Genes)**
+**Chart Function**:
+Displays the characteristic differentially expressed genes for each cell cluster, used to identify and annotate different cell types.
 
-<div style="padding: 15px; border-left: 4px solid #28a745; margin: 15px 0;">
+**How to Interpret**:
+*   **Key Metrics Explained**: 
+    - **P-val**: The statistical significance p-value of differential expression. The smaller the value, the more significant the difference (Threshold: < 0.05 is significant, < 0.01 is highly significant).
+    - **p_val_adj**: The adjusted p-value after Bonferroni multiple testing correction, which controls the false positive rate (it is recommended to use the adjusted p-value for final screening).
+    - **avg_log2FC**: Average log2 fold change (on a log2 scale).
+    - **pct.1 / pct.2**: The proportion of cells expressing the gene in the target cluster versus other clusters.
+*   **Interactive Features**: Cluster filtering (select a specific cluster from the dropdown menu) | Gene search (use the search box to quickly locate gene expression).
 
-**🎯 Function Description**: Displays characteristic differentially expressed genes for each cell cluster, used to identify and annotate different cell types
+<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
 
-**📊 Statistical Method**: Performs differential expression testing for each gene between the target cluster and all other clusters
+##### 🧬 Cell Type Annotation
 
-</div>
+**Chart Function**:
+On the UMAP plot, each cluster is labeled with a cell type inferred from a reference database (e.g., scHCL, scMCA).
 
-**🔢 Key Metric Interpretations**:
+**How to Interpret**:
+*   **Annotation Result**: Provides a possible cell type label for each cluster.
+*   **Species Support**: Human (Homo sapiens) / Mouse (Mus musculus). Cell type annotation is not provided for other species.
+*   **Usage Suggestion**: The automatic annotation results are for reference only. Their accuracy depends on the quality of the reference database and the similarity of the sample. It is recommended to manually verify and correct them in conjunction with marker genes.
 
-<table style="width:100%; border-collapse: collapse; margin: 15px 0;">
-<thead>
-<tr>
-<th width="20%" align="left"><strong>Statistical Metric</strong></th>
-<th width="80%" align="left"><strong>Meaning and Interpretation Guidance</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left"><code>P-val</code></td>
-<td>Statistical significance p-value for differential expression, smaller values indicate more significant differences. <strong>Threshold</strong>: < 0.05 significant, < 0.01 highly significant</td>
-</tr>
-<tr>
-<td align="left"><code>p_val_adj</code></td>
-<td>Bonferroni multiple testing corrected adjusted p-value, controlling false positive rate. <strong>Recommendation</strong>: Use adjusted p-value for final screening</td>
-</tr>
-<tr>
-<td align="left"><code>avg_log2FC</code></td>
-<td>Average log2 fold change, representing expression fold change of target cluster relative to other clusters (log2 scale)</td>
-</tr>
-<tr>
-<td align="left"><code>pct.1</code> / <code>pct.2</code></td>
-<td>Proportion of cells expressing the gene in target cluster/other clusters</td>
-</tr>
-</tbody>
-</table>
+<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
 
-**🔧 Interactive Features**: **Cluster Filtering** (dropdown menu to select specific clusters) | **Gene Search** (search box to quickly locate gene expression)
+##### 📊 Sequencing Saturation Curve
 
-**🧬 Cell Type Automatic Annotation (Cell Type Annotation)**
+**Chart Function**:
+Assesses the adequacy of sequencing depth and data complexity, i.e., whether further increasing the sequencing volume can lead to the discovery of more new genes or UMIs.
 
-<div style="padding: 15px; border-left: 4px solid #0ea5e9; margin: 15px 0;">
-
-**🎯 Annotation Principle**: Automatic cell type identification and classification based on reference databases
-
-</div>
-
-<table style="width:100%; border-collapse: collapse; margin: 15px 0;">
-<thead>
-<tr>
-<th width="25%" align="left"><strong>Technical Specifications</strong></th>
-<th width="75%" align="left"><strong>Detailed Description</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left"><strong>📚 Reference Databases</strong></td>
-<td><strong>scHCL</strong>: Single-cell Human Cell Landscape database | <strong>scMCA</strong>: Single-cell Mouse Cell Atlas database</td>
-</tr>
-<tr>
-<td align="left"><strong>🌍 Species Support</strong></td>
-<td><strong>Supported</strong>: Human, Mouse | <strong>Limitation</strong>: Automatic annotation not available for other species</td>
-</tr>
-<tr>
-<td align="left"><strong>⚠️ Usage Recommendations</strong></td>
-<td><strong>Reference Nature</strong>: Annotation results are for reference only and need to be validated with biological background | <strong>Accuracy</strong>: Limited by reference database coverage | <strong>Recommendation</strong>: Combine with marker gene analysis for comprehensive judgment</td>
-</tr>
-</tbody>
-</table>
-
-**📈 Sequencing Saturation Analysis (Sequencing Saturation Analysis)**
-
-<div style="padding: 15px; border-left: 4px solid #6f42c1; margin: 15px 0;">
-
-**🎯 Analysis Purpose**: Evaluate sequencing depth adequacy and cost-effectiveness, guiding experimental design optimization
-
-</div>
-
-<table style="width:100%; border-collapse: collapse; margin: 15px 0;">
-<thead>
-<tr>
-<th width="30%" align="left"><strong>Chart Type</strong></th>
-<th width="70%" align="left"><strong>Technical Principles and Interpretation Guidance</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left"><strong>📊 Left Saturation Curve</strong></td>
-<td><strong>Calculation</strong>: Saturation = 1 - (UMI count / reads count) | <strong>Interpretation</strong>: Smooth curve indicates sufficient sequencing</td>
-</tr>
-<tr>
-<td align="left"><strong>📈 Right Gene Count Curve</strong></td>
-<td><strong>Metric</strong>: Median gene count per cell detected | <strong>Significance</strong>: Reflects transcriptome complexity | <strong>Optimization</strong>: Guides sequencing depth and experimental design improvement</td>
-</tr>
-</tbody>
-</table>
-
-**💡 Quality Assessment Standards**:
-
-<div style="padding: 15px; border-left: 4px solid #ffc107; margin: 15px 0;">
-
-**✅ Ideal State**: Saturation 40-85%, gene detection curve trending flat, clear cell cluster separation
-
-**⚠️ Needs Optimization**: Saturation too low (<20%) or too high (>85%), gene detection count continuously rising, cluster boundaries unclear
-
-</div>
+**How to Interpret**:
+*   **Axes**: The X-axis is the average number of sequencing reads per cell, and the Y-axis is the saturation / median number of genes per cell.
+*   **Curve Trend**: If the curve tends to flatten, it indicates that sequencing is approaching saturation, and increasing sequencing depth will not contribute much to the discovery of new genes. If the curve is still rising rapidly, it indicates that increasing sequencing may still yield significant benefits.
 
 ---
 
-## 🎯 Additional Resources <a id="additional-resources"></a>
+## 🎯 More Resources <a id="more-resources"></a>
 
 ### 📚 Related Documentation
 
@@ -1346,29 +1077,42 @@ Controls whether reads aligned to intronic regions are included in gene expressi
 <thead>
 <tr>
 <th width="30%" align="left"><strong>Document Type</strong></th>
-<th width="70%" align="left"><strong>Resource Links and Description</strong></th>
+<th width="70%" align="left"><strong>Resource Link and Description</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td align="left"><strong>🚀 Quick Start</strong></td>
-<td><a href="../quickstart.md">Quick Start Guide</a> - Complete tutorial for first analysis</td>
+<td><a href="../quickstart.md">Quick Start Guide</a> - A complete tutorial for your first analysis.</td>
 </tr>
 <tr>
 <td align="left"><strong>⚙️ Parameter Reference</strong></td>
-<td><a href="../parameter/parameter.md">Parameter Reference Manual</a> - Detailed description of all configurable parameters</td>
+<td><a href="../parameter/parameter.md">Parameter Reference Manual</a> - Detailed descriptions of all configurable parameters.</td>
 </tr>
 <tr>
 <td align="left"><strong>🔬 Analysis Pipeline</strong></td>
-<td><a href="../pipeline.md">Analysis Pipeline Description</a> - Technical details of the entire analysis pipeline</td>
+<td><a href="../pipeline.md">Analysis Pipeline Description</a> - Technical details of the entire analysis pipeline.</td>
 </tr>
 <tr>
-<td align="left"><strong>🔧 Installation Configuration</strong></td>
-<td><a href="../installation.md">Installation Configuration Guide</a> - System requirements, installation steps and environment configuration</td>
+<td align="left"><strong>🔧 Installation & Configuration</strong></td>
+<td><a href="../installation.md">Installation & Configuration Guide</a> - System requirements, installation steps, and environment configuration.</td>
 </tr>
 </tbody>
 </table>
 
+
+
+<div align="center">
+
+> 💡 **Tip**
+> 
+> This document is continuously updated. If you find any errors or need additional information, please provide feedback.
+> 
+> 📝 **Document Version:** 3.0 beta | **Last Updated:** 2025
+
 ---
 
-*For more detailed information, please refer to the document links above or contact the technical support team.*
+**🔬 DNBelab C Series HT scRNA Analysis Software**  
+*A High-Performance Single-Cell RNA Sequencing Data Analysis Pipeline*
+
+</div>
