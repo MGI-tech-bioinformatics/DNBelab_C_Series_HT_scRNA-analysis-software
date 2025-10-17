@@ -149,13 +149,14 @@
 </div>
 <hr>
 <h2 id="prerequisites">Prerequisites</h2>
-<p><strong>Before starting:</strong></p>
+<div style="background-color: #e7f3fe; border-left: 6px solid #2196F3; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
+<p><strong>Before you begin:</strong></p>
 <ul>
-<li>dnbc4tools installed (<a href="./installation.html">Installation Guide</a>)</li>
-<li>Replace <code>$dnbc4tools</code> with your actual installation path</li>
-<li>Example: <code>/opt/software/dnbc4tools3.0beta/dnbc4tools</code></li>
-<li>The backslash <code>\</code> is used to split a single command across multiple lines for improved readability. It is optional for commands written on a single line.</li>
+<li>Ensure dnbc4tools is installed. See the <a href="./installation.html">Installation Guide</a>.</li>
+<li>In all commands, replace <code>$dnbc4tools</code> with your actual installation path (e.g., <code>/opt/software/dnbc4tools3.0beta/dnbc4tools</code>).</li>
+<li>The backslash <code>\</code> is used to split a single command across multiple lines for readability. It is optional.</li>
 </ul>
+</div>
 <hr>
 <h2 id="-single-cell-rna-analysis-">◆ Single-Cell RNA Analysis <a id="single-cell-rna-analysis"></a></h2>
 <blockquote>
@@ -253,7 +254,9 @@ gzip -d gencode.vM23.primary_assembly.annotation.gtf.gz
 <blockquote>
 <p>Immune receptor repertoire profiling (requires 5' RNA-seq data)</p>
 </blockquote>
-<p><strong>Prerequisites</strong>: Complete 5' scRNA analysis first to establish cell-bead correspondence.</p>
+<div style="background-color: #fffbe6; border-left: 6px solid #ffc107; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
+⚠️ **Prerequisite**: Complete 5' scRNA analysis first to establish cell-bead correspondence.
+</div>
 <h3 id="step-1-5-rna-analysis">Step 1: 5' RNA Analysis</h3>
 <p><strong>5' scRNA-seq Analysis</strong></p>
 <pre><code class="language-bash"><span class="hljs-variable">$dnbc4tools</span> rna run \
@@ -310,66 +313,53 @@ gzip -d gencode.vM23.primary_assembly.annotation.gtf.gz
 <hr>
 <h2 id="-command-reference-">◆ Command Reference <a id="command-reference"></a></h2>
 <h3 id="essential-commands-summary">Essential Commands Summary</h3>
-<table>
-<thead>
-<tr>
-<th><strong>Workflow</strong></th>
-<th><strong>Command</strong></th>
-<th><strong>Purpose</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>RNA Analysis</td>
-<td><code>dnbc4tools rna run</code></td>
-<td>Complete RNA-seq pipeline</td>
-</tr>
-<tr>
-<td>ATAC Analysis</td>
-<td><code>dnbc4tools atac run</code></td>
-<td>Complete ATAC-seq pipeline</td>
-</tr>
-<tr>
-<td>VDJ Analysis</td>
-<td><code>dnbc4tools vdj run</code></td>
-<td>TCR/BCR repertoire analysis</td>
-</tr>
-<tr>
-<td>Reference Building</td>
-<td><code>dnbc4tools rna mkref</code></td>
-<td>Build RNA reference database</td>
-</tr>
-<tr>
-<td>Reference Building</td>
-<td><code>dnbc4tools atac mkref</code></td>
-<td>Build ATAC reference database</td>
-</tr>
-<tr>
-<td>GTF Processing</td>
-<td><code>dnbc4tools tools mkgtf</code></td>
-<td>Filter and process GTF files</td>
-</tr>
-</tbody>
+<table style="width:100%; border-collapse: collapse; margin: 1.5em 0; box-shadow: 0 2px 3px rgba(0,0,0,0.1);">
+  <thead style="background-color: #f2f2f2; border-bottom: 2px solid #ddd;">
+    <tr>
+      <th style="padding: 12px 15px; border: 1px solid #ddd; text-align: left;">Workflow</th>
+      <th style="padding: 12px 15px; border: 1px solid #ddd; text-align: left;">Command</th>
+      <th style="padding: 12px 15px; border: 1px solid #ddd; text-align: left;">Purpose</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;">RNA Analysis</td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;"><code>dnbc4tools rna run</code></td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;">Complete RNA-seq pipeline</td>
+    </tr>
+    <tr>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;">ATAC Analysis</td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;"><code>dnbc4tools atac run</code></td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;">Complete ATAC-seq pipeline</td>
+    </tr>
+    <tr>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;">VDJ Analysis</td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;"><code>dnbc4tools vdj run</code></td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;">TCR/BCR repertoire analysis</td>
+    </tr>
+    <tr>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;">Reference Building</td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;"><code>dnbc4tools rna mkref</code></td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;">Build RNA reference database</td>
+    </tr>
+    <tr>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;">Reference Building</td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;"><code>dnbc4tools atac mkref</code></td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;">Build ATAC reference database</td>
+    </tr>
+    <tr>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;">GTF Processing</td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;"><code>dnbc4tools tools mkgtf</code></td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;">Filter and process GTF files</td>
+    </tr>
+  </tbody>
 </table>
-<h3 id="parameter-documentation">Parameter Documentation</h3>
+<h3 id="further-reading">Further Reading</h3>
 <ul>
-<li><a href="./parameter/parameter.html">Complete Parameter Reference</a></li>
-<li><a href="./parameter/scRNA_en.html">RNA-specific Parameters</a></li>
-<li><a href="./parameter/scATAC_en.html">ATAC-specific Parameters</a></li>
-<li><a href="./parameter/scVDJ_en.html">VDJ-specific Parameters</a></li>
+<li><strong>Parameters</strong>: <a href="./parameter/parameter.html">Complete Reference</a> | <a href="./parameter/scRNA_en.html">RNA-specific</a> | <a href="./parameter/scATAC_en.html">ATAC-specific</a> | <a href="./parameter/scVDJ_en.html">VDJ-specific</a></li>
+<li><strong>Outputs</strong>: <a href="./outs/outs.html">Output File Guide</a> | <a href="./io.html">R/Python Usage</a></li>
+<li><strong>Support</strong>: <a href="./installation.html">Installation Guide</a> | <a href="https://github.com/MGI-tech-bioinformatics/DNBelab_C_Series_HT_scRNA-analysis-software/issues">GitHub Issues</a></li>
 </ul>
-<h3 id="output-analysis">Output Analysis</h3>
-<ul>
-<li><a href="./outs/outs.html">Output File Guide</a></li>
-<li><a href="./io.html">R/Python Usage</a></li>
-</ul>
-<hr>
-<p><strong>Get Help:</strong></p>
-<ul>
-<li><a href="./installation.html">Installation Guide</a></li>
-<li><a href="https://github.com/MGI-tech-bioinformatics/DNBelab_C_Series_HT_scRNA-analysis-software/issues">GitHub Issues</a></li>
-</ul>
-<hr>
 
             <script async src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
             

@@ -145,45 +145,34 @@
 <h1 id="output-analysis-guide">Output Analysis Guide</h1>
 <div align="center">
 <p><strong>How to analyze dnbc4tools output in R and Python</strong></p>
-<p><a href="#scrna-analysis">RNA Analysis</a> • <a href="#scatac-analysis">ATAC Analysis</a></p>
+<p><a href="#scrna-analysis">scRNA Analysis</a> • <a href="#scatac-analysis">scATAC Analysis</a></p>
 </div>
 <hr>
 <h2 id="scrna-analysis-">scRNA Analysis <a id="scrna-analysis"></a></h2>
-<h3 id="r-seurat">R (Seurat)</h3>
+<div style="background-color: #f8f9fa; border: 1px solid #dee2e6; padding: 1px 20px; margin: 20px 0; border-radius: 8px;">
+<h4>R (Seurat)</h4>
+<p>Load the filtered gene expression matrix using the <code>Read10X</code> function.</p>
 <pre><code class="language-r">library<span class="hljs-punctuation">(</span>Seurat<span class="hljs-punctuation">)</span>
 counts.data <span class="hljs-operator">&lt;-</span> Read10X<span class="hljs-punctuation">(</span>data.dir <span class="hljs-operator">=</span> <span class="hljs-string">&quot;/outs/filter_matrix&quot;</span><span class="hljs-punctuation">)</span>
 </code></pre>
-<h3 id="python-scanpy">Python (Scanpy)</h3>
+</div>
+<div style="background-color: #f8f9fa; border: 1px solid #dee2e6; padding: 1px 20px; margin: 20px 0; border-radius: 8px;">
+<h4>Python (Scanpy)</h4>
+<p>You can load the data using either the <code>h5ad</code> file or the MEX matrix directory.</p>
+<p><strong>1. Read h5ad format (recommended):</strong></p>
 <pre><code class="language-python"><span class="hljs-keyword">import</span> scanpy <span class="hljs-keyword">as</span> sc
-
-<span class="hljs-comment"># Read h5ad format</span>
 adata = sc.read_h5ad(<span class="hljs-string">&#x27;/outs/filter_feature.h5ad&#x27;</span>)
-
-<span class="hljs-comment"># Read matrix format</span>
+</code></pre>
+<p><strong>2. Read matrix format:</strong></p>
+<pre><code class="language-python"><span class="hljs-keyword">import</span> scanpy <span class="hljs-keyword">as</span> sc
 adata = sc.read_10x_mtx(<span class="hljs-string">&#x27;/outs/filter_matrix&#x27;</span>)
 </code></pre>
+</div>
 <hr>
 <h2 id="scatac-analysis-">scATAC Analysis <a id="scatac-analysis"></a></h2>
-<h3 id="r-signac">R (Signac)</h3>
-<pre><code class="language-r">require<span class="hljs-punctuation">(</span>magrittr<span class="hljs-punctuation">)</span>
-require<span class="hljs-punctuation">(</span>readr<span class="hljs-punctuation">)</span>
-require<span class="hljs-punctuation">(</span>Matrix<span class="hljs-punctuation">)</span>
-require<span class="hljs-punctuation">(</span>tidyr<span class="hljs-punctuation">)</span>
-require<span class="hljs-punctuation">(</span>dplyr<span class="hljs-punctuation">)</span>
- 
-mex_dir_path <span class="hljs-operator">&lt;-</span> <span class="hljs-string">&quot;/output/filter_peak_matrix&quot;</span>
-mtx_path <span class="hljs-operator">&lt;-</span> paste<span class="hljs-punctuation">(</span>mex_dir_path<span class="hljs-punctuation">,</span> <span class="hljs-string">&quot;matrix.mtx.gz&quot;</span><span class="hljs-punctuation">,</span> sep <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;/&#x27;</span><span class="hljs-punctuation">)</span>
-feature_path <span class="hljs-operator">&lt;-</span> paste<span class="hljs-punctuation">(</span>mex_dir_path<span class="hljs-punctuation">,</span> <span class="hljs-string">&quot;peaks.bed.gz&quot;</span><span class="hljs-punctuation">,</span> sep <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;/&#x27;</span><span class="hljs-punctuation">)</span>
-barcode_path <span class="hljs-operator">&lt;-</span> paste<span class="hljs-punctuation">(</span>mex_dir_path<span class="hljs-punctuation">,</span> <span class="hljs-string">&quot;barcodes.tsv.gz&quot;</span><span class="hljs-punctuation">,</span> sep <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;/&#x27;</span><span class="hljs-punctuation">)</span>
- 
-features <span class="hljs-operator">&lt;-</span> readr<span class="hljs-operator">::</span>read_tsv<span class="hljs-punctuation">(</span>feature_path<span class="hljs-punctuation">,</span> col_names <span class="hljs-operator">=</span> <span class="hljs-built_in">F</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">%&gt;%</span> tidyr<span class="hljs-operator">::</span>unite<span class="hljs-punctuation">(</span>feature<span class="hljs-punctuation">)</span>
-barcodes <span class="hljs-operator">&lt;-</span> readr<span class="hljs-operator">::</span>read_tsv<span class="hljs-punctuation">(</span>barcode_path<span class="hljs-punctuation">,</span> col_names <span class="hljs-operator">=</span> <span class="hljs-built_in">F</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">%&gt;%</span> tidyr<span class="hljs-operator">::</span>unite<span class="hljs-punctuation">(</span>barcode<span class="hljs-punctuation">)</span>
- 
-mtx <span class="hljs-operator">&lt;-</span> Matrix<span class="hljs-operator">::</span>readMM<span class="hljs-punctuation">(</span>mtx_path<span class="hljs-punctuation">)</span> <span class="hljs-operator">%&gt;%</span>
-  magrittr<span class="hljs-operator">::</span>set_rownames<span class="hljs-punctuation">(</span>features<span class="hljs-operator">$</span>feature<span class="hljs-punctuation">)</span> <span class="hljs-operator">%&gt;%</span>
-  magrittr<span class="hljs-operator">::</span>set_colnames<span class="hljs-punctuation">(</span>barcodes<span class="hljs-operator">$</span>barcode<span class="hljs-punctuation">)</span>
-</code></pre>
-<p><strong>Example: Creating a Seurat Object with Metadata</strong></p>
+<div style="background-color: #f8f9fa; border: 1px solid #dee2e6; padding: 1px 20px; margin: 20px 0; border-radius: 8px;">
+<h4>R (Signac)</h4>
+<p>Load the filtered peak matrix and create a Seurat object.</p>
 <pre><code class="language-r">require<span class="hljs-punctuation">(</span>magrittr<span class="hljs-punctuation">)</span>
 require<span class="hljs-punctuation">(</span>readr<span class="hljs-punctuation">)</span>
 require<span class="hljs-punctuation">(</span>Matrix<span class="hljs-punctuation">)</span>
@@ -192,6 +181,7 @@ require<span class="hljs-punctuation">(</span>dplyr<span class="hljs-punctuation
 library<span class="hljs-punctuation">(</span>Signac<span class="hljs-punctuation">)</span>
 library<span class="hljs-punctuation">(</span>Seurat<span class="hljs-punctuation">)</span>
 
+<span class="hljs-comment"># Function to read dnbc4tools ATAC output</span>
 read_signac_C4 <span class="hljs-operator">&lt;-</span> <span class="hljs-keyword">function</span><span class="hljs-punctuation">(</span>mex_dir_path<span class="hljs-punctuation">,</span> fragments<span class="hljs-punctuation">,</span> singlecellmetadata<span class="hljs-punctuation">)</span><span class="hljs-punctuation">{</span>
     mtx_path <span class="hljs-operator">&lt;-</span> paste<span class="hljs-punctuation">(</span>mex_dir_path<span class="hljs-punctuation">,</span> <span class="hljs-string">&quot;matrix.mtx.gz&quot;</span><span class="hljs-punctuation">,</span> sep <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;/&#x27;</span><span class="hljs-punctuation">)</span>
     feature_path <span class="hljs-operator">&lt;-</span> paste<span class="hljs-punctuation">(</span>mex_dir_path<span class="hljs-punctuation">,</span> <span class="hljs-string">&quot;peaks.bed.gz&quot;</span><span class="hljs-punctuation">,</span> sep <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;/&#x27;</span><span class="hljs-punctuation">)</span>
@@ -210,10 +200,6 @@ read_signac_C4 <span class="hljs-operator">&lt;-</span> <span class="hljs-keywor
         row.names <span class="hljs-operator">=</span> <span class="hljs-number">1</span>
     <span class="hljs-punctuation">)</span>
     
-    metadata<span class="hljs-operator">$</span>log10_uniqueFrags<span class="hljs-operator">=</span>log10<span class="hljs-punctuation">(</span>metadata<span class="hljs-operator">$</span>fragments<span class="hljs-punctuation">)</span>
-    metadata<span class="hljs-operator">$</span>pct_reads_in_peaks <span class="hljs-operator">&lt;-</span> metadata<span class="hljs-operator">$</span>peak_region_fragments <span class="hljs-operator">/</span> metadata<span class="hljs-operator">$</span>fragments <span class="hljs-operator">*</span> <span class="hljs-number">100</span>
-    metadata<span class="hljs-operator">$</span>pct_reads_in_tss <span class="hljs-operator">&lt;-</span> metadata<span class="hljs-operator">$</span>TSS_region_fragments <span class="hljs-operator">/</span> metadata<span class="hljs-operator">$</span>fragments <span class="hljs-operator">*</span> <span class="hljs-number">100</span>
-
     chrom_assay <span class="hljs-operator">&lt;-</span> CreateChromatinAssay<span class="hljs-punctuation">(</span>
         counts <span class="hljs-operator">=</span> mtx<span class="hljs-punctuation">,</span>
         sep <span class="hljs-operator">=</span> <span class="hljs-built_in">c</span><span class="hljs-punctuation">(</span><span class="hljs-string">&quot;_&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-string">&quot;_&quot;</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">,</span>
@@ -230,18 +216,24 @@ read_signac_C4 <span class="hljs-operator">&lt;-</span> <span class="hljs-keywor
     <span class="hljs-built_in">return</span><span class="hljs-punctuation">(</span>scATAC<span class="hljs-punctuation">)</span>
 <span class="hljs-punctuation">}</span>
 </code></pre>
-<h3 id="r-archr">R (ArchR)</h3>
+</div>
+<div style="background-color: #f8f9fa; border: 1px solid #dee2e6; padding: 1px 20px; margin: 20px 0; border-radius: 8px;">
+<h4>R (ArchR)</h4>
+<p>Create Arrow files from the <code>fragments.tsv.gz</code> file.</p>
 <pre><code class="language-r">library<span class="hljs-punctuation">(</span>ArchR<span class="hljs-punctuation">)</span>
 ArrowFiles <span class="hljs-operator">&lt;-</span> createArrowFiles<span class="hljs-punctuation">(</span>
-  inputFiles <span class="hljs-operator">=</span> FragmentFiles<span class="hljs-punctuation">,</span>
-  sampleNames <span class="hljs-operator">=</span> <span class="hljs-built_in">names</span><span class="hljs-punctuation">(</span>inputFiles<span class="hljs-punctuation">)</span><span class="hljs-punctuation">,</span>
+  inputFiles <span class="hljs-operator">=</span> <span class="hljs-string">&quot;/outs/fragments.tsv.gz&quot;</span><span class="hljs-punctuation">,</span>
+  sampleNames <span class="hljs-operator">=</span> <span class="hljs-string">&quot;MySample&quot;</span><span class="hljs-punctuation">,</span>
   filterTSS <span class="hljs-operator">=</span> <span class="hljs-number">4</span><span class="hljs-punctuation">,</span> 
   filterFrags <span class="hljs-operator">=</span> <span class="hljs-number">1000</span><span class="hljs-punctuation">,</span> 
   addTileMat <span class="hljs-operator">=</span> <span class="hljs-literal">TRUE</span><span class="hljs-punctuation">,</span>
   addGeneScoreMat <span class="hljs-operator">=</span> <span class="hljs-literal">TRUE</span>
 <span class="hljs-punctuation">)</span>
 </code></pre>
-<h3 id="python-anndata">Python (AnnData)</h3>
+</div>
+<div style="background-color: #f8f9fa; border: 1px solid #dee2e6; padding: 1px 20px; margin: 20px 0; border-radius: 8px;">
+<h4>Python (AnnData)</h4>
+<p>Load the filtered peak matrix into an AnnData object.</p>
 <pre><code class="language-python"><span class="hljs-keyword">import</span> os
 <span class="hljs-keyword">from</span> scipy.sparse <span class="hljs-keyword">import</span> csr_matrix
 <span class="hljs-keyword">import</span> anndata
@@ -249,65 +241,66 @@ ArrowFiles <span class="hljs-operator">&lt;-</span> createArrowFiles<span class=
 <span class="hljs-keyword">import</span> scipy.io
 <span class="hljs-keyword">import</span> scipy.sparse
 
-<span class="hljs-keyword">def</span> <span class="hljs-title function_">read_atac_C4</span>(<span class="hljs-params">path</span>): 
-    file_list=os.listdir(path)
-    <span class="hljs-keyword">for</span> file <span class="hljs-keyword">in</span> file_list:
-        file_path = os.path.join(path, file)
-        <span class="hljs-keyword">if</span> file ==<span class="hljs-string">&quot;barcodes.tsv.gz&quot;</span>:       
-            obs = pd.read_csv(file_path, header=<span class="hljs-literal">None</span>, index_col=<span class="hljs-number">0</span>, sep=<span class="hljs-string">&quot;\t&quot;</span>)
-            obs.index.name = <span class="hljs-string">&quot;&quot;</span>
-        <span class="hljs-keyword">elif</span> file ==<span class="hljs-string">&quot;peaks.bed.gz&quot;</span>:                   
-            var = pd.read_csv(file_path, header=<span class="hljs-literal">None</span>, index_col=<span class="hljs-literal">None</span>, sep=<span class="hljs-string">&quot;\t&quot;</span>)
-            new_index = var[<span class="hljs-number">0</span>].astype(<span class="hljs-built_in">str</span>) + <span class="hljs-string">&#x27;:&#x27;</span> + var[<span class="hljs-number">1</span>].astype(<span class="hljs-built_in">str</span>) + <span class="hljs-string">&#x27;-&#x27;</span> + var[<span class="hljs-number">2</span>].astype(<span class="hljs-built_in">str</span>)
-            var.index = new_index
-            var.drop(columns=[<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>], inplace=<span class="hljs-literal">True</span>)
-            var.index.name = <span class="hljs-string">&quot;&quot;</span>
-        <span class="hljs-keyword">elif</span> file ==<span class="hljs-string">&quot;matrix.mtx.gz&quot;</span>:    
-            mtx = csr_matrix(scipy.io.mmread(file_path).T)
-    adata=anndata.AnnData(mtx,obs=obs,var=var)
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">read_atac_C4</span>(<span class="hljs-params">path</span>):
+    mtx_path = os.path.join(path, <span class="hljs-string">&quot;matrix.mtx.gz&quot;</span>)
+    barcode_path = os.path.join(path, <span class="hljs-string">&quot;barcodes.tsv.gz&quot;</span>)
+    feature_path = os.path.join(path, <span class="hljs-string">&quot;peaks.bed.gz&quot;</span>)
+
+    obs = pd.read_csv(barcode_path, header=<span class="hljs-literal">None</span>, index_col=<span class="hljs-number">0</span>, sep=<span class="hljs-string">&quot;\t&quot;</span>)
+    obs.index.name = <span class="hljs-string">&quot;barcode&quot;</span>
+
+    var = pd.read_csv(feature_path, header=<span class="hljs-literal">None</span>, sep=<span class="hljs-string">&quot;\t&quot;</span>)
+    var.columns = [<span class="hljs-string">&#x27;chrom&#x27;</span>, <span class="hljs-string">&#x27;chromStart&#x27;</span>, <span class="hljs-string">&#x27;chromEnd&#x27;</span>]
+    var.index = var[<span class="hljs-string">&#x27;chrom&#x27;</span>].astype(<span class="hljs-built_in">str</span>) + <span class="hljs-string">&#x27;:&#x27;</span> + var[<span class="hljs-string">&#x27;chromStart&#x27;</span>].astype(<span class="hljs-built_in">str</span>) + <span class="hljs-string">&#x27;-&#x27;</span> + var[<span class="hljs-string">&#x27;chromEnd&#x27;</span>].astype(<span class="hljs-built_in">str</span>)
+    var.index.name = <span class="hljs-string">&quot;peak&quot;</span>
+
+    mtx = csr_matrix(scipy.io.mmread(mtx_path).T)
+
+    adata = anndata.AnnData(mtx, obs=obs, var=var)
     adata.var_names_make_unique()
     <span class="hljs-keyword">return</span> adata
 </code></pre>
+</div>
 <hr>
 <h2 id="common-output-files-">Common Output Files <a id="common-output-files"></a></h2>
-<table>
-<thead>
-<tr>
-<th><strong>File Type</strong></th>
-<th><strong>Description</strong></th>
-<th><strong>Analysis</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>filter_matrix/</code></td>
-<td>Filtered gene expression matrix</td>
-<td>scRNA-seq</td>
-</tr>
-<tr>
-<td><code>filter_peak_matrix/</code></td>
-<td>Filtered peak accessibility matrix</td>
-<td>scATAC-seq</td>
-</tr>
-<tr>
-<td><code>filter_feature.h5ad</code></td>
-<td>AnnData format (Python-ready)</td>
-<td>scRNA-seq</td>
-</tr>
-<tr>
-<td><code>fragments.tsv.gz</code></td>
-<td>Fragment file for ATAC analysis</td>
-<td>scATAC-seq</td>
-</tr>
-<tr>
-<td><code>singlecell.csv</code></td>
-<td>Cell metadata and QC metrics</td>
-<td>All</td>
-</tr>
-</tbody>
+<table style="width:100%; border-collapse: collapse; margin: 1.5em 0; box-shadow: 0 2px 3px rgba(0,0,0,0.1);">
+  <thead style="background-color: #f2f2f2; border-bottom: 2px solid #ddd;">
+    <tr>
+      <th style="padding: 12px 15px; border: 1px solid #ddd; text-align: left;">File / Directory</th>
+      <th style="padding: 12px 15px; border: 1px solid #ddd; text-align: left;">Description</th>
+      <th style="padding: 12px 15px; border: 1px solid #ddd; text-align: left;">Analysis Type</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;"><code>filter_matrix/</code></td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;">Filtered gene expression matrix (MEX format).</td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;">scRNA-seq</td>
+    </tr>
+    <tr>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;"><code>filter_peak_matrix/</code></td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;">Filtered peak accessibility matrix (MEX format).</td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;">scATAC-seq</td>
+    </tr>
+    <tr>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;"><code>filter_feature.h5ad</code></td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;">Filtered matrix in AnnData format (Python-ready).</td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;">scRNA-seq</td>
+    </tr>
+    <tr>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;"><code>fragments.tsv.gz</code></td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;">Fragment file for ATAC analysis.</td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;">scATAC-seq</td>
+    </tr>
+    <tr>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;"><code>singlecell.csv</code></td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;">Cell metadata and QC metrics.</td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;">All</td>
+    </tr>
+  </tbody>
 </table>
 <hr>
-<p><em>For detailed output descriptions, see <a href="./outs/outs.html">Output Files Guide</a></em></p>
+<p><em>For detailed output descriptions, see the <a href="./outs/outs.html">Output Files Guide</a></em></p>
 
             <script async src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
             

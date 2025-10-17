@@ -16,11 +16,14 @@
 
 ## Prerequisites
 
-**Before starting:**
-- dnbc4tools installed ([Installation Guide](./installation.md))
-- Replace `$dnbc4tools` with your actual installation path
-- Example: `/opt/software/dnbc4tools3.0beta/dnbc4tools`
-- The backslash `\` is used to split a single command across multiple lines for improved readability. It is optional for commands written on a single line.
+<div style="background-color: #e7f3fe; border-left: 6px solid #2196F3; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
+
+**Before you begin:**
+- Ensure dnbc4tools is installed. See the [Installation Guide](./installation.md).
+- In all commands, replace `$dnbc4tools` with your actual installation path (e.g., `/opt/software/dnbc4tools3.0beta/dnbc4tools`).
+- The backslash `\` is used to split a single command across multiple lines for readability. It is optional.
+
+</div>
 
 ---
 
@@ -140,7 +143,9 @@ $dnbc4tools atac run \
 
 > Immune receptor repertoire profiling (requires 5' RNA-seq data)
 
-**Prerequisites**: Complete 5' scRNA analysis first to establish cell-bead correspondence.
+<div style="background-color: #fffbe6; border-left: 6px solid #ffc107; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
+⚠️ **Prerequisite**: Complete 5' scRNA analysis first to establish cell-bead correspondence.
+</div>
 
 ### Step 1: 5' RNA Analysis
 
@@ -213,29 +218,51 @@ $dnbc4tools vdj run \
 
 ### Essential Commands Summary
 
-| **Workflow** | **Command** | **Purpose** |
-|--------------|-------------|-------------|
-| RNA Analysis | `dnbc4tools rna run` | Complete RNA-seq pipeline |
-| ATAC Analysis | `dnbc4tools atac run` | Complete ATAC-seq pipeline |
-| VDJ Analysis | `dnbc4tools vdj run` | TCR/BCR repertoire analysis |
-| Reference Building | `dnbc4tools rna mkref` | Build RNA reference database |
-| Reference Building | `dnbc4tools atac mkref` | Build ATAC reference database |
-| GTF Processing | `dnbc4tools tools mkgtf` | Filter and process GTF files |
+<table style="width:100%; border-collapse: collapse; margin: 1.5em 0; box-shadow: 0 2px 3px rgba(0,0,0,0.1);">
+  <thead style="background-color: #f2f2f2; border-bottom: 2px solid #ddd;">
+    <tr>
+      <th style="padding: 12px 15px; border: 1px solid #ddd; text-align: left;">Workflow</th>
+      <th style="padding: 12px 15px; border: 1px solid #ddd; text-align: left;">Command</th>
+      <th style="padding: 12px 15px; border: 1px solid #ddd; text-align: left;">Purpose</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;">RNA Analysis</td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;"><code>dnbc4tools rna run</code></td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;">Complete RNA-seq pipeline</td>
+    </tr>
+    <tr>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;">ATAC Analysis</td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;"><code>dnbc4tools atac run</code></td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;">Complete ATAC-seq pipeline</td>
+    </tr>
+    <tr>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;">VDJ Analysis</td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;"><code>dnbc4tools vdj run</code></td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;">TCR/BCR repertoire analysis</td>
+    </tr>
+    <tr>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;">Reference Building</td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;"><code>dnbc4tools rna mkref</code></td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;">Build RNA reference database</td>
+    </tr>
+    <tr>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;">Reference Building</td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;"><code>dnbc4tools atac mkref</code></td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;">Build ATAC reference database</td>
+    </tr>
+    <tr>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;">GTF Processing</td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;"><code>dnbc4tools tools mkgtf</code></td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;">Filter and process GTF files</td>
+    </tr>
+  </tbody>
+</table>
 
-### Parameter Documentation
-- [Complete Parameter Reference](./parameter/parameter.md)
-- [RNA-specific Parameters](./parameter/scRNA_en.md)
-- [ATAC-specific Parameters](./parameter/scATAC_en.md)
-- [VDJ-specific Parameters](./parameter/scVDJ_en.md)
 
-### Output Analysis
-- [Output File Guide](./outs/outs.md)
-- [R/Python Usage](./io.md)
+### Further Reading
 
----
-
-**Get Help:**
-- [Installation Guide](./installation.md) 
-- [GitHub Issues](https://github.com/MGI-tech-bioinformatics/DNBelab_C_Series_HT_scRNA-analysis-software/issues)
-
----
+- **Parameters**: [Complete Reference](./parameter/parameter.md) | [RNA-specific](./parameter/scRNA_en.md) | [ATAC-specific](./parameter/scATAC_en.md) | [VDJ-specific](./parameter/scVDJ_en.md)
+- **Outputs**: [Output File Guide](./outs/outs.md) | [R/Python Usage](./io.md)
+- **Support**: [Installation Guide](./installation.md) | [GitHub Issues](https://github.com/MGI-tech-bioinformatics/DNBelab_C_Series_HT_scRNA-analysis-software/issues)

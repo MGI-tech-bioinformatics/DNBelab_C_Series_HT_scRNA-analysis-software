@@ -8,62 +8,46 @@ Demo datasets are hosted on CNGB (China National GeneBank). Due to human genetic
 
 ---
 
-## Navigation
-
-[◆ scRNA-seq v3 Data](#scrna-seq-v3-data) • [◆ scVDJ-seq Data](#scvdj-seq-data) • [◆ scATAC-seq Data](#scatac-seq-data)
+<table style="width:100%; border-collapse: collapse; margin: 1.5em 0;">
+  <thead style="background-color: #f2f2f2; border-bottom: 2px solid #ddd;">
+    <tr>
+      <th style="padding: 12px 15px; border: 1px solid #ddd; text-align: left;">Analysis Type</th>
+      <th style="padding: 12px 15px; border: 1px solid #ddd; text-align: left;">Sample Information</th>
+      <th style="padding: 12px 15px; border: 1px solid #ddd; text-align: left;">Project Link</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;"><b>scRNA-seq v3</b></td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;">Mouse sample with separate cDNA (large) and Oligo (small) libraries.</td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;"><a href="https://db.cngb.org/data_resources/project/CNP0005575/" target="_blank">CNP0005575</a></td>
+    </tr>
+    <tr>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;"><b>scVDJ-seq</b></td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;">Mouse spleen tissue, including 5' RNA, TCR, and BCR data.</td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;"><a href="https://db.cngb.org/data_resources/project/CNP0006116/" target="_blank">CNP0006116</a></td>
+    </tr>
+    <tr>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;"><b>scATAC-seq</b></td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;">Mouse brain tissue.</td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;"><a href="https://db.cngb.org/data_resources/project/CNP0004369" target="_blank">CNP0004369</a></td>
+    </tr>
+  </tbody>
+</table>
 
 ---
 
-## ◆ scRNA-seq v3 Data <a id="scrna-seq-v3-data"></a>
+## Notes on Data Usage
 
-**Project URL:** https://db.cngb.org/data_resources/project/CNP0005575/
-
-**Project Overview:**
-
-<div align="left">
-  <img src="./images/scrna_v3_datasets.jpg" alt="scRNA-seq v3 Datasets" width="800">
+<div style="background-color: #e7f3fe; border-left: 6px solid #2196F3; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
+💡 **scVDJ-seq Tip**: If you don't need to analyze the 5' RNA data, you can directly download the `singlecell.csv` file from the 5' RNA data directory on the FTP server to use as input for the VDJ pipeline.
 </div>
 
-You can click on "Sample" or "Experiment" to access specific sample information:
+<div style="background-color: #e7f3fe; border-left: 6px solid #2196F3; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
+💡 **General Tip**: For all datasets, you can click the project link, navigate to the "Sample" or "Experiment" tabs, and find the FTP link to download the raw data for analysis.
+</div>
 
-<div align="left">
+<div align="center">
   <img src="./images/scrna_v3_datasets2.jpg" alt="scRNA-seq v3 Sample Details" width="800">
+  <p><i>Example: Finding the FTP download link in the CNGB project page.</i></p>
 </div>
-
-**Data Composition:**
-- Large data volume: cDNA library sequencing data
-- Small data volume: Oligo library data
-
----
-
-## ◆ scVDJ-seq Data <a id="scvdj-seq-data"></a>
-
-**Project URL:** https://db.cngb.org/data_resources/project/CNP0006116/
-
-**Sample Information:**
-The sample is mouse spleen tissue, containing 5' RNA, TCR, and BCR data.
-
-<div align="left">
-  <img src="./images/scvdj_datasets.jpg" alt="scVDJ-seq Datasets" width="500">
-</div>
-
-**Usage Tip:**
-If you don't need to analyze 5' RNA data, you can directly download the `singlecell.csv` file from the single-cell data FTP directory within the 5' RNA data.
-
----
-
-## ◆ scATAC-seq Data <a id="scatac-seq-data"></a>
-
-**Project URL:** https://db.cngb.org/data_resources/project/CNP0004369
-
-**Sample Information:**
-The sample is mouse brain tissue.
-
-<div align="left">
-  <img src="./images/scatac_datasets.jpg" alt="scATAC-seq Datasets" width="800">
-</div>
-
-**Usage:**
-You can directly download the raw data via the FTP link for analysis.
-
----

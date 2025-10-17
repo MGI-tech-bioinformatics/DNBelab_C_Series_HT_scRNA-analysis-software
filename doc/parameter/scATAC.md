@@ -18,9 +18,10 @@
 
 ### 📊 用法 <a id="usage"></a>
 
+
 ```shell
-$ dnbc4tools atac run
-usage: dnbc4tools atac run [-h] 
+$ dnbc4tools atac run --help
+Usage: dnbc4tools atac run [OPTIONS]
 
 optional arguments:
   -h, --help            show this help message and exit
@@ -70,48 +71,29 @@ Analysis Settings:
 
 > ⚠️ **成功分析必须指定的基本参数**
 
-<table>
-<thead>
-<tr>
-<th width="20%" align="center"><strong>参数</strong></th>
-<th width="80%" align="left"><strong>描述与配置</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="center">
-<code><strong>-n, --name</strong></code>
-<br><br>
-<span style="color: #e74c3c; font-weight: bold;">📋 必需</span>
-</td>
-<td>
-<h4>🏷️ 样本唯一标识符</h4>
-<blockquote>
-<strong>功能：</strong>样本的唯一标识符（例如：sample1）<br>
-<strong>用途：</strong>用于命名输出文件和报告<br>
-<strong>显示：</strong>在生成的HTML报告中显示为样本ID
-</blockquote>
-<strong>示例：</strong> <code>sample_001</code>
-</td>
-</tr>
-<tr>
-<td align="center">
-<code><strong>-g, --genomeDir</strong></code>
-<br><br>
-<span style="color: #e74c3c; font-weight: bold;">📋 必需</span>
-</td>
-<td>
-<h4>🗂️ 参考基因组目录路径</h4>
-<blockquote>
-<strong>功能：</strong>指向参考基因组目录的路径<br>
-<strong>要求：</strong>必须包含所需的索引和注释资源<br>
-<strong>内容：</strong>包含基因组序列、TSS文件、比对索引等必要文件
-</blockquote>
-<strong>示例：</strong> <code>/path/to/genome/database</code>
-</td>
-</tr>
-</tbody>
-</table>
+<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<h4><code>-n, --name</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(必需)</span></h4>
+<p>为本次分析提供一个唯一的样本名称。</p>
+<ul>
+  <li><strong>功能:</strong> 该名称将用作所有输出文件和HTML报告的前缀。</li>
+  <li><strong>显示:</strong> 在最终的网页报告中，此名称将作为样本ID显示。</li>
+</ul>
+<p><strong>默认值:</strong> 无</p>
+<p><strong>示例:</strong></p>
+<pre><code>--name sample_001</code></pre>
+</div>
+
+<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<h4><code>-g, --genomeDir</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(必需)</span></h4>
+<p>指定参考基因组目录的路径。</p>
+<ul>
+  <li><strong>要求:</strong> 目录必须包含由 <code>mkref</code> 命令生成的索引和注释资源。</li>
+  <li><strong>内容:</strong> 包含基因组序列、TSS文件、比对索引等。</li>
+</ul>
+<p><strong>默认值:</strong> 无</p>
+<p><strong>示例:</strong></p>
+<pre><code>--genomeDir /path/to/genome/database</code></pre>
+</div>
 
 ---
 
@@ -119,375 +101,249 @@ Analysis Settings:
 
 > 📁 **选择一种输入方式：基于目录 OR 单独指定文件**
 
-<table>
-<thead>
-<tr>
-<th width="20%" align="center"><strong>参数</strong></th>
-<th width="80%" align="left"><strong>描述与配置</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="center">
-<code><strong>--fastqs</strong></code>
-<br><br>
-<span style="color: #3498db; font-weight: bold;">🔄 方式1</span>
-</td>
-<td>
-<h4>📂 FASTQ文件目录</h4>
-<blockquote>
-<strong>方法：</strong>基于目录的输入，自动检测<br>
-<strong>功能：</strong>流程自动检测Read1/Read2文件<br>
-<strong>互斥：</strong>不能与单独的fastq1/fastq2文件同时使用
-</blockquote>
-<strong>示例：</strong> <code>./fastq_directory</code>
-</td>
-</tr>
-<tr>
-<td align="center">
-<code><strong>-1, --fastq1</strong></code>
-<br><br>
-<span style="color: #3498db; font-weight: bold;">🔄 方式2A</span>
-</td>
-<td>
-<h4>📄 Read1 FASTQ文件</h4>
-<blockquote>
-<strong>输入：</strong>ATAC文库的Read1 FASTQ文件<br>
-<strong>支持：</strong>通配符和逗号分隔的列表<br>
-<strong>要求：</strong>必须与--fastq2参数配对使用<br>
-<strong>顺序：</strong>文件序列必须与--fastq2完全匹配
-</blockquote>
-<strong>示例：</strong> <code>sample1_L01_R1.fastq.gz,sample1_L02_R1.fastq.gz</code>
-</td>
-</tr>
-<tr>
-<td align="center">
-<code><strong>-2, --fastq2</strong></code>
-<br><br>
-<span style="color: #3498db; font-weight: bold;">🔄 方式2B</span>
-</td>
-<td>
-<h4>📄 Read2 FASTQ文件</h4>
-<blockquote>
-<strong>输入：</strong>ATAC文库的Read2 FASTQ文件<br>
-<strong>support：</strong>通配符和逗号分隔的列表<br>
-<strong>要求：</strong>必须与--fastq1参数配对使用<br>
-<strong>顺序：</strong>文件序列必须与--fastq1完全匹配
-</blockquote>
-<strong>示例：</strong> <code>sample1_L01_R2.fastq.gz,sample1_L02_R2.fastq.gz</code>
-</td>
-</tr>
-</tbody>
-</table>
+<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<h4><code>--fastqs</code> <span style="font-size: 0.8em; font-weight: normal; color: #3498db;">(方式1)</span></h4>
+<p>指定包含所有FASTQ文件的目录路径。</p>
+<ul>
+  <li><strong>功能:</strong> 流程会自动检测目录中的Read1和Read2配对文件。</li>
+  <li><strong>注意:</strong> 这是一个便捷选项，不能与 <code>--fastq1</code> / <code>--fastq2</code> 同时使用。</li>
+</ul>
+<p><strong>默认值:</strong> 无</p>
+<p><strong>示例:</strong></p>
+<pre><code>--fastqs ./fastq_directory</code></pre>
+</div>
+
+<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<h4><code>-1, --fastq1</code> <span style="font-size: 0.8em; font-weight: normal; color: #3498db;">(方式2A)</span></h4>
+<p>单独指定一个或多个Read1 FASTQ文件。</p>
+<ul>
+  <li><strong>支持:</strong> 可以使用通配符 (<code>*</code>) 匹配文件，使用逗号分隔来指定多个文件。</li>
+  <li><strong>要求:</strong> 必须与 <code>--fastq2</code> 参数配对使用，且文件顺序必须完全匹配。</li>
+</ul>
+<p><strong>默认值:</strong> 无</p>
+<p><strong>示例:</strong></p>
+<pre><code>--fastq1 sample1_L01_R1.fastq.gz,sample1_L02_R1.fastq.gz</code></pre>
+</div>
+
+<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<h4><code>-2, --fastq2</code> <span style="font-size: 0.8em; font-weight: normal; color: #3498db;">(方式2B)</span></h4>
+<p>单独指定一个或多个Read2 FASTQ文件。</p>
+<ul>
+  <li><strong>支持:</strong> 可以使用通配符 (<code>*</code>) 匹配文件，使用逗号分隔来指定多个文件。</li>
+  <li><strong>要求:</strong> 必须与 <code>--fastq1</code> 参数配对使用，且文件顺序必须完全匹配。</li>
+</ul>
+<p><strong>默认值:</strong> 无</p>
+<p><strong>示例:</strong></p>
+<pre><code>--fastq2 sample1_L01_R2.fastq.gz,sample1_L02_R2.fastq.gz</code></pre>
+</div>
 
 > ⚠️ **输入方式选择：**
 > - **🔸 方式1：** 使用`--fastqs`指定包含配对FASTQ文件的目录
 > - **🔸 方式2：** 使用`-1, --fastq1`和`-2, --fastq2`分别指定R1和R2文件
 
+> ⚠️ **重要提示：** 参数下所有文件必须来自同一文库，测序模式和暗反应设置保持一致，不同文库的数据不能合并分析。
 ---
 
 #### 🟢 基本设置参数
 
-<table>
-<thead>
-<tr>
-<th width="20%" align="center"><strong>参数</strong></th>
-<th width="80%" align="left"><strong>描述与配置</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="center">
-<code><strong>-o, --outdir</strong></code>
-<br><br>
-<span style="color: #27ae60; font-weight: bold;">📁 默认：当前目录</span>
-</td>
-<td>
-<h4>💾 输出目录</h4>
-<blockquote>
-<strong>功能：</strong>结果和报告的输出目录<br>
-<strong>存储：</strong>所有分析结果将保存在此目录中<br>
-<strong>组织：</strong>自动创建结构化的子目录
-</blockquote>
-<strong>示例：</strong> <code>./output_results</code>
-</td>
-</tr>
-<tr>
-<td align="center">
-<code><strong>-t, --threads</strong></code>
-<br><br>
-<span style="color: #27ae60; font-weight: bold;">⚡ 默认：10</span>
-</td>
-<td>
-<h4>🔧 并行处理线程数</h4>
-<blockquote>
-<strong>功能：</strong>用于并行处理的CPU线程数<br>
-<strong>性能：</strong>增加线程数可显著提高分析速度<br>
-<strong>建议：</strong>根据可用CPU核心数进行调整
-</blockquote>
-</td>
-</tr>
-</tbody>
-</table>
+<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<h4><code>-o, --outdir</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(可选)</span></h4>
+<p>指定所有分析结果和报告的输出目录。</p>
+<ul>
+  <li><strong>功能:</strong> 所有分析结果将保存在此目录中，流程会自动创建以样本名命名的结构化子目录。</li>
+</ul>
+<p><strong>默认值:</strong> <code>./</code> (当前目录)</p>
+<p><strong>示例:</strong></p>
+<pre><code>--outdir ./output_results</code></pre>
+</div>
+
+<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<h4><code>-t, --threads</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(可选)</span></h4>
+<p>设置分析过程中可使用的CPU线程数。</p>
+<ul>
+  <li><strong>功能:</strong> 增加线程数可显著提高分析速度。</li>
+  <li><strong>建议:</strong> 根据可用的CPU核心数进行调整，以获得最佳性能。</li>
+</ul>
+<p><strong>默认值:</strong> <code>10</code></p>
+<p><strong>示例:</strong></p>
+<pre><code>--threads 16</code></pre>
+</div>
 
 ---
 
 #### 🟢 文库设置参数
 
-<table>
-<thead>
-<tr>
-<th width="20%" align="center"><strong>参数</strong></th>
-<th width="80%" align="left"><strong>描述与配置</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="center">
-<code><strong>--darkreaction</strong></code>
-<br><br>
-<span style="color: #f39c12; font-weight: bold;">🔧 默认：auto</span>
-</td>
-<td>
-<h4>🔬 暗循环设置</h4>
-<blockquote>
-<strong>功能：</strong>ATAC文库的暗循环配置，控制软件如何处理测序过程中的暗反应周期<br>
-<strong>检测机制：</strong>推荐使用自动检测，软件会分析前200,000个读段的长度分布来确定暗循环设置<br>
-<strong>技术原理：</strong>暗循环是指测序过程中不进行荧光检测的循环，通常用于优化测序质量<br>
-<strong>自定义选项：</strong>当标准设置无法满足需求时，可使用--customize参数进行精确控制<br>
-<strong>影响范围：</strong>直接影响细胞条形码识别准确性和序列提取质量
-</blockquote>
-<details open>
-<summary><strong>详细配置选项：</strong></summary>
-<table>
-<tr><th>选项</th><th>说明</th><th>适用场景</th></tr>
-<tr><td><code>auto</code></td><td>自动检测（推荐）</td><td>标准ATAC文库</td></tr>
-<tr><td><code>R1R2</code></td><td>R1和R2都有暗循环</td><td>暗循环设计</td></tr>
-<tr><td><code>R1</code></td><td>仅Read1有暗循环</td><td>非对称暗循环设计</td></tr>
-<tr><td><code>R2</code></td><td>仅Read2有暗循环</td><td>非对称暗循环设计</td></tr>
-<tr><td><code>unset</code></td><td>无暗循环</td><td>标准MGI协议</td></tr>
-</table>
-</details>
-<strong>⚠️ 重要提示：</strong>错误的暗循环设置可能导致细胞条形码识别失败或序列质量下降
-</td>
-</tr>
-<tr>
-<td align="center">
-<code><strong>--customize</strong></code>
-<br><br>
-<span style="color: #9b59b6; font-weight: bold;">⚙️ 可选</span>
-</td>
-<td>
-<h4>🛠️ 自定义读段结构</h4>
-<blockquote>
-<strong>功能：</strong>为条形码和序列提取定义精确的读段结构，适用于非标准文库设计<br>
-<strong>优先级：</strong>此参数会覆盖--darkreaction的自动检测结果<br>
-<strong>语法格式：</strong><code>&lt;type&gt;,&lt;read&gt;:&lt;start&gt;-&lt;end&gt;</code>，多个段用分号分隔<br>
-<strong>坐标系统：</strong>使用1-based坐标系统（第一个碱基为位置1）<br>
-<strong>验证机制：</strong>软件会检查指定区域的合理性和与实际数据的一致性
-</blockquote>
-<details open>
-<summary><strong>参数类型详解：</strong></summary>
-<table>
-<tr><th>类型</th><th>说明</th><th>示例</th></tr>
-<tr><td><code>cb</code></td><td>细胞条形码序列</td><td><code>cb,R1:1-10</code></td></tr>
-<tr><td><code>R1</code></td><td>Read1中的生物序列</td><td><code>R1,R1:17-67</code></td></tr>
-<tr><td><code>R2</code></td><td>Read2中的生物序列</td><td><code>R2,R2:1-50</code></td></tr>
-</table>
-</details>
-<details open>
-<summary><strong>实际应用示例：</strong></summary>
-<p><strong>标准ATAC文库暗循环设计：</strong></p>
-<code>"cb,R1:1-10;cb,R1:11-20;R1,R1:21-70;R2,R2:1-50"</code>
-<p><strong>参数解释：</strong></p>
+<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<h4><code>--darkreaction</code> <span style="font-size: 0.8em; font-weight: normal; color: #f39c12;">(可选)</span></h4>
+<p>配置ATAC文库的暗循环（dark cycle）设置，以确保细胞条形码的精确识别。</p>
 <ul>
-<li>细胞条形码分两部分：R1的1-10和11-20位置</li>
-<li>生物序列：R1的21-70位置 + R2的1-50位置</li>
-</ul>
-<p><strong>标准ATAC文库标准MGI设计：</strong></p>
-<code>"cb,R1:7-16;cb,R1:23-32;R1,R1:66-115;R2,R2:20-69"</code>
-</details>
-<strong>⚠️ 注意事项：</strong>
-<ul>
-<li>使用时必须加上引号以避免shell命令解析错误</li>
-<li>坐标范围不能超出实际读段长度</li>
-<li>错误的配置可能导致数据丢失或分析失败</li>
-</ul>
-</td>
+  <li><strong>功能:</strong> 指导软件正确解析因测序化学（如MGI平台）产生的暗反应周期。</li>
+  <li><strong>智能检测:</strong> 默认情况下，软件会自动检测数据特征以选择合适的模式。<strong>强烈推荐初次分析时使用。</strong></li>
+  <details open>
+  <summary><strong>详细配置选项</strong></summary>
+  <table>
+  <thead><tr><th>选项</th><th>说明</th><th>适用场景</th></tr></thead>
+  <tbody>
+  <tr><td><code>auto</code></td>
+    <td><strong>(默认)</strong> 自动检测暗循环配置，并根据文库类型应用最优设置。</td>
+    <td>适用于所有标准 ATAC 测序数据。</td>
 </tr>
-</tbody>
-</table>
+<tr><td><code>R1R2</code></td>
+    <td>Read1 与 Read2 两端均包含暗循环碱基。</td>
+    <td>适用于双端暗循环的测序设计。</td>
+</tr>
+<tr><td><code>R1</code></td>
+    <td>仅 Read1 端包含暗循环碱基。</td>
+    <td>适用于单端暗循环（Read1 方向）的测序设计。</td>
+</tr>
+<tr><td><code>R2</code></td>
+    <td>仅 Read2 端包含暗循环碱基。</td>
+    <td>适用于单端暗循环（Read2 方向）的测序设计。</td>
+</tr>
+<tr><td><code>unset</code></td>
+    <td>文库不含暗循环碱基，不进行暗循环校正。</td>
+    <td>适用于非 MGI 平台或无暗循环设计的测序设计。</td>
+</tr>
+  </tbody>
+  </table>
+  </details>
+</ul>
+
+<p><strong>示例:</strong></p>
+<pre><code># 场景1: 首次分析，使用自动检测
+dnbc4tools atac run --name sample1 --fastqs ./fq --genomeDir ./ref</code></pre>
+
+<pre><code># 场景2: 已知文库仅在R1端有暗循环且自动分析无法识别或者识别错误
+dnbc4tools atac run --name sample2 --fastqs ./fq --genomeDir ./ref --darkreaction R1</code></pre>
+<p><strong>⚠️ 重要提示：</strong>不正确的设置可能导致细胞条形码识别失败或序列信息丢失。仅在了解文库结构或自动检测失败时手动指定。</p>
+</div>
+
+<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<h4><code>--customize</code> <span style="font-size: 0.8em; font-weight: normal; color: #9b59b6;">(高级)</span></h4>
+<p>为非标准文库精确定义条形码（barcode）和有效序列（read）的提取结构。</p>
+<ul>
+  <li><strong>功能:</strong> 当 <code>--darkreaction</code> 的预设模式不适用时，此参数提供终极控制。它会<strong>覆盖</strong>任何 <code>--darkreaction</code> 设置。</li>
+  <li><strong>语法:</strong> <code>"&lt;type&gt;,&lt;read&gt;:&lt;start&gt;-&lt;end&gt;;..."</code>，多个段用分号(<code>;</code>)分隔，坐标为1-based。</li>
+  <details open>
+  <summary><strong>参数类型详解</strong></summary>
+  <table>
+  <thead><tr><th>类型</th><th>说明</th><th>示例</th></tr></thead>
+  <tbody>
+  <tr><td><code>cb</code></td><td>细胞条形码 (Cell Barcode)</td><td><code>cb,R1:1-10</code></td></tr>
+  <tr><td><code>R1</code></td><td>Read1 中的有效DNA序列</td><td><code>R1,R1:21-70</code></td></tr>
+  <tr><td><code>R2</code></td><td>Read2 中的有效DNA序列</td><td><code>R2,R2:1-50</code></td></tr>
+  </tbody>
+  </table>
+  </details>
+</ul>
+<p><strong>示例:</strong></p>
+<pre><code># 示例1：假设其R1结构为：Barcode 1 (10bp) -> Barcode 2 (10bp) -> 插入序列 (50bp)。R2结构为：插入序列 (50bp)。
+--customize "cb,R1:1-10;cb,R1:11-20;R1,R1:21-70;R2,R2:1-50"</code></pre>
+<pre><code># 示例2：假设其R1结构为：固定序列(6bp) -> Barcode 1 (10bp) -> 固定序列(6bp) -> Barcode 2 (10bp) -> 固定序列(33bp) -> 插入序列 (50bp)。R2结构为：固定序列(19bp) -> 插入序列(50bp)。
+--customize "cb,R1:7-16;cb,R1:23-32;R1,R1:66-115;R2,R2:20-69"</code></pre>
+</details>
+<p><strong>⚠️ 注意事项：</strong></p>
+<ul>
+<li><strong>必须使用引号：</strong>由于包含特殊字符，整个字符串必须用双引号包裹。</li>
+<li><strong>坐标精确：</strong>坐标范围不能超过FASTQ文件中的实际读长，否则会导致解析失败。</li>
+</ul>
+</div>
 
 ---
 
 #### 🟢 过滤设置参数
 
-<table>
-<thead>
-<tr>
-<th width="20%" align="center"><strong>参数</strong></th>
-<th width="80%" align="left"><strong>描述与配置</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="center">
-<code><strong>--forcecells</strong></code>
-<br><br>
-<span style="color: #e67e22; font-weight: bold;">🎯 覆盖</span>
-</td>
-<td>
-<h4>🔒 强制细胞数量</h4>
-<blockquote>
-<strong>功能：</strong>强制流程使用确切的细胞数量，覆盖检测结果<br>
-<strong>选择：</strong>根据与peaks重叠的fragments数量排序的细胞<br>
-<strong>优先级：</strong>最高优先级 - 覆盖所有其他过滤条件
-</blockquote>
-<strong>示例：</strong> <code>5000</code>（强制5000个细胞）
-</td>
-</tr>
-<tr>
-<td align="center">
-<code><strong>--frags_cutoff</strong></code>
-<br><br>
-<span style="color: #27ae60; font-weight: bold;">🔢 默认：1000</span>
-</td>
-<td>
-<h4>📊 最低fragments阈值</h4>
-<blockquote>
-<strong>质量控制核心：</strong>设定细胞级别的最低唯一fragments数量要求，直接影响数据质量<br>
-<strong>生物学意义：</strong>Fragments代表细胞中染色质可接近区域的数量，是ATAC-seq的核心数据<br>
-<strong>过滤机制：</strong>低于此阈值的细胞被认为数据质量不佳，将从后续分析中排除<br>
-<strong>平衡考虑：</strong>阈值过低保留低质量细胞，过高可能丢失有效细胞<br>
-<strong>数据类型影响：</strong>不同组织类型和实验条件可能需要不同的阈值设置
-</blockquote>
-<strong>⚠️ 优化建议：</strong>
+<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<h4><code>--forcecells</code> <span style="font-size: 0.8em; font-weight: normal; color: #e67e22;">(可选)</span></h4>
+<p>强制流程使用确切的细胞数量，此参数会覆盖软件的自动细胞检测结果。</p>
 <ul>
-<li><strong>初次分析：</strong>使用默认值1000，观察结果报告中fragments分布</li>
-<li><strong>调整策略：</strong>根据TSS targeting分布图中fragments数量分布和细胞数量统计进行优化</li>
-</li>
+  <li><strong>功能:</strong> 当您希望分析一个预先知道数量的细胞群体时使用。</li>
+  <li><strong>优先级:</strong> 这是最高优先级的过滤参数。</li>
 </ul>
-</td>
-</tr>
-<tr>
-<td align="center">
-<code><strong>--tss_cutoff</strong></code>
-<br><br>
-<span style="color: #27ae60; font-weight: bold;">📈 默认：0</span>
-</td>
-<td>
-<h4>🧬 TSS比例阈值</h4>
-<blockquote>
-<strong>生物学意义：</strong>TSS（转录起始位点）富集是ATAC-seq数据质量的金标准指标<br>
-<strong>计算方法：</strong>与TSS上下游区域重叠的fragments占总 fragments的比例<br>
-<strong>质量指示：</strong>高TSS富集表示染色质可及性在基因调控区域的优良信号<br>
-<strong>过滤机制：</strong>低于TSS阈值的细胞可能存在技术问题，如细胞破损或核溶解<br>
-<strong>阈值影响：</strong>设置阈值可有效排除低质量细胞，提高下游分析可靠性
-</blockquote>
+<p><strong>默认值:</strong> 无</p>
+<p><strong>示例:</strong></p>
+<pre><code># 强制输出5000个细胞进行分析
+dnbc4tools atac run --name sample1 --fastqs ./fq --genomeDir ./ref --forcecells 5000</code></pre>
+</div>
 
-
-<strong>⚠️ 重要说明：</strong>
+<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<h4><code>--frags_cutoff</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(可选)</span></h4>
+<p>设定用于保留细胞的最低唯一fragments数量。</p>
 <ul>
-<li>默认值0意味着不基于TSS进行过滤</li>
-<li>建议结合QC报告中TSS targeting分布图来设置合适阈值</li>
-<li>不同实验条件可能需要不同的TSS阈值</li>
+  <li><strong>功能:</strong> 这是核心的细胞质量控制参数。低于此阈值的细胞被认为数据质量不佳，将从后续分析中排除。</li>
+  <li><strong>建议:</strong> 初次分析可使用默认值，然后根据网页报告中“TSS Targeting”部分的“Fragments计数分布图”来确定更合适的阈值。</li>
 </ul>
-</td>
-</tr>
-<tr>
-<td align="center">
-<code><strong>--jaccard_cutoff</strong></code>
-<br><br>
-<span style="color: #9b59b6; font-weight: bold;">🔗 可选</span>
-</td>
-<td>
-<h4>🤝 Jaccard相似度阈值</h4>
-<blockquote>
-<strong>生物学原理：</strong>真实细胞多个条形码通常具有高度相似的chromatin accessibility模式<br>
-<strong>核心功能：</strong>用于评估细胞条形码间相似性的Jaccard系数阈值，决定是否合并潜在的同一个细胞的条形码<br>
-<strong>算法原理：</strong>计算两个条形码间共有fragments占总fragments的比例：J = |A∩B| / |A∪B|<br>
-<strong>自动检测：</strong>基于OTSU二值化算法自动计算最优阈值，提高细胞识别的客观性<br>
-<strong>安全机制：</strong>自动计算值低于0.02时，系统将使用0.02作为最小安全阈值
-</blockquote>
-<strong>示例配置：</strong> <code>0.02</code>（标准阈值）| <code>auto</code>（自动检测）
-</td>
-</tr>
-<tr>
-<td align="center">
-<code><strong>--merge_cutoff</strong></code>
-<br><br>
-<span style="color: #27ae60; font-weight: bold;">🔗 默认：500</span>
-</td>
-<td>
-<h4>🧲 磁珠合并fragments阈值</h4>
-<blockquote>
-<strong>功能：</strong>合并磁珠时的最低fragments数量<br>
-<strong>范围：</strong>仅考虑超过此阈值的细胞进行下游分析<br>
-<strong>影响：</strong>影响peak calling和最终结果质量
-</blockquote>
-<strong>建议：</strong> 保持与<code>frags_cutoff</code>一致或低于此值
-</td>
-</tr>
-</tbody>
-</table>
+<p><strong>默认值:</strong> <code>1000</code></p>
+<p><strong>示例:</strong></p>
+<pre><code># 将细胞过滤的fragments阈值降低到500
+dnbc4tools atac run --name sample1 --fastqs ./fq --genomeDir ./ref --frags_cutoff 500</code></pre>
+</div>
+
+<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<h4><code>--tss_cutoff</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(可选)</span></h4>
+<p>设定用于保留细胞的最低TSS区域片段比例。</p>
+<ul>
+  <li><strong>功能:</strong> TSS富集是ATAC-seq数据质量的关键指标。设置此阈值可有效排除细胞破损或核溶解等技术问题导致的低质量细胞。</li>
+</ul>
+<p><strong>默认值:</strong> <code>0</code> (不过滤)</p>
+<p><strong>示例:</strong></p>
+<pre><code># 过滤掉TSS区域片段比例低于0.1的细胞
+dnbc4tools atac run --name sample1 --fastqs ./fq --genomeDir ./ref --tss_cutoff 0.1</code></pre>
+</div>
+
+<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<h4><code>--jaccard_cutoff</code> <span style="font-size: 0.8em; font-weight: normal; color: #9b59b6;">(可选)</span></h4>
+<p>用于合并潜在属于同一个细胞的多个条形码（beads）的Jaccard相似度阈值。</p>
+<ul>
+  <li><strong>功能:</strong> 基于染色质可及性模式的相似度来修正因上样或扩增偏好产生的“重复”细胞条形码。</li>
+  <li><strong>模式:</strong> 支持手动设置阈值，或使用 <code>auto</code> 让软件基于OTSU算法自动确定最佳阈值。</li>
+</ul>
+<p><strong>默认值:</strong> <code>auto</code></p>
+<p><strong>示例:</strong></p>
+<pre><code># 手动设置Jaccard相似度阈值为0.02
+dnbc4tools atac run --name sample1 --fastqs ./fq --genomeDir ./ref --jaccard_cutoff 0.02</code></pre>
+</div>
+
+<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<h4><code>--merge_cutoff</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(可选)</span></h4>
+<p>设定参与Jaccard合并的磁珠（beads）所需的最低fragments数量。</p>
+<ul>
+  <li><strong>功能:</strong> 只有fragments数量高于此阈值的磁珠才会被纳入Jaccard相似性计算和合并流程。合并后的有效细胞片段将用于后续的peak calling。</li>
+  <li><strong>作用:</strong> 在合并前过滤掉低质量的磁珠，提高合并的准确性和效率。</li>
+  <li><strong>建议:</strong> 对于fragments总量偏低的样本，可适当降低该值以纳入更多磁珠进行合并，从而获取更多有效片段用于后续分析。</li>
+</ul>
+<p><strong>默认值:</strong> <code>500</code></p>
+<p><strong>示例:</strong></p>
+<pre><code># 对于低fragment样本，将阈值降至200以纳入更多磁珠进行合并
+dnbc4tools atac run --name sample1 --fastqs ./fq --genomeDir ./ref --merge_cutoff 200</code></pre>
+</div>
 
 ---
 
 #### 🚩 分析设置参数
 
-<table>
-<thead>
-<tr>
-<th width="20%" align="center"><strong>参数</strong></th>
-<th width="80%" align="left"><strong>描述与配置</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="center">
-<code><strong>--need_bam</strong></code>
-<br><br>
-<span style="color: #e74c3c; font-weight: bold;">⚡ 标志</span>
-</td>
-<td>
-<h4>📄 生成BAM文件</h4>
-<blockquote>
-<strong>核心功能：</strong>启用包含所有比对读段详细信息的BAM格式文件生成<br>
-<strong>数据内容：</strong>BAM文件包含读段比对位置、质量分数、细胞条形码等信息<br>
-<strong>存储格式：</strong>采用标准SAM/BAM格式，兼容大部分生物信息学工具<br>
-<strong>性能影响：</strong>显著增加计算时间和磁盘I/O负载，需要更多存储空间<br>
-<strong>质量差异：</strong>由于Chromap比对器的特性，生成BAM和不生成的结果可能存在轻微差异
-</blockquote>
-
-<details open>
-<summary><strong>资源消耗估算：</strong></summary>
+<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<h4><code>--need_bam</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(标志)</span></h4>
+<p>启用BAM格式文件的生成。</p>
 <ul>
-<li><strong>时间成本：</strong>比正常分析增加30-50%的运行时间</li>
-<li><strong>内存使用：</strong>比对过程需要额外的内存开销</li>
+  <li><strong>功能:</strong> 生成包含所有具有有效条形码且已比对的读段的BAM文件，可用于IGV等可视化工具或进行其他自定义分析。</li>
+  <li><strong>注意:</strong> 启用此选项会显著增加计算时间和磁盘空间占用，预计运行时间会增加30-50%。此外，由于比对软件chromap在生成BAM文件和直接输出BED文件时存在差异，最终结果可能略有不同。</li>
+</ul>
+<p><strong>默认值:</strong> 不设置此参数则不生成BAM文件</p>
+</div>
 
-</td>
-</tr>
-<tr>
-<td align="center">
-<code><strong>--sample_read_pairs</strong></code>
-<br><br>
-<span style="color: #9b59b6; font-weight: bold;">🎲 可选</span>
-</td>
-<td>
-<h4>🔬 读段对子采样</h4>
-<blockquote>
-<strong>功能：</strong>从输入FASTQ文件中子采样指定数量的读段对<br>
-<strong>目的：</strong>用于快速测试或大数据集的初步分析<br>
-<strong>优势：</strong>有助于控制计算资源使用
-</blockquote>
-<strong>示例：</strong> <code>100000000</code>（100M个读段对）
-</td>
-</tr>
-</tbody>
-</table>
+<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<h4><code>--sample_read_pairs</code> <span style="font-size: 0.8em; font-weight: normal; color: #9b59b6;">(可选)</span></h4>
+<p>从输入的FASTQ文件中提取指定数量的读段对进行分析。</p>
+<ul>
+  <li><strong>功能:</strong> 用于在完整分析前对大数据集进行快速测试，或在资源有限时进行降采样分析。</li>
+</ul>
+<p><strong>默认值:</strong> 无 (使用全部数据)</p>
+<p><strong>示例:</strong></p>
+<pre><code>--sample_read_pairs 100000000</code></pre>
+</div>
 
 ---
-
 <div align="center">
 
 > 💡 **分析建议**
@@ -503,9 +359,8 @@ Analysis Settings:
 ### 📊 用法
 
 ```shell
-$dnbc4tools atac mkref
-usage: dnbc4tools atac mkref [-h] 
-
+$ dnbc4tools atac mkref --help
+Usage: dnbc4tools atac mkref [OPTIONS]
 optional arguments:
   -h, --help           show this help message and exit
 
@@ -533,286 +388,152 @@ Advanced settings:
 
 #### 🔴 必需参数
 
-<table>
-<thead>
-<tr>
-<th width="20%" align="center"><strong>参数</strong></th>
-<th width="80%" align="left"><strong>描述与配置</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="center">
-<code><strong>--fasta</strong></code>
-<br><br>
-<span style="color: #e74c3c; font-weight: bold;">🧬 必需</span>
-</td>
-<td>
-<h4>🗂️ 参考基因组FASTA文件</h4>
-<blockquote>
-<strong>核心功能：</strong>提供参考基因组序列信息，用于比对和索引构建<br>
-<strong>文件要求：</strong>标准FASTA格式，包含完整的基因组序列<br>
-<strong>版本建议：</strong>使用primary组装版本
-</blockquote>
-<strong>示例：</strong> <code>Homo_sapiens.GRCh38.dna.primary_assembly.fa</code>
-</td>
-</tr>
-<tr>
-<td align="center">
-<code><strong>--ingtf</strong></code>
-<br><br>
-<span style="color: #e74c3c; font-weight: bold;">📋 必需</span>
-</td>
-<td>
-<h4>📊 基因注释GTF文件</h4>
-<blockquote>
-<strong>核心功能：</strong>提供基因结构注释信息，用于TSS和promoter区域定义<br>
-<strong>格式要求：</strong>标准GTF格式，不支持GFF或GFF3格式<br>
-<strong>内容要求：</strong>必须包含gene和transcript类型的注释条目
-</blockquote>
-<details open>
-<summary><strong>TSS生成机制：</strong></summary>
+<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<h4><code>--fasta</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(必需)</span></h4>
+<p>提供参考基因组序列文件。</p>
 <ul>
-<li><strong>基因模式：</strong>使用gene条目的起始位点作为TSS</li>
-<li><strong>转录本模式：</strong>使用所有transcript的起始位点（默认，更精确）</li>
-<li><strong>链方向：</strong>自动处理正负链的TSS计算</li>
+  <li><strong>要求:</strong> 标准FASTA格式，建议使用primary组装版本。</li>
+  <li><strong>双物种:</strong> 支持提供两个以逗号分隔的FASTA文件用于混合物种分析。</li>
 </ul>
-</details>
-<strong>示例：</strong> <code>Homo_sapiens.GRCh38.108.gtf</code>
-</td>
-</tr>
-</tbody>
-</table>
+<p><strong>默认值:</strong> 无</p>
+<p><strong>示例:</strong></p>
+<pre><code>--fasta Homo_sapiens.GRCh38.dna.primary_assembly.fa</code></pre>
+</div>
+
+<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<h4><code>--ingtf</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(必需)</span></h4>
+<p>提供基因结构注释文件。</p>
+<ul>
+  <li><strong>要求:</strong> 标准GTF格式，必须包含 <code>gene</code> 和 <code>transcript</code> 类型的注释条目。</li>
+  <li><strong>功能:</strong> 用于定义TSS（转录起始位点）和启动子区域。</li>
+</ul>
+<p><strong>默认值:</strong> 无</p>
+<p><strong>示例:</strong></p>
+<pre><code>--ingtf Homo_sapiens.GRCh38.108.gtf</code></pre>
+</div>
 
 ---
 
 #### 🟢 输出设置参数
 
-<table>
-<thead>
-<tr>
-<th width="20%" align="center"><strong>参数</strong></th>
-<th width="80%" align="left"><strong>描述与配置</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="center">
-<code><strong>--genomeDir</strong></code>
-<br><br>
-<span style="color: #27ae60; font-weight: bold;">📁 默认：当前目录</span>
-</td>
-<td>
-<h4>🗃️ 数据库输出目录</h4>
-<blockquote>
-<strong>功能：</strong>指定存储所有生成参考文件的目录路径<br>
-<strong>结构：</strong>自动创建规范化的目录结构<br>
-<strong>权限：</strong>确保有足够的磁盘空间和写入权限
-</blockquote>
-<details open>
-<summary><strong>目录结构预览：</strong></summary>
-<pre>
-genomeDir/
-├── fasta/
-│   ├── genome.fa           # 基因组序列文件
-│   └── genome.index        # Chromap索引文件
-├── genes/
-│   └── genes.gtf           # 基因注释文件
-├── regions/
-│   ├── chrom.sizes         # 染色体大小文件
-│   ├── tss.bed             # TSS区域文件
-│   └── promoter.bed        # promoter区域文件
-└── ref.json                # 数据库配置文件
-</pre>
-</details>
-<strong>磁盘需求：</strong>人类基因组约10-15GB，其他物种按比例调整
-</td>
-</tr>
-<tr>
-<td align="center">
-<code><strong>--species</strong></code>
-<br><br>
-<span style="color: #f39c12; font-weight: bold;">🏷️ 无默认值</span>
-</td>
-<td>
-<h4>🔬 物种标识符</h4>
-<blockquote>
-<strong>功能：</strong>指定用于构建参考数据库的物种名称<br>
-<strong>用途：</strong>记录在ref.json配置文件中，用于后续分析识别<br>
-<strong>格式：</strong>建议使用标准的学名格式
-</blockquote>
-<details open>
-<summary><strong>命名规范建议：</strong></summary>
+<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<h4><code>--genomeDir</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(可选)</span></h4>
+<p>指定生成的参考数据库的输出目录。</p>
 <ul>
-<li><strong>标准格式：</strong>Genus_species（如：Homo_sapiens）</li>
-<li><strong>版本信息：</strong>可包含基因组版本（如：GRCh38）</li>
+  <li><strong>功能:</strong> 所有生成的参考文件（索引、注释等）都将存储在此目录中。</li>
+  <details open>
+  <summary><strong>输出目录结构示例</strong></summary>
+  <pre><code>&lt;genomeDir/species&gt;/
+  ├── fasta/
+  │   ├── genome.fa
+  │   └── genome.index
+  ├── genes/
+  │   └── genes.gtf
+  ├── regions/
+  │   ├── chrom.sizes
+  │   ├── promoter.bed
+  │   └── tss.bed
+  └── ref.json
+  </code></pre>
+  </details>
 </ul>
-</details>
-</td>
-</tr>
-</tbody>
-</table>
+
+<p><strong>默认值:</strong> <code>./</code> (当前目录)</p>
+<p><strong>示例:</strong></p>
+<pre><code>dnbc4tools atac mkref --fasta genome.fa --ingtf genes.gtf --genomeDir /database/scATAC/GRCh38</code></pre>
+</div>
+
+<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<h4><code>--species</code> <span style="font-size: 0.8em; font-weight: normal; color: #f39c12;">(可选)</span></h4>
+<p>为参考数据库指定一个物种名称。</p>
+<ul>
+  <li><strong>功能:</strong> 该名称会记录在配置文件中，便于后续识别。</li>
+  <li><strong>建议:</strong> 使用标准的学名格式，如 <code>Homo_sapiens</code>。</li>
+</ul>
+<p><strong>默认值:</strong> <code>undefined</code></p>
+<p><strong>示例:</strong></p>
+<pre><code>dnbc4tools atac mkref --fasta genome.fa --ingtf genes.gtf --species Homo_sapiens</code></pre>
+</div>
 
 ---
 
 #### 🟢 基因组设置参数
 
-<table>
-<thead>
-<tr>
-<th width="20%" align="center"><strong>参数</strong></th>
-<th width="80%" align="left"><strong>描述与配置</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="center">
-<code><strong>--tag</strong></code>
-<br><br>
-<span style="color: #27ae60; font-weight: bold;">📍 默认：transcript</span>
-</td>
-<td>
-<h4>🎯 TSS信息来源选择</h4>
-<blockquote>
-<strong>功能：</strong>选择生成转录起始位点(TSS)文件的信息来源<br>
-<strong>影响：</strong>决定TSS enrichment分析的精确度<br>
-<strong>选择：</strong>gene（基因级别）或transcript（转录本级别）
-</blockquote>
-<details open>
-<summary><strong>模式对比分析：</strong></summary>
-<table>
-<tr><th>模式</th><th>TSS数量</th><th>精确度</th><th>适用场景</th></tr>
-<tr><td>gene</td><td>较少</td><td>中等</td><td>快速分析，关注基因级别表达</td></tr>
-<tr><td>transcript</td><td>较多</td><td>较高</td><td>精细分析，关注转录本多样性</td></tr>
-</table>
-</details>
-<strong>推荐：</strong>使用默认的<code>transcript</code>模式获得更精确的结果
-</td>
-</tr>
-<tr>
-<td align="center">
-<code><strong>--chrM</strong></code>
-<br><br>
-<span style="color: #27ae60; font-weight: bold;">🔍 默认：auto</span>
-</td>
-<td>
-<h4>🧬 线粒体染色体识别</h4>
-<blockquote>
-<strong>功能：</strong>识别并标记线粒体染色体，用于后续的质量控制分析<br>
-<strong>自动模式：</strong>系统自动在常见命名中查找线粒体染色体<br>
-<strong>质控重要性：</strong>线粒体fragments过多通常表示细胞质量差，纳入线粒体影响tss区域判断以及细胞fragments数量
-</blockquote>
-<details open>
-<summary><strong>自动识别列表：</strong></summary>
+<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<h4><code>--tag</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(可选)</span></h4>
+<p>选择生成TSS（转录起始位点）文件的信息来源。</p>
 <ul>
-<li><code>chrM</code> - 人类、小鼠等哺乳动物常用</li>
-<li><code>MT</code> - 某些数据库使用的简化命名</li>
-<li><code>chrMT</code> - 带前缀的标准命名</li>
-<li><code>mt, Mt</code> - 大小写变体</li>
+  <li><strong>选项:</strong> <code>gene</code> (使用基因起始位点) 或 <code>transcript</code> (使用转录本起始位点)。</li>
+  <li><strong>建议:</strong> 使用 <code>transcript</code> 模式可以获得更精确的TSS富集分析结果。</li>
 </ul>
-</details>
-<strong>手动设置：</strong>如果自动识别失败，可手动指定线粒体染色体名称
-</td>
-</tr>
-<tr>
-<td align="center">
-<code><strong>--chloroplast</strong></code>
-<br><br>
-<span style="color: #f39c12; font-weight: bold;">🌱 植物专用</span>
-</td>
-<td>
-<h4>🍃 叶绿体染色体设置</h4>
-<blockquote>
-<strong>适用对象：</strong>植物样本专用参数，动物样本无需设置<br>
-<strong>功能：</strong>识别叶绿体基因组，进行植物特异性质量控制<br>
-<strong>重要性：</strong>植物细胞中叶绿体纳入影响tss区域判断以及细胞fragments数量统计
-</blockquote>
-<details open>
-<summary><strong>常见叶绿体命名：</strong></summary>
+<p><strong>默认值:</strong> <code>transcript</code></p>
+<p><strong>示例:</strong></p>
+<pre><code># 基于转录本起始位点生成TSS文件
+dnbc4tools atac mkref --fasta genome.fa --ingtf genes.gtf --tag transcript</code></pre>
+</div>
+
+<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<h4><code>--chrM</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(可选)</span></h4>
+<p>指定线粒体染色体的名称。</p>
 <ul>
-<li><code>Pt</code> - plastid的缩写，最常用</li>
-<li><code>Pltd</code> - plastid的另一种缩写</li>
-<li><code>chloroplast</code> - 全名</li>
+  <li><strong>功能:</strong> 用于细胞质量控制。线粒体片段过多通常指示细胞质量不佳。将线粒体片段纳入分析会影响TSS/peak区域片段的统计准确性。</li>
+  <li><strong>自动检测:</strong> 默认会从常见名称（如 <code>chrM</code>, <code>MT</code>）中自动识别。</li>
 </ul>
-</details>
-</td>
-</tr>
-<tr>
-<td align="center">
-<code><strong>--kmer</strong></code>
-<br><br>
-<span style="color: #27ae60; font-weight: bold;">🔢 默认：17</span>
-</td>
-<td>
-<h4>🧮 k-mer长度参数</h4>
-<blockquote>
-<strong>技术原理：</strong>确定Chromap索引构建过程中提取的子字符串大小<br>
-<strong>性能影响：</strong>直接影响比对的精确度、速度和内存使用<br>
-<strong>平衡考量：</strong>精确度与计算效率之间的权衡
-</blockquote>
-<details open>
-<summary><strong>参数效应分析：</strong></summary>
-<table>
-<tr><th>k-mer长度</th><th>精确度</th><th>速度</th><th>内存需求</th><th>适用场景</th></tr>
-<tr><td>15-16</td><td>中等</td><td>快</td><td>低</td><td>短读长数据，简单基因组</td></tr>
-<tr><td>17-18</td><td>高</td><td>适中</td><td>适中</td><td>标准分析（推荐）</td></tr>
-<tr><td>19-20</td><td>很高</td><td>慢</td><td>高</td><td>高特异性需求</td></tr>
-</table>
-</details>
-<strong>调试建议：</strong>如遇到内存不足错误，可尝试降低此值
-</td>
-</tr>
-<tr>
-<td align="center">
-<code><strong>--window</strong></code>
-<br><br>
-<span style="color: #27ae60; font-weight: bold;">🪟 默认：7</span>
-</td>
-<td>
-<h4>📏 索引窗口大小</h4>
-<blockquote>
-<strong>技术定义：</strong>定义一个窗口内连续k-mer的数量<br>
-<strong>算法机制：</strong>影响minimizer算法的种子选择策略<br>
-<strong>性能调节：</strong>平衡比对灵敏度与特异性
-</blockquote>
-<details open>
-<summary><strong>窗口大小效应：</strong></summary>
-<table>
-<tr><th>窗口大小</th><th>灵敏度</th><th>特异性</th><th>索引大小</th><th>比对速度</th></tr>
-<tr><td>5-6</td><td>高</td><td>低</td><td>大</td><td>慢</td></tr>
-<tr><td>7-8</td><td>适中</td><td>适中</td><td>适中</td><td>适中</td></tr>
-<tr><td>9-12</td><td>低</td><td>高</td><td>小</td><td>快</td></tr>
-</table>
-</details>
-<strong>协同调节：</strong>通常与kmer参数协同调整以达到最佳效果
-</td>
-</tr>
-<tr>
-<td align="center">
-<code><strong>--noindex</strong></code>
-<br><br>
-<span style="color: #e74c3c; font-weight: bold;">⚠️ 跳过标志</span>
-</td>
-<td>
-<h4>🚫 跳过索引构建</h4>
-<blockquote>
-<strong>使用场景：</strong>当数据库已经使用Chromap构建完成时使用<br>
-<strong>功能限制：</strong>只生成ref.json配置文件，跳过耗时的索引步骤<br>
-<strong>前提条件：</strong>目标目录中已存在有效的Chromap索引文件
-</blockquote>
-<details open>
-<summary><strong>适用情况：</strong></summary>
+<p><strong>默认值:</strong> <code>auto</code></p>
+<p><strong>示例:</strong></p>
+<pre><code># 如果线粒体染色体名称为"mitochondrion"
+dnbc4tools atac mkref --fasta genome.fa --ingtf genes.gtf --chrM mitochondrion</code></pre>
+</div>
+
+<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<h4><code>--chloroplast</code> <span style="font-size: 0.8em; font-weight: normal; color: #f39c12;">(植物专用)</span></h4>
+<p>指定叶绿体染色体的名称，推荐植物样本使用。</p>
 <ul>
-<li><strong>重复构建：</strong>相同基因组的多次数据库构建</li>
-<li><strong>参数调整：</strong>只需更新ref.json而无需重建索引</li>
-<li><strong>时间节省：</strong>跳过耗时的索引构建过程</li>
+  <li><strong>功能:</strong> 用于植物样本的特定质量控制。将叶绿体片段纳入分析会影响TSS/peak区域片段的统计准确性。</li>
 </ul>
-</details>
-<strong>风险提示：</strong>错误使用可能导致后续分析失败，请确保索引文件有效
-</td>
-</tr>
-</tbody>
-</table>
+<p><strong>默认值:</strong> 无</p>
+<p><strong>示例:</strong></p>
+<pre><code># 为拟南芥基因组指定叶绿体染色体名称
+dnbc4tools atac mkref --fasta TAIR10.fa --ingtf Athaliana.gtf --chloroplast Pt</code></pre>
+</div>
+
+<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<h4><code>--kmer</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(可选)</span></h4>
+<p>设置Chromap索引构建时使用的k-mer长度。</p>
+<ul>
+  <li><strong>功能:</strong> 影响比对的精确度、速度和内存使用。</li>
+  <li><strong>建议:</strong> 对于标准分析，默认值通常是最佳选择。如果遇到内存不足的错误，可以尝试降低此值。</li>
+</ul>
+<p><strong>默认值:</strong> <code>17</code></p>
+<p><strong>示例:</strong></p>
+<pre><code># 降低k-mer长度以减少内存使用
+dnbc4tools atac mkref --fasta genome.fa --ingtf genes.gtf --kmer 15</code></pre>
+</div>
+
+<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<h4><code>--window</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(可选)</span></h4>
+<p>设置Chromap索引构建时使用的窗口大小。</p>
+<ul>
+  <li><strong>功能:</strong> 定义一个窗口内的连续k-mer数量，影响比对的灵敏度和特异性。</li>
+  <li><strong>建议:</strong> 通常与 <code>--kmer</code> 参数协同调整以达到最佳效果。</li>
+</ul>
+<p><strong>默认值:</strong> <code>7</code></p>
+<p><strong>示例:</strong></p>
+<pre><code># 调整窗口大小
+dnbc4tools atac mkref --fasta genome.fa --ingtf genes.gtf --window 5</code></pre>
+</div>
+
+<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<h4><code>--noindex</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(标志)</span></h4>
+<p>如果设置此参数，将只生成配置文件而不构建基因组索引。</p>
+<ul>
+  <li><strong>功能:</strong> 当索引文件已存在时，使用此参数可以跳过耗时的索引构建步骤。</li>
+</ul>
+<p><strong>默认值:</strong> 不设置</p>
+<p><strong>示例:</strong></p>
+<pre><code># 仅生成配置文件，不构建索引
+dnbc4tools atac mkref --fasta genome.fa --ingtf genes.gtf --noindex</code></pre>
+</div>
 
 > [!TIP]
 > 
@@ -857,72 +578,46 @@ genomeDir/
 ### 📊 用法
 
 ```shell
-$dnbc4tools atac multi
-usage: dnbc4tools atac multi [-h] 
-
+$ dnbc4tools atac multi 
+Usage: dnbc4tools atac multi [OPTIONS]
 optional arguments:
-  -h, --help            show this help message and exit
-  --list <LIST>         Path to the sample list file. Each line should contain sample name and FASTQ paths.
-  --outdir <OUTDIR>     Output directory. [default: current directory].
-  --threads <CORENUM>   Number of threads used for analysis. [default: 10].
-  --genomeDir <DATABASE>
-                        Path to the directory where genome files are stored.
+  -h, --help         show this help message and exit
+  --list <STR>       Path to the sample list file. Each line should contain sample name and FASTQ paths.
+  --outdir <DIR>     Output directory. [default: current directory].
+  --threads <INT>    Number of threads used for analysis.
+  --genomeDir <DIR>  Path to the directory where genome files are stored.
 ```
 
 ### 📝 参数说明
 
 #### 🔴 必需参数
 
-<table>
-<thead>
-<tr>
-<th width="20%" align="center"><strong>参数</strong></th>
-<th width="80%" align="left"><strong>描述与配置</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="center">
-<code><strong>--list</strong></code>
-<br><br>
-<span style="color: #e74c3c; font-weight: bold;">📋 必需</span>
-</td>
-<td>
-<h4>📄 样本列表文件</h4>
-<blockquote>
-<strong>核心功能：</strong>指定包含多个样本信息的列表文件路径<br>
-<strong>文件格式：</strong>使用制表符(\t)分隔的文本文件<br>
-<strong>列结构：</strong>第一列为样本名称，第二列为ATAC文库数据路径
-</blockquote>
-<details open>
-<summary><strong>文件格式规范：</strong></summary>
+<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<h4><code>--list</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(必需)</span></h4>
+<p>指定包含多个样本信息的列表文件路径。</p>
 <ul>
-<li><strong>分隔符：</strong>使用制表符(\t)分隔列，不使用空格或逗号</li>
-<li><strong>样本名：</strong>第一列，唯一标识符，不包含特殊字符</li>
-<li><strong>数据路径：</strong>第二列，包含FASTQ文件的完整路径</li>
-<li><strong>文件编码：</strong>建议使用UTF-8编码，避免中文乱码</li>
+  <li><strong>文件格式:</strong> 使用制表符(<code>\t</code>)分隔的文本文件，建议UTF-8编码。</li>
+  <li><strong>列结构:</strong> 第一列为样本名称，第二列为该样本对应的FASTQ数据路径。</li>
+  <details open>
+  <summary><strong>路径格式规则</strong></summary>
+  <ul>
+  <li><strong>多个fastq文件：</strong>使用逗号(<code>,</code>)分隔</li>
+  <li><strong>R1和R2文件：</strong>使用分号(<code>;</code>)分隔</li>
+  <li><strong>路径类型：</strong>支持绝对路径和相对路径</li>
+  </ul>
+  </details>
 </ul>
-</details>
 <details open>
-<summary><strong>路径格式规则：</strong></summary>
-<ul>
-<li><strong>多个fastq文件：</strong>使用逗号(,)分隔</li>
-<li><strong>R1和R2文件：</strong>使用分号(;)分隔</li>
-<li><strong>路径类型：</strong>支持绝对路径和相对路径</li>
-<li><strong>文件检查：</strong>系统会自动验证文件存在性</li>
-</ul>
+<summary><strong>文件内容示例</strong></summary>
+
+<pre><code># 场景1: 样本A，具有一对R1/R2文件
+SampleA /path/to/SampleA_R1.fastq.gz;/path/to/SampleA_R2.fastq.gz</code></pre>
+
+<pre><code># 场景2: 样本B，具有两对R1/R2文件 (同一Read的文件用逗号分隔)
+SampleB /path/to/B_L01_R1.fq.gz,/path/to/B_L02_R1.fq.gz;/path/to/B_L01_R2.fq.gz,/path/to/B_L02_R2.fq.gz</code></pre>
 </details>
-<details open>
-<summary><strong>批量处理优势：</strong></summary>
-<ul>
-<li><strong>效率提升：</strong>一次性处理多个样本，避免重复操作</li>
-<li><strong>参数统一：</strong>所有样本使用相同的分析参数</li>
-</ul>
-</details>
-</td>
-</tr>
-</tbody>
-</table>
+<p><strong>默认值:</strong> 无</p>
+</div>
 
 ---
 

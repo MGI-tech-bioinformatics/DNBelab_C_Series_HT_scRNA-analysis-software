@@ -18,7 +18,7 @@
 
 ## 📋 概述 <a id="概述"></a>
 
-本文档介绍使用 dnbc4tools 进行单细胞 RNA 测序数据分析的完整流程。
+本文档旨在提供一份完整的指南，详细介绍如何使用 dnbc4tools 对单细胞 RNA 测序数据进行分析。
 
 **工作流程**：原始数据 → 质量控制 → 比对 → 细胞识别 → 表达矩阵 → 分析报告
 
@@ -26,50 +26,105 @@
   <img src="https://s2.loli.net/2024/09/26/uKTXv7Q2miNbz1S.png" alt="工作流程图" width="800">
 </div>
 
-> **使用说明**：`$dnbc4tools` 代表可执行程序路径，使用时需要替换为实际安装路径。换行符 `\` 用于在命令行中将命令分为多行，以提高可读性。
+<div style="background-color: #e7f3fe; border-left: 6px solid #2196F3; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
+💡 **使用说明**：`$dnbc4tools` 代表可执行程序路径，需替换为您的实际安装路径。换行符 `\` 用于在命令行中将命令分为多行，以提高可读性。
+</div>
 
 ---
 
 ## 📁 文件准备 <a id="文件准备"></a>
 
-分析需要两种类型的FASTQ文件：
+分析需要两种类型的 FASTQ 文件：
 
-| 文件类型 | 说明 |
-|---------|------|
-| **cDNA文库** | 包含cell barcode，UMI和转录组信息的测序数据 |
-| **oligo文库** | 包含大小磁珠的cell barcode信息和小磁珠的UMI信息 |
+<table style="width:100%; border-collapse: collapse; margin: 1.5em 0; box-shadow: 0 2px 3px rgba(0,0,0,0.1);">
+  <thead style="background-color: #f2f2f2; border-bottom: 2px solid #ddd;">
+    <tr>
+      <th style="padding: 12px 15px; border: 1px solid #ddd; text-align: left;">文件类型</th>
+      <th style="padding: 12px 15px; border: 1px solid #ddd; text-align: left;">说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;"><b>cDNA 文库</b></td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;">包含 Cell Barcode、UMI 和转录组信息的测序数据。</td>
+    </tr>
+    <tr>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;"><b>Oligo 文库</b></td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;">包含大小磁珠的 Cell Barcode 信息及小磁珠的 UMI 信息。</td>
+    </tr>
+  </tbody>
+</table>
 
-> **注意**：确保FASTQ文件质量良好，并记录好文件路径，用于后续分析。
+<div style="background-color: #fffbe6; border-left: 6px solid #ffc107; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
+⚠️ **注意**：请确保 FASTQ 文件质量良好，并记录文件路径以备后续分析使用。
+</div>
 
+---
 
 ## 📊 参考数据库 <a id="参考数据库"></a>
 
 ### 文件要求
 
-| 文件类型 | 格式 | 说明 |
-|---------|------|------|
-| **基因组文件** | FASTA | 包含特定物种的完整基因组序列，包括染色体、线粒体及其他遗传信息，通常为主装配版本。这些文件为基因组分析和比对提供基础数据。 |
-| **注释文件** | GTF | 包含基因组中基因、转录本、外显子及其他功能区域的详细信息。该文件标识基因的位置、类型及其相关属性。 |
+<table style="width:100%; border-collapse: collapse; margin: 1.5em 0; box-shadow: 0 2px 3px rgba(0,0,0,0.1);">
+  <thead style="background-color: #f2f2f2; border-bottom: 2px solid #ddd;">
+    <tr>
+      <th style="padding: 12px 15px; border: 1px solid #ddd; text-align: left;">文件类型</th>
+      <th style="padding: 12px 15px; border: 1px solid #ddd; text-align: left;">格式</th>
+      <th style="padding: 12px 15px; border: 1px solid #ddd; text-align: left;">说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;"><b>基因组文件</b></td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;">FASTA</td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;">包含特定物种的完整基因组序列（通常是主装配版本），涵盖染色体、线粒体及其他遗传信息。该文件是基因组比对和分析的基础。</td>
+    </tr>
+    <tr>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;"><b>注释文件</b></td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;">GTF</td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;">详细描述基因组中的基因、转录本、外显子等功能区域。此文件明确了基因的位置、类型及相关属性。</td>
+    </tr>
+  </tbody>
+</table>
 
-> **推荐数据来源**：优先使用[Ensembl数据库](https://www.ensembl.org/index.html)提供的文件。Ensembl的GTF文件包含可选标签，便于过滤（通过`dnbc4tools tools mkgtf`）。
+<div style="background-color: #e7f3fe; border-left: 6px solid #2196F3; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
+💡 **推荐数据来源**：优先使用 [Ensembl 数据库](https://www.ensembl.org/index.html)提供的文件。Ensembl 的 GTF 文件包含可选标签，便于通过 `dnbc4tools tools mkgtf` 进行过滤。
+</div>
 
-**GTF文件要求**：
-- 必须包含"gene"或"transcript"类型以及"exon"类型的注释
-- 属性中必须包含"gene_id"或"gene_name"以及"transcript_id"或"transcript_name"
-- 不支持GFF文件格式
-- 基因组文件与注释文件需对应
+**GTF 文件要求**：
+- 必须包含 "gene" 或 "transcript" 类型以及 "exon" 类型的注释。
+- 属性中必须包含 "gene_id" 或 "gene_name" 以及 "transcript_id" 或 "transcript_name"。
+- 不支持 GFF 文件格式。
+- 基因组文件与注释文件需版本对应。
 
-### GTF文件处理（可选）
+### GTF 文件处理（可选）
 
-从 ENSEMBL 和 UCSC 等网站下载的 GTF 文件通常包含多种基因类型的基因。选择您研究中比较感兴趣的基因类型，过滤部分基因类型可以减少重叠的基因注释。与多个基因非唯一比对的 reads 会被过滤。
+从 ENSEMBL 和 UCSC 等网站下载的 GTF 文件通常包含多种类型的基因。根据您的研究兴趣选择特定的基因类型进行分析，可以有效减少基因注释的重叠，从而提高比对的唯一性。与多个基因非唯一比对的 reads 会被过滤。
 
-我们提供了以下三种GTF文件处理功能：
+我们提供以下三种 GTF 文件处理功能：
 
-| 功能 | 说明 |
-|------|------|
-| **基因类型数量统计** | 统计GTF文件中各种基因类型的数量 |
-| **校正GTF文件** | 填补缺失信息，确保GTF文件符合分析要求 |
-| **基因类型过滤** | 根据研究需要过滤特定基因类型 |
+<table style="width:100%; border-collapse: collapse; margin: 1.5em 0; box-shadow: 0 2px 3px rgba(0,0,0,0.1);">
+  <thead style="background-color: #f2f2f2; border-bottom: 2px solid #ddd;">
+    <tr>
+      <th style="padding: 12px 15px; border: 1px solid #ddd; text-align: left;">功能</th>
+      <th style="padding: 12px 15px; border: 1px solid #ddd; text-align: left;">说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;"><b>基因类型统计</b></td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;">统计 GTF 文件中各基因类型的数量。</td>
+    </tr>
+    <tr>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;"><b>GTF 文件校正</b></td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;">填补缺失信息，确保 GTF 文件符合分析要求。</td>
+    </tr>
+    <tr>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;"><b>基因类型过滤</b></td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;">根据研究需要筛选特定基因类型。</td>
+    </tr>
+  </tbody>
+</table>
 
 #### 基因类型统计
 
@@ -82,7 +137,9 @@ $dnbc4tools tools mkgtf \
   --type gene_biotype
 ```
 
-> **注意**：需要查看GTF文件中的tag确定`type`的类型。
+<div style="background-color: #fffbe6; border-left: 6px solid #ffc107; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
+⚠️ **注意**：需要查看 GTF 文件中的 tag 确定 `type` 的类型。
+</div>
 
 <div align="center">
   <img src="https://s2.loli.net/2024/10/09/afGqtQocTE9h3uR.png" alt="GTF文件类型示例" width="800">
@@ -111,9 +168,9 @@ IG_V_gene       145
 ......
 ```
 
-#### GTF文件校正
+#### GTF 文件校正
 
-对于内容缺失的GTF文件，可能导致主分析流程无法注释而报错。此功能可以填补gene行和transcript行缺失的信息。
+当 GTF 文件内容不完整时，主分析流程可能会因无法完全注释而中断。此功能能够自动填补基因（gene）与转录本（transcript）条目中的缺失信息，确保流程顺利进行。
 
 ```shell
 # 校正GTF文件
@@ -123,7 +180,7 @@ $dnbc4tools tools mkgtf \
   --output corrected.gtf
 ```
 
-软件会根据gene_id和gene_name以及transcript_id和transcript_name互相填补，并提示可能存在多个基因信息的位置。
+软件会根据 `gene_id` 和 `gene_name` 以及 `transcript_id` 和 `transcript_name` 互相填补，并提示可能存在多个基因信息的位置。
 
 #### 基因类型过滤
 
@@ -154,7 +211,7 @@ TR_J_gene
 TR_C_gene
 ```
 
-您也可以使用`include`参数自定义需要保留的基因类型：
+您也可以使用 `include` 参数自定义需要保留的基因类型：
 
 ```shell
 # 自定义基因类型过滤
@@ -170,7 +227,7 @@ $dnbc4tools tools mkgtf \
 
 ### 构建参考数据库
 
-在运行dnbc4tools rna run分析之前，我们需要优先构建参考数据库。此步骤需要注释文件(GTF)和参考基因组(FASTA)来构建索引文件，用于测序reads的比对和注释。
+在执行 `dnbc4tools rna run` 分析前，必须先构建参考数据库。此步骤利用注释文件（GTF）和参考基因组（FASTA）创建索引，用于后续测序 reads 的比对和注释。
 
 ```shell
 # 构建参考数据库
@@ -188,12 +245,12 @@ $dnbc4tools rna mkref \
 ```
 /opt/database/Homo_sapiens
 ├── fasta
-│   ├── genome.fa         # 参考基因组文件
-│   └── genome.fa.fai     # 参考基因组索引
+│   ├── genome.fa
+│   └── genome.fa.fai
 ├── genes
-│   └── genes.gtf         # 基因注释文件
-├── ref.json              # 参考数据库配置文件
-└── star                  # STAR比对器索引文件
+│   └── genes.gtf
+├── ref.json
+└── star
     ├── chrLength.txt
     ├── chrNameLength.txt
     ├── chrName.txt
@@ -203,7 +260,7 @@ $dnbc4tools rna mkref \
     ├── geneInfo.tab
     ├── Genome
     ├── genomeParameters.txt
-    ├── mtgene.list       # 线粒体基因列表文件
+    ├── mtgene.list
     ├── SA
     ├── SAindex
     ├── sjdbInfo.txt
@@ -212,9 +269,9 @@ $dnbc4tools rna mkref \
     └── transcriptInfo.tab
 ```
 
-其中ref.json文件中记录数据库的主要信息。
+其中 `ref.json` 文件记录了数据库的主要信息。
 
-```shell
+```json
 {
     "chrmt": "chrM",
     "genome": "/opt/database/Homo_sapiens/fasta/genome.fa",
@@ -232,9 +289,11 @@ $dnbc4tools rna mkref \
 }
 ```
 
-> **注意**：构建参考数据库可能需要较长时间，取决于基因组大小和计算机性能。软件主分析流程兼容旧版本数据库。
+<div style="background-color: #fffbe6; border-left: 6px solid #ffc107; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
+⚠️ **注意**：构建参考数据库可能需要较长时间，具体取决于基因组大小和计算性能。软件主分析流程兼容旧版本数据库。
+</div>
 
-运行时打印信息，以下是一个示例：
+运行时将打印如下信息：
 
 ```shell
 Creating new reference folder at /opt/database/Homo_sapiens
@@ -258,13 +317,13 @@ Writing Reference JSON file into reference folder...
 Analysis Complete
 ```
 
-</br>
+---
 
 ## 🚀 主流程分析 <a id="主流程分析"></a>
 
 ### 多样本批处理（可选）
 
-为了简化每个样本单独生成主分析流程，可以使用配置文件来生成一个包含多个样本的主流程 shell 脚本。以下是一个示例步骤或脚本模板：
+为简化多样本分析流程，您可以使用配置文件批量生成针对每个样本的 shell 脚本。
 
 ```shell
 $dnbc4tools rna multi \
@@ -275,13 +334,32 @@ $dnbc4tools rna multi \
 
 其中 `sample.tsv` 文件使用制表符 (`\t`) 分隔，包含三列：
 
-| 列 | 内容 |
-|----|------|
-| 1  | 样本名称 |
-| 2  | cDNA文库测序数据 |
-| 3  | oligo文库测序数据 |
+<table style="width:100%; border-collapse: collapse; margin: 1.5em 0; box-shadow: 0 2px 3px rgba(0,0,0,0.1);">
+  <thead style="background-color: #f2f2f2; border-bottom: 2px solid #ddd;">
+    <tr>
+      <th style="padding: 12px 15px; border: 1px solid #ddd; text-align: left;">列</th>
+      <th style="padding: 12px 15px; border: 1px solid #ddd; text-align: left;">内容</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;">1</td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;">样本名称</td>
+    </tr>
+    <tr>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;">2</td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;">cDNA 文库测序数据</td>
+    </tr>
+    <tr>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;">3</td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;">Oligo 文库测序数据</td>
+    </tr>
+  </tbody>
+</table>
 
-> **注意**：多个fastq文件以逗号分隔，R1和R2文件以分号分隔。
+<div style="background-color: #fffbe6; border-left: 6px solid #ffc107; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
+⚠️ **注意**：多个 fastq 文件以逗号分隔，R1 和 R2 文件以分号分隔。
+</div>
 
 ```tsv
 sample1	/data/cDNA1_R1.fq.gz;/data/cDNA1_R2.fq.gz	/data/oligo1_R1.fq.gz,/data/oligo4_R1.fq.gz;/data/oligo1_R2.fq.gz,/data/oligo4_R2.fq.gz
@@ -289,8 +367,7 @@ sample2	/data/cDNA2_R1.fq.gz;/data/cDNA2_R2.fq.gz	/data/oligo2_R1.fq.gz;/data/ol
 sample3	/data/cDNA3_R1.fq.gz;/data/cDNA3_R2.fq.gz	/data/oligo3_R1.fq.gz;/data/oligo3_R2.fq.gz
 ```
 
-
-运行完成后输出：
+运行完成后，将为每个样本生成一个 shell 脚本：
 
 ```shell
 sample1.sh
@@ -298,22 +375,27 @@ sample2.sh
 sample3.sh
 ```
 
-其中文件 sample1.sh 如下：
+`sample1.sh` 文件内容示例：
 
 ```shell
 $cat sample1.sh
-/opt/software/dnbc4tools3.0beta/dnbc4tools rna run --name sample1 --cDNAfastq1 /data/cDNA1_R1.fq.gz --cDNAfastq2 /data/cDNA1_R2.fq.gz --oligofastq1 /data/oligo1_R1.fq.gz,/data/oligo4_R1.fq.gz --oligofastq2 /data/oligo1_R2.fq.gz,/data/oligo4_R2.fq.gz --genomeDir /database/scRNA/Mus_musculus/mm10 --threads 30 
+/opt/software/dnbc4tools3.0beta/dnbc4tools rna run --name sample1 --cDNAfastq1 /data/cDNA1_R1.fq.gz --cDNAfastq2 /data/cDNA1_R2.fq.gz --oligofastq1 /data/oligo1_R1.fq.gz,/data/oligo4_R1.fq.gz --oligofastq2 /data/oligo1_R2.fq.gz,/data/oligo4_R2.fq.gz --genomeDir /database/scRNA/Mus_musculus/mm10 --threads 30
 ```
 
-执行第四步进行主流程分析。
+随后，您可以执行这些脚本以进行主流程分析。
 
-</br>
+
 
 ### 单样本分析
 
-RNA 主分析流程。处理单个样本单细胞 RNA 的 cDNA 和 oligo 文库测序数据。该流程包括质量控制、比对和功能区域注释。随后，系统将合并磁珠以识别细胞，并生成原始基因表达矩阵及过滤后的基因表达矩阵。接下来，分析将对该矩阵进行细胞过滤、降维、聚类和注释，最终生成 HTML 格式的报告并输出分析结果。
+RNA 主分析流程处理单个样本的 cDNA 和 Oligo 文库测序数据。该流程的核心步骤包括：
+1.  **数据处理**：执行质量控制、比对和功能区域注释。
+2.  **细胞识别**：合并磁珠，识别有效细胞。
+3.  **矩阵生成**：生成原始及过滤后的基因表达矩阵。
+4.  **高级分析**：对过滤后矩阵进行细胞筛选、降维、聚类和注释。
+5.  **报告生成**：输出 HTML 格式的分析报告及其他结果文件。
 
-为单个样本生成表达矩阵，以下是一个示例步骤或脚本模板：
+为单个样本生成表达矩阵的示例脚本：
 
 ```shell
 $dnbc4tools rna run \
@@ -369,37 +451,40 @@ Analysis Finished
 Elapsed Time: 9:56:09
 ```
 
-成功的运行会以 `Analysis Finished` 结束。
+当出现 `Analysis Finished` 消息时，表示分析已成功完成。
+
+---
 
 ## 📊 结果解析 <a id="结果解析"></a>
 
-分析完成后，将生成结果输出目录outs，logs日志目录，其中outs目录包括：
+分析完成后，将生成 `outs`（结果输出）和 `logs`（日志）目录。`outs` 目录结构如下：
 
 ```
-├── analysis                                # 细胞降维聚类注释差异基因
-│   ├── cluster.csv                         # 细胞聚类注释结果    
-│   ├── marker.csv                          # 细胞差异基因
-│   └── QC_Cluster.h5ad                     # 细胞分析结果h5ad文件  
-├── anno_decon_sorted.bam                   # 包含reads比对信息的BAM文件，按基因组坐标排序，用于可视化和下游分析
-├── anno_decon_sorted.bam.bai               # BAM文件的索引，用于快速随机访问BAM文件
-├── filter_feature.h5ad                     # 过滤后的单细胞表达数据，以h5ad格式存储
-├── filter_matrix                           # 过滤后的表达矩阵MEX格式目录
-│   ├── barcodes.tsv.gz                     # 过滤后的细胞条形码信息
-│   ├── features.tsv.gz                     # 基因/特征信息
-│   └── matrix.mtx.gz                       # 过滤后的稀疏矩阵格式的表达量数据
-├── metrics_summary.xls                     # 分析质量指标汇总表，包含测序质控、比对率和细胞质控等统计信息
-├── raw_matrix                              # 原始表达矩阵MEX格式目录
-│   ├── barcodes.tsv.gz                     # 原始细胞条形码信息
-│   ├── features.tsv.gz                     # 基因/特征信息
-│   └── matrix.mtx.gz                       # 原始稀疏矩阵格式的表达量数据
-├── *_scRNA_report.html                     # 分析结果HTML报告，包含质控指标、聚类结果和可视化图表
-└── singlecell.csv                          # 细胞信息汇总表，包含每个cellid的UMI计数、基因数量以及是否为细胞等信息
+. 
+├── analysis/
+│   ├── cluster.csv
+│   ├── marker.csv
+│   └── QC_Cluster.h5ad
+├── anno_decon_sorted.bam
+├── anno_decon_sorted.bam.bai
+├── filter_feature.h5ad
+├── filter_matrix/
+│   ├── barcodes.tsv.gz
+│   ├── features.tsv.gz
+│   └── matrix.mtx.gz
+├── metrics_summary.xls
+├── raw_matrix/
+│   ├── barcodes.tsv.gz
+│   ├── features.tsv.gz
+│   └── matrix.mtx.gz
+├── *_scRNA_report.html
+└── singlecell.csv
 ```
 
 **相关文档**：
-- [📊 输出文件使用方法](../io.md)
-- [📋 分析参数设置](../parameter/scRNA.md)
-- [📝 输出文件解释](../outs/scRNA.md)
+- [📊 **输出文件使用方法**](../io.md)
+- [📋 **分析参数设置**](../parameter/scRNA.md)
+- [📝 **输出文件解释**](../outs/scRNA.md)
 
 ---
 

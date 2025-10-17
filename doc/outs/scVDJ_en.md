@@ -8,9 +8,9 @@
 
 <div align="center">
 
-**Complete Guide to Single-Cell V(D)J Sequencing Analysis Output Files**
+**A Complete Guide to Single-Cell V(D)J Sequencing Analysis Output Files**
 
-[📁 Directory Structure](#output-directory-structure) • [📋 File Details](#detailed-file-description) • [🧬 VDJ Assembly](#vdj-assembly-and-annotation-files) • [📊 Clonotype Analysis](#clonotype-analysis-files) • [📊 Report Interpretation](#web-report-interpretation)
+[📁 Directory Structure](#output-directory-structure) • [📋 File Details](#detailed-file-description) • [📊 Analysis Metrics](#analysis-metrics-summary) • [📊 Report Interpretation](#web-report-interpretation)
 
 </div>
 
@@ -18,36 +18,34 @@
 
 ## 📖 Overview <a id="overview"></a>
 
-Upon completion of the single-cell VDJ analysis, the pipeline generates a standardized structure of files and subdirectories in the specified output directory for immune receptor repertoire analysis. This document provides detailed descriptions of each output file's content, format, and purpose to help users fully understand and efficiently utilize V(D)J analysis results.
+After the single-cell VDJ analysis is complete, a standardized set of files and subdirectories is generated in the specified output directory, specifically for immune receptor repertoire analysis. This document details the content, format, and purpose of each output file to help users fully understand and efficiently utilize the V(D)J analysis results.
 
-> 💡 **Note**: VDJ analysis requires 5' RNA sequencing data, and all output files follow AIRR standards and are compatible with mainstream immunological analysis tools.
+> 💡 **Tip**: VDJ analysis requires 5' end RNA sequencing data, and all output files adhere to the AIRR standard and are compatible with mainstream immunoinformatics tools.
 
-> ⚠️ **Prerequisites**: Completion of 5' single-cell RNA sequencing analysis is required.
+> ⚠️ **Prerequisite**: 5' end single-cell RNA sequencing analysis must be completed first.
 
 ---
-</br>
 
 ## 📁 Output Directory Structure <a id="output-directory-structure"></a>
 
 ```
 .
-├── airr_annotations.tsv                    # AIRR standard format annotation file
+├── airr_annotations.tsv                    # Annotation file in AIRR standard format
 ├── all_contig_annotations.csv              # Annotation information for all assembled sequences
 ├── all_contig.fasta                        # FASTA file of all assembled sequences
 ├── all_contig.fasta.fai                    # Index file for all assembled sequences
 ├── clonotypes.csv                          # Clonotype analysis results
-├── consensus_annotations.csv               # Consensus sequence annotation information
-├── consensus.fasta                         # Consensus sequence FASTA file
-├── consensus.fasta.fai                     # Consensus sequence index file
+├── consensus_annotations.csv               # Annotation information for consensus sequences
+├── consensus.fasta                         # FASTA file of consensus sequences
+├── consensus.fasta.fai                     # Index file for consensus sequences
 ├── filtered_contig_annotations.csv         # Annotation information for filtered assembled sequences
 ├── filtered_contig.fasta                   # FASTA file of filtered assembled sequences
 ├── filtered_contig.fasta.fai               # Index file for filtered assembled sequences
-├── metrics_summary.xls                     # Analysis quality metrics summary
-└── *_scVDJ_TR(IG)_report.html              # HTML format analysis report
+├── metrics_summary.xls                     # Summary of analysis quality metrics
+└── *_scVDJ_TR(IG)_report.html              # Analysis report in HTML format
 ```
 
 ---
-</br>
 
 ## 📋 Detailed File Description <a id="detailed-file-description"></a>
 
@@ -55,13 +53,15 @@ Upon completion of the single-cell VDJ analysis, the pipeline generates a standa
 
 <div align="center">
 
-**🎯 Core Content**: V(D)J contig sequence assembly, precise annotation, and quality assessment results, covering complete information of TCR and BCR rearranged sequences
+**🎯 Core Content**: Results of V(D)J contig sequence assembly, precise annotation, and quality assessment, covering the complete information of TCR and BCR rearranged sequences.
 
 </div>
 
-### 🧵 V(D)J Transcript Structure and Composition
+<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
 
-**Typical V(D)J Transcript Structure Diagram:**
+#### 🧵 V(D)J Transcript Structure and Composition
+
+**Diagram of a Typical V(D)J Transcript Structure:**
 
 <div align="center">
 <img src="../images/vdj_transcript.png" alt="V(D)J Transcript Structure Diagram" width="650">
@@ -69,66 +69,69 @@ Upon completion of the single-cell VDJ analysis, the pipeline generates a standa
 
 <br>
 
-**🔍 Important Terminology:**
+**🔍 Explanation of Important Terms:**
 
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
-<th width="20%" align="left"><strong>Component Region</strong></th>
-<th width="30%" align="left"><strong>English Abbreviation</strong></th>
+<th width="20%" align="left"><strong>Region</strong></th>
+<th width="30%" align="left"><strong>Abbreviation</strong></th>
 <th width="50%" align="left"><strong>Biological Function</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td align="left"><strong>Untranslated Region</strong></td>
-<td align="left">UTR (Untranslated Region)</td>
-<td>Regulates mRNA stability and translation efficiency, does not encode proteins</td>
+<td align="left">UTR</td>
+<td>Regulates mRNA stability and translation efficiency; does not encode protein.</td>
 </tr>
 <tr>
 <td align="left"><strong>Framework Region</strong></td>
-<td align="left">FWR (Framework Region)</td>
-<td>Maintains conservative structural framework for immunoglobulin folding</td>
+<td align="left">FWR</td>
+<td>Maintains the conserved structural framework of the immunoglobulin fold.</td>
 </tr>
 <tr>
 <td align="left"><strong>Complementarity Determining Region</strong></td>
-<td align="left">CDR (Complementarity Determining Region)</td>
-<td>Directly contacts antigens, key variable region determining binding specificity</td>
+<td align="left">CDR</td>
+<td>The key variable region that directly contacts the antigen and determines binding specificity.</td>
 </tr>
 </tbody>
 </table>
 
-> 🧬 **Technical Advantage**: The V(D)J analysis pipeline can precisely identify and provide amino acid and nucleotide sequences for framework regions (FWR) and complementarity determining regions (CDR). V(D)J annotation information for all assembled contigs and clonotype consensus sequences is output in multiple standard formats.
+> 🧬 **Technical Advantage**: The V(D)J analysis pipeline can accurately identify and provide the amino acid and nucleotide sequences of the framework (FWR) and complementarity determining (CDR) regions. All V(D)J annotation information for assembled contigs and clonotype consensus sequences is output in various standard formats.
 
-### 🔍 Important Annotation Standards
+<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
 
-#### 📋 Full Length Sequence Criteria (Full Length)
+
+#### 🔍 Explanation of Important Annotation Standards
+
+##### 📋 Full-Length Sequence Determination Criteria (Full Length)
 
 <div style="padding: 15px; border-left: 4px solid #007bff; margin: 15px 0;">
 
-A contig sequence is considered **full-length** if it simultaneously meets the following strict conditions:
+A contig sequence is identified as a **full-length sequence** if it meets the following strict conditions simultaneously:
 
-- ✅ The contig sequence completely matches the 5' start region of the annotated V gene
-- ✅ The contig sequence fully extends to the 3' terminal region of the J gene
+- ✅ The contig sequence perfectly matches the 5' start region of an annotated V gene.
+- ✅ The contig sequence extends completely to the 3' end region of a J gene.
 
 </div>
 
-#### 🧬 Productive Sequence Criteria (Productive)
+##### 🧬 Productive Sequence Determination Criteria (Productive)
 
 <div style="padding: 15px; border-left: 4px solid #0ea5e9; margin: 15px 0;">
 
-A contig sequence is considered **productive** (functionally active) if it simultaneously meets all of the following conditions:
+A contig sequence is identified as a **productive sequence** (i.e., functionally active) if it meets all of the following conditions simultaneously:
 
-- ✅ Meets all requirements for full-length sequences above
-- ✅ Contains a valid start codon (ATG) at the correct position
-- ✅ No premature stop codons exist in the V-J spanning region
-- ✅ V gene start codon and J gene stop codon maintain the same reading frame
-- ✅ Successfully identifies complete CDR3 variable region
-- ✅ V-J spanning region length conforms to biologically reasonable range for corresponding genes
+- ✅ Meets all the requirements for a full-length sequence as described above.
+- ✅ Contains a valid start codon (ATG) at the correct position.
+- ✅ No premature stop codons are present within the V-J spanning region.
+- ✅ The start codon of the V gene and the stop codon of the J gene are in the same reading frame.
+- ✅ A complete CDR3 variable region is successfully identified.
+- ✅ The length of the V-J spanning region is within the biologically plausible range for the respective gene.
 
 </div>
 
-#### 🎯 High Confidence Sequence Criteria (High Confidence)
+##### 🎯 High-Confidence Sequence Determination (High Confidence)
 
 **🔬 Expected Receptor Configurations for Different Cell Types:**
 
@@ -142,603 +145,629 @@ A contig sequence is considered **productive** (functionally active) if it simul
 </thead>
 <tbody>
 <tr>
-<td align="left"><strong>T Cells</strong></td>
+<td align="left"><strong>T Cell</strong></td>
 <td align="left">1 productive TRA chain + 1 productive TRB chain</td>
 <td align="left">Normal TCR α/β heterodimer</td>
 </tr>
 <tr>
-<td align="left"><strong>B Cells</strong></td>
+<td align="left"><strong>B Cell</strong></td>
 <td align="left">1 productive heavy chain + 1 productive light chain (κ or λ)</td>
 <td align="left">Normal BCR heavy/light chain pairing</td>
 </tr>
 </tbody>
 </table>
 
-**🤔 Low Confidence Sequence Marking Principles:**
+**🤔 Principles for Marking Low-Confidence Sequences:**
 
 <div style="padding: 15px; border-left: 4px solid #ffc107; margin: 15px 0;">
 
-> ⚠️ **Important Note**: Additional productive contigs beyond normal configuration are usually abnormal and may originate from:
+> ⚠️ **Important Note**: The presence of extra productive contigs beyond the normal configuration is typically an anomaly and may arise from:
 
 <table style="width:100%; border-collapse: collapse; margin: 10px 0;">
 <thead>
 <tr>
-<th width="20%" align="left"><strong>Abnormality Type</strong></th>
+<th width="20%" align="left"><strong>Anomaly Type</strong></th>
 <th width="80%" align="left"><strong>Cause Analysis</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left">🌍 <strong>Environmental Contamination</strong></td>
-<td>Non-specific capture of free mRNA, possibly from external contamination or nucleic acids released by apoptotic cells</td>
+<td align="left"><strong>Ambient Contamination</strong></td>
+<td>Non-specific capture of free-floating mRNA, possibly from external sources or nucleic acids released by apoptotic cells.</td>
 </tr>
 <tr>
-<td align="left">📎 <strong>Doublet Events</strong></td>
-<td>Multiple cells contained in droplets (doublets), making it impossible to distinguish receptor signals from different cells</td>
+<td align="left"><strong>Doublet Events</strong></td>
+<td>Droplets containing multiple cells (doublets), making it impossible to distinguish receptor signals from different cells.</td>
 </tr>
 <tr>
-<td align="left">🔧 <strong>Technical Artifacts</strong></td>
-<td>Artificial sequences from PCR amplification or sequencing processes, including chimeric sequences or incorrect primer binding</td>
+<td align="left"><strong>Technical Artifacts</strong></td>
+<td>Artificial sequences generated during PCR amplification or sequencing, including chimeric sequences or incorrect primer binding.</td>
 </tr>
 </tbody>
 </table>
 
 </div>
 
-**📉 Low Confidence Sequence Criteria:**
+**📉 Basis for Determining Low-Confidence Sequences:**
 
 <div style="padding: 15px; border-left: 4px solid #ef4444; margin: 15px 0;">
 
-- ❌ Biologically highly unlikely abnormal receptor configuration patterns
-- ❌ Suspicious sequences with significantly low UMI molecular support
-- ❌ Obviously excessive additional productive chains beyond expected numbers
+- Abnormal receptor configuration patterns that are biologically highly improbable.
+- Suspicious sequences with significantly low UMI support.
+- A number of extra productive chains that clearly exceeds expectations.
 
 </div>
 
-#### airr_annotations.tsv  
-Contains annotated sequences and consensus sequences of V(D)J rearrangements in AIRR standard format. Provides detailed V, D, J gene call information, CIGAR strings, sequence alignment results, and nucleotide and amino acid sequences of CDR3 regions.
+<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
 
-**Important Field Descriptions**:
+#### 📄 airr_annotations.tsv
 
-<table style="width:100%; border-collapse: collapse; margin: 15px 0;">
-<thead>
-<tr>
-<th width="25%" align="left"><strong>Field Name</strong></th>
-<th width="75%" align="left"><strong>Detailed Description</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left"><code>cell_id</code></td>
-<td>Unique identifier of the cell to which this rearranged sequence belongs, used to associate single-cell data</td>
-</tr>
-<tr>
-<td align="left"><code>clone_id</code></td>
-<td>Clonotype number identifying the specific clone population to which this rearranged sequence belongs, used for clonotype analysis</td>
-</tr>
-<tr>
-<td align="left"><code>sequence_id</code></td>
-<td>Unique name or identifier of the contig (rearranged sequence)</td>
-</tr>
-<tr>
-<td align="left"><code>sequence</code></td>
-<td>Complete nucleotide sequence of V(D)J rearrangement, containing all variable, diversity, and joining regions</td>
-</tr>
-<tr>
-<td align="left"><code>sequence_aa</code></td>
-<td>Amino acid sequence translated from the rearranged region, reflecting functional protein products</td>
-</tr>
-<tr>
-<td align="left"><code>productive</code></td>
-<td>Marks whether this rearrangement is productive (biologically functional), must meet in-frame translation and no stop codon conditions</td>
-</tr>
-<tr>
-<td align="left"><code>rev_comp</code></td>
-<td>Indicates whether the sequence is a reverse complement sequence (default: false), used for sequence orientation marking</td>
-</tr>
-<tr>
-<td align="left"><code>v_call</code></td>
-<td>Name of the identified V (variable) gene segment</td>
-</tr>
-<tr>
-<td align="left"><code>v_cigar</code></td>
-<td>CIGAR string for V gene alignment, recording detailed alignment information (matches, insertions, deletions, etc.)</td>
-</tr>
-<tr>
-<td align="left"><code>d_call</code></td>
-<td>Name of the identified D (diversity) gene segment (applicable only to heavy chains and β chains)</td>
-</tr>
-<tr>
-<td align="left"><code>d_cigar</code></td>
-<td>CIGAR string for D gene alignment, detailed recording of diversity region alignment results</td>
-</tr>
-<tr>
-<td align="left"><code>j_call</code></td>
-<td>Name of the identified J (joining) gene segment, key component completing V(D)J recombination</td>
-</tr>
-<tr>
-<td align="left"><code>j_cigar</code></td>
-<td>CIGAR string for J gene alignment, recording precise alignment information of joining region</td>
-</tr>
-<tr>
-<td align="left"><code>c_call</code></td>
-<td>Name of the identified C (constant) gene segment, determining functional type of antibody/receptor</td>
-</tr>
-<tr>
-<td align="left"><code>c_cigar</code></td>
-<td>CIGAR string for C gene alignment, recording alignment details of constant region</td>
-</tr>
-<tr>
-<td align="left"><code>sequence_alignment</code></td>
-<td>Detailed alignment results of V(D)J rearranged region with reference germline sequence, showing mutations and variations</td>
-</tr>
-<tr>
-<td align="left"><code>germline_alignment</code></td>
-<td>Inferred germline full-length sequence alignment results, used for somatic mutation analysis</td>
-</tr>
-<tr>
-<td align="left"><code>junction</code></td>
-<td>Nucleotide sequence of V(D)J rearrangement junction region (CDR3 region), determining antigen binding specificity</td>
-</tr>
-<tr>
-<td align="left"><code>junction_aa</code></td>
-<td>Amino acid sequence of rearrangement junction region (CDR3 amino acids), key domain for antigen recognition</td>
-</tr>
-<tr>
-<td align="left"><code>junction_length</code></td>
-<td>Nucleotide sequence length of CDR3 region (bp), affecting antigen binding ability and specificity</td>
-</tr>
-<tr>
-<td align="left"><code>junction_aa_length</code></td>
-<td>Amino acid sequence length of CDR3 region (aa), determining spatial structure of antigen binding loop</td>
-</tr>
-<tr>
-<td align="left"><code>v_sequence_start</code></td>
-<td>Start position of V region in rearranged sequence (1-based coordinate system)</td>
-</tr>
-<tr>
-<td align="left"><code>v_sequence_end</code></td>
-<td>End position of V region in rearranged sequence (1-based coordinate system)</td>
-</tr>
-<tr>
-<td align="left"><code>d_sequence_start</code></td>
-<td>Start position of D region in rearranged sequence (1-based coordinate system)</td>
-</tr>
-<tr>
-<td align="left"><code>d_sequence_end</code></td>
-<td>End position of D region in rearranged sequence (1-based coordinate system)</td>
-</tr>
-<tr>
-<td align="left"><code>j_sequence_start</code></td>
-<td>Start position of J region in rearranged sequence (1-based coordinate system)</td>
-</tr>
-<tr>
-<td align="left"><code>j_sequence_end</code></td>
-<td>End position of J region in rearranged sequence (1-based coordinate system)</td>
-</tr>
-<tr>
-<td align="left"><code>c_sequence_start</code></td>
-<td>Start position of C region in rearranged sequence (1-based coordinate system)</td>
-</tr>
-<tr>
-<td align="left"><code>c_sequence_end</code></td>
-<td>End position of C region in rearranged sequence (1-based coordinate system)</td>
-</tr>
-<tr>
-<td align="left"><code>consensus_count</code></td>
-<td>Total number of reads supporting this rearranged sequence, reflecting sequencing depth and sequence reliability</td>
-</tr>
-<tr>
-<td align="left"><code>duplicate_count</code></td>
-<td>Number of unique UMI molecules supporting this rearranged sequence, used for deduplication and quantitative analysis</td>
-</tr>
-<tr>
-<td align="left"><code>is_cell</code></td>
-<td>Marks whether this rearrangement comes from a real cell (TRUE: cell; FALSE: background/empty droplet)</td>
-</tr>
-</tbody>
-</table>
+Contains annotated and consensus sequences of V(D)J rearrangements in the AIRR standard format.
 
+*   **Purpose**:
+    *   **Standardized Data Exchange**: Serves as an exchange format compliant with AIRR community standards, facilitating integration with other immune repertoire analysis tools.
+    *   **In-depth Annotation**: Provides detailed V, D, J gene call information, CIGAR strings, sequence alignment results, and the nucleotide and amino acid sequences of the CDR3 region.
 
-#### 📄 all_contig_annotations.csv  
+*   **Content and Format**:
+    *   The file is in the AIRR standard TSV format.
+    *   The fields included in the file are shown in the table below:
 
-**File Description**: Contains detailed annotation information for all contig sequences (from cells and background barcodes) in CSV text format. This file provides comprehensive information for each contig including cell ID, gene segment calls, CDR and FWR region sequences, productive status, etc.
+    <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
+    <thead>
+    <tr>
+    <th width="25%" align="left"><strong>Field Name</strong></th>
+    <th width="75%" align="left"><strong>Detailed Description</strong></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <td align="left"><code>cell_id</code></td>
+    <td>A unique identifier for the cell to which this rearrangement belongs, used for linking single-cell data.</td>
+    </tr>
+    <tr>
+    <td align="left"><code>clone_id</code></td>
+    <td>A clonotype ID that identifies the specific clonal group to which this rearrangement belongs, used for clonotype analysis.</td>
+    </tr>
+    <tr>
+    <td align="left"><code>sequence_id</code></td>
+    <td>The unique name or identifier of the contig (rearranged sequence).</td>
+    </tr>
+    <tr>
+    <td align="left"><code>sequence</code></td>
+    <td>The complete nucleotide sequence of the V(D)J rearrangement, including all variable, diversity, and joining regions.</td>
+    </tr>
+    <tr>
+    <td align="left"><code>sequence_aa</code></td>
+    <td>The amino acid sequence translated from the rearranged region, reflecting the functional protein product.</td>
+    </tr>
+    <tr>
+    <td align="left"><code>productive</code></td>
+    <td>Indicates whether the rearrangement is productive (biologically functional), requiring conditions like in-frame translation and no stop codons.</td>
+    </tr>
+    <tr>
+    <td align="left"><code>rev_comp</code></td>
+    <td>Indicates if the sequence is a reverse complement (default: false), used for sequence orientation marking.</td>
+    </tr>
+    <tr>
+    <td align="left"><code>v_call</code></td>
+    <td>The name of the identified V (variable) gene segment.</td>
+    </tr>
+    <tr>
+    <td align="left"><code>v_cigar</code></td>
+    <td>The CIGAR string for the V gene alignment, recording detailed alignment information (matches, insertions, deletions, etc.).</td>
+    </tr>
+    <tr>
+    <td align="left"><code>d_call</code></td>
+    <td>The name of the identified D (diversity) gene segment (only for heavy and beta chains).</td>
+    </tr>
+    <tr>
+    <td align="left"><code>d_cigar</code></td>
+    <td>The CIGAR string for the D gene alignment, detailing the alignment results of the diversity region.</td>
+    </tr>
+    <tr>
+    <td align="left"><code>j_call</code></td>
+    <td>The name of the identified J (joining) gene segment, a key element for completing V(D)J recombination.</td>
+    </tr>
+    <tr>
+    <td align="left"><code>j_cigar</code></td>
+    <td>The CIGAR string for the J gene alignment, recording precise alignment information of the joining region.</td>
+    </tr>
+    <tr>
+    <td align="left"><code>c_call</code></td>
+    <td>The name of the identified C (constant) gene segment, which determines the functional type of the antibody/receptor.</td>
+    </tr>
+    <tr>
+    <td align="left"><code>c_cigar</code></td>
+    <td>The CIGAR string for the C gene alignment, recording the alignment details of the constant region.</td>
+    </tr>
+    <tr>
+    <td align="left"><code>sequence_alignment</code></td>
+    <td>Detailed alignment result of the V(D)J rearranged region against the reference germline sequence, showing mutations and variations.</td>
+    </tr>
+    <tr>
+    <td align="left"><code>germline_alignment</code></td>
+    <td>Inferred full-length germline sequence alignment result, used for somatic hypermutation analysis.</td>
+    </tr>
+    <tr>
+    <td align="left"><code>junction</code></td>
+    <td>The nucleotide sequence of the V(D)J rearrangement's junction (CDR3 region), which determines antigen-binding specificity.</td>
+    </tr>
+    <tr>
+    <td align="left"><code>junction_aa</code></td>
+    <td>The amino acid sequence of the junction (CDR3 amino acids), the key domain for antigen recognition.</td>
+    </tr>
+    <tr>
+    <td align="left"><code>junction_length</code></td>
+    <td>The length of the CDR3 nucleotide sequence (in bp), which affects antigen-binding affinity and specificity.</td>
+    </tr>
+    <tr>
+    <td align="left"><code>junction_aa_length</code></td>
+    <td>The length of the CDR3 amino acid sequence (in aa), which determines the spatial structure of the antigen-binding loop.</td>
+    </tr>
+    <tr>
+    <td align="left"><code>v_sequence_start</code></td>
+    <td>The start position of the V region in the rearranged sequence (1-based coordinate system).</td>
+    </tr>
+    <tr>
+    <td align="left"><code>v_sequence_end</code></td>
+    <td>The end position of the V region in the rearranged sequence (1-based coordinate system).</td>
+    </tr>
+    <tr>
+    <td align="left"><code>d_sequence_start</code></td>
+    <td>The start position of the D region in the rearranged sequence (1-based coordinate system).</td>
+    </tr>
+    <tr>
+    <td align="left"><code>d_sequence_end</code></td>
+    <td>The end position of the D region in the rearranged sequence (1-based coordinate system).</td>
+    </tr>
+    <tr>
+    <td align="left"><code>j_sequence_start</code></td>
+    <td>The start position of the J region in the rearranged sequence (1-based coordinate system).</td>
+    </tr>
+    <tr>
+    <td align="left"><code>j_sequence_end</code></td>
+    <td>The end position of the J region in the rearranged sequence (1-based coordinate system).</td>
+    </tr>
+    <tr>
+    <td align="left"><code>c_sequence_start</code></td>
+    <td>The start position of the C region in the rearranged sequence (1-based coordinate system).</td>
+    </tr>
+    <tr>
+    <td align="left"><code>c_sequence_end</code></td>
+    <td>The end position of the C region in the rearranged sequence (1-based coordinate system).</td>
+    </tr>
+    <tr>
+    <td align="left"><code>consensus_count</code></td>
+    <td>The total number of reads supporting this rearrangement, reflecting sequencing depth and sequence reliability.</td>
+    </tr>
+    <tr>
+    <td align="left"><code>duplicate_count</code></td>
+    <td>The number of unique UMI molecules supporting this rearrangement, used for deduplication and quantitative analysis.</td>
+    </tr>
+    <tr>
+    <td align="left"><code>is_cell</code></td>
+    <td>Indicates whether this rearrangement originates from a real cell (TRUE: cell; FALSE: background/empty droplet).</td>
+    </tr>
+    </tbody>
+    </table>
 
-**Core Functional Features**:
-- 📊 **Comprehensive Coverage**: Contains contig data from all cells and background barcodes
-- 🧬 **Complete Annotation**: Provides complete V(D)J gene segment annotation information
-- 🔍 **Detailed Sequences**: Contains detailed CDR and FWR region sequence information
-- 🎯 **Quality Control Support**: Supports quality control and reliability assessment analysis
+<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
 
-<table style="width:100%; border-collapse: collapse; margin: 15px 0;">
-<thead>
-<tr>
-<th width="25%" align="left"><strong>Field Name</strong></th>
-<th width="75%" align="left"><strong>Description</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left"><code>sample</code></td>
-<td>Sample name of the VDJ library</td>
-</tr>
-<tr>
-<td align="left"><code>barcode</code></td>
-<td>Cell ID (or barcode) corresponding to this contig</td>
-</tr>
-<tr>
-<td align="left"><code>is_cell</code></td>
-<td>Boolean value indicating whether this cell ID is recognized as a cell (TRUE for cell, FALSE for background)</td>
-</tr>
-<tr>
-<td align="left"><code>contig_id</code></td>
-<td>Unique identifier for this contig</td>
-</tr>
-<tr>
-<td align="left"><code>high_confidence</code></td>
-<td>Boolean value indicating whether this contig is marked as high confidence (unlikely to be chimeric sequence or other artifacts)</td>
-</tr>
-<tr>
-<td align="left"><code>length</code></td>
-<td>Nucleotide length of the contig sequence (bp)</td>
-</tr>
-<tr>
-<td align="left"><code>chain</code></td>
-<td>Chain type associated with this contig: TRA, TRB, IGK, IGL, or IGH</td>
-</tr>
-<tr>
-<td align="left"><code>v_gene</code></td>
-<td>Highest scoring V gene segment, e.g., TRAV1-1</td>
-</tr>
-<tr>
-<td align="left"><code>d_gene</code></td>
-<td>Highest scoring D gene segment, e.g., TRBD1</td>
-</tr>
-<tr>
-<td align="left"><code>j_gene</code></td>
-<td>Highest scoring J gene segment, e.g., TRAJ1-1</td>
-</tr>
-<tr>
-<td align="left"><code>full_length</code></td>
-<td>Boolean value indicating whether this contig is declared as full-length</td>
-</tr>
-<tr>
-<td align="left"><code>productive</code></td>
-<td>Boolean value indicating whether this contig is declared as productive</td>
-</tr>
-<tr>
-<td align="left"><code>fwr1</code></td>
-<td>Predicted FWR1 amino acid sequence</td>
-</tr>
-<tr>
-<td align="left"><code>fwr1_nt</code></td>
-<td>Predicted FWR1 nucleotide sequence</td>
-</tr>
-<tr>
-<td align="left"><code>cdr1</code></td>
-<td>Predicted CDR1 amino acid sequence</td>
-</tr>
-<tr>
-<td align="left"><code>cdr1_nt</code></td>
-<td>Predicted CDR1 nucleotide sequence</td>
-</tr>
-<tr>
-<td align="left"><code>fwr2</code></td>
-<td>Predicted FWR2 amino acid sequence</td>
-</tr>
-<tr>
-<td align="left"><code>fwr2_nt</code></td>
-<td>Predicted FWR2 nucleotide sequence</td>
-</tr>
-<tr>
-<td align="left"><code>cdr2</code></td>
-<td>Predicted CDR2 amino acid sequence</td>
-</tr>
-<tr>
-<td align="left"><code>cdr2_nt</code></td>
-<td>Predicted CDR2 nucleotide sequence</td>
-</tr>
-<tr>
-<td align="left"><code>fwr3</code></td>
-<td>Predicted FWR3 amino acid sequence</td>
-</tr>
-<tr>
-<td align="left"><code>fwr3_nt</code></td>
-<td>Predicted FWR3 nucleotide sequence</td>
-</tr>
-<tr>
-<td align="left"><code>cdr3</code></td>
-<td>Predicted CDR3 amino acid sequence</td>
-</tr>
-<tr>
-<td align="left"><code>cdr3_nt</code></td>
-<td>Predicted CDR3 nucleotide sequence</td>
-</tr>
-<tr>
-<td align="left"><code>fwr4</code></td>
-<td>Predicted FWR4 amino acid sequence</td>
-</tr>
-<tr>
-<td align="left"><code>fwr4_nt</code></td>
-<td>Predicted FWR4 nucleotide sequence</td>
-</tr>
-<tr>
-<td align="left"><code>reads</code></td>
-<td>Number of reads aligned to this contig</td>
-</tr>
-<tr>
-<td align="left"><code>umis</code></td>
-<td>Number of different UMIs aligned to this contig</td>
-</tr>
-<tr>
-<td align="left"><code>raw_clonotype_id</code></td>
-<td>Clonotype ID assigned to this cell barcode</td>
-</tr>
-<tr>
-<td align="left"><code>raw_consensus_id</code></td>
-<td>Consensus sequence ID to which this contig is assigned</td>
-</tr>
-<tr>
-<td align="left"><code>exact_subclonotype_id</code></td>
-<td>Exact subclonotype ID to which this cell barcode is assigned</td>
-</tr>
-</tbody>
-</table>
+#### 📄 all_contig_annotations.csv
 
-#### 📄 all_contig.fasta  
+Contains detailed annotation information for all contig sequences (from both cellular and background barcodes).
 
-**File Description**: Contains nucleotide sequences of all assembled contigs in standard FASTA format. Each sequence corresponds to one contig, with sequence identifiers as contig unique names.
+*   **Purpose**:
+    *   **Comprehensive Data Review**: Provides all assembled contig data, including low-quality or background signals, for in-depth quality control analysis.
+    *   **Complete Annotation**: Offers full annotation of V(D)J gene segments and CDR/FWR regions.
 
-#### 📄 filtered_contig_annotations.csv  
+*   **Content and Format**:
+    *   The file is in CSV text format.
+    *   The fields included in the file are shown in the table below:
 
-**File Description**: Contains annotation information for contigs from high-confidence cell-associated barcodes, which is a high-quality subset of `all_contig_annotations.csv`. Only includes annotation results for high-confidence contigs that passed quality filtering.
+    <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
+    <thead>
+    <tr>
+    <th width="25%" align="left"><strong>Field Name</strong></th>
+    <th width="75%" align="left"><strong>Description</strong></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <td align="left"><code>sample</code></td>
+    <td>Sample name of the VDJ library.</td>
+    </tr>
+    <tr>
+    <td align="left"><code>barcode</code></td>
+    <td>The cell ID (or barcode) corresponding to this contig.</td>
+    </tr>
+    <tr>
+    <td align="left"><code>is_cell</code></td>
+    <td>A boolean value indicating if this cell ID was identified as a cell (TRUE for cell, FALSE for background).</td>
+    </tr>
+    <tr>
+    <td align="left"><code>contig_id</code></td>
+    <td>A unique identifier for this contig.</td>
+    </tr>
+    <tr>
+    <td align="left"><code>high_confidence</code></td>
+    <td>A boolean value indicating if this contig was marked as high confidence (not likely to be a chimera or other artifact).</td>
+    </tr>
+    <tr>
+    <td align="left"><code>length</code></td>
+    <td>The nucleotide length of the contig sequence (bp).</td>
+    </tr>
+    <tr>
+    <td align="left"><code>chain</code></td>
+    <td>The chain type associated with this contig: TRA, TRB, IGK, IGL, or IGH.</td>
+    </tr>
+    <tr>
+    <td align="left"><code>v_gene</code></td>
+    <td>The highest-scoring V gene segment, e.g., TRAV1-1.</td>
+    </tr>
+    <tr>
+    <td align="left"><code>d_gene</code></td>
+    <td>The highest-scoring D gene segment, e.g., TRBD1.</td>
+    </tr>
+    <tr>
+    <td align="left"><code>j_gene</code></td>
+    <td>The highest-scoring J gene segment, e.g., TRAJ1-1.</td>
+    </tr>
+    <tr>
+    <td align="left"><code>full_length</code></td>
+    <td>A boolean value indicating if this contig was declared as full-length.</td>
+    </tr>
+    <tr>
+    <td align="left"><code>productive</code></td>
+    <td>A boolean value indicating if this contig was declared as productive.</td>
+    </tr>
+    <tr>
+    <td align="left"><code>fwr1</code></td>
+    <td>The predicted FWR1 amino acid sequence.</td>
+    </tr>
+    <tr>
+    <td align="left"><code>fwr1_nt</code></td>
+    <td>The predicted FWR1 nucleotide sequence.</td>
+    </tr>
+    <tr>
+    <td align="left"><code>cdr1</code></td>
+    <td>The predicted CDR1 amino acid sequence.</td>
+    </tr>
+    <tr>
+    <td align="left"><code>cdr1_nt</code></td>
+    <td>The predicted CDR1 nucleotide sequence.</td>
+    </tr>
+    <tr>
+    <td align="left"><code>fwr2</code></td>
+    <td>The predicted FWR2 amino acid sequence.</td>
+    </tr>
+    <tr>
+    <td align="left"><code>fwr2_nt</code></td>
+    <td>The predicted FWR2 nucleotide sequence.</td>
+    </tr>
+    <tr>
+    <td align="left"><code>cdr2</code></td>
+    <td>The predicted CDR2 amino acid sequence.</td>
+    </tr>
+    <tr>
+    <td align="left"><code>cdr2_nt</code></td>
+    <td>The predicted CDR2 nucleotide sequence.</td>
+    </tr>
+    <tr>
+    <td align="left"><code>fwr3</code></td>
+    <td>The predicted FWR3 amino acid sequence.</td>
+    </tr>
+    <tr>
+    <td align="left"><code>fwr3_nt</code></td>
+    <td>The predicted FWR3 nucleotide sequence.</td>
+    </tr>
+    <tr>
+    <td align="left"><code>cdr3</code></td>
+    <td>The predicted CDR3 amino acid sequence.</td>
+    </tr>
+    <tr>
+    <td align="left"><code>cdr3_nt</code></td>
+    <td>The predicted CDR3 nucleotide sequence.</td>
+    </tr>
+    <tr>
+    <td align="left"><code>fwr4</code></td>
+    <td>The predicted FWR4 amino acid sequence.</td>
+    </tr>
+    <tr>
+    <td align="left"><code>fwr4_nt</code></td>
+    <td>The predicted FWR4 nucleotide sequence.</td>
+    </tr>
+    <tr>
+    <td align="left"><code>reads</code></td>
+    <td>The number of reads mapped to this contig.</td>
+    </tr>
+    <tr>
+    <td align="left"><code>umis</code></td>
+    <td>The number of distinct UMIs mapped to this contig.</td>
+    </tr>
+    <tr>
+    <td align="left"><code>raw_clonotype_id</code></td>
+    <td>The clonotype ID assigned to this cell barcode.</td>
+    </tr>
+    <tr>
+    <td align="left"><code>raw_consensus_id</code></td>
+    <td>The consensus sequence ID to which this contig was assigned.</td>
+    </tr>
+    <tr>
+    <td align="left"><code>exact_subclonotype_id</code></td>
+    <td>The exact subclonotype ID to which this cell barcode was assigned.</td>
+    </tr>
+    </tbody>
+    </table>
 
-#### 📄 filtered_contig.fasta  
+<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
 
-**File Description**: Contains nucleotide sequences of high-confidence contigs in FASTA format. Only includes high-quality contig sequences that passed quality filtering and cell calling.
+#### 📄 all_contig.fasta
 
+Contains the nucleotide sequences of all assembled contigs.
+
+*   **Purpose**:
+    *   **Sequence Database**: Serves as a sequence database for all contigs, which can be used for igBLAST alignment or other sequence analyses.
+    *   **Data Integrity**: Provides the most original assembly results.
+*   **Content and Format**:
+    *   Standard FASTA format, where each sequence corresponds to a contig, and the sequence identifier is the unique name of the contig.
+
+<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
+
+#### 📄 filtered_contig_annotations.csv
+
+A high-quality subset of `all_contig_annotations.csv`, containing only the annotation results for high-confidence contigs derived from cells.
+
+*   **Purpose**:
+    *   **Core Downstream Analysis**: This is the **recommended input file** for defining clonotypes and for most downstream analyses.
+    *   **High-Quality Data**: Contains only contigs identified as from real cells and with high confidence, ensuring the accuracy of the analysis results.
+*   **Content and Format**:
+    *   The file format is identical to `all_contig_annotations.csv`.
+
+<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
+
+#### 📄 filtered_contig.fasta
+
+A high-quality subset of `all_contig.fasta`, containing only high-quality contig sequences that have passed quality filtering and cell calling.
+
+*   **Purpose**:
+    *   **Trusted Sequence Set**: Provides a high-confidence set of rearranged sequences for subsequent functional analysis or experimental validation.
+*   **Content and Format**:
+    *   Standard FASTA format, with the sequence identifier being the contig ID.
 
 ---
 
-## 📊 Clonotype Lineage Analysis Files <a id="clonotype-analysis-files"></a>
+### 📊 Clonotype Analysis Files <a id="clonotype-analysis-files"></a>
 
 <div align="center">
 
-**🎯 Core Content**: Precise identification, frequency statistics, and CDR3 sequence diversity analysis of TCR and BCR clonotype lineages
+**🎯 Core Content**: Precise identification, frequency statistics, and CDR3 sequence diversity analysis of TCR and BCR clonotypes.
 
 </div>
 
+<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
+
 #### 📄 clonotypes.csv
 
-**File Description**: Clonotype statistical analysis CSV file providing detailed descriptive information for each unique clonotype, including clonotype frequency, relative proportions, and CDR3 sequence characteristics.
+A statistical analysis file for clonotypes, providing detailed descriptive information for each unique clonotype.
 
-**Core Functional Features**:
-- 📊 **Statistical Analysis**: Provides clonotype-level statistical information
-- 🧬 **CDR3 Data**: Contains complete CDR3 sequence data
-- 📈 **Frequency Analysis**: Supports frequency and relative proportion analysis
-- 🔬 **Immunomics**: Suitable for professional immune repertoire research
+*   **Purpose**:
+    *   **Clonotype Abundance Analysis**: Statistics on the cell count (frequency) and proportion of each clonotype, used to assess the degree of clonal expansion.
+    *   **Immune Diversity Assessment**: Analysis of clonotype distribution to study the diversity of the immune repertoire.
+    *   **CDR3 Sequence Analysis**: Provides the precise amino acid and nucleotide sequences of the CDR3 for each clonotype.
 
-<table style="width:100%; border-collapse: collapse; margin: 15px 0;">
-<thead>
-<tr>
-<th width="25%" align="left"><strong>Field Name</strong></th>
-<th width="75%" align="left"><strong>Detailed Description</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left"><code>clonotype_id</code></td>
-<td>Unique identifier of the clonotype assigned to this consensus sequence, used to associate and track all related cells of specific clone populations</td>
-</tr>
-<tr>
-<td align="left"><code>frequency</code></td>
-<td>Absolute number of observed cells with this clonotype, reflecting clonal expansion degree and immune response intensity</td>
-</tr>
-<tr>
-<td align="left"><code>proportion</code></td>
-<td>Relative proportion of cells with this clonotype in the total cell population, used to assess clonal dominance and diversity distribution</td>
-</tr>
-<tr>
-<td align="left"><code>cdr3s_aa</code></td>
-<td>Semicolon-separated list of chain:sequence pairs in format "chain_name:CDR3_amino_acid_sequence". Chain names include TRA, TRB, TRG, TRD (T cell receptors) and IGK, IGL, IGH (B cell receptors). CDR3 amino acid sequences determine antigen binding specificity and functional activity</td>
-</tr>
-<tr>
-<td align="left"><code>cdr3s_nt</code></td>
-<td>Semicolon-separated list of chain:sequence pairs in format "chain_name:CDR3_nucleotide_sequence". Provides DNA sequence information of CDR3 regions, used for somatic mutation analysis, clonal evolution tracking, and molecular marker design</td>
-</tr>
-</tbody>
-</table>
+*   **Content and Format**:
+    *   The file is in CSV format.
+    *   The fields included in the file are shown in the table below:
 
-#### 📄 consensus.fasta
+    <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
+    <thead>
+    <tr>
+    <th width="25%" align="left"><strong>Field Name</strong></th>
+    <th width="75%" align="left"><strong>Detailed Description</strong></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <td align="left"><code>clonotype_id</code></td>
+    <td>A unique identifier for the clonotype assigned to this consensus sequence, used to link and track all related cells of a specific clonal group.</td>
+    </tr>
+    <tr>
+    <td align="left"><code>frequency</code></td>
+    <td>The absolute number of cells observed with this clonotype, reflecting the degree of clonal expansion and the strength of the immune response.</td>
+    </tr>
+    <tr>
+    <td align="left"><code>proportion</code></td>
+    <td>The relative proportion of cells of this clonotype within the total cell population, used to assess clonal dominance and diversity distribution.</td>
+    </tr>
+    <tr>
+    <td align="left"><code>cdr3s_aa</code></td>
+    <td>A semicolon-separated list of chain:sequence pairs, formatted as "chain_name:CDR3_amino_acid_sequence". Chain names include TRA, TRB, TRG, TRD (for T-cell receptors) and IGK, IGL, IGH (for B-cell receptors). The CDR3 amino acid sequence determines antigen-binding specificity and functional activity.</td>
+    </tr>
+    <tr>
+    <td align="left"><code>cdr3s_nt</code></td>
+    <td>A semicolon-separated list of chain:sequence pairs, formatted as "chain_name:CDR3_nucleotide_sequence". Provides the DNA sequence of the CDR3 region, used for somatic hypermutation analysis, clonal evolution tracking, and molecular marker design.</td>
+    </tr>
+    </tbody>
+    </table>
 
-**File Description**: Consensus sequences represent the highest frequency exact subclonotype sequences within each clonotype, ideally should be full-length sequences (from 5' UTR start to C gene primer binding site end).
-
-**Features and Advantages**:
-- 🧬 **Representative**: Representative sequence for each clonotype
-- 📊 **High Quality**: Generated based on high-frequency exact subclonotypes
-- 🔧 **Tool Compatibility**: Standard FASTA format, compatible with various analysis tools
-
-> **📝 Important Note**
-> - Consensus sequences are representative sequences generated through clonotype grouping algorithms
-> - The consensus sequence for each clonotype is identical to the most common sequence in that clonotype
+<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
 
 #### 📄 consensus_annotations.csv
 
-**File Description**: Consensus sequence annotation CSV file provides detailed annotation information for each clonotype consensus sequence, including V, D, J gene calls, CDR and FWR region sequences and other complete annotation content.
+Provides detailed annotation information for each clonotype's consensus sequence.
 
-**Functional Features**:
-- 🧬 **Clonotype Annotation**: Consensus sequence annotation based on clonotype grouping
-- 📊 **Complete Information**: Contains complete V(D)J gene segment information
-- 🔍 **Detailed Sequences**: Provides detailed sequence information for CDR and FWR regions
-- 🎯 **Analysis Support**: Supports clonotype-level sequence analysis
+*   **Purpose**:
+    *   **Representative Sequence Annotation**: Provides a complete V(D)J gene, CDR/FWR region annotation for a representative sequence of each clonotype.
+    *   **Clonotype-Level Analysis**: Supports sequence feature analysis at the clonotype level.
 
-<table style="width:100%; border-collapse: collapse; margin: 15px 0;">
-<thead>
-<tr>
-<th width="25%" align="left"><strong>Field Name</strong></th>
-<th width="75%" align="left"><strong>Description</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left"><code>clonotype_id</code></td>
-<td>Clonotype ID assigned to this consensus sequence, corresponding to the clonotype identifier in [clonotypes.csv](#clonotypes.csv)</td>
-</tr>
-<tr>
-<td align="left"><code>consensus_id</code></td>
-<td>Unique identifier for this consensus sequence, used to associate sequences in the FASTA file</td>
-</tr>
-<tr>
-<td align="left"><code>sample</code></td>
-<td>Sample name of the VDJ library</td>
-</tr>
-<tr>
-<td align="left"><code>length</code></td>
-<td>Nucleotide length of the consensus sequence</td>
-</tr>
-<tr>
-<td align="left"><code>chain</code></td>
-<td>Chain type associated with this consensus sequence: TRA, TRB, IGK, IGL, or IGH</td>
-</tr>
-<tr>
-<td align="left"><code>v_gene</code></td>
-<td>Highest scoring V gene segment call result</td>
-</tr>
-<tr>
-<td align="left"><code>d_gene</code></td>
-<td>Highest scoring D gene segment call result (if applicable)</td>
-</tr>
-<tr>
-<td align="left"><code>j_gene</code></td>
-<td>Highest scoring J gene segment call result</td>
-</tr>
-<tr>
-<td align="left"><code>c_gene</code></td>
-<td>Highest scoring C gene segment call result</td>
-</tr>
-<tr>
-<td align="left"><code>full_length</code></td>
-<td>Boolean value indicating whether this consensus sequence is declared as full-length</td>
-</tr>
-<tr>
-<td align="left"><code>productive</code></td>
-<td>Boolean value indicating whether this consensus sequence is declared as productive</td>
-</tr>
-<tr>
-<td align="left"><code>cdr3</code></td>
-<td>Predicted CDR3 amino acid sequence</td>
-</tr>
-<tr>
-<td align="left"><code>cdr3_nt</code></td>
-<td>Predicted CDR3 nucleotide sequence</td>
-</tr>
-<tr>
-<td align="left"><code>reads</code></td>
-<td>Total number of reads supporting this consensus sequence</td>
-</tr>
-<tr>
-<td align="left"><code>umis</code></td>
-<td>Number of different UMIs supporting this consensus sequence</td>
-</tr>
-</tbody>
-</table>
+*   **Content and Format**:
+    *   The file is in CSV format.
+    *   The fields included in the file are shown in the table below:
+
+    <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
+    <thead>
+    <tr>
+    <th width="25%" align="left"><strong>Field Name</strong></th>
+    <th width="75%" align="left"><strong>Description</strong></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <td align="left"><code>clonotype_id</code></td>
+    <td>The clonotype ID assigned to this consensus sequence, corresponding to the clonotype identifier in clonotypes.csv.</td>
+    </tr>
+    <tr>
+    <td align="left"><code>consensus_id</code></td>
+    <td>A unique identifier for this consensus sequence, used to link to the sequence in the FASTA file.</td>
+    </tr>
+    <tr>
+    <td align="left"><code>sample</code></td>
+    <td>Sample name of the VDJ library.</td>
+    </tr>
+    <tr>
+    <td align="left"><code>length</code></td>
+    <td>The nucleotide length of the consensus sequence.</td>
+    </tr>
+    <tr>
+    <td align="left"><code>chain</code></td>
+    <td>The chain type associated with this consensus sequence: TRA, TRB, IGK, IGL, or IGH.</td>
+    </tr>
+    <tr>
+    <td align="left"><code>v_gene</code></td>
+    <td>The highest-scoring V gene segment call.</td>
+    </tr>
+    <tr>
+    <td align="left"><code>d_gene</code></td>
+    <td>The highest-scoring D gene segment call (if applicable).</td>
+    </tr>
+    <tr>
+    <td align="left"><code>j_gene</code></td>
+    <td>The highest-scoring J gene segment call.</td>
+    </tr>
+    <tr>
+    <td align="left"><code>c_gene</code></td>
+    <td>The highest-scoring C gene segment call.</td>
+    </tr>
+    <tr>
+    <td align="left"><code>full_length</code></td>
+    <td>A boolean value indicating if this consensus sequence was declared as full-length.</td>
+    </tr>
+    <tr>
+    <td align="left"><code>productive</code></td>
+    <td>A boolean value indicating if this consensus sequence was declared as productive.</td>
+    </tr>
+    <tr>
+    <td align="left"><code>cdr3</code></td>
+    <td>The predicted CDR3 amino acid sequence.</td>
+    </tr>
+    <tr>
+    <td align="left"><code>cdr3_nt</code></td>
+    <td>The predicted CDR3 nucleotide sequence.</td>
+    </tr>
+    <tr>
+    <td align="left"><code>reads</code></td>
+    <td>The total number of reads supporting this consensus sequence.</td>
+    </tr>
+    <tr>
+    <td align="left"><code>umis</code></td>
+    <td>The number of distinct UMIs supporting this consensus sequence.</td>
+    </tr>
+    </tbody>
+    </table>
+
+<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
+
+#### 📄 consensus.fasta
+
+A FASTA file containing the consensus sequence for each clonotype.
+
+*   **Purpose**:
+    *   **Representative Sequence Library**: Provides a representative sequence for each clonotype, which can be used for functional prediction or comparison with other datasets.
+    *   **High-Quality Sequence**: The consensus sequence is generated by a clonotype grouping algorithm and is ideally a full-length sequence (from the 5’ UTR start to the C-gene primer binding site).
+*   **Content and Format**:
+    *   Standard FASTA format, with the sequence identifier being the `consensus_id`.
+
+---
 
 ### 📝 Analysis Metrics Summary <a id="analysis-metrics-summary"></a>
 
 <div align="center">
 
-**🎯 Core Content**: Comprehensive evaluation and statistical metric summary of V(D)J assembly quality, providing complete data quality control information
+**🎯 Core Content**: A comprehensive evaluation and summary of statistical metrics for V(D)J assembly quality, providing complete data quality control information.
 
 </div>
 
+<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
+
 #### 📄 metrics_summary.xls
 
-**File Description**: Contains all key metric statistics for V(D)J analysis, used to comprehensively evaluate data quality and analysis effectiveness. Provides sequencing quality, cell identification, gene mapping, assembly effectiveness, and other key performance parameters.
+A summary table of key analysis metrics in Excel format, providing a comprehensive assessment of the overall experiment quality.
 
-**Main Metric Categories**:
+*   **Purpose**:
+    *   **Quality Assessment**: Quickly evaluate core metrics such as sequencing quality, cell identification, gene mapping, and assembly effectiveness.
+    *   **Results Overview**: Get a comprehensive understanding of the analysis results without having to view all the files.
 
-<table style="width:100%; border-collapse: collapse; margin: 15px 0;">
-<thead>
-<tr>
-<th width="20%" align="left"><strong>Metric Category</strong></th>
-<th width="80%" align="left"><strong>Content Included</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left"><strong>📊 Basic Statistics</strong></td>
-<td>Total reads, valid barcode proportion, UMI quality, Q30 base quality and other basic sequencing metrics</td>
-</tr>
-<tr>
-<td align="left"><strong>🧬 Cell Identification</strong></td>
-<td>Estimated cell count, intracellular read proportion, average reads per cell and other cell calling results</td>
-</tr>
-<tr>
-<td align="left"><strong>🎯 Gene Mapping</strong></td>
-<td>V(D)J gene mapping proportion, chain-specific mapping statistics, gene utilization analysis</td>
-</tr>
-<tr>
-<td align="left"><strong>🔬 Assembly Quality</strong></td>
-<td>Full-length sequence proportion, productive sequence proportion, CDR3 recognition success rate and other assembly effectiveness assessment</td>
-</tr>
-<tr>
-<td align="left"><strong>📈 Clonotype Analysis</strong></td>
-<td>Clonotype diversity, pairing success rate, major clonotype frequency and other immune repertoire characteristics</td>
-</tr>
-</tbody>
-</table>
+*   **Content and Format**:
+    *   Includes five main categories of key metrics:
 
-**Quality Control Standards**:
+        <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
+        <thead>
+        <tr>
+        <th width="20%" align="left"><strong>Metric Category</strong></th>
+        <th width="80%" align="left"><strong>Content Included</strong></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+        <td align="left"><strong>Basic Statistics</strong></td>
+        <td>Basic sequencing metrics such as total reads, valid barcode ratio, UMI quality, Q30 base quality, etc.</td>
+        </tr>
+        <tr>
+        <td align="left"><strong>Cell Identification</strong></td>
+        <td>Cell calling results such as estimated number of cells, fraction of reads in cells, mean reads per cell, etc.</td>
+        </tr>
+        <tr>
+        <td align="left"><strong>Gene Mapping</strong></td>
+        <td>V(D)J gene mapping ratio, chain-specific mapping statistics, gene usage analysis.</td>
+        </tr>
+        <tr>
+        <td align="left"><strong>Assembly Quality</strong></td>
+        <td>Assembly effectiveness evaluation such as full-length sequence ratio, productive sequence ratio, CDR3 identification success rate, etc.</td>
+        </tr>
+        <tr>
+        <td align="left"><strong>Clonotype Analysis</strong></td>
+        <td>Immune repertoire features such as clonotype diversity, pairing success rate, major clonotype frequencies, etc.</td>
+        </tr>
+        </tbody>
+        </table>
 
-<details open>
-<summary><strong>Recommended Quality Thresholds:</strong></summary>
-<ul>
-<li>✅ <strong>Valid barcodes</strong>: >70%</li>
-<li>✅ <strong>Q30 Base Quality</strong>: >75% (barcode and UMI regions)</li>
-<li>✅ <strong>Reads mapped to any V(D)J gene</strong>: >30%</li>
-<li>✅ <strong>Fraction of Reads in Cells</strong>: >30%</li>
-<li>✅ <strong>Cells with productive V-J spanning pair</strong>: >20%</li>
-<li>✅ <strong>Mean reads per cell</strong>: >5,000</li>
-</ul>
-</details>
+    *   Built-in recommended quality control standards for user convenience:
+        <details open>
+        <summary><strong>Recommended Quality Thresholds:</strong></summary>
+        <ul>
+        <li>✅ <strong>Valid Barcode Rate</strong>: >70%</li>
+        <li>✅ <strong>Q30 Base Quality</strong>: >75% (for barcodes and UMIs)</li>
+        <li>✅ <strong>V(D)J Gene Mapping Rate</strong>: >30%</li>
+        <li>✅ <strong>Productive Pairing Rate</strong>: >20%</li>
+        <li>✅ <strong>Mean Reads per Cell</strong>: >5,000</li>
+        </ul>
+        </details>
 
-**Purpose**: Used to evaluate data quality and analysis effectiveness.
+<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
 
 #### 📄 *_scVDJ_TR(IG)_report.html
 
-**File Description**: VDJ analysis interactive web report providing comprehensive visualization of analysis results.
+An interactive comprehensive analysis report in HTML web format.
 
-<table style="width:100%; border-collapse: collapse; margin: 15px 0;">
-<thead>
-<tr>
-<th width="25%" align="left"><strong>Report Features</strong></th>
-<th width="75%" align="left"><strong>Content Description</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left"><strong>📊 Interactive Charts</strong></td>
-<td>Quality control metrics, rearrangement analysis, clonotype analysis and other interactive visualization charts</td>
-</tr>
-<tr>
-<td align="left"><strong>📈 Statistical Summary</strong></td>
-<td>Numerical summary and trend analysis of key performance indicators</td>
-</tr>
-<tr>
-<td align="left"><strong>🎯 Quality Assessment</strong></td>
-<td>Comprehensive data quality assessment and optimization recommendations</td>
-</tr>
-<tr>
-<td align="left"><strong>🔍 Detailed Interpretation</strong></td>
-<td>Biological significance and technical explanations of various indicators</td>
-</tr>
-</tbody>
-</table>
+*   **Purpose**:
+    *   **Results Visualization**: Intuitively displays key results such as QC, rearrangement analysis, and clonotype analysis in the form of interactive charts.
+    *   **Results Interpretation**: Provides the biological significance and technical explanation of each metric to help users interpret the data in depth.
+    *   **Easy Sharing**: A single HTML file that is easy to circulate and share.
 
-**File Format**: HTML web format, supports all mainstream browsers  
-**Purpose**: Provides comprehensive overview and in-depth interpretation of analysis results  
-**Detailed Content**: Please see [📊 Web Report Interpretation](#web-report-interpretation) section
-
+*   **Content and Format**:
+    *   Can be opened in any modern browser without an internet connection.
+    *   For a detailed interpretation of the report, please refer to the [Web Report Interpretation](#web-report-interpretation) section below.
 
 ---
 
@@ -746,15 +775,15 @@ Contains annotated sequences and consensus sequences of V(D)J rearrangements in 
 
 <div align="center">
 
-**🎯 Overview**: The HTML web report provides comprehensive visualization and detailed interpretation of single-cell V(D)J sequencing analysis results, including assessment of key performance indicators to help users quickly understand experimental quality and analysis results
+**🎯 Overview**: The HTML web report provides a comprehensive visual display and detailed interpretation of single-cell V(D)J sequencing analysis results, including an evaluation of key performance indicators to help users quickly understand the experimental quality and analysis outcomes.
 
 </div>
 
-The HTML web report is a comprehensive display platform for single-cell VDJ sequencing analysis, integrating complete results from data quality control to downstream immune repertoire analysis. The report uses interactive visualization design to help users quickly evaluate experimental quality, understand analysis results and guide future research directions.
+The HTML web report is a comprehensive platform for displaying single-cell VDJ sequencing analysis, integrating complete results from data quality control to downstream immune repertoire analysis. The report uses an interactive visual design to help users quickly assess experimental quality, understand analysis results, and guide future research directions.
 
-> 💡 **Usage Recommendations**: It is recommended to view each indicator in the order presented in the report.
+> 💡 **Usage Suggestion**: It is recommended to review the metrics in the order they are presented in the report.
 
-> ⚠️ **Quality Standards**: Recommended thresholds and quality levels are provided for each indicator. Please conduct a comprehensive evaluation in combination with specific experimental objectives.
+> ⚠️ **Quality Standards**: Each metric is provided with recommended thresholds and quality levels. Please conduct a comprehensive evaluation based on your specific experimental goals.
 
 ### 📊 Main Report Content and Structure
 
@@ -764,25 +793,26 @@ The HTML web report is a comprehensive display platform for single-cell VDJ sequ
 
 <br>
 
-### 🧬 Core Analysis Metrics Explained
+### 🧬 Detailed Explanation of Core Analysis Metrics
 
 #### 🧬 VDJ Analysis Metrics <a id="vdj-analysis-metrics"></a>
 
 <div align="center">
 
-**🎯 Core Function**: Cell identification, quality assessment and immune receptor assembly statistics, providing key indicators for overall experimental effectiveness
+**🎯 Core Function**: Cell identification, quality assessment, and immune receptor assembly statistics, providing key indicators of overall experimental effectiveness.
 
 </div>
 
 **📊 Quality Control Standards:**
+> **Note**: The following standards are for reference only. Actual quality assessment should consider multiple factors such as tissue type, cell state, and experimental objectives. Significant differences may exist between samples, so judgment should be based on the specific experimental context.
 
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
 <th width="25%" align="left"><strong>Metric Name</strong></th>
-<th width="30%" align="left"><strong>Recommended Value</strong></th>
+<th width="30%" align="left"><strong>Recommended</strong></th>
 <th width="30%" align="left"><strong>Acceptable</strong></th>
-<th width="15%" align="left"><strong>Needs Optimization</strong></th>
+<th width="15%" align="left"><strong>Needs Improvement</strong></th>
 </tr>
 </thead>
 <tbody>
@@ -795,13 +825,7 @@ The HTML web report is a comprehensive display platform for single-cell VDJ sequ
 <tr>
 <td align="left"><strong>Fraction of Reads in Cells</strong></td>
 <td align="left">≥ 50%</td>
-<td align="left">30–50%</td>
-<td align="left">< 30%</td>
-</tr>
-<tr>
-<td align="left"><strong>Cells with productive V-J spanning pair</strong></td>
-<td align="left">≥ 30%</td>
-<td align="left">20–30%</td>
+<td align="left">20–50%</td>
 <td align="left">< 20%</td>
 </tr>
 </tbody>
@@ -823,50 +847,60 @@ The HTML web report is a comprehensive display platform for single-cell VDJ sequ
 <em>Estimated Cell Count</em>
 </td>
 <td>
-Estimated number of barcodes associated with cells expressing target V(D)J transcripts.
 <ul>
-<li>📊 <strong>Influencing Factors</strong>: Number of loaded cells and proportion of cells expressing V(D)J transcripts</li>
-<li>⚠️ <strong>Abnormal Causes</strong>: Inaccurate cell counting, poor T/B cell enrichment, poor sample or library quality, low sequencing depth</li>
+<li><strong>Definition</strong>: An estimate of the number of barcodes associated with cells that express the target V(D)J transcripts.</li>
+<li><strong>Influencing Factors</strong>: The number of cells loaded and the proportion of cells expressing V(D)J transcripts.</li>
+<li><strong>Quality Interpretation</strong>:
+<ul><li><strong>Abnormal Causes</strong>: Inaccurate cell counting, poor T/B cell enrichment, poor sample or library quality, low sequencing depth.</li></ul>
+</li>
 </ul>
 </td>
 </tr>
 <tr>
 <td align="left">
 <strong>Mean reads per cell</strong><br>
-<em>Average Reads per Cell Statistics</em>
+<em>Mean Reads per Cell</em>
 </td>
 <td>
-Ratio of total input sequencing read pairs divided by estimated effective cell count.
-<div style="padding: 10px; border-left: 4px solid #0ea5e9; margin: 10px 0;">
-<strong>🔬 Sequencing Depth Technical Requirements</strong>
 <ul>
-<li>Recommended minimum sequencing depth: 5,000 read pairs per cell (paired-end sequencing)</li>
-<li>Single-end sequencing should double depth to 10,000 reads per cell</li>
-<li>Insufficient sequencing depth may lead to decreased V(D)J cell identification accuracy and assembly quality</li>
+<li><strong>Definition</strong>: The ratio of the total number of input sequencing read pairs to the estimated number of valid cells.</li>
+<li><strong>Technical Requirements</strong>:
+<ul>
+<li>Minimum sequencing depth: 5,000 read pairs per cell (for paired-end sequencing).</li>
+<li>For single-end sequencing, it is recommended to double the depth to 10,000 reads per cell.</li>
 </ul>
-</div>
+</li>
+<li><strong>Quality Interpretation</strong>: Insufficient sequencing depth can lead to reduced accuracy in V(D)J cell identification and lower assembly quality.</li>
+</ul>
 </td>
 </tr>
 <tr>
 <td align="left">
 <strong>Fraction of Reads in Cells</strong><br>
-<em>Intracellular Read Proportion</em>
+<em>Fraction of Reads in Cells</em>
 </td>
 <td>
-Ratio of reads with cell-associated barcodes to total reads with valid barcodes.
-<div style="padding: 15px; border-left: 4px solid #22c55e; margin: 15px 0;">
-> ✅ <strong>High-Quality Sample Characteristics</strong>: High proportion (>50%) indicates good cell capture efficiency and effective background noise control<br>
-> ⚠️ <strong>Quality Issue Indicators</strong>: Low proportion may indicate biological sample quality issues or inappropriate cell concentration, library construction quality control problems or technical operation errors
-</div>
+<ul>
+<li><strong>Definition</strong>: The ratio of the number of reads with cell-associated barcodes to the total number of reads with valid barcodes.</li>
+<li><strong>Quality Interpretation</strong>:
+<ul>
+<li><strong>High-Quality Sample Trait</strong>: A high ratio indicates good cell capture efficiency and effective control of background noise.</li>
+<li><strong>Indicator of Quality Issues</strong>: A low ratio may indicate problems with the biological sample, improper cell concentration, issues with library construction quality control, or technical errors.</li>
+</ul>
+</li>
+</ul>
 </td>
 </tr>
 <tr>
 <td align="left">
 <strong>Median TRA/TRB or IGH/IGK/IGL UMIs per cell</strong><br>
-<em>Median Chain-Specific UMIs per Cell</em>
+<em>Median UMIs per Cell for Specific Chains</em>
 </td>
 <td>
-Median statistics of UMI molecules assigned to specific immune receptor chain transcripts (such as IGH, TRA, TRB, IGK, IGL, etc.). This metric directly reflects TCR/BCR expression levels and transcriptional activity of each cell.
+<ul>
+<li><strong>Definition</strong>: The median number of UMI molecules assigned to transcripts of a specific immune receptor chain (e.g., IGH, TRA, TRB, IGK, IGL).</li>
+<li><strong>Biological Significance</strong>: This metric directly reflects the TCR/BCR expression level and transcriptional activity of each cell.</li>
+</ul>
 </td>
 </tr>
 <tr>
@@ -875,10 +909,9 @@ Median statistics of UMI molecules assigned to specific immune receptor chain tr
 <em>Cells with TRA/TRB or IGH/IGK/IGL Contigs</em>
 </td>
 <td>
-Cells detected with at least one T cell receptor (TRA/TRB) or B cell receptor (IGH/IGK/IGL) gene rearrangement through single-cell sequencing. Includes complete and incomplete VDJ rearrangement events.
 <ul>
-<li>Only requires existence of relevant gene contigs (assembled sequences), does not require functionality</li>
-<li>May include fragmented contigs that do not span V-J regions or non-productive rearrangements</li>
+<li><strong>Definition</strong>: Cells in which at least one T-cell receptor (TRA/TRB) or B-cell receptor (IGH/IGK/IGL) gene rearrangement was detected via single-cell sequencing.</li>
+<li><strong>Note</strong>: This includes both complete and incomplete VDJ rearrangement events. It only requires the presence of a contig for the relevant gene and does not require it to be functional. It may include fragmented contigs that do not span the V-J region or non-productive rearrangements.</li>
 </ul>
 </td>
 </tr>
@@ -888,9 +921,9 @@ Cells detected with at least one T cell receptor (TRA/TRB) or B cell receptor (I
 <em>Cells with V-J Spanning TRA/TRB or IGH/IGK/IGL Contigs</em>
 </td>
 <td>
-Requires contigs to span the rearrangement junction of V and J genes, stricter than the first category but still includes cells with non-productive rearrangements.
 <ul>
-<li>Excludes invalid contigs that have not completed V-J rearrangement</li>
+<li><strong>Definition</strong>: Requires the contig to span the recombination junction between the V and J genes. This is stricter than the first category but still includes cells with non-productive rearrangements.</li>
+<li><strong>Note</strong>: Excludes invalid contigs where V-J recombination is incomplete.</li>
 </ul>
 </td>
 </tr>
@@ -900,7 +933,9 @@ Requires contigs to span the rearrangement junction of V and J genes, stricter t
 <em>Cells with Functional TRA/TRB or IGH/IGK/IGL Contigs</em>
 </td>
 <td>
-Must simultaneously meet V-J spanning (for TRA/IGK/IGL) or V-D-J spanning (for TRB/IGH), productive being true (no frameshift mutations and complete CDR3), and in-frame strict standards.
+<ul>
+<li><strong>Definition</strong>: Must simultaneously meet strict criteria: V-J spanning (for TRA/IGK/IGL) or V-D-J spanning (for TRB/IGH), `productive` is true (no frameshift mutations and a complete CDR3), and is in-frame.</li>
+</ul>
 </td>
 </tr>
 <tr>
@@ -909,34 +944,41 @@ Must simultaneously meet V-J spanning (for TRA/IGK/IGL) or V-D-J spanning (for T
 <em>Paired Clonotype Diversity</em>
 </td>
 <td>
-Effective diversity of paired clonotypes, calculated as the inverse Simpson index of clonotype frequencies. A value of 1 indicates minimum diversity sample—only one distinct clonotype detected. A value equal to estimated cell count indicates maximum diversity sample.
-<div style="padding: 15px; border-left: 4px solid #f59e0b; margin: 15px 0;">
-> 🔬 <strong>Diversity Assessment</strong><br>
-> • Sample type-dependent metric, clonotype diversity reflects immune system complexity and functional status<br>
-> • Lower than expected values may be due to low proportion of B or T cells in sample, poor sample quality, poor library quality, or low sequencing depth
-</div>
+<ul>
+<li><strong>Definition</strong>: The effective diversity of paired clonotypes, calculated as the inverse Simpson's index of the clonotype frequencies. A value of 1 indicates a sample with minimal diversity—only one distinct clonotype was detected. A value equal to the estimated number of cells indicates a sample with maximum diversity.</li>
+<li><strong>Quality Interpretation</strong>:
+<ul>
+<li>This is a sample-type-dependent metric. Clonotype diversity reflects the complexity and functional state of the immune system.</li>
+<li>A lower-than-expected value may be due to a low proportion of B or T cells in the sample, poor sample quality, poor library quality, or low sequencing depth.</li>
+</ul>
+</li>
+</ul>
 </td>
 </tr>
 </tbody>
 </table>
 
+<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
+
 #### 🔬 Sequencing Metrics <a id="sequencing-metrics"></a>
 
 <div align="center">
 
-**🎯 Core Function**: Basic quality assessment of sequencing data, including barcode identification rate, alignment quality and sequencing accuracy
+**🎯 Core Function**: Basic quality assessment of sequencing data, including barcode recognition rate, alignment quality, and sequencing accuracy.
 
 </div>
 
 **📊 Quality Control Standards:**
 
+> **Note**: The following standards are for reference only. Actual quality assessment should consider multiple factors such as tissue type, cell state, and experimental objectives. Significant differences may exist between samples, so judgment should be based on the specific experimental context.
+
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
 <th width="25%" align="left"><strong>Metric Name</strong></th>
-<th width="30%" align="left"><strong>Recommended Value</strong></th>
+<th width="30%" align="left"><strong>Recommended</strong></th>
 <th width="30%" align="left"><strong>Acceptable</strong></th>
-<th width="15%" align="left"><strong>Needs Optimization</strong></th>
+<th width="15%" align="left"><strong>Needs Improvement</strong></th>
 </tr>
 </thead>
 <tbody>
@@ -974,62 +1016,64 @@ Effective diversity of paired clonotypes, calculated as the inverse Simpson inde
 <tr>
 <td align="left">
 <strong>Valid barcodes</strong><br>
-<em>Valid Barcode Proportion</em>
+<em>Valid Barcode Rate</em>
 </td>
 <td>
-Proportion of sequencing reads whose barcodes can successfully match in the preset whitelist.
 <ul>
-<li>🎯 <strong>Recommended Threshold</strong>: >75%</li>
-<li>✅ <strong>High Proportion Indicators</strong>: Good cell identification accuracy, low sample contamination levels, excellent library construction quality, stable sequencing system performance</li>
+<li><strong>Definition</strong>: The proportion of all reads whose Cell Barcode can be matched to the predefined whitelist (with error correction).</li>
+<li><strong>Biological Significance</strong>: Reflects the effectiveness of cell labeling.</li>
+<li><strong>Quality Interpretation</strong>: A low rate usually suggests sample quality issues leading to barcode degradation and adapter contamination, or a high error rate during the sequencing process.</li>
 </ul>
 </td>
 </tr>
 <tr>
 <td align="left">
 <strong>Valid UMIs</strong><br>
-<em>Valid UMI Proportion</em>
+<em>Valid UMI Rate</em>
 </td>
 <td>
-Proportion of UMIs that do not contain uncertain bases ('N') and are not homopolymer sequences.
 <ul>
-<li>🎯 <strong>Recommended Threshold</strong>: >75%</li>
-<li>✅ <strong>High Proportion Significance</strong>: Good UMI sequence quality, beneficial for subsequent accurate PCR duplicate removal, well-controlled library amplification process, sequencing quality meets analysis requirements</li>
+<li><strong>Definition</strong>: The proportion of all reads whose Unique Molecular Identifier (UMI) sequence does not contain 'N' bases and is not a homopolymer (e.g., AAAAAA).</li>
+<li><strong>Biological Significance</strong>: Reflects the sequencing quality of the UMI sequence, which is key to accurate molecular counting.</li>
 </ul>
 </td>
 </tr>
 <tr>
 <td align="left">
-<strong>Q30 Base Quality</strong><br>
-<em>Q30 High-Quality Base Proportion</em>
+<strong>Q30 bases Quality</strong><br>
+<em>Q30 Base Rate</em>
 </td>
 <td>
-Proportion of bases with sequencing accuracy higher than 99.9% (error rate <0.1%).
 <ul>
-<li>📊 <strong>Assessment Regions</strong>: Barcode region (cell identity identification), UMI region (molecular counting deduplication), RNA read region (paired-end or single-end sequencing quality)</li>
-<li>📋 <strong>Calculation Basis</strong>: Uses total raw sequencing reads as denominator basis</li>
+<li><strong>Definition</strong>: The proportion of bases with a sequencing quality score of Q30 or higher in the cell barcode, UMI, and RNA read sequences.</li>
+<li><strong>Significance</strong>: Q30 represents a base sequencing error rate of less than 0.1%. This metric directly affects the accuracy of cell identity, molecular counting, and gene alignment.</li>
 </ul>
 </td>
 </tr>
 </tbody>
 </table>
 
+<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
+
 #### 🧬 Enrichment Metrics <a id="enrichment-metrics"></a>
 
 <div align="center">
 
-**🎯 Core Function**: V(D)J gene enrichment efficiency assessment, reflecting immune receptor sequence capture effectiveness
+**🎯 Core Function**: Evaluation of V(D)J gene enrichment efficiency, reflecting the capture effectiveness of immune receptor sequences.
 
 </div>
 
 **📊 Quality Control Standards:**
 
+> **Note**: The following standards are for reference only. Actual quality assessment should consider multiple factors such as tissue type, cell state, and experimental objectives. Significant differences may exist between samples, so judgment should be based on the specific experimental context.
+
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
-<th width="25%" align="left"><strong>Metric Name</strong></th>
-<th width="25%" align="left"><strong>Recommended Value</strong></th>
+<th width="25%" align="left"><strong>Metric Category</strong></th>
+<th width="25%" align="left"><strong>Recommended</strong></th>
 <th width="25%" align="left"><strong>Acceptable</strong></th>
-<th width="25%" align="left"><strong>Needs Optimization</strong></th>
+<th width="25%" align="left"><strong>Needs Improvement</strong></th>
 </tr>
 </thead>
 <tbody>
@@ -1055,66 +1099,59 @@ Proportion of bases with sequencing accuracy higher than 99.9% (error rate <0.1%
 <tr>
 <td align="left">
 <strong>Reads mapped to any V(D)J gene</strong><br>
-<em>Pan V(D)J Gene Mapping Read Proportion</em>
+<em>Fraction of Reads Mapped to Any V(D)J Gene</em>
 </td>
 <td>
-Proportion of reads with valid barcodes that partially or completely map to any germline V(D)J gene segments.
-<div style="padding: 15px; border-left: 4px solid #f59e0b; margin: 15px 0;">
-> ⚠️ <strong>Quality Warning Threshold</strong>: <30% may be caused by the following reasons:<br>
-> • Low proportion of B or T cells in sample or insufficient enrichment<br>
-> • Biological sample quality degradation affecting immune cell viability<br>
-> • Poor target enrichment efficiency during library construction<br>
-> • Reference genome version mismatch or incomplete annotation
-</div>
+<ul>
+<li><strong>Definition</strong>: The fraction of reads with valid barcodes that map partially or fully to any germline V(D)J gene segment.</li>
+<li><strong>Quality Interpretation</strong>:
+<ul>
+<li><strong>Quality Warning Threshold (<30%)</strong>: May be caused by a low proportion of B or T cells in the sample, poor sample quality, inefficient library enrichment, or a mismatched reference genome.</li>
+</ul>
+</li>
+</ul>
 </td>
 </tr>
 <tr>
 <td align="left">
 <strong>Reads mapped to TRA/TRB/IGH/IGK/IGL</strong><br>
-<em>TRA/TRB/IGH/IGK/IGL Specific Immune Receptor Chain Mapping Proportion</em>
+<em>Fraction of Reads Mapped to Specific TRA/TRB/IGH/IGK/IGL Chains</em>
 </td>
 <td>
-<table style="width:100%; border-collapse: collapse; margin: 15px 0;">
-<thead>
-<tr>
-<th width="30%" align="left"><strong>Receptor Chain Type</strong></th>
-<th width="70%" align="left"><strong>Expression Characteristics and Biological Significance</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left"><strong>TRA vs TRB</strong></td>
-<td>TRA (α chain) expression levels are usually lower than TRB (β chain), reflecting normal T cell receptor expression patterns</td>
-</tr>
-<tr>
-<td align="left"><strong>IGH vs IGK/IGL</strong></td>
-<td>Heavy and light chains show paired expression characteristics, mapping proportions reflect relative expression abundance of various immune receptor chains</td>
-</tr>
-</tbody>
-</table>
-> 📊 Calculation Basis Note: All above enrichment metrics are calculated using total valid barcode reads as the denominator basis.
+<ul>
+<li><strong>Type Definition</strong>:</li>
+<ul>
+<li><strong>TRA vs TRB</strong>: TRA (α chain) expression is typically lower than TRB (β chain), reflecting the normal expression pattern of T-cell receptors.</li>
+<li><strong>IGH vs IGK/IGL</strong>: Heavy and light chains show paired expression characteristics, and their mapping ratios reflect the relative expression abundance of each immune receptor chain.</li>
+</ul>
+<li><strong>Calculation Basis Note</strong>: The above enrichment metrics are all calculated with the total number of valid barcode reads as the denominator.</li>
+</ul>
 </td>
 </tr>
 </tbody>
 </table>
 
-#### 🧬 V(D)J Annotation <a id="vdj-annotation"></a>
+<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
+
+#### 🧬 V(D)J Annotation Analysis (V(D)J Annotation) <a id="vdj-annotation-analysis"></a>
 
 <div align="center">
 
-**🎯 Core Function**: Productive rearrangement pairing analysis, evaluating functional expression level of immune receptors
+**🎯 Core Function**: Analysis of productive rearrangement pairing to assess the functional expression level of immune receptors.
 
 </div>
 
 **📊 Quality Control Standards:**
 
+> **Note**: The following standards are for reference only. Actual quality assessment should consider multiple factors such as tissue type, cell state, and experimental objectives. Significant differences may exist between samples, so judgment should be based on the specific experimental context.
+
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
 <th width="25%" align="left"><strong>Metric Name</strong></th>
-<th width="25%" align="left"><strong>Recommended Value</strong></th>
+<th width="25%" align="left"><strong>Recommended</strong></th>
 <th width="25%" align="left"><strong>Acceptable</strong></th>
-<th width="25%" align="left"><strong>Needs Optimization</strong></th>
+<th width="25%" align="left"><strong>Needs Improvement</strong></th>
 </tr>
 </thead>
 <tbody>
@@ -1143,64 +1180,81 @@ Proportion of reads with valid barcodes that partially or completely map to any 
 <em>Absolute Number of Cells with Productive V-J Spanning Pairs</em>
 </td>
 <td>
-Total number of cells with at least one TRA/TRB pair or immunoglobulin heavy/light chain pair of productive contigs.
+<ul>
+<li><strong>Definition</strong>: The total number of cells with at least one productive contig for a TRA/TRB pair or an immunoglobulin heavy/light chain pair.</li>
+</ul>
 </td>
 </tr>
 <tr>
 <td align="left">
 <strong>Cells with productive V-J spanning pair</strong><br>
-<em>Proportion of Cells with Productive V-J Spanning Pairs</em>
+<em>Fraction of Cells with Productive V-J Spanning Pairs</em>
 </td>
 <td>
-Proportion of cell-associated barcodes with at least one complete receptor pair (each chain has productive contigs).
-<div style="padding: 15px; border-left: 4px solid #10b981; margin: 15px 0;">
-> 🧪 <strong>Strict Criteria for Productive Contigs</strong><br>
-> • ✅ <strong>Spanning Completeness</strong>: Contig annotation completely spans from V region 5' end to corresponding chain J region 3' end<br>
-> • ✅ <strong>Start Codon</strong>: Successfully identifies valid start codon (ATG) at expected position in V sequence<br>
-> • ✅ <strong>CDR3 Completeness</strong>: Discovers complete in-frame CDR3 amino acid motif<br>
-> • ✅ <strong>Reading Frame Correctness</strong>: No premature stop codons in aligned V-J region (no frameshift mutations)
-</div>
+<ul>
+<li><strong>Definition</strong>: The fraction of cell-associated barcodes that have at least one complete receptor pair (with a productive contig for each chain).</li>
+<li><strong>Criteria for a Productive Contig</strong>:
+    <ul>
+    <li><strong>Spanning Integrity</strong>: The contig annotation completely spans from the 5' end of the V region to the 3' end of the corresponding chain's J region.</li>
+    <li><strong>Start Codon</strong>: A valid start codon (ATG) is successfully identified at the expected position in the V sequence.</li>
+    <li><strong>CDR3 Integrity</strong>: A complete, in-frame CDR3 amino acid motif is found.</li>
+    <li><strong>Correct Reading Frame</strong>: No premature stop codons are present in the aligned V-J region (no frameshift mutations).</li>
+    </ul>
+</li>
+</ul>
 </td>
 </tr>
 <tr>
 <td align="left">
 <strong>Cells with productive V-J spanning (IGK, IGH) pair</strong><br>
-<em>IGK/IGH Productive Pairing Cell Proportion</em>
+<em>Fraction of Cells with Productive IGK/IGH Pairs</em>
 </td>
 <td>
-Proportion of cell-associated barcodes with (IGK, IGH) immunoglobulin receptor pairing where each chain has at least one productive contig.
 <ul>
-<li>Specific metric for B cell datasets</li>
-<li>Depends on proportion of B cell subpopulations expressing κ light chain (IGK) in sample</li>
-<li>κ/λ light chain usage proportions vary by species and individual differences</li>
+<li><strong>Definition</strong>: The fraction of cell-associated barcodes with an (IGK, IGH) immunoglobulin receptor pair where each chain has at least one productive contig.</li>
+<li><strong>Note</strong>:
+    <ul>
+    <li>A specific metric for B-cell datasets.</li>
+    <li>Depends on the proportion of B-cell subpopulations expressing the κ light chain (IGK) in the sample.</li>
+    <li>The usage ratio of κ/λ light chains varies by species and individual.</li>
+    </ul>
+</li>
 </ul>
 </td>
 </tr>
 <tr>
 <td align="left">
 <strong>Cells with productive V-J spanning (IGL, IGH) pair</strong><br>
-<em>IGL/IGH Productive Pairing Cell Proportion</em>
+<em>Fraction of Cells with Productive IGL/IGH Pairs</em>
 </td>
 <td>
-Proportion of cell-associated barcodes with (IGL, IGH) immunoglobulin receptor pairing where each chain has at least one productive contig.
 <ul>
-<li>Specific metric for B cell datasets</li>
-<li>Depends on proportion of B cell subpopulations expressing λ light chain (IGL) in sample</li>
-<li>Complements IGK pairing, together reflecting B cell light chain usage patterns</li>
+<li><strong>Definition</strong>: The fraction of cell-associated barcodes with an (IGL, IGH) immunoglobulin receptor pair where each chain has at least one productive contig.</li>
+<li><strong>Note</strong>:
+    <ul>
+    <li>A specific metric for B-cell datasets.</li>
+    <li>Depends on the proportion of B-cell subpopulations expressing the λ light chain (IGL) in the sample.</li>
+    <li>Complements the IGK pairing to collectively reflect the B-cell light chain usage pattern.</li>
+    </ul>
+</li>
 </ul>
 </td>
 </tr>
 <tr>
 <td align="left">
 <strong>Cells with productive V-J spanning (TRA, TRB) pair</strong><br>
-<em>TRA/TRB Productive Pairing Cell Proportion</em>
+<em>Fraction of Cells with Productive TRA/TRB Pairs</em>
 </td>
 <td>
-Proportion of cell-associated barcodes with (TRA, TRB) T cell receptor pairing where each chain has at least one productive contig.
 <ul>
-<li>Core metric for T cell datasets</li>
-<li>Reflects successful pairing of TCR α chain and β chain</li>
-<li>Indicates functional receptor expression status of αβ T cells</li>
+<li><strong>Definition</strong>: The fraction of cell-associated barcodes with a (TRA, TRB) T-cell receptor pair where each chain has at least one productive contig.</li>
+<li><strong>Note</strong>:
+    <ul>
+    <li>A core metric for T-cell datasets.</li>
+    <li>Reflects the successful pairing of TCR α and β chains.</li>
+    <li>Indicates the functional receptor expression status of αβ T-cells.</li>
+    </ul>
+</li>
 </ul>
 </td>
 </tr>
@@ -1211,107 +1265,55 @@ Proportion of cell-associated barcodes with (TRA, TRB) T cell receptor pairing w
 
 <div align="center">
 
-**🎯 Core Function**: Multi-dimensional visualization display for V(D)J cell quality control, UMI analysis and immune receptor expression evaluation
+**🎯 Core Function**: A multi-dimensional visual display for V(D)J cell quality control, UMI analysis, and immune receptor expression assessment.
 
 </div>
 
-#### 📊 V(D)J Cell Ranking Analysis Plot (V(D)J Barcode Rank Plot)
+##### 📊 V(D)J Barcode Rank Plot
 
-**Chart Function**: Visualizes UMI count distribution for each cell (only counting UMIs from productive contigs), intuitively showing cell quality control results and background noise levels.
+**Chart Function:** Visualizes the UMI count distribution for each cell (counting only UMIs from productive contigs), providing an intuitive view of cell quality control results and background noise levels.
 
 <div align="center">
-<img src="../images/html_scvdj3.jpg" alt="V(D)J Cell Ranking Analysis Plot" width="400">
+<img src="../images/html_scvdj3.jpg" alt="V(D)J Barcode Rank Plot" width="400">
 </div>
 
-**Technical Specifications and Coordinate System:**
+**How to Interpret**:
+*   **Axes**:
+    *   **X-axis (Barcode Rank)**: All cell barcodes are ranked in descending order of total UMI counts (log scale).
+    *   **Y-axis (UMI Counts)**: The total UMI count for each cell (log scale).
+*   **Visual Encoding**:
+    *   🔵 **Blue Line**: Identified valid cells.
+    *   ⚫ **Gray Line**: Background noise cells.
+    *   🔷 **Blue Gradient Area**: The mixed transition zone between cells and background noise.
+*   **Quality Assessment**:
+    *   An ideal sample should show good separation between cell-associated barcodes and the background, indicated by a steep drop in the curve.
+    *   VDJ-B data may show a group of cells with high UMI counts, which are typically high-expressing plasma cells.
 
-<table style="width:100%; border-collapse: collapse; margin: 15px 0;">
-<thead>
-<tr>
-<th width="20%" align="left"><strong>Axis</strong></th>
-<th width="80%" align="left"><strong>Detailed Technical Specifications</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left"><strong>X-axis</strong><br><em>Barcode Rank</em></td>
-<td>
-<strong>Cell Ranking (Descending Order, Logarithmic Scale)</strong><br>
-All detected cells ranked by total UMI count from high to low. The further left the rank, the higher the UMI count, representing likely real cells; barcodes ranked to the right have low UMI counts and may be empty droplets or background RNA.
-</td>
-</tr>
-<tr>
-<td align="left"><strong>Y-axis</strong><br><em>UMI Counts</em></td>
-<td>
-<strong>UMI Count (Logarithmic Scale)</strong><br>
-Total UMI count corresponding to each cell. Higher UMI indicates more RNA molecules captured in that droplet, more likely to be a real cell.
-</td>
-</tr>
-<tr>
-<td align="left"><strong>Color Coding</strong><br><em>Color Scheme</em></td>
-<td>
-<strong>Cell Density Gradient Display</strong><br>
-• <span style="color: #0ea5e9;">🔵 Blue Line</span>: Identified valid cells<br>
-• <span style="color: #6b7280;">⚫ Gray Line</span>: Background noise cells<br>
-• <span style="color: #93c5fd;">🔷 Blue Gradient Area</span>: Mixed transition area of cells and background noise
-</td>
-</tr>
-</tbody>
-</table>
+<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
 
-**Interactive Features**:
-- 🖱️ **Mouse Hover Display**: Detailed cell information including cell ranking position and UMI count
-- 📊 **Percentage Indicator**: Proportion of cells identified as real cells in the region where this cell is located (real cells in region/total cells in region)
-- 🎨 **Dynamic Gradient**: Higher percentage values have deeper colors (blue), lower proportions have lighter colors
-
-<div style="padding: 15px; border-left: 4px solid #3b82f6; margin: 15px 0;">
-> 📊 <strong>Typical Sample Characteristics</strong><br>
-> • <strong>Steep Drop</strong>: Good separation between cell-associated barcodes and background<br>
-> • <strong>High-expressing Plasma Cells</strong>: VDJ-B data may show a group of cells with high UMI counts
-</div>
-
----
-
-#### 📊 Visualization Chart 2 <a id="visualization-chart-2"></a>
+#### 📈 Visualization Chart 2 <a id="visualization-chart-2"></a>
 
 <div align="center">
 
-**🎯 Core Function**: Visualization display of clonotype abundance analysis and immune receptor diversity assessment
+**🎯 Core Function**: A visual display for clonotype abundance analysis and immune receptor diversity assessment.
 
 </div>
 
-#### 📊 Clonotype Abundance Statistical Analysis
+##### 📊 Clonotype Abundance Analysis
 
-**Chart Function**: Displays the relative abundance distribution of clonotypes and the concentration of immune responses in the sample.
+**Chart Function:** Shows the relative abundance distribution of clonotypes in the sample and the degree of concentration of the immune response.
 
 <div align="center">
-<img src="../images/html_scvdj2.png" alt="scVDJ Clonotype Analysis Charts" width="500">
+<img src="../images/html_scvdj2.png" alt="scVDJ Clonotype Analysis Chart" width="500">
 </div>
 
-**Chart Technical Specifications:**
+**How to Interpret**:
+*   **Top Chart (Top 10 Clonotypes)**: A bar chart showing the percentage of cells occupied by the 10 most abundant clonotypes in the sample. It intuitively reflects the relative abundance distribution of clonotypes and the concentration of the immune response.
+*   **Bottom Table (Detailed Information)**: Provides complete descriptive information for the top 10 most abundant clonotypes, including their clonotype ID, CDR3 amino acid/nucleotide sequences, absolute frequency, and relative proportion.
 
-<table style="width:100%; border-collapse: collapse; margin: 15px 0;">
-<thead>
-<tr>
-<th width="40%" align="left"><strong>Chart Type</strong></th>
-<th width="60%" align="left"><strong>Function and Application</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left"><strong>Top 10 Clonotypes</strong><br><em>Top 10 High-Frequency Clonotypes</em></td>
-<td>Bar chart showing percentage of cells occupied by the 10 most abundant clonotypes in the sample (cell proportion statistics). Intuitively reflects relative abundance distribution of clonotypes and concentration of immune responses.</td>
-</tr>
-<tr>
-<td align="left"><strong>Detailed Information Table</strong><br><em>Clonotype Description Statistics</em></td>
-<td>Provides complete description information for the 10 most abundant clonotypes, including: clonotype ID, CDR3 amino acid/nucleotide sequences, absolute frequency, and relative proportion comprehensive statistical table.</td>
-</tr>
-</tbody>
-</table>
+<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
 
----
-
-## 🎯 Additional Resources <a id="additional-resources"></a>
+## 🎯 More Resources <a id="more-resources"></a>
 
 ### 📚 Related Documentation
 
@@ -1319,29 +1321,42 @@ Total UMI count corresponding to each cell. Higher UMI indicates more RNA molecu
 <thead>
 <tr>
 <th width="30%" align="left"><strong>Document Type</strong></th>
-<th width="70%" align="left"><strong>Resource Links and Description</strong></th>
+<th width="70%" align="left"><strong>Resource Link and Description</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td align="left"><strong>🚀 Quick Start</strong></td>
-<td><a href="../quickstart.md">Quick Start Guide</a> - Complete tutorial for first-time analysis</td>
+<td><a href="../quickstart.md">Quick Start Guide</a> - A complete tutorial for your first analysis.</td>
 </tr>
 <tr>
 <td align="left"><strong>⚙️ Parameter Reference</strong></td>
-<td><a href="../parameter/parameter.md">Parameter Reference Manual</a> - Detailed description of all configurable parameters</td>
+<td><a href="../parameter/parameter.md">Parameter Reference Manual</a> - Detailed descriptions of all configurable parameters.</td>
 </tr>
 <tr>
 <td align="left"><strong>🔬 Analysis Pipeline</strong></td>
-<td><a href="../pipeline.md">Analysis Pipeline Description</a> - Technical details of the entire analysis process</td>
+<td><a href="../pipeline.md">Analysis Pipeline Description</a> - Technical details of the entire analysis workflow.</td>
 </tr>
 <tr>
-<td align="left"><strong>🔧 Installation Configuration</strong></td>
-<td><a href="../installation.md">Installation Configuration Guide</a> - System requirements, installation steps and environment configuration</td>
+<td align="left"><strong>🔧 Installation & Setup</strong></td>
+<td><a href="../installation.md">Installation and Setup Guide</a> - System requirements, installation steps, and environment configuration.</td>
 </tr>
 </tbody>
 </table>
 
----
 
-*For more detailed information, please refer to the documentation links above or contact the technical support team.*
+
+<div align="center">
+
+> 💡 **Tip**
+> 
+> This document is continuously updated. If you find any errors or need additional information, please feel free to provide feedback.
+> 
+> 📝 **Document Version:** 3.0 beta | **Last Updated:** 2025
+
+<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
+
+**🔬 DNBelab C Series HT scVDJ Analysis Software**  
+*High-Performance Single-Cell V(D)J Sequencing Data Analysis Pipeline*
+
+</div>

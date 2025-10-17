@@ -1,6 +1,6 @@
 <div align="right">
 
-[🏠 Home](../../README.md) | [🌐 中文](scRNA.md)
+[🏠 Home](../../README.md) • [中文](scRNA.md)
 
 </div>
 
@@ -8,9 +8,9 @@
 
 <div align="center">
 
-**Complete Guide for Single-Cell RNA Sequencing Data Analysis**
+**A Complete Guide to Single-Cell RNA Sequencing Data Analysis**
 
-[📋 Overview](#overview) • [📁 File Preparation](#file-preparation) • [📊 Reference Database](#reference-database) • [🚀 Main Analysis Pipeline](#main-analysis-pipeline) • [📊 Results Interpretation](#results-interpretation)
+[📋 Overview](#overview) • [📁 File Preparation](#file-preparation) • [📊 Reference Data](#reference-data) • [🚀 Main Pipeline](#main-pipeline) • [📊 Results Interpretation](#results-interpretation)
 
 </div>
 
@@ -18,7 +18,7 @@
 
 ## 📋 Overview <a id="overview"></a>
 
-This document provides a complete workflow for analyzing single-cell RNA sequencing data using dnbc4tools.
+This document provides a complete guide on how to use dnbc4tools for single-cell RNA sequencing data analysis.
 
 **Workflow**: Raw Data → Quality Control → Alignment → Cell Identification → Expression Matrix → Analysis Report
 
@@ -26,67 +26,126 @@ This document provides a complete workflow for analyzing single-cell RNA sequenc
   <img src="https://s2.loli.net/2024/09/26/uKTXv7Q2miNbz1S.png" alt="Workflow Diagram" width="800">
 </div>
 
-> **Usage Note**: `$dnbc4tools` represents the executable program path, which needs to be replaced with the actual installation path when used. The backslash `\` is used to split commands across multiple lines in the command line for better readability.
+<div style="background-color: #e7f3fe; border-left: 6px solid #2196F3; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
+💡 **Usage Note**: `$dnbc4tools` represents the executable path and must be replaced with the actual installation path. The backslash `\` is used to split a command across multiple lines for readability.
+</div>
 
 ---
 
 ## 📁 File Preparation <a id="file-preparation"></a>
 
-Two types of FASTQ files are required for analysis:
+Two types of FASTQ files are required for the analysis:
 
-| File Type | Description |
-|-----------|-------------|
-| **cDNA Library** | Sequencing data containing cell barcode, UMI, and transcriptome information |
-| **Oligo Library** | Sequencing data containing cell barcode information from large beads and UMI information from small beads |
+<table style="width:100%; border-collapse: collapse; margin: 1.5em 0; box-shadow: 0 2px 3px rgba(0,0,0,0.1);">
+  <thead style="background-color: #f2f2f2; border-bottom: 2px solid #ddd;">
+    <tr>
+      <th style="padding: 12px 15px; border: 1px solid #ddd; text-align: left;">File Type</th>
+      <th style="padding: 12px 15px; border: 1px solid #ddd; text-align: left;">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;"><b>cDNA Library</b></td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;">Sequencing data containing Cell Barcodes, UMIs, and transcriptome information.</td>
+    </tr>
+    <tr>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;"><b>Oligo Library</b></td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;">Contains Cell Barcode information for both large and small beads, and UMI information for small beads.</td>
+    </tr>
+  </tbody>
+</table>
 
-> **Note**: Ensure FASTQ files are of good quality and record their file paths for subsequent analysis.
+<div style="background-color: #fffbe6; border-left: 6px solid #ffc107; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
+⚠️ **Note**: Ensure that the FASTQ files are of good quality and record their paths for subsequent analysis.
+</div>
 
-## 📊 Reference Database <a id="reference-database"></a>
+---
+
+## 📊 Reference Data <a id="reference-data"></a>
 
 ### File Requirements
 
-| File Type | Format | Description |
-|-----------|--------|-------------|
-| **Genome File** | FASTA | Contains the complete genome sequence of the species of interest, including chromosomes, mitochondria, and other genetic information, typically the primary assembly. These files provide the foundation for genome analysis and alignment. |
-| **Annotation File** | GTF | Contains detailed information about genes, transcripts, exons, and other functional regions in the genome. This file identifies the location, type, and related attributes of genes. |
+<table style="width:100%; border-collapse: collapse; margin: 1.5em 0; box-shadow: 0 2px 3px rgba(0,0,0,0.1);">
+  <thead style="background-color: #f2f2f2; border-bottom: 2px solid #ddd;">
+    <tr>
+      <th style="padding: 12px 15px; border: 1px solid #ddd; text-align: left;">File Type</th>
+      <th style="padding: 12px 15px; border: 1px solid #ddd; text-align: left;">Format</th>
+      <th style="padding: 12px 15px; border: 1px solid #ddd; text-align: left;">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;"><b>Genome File</b></td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;">FASTA</td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;">Contains the complete genome sequence of a species (usually the primary assembly), including chromosomes, mitochondria, and other genetic information. This file is fundamental for genome alignment and analysis.</td>
+    </tr>
+    <tr>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;"><b>Annotation File</b></td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;">GTF</td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;">Provides detailed information on genes, transcripts, exons, and other functional regions in the genome. This file specifies the location, type, and attributes of genes.</td>
+    </tr>
+  </tbody>
+</table>
 
-> **Recommended Data Source**: Preferably use files provided by the [Ensembl database](https://www.ensembl.org/index.html). Ensembl's GTF files include optional tags that facilitate filtering (through `dnbc4tools tools mkgtf`).
+<div style="background-color: #e7f3fe; border-left: 6px solid #2196F3; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
+💡 **Recommended Data Source**: It is recommended to use files from the [Ensembl database](https://www.ensembl.org/index.html). Ensembl's GTF files contain optional tags that facilitate filtering with `dnbc4tools tools mkgtf`.
+</div>
 
 **GTF File Requirements**:
-- Must include annotations of type "gene" or "transcript" and "exon"
-- Attributes must include "gene_id" or "gene_name" and "transcript_id" or "transcript_name"
-- GFF file format is not supported
-- Genome file and annotation file must correspond to each other
+- Must contain annotations of type "gene" or "transcript" as well as "exon".
+- Attributes must include "gene_id" or "gene_name" and "transcript_id" or "transcript_name".
+- The GFF file format is not supported.
+- The genome file and annotation file must be from corresponding versions.
 
 ### GTF File Processing (Optional)
 
-GTF files downloaded from ENSEMBL and UCSC websites typically contain multiple gene types. Selecting gene types of interest for your research can reduce overlapping gene annotations. Reads that map non-uniquely to multiple genes will be filtered out.
+GTF files downloaded from sites like ENSEMBL and UCSC often contain many types of genes. Selecting specific gene types relevant to your research can reduce overlapping gene annotations and improve the uniqueness of alignments, as reads mapping non-uniquely to multiple genes are filtered out.
 
-We provide the following three GTF file processing functions:
+We provide three functions for GTF file processing:
 
-| Function | Description |
-|----------|-------------|
-| **Gene Type Count Statistics** | Count the number of each gene type in the GTF file |
-| **GTF File Correction** | Fill in missing information to ensure the GTF file meets analysis requirements |
-| **Gene Type Filtering** | Filter specific gene types based on research needs |
+<table style="width:100%; border-collapse: collapse; margin: 1.5em 0; box-shadow: 0 2px 3px rgba(0,0,0,0.1);">
+  <thead style="background-color: #f2f2f2; border-bottom: 2px solid #ddd;">
+    <tr>
+      <th style="padding: 12px 15px; border: 1px solid #ddd; text-align: left;">Function</th>
+      <th style="padding: 12px 15px; border: 1px solid #ddd; text-align: left;">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;"><b>Gene Type Statistics</b></td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;">Count the number of various gene types in a GTF file.</td>
+    </tr>
+    <tr>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;"><b>Correct GTF File</b></td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;">Fill in missing information to ensure the GTF file meets analysis requirements.</td>
+    </tr>
+    <tr>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;"><b>Filter Gene Types</b></td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;">Filter specific gene types based on research needs.</td>
+    </tr>
+  </tbody>
+</table>
 
-#### Gene Type Count Statistics
+#### Gene Type Statistics
 
 ```shell
-# Count gene types
+# Count gene type quantities
 $dnbc4tools tools mkgtf \
   --action stat \
   --ingtf genes.gtf \
   --output gtfstat.txt \
   --type gene_biotype
 ```
-> **Note**: You need to check the tags in the GTF file to determine the `type` parameter.
+
+<div style="background-color: #fffbe6; border-left: 6px solid #ffc107; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
+⚠️ **Note**: You need to check the tags in the GTF file to determine the `type`.
+</div>
 
 <div align="center">
   <img src="https://s2.loli.net/2024/10/09/afGqtQocTE9h3uR.png" alt="GTF File Type Example" width="800">
 </div>
 
-Example output:
+Example Output:
 
 ```shell
 $cat gtf_type.txt
@@ -109,9 +168,9 @@ IG_V_gene       145
 ......
 ```
 
-#### GTF File Correction
+#### Correct GTF File
 
-For GTF files with missing content, this may cause the main analysis pipeline to fail annotation and report errors. This function can fill in missing information in gene and transcript lines.
+If a GTF file has incomplete content, the main analysis pipeline may fail due to incomplete annotations. This function can automatically fill in missing information in gene and transcript entries to ensure the pipeline runs smoothly.
 
 ```shell
 # Correct GTF file
@@ -121,12 +180,12 @@ $dnbc4tools tools mkgtf \
   --output corrected.gtf
 ```
 
-The software will cross-fill gene_id and gene_name as well as transcript_id and transcript_name, and will indicate positions where multiple gene information may exist.
+The software cross-references `gene_id` with `gene_name` and `transcript_id` with `transcript_name` to fill in missing details and flags locations where multiple gene information might exist.
 
-#### Gene Type Filtering
+#### Filter Gene Types
 
 ```shell
-# Gene type filtering
+# Filter gene types
 $dnbc4tools tools mkgtf \
   --ingtf genes.gtf \
   --output genes.filter.gtf \
@@ -152,7 +211,7 @@ TR_J_gene
 TR_C_gene
 ```
 
-You can also use the `include` parameter to customize the gene types to retain:
+You can also use the `include` parameter to customize the gene types to be retained:
 
 ```shell
 # Custom gene type filtering
@@ -166,11 +225,9 @@ $dnbc4tools tools mkgtf \
         IG_C_pseudogene,TR_V_gene,TR_D_gene,TR_J_gene,TR_C_gene
 ```
 
-### Building Reference Database
+### Build Reference Database
 
-Before running the dnbc4tools rna run analysis, we need to first build a reference database. This step requires annotation files (GTF) and reference genome (FASTA) to build index files for mapping and annotating sequencing reads.
-
-
+Before running the `dnbc4tools rna run` analysis, a reference database must be built. This step uses the annotation file (GTF) and reference genome (FASTA) to create an index for aligning and annotating the sequencing reads.
 
 ```shell
 # Build reference database
@@ -181,19 +238,19 @@ $dnbc4tools rna mkref \
   --threads 10
 ```
 
-**Output Results**:
+**Output**:
 
-After successful execution, a reference database directory will be created at the specified location, containing the following file structure:
+Upon successful execution, a reference database directory will be created at the specified location with the following structure:
 
 ```
 /opt/database/Homo_sapiens
 ├── fasta
-│   ├── genome.fa         # Reference genome file
-│   └── genome.fa.fai     # Reference genome index
+│   ├── genome.fa
+│   └── genome.fa.fai
 ├── genes
-│   └── genes.gtf         # Gene annotation file
-├── ref.json              # Reference database configuration file
-└── star                  # STAR aligner index files
+│   └── genes.gtf
+├── ref.json
+└── star
     ├── chrLength.txt
     ├── chrNameLength.txt
     ├── chrName.txt
@@ -203,7 +260,7 @@ After successful execution, a reference database directory will be created at th
     ├── geneInfo.tab
     ├── Genome
     ├── genomeParameters.txt
-    ├── mtgene.list       # Mitochondrial gene list file
+    ├── mtgene.list
     ├── SA
     ├── SAindex
     ├── sjdbInfo.txt
@@ -212,9 +269,9 @@ After successful execution, a reference database directory will be created at th
     └── transcriptInfo.tab
 ```
 
-The ref.json file records the main information of the database:
+The `ref.json` file records the main information of the database.
 
-```shell
+```json
 {
     "chrmt": "chrM",
     "genome": "/opt/database/Homo_sapiens/fasta/genome.fa",
@@ -232,9 +289,11 @@ The ref.json file records the main information of the database:
 }
 ```
 
-> **Note**: Building a reference database may take a long time, depending on the genome size and computer performance. The software run analysis pipeline is compatible with legacy database versions.
+<div style="background-color: #fffbe6; border-left: 6px solid #ffc107; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
+⚠️ **Note**: Building the reference database can be time-consuming, depending on the genome size and computational resources. The main analysis pipeline is compatible with older database versions.
+</div>
 
-Printed information during execution, here is an example:
+The following information will be printed during runtime:
 
 ```shell
 Creating new reference folder at /opt/database/Homo_sapiens
@@ -258,13 +317,13 @@ Writing Reference JSON file into reference folder...
 Analysis Complete
 ```
 
-</br>
+---
 
-## 🚀 Main Analysis Pipeline <a id="main-analysis-pipeline"></a>
+## 🚀 Main Pipeline <a id="main-pipeline"></a>
 
-### Multi-sample Batch Processing (Optional)
+### Multi-Sample Batch Processing (Optional)
 
-To simplify generating the main analysis pipeline for each sample individually, a configuration file can be used to generate a main pipeline shell script containing multiple samples. Here is an example step or script template:
+To simplify the analysis of multiple samples, you can use a configuration file to generate a shell script for each sample.
 
 ```shell
 $dnbc4tools rna multi \
@@ -273,15 +332,34 @@ $dnbc4tools rna multi \
   --threads 30
 ```
 
-The `sample.tsv` file is tab-delimited (`\t`) and contains three columns:
+The `sample.tsv` file is tab-separated (`\t`) and contains three columns:
 
-| Column | Content |
-|--------|---------|
-| 1      | Sample Name |
-| 2      | cDNA Library Sequencing Data |
-| 3      | Oligo Library Sequencing Data |
+<table style="width:100%; border-collapse: collapse; margin: 1.5em 0; box-shadow: 0 2px 3px rgba(0,0,0,0.1);">
+  <thead style="background-color: #f2f2f2; border-bottom: 2px solid #ddd;">
+    <tr>
+      <th style="padding: 12px 15px; border: 1px solid #ddd; text-align: left;">Column</th>
+      <th style="padding: 12px 15px; border: 1px solid #ddd; text-align: left;">Content</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;">1</td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;">Sample Name</td>
+    </tr>
+    <tr>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;">2</td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;">cDNA Library Sequencing Data</td>
+    </tr>
+    <tr>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;">3</td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;">Oligo Library Sequencing Data</td>
+    </tr>
+  </tbody>
+</table>
 
-> **Note**: Multiple FASTQ files should be separated by commas, and R1 and R2 files should be separated by semicolons.
+<div style="background-color: #fffbe6; border-left: 6px solid #ffc107; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
+⚠️ **Note**: Multiple FASTQ files should be separated by commas, and R1/R2 files by semicolons.
+</div>
 
 ```tsv
 sample1	/data/cDNA1_R1.fq.gz;/data/cDNA1_R2.fq.gz	/data/oligo1_R1.fq.gz,/data/oligo4_R1.fq.gz;/data/oligo1_R2.fq.gz,/data/oligo4_R2.fq.gz
@@ -289,8 +367,7 @@ sample2	/data/cDNA2_R1.fq.gz;/data/cDNA2_R2.fq.gz	/data/oligo2_R1.fq.gz;/data/ol
 sample3	/data/cDNA3_R1.fq.gz;/data/cDNA3_R2.fq.gz	/data/oligo3_R1.fq.gz;/data/oligo3_R2.fq.gz
 ```
 
-
-After running, the output will be:
+After execution, a shell script will be generated for each sample:
 
 ```shell
 sample1.sh
@@ -298,35 +375,38 @@ sample2.sh
 sample3.sh
 ```
 
-The content of sample1.sh is as follows:
+Example content of `sample1.sh`:
 
 ```shell
 $cat sample1.sh
-/opt/software/dnbc4tools3.0beta/dnbc4tools rna run --name sample1 --cDNAfastq1 /data/cDNA1_R1.fq.gz --cDNAfastq2 /data/cDNA1_R2.fq.gz --oligofastq1 /data/oligo1_R1.fq.gz,/data/oligo4_R1.fq.gz --oligofastq2 /data/oligo1_R2.fq.gz,/data/oligo4_R2.fq.gz --genomeDir /database/scRNA/Mus_musculus/mm10 --threads 30 
+/opt/software/dnbc4tools3.0beta/dnbc4tools rna run --name sample1 --cDNAfastq1 /data/cDNA1_R1.fq.gz --cDNAfastq2 /data/cDNA1_R2.fq.gz --oligofastq1 /data/oligo1_R1.fq.gz,/data/oligo4_R1.fq.gz --oligofastq2 /data/oligo1_R2.fq.gz,/data/oligo4_R2.fq.gz --genomeDir /database/scRNA/Mus_musculus/mm10 --threads 30
 ```
 
-Execute step 4 for the main pipeline analysis.
+You can then execute these scripts to run the main analysis.
 
-</br>
+### Single-Sample Analysis
 
-### Single Sample Analysis
+The main RNA analysis pipeline processes cDNA and Oligo library data from a single sample. Key steps include:
+1.  **Data Processing**: Performs quality control, alignment, and functional region annotation.
+2.  **Cell Identification**: Merges beads to identify valid cells.
+3.  **Matrix Generation**: Creates raw and filtered gene expression matrices.
+4.  **Advanced Analysis**: Filters cells, performs dimensionality reduction, clustering, and annotation on the filtered matrix.
+5.  **Report Generation**: Outputs an HTML report and other result files.
 
-The main RNA analysis pipeline processes sequencing data from the cDNA and oligo libraries of a single sample. The workflow includes quality control, alignment, and functional region annotation. Subsequently, the system identifies cells by merging beads and generates both raw and filtered gene expression matrices. Finally, the pipeline performs cell filtering, dimensionality reduction, clustering, and annotation to produce the final analysis results and an HTML report.
-
-To generate expression matrices for a single sample, here is an example step or script template:
+Example script for generating an expression matrix for a single sample:
 
 ```shell
 $dnbc4tools rna run \
-  --name sample \
-  --cDNAfastq1 /data/sample_cDNA_R1.fastq.gz \
-  --cDNAfastq2 /data/sample_cDNA_R2.fastq.gz \
-  --oligofastq1 /data/sample_oligo1_1.fq.gz,/data/sample_oligo2_1.fq.gz \
-  --oligofastq2 /data/sample_oligo1_2.fq.gz,/data/sample_oligo2_2.fq.gz \
-  --genomeDir /opt/database/Homo_sapiens \
-  --threads 30
+		--name sample \
+		--cDNAfastq1 /data/sample_cDNA_R1.fastq.gz \
+		--cDNAfastq2 /data/sample_cDNA_R2.fastq.gz \
+		--oligofastq1 /data/sample_oligo1_1.fq.gz,/data/sample_oligo2_1.fq.gz \
+		--oligofastq2 /data/sample_oligo1_2.fq.gz,/data/sample_oligo2_2.fq.gz \
+		--genomeDir /opt/database/Homo_sapiens \
+		--threads 30
 ```
 
-After automatic detection of reagent version and dark reaction, the software starts running the analysis. Here is an example:
+After auto-detecting the reagent version and dark reaction, the software begins the analysis. Here is an example:
 
 ```shell
 2025-06-04 16:29:35 Performing RNA data processing
@@ -368,37 +448,40 @@ Analysis Finished
 Elapsed Time: 9:56:09
 ```
 
-A successful run ends with `Analysis Finished`.
+When the message `Analysis Finished` appears, the analysis is successfully completed.
+
+---
 
 ## 📊 Results Interpretation <a id="results-interpretation"></a>
 
-After the analysis is complete, the output directory `outs` and logs directory will be generated. The `outs` directory includes:
+Upon completion, `outs` (outputs) and `logs` directories will be generated. The `outs` directory is structured as follows:
 
 ```
-├── analysis                                # Cell dimensionality reduction, clustering, annotation, and differential genes
-│   ├── cluster.csv                         # Cell clustering and annotation results
-│   ├── marker.csv                          # Cell differential genes
-│   └── QC_Cluster.h5ad                     # Cell analysis results in h5ad format
-├── anno_decon_sorted.bam                   # BAM file containing read alignment information, sorted by genomic coordinates for visualization and downstream analysis
-├── anno_decon_sorted.bam.bai               # BAM file index for quick random access to the BAM file
-├── filter_feature.h5ad                     # Filtered single-cell expression data stored in h5ad format
-├── filter_matrix                           # Filtered expression matrix in MEX format directory
-│   ├── barcodes.tsv.gz                     # Filtered cell barcode information
-│   ├── features.tsv.gz                     # Gene/feature information
-│   └── matrix.mtx.gz                       # Filtered expression data in sparse matrix format
-├── metrics_summary.xls                     # Analysis quality metrics summary table, including sequencing QC, alignment rate, and cell QC statistics
-├── raw_matrix                              # Raw expression matrix in MEX format directory
-│   ├── barcodes.tsv.gz                     # Raw cell barcode information
-│   ├── features.tsv.gz                     # Gene/feature information
-│   └── matrix.mtx.gz                       # Raw expression data in sparse matrix format
-├── *_scRNA_report.html                     # Analysis results HTML report, including QC metrics, clustering results, and visualization charts
-└── singlecell.csv                          # Cell information summary table, including UMI counts, gene numbers, and cell identification for each cell ID
+. 
+├── analysis/
+│   ├── cluster.csv
+│   ├── marker.csv
+│   └── QC_Cluster.h5ad
+├── anno_decon_sorted.bam
+├── anno_decon_sorted.bam.bai
+├── filter_feature.h5ad
+├── filter_matrix/
+│   ├── barcodes.tsv.gz
+│   ├── features.tsv.gz
+│   └── matrix.mtx.gz
+├── metrics_summary.xls
+├── raw_matrix/
+│   ├── barcodes.tsv.gz
+│   ├── features.tsv.gz
+│   └── matrix.mtx.gz
+├── *_scRNA_report.html
+└── singlecell.csv
 ```
 
 **Related Documentation**:
-- [📊 Output File Usage](../io.md)
-- [📋 Analysis Parameter Settings](../parameter/scRNA_en.md)
-- [📝 Output File Descriptions](../outs/scRNA_en.md)
+- [📊 **Output File Usage**](../io.md)
+- [📋 **Analysis Parameter Settings**](../parameter/scRNA.md)
+- [📝 **Output File Descriptions**](../outs/scRNA.md)
 
 ---
 

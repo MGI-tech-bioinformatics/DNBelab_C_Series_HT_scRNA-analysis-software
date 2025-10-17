@@ -154,55 +154,56 @@
 <div align="center">
   <img src="https://s2.loli.net/2024/09/27/exd1OyX3n4K8LGq.png" alt="工作流程图" width="800">
 </div>
-<blockquote>
-<p><strong>使用说明</strong>：<code>$dnbc4tools</code> 代表可执行程序路径，使用时需要替换为实际安装路径。换行符 <code>\</code> 用于在命令行中将命令分为多行，以提高可读性。</p>
-</blockquote>
+<div style="background-color: #e7f3fe; border-left: 6px solid #2196F3; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
+💡 **使用说明**：`$dnbc4tools` 代表可执行程序路径，使用时需要替换为实际安装路径。换行符 `\` 用于在命令行中将命令分为多行，以提高可读性。
+</div>
 <hr>
 <h2 id="-文件准备-">📁 文件准备 <a id="文件准备"></a></h2>
 <p>分析需要FASTQ文件：</p>
-<table>
-<thead>
-<tr>
-<th>文件类型</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>ATAC文库</strong></td>
-<td>包含cell barcode和染色质开放区域信息的测序数据</td>
-</tr>
-</tbody>
+<table style="width:100%; border-collapse: collapse; margin: 1.5em 0; box-shadow: 0 2px 3px rgba(0,0,0,0.1);">
+  <thead style="background-color: #f2f2f2; border-bottom: 2px solid #ddd;">
+    <tr>
+      <th style="padding: 12px 15px; border: 1px solid #ddd; text-align: left;">文件类型</th>
+      <th style="padding: 12px 15px; border: 1px solid #ddd; text-align: left;">说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;"><b>ATAC文库</b></td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;">包含cell barcode和染色质开放区域信息的测序数据</td>
+    </tr>
+  </tbody>
 </table>
-<blockquote>
-<p><strong>注意</strong>：确保FASTQ文件质量良好，并记录好文件路径，用于后续分析。</p>
-</blockquote>
+<div style="background-color: #fffbe6; border-left: 6px solid #ffc107; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
+⚠️ **注意**：确保FASTQ文件质量良好，并记录好文件路径，用于后续分析。
+</div>
+<hr>
 <h2 id="-参考数据库-">📊 参考数据库 <a id="参考数据库"></a></h2>
 <h3 id="文件要求">文件要求</h3>
-<table>
-<thead>
-<tr>
-<th>文件类型</th>
-<th>格式</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>基因组文件</strong></td>
-<td>FASTA</td>
-<td>包含特定物种的完整基因组序列，包括染色体、线粒体及其他遗传信息，通常为主装配版本。这些文件为基因组分析和比对提供基础数据。</td>
-</tr>
-<tr>
-<td><strong>注释文件</strong></td>
-<td>GTF</td>
-<td>包含基因组中基因、转录本、外显子及其他功能区域的详细信息。该文件标识基因的位置、类型及其相关属性。</td>
-</tr>
-</tbody>
+<table style="width:100%; border-collapse: collapse; margin: 1.5em 0; box-shadow: 0 2px 3px rgba(0,0,0,0.1);">
+  <thead style="background-color: #f2f2f2; border-bottom: 2px solid #ddd;">
+    <tr>
+      <th style="padding: 12px 15px; border: 1px solid #ddd; text-align: left;">文件类型</th>
+      <th style="padding: 12px 15px; border: 1px solid #ddd; text-align: left;">格式</th>
+      <th style="padding: 12px 15px; border: 1px solid #ddd; text-align: left;">说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;"><b>基因组文件</b></td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;">FASTA</td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;">包含特定物种的完整基因组序列，包括染色体、线粒体及其他遗传信息，通常为主装配版本。这些文件为基因组分析和比对提供基础数据。</td>
+    </tr>
+    <tr>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;"><b>注释文件</b></td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;">GTF</td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;">包含基因组中基因、转录本、外显子及其他功能区域的详细信息。该文件标识基因的位置、类型及其相关属性。</td>
+    </tr>
+  </tbody>
 </table>
-<blockquote>
-<p><strong>推荐数据来源</strong>：优先使用<a href="https://www.ensembl.org/index.html">Ensembl数据库</a>提供的文件。Ensembl的GTF文件包含可选标签，便于过滤（通过<code>dnbc4tools tools mkgtf</code>）。</p>
-</blockquote>
+<div style="background-color: #e7f3fe; border-left: 6px solid #2196F3; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
+💡 **推荐数据来源**：优先使用[Ensembl数据库](https://www.ensembl.org/index.html)提供的文件。Ensembl的GTF文件包含可选标签，便于过滤（通过`dnbc4tools tools mkgtf`）。
+</div>
 <p><strong>GTF文件要求</strong>：</p>
 <ul>
 <li>必须包含&quot;gene&quot;或&quot;transcript&quot;类型的注释</li>
@@ -222,17 +223,17 @@
 <p>成功运行后，将在指定位置创建参考数据库目录，包含以下文件结构：</p>
 <pre><code>/opt/database/Mus_musculus
 ├── fasta
-│   ├── genome.fa                                 # 基因组序列文件
-│   ├── genome.fa.fai                             # 基因组索引文件
-│   ├── genome.index                              # Chromap索引文件
-│   └── genome.index.log                          # Chromap索引构建日志
+│   ├── genome.fa
+│   ├── genome.fa.fai
+│   ├── genome.index
+│   └── genome.index.log
 ├── genes
-│   └── genes.gtf                                 # 基因注释文件
-├── ref.json                                      # 参考数据库配置文件
+│   └── genes.gtf
+├── ref.json
 └── regions
-    ├── chrom.sizes                               # 染色体大小信息文件
-    ├── promoter.bed                              # 启动子区域注释文件
-    └── tss.bed                                   # 转录起始位点注释文件
+    ├── chrom.sizes
+    ├── promoter.bed
+    └── tss.bed
 </code></pre>
 <p>其中ref.json文件中记录数据库的主要信息：</p>
 <pre><code class="language-json"><span class="hljs-punctuation">{</span>
@@ -256,9 +257,9 @@
     <span class="hljs-attr">&quot;genomesize&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;mm&quot;</span>
 <span class="hljs-punctuation">}</span>
 </code></pre>
-<blockquote>
-<p><strong>注意</strong>：构建参考数据库可能需要较长时间，取决于基因组大小和计算机性能。软件主分析流程兼容旧版本数据库。</p>
-</blockquote>
+<div style="background-color: #fffbe6; border-left: 6px solid #ffc107; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
+⚠️ **注意**：构建参考数据库可能需要较长时间，取决于基因组大小和计算机性能。软件主分析流程兼容旧版本数据库。
+</div>
 <p>运行时打印信息，以下是一个示例：</p>
 <pre><code class="language-shell">Creating new reference folder at /opt/database/Mus_musculus
 ...done
@@ -283,6 +284,7 @@ Writing reference JSON file...
 
 Analysis Complete
 </code></pre>
+<hr>
 <h2 id="-主分析流程-">🚀 主分析流程 <a id="主分析流程"></a></h2>
 <h3 id="多样本批处理可选">多样本批处理（可选）</h3>
 <p>为了简化每个样本单独生成主分析流程，可以使用配置文件来生成一个包含多个样本的主流程 shell 脚本。以下是一个示例步骤或脚本模板：</p>
@@ -292,31 +294,29 @@ Analysis Complete
   --threads 10</span>
 </code></pre>
 <p>其中 <code>sample.tsv</code> 文件使用制表符 (<code>\t</code>) 分隔，包含两列：</p>
-<table>
-<thead>
-<tr>
-<th>列</th>
-<th>内容</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>样本名称</td>
-</tr>
-<tr>
-<td>2</td>
-<td>文库测序数据</td>
-</tr>
-</tbody>
+<table style="width:100%; border-collapse: collapse; margin: 1.5em 0; box-shadow: 0 2px 3px rgba(0,0,0,0.1);">
+  <thead style="background-color: #f2f2f2; border-bottom: 2px solid #ddd;">
+    <tr>
+      <th style="padding: 12px 15px; border: 1px solid #ddd; text-align: left;">列</th>
+      <th style="padding: 12px 15px; border: 1px solid #ddd; text-align: left;">内容</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;">1</td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;">样本名称</td>
+    </tr>
+    <tr>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;">2</td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;">文库测序数据</td>
+    </tr>
+  </tbody>
 </table>
-<blockquote>
-<p><strong>注意</strong>：</p>
-<ul>
-<li>多个fastq文件以逗号（<code>,</code>）分隔</li>
-<li>R1和R2文件以分号（<code>;</code>）分隔</li>
-</ul>
-</blockquote>
+<div style="background-color: #fffbe6; border-left: 6px solid #ffc107; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
+⚠️ **注意**：
+- 多个fastq文件以逗号（`,`）分隔
+- R1和R2文件以分号（`;`）分隔
+</div>
 <pre><code class="language-tsv">sample1	/data/sample1_R1.fq.gz;/data/sample1_R2.fq.gz
 sample2	/data/sample2_R1.fq.gz;/data/sample2_R2.fq.gz
 sample3	/data/sample3_1_R1.fq.gz,/data/sample3_2_R1.fq.gz;/data/sample3_1_R2.fq.gz,/data/sample3_2_R2.fq.gz
@@ -331,7 +331,6 @@ sample3.sh
 /opt/software/dnbc4tools3.0Beta/dnbc4tools atac run --name sample1 --fastq1 /data/sample1_R1.fq.gz --fastq2 /data/sample1_R2.fq.gz --genomeDir /opt/database/Mus_musculus --threads 10 
 </code></pre>
 <p>执行第四步进行主流程分析。</p>
-</br>
 <h3 id="单样本分析">单样本分析</h3>
 <p>ATAC 主分析流程使用单个样本单细胞 ATAC 文库测序数据，经过过滤和比对生成所有磁珠的 fragments 文件。合并磁珠并执行 peak 调用分析，利用 peaks 区域的片段信息进行细胞识别。随后进行细胞过滤、降维和聚类，最终整合各步骤结果生成 HTML 网页报告并输出分析结果。</p>
 <p>为单个样本生成表达矩阵，以下是一个示例步骤或脚本模板：</p>
@@ -371,21 +370,23 @@ Chemistry(darkreaction) determined in fastqR2: darkreaction
 Analysis Finished Elapsed Time: 0:30:43
 </code></pre>
 <p>成功的运行会以 <code>Analysis Finished</code> 结束。</p>
+<hr>
 <h2 id="-结果解析-">📊 结果解析 <a id="结果解析"></a></h2>
 <p>分析完成后，将生成结果输出目录outs，logs日志目录。</p>
-<pre><code>├── *_scATAC_report.html                     # 分析结果HTML报告，包含质控指标、聚类结果和可视化图表
-├── filter_peak_matrix                       # 过滤后的峰矩阵MEX格式目录
-│   ├── barcodes.tsv.gz                      # 过滤后的细胞条形码信息
-│   ├── matrix.mtx.gz                        # 过滤后的稀疏矩阵格式的峰信号数据
-│   └── peaks.bed.gz                         # 过滤后的峰位置信息
-├── fragments.tsv.gz                         # 包含所有比对到基因组的片段信息
-├── fragments.tsv.gz.tbi                     # 片段文件的索引，用于快速随机访问
-├── metrics_summary.xls                      # 分析质量指标汇总表，包含测序质控、比对率和细胞质控等统计信息
-├── raw_peak_matrix                          # 原始峰矩阵MEX格式目录
-│   ├── barcodes.tsv.gz                      # 原始细胞条形码信息
-│   ├── matrix.mtx.gz                        # 原始稀疏矩阵格式的峰信号数据
-│   └── peaks.bed.gz                         # 原始峰位置信息
-└── singlecell.csv                           # 细胞信息汇总表，包含每个cellid的片段数量、峰数量以及是否为细胞等信息
+<pre><code>. 
+├── *_scATAC_report.html
+├── filter_peak_matrix/
+│   ├── barcodes.tsv.gz
+│   ├── matrix.mtx.gz
+│   └── peaks.bed.gz
+├── fragments.tsv.gz
+├── fragments.tsv.gz.tbi
+├── metrics_summary.xls
+├── raw_peak_matrix/
+│   ├── barcodes.tsv.gz
+│   ├── matrix.mtx.gz
+│   └── peaks.bed.gz
+└── singlecell.csv
 </code></pre>
 <p><strong>相关文档</strong>：</p>
 <ul>

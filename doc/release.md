@@ -24,7 +24,9 @@
 - Streamlined storage and better performance
 - Updated output formats for better compatibility
 
-> <strong>Beta Notice</strong>: This version is feature-complete but may contain bugs. Community testing and feedback are welcome! For production environments, please use the [latest stable release](https://github.com/MGI-tech-bioinformatics/DNBelab_C_Series_HT_scRNA-analysis-software/releases).
+<div style="background-color: #fffbe6; border-left: 6px solid #ffc107; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
+⚠️ <strong>Beta Notice</strong>: This version is feature-complete but may contain bugs. Community testing and feedback are welcome! For production environments, please use the <a href="https://github.com/MGI-tech-bioinformatics/DNBelab_C_Series_HT_scRNA-analysis-software/releases">latest stable release</a>.
+</div>
 
 ---
 
@@ -32,184 +34,217 @@
 
 ### 3.0 beta (June 16, 2025) <a id="30-beta-june-16-2025"></a>
 
-#### RNA-Seq Enhancements
+<div style="padding-left: 20px;">
 
-**Alignment & Annotation**
-- Prioritized exonic loci for improved annotation accuracy
-- Better handling of multi-gene mapped reads  
-- Automatic TSO and polyA region detection and removal
+<h4>RNA-Seq Enhancements</h4>
+<ul>
+  <li><strong>Alignment & Annotation</strong>: Prioritized exonic loci for improved accuracy and better handling of multi-gene mapped reads.</li>
+  <li><strong>Barcode Processing</strong>: Added correction for cell barcodes with ambiguous 'N' bases.</li>
+  <li><strong>Dual-Species Support</strong>: Full support to build and analyze dual-species references.</li>
+  <li><strong>Output Improvements</strong>: Enhanced BAM files (CC/CB tags), three-column feature matrix (ID, name, type), and updated web reports.</li>
+  <li><strong>Parameter Updates</strong>: Auto-estimated `expectcells` and a new `minumi` parameter.</li>
+</ul>
 
-**Barcode Processing**
-- Correction of cell barcodes with ambiguous 'N' bases
-- Removed barcode shift correction to prevent UMI inflation
+<h4>ATAC-Seq Enhancements</h4>
+<ul>
+  <li><strong>QC & Reporting</strong>: Added Q30 statistics for barcodes/reads and insert size distribution from deduplicated fragments.</li>
+  <li><strong>Technical Updates</strong>: Upgraded chromap to v0.3.3, improved barcode correction, and enhanced BAM output.</li>
+</ul>
 
-**Dual-Species Support**
-- Build and analyze dual-species references for cross-species experiments
-- GTF validation with backward compatibility
+<h4>VDJ Enhancements</h4>
+<ul>
+  <li><strong>Assembly & Annotation</strong>: Advanced per-cell assembly for full-length contigs and stricter filtering.</li>
+  <li><strong>Performance</strong>: Removed full data preload requirement for low-memory analysis.</li>
+  <li><strong>Output & Reporting</strong>: Enhanced `contig_annotations.csv`, improved QC metrics, and added consensus sequence annotations.</li>
+  <li><strong>Compatibility</strong>: Custom reference support for non-human/mouse species.</li>
+</ul>
 
-**Output Improvements**
-- Enhanced BAM files with CC/CB tags and quality retention
-- Three-column feature matrix: gene_id, gene_name, library_type
-- Updated web reports with valid barcode/UMI metrics
+<h4>Cross-Module Improvements</h4>
+<ul>
+  <li>Standardized `customize` parameter across all modules.</li>
+  <li>Significant storage reduction through optimized file structure.</li>
+  <li>Removed intermediate files and `process` parameter functionality.</li>
+</ul>
 
-**Parameter Updates**
-- Auto-estimated `expectcells` parameter
-- New `minumi` parameter (default: 1000)
-- `customize` replaces JSON with string for library structure
-
-**Performance**
-- Reduced memory usage and runtime under high thread counts
-- Automatic temporary file cleanup to save storage
-
-#### ATAC-Seq Enhancements
-
-**QC & Reporting**
-- Q30 statistics for both cell barcodes and reads
-- Insert size distribution from deduplicated fragments
-
-**Technical Updates**
-- Upgraded chromap to v0.3.3
-- Improved barcode correction algorithm (two 10bp segments with 1 mismatch each)
-- Enhanced BAM output with CC/CB tags
-- Excludes mitochondrial/chloroplast fragments in TSS/peak calculations
-
-#### VDJ Enhancements
-
-**Assembly & Annotation**
-- Advanced per-cell assembly algorithms for full-length contigs
-- Stricter contig filtering based on read support and background noise
-
-**Memory & Performance**
-- Removed full data preload requirement for low-memory analysis
-- Faster runtime with improved efficiency
-
-**Output & Reporting**
-- Enhanced `contig_annotations.csv` with FWR annotations and read counts
-- Improved QC metrics and barcodeRanks plots
-- Consensus sequence annotations
-
-**Compatibility**
-- Unified `customize` parameter format with RNA module
-- Support for single-end, paired-end, and variable-length reads
-- Custom reference support for non-human/mouse species
-
-#### Cross-Module Improvements
-- Standardized `customize` parameter across all modules
-- Significant storage reduction through optimized file structure
-- Stricter GTF validation with backward compatibility
-- Removed intermediate files and `process` parameter functionality
+</div>
 
 ---
 
-### 2.1.3 (October 9, 2024)
-
-**New Features**
-- Added RNA 5' transcriptome analysis module
-- Added single-cell VDJ analysis module
-- GTF file format checking and correction functionality
-
-**Installation & Performance**
-- Released as tar.gz with no additional environment configuration needed
-- Removed conda installation method
-- Fixed memory exceptions in scATAC bead merging
-- Optimized RNA alignment and interval annotation performance
-
----
-
-### 2.1.2 (April 24, 2024)
-
-**ATAC Analysis Improvements**
-- Updated algorithm: Jaccard-based merging → cell calling via peak fragments
-- Added multiple filtering parameters and BAM format support
-- Enhanced chloroplast handling in database construction
-- Unified web report style with RNA analysis
-
-**General Improvements**
-- Streamlined installation process (removed R package requirements)
-- Improved N filtering logic for cell barcodes and UMI regions
+<details>
+<summary><strong>2.1.3 (October 9, 2024)</strong></summary>
+<div style="padding-left: 20px; margin-top: 1em;">
+  <h4>New Features</h4>
+  <ul>
+    <li>Added RNA 5' transcriptome analysis module</li>
+    <li>Added single-cell VDJ analysis module</li>
+    <li>GTF file format checking and correction functionality</li>
+  </ul>
+  <h4>Installation & Performance</h4>
+  <ul>
+    <li>Released as tar.gz with no additional environment configuration needed</li>
+    <li>Removed conda installation method</li>
+    <li>Fixed memory exceptions in scATAC bead merging</li>
+    <li>Optimized RNA alignment and interval annotation performance</li>
+  </ul>
+</div>
+</details>
 
 ---
 
-### 2.1.1 (September 21, 2023)
-
-**RNA Workflow Optimization**
-- Bead merging analysis using oligo data before cell calling
-- Enhanced marker gene display (top 50 genes by log2 fold change per population)
-
-**Bug Fixes**
-- Fixed high memory usage in container versions
-- Resolved ATAC report image display issues
-
----
-
-### 2.1.0 (July 28, 2023)
-
-**Major Addition**
-- **New ATAC analysis module**
-
-**RNA Module Updates**
-- Optimized reference database construction with `ref.json` information file
-- Replaced Seurat with Scanpy for faster dimensionality reduction and clustering
-
-> **Note**: Requires reference database update. Use `noindex` parameter to skip STAR index generation.
+<details>
+<summary><strong>2.1.2 (April 24, 2024)</strong></summary>
+<div style="padding-left: 20px; margin-top: 1em;">
+  <h4>ATAC Analysis Improvements</h4>
+  <ul>
+    <li>Updated algorithm: Jaccard-based merging → cell calling via peak fragments</li>
+    <li>Added multiple filtering parameters and BAM format support</li>
+    <li>Enhanced chloroplast handling in database construction</li>
+    <li>Unified web report style with RNA analysis</li>
+  </ul>
+  <h4>General Improvements</h4>
+  <ul>
+    <li>Streamlined installation process (removed R package requirements)</li>
+    <li>Improved N filtering logic for cell barcodes and UMI regions</li>
+  </ul>
+</div>
+</details>
 
 ---
 
-### 2.0.7 (November 4, 2022)
-
-**Automation & Parameters**
-- Automatic recognition of reagent versions and sequencing dark cycles
-- New parameters: `chemistry`, `darkreaction`, `customize` (replacing `cDNAconfig`/`oligoconfig`)
-- Removed `mixseq` parameter
-
-**Technical Improvements**
-- Added adapter sequence trimming for RNA cDNA libraries
-- Memory parameter `limitram` for database construction with automatic optimization
-
----
-
-### 2.0.6 (September 19, 2022)
-
-**Container & Reliability**
-- Added Singularity container support
-- Fixed reproducibility issues for consistent results
-- Corrected cDNA library Q30 statistics and barcode count consistency
+<details>
+<summary><strong>2.1.1 (September 21, 2023)</strong></summary>
+<div style="padding-left: 20px; margin-top: 1em;">
+  <h4>RNA Workflow Optimization</h4>
+  <ul>
+    <li>Bead merging analysis using oligo data before cell calling</li>
+    <li>Enhanced marker gene display (top 50 genes by log2 fold change per population)</li>
+  </ul>
+  <h4>Bug Fixes</h4>
+  <ul>
+    <li>Fixed high memory usage in container versions</li>
+    <li>Resolved ATAC report image display issues</li>
+  </ul>
+</div>
+</details>
 
 ---
 
-### 2.0.5 (August 19, 2022)
-
-**Container & Format Support**
-- Added Docker image version
-- Reduced GTF format requirements (flexible gene_name/transcript_name handling)
-- Improved UMI correction logic and HTML report descriptions
+<details>
+<summary><strong>2.1.0 (July 28, 2023)</strong></summary>
+<div style="padding-left: 20px; margin-top: 1em;">
+  <h4>Major Addition</h4>
+  <ul>
+    <li><strong>New ATAC analysis module</strong></li>
+  </ul>
+  <h4>RNA Module Updates</h4>
+  <ul>
+    <li>Optimized reference database construction with `ref.json` information file</li>
+    <li>Replaced Seurat with Scanpy for faster dimensionality reduction and clustering</li>
+  </ul>
+</div>
+</details>
 
 ---
 
-### 2.0.0 (June 20, 2022)
+<details>
+<summary><strong>2.0.7 (November 4, 2022)</strong></summary>
+<div style="padding-left: 20px; margin-top: 1em;">
+  <h4>Automation & Parameters</h4>
+  <ul>
+    <li>Automatic recognition of reagent versions and sequencing dark cycles</li>
+    <li>New parameters: `chemistry`, `darkreaction`, `customize` (replacing `cDNAconfig`/`oligoconfig`)</li>
+    <li>Removed `mixseq` parameter</li>
+  </ul>
+  <h4>Technical Improvements</h4>
+  <ul>
+    <li>Added adapter sequence trimming for RNA cDNA libraries</li>
+    <li>Memory parameter `limitram` for database construction with automatic optimization</li>
+  </ul>
+</div>
+</details>
 
-**Major Release**
-- **Command-line interface support**
-- Enhanced workflow stability and error handling
-- Optimized alignment and annotation performance
-- Default emptydrops cell identification method
-- Added saturation analysis and cell cluster annotation
+---
+
+<details>
+<summary><strong>2.0.6 (September 19, 2022)</strong></summary>
+<div style="padding-left: 20px; margin-top: 1em;">
+  <h4>Container & Reliability</h4>
+  <ul>
+    <li>Added Singularity container support</li>
+    <li>Fixed reproducibility issues for consistent results</li>
+    <li>Corrected cDNA library Q30 statistics and barcode count consistency</li>
+  </ul>
+</div>
+</details>
+
+---
+
+<details>
+<summary><strong>2.0.5 (August 19, 2022)</strong></summary>
+<div style="padding-left: 20px; margin-top: 1em;">
+  <h4>Container & Format Support</h4>
+  <ul>
+    <li>Added Docker image version</li>
+    <li>Reduced GTF format requirements (flexible gene_name/transcript_name handling)</li>
+    <li>Improved UMI correction logic and HTML report descriptions</li>
+  </ul>
+</div>
+</details>
+
+---
+
+<details>
+<summary><strong>2.0.0 (June 20, 2022)</strong></summary>
+<div style="padding-left: 20px; margin-top: 1em;">
+  <h4>Major Release</h4>
+  <ul>
+    <li><strong>Command-line interface support</strong></li>
+    <li>Enhanced workflow stability and error handling</li>
+    <li>Optimized alignment and annotation performance</li>
+    <li>Default emptydrops cell identification method</li>
+    <li>Added saturation analysis and cell cluster annotation</li>
+  </ul>
+</div>
+</details>
 
 ---
 
 ## ◆ Version Selection Guide <a id="version-selection-guide"></a>
 
-| **Version** | **Key Features** | **Recommended Use Cases** |
-|-------------|------------------|---------------------------|
-| **2.1.3+** | RNA 5' + VDJ analysis modules | VDJ analysis, 5' RNA workflows |  
-| **2.1.0+** | ATAC analysis support | ATAC-seq analysis |
-| **2.0.0+** | Command-line interface | Standard 3' RNA analysis |
+<table style="width:100%; border-collapse: collapse; margin: 1.5em 0; box-shadow: 0 2px 3px rgba(0,0,0,0.1);">
+  <thead style="background-color: #f2f2f2; border-bottom: 2px solid #ddd;">
+    <tr>
+      <th style="padding: 12px 15px; border: 1px solid #ddd; text-align: left;">Version</th>
+      <th style="padding: 12px 15px; border: 1px solid #ddd; text-align: left;">Key Features</th>
+      <th style="padding: 12px 15px; border: 1px solid #ddd; text-align: left;">Recommended Use Cases</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;"><b>2.1.3+</b></td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;">RNA 5' + VDJ analysis modules</td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;">VDJ analysis, 5' RNA workflows</td>
+    </tr>
+    <tr>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;"><b>2.1.0+</b></td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;">ATAC analysis support</td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;">ATAC-seq analysis</td>
+    </tr>
+    <tr>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;"><b>2.0.0+</b></td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;">Command-line interface</td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;">Standard 3' RNA analysis</td>
+    </tr>
+  </tbody>
+</table>
 
 ### Historical Versions
 
 Additional version information available at [GitHub Releases](https://github.com/MGI-tech-bioinformatics/DNBelab_C_Series_HT_scRNA-analysis-software/releases).
 
-> **Production Recommendation**: Use the latest stable release for production environments. Beta versions are for testing and development only.
+<div style="background-color: #fffbe6; border-left: 6px solid #ffc107; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
+⚠️ **Production Recommendation**: Use the latest stable release for production environments. Beta versions are for testing and development only.
+</div>
 
 ---
 

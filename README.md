@@ -7,9 +7,9 @@
 [![Documentation](https://img.shields.io/badge/docs-latest-brightgreen.svg)](https://lishuangshuang0616.github.io/DNBelab_C_Series_HT_scRNA-analysis-software/Document/README.html)
 [![Platform](https://img.shields.io/badge/platform-Linux-lightgrey.svg)](#system-requirements)
 
-**An open-source, flexible, and high-performance pipeline for analyzing high-throughput DNBelab C Series™ single-cell datasets.**
+**The official pipeline for flexible and high-performance analysis of DNBelab C Series™ single-cell data.**
 
-The official command-line tool for this pipeline is named `dnbc4tools`.
+The command-line tool for this pipeline is named **`dnbc4tools`**.
 
 🧬 **scRNA-seq** | 🧪 **scATAC-seq** | 🦠 **scVDJ-seq**
 
@@ -58,28 +58,15 @@ The official command-line tool for this pipeline is named `dnbc4tools`.
 
 ## 📚 Documentation
 
-### Essential Documentation
-
 | Guide | Purpose |
-|---------------|----------------|
-| [Installation](./doc/installation.md) | Set up dnbc4tools on your system |
-| [Quick Start](./doc/quickstart.md) | Run your first analysis with sample data |
-| [Pipeline Guide](./doc/pipeline.md) | In-depth workflow documentation |
-| [Parameters](./doc/parameter/parameter.md) | Complete command reference and parameter settings |
-| [Output Reference](./doc/outs/outs.md) | Understanding your results |
-| [Output Analysis](./doc/io.md) | Analyze results in R and Python |
-| [Demo Datasets](./doc/dataset.md) | Access sample datasets for testing |
-
-### Analysis Workflows
-
-| scRNA-seq | scATAC-seq | scVDJ-seq |
-|:-------------:|:--------------:|:-------------:|
-| Gene Expression<br/>Profiling | Chromatin Accessibility<br/>Analysis | Immune Receptor<br/>Repertoire |
-| [Guide](./doc/pipeline/scRNA_en.md) | [Guide](./doc/pipeline/scATAC_en.md) | [Guide](./doc/pipeline/scVDJ_en.md) |
-| [Parameters](./doc/parameter/scRNA_en.md) | [Parameters](./doc/parameter/scATAC_en.md) | [Parameters](./doc/parameter/scVDJ_en.md) |
-| [Outputs](./doc/outs/scRNA_en.md) | [Outputs](./doc/outs/scATAC_en.md) | [Outputs](./doc/outs/scVDJ_en.md) |
-
-</div>
+| :--- | :--- |
+| **[Installation](./doc/installation.md)** | Set up dnbc4tools on your system. |
+| **[Quick Start](./doc/quickstart.md)** | Run your first analysis with sample data. |
+| **[Pipeline Guides](./doc/pipeline/pipeline.md)** | In-depth workflow documentation for: <br> [scRNA-seq](./doc/pipeline/scRNA_en.md) \| [scATAC-seq](./doc/pipeline/scATAC_en.md) \| [scVDJ-seq](./doc/pipeline/scVDJ_en.md) |
+| **[Parameters](./doc/parameter/parameter.md)** | Command reference and parameter settings for: <br> [scRNA-seq](./doc/parameter/scRNA_en.md) \| [scATAC-seq](./doc/parameter/scATAC_en.md) \| [scVDJ-seq](./doc/parameter/scVDJ_en.md) |
+| **[Outputs](./doc/outs/outs.md)** | Guides to understanding your results for: <br> [scRNA-seq](./doc/outs/scRNA_en.md) \| [scATAC-seq](./doc/outs/scATAC_en.md) \| [scVDJ-seq](./doc/outs/scVDJ_en.md) |
+| **[Analysis](./doc/io.md)** | Analyze results in R and Python. |
+| **[Demo Datasets](./doc/dataset.md)** | Access sample datasets for testing. |
 
 ---
 
@@ -97,7 +84,7 @@ The official command-line tool for this pipeline is named `dnbc4tools`.
 
 ## 🚀 What's New
 
-### dnbc4tools 3.0 Beta Highlights
+### What's New in v3.0 (Beta)
 
 <details open>
 <summary><strong>New Features & Improvements</strong></summary>
@@ -120,7 +107,7 @@ The official command-line tool for this pipeline is named `dnbc4tools`.
 
 </details>
 
-> **Beta Notice**: This version is feature-complete but may contain bugs. We welcome community testing and feedback! For production environments, please consider the [latest stable release](https://github.com/MGI-tech-bioinformatics/DNBelab_C_Series_HT_scRNA-analysis-software/releases).
+> **Note**: This is a feature-complete beta release. It is intended for testing and feedback. For production use, please use the [latest stable version](https://github.com/MGI-tech-bioinformatics/DNBelab_C_Series_HT_scRNA-analysis-software/releases).
 
 **Full Release History**: [Release Notes](./doc/release.md)
 
