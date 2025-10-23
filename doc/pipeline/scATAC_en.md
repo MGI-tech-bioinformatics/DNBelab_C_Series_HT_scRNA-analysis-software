@@ -321,8 +321,8 @@ Upon completion, `outs` (outputs) and `logs` directories will be generated.
 
 **Related Documentation**:
 - [📊 Output File Usage](../io.md)
-- [📋 Analysis Parameter Settings](../parameter/scATAC.md)
-- [📝 Output File Descriptions](../outs/scATAC.md)
+- [📋 Analysis Parameter Settings](../parameter/scATAC_en.md)
+- [📝 Output File Descriptions](../outs/scATAC_en.md)
 
 ---
 

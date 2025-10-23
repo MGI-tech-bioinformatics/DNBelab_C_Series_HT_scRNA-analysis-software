@@ -480,8 +480,8 @@ Upon completion, `outs` (outputs) and `logs` directories will be generated. The 
 
 **Related Documentation**:
 - [📊 **Output File Usage**](../io.md)
-- [📋 **Analysis Parameter Settings**](../parameter/scRNA.md)
-- [📝 **Output File Descriptions**](../outs/scRNA.md)
+- [📋 **Analysis Parameter Settings**](../parameter/scRNA_en.md)
+- [📝 **Output File Descriptions**](../outs/scRNA_en.md)
 
 ---
 
