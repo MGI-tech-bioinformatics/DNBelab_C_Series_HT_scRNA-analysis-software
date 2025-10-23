@@ -200,8 +200,8 @@ Upon completion, `outs` (outputs) and `logs` directories will be generated. The 
 ```
 
 **Related Documentation**:
-- [📋 Analysis Parameter Settings](../parameter/scVDJ.md)
-- [📝 Output File Descriptions](../outs/scVDJ.md)
+- [📋 Analysis Parameter Settings](../parameter/scVDJ_en.md)
+- [📝 Output File Descriptions](../outs/scVDJ_en.md)
 
 ---
 

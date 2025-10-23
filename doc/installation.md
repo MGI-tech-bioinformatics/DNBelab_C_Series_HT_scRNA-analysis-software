@@ -55,7 +55,7 @@
 
 ## ◆ Software Download <a id="software-download"></a>
 
-### dnbc4tools 3.0 beta (Released: Jun 16, 2025)
+### dnbc4tools 3.0 beta (Released: Oct 23, 2025)
 
 <table style="width:100%; border-collapse: collapse; margin: 1.5em 0; box-shadow: 0 2px 3px rgba(0,0,0,0.1);">
   <thead style="background-color: #f2f2f2; border-bottom: 2px solid #ddd;">
@@ -67,19 +67,19 @@
   <tbody>
     <tr>
       <td style="padding: 12px 15px; border: 1px solid #ddd;"><b>File Name</b></td>
-      <td style="padding: 12px 15px; border: 1px solid #ddd;">dnbc4tools3.0beta_v4.tar.gz</td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;">dnbc4tools3.0beta_v5.tar.gz</td>
     </tr>
     <tr>
       <td style="padding: 12px 15px; border: 1px solid #ddd;"><b>File Size</b></td>
-      <td style="padding: 12px 15px; border: 1px solid #ddd;">499M</td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;">511M</td>
     </tr>
     <tr>
       <td style="padding: 12px 15px; border: 1px solid #ddd;"><b>MD5 Checksum</b></td>
-      <td style="padding: 12px 15px; border: 1px solid #ddd;">27ff83eaac260cb487b22410e8f1e41a</td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;">89892ce3c60218861acc0cfbada81304</td>
     </tr>
     <tr>
       <td style="padding: 12px 15px; border: 1px solid #ddd;"><b>Download</b></td>
-      <td style="padding: 12px 15px; border: 1px solid #ddd;"><a href="https://bgipan.genomics.cn/#/link/NFXxDnr9wqHjAYQqHILu" target="_blank">BGI CloudDrive</a> (Access Code: rMok)</td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;"><a href="https://bgipan.genomics.cn/#/link/2rDAe6SsoQYpXJZv2oxB" target="_blank">BGI CloudDrive</a> (Access Code: sdH4)</td>
     </tr>
   </tbody>
 </table>
