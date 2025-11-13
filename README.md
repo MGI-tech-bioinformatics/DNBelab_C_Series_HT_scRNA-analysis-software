@@ -10,7 +10,7 @@ The command-line tool for this pipeline is named **`dnbc4tools`**.
 
 🧬 **scRNA-seq** | 🧪 **scATAC-seq** | 🦠 **scVDJ-seq**
 
-📚 **Documentation**: [**User Guide**](https://lishuangshuang0616.github.io/DNBelab_C_Series_HT_scRNA-analysis-software/Document/README.html)
+📚 **Documentation**: [**User Guide**](https://mgi-tech-bioinformatics.github.io/DNBelab_C_Series_HT_scRNA-analysis-software/Document/README.html)
 
 </div>
 
