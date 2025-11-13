@@ -198,7 +198,7 @@ Analysis Settings:
 </ul>
 <p><strong>默认值:</strong> <code>使用所有可用的CPU核心</code></p>
 <p><strong>示例:</strong></p>
-<pre><code>--threads 16</code></pre>
+<pre><code>--threads 32</code></pre>
 </div>
 
 ---
@@ -264,7 +264,7 @@ dnbc4tools rna run --name sample1 --fastqs ./fq --genomeDir ./ref --forcecells 5
 <p>设定用于保留细胞的最低UMI数量。</p>
 <ul>
   <li><strong>功能:</strong> 这是核心的细胞质量控制参数。低于此阈值的细胞被认为数据质量不佳，将从后续分析中排除。</li>
-  <li><strong>建议:</strong> 初次分析可使用默认值，然后根据网页报告中“UMI计数分布图”来确定更合适的阈值。</li>
+  <li><strong>建议:</strong> 初次分析可使用默认值，然后根据网页报告中<em>UMI计数分布图</em>来确定更合适的阈值。</li>
 </ul>
 <p><strong>默认值:</strong> <code>1000</code></p>
 <p><strong>示例:</strong></p>
@@ -341,9 +341,9 @@ dnbc4tools rna run --name sample1 --fastqs ./fq --genomeDir ./ref --minumi 500</
 </ul>
 <p><strong>默认值:</strong> <code>auto</code></p>
 <p><strong>示例:</strong></p>
-<pre><code># 场景: 已知文库为scRNAv2HT且自动分析失败
-dnbc4tools rna run --name sample2 --fastqs ./fq --genomeDir ./ref --chemistry scRNAv2HT</code></pre>
-<p><strong>⚠️ 重要提示：</strong>不正确的设置可能导致细胞条形码识别失败。仅在了解文库结构或自动检测失败时手动指定。</p>
+<pre><code># 场景: 已知文库为scRNAv3HT无暗反应设置且自动分析失败
+dnbc4tools rna run --name sample2 --fastqs ./fq --genomeDir ./ref --chemistry scRNAv3HT --darkreaction unset,unset</code></pre>
+<p><strong>⚠️ 重要提示：</strong>不正确的设置可能导致细胞条形码识别失败。仅在了解文库结构或自动检测失败时手动指定。需同时设置<code>--darkreaction</code>参数。</p>
 </div>
 
 <div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
@@ -368,7 +368,7 @@ dnbc4tools rna run --name sample2 --fastqs ./fq --genomeDir ./ref --chemistry sc
 
 <pre><code># 示例3: 两个文库都无暗循环
 --darkreaction unset,unset</code></pre>
-<p><strong>⚠️ 重要提示：</strong>不正确的设置可能导致细胞条形码识别失败。仅在了解文库结构或自动检测失败时手动指定。</p>
+<p><strong>⚠️ 重要提示：</strong>不正确的设置可能导致细胞条形码识别失败。仅在了解文库结构或自动检测失败时手动指定。需同时设置<code>--chemistry</code>参数。</p>
 </div>
 
 <div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
@@ -698,7 +698,7 @@ dnbc4tools rna mkref --fasta genome.fa --ingtf genes.gtf --noindex</code></pre>
 >     ],
 >     "mtgenes": "/database/scRNA/Homo_sapiens/star/mtgene.list",
 >     "species": "Homo_sapiens",
->     "version": "dnbc4tools 3.0beta"
+>     "version": "dnbc4tools 3.0"
 > }
 > ```
 > 
@@ -719,7 +719,7 @@ dnbc4tools rna mkref --fasta genome.fa --ingtf genes.gtf --noindex</code></pre>
 >     ],
 >     "mtgenes": "/database/scRNA/hg38_and_mm10/star/mtgene.list",
 >     "species": "hg38_and_mm10",
->     "version": "dnbc4tools 3.0beta"
+>     "version": "dnbc4tools 3.0"
 > }
 > ```
 > 
@@ -774,11 +774,13 @@ optional arguments:
   </details>
 </ul>
 <p style="margin-top: 15px;"><strong>默认值:</strong> 无</p>
+<details open>
 <summary><strong>示例：</strong></summary>
 <pre><code># 示例1: SampleA, cDNA和oligo各有1对R1/R2文件
 SampleA	/path/to/A_cDNA_R1.fq.gz;/path/to/A_cDNA_R2.fq.gz	/path/to/A_oligo_R1.fq.gz;/path/to/A_oligo_R2.fq.gz</code></pre>
 <pre><code># 示例2: SampleB, cDNA有2对R1/R2文件, oligo有1对R1/R2文件
 SampleB	/path/to/B_cDNA_L01_R1.fq.gz,/path/to/B_cDNA_L02_R1.fq.gz;/path/to/B_cDNA_L01_R2.fq.gz,/path/to/B_cDNA_L02_R2.fq.gz	/path/to/B_oligo_R1.fq.gz;/path/to/B_oligo_R2.fq.gz</code></pre>
+</details>
 </div>
 
 > 📝 **参数继承说明**
@@ -789,15 +791,15 @@ SampleB	/path/to/B_cDNA_L01_R1.fq.gz,/path/to/B_cDNA_L02_R1.fq.gz;/path/to/B_cDN
 
 <div align="center">
 
-> 💡 **提示**
+> 💡 <strong>提示</strong>
 > 
 > 本文档持续更新中，如发现内容错误或需要补充的信息，欢迎反馈。
 > 
-> 📝 **文档版本：** 3.0 beta | **最后更新：** 2025年
+> 📝 <strong>文档版本：</strong> 3.0 | <strong>最后更新：</strong> 2025年
 
 ---
 
 **🧬 DNBelab C Series HT scRNA Analysis Software**  
-*高性能单细胞转录组数据分析流程*
+<em>高性能单细胞转录组数据分析流程</em>
 
 </div>

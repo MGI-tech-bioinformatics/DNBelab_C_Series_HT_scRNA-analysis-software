@@ -16,7 +16,7 @@
 
 ## 🛠️ GTF File Operations (mkgtf) <a id="gtf-file-operations-mkgtf"></a>
 
-> 🧬 **Core Functionality**
+> 🧬 <strong>Core Functionality</strong>
 > 
 > A comprehensive tool for GTF file operations, supporting gene type statistics, intelligent filtering, and file format validation. It provides high-quality, standardized gene annotation data for single-cell analysis.
 
@@ -147,7 +147,7 @@ Filter Settings:
 
 ## 📄 BAM to FASTQ (bam2fastq) <a id="bam-to-fastq-bam2fastq"></a>
 
-> 📄 **Professional Conversion Tool**
+> 📄 <strong>Professional Conversion Tool</strong>
 > 
 > An efficient BAM file manipulation tool specialized for converting C4 RNA BAM files into FASTQ format. It supports multi-threaded parallel processing and flexible output configuration.
 
@@ -215,7 +215,7 @@ Options:
 </ul>
 <p><strong>Default:</strong> <code>4</code></p>
 <p><strong>Example:</strong></p>
-<pre><code>-t 8</code></pre>
+<pre><code>-t 4</code></pre>
 </div>
 
 <div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
@@ -289,7 +289,7 @@ Options:
 
 ## 🧬 Chromosome Splitting (chromsplit) <a id="chromosome-splitting-chromsplit"></a>
 
-> 🧬 **Core Functionality**
+> 🧬 <strong>Core Functionality</strong>
 > 
 > A professional genome sequence splitting tool that intelligently identifies split points to maintain gene annotation integrity. It is primarily used in ATAC library construction to ensure chromosome lengths do not exceed the 2^29-1 limit.
 
@@ -412,7 +412,7 @@ Options:
 
 ## 📝 FASTQ Subsetting (fqsubC4) <a id="fastq-subsetting-fqsubc4"></a>
 
-> 📝 **Core Functionality**
+> 📝 <strong>Core Functionality</strong>
 > 
 > A professional tool for extracting regions from FASTQ sequences, supporting precise sequence position clipping. It is mainly used to resolve data format inconsistencies from multiple sequencing runs, ensuring standardized processing of C4 sequencing data.
 
@@ -513,15 +513,15 @@ Options:
 
 <div align="center">
 
-> 💡 **Tip**
+> 💡 <strong>Tip</strong>
 > 
 > This document is continuously updated. If you find any errors or have information to add, your feedback is welcome.
 > 
-> 📝 **Document Version:** 3.0 beta | **Last Updated:** 2025
+> 📝 <strong>Document Version:</strong> 3.0 | <strong>Last Updated:</strong> 2025
 
 ---
 
-**🛠️ DNBelab C Series HT Tool-based Analysis Parameters**  
-*A parameter configuration guide for high-performance single-cell data analysis tools*
+<strong>🛠️ DNBelab C Series HT Tool-based Analysis Parameters</strong>  
+<em>A parameter configuration guide for high-performance single-cell data analysis tools</em>
 
 </div>

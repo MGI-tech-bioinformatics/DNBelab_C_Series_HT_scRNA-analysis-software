@@ -27,7 +27,7 @@
 </div>
 
 <div style="background-color: #e7f3fe; border-left: 6px solid #2196F3; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
-💡 **使用说明**：`$dnbc4tools` 代表可执行程序路径，使用时需要替换为实际安装路径。换行符 `\` 用于在命令行中将命令分为多行，以提高可读性。
+💡 <strong>使用说明</strong>：<code>$dnbc4tools</code> 代表可执行程序路径，使用时需要替换为实际安装路径。换行符 `\` 用于在命令行中将命令分为多行，以提高可读性。
 </div>
 
 ---
@@ -52,7 +52,7 @@
 </table>
 
 <div style="background-color: #fffbe6; border-left: 6px solid #ffc107; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
-⚠️ **注意**：确保FASTQ文件质量良好，并记录好文件路径，用于后续分析。
+⚠️ <strong>注意</strong>：确保FASTQ文件质量良好，并记录好文件路径，用于后续分析。
 </div>
 
 ---
@@ -84,11 +84,11 @@
 </table>
 
 <div style="background-color: #e7f3fe; border-left: 6px solid #2196F3; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
-💡 **推荐数据来源**：优先使用[Ensembl数据库](https://www.ensembl.org/index.html)提供的文件。Ensembl的GTF文件包含可选标签，便于过滤（通过`dnbc4tools tools mkgtf`）。
+💡 <strong>推荐数据来源</strong>：优先使用[Ensembl数据库](https://www.ensembl.org/index.html)提供的文件。Ensembl的GTF文件包含可选标签，便于过滤（通过<code>dnbc4tools tools mkgtf</code>）。
 </div>
 
 **GTF文件要求**：
-- 必须包含"gene"或"transcript"类型的注释
+- 必须包含<code>gene</code>或<code>transcript</code>类型的注释
 - 不支持GFF文件格式
 - 基因组文件与注释文件需对应
 
@@ -146,40 +146,39 @@ $dnbc4tools atac mkref \
     "chromeSize": "/opt/database/Mus_musculus/regions/chrom.sizes",
     "tss": "/opt/database/Mus_musculus/regions/tss.bed",
     "promoter": "/opt/database/Mus_musculus/regions/promoter.bed",
-    "version": "dnbc4tools 3.0beta",
+    "version": "dnbc4tools 3.0",
     "blacklist": "None",
     "genomesize": "mm"
 }
 ```
 
 <div style="background-color: #fffbe6; border-left: 6px solid #ffc107; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
-⚠️ **注意**：构建参考数据库可能需要较长时间，取决于基因组大小和计算机性能。软件主分析流程兼容旧版本数据库。
+⚠️ <strong>注意</strong>：构建参考数据库可能需要较长时间，取决于基因组大小和计算机性能。软件主分析流程兼容旧版本数据库。
 </div>
 
 运行时打印信息，以下是一个示例：
 
 ```shell
-Creating new reference folder at /opt/database/Mus_musculus
+ 2025-11-12 16:13:32 Creating new reference folder at /opt/database/Mus_musculus      
 ...done
 
-Writing genome FASTA file into reference folder...
+ 2025-11-12 16:13:32 Writing genome FASTA file into reference folder...                             
 ...done
 
-Indexing genome FASTA file...
+ 2025-11-12 16:13:33 Indexing genome FASTA file...                                                  
 ...done
 
-Writing genes GTF file into reference folder...
+ 2025-11-12 16:13:34 Writing genes GTF file into reference folder...                                
 ...done
 
-Extracting TSS and promoter regions from GTF file...
+ 2025-11-12 16:13:38 Extracting TSS and promoter regions from GTF file...                           
 ...done
 
-Generating Chromap genome index...
+ 2025-11-12 16:13:42 Generating Chromap genome index...                                             
 ...done
 
-Writing reference JSON file...
+ 2025-11-12 16:14:07 Writing reference JSON file...                                                 
 ...done
-
 Analysis Complete
 ```
 
@@ -220,9 +219,9 @@ $dnbc4tools atac multi \
 </table>
 
 <div style="background-color: #fffbe6; border-left: 6px solid #ffc107; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
-⚠️ **注意**：
-- 多个fastq文件以逗号（`,`）分隔
-- R1和R2文件以分号（`;`）分隔
+⚠️ <strong>注意</strong>：
+多个fastq文件以逗号（`,`）分隔，
+R1和R2文件以分号（`;`）分隔
 </div>
 
 ```tsv
@@ -268,32 +267,47 @@ $dnbc4tools atac run \
 在对试剂版本和暗反应自动检测后，软件开始运行分析，以下是一个示例：
 
 ```shell
-2025-06-03 16:24:27 Performing ATAC data processing
-Chemistry(darkreaction) determined in fastqR1: darkreaction
-Chemistry(darkreaction) determined in fastqR2: darkreaction
+──────────────────────────── Parsed FASTQ Inputs — 2025-11-12 15:05:39 ─────────────────────────────
+┌───────┬──────────────────────────────────────────────────────────────────────────────────────────┐
+│ Type  │ Path                                                                                     │
+├───────┼──────────────────────────────────────────────────────────────────────────────────────────┤
+│ Read1 │ /data/test_ATAC_R1.fastq.gz                                                              │
+│ Read2 │ /data/test_ATAC_R2.fastq.gz                                                              │
+└───────┴──────────────────────────────────────────────────────────────────────────────────────────┘
+────────────────────────────────────────────────────────────────────────────────────────────────────
 
-2025-06-03 16:24:30 Performing quality control and alignment on raw data...
+
+──────────────────────────── Chemistry Detection — 2025-11-12 15:05:49 ─────────────────────────────
+┌─────────────────────────────────┬────────────────────────────────────────────────────────────────┐
+│ Type                            │ Result                                                         │
+├─────────────────────────────────┼────────────────────────────────────────────────────────────────┤
+│ Read1                           │ darkreaction                                                   │
+│ Read2                           │ darkreaction                                                   │
+└─────────────────────────────────┴────────────────────────────────────────────────────────────────┘
+────────────────────────────────────────────────────────────────────────────────────────────────────
+
+ 2025-11-12 15:05:49 Performing raw data quality control and alignment...                           
 ...done
 
-2025-06-03 16:36:25 Computing bead similarity and merging beads within droplets...
+ 2025-11-12 15:24:56 Calculating bead similarity and merging beads within droplets...               
 ...done
 
-2025-06-03 16:38:21 Processing fragments for peak calling...
+ 2025-11-12 15:28:00 Processing fragments for peak calling...                                       
 ...done
 
-2025-06-03 16:40:06 Generating raw peaks matrix...
+ 2025-11-12 15:31:22 Generating raw peak count matrix...                                            
 ...done
 
-2025-06-03 16:47:30 Generating filtered peaks matrix...
+ 2025-11-12 15:38:18 Generating cell-filtered peak count matrix...                                  
 ...done
 
-2025-06-03 16:50:52 Conducting dimensionality reduction and clustering...
+ 2025-11-12 15:43:23 Performing dimensionality reduction and clustering...                          
 ...done
 
-2025-06-03 16:54:44 Statistical analysis and report generation for results...
+ 2025-11-12 15:50:03 Generating analysis report and summary statistics...                           
 ...done
 
-Analysis Finished Elapsed Time: 0:30:43
+Analysis Finished Elapsed Time: 0:44:41
 ```
 
 成功的运行会以 `Analysis Finished` 结束。

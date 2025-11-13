@@ -183,7 +183,7 @@
 </div>
 <hr>
 <h2 id="-software-download-">◆ Software Download <a id="software-download"></a></h2>
-<h3 id="dnbc4tools-30-beta-released-oct-23-2025">dnbc4tools 3.0 beta (Released: Oct 23, 2025)</h3>
+<h3 id="dnbc4tools-30-rc-released-nov-12-2025">dnbc4tools 3.0 rc (Released: Nov 12, 2025)</h3>
 <table style="width:100%; border-collapse: collapse; margin: 1.5em 0; box-shadow: 0 2px 3px rgba(0,0,0,0.1);">
   <thead style="background-color: #f2f2f2; border-bottom: 2px solid #ddd;">
     <tr>
@@ -194,26 +194,26 @@
   <tbody>
     <tr>
       <td style="padding: 12px 15px; border: 1px solid #ddd;"><b>File Name</b></td>
-      <td style="padding: 12px 15px; border: 1px solid #ddd;">dnbc4tools3.0beta_v5.tar.gz</td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;">dnbc4tools3.0rc.tar.gz</td>
     </tr>
     <tr>
       <td style="padding: 12px 15px; border: 1px solid #ddd;"><b>File Size</b></td>
-      <td style="padding: 12px 15px; border: 1px solid #ddd;">511M</td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;">513M</td>
     </tr>
     <tr>
       <td style="padding: 12px 15px; border: 1px solid #ddd;"><b>MD5 Checksum</b></td>
-      <td style="padding: 12px 15px; border: 1px solid #ddd;">89892ce3c60218861acc0cfbada81304</td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;">c4afc33b4d90142eba7df1da8c45bffc</td>
     </tr>
     <tr>
       <td style="padding: 12px 15px; border: 1px solid #ddd;"><b>Download</b></td>
-      <td style="padding: 12px 15px; border: 1px solid #ddd;"><a href="https://bgipan.genomics.cn/#/link/2rDAe6SsoQYpXJZv2oxB" target="_blank">BGI CloudDrive</a> (Access Code: sdH4)</td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;"><a href="https://bgipan.genomics.cn/#/link/a7myOreuJYIeJzn6Y6z3" target="_blank">BGI CloudDrive</a> (Access Code: PUaq)</td>
     </tr>
   </tbody>
 </table>
 <hr>
 <h2 id="-installation-process-">◆ Installation Process <a id="installation-process"></a></h2>
 <div style="background-color: #e7f3fe; border-left: 6px solid #2196F3; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
-*dnbc4tools* is distributed as a self-contained `tar.gz` package that includes all precompiled dependencies. This allows it to run on most Linux environments without requiring additional setup.
+<em>dnbc4tools</em> is distributed as a self-contained <em>tar.gz</em> package that includes all precompiled dependencies. This allows it to run on most Linux environments without requiring additional setup.
 </div>
 <h3 id="step-1-extract-the-package">Step 1: Extract the Package</h3>
 <p>Extract the dnbc4tools package to your preferred directory (example uses <code>/opt/software</code>):</p>
@@ -221,7 +221,7 @@
 <span class="hljs-built_in">cd</span> /opt/software
 
 <span class="hljs-comment"># Extract the package</span>
-tar -xzvf dnbc4tools3.0beta.tar.gz
+tar -xzvf dnbc4tools3.0.tar.gz
 </code></pre>
 <h3 id="step-2-verify-directory-structure">Step 2: Verify Directory Structure</h3>
 <p>After extraction, you should see the following directory structure:</p>
@@ -234,23 +234,23 @@ tar -xzvf dnbc4tools3.0beta.tar.gz
   </thead>
   <tbody>
     <tr>
-      <td style="padding: 12px 15px; border: 1px solid #ddd;">`dnbc4tools3.0beta/dnbc4tools`</td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;"><code>dnbc4tools3.0/dnbc4tools</code></td>
       <td style="padding: 12px 15px; border: 1px solid #ddd;">Main executable</td>
     </tr>
     <tr>
-      <td style="padding: 12px 15px; border: 1px solid #ddd;">`dnbc4tools3.0beta/external`</td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;"><code>dnbc4tools3.0/external</code></td>
       <td style="padding: 12px 15px; border: 1px solid #ddd;">External dependencies</td>
     </tr>
     <tr>
-      <td style="padding: 12px 15px; border: 1px solid #ddd;">`dnbc4tools3.0beta/lib`</td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;"><code>dnbc4tools3.0/lib</code></td>
       <td style="padding: 12px 15px; border: 1px solid #ddd;">Library files</td>
     </tr>
     <tr>
-      <td style="padding: 12px 15px; border: 1px solid #ddd;">`dnbc4tools3.0beta/misc`</td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;"><code>dnbc4tools3.0/misc</code></td>
       <td style="padding: 12px 15px; border: 1px solid #ddd;">Miscellaneous files</td>
     </tr>
     <tr>
-      <td style="padding: 12px 15px; border: 1px solid #ddd;">`dnbc4tools3.0beta/sourceC4.bash`</td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;"><code>dnbc4tools3.0/sourceC4.bash</code></td>
       <td style="padding: 12px 15px; border: 1px solid #ddd;">Environment configuration script</td>
     </tr>
   </tbody>
@@ -260,7 +260,7 @@ tar -xzvf dnbc4tools3.0beta.tar.gz
 <h3 id="basic-functionality-test">Basic Functionality Test</h3>
 <p>Confirm that the installation was successful by running these commands:</p>
 <pre><code class="language-bash"><span class="hljs-comment"># Navigate to installation directory</span>
-<span class="hljs-built_in">cd</span> /opt/software/dnbc4tools3.0beta
+<span class="hljs-built_in">cd</span> /opt/software/dnbc4tools3.0
 
 <span class="hljs-comment"># Test basic functionality</span>
 ./dnbc4tools --<span class="hljs-built_in">help</span>
@@ -273,7 +273,7 @@ tar -xzvf dnbc4tools3.0beta.tar.gz
 </code></pre>
 <hr>
 <h2 id="-next-steps-">◆ Next Steps <a id="next-steps"></a></h2>
-<p>Congratulations! You've successfully installed dnbc4tools 3.0 beta! Here's what you can do next:</p>
+<p>Congratulations! You've successfully installed dnbc4tools 3.0! Here's what you can do next:</p>
 <ul>
 <li>🚀 <strong><a href="./quickstart.html">Run the Quick Start Tutorial</a></strong> to perform your first analysis.</li>
 <li>🧪 <strong><a href="./dataset.html">Download Sample Data</a></strong> to test the pipelines.</li>

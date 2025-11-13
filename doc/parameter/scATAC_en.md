@@ -57,7 +57,7 @@ Filtering Settings:
   --tss_cutoff <FLOAT>  Minimum TSS proportion threshold to retain a cell [default: 0] (e.g., 0.2).
   --jaccard_cutoff <FLOAT>
                         Jaccard similarity threshold for merging beads (e.g., 0.02).
-  --merge_cutoff <INT>  Minimum number of fragments when merging beads [default: 1000].
+  --merge_cutoff <INT>  Minimum number of fragments when merging beads [default: 500].
 
 Analysis Settings:
   --need_bam            Enable generation of BAM files containing aligned reads. Note: generating BAM files increases computational time and disk space usage.
@@ -241,7 +241,6 @@ dnbc4tools atac run --name sample2 --fastqs ./fq --genomeDir ./ref --darkreactio
 --customize "cb,R1:1-10;cb,R1:11-20;R1,R1:21-70;R2,R2:1-50"</code></pre>
 <pre><code># Example 2: Assume R1 structure is: Fixed (6bp) -> Barcode 1 (10bp) -> Fixed (6bp) -> Barcode 2 (10bp) -> Fixed (33bp) -> Insert (50bp). R2 structure is: Fixed (19bp) -> Insert (50bp).
 --customize "cb,R1:7-16;cb,R1:23-32;R1,R1:66-115;R2,R2:20-69"</code></pre>
-</details>
 <p><strong>⚠️ Notes:</strong></p>
 <ul>
 <li><strong>Must use quotes:</strong> The entire string must be enclosed in double quotes due to special characters.</li>
@@ -559,7 +558,7 @@ dnbc4tools atac mkref --fasta genome.fa --ingtf genes.gtf --noindex</code></pre>
 >     "chromeSize": "/database/scATAC/Homo_sapiens/regions/chrom.sizes",
 >     "tss": "/database/scATAC/Homo_sapiens/regions/tss.bed",
 >     "promoter": "/database/scATAC/Homo_sapiens/regions/promoter.bed",
->     "version": "3.0beta",
+>     "version": "dnbc4tools 3.0",
 >     "blacklist": "None",
 >     "genomesize": "hs"
 > }
@@ -631,15 +630,15 @@ SampleB	/path/to/B_L01_R1.fq.gz,/path/to/B_L02_R1.fq.gz;/path/to/B_L01_R2.fq.gz,
 
 <div align="center">
 
-> 💡 **Tip**
+> 💡 <strong>Tip</strong>
 > 
 > This document is continuously updated. If you find any errors or have information to add, your feedback is welcome.
 > 
-> 📝 **Document Version:** 3.0 beta | **Last Updated:** 2025
+> 📝 <strong>Document Version:</strong> 3.0 | <strong>Last Updated:</strong> 2025
 
 ---
 
-**🔬 DNBelab C Series HT scATAC Analysis Software**  
-*High-performance single-cell ATAC sequencing data analysis pipeline*
+<strong>🔬 DNBelab C Series HT scATAC Analysis Software</strong>  
+<em>High-performance single-cell ATAC sequencing data analysis pipeline</em>
 
 </div>

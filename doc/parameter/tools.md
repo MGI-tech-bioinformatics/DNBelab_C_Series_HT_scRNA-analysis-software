@@ -16,7 +16,7 @@
 
 ## 🛠️ GTF 文件操作 (mkgtf) <a id="gtf-文件操作-mkgtf"></a>
 
-> 🧬 **核心功能**
+> 🧬 <strong>核心功能</strong>
 > 
 > GTF 文件全面操作工具，支持基因类型统计、智能过滤和文件格式校验。为单细胞分析提供高质量、标准化的基因注释数据。
 
@@ -130,15 +130,15 @@ Filter Settings:
 > [!NOTE]
 > #### 💡使用示例
 >
-> - **统计基因类型**:
+> - <strong>统计基因类型</strong>:
 >   ```shell
 >   dnbc4tools tools mkgtf --action stat --ingtf genes.gtf --output gtfstat.txt --type gene_biotype
 >   ```
-> - **过滤基因类型**:
+> - <strong>过滤基因类型</strong>:
 >   ```shell
 >   dnbc4tools tools mkgtf --action mkgtf --ingtf genes.gtf --output genes.filter.gtf --type gene_biotype
 >   ```
-> - **校验并修复 GTF 文件**:
+> - <strong>校验并修复 GTF 文件</strong>:
 >   ```shell
 >   dnbc4tools tools mkgtf --action check --ingtf genes.gtf --output corrected.gtf
 >   ```
@@ -147,7 +147,7 @@ Filter Settings:
 
 ## 📄 BAM 转 FASTQ (bam2fastq) <a id="bam-转-fastq-bam2fastq"></a>
 
-> 📄 **专业转换工具**
+> 📄 <strong>专业转换工具</strong>
 > 
 > 高效的 BAM 文件操作工具，专用于将 C4 RNA BAM 文件转换成 FASTQ 文件。支持多线程并行处理和灵活的输出配置。
 
@@ -268,19 +268,19 @@ Options:
 > [!NOTE]
 > ### 💡 使用示例
 >
-> - **基本转换**:
+> - <strong>基本转换</strong>:
 >   ```shell
 >   bam2fastq input.bam ./output_dir --no-compress
 >   ```
-> - **多线程高速转换**:
+> - <strong>多线程高速转换</strong>:
 >   ```shell
 >   bam2fastq -t 8 input.bam ./output_dir --no-compress
 >   ```
-> - **区域特异性转换**:
+> - <strong>区域特异性转换</strong>:
 >   ```shell
 >   bam2fastq -r chr1:1000000-2000000 -t 4 input.bam ./output_dir --no-compress
 >   ```
-> - **大文件分割转换**:
+> - <strong>大文件分割转换</strong>:
 >   ```shell
 >   bam2fastq -n 5000000 -t 4 input.bam ./output_dir --no-compress
 >   ```
@@ -289,7 +289,7 @@ Options:
 
 ## 🧬 染色体分割 (chromsplit) <a id="染色体分割-chromsplit"></a>
 
-> 🧬 **核心功能**
+> 🧬 <strong>核心功能</strong>
 > 
 > 专业的基因组序列分割工具，智能识别分割位点以维护基因注释完整性。主要用于 ATAC 建库时控制染色体长度不超过 2^29-1 的限制要求。
 
@@ -391,19 +391,19 @@ Options:
 > [!NOTE]
 > ### 💡 使用示例
 >
-> - **基本分割**:
+> - <strong>基本分割</strong>:
 >   ```shell
 >   chromsplit --fasta genome.fasta --prefix split_result
 >   ```
-> - **带注释文件的智能分割**:
+> - <strong>带注释文件的智能分割</strong>:
 >   ```shell
 >   chromsplit --fasta genome.fasta --gtf annotation.gtf --prefix split_genome
 >   ```
-> - **自定义长度分割**:
+> - <strong>自定义长度分割</strong>:
 >   ```shell
 >   chromsplit --fasta genome.fasta --prefix custom_split --min_length 300000000 --max_length 500000000
 >   ```
-> - **使用预定义分割位点**:
+> - <strong>使用预定义分割位点</strong>:
 >   ```shell
 >   chromsplit --fasta genome.fasta --gtf annotation.gtf --prefix precise_split --cut_site custom_cuts.txt
 >   ```
@@ -412,7 +412,7 @@ Options:
 
 ## 📝 FASTQ 切割 (fqsubC4) <a id="fastq-切割-fqsubc4"></a>
 
-> 📝 **核心功能**
+> 📝 <strong>核心功能</strong>
 > 
 > 专业的 FASTQ 序列区域提取工具，支持精确的序列位置截取。主要用于解决多次加测数据格式不一致问题，确保 C4 测序数据的标准化处理。
 
@@ -504,7 +504,7 @@ Options:
 > [!NOTE]
 > ### 💡 使用示例
 >
-> - **基本区域提取**:
+> - <strong>基本区域提取</strong>:
 >   ```shell
 >   fqsubC4 --input sample.fastq.gz --output extracted.fastq --regions "7:16,23:32"
 >   ```
@@ -513,15 +513,15 @@ Options:
 
 <div align="center">
 
-> 💡 **提示**
+> 💡 <strong>提示</strong>
 > 
 > 本文档持续更新中，如发现内容错误或需要补充的信息，欢迎反馈。
 > 
-> 📝 **文档版本：** 3.0 beta | **最后更新：** 2025年
+> 📝 <strong>文档版本：</strong> 3.0 | <strong>最后更新：</strong> 2025年
 
 ---
 
-**🛠️ DNBelab C Series HT Tool-based Analysis Parameters**  
-*高性能单细胞数据分析工具参数配置指南*
+<strong>🛠️ DNBelab C Series HT Tool-based Analysis Parameters</strong>  
+<em>高性能单细胞数据分析工具参数配置指南</em>
 
 </div>

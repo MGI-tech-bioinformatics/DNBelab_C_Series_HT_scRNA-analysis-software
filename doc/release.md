@@ -16,7 +16,7 @@
 
 ## ◆ Latest Release <a id="latest-release"></a>
 
-**dnbc4tools 3.0 beta** (June 16, 2025) - [See Details](#30-beta-june-16-2025)
+**dnbc4tools 3.0 rc** (Nov 12, 2025) - [See Details](#30-rc-nov-12-2025)
 
 **Key Highlights:**
 - Enhanced RNA annotation and dual-species support
@@ -25,14 +25,14 @@
 - Updated output formats for better compatibility
 
 <div style="background-color: #fffbe6; border-left: 6px solid #ffc107; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
-⚠️ <strong>Beta Notice</strong>: This version is feature-complete but may contain bugs. Community testing and feedback are welcome! For production environments, please use the <a href="https://github.com/MGI-tech-bioinformatics/DNBelab_C_Series_HT_scRNA-analysis-software/releases">latest stable release</a>.
+⚠️ <strong>RC Notice</strong>: Version 3.0 is currently a Release Candidate (RC). It is feature-complete and undergoing final validation; minor bugs may still be present. Recommended for staging and pre-production environments. For mission-critical production, please use the <a href="https://github.com/MGI-tech-bioinformatics/DNBelab_C_Series_HT_scRNA-analysis-software/releases">latest stable release</a>.
 </div>
 
 ---
 
 ## ◆ Release History <a id="release-history"></a>
 
-### 3.0 beta (June 16, 2025) <a id="30-beta-june-16-2025"></a>
+### 3.0 rc (Nov 12, 2025) <a id="30-rc-nov-12-2025"></a>
 
 <div style="padding-left: 20px;">
 
@@ -42,7 +42,7 @@
   <li><strong>Barcode Processing</strong>: Added correction for cell barcodes with ambiguous 'N' bases.</li>
   <li><strong>Dual-Species Support</strong>: Full support to build and analyze dual-species references.</li>
   <li><strong>Output Improvements</strong>: Enhanced BAM files (CC/CB tags), three-column feature matrix (ID, name, type), and updated web reports.</li>
-  <li><strong>Parameter Updates</strong>: Auto-estimated `expectcells` and a new `minumi` parameter.</li>
+  <li><strong>Parameter Updates</strong>: Auto-estimated <em>expectcells</em> and a new <em>minumi</em> parameter.</li>
 </ul>
 
 <h4>ATAC-Seq Enhancements</h4>
@@ -55,15 +55,15 @@
 <ul>
   <li><strong>Assembly & Annotation</strong>: Advanced per-cell assembly for full-length contigs and stricter filtering.</li>
   <li><strong>Performance</strong>: Removed full data preload requirement for low-memory analysis.</li>
-  <li><strong>Output & Reporting</strong>: Enhanced `contig_annotations.csv`, improved QC metrics, and added consensus sequence annotations.</li>
+  <li><strong>Output & Reporting</strong>: Enhanced <em>contig_annotations.csv</em>, improved QC metrics, and added consensus sequence annotations.</li>
   <li><strong>Compatibility</strong>: Custom reference support for non-human/mouse species.</li>
 </ul>
 
 <h4>Cross-Module Improvements</h4>
 <ul>
-  <li>Standardized `customize` parameter across all modules.</li>
+  <li>Standardized <em>customize</em> parameter across all modules.</li>
   <li>Significant storage reduction through optimized file structure.</li>
-  <li>Removed intermediate files and `process` parameter functionality.</li>
+  <li>Removed intermediate files and <em>process</em> parameter functionality.</li>
 </ul>
 
 </div>
@@ -138,7 +138,7 @@
   </ul>
   <h4>RNA Module Updates</h4>
   <ul>
-    <li>Optimized reference database construction with `ref.json` information file</li>
+    <li>Optimized reference database construction with <em>ref.json</em> information file</li>
     <li>Replaced Seurat with Scanpy for faster dimensionality reduction and clustering</li>
   </ul>
 </div>
@@ -152,13 +152,13 @@
   <h4>Automation & Parameters</h4>
   <ul>
     <li>Automatic recognition of reagent versions and sequencing dark cycles</li>
-    <li>New parameters: `chemistry`, `darkreaction`, `customize` (replacing `cDNAconfig`/`oligoconfig`)</li>
-    <li>Removed `mixseq` parameter</li>
+    <li>New parameters: <em>chemistry</em>, <em>darkreaction</em>, <em>customize</em> (replacing <em>cDNAconfig</em>/<em>oligoconfig</em>)</li>
+    <li>Removed <em>mixseq</em> parameter</li>
   </ul>
   <h4>Technical Improvements</h4>
   <ul>
     <li>Added adapter sequence trimming for RNA cDNA libraries</li>
-    <li>Memory parameter `limitram` for database construction with automatic optimization</li>
+    <li>Memory parameter <em>limitram</em> for database construction with automatic optimization</li>
   </ul>
 </div>
 </details>
@@ -243,7 +243,13 @@
 Additional version information available at [GitHub Releases](https://github.com/MGI-tech-bioinformatics/DNBelab_C_Series_HT_scRNA-analysis-software/releases).
 
 <div style="background-color: #fffbe6; border-left: 6px solid #ffc107; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
-⚠️ **Production Recommendation**: Use the latest stable release for production environments. Beta versions are for testing and development only.
+⚠️ <strong>Release Guidance</strong>:
+<br/>
+<strong>Stable</strong>: Recommended for production environments; receives security and critical bug fixes.
+<br/>
+<strong>Release Candidate (RC)</strong>: Feature-complete builds intended for final validation and staging/pre-production. Minor bug fixes may still be applied. Not recommended for mission-critical production unless a version freeze is acceptable.
+<br/>
+<strong>Beta</strong>: For testing and development only; APIs and behavior may change.
 </div>
 
 ---

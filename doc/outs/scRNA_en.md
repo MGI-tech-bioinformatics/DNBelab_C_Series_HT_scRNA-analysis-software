@@ -499,7 +499,7 @@ The HTML web report is a comprehensive display platform for single-cell RNA sequ
 
 > 💡 **Usage Suggestion**: It is recommended to review the metrics in the order they are presented in the report.
 
-> ⚠️ **Quality Standards**: Each metric is provided with recommended thresholds and quality levels. Please conduct a comprehensive evaluation based on specific experimental goals.
+> **Note**: The following standards are for reference only. Actual quality assessment should consider multiple factors such as tissue type, cell state, and experimental goals. Significant differences may exist between different samples, and it is recommended to make judgments based on the specific experimental context.
 
 ### 📊 Main Content and Structure of the Report
 
@@ -570,7 +570,7 @@ The HTML web report is a comprehensive display platform for single-cell RNA sequ
 <tr>
 <td align="left">
 <strong>Estimated number of cells</strong><br>
-<em>Estimated Cell Count</em>
+<em></em>
 </td>
 <td>
 <ul>
@@ -585,7 +585,7 @@ The HTML web report is a comprehensive display platform for single-cell RNA sequ
 <tr>
 <td align="left">
 <strong>Species</strong><br>
-<em>Species Information</em>
+<em></em>
 </td>
 <td>
 <ul>
@@ -597,12 +597,12 @@ The HTML web report is a comprehensive display platform for single-cell RNA sequ
 <tr>
 <td align="left">
 <strong>Mean reads per cell</strong><br>
-<em>Mean Reads per Cell</em>
+<em></em>
 </td>
 <td>
 <ul>
 <li><strong>Definition</strong>: The average number of raw sequencing reads allocated to each cell.</li>
-<li><strong>Calculation</strong>: `Total number of raw sequencing reads / Estimated number of cells`</li>
+<li><strong>Calculation</strong>: <em>Total number of raw sequencing reads / Estimated number of cells</em></li>
 <li><strong>Quality Interpretation</strong>: A value ≥ 30,000 is recommended to ensure sufficient transcript coverage.</li>
 </ul>
 </td>
@@ -610,7 +610,7 @@ The HTML web report is a comprehensive display platform for single-cell RNA sequ
 <tr>
 <td align="left">
 <strong>Median/Mean UMI per cell</strong><br>
-<em>Median/Mean UMIs per Cell</em>
+<em></em>
 </td>
 <td>
 <ul>
@@ -623,7 +623,7 @@ The HTML web report is a comprehensive display platform for single-cell RNA sequ
 <tr>
 <td align="left">
 <strong>Median/Mean genes per cell</strong><br>
-<em>Median/Mean Genes per Cell</em>
+<em></em>
 </td>
 <td>
 <ul>
@@ -640,7 +640,7 @@ The HTML web report is a comprehensive display platform for single-cell RNA sequ
 <tr>
 <td align="left">
 <strong>Total genes detected</strong><br>
-<em>Total Genes Detected</em>
+<em></em>
 </td>
 <td>
 <ul>
@@ -653,7 +653,7 @@ The HTML web report is a comprehensive display platform for single-cell RNA sequ
 <tr>
 <td align="left">
 <strong>Fraction reads in cells</strong><br>
-<em>Fraction of Reads in Cells</em>
+<em></em>
 </td>
 <td>
 <ul>
@@ -668,11 +668,11 @@ The HTML web report is a comprehensive display platform for single-cell RNA sequ
 <tr>
 <td align="left">
 <strong>Sequencing saturation</strong><br>
-<em>Sequencing Saturation</em>
+<em></em>
 </td>
 <td>
 <ul>
-<li><strong>Definition</strong>: A metric to assess whether sequencing depth is sufficient, calculated as `1 - (number of deduplicated UMIs / total number of reads)`.</li>
+<li><strong>Definition</strong>: A metric to assess whether sequencing depth is sufficient, calculated as <em>1 - (number of deduplicated UMIs / total number of reads)</em>.</li>
 <li><strong>Biological Significance</strong>: Reflects library complexity and the cost-effectiveness of sequencing. High saturation means that increasing sequencing depth yields diminishing returns in discovering new genes.</li>
 <li><strong>Typical Range</strong>: A range of 40% – 85% is considered ideal.</li>
 </ul>
@@ -738,7 +738,7 @@ The HTML web report is a comprehensive display platform for single-cell RNA sequ
 <tr>
 <td align="left">
 <strong>Number of reads</strong><br>
-<em>Total Number of Reads</em>
+<em></em>
 </td>
 <td>
 <ul>
@@ -750,7 +750,7 @@ The HTML web report is a comprehensive display platform for single-cell RNA sequ
 <tr>
 <td align="left">
 <strong>Valid barcodes</strong><br>
-<em>Valid Barcode Fraction</em>
+<em></em>
 </td>
 <td>
 <ul>
@@ -763,11 +763,11 @@ The HTML web report is a comprehensive display platform for single-cell RNA sequ
 <tr>
 <td align="left">
 <strong>Valid UMIs</strong><br>
-<em>Valid UMI Fraction</em>
+<em></em>
 </td>
 <td>
 <ul>
-<li><strong>Definition</strong>: The proportion of all reads whose Unique Molecular Identifier (UMI) sequence does not contain 'N' bases and is not a homopolymer (e.g., AAAAAA).</li>
+<li><strong>Definition</strong>: The proportion of all reads whose Unique Molecular Identifier (UMI) sequence does not contain <code>N</code> bases and is not a homopolymer (e.g., AAAAAA).</li>
 <li><strong>Biological Significance</strong>: Reflects the sequencing quality of the UMI sequence, which is key for accurate molecular counting.</li>
 </ul>
 </td>
@@ -775,7 +775,7 @@ The HTML web report is a comprehensive display platform for single-cell RNA sequ
 <tr>
 <td align="left">
 <strong>Q30 bases in barcode/UMI/read</strong><br>
-<em>Q30 Base Fraction</em>
+<em></em>
 </td>
 <td>
 <ul>
@@ -846,7 +846,7 @@ The HTML web report is a comprehensive display platform for single-cell RNA sequ
 <tr>
 <td align="left">
 <strong>Reads mapped to genome</strong><br>
-<em>Genome Alignment Rate</em>
+<em></em>
 </td>
 <td>
 <ul>
@@ -860,7 +860,7 @@ The HTML web report is a comprehensive display platform for single-cell RNA sequ
 <tr>
 <td align="left">
 <strong>Reads mapped confidently to genome</strong><br>
-<em>Confident Genome Alignment Rate</em>
+<em></em>
 </td>
 <td>
 <ul>
@@ -873,7 +873,7 @@ The HTML web report is a comprehensive display platform for single-cell RNA sequ
 <tr>
 <td align="left">
 <strong>Reads mapped confidently to transcriptome</strong><br>
-<em>Confident Transcriptome Alignment Rate</em>
+<em></em>
 </td>
 <td>
 <ul>
@@ -886,7 +886,7 @@ The HTML web report is a comprehensive display platform for single-cell RNA sequ
 <tr>
 <td align="left">
 <strong>Reads mapped confidently to exonic regions</strong><br>
-<em>Exonic Region Alignment Rate</em>
+<em></em>
 </td>
 <td>
 <ul>
@@ -899,7 +899,7 @@ The HTML web report is a comprehensive display platform for single-cell RNA sequ
 <tr>
 <td align="left">
 <strong>Reads mapped confidently to intronic regions</strong><br>
-<em>Intronic Region Alignment Rate</em>
+<em></em>
 </td>
 <td>
 <ul>
@@ -912,7 +912,7 @@ The HTML web report is a comprehensive display platform for single-cell RNA sequ
 <tr>
 <td align="left">
 <strong>Reads mapped confidently to intergenic regions</strong><br>
-<em>Intergenic Region Alignment Rate</em>
+<em></em>
 </td>
 <td>
 <ul>
@@ -924,7 +924,7 @@ The HTML web report is a comprehensive display platform for single-cell RNA sequ
 <tr>
 <td align="left">
 <strong>Reads mapped antisense to gene</strong><br>
-<em>Antisense Alignment Rate</em>
+<em></em>
 </td><td>
 <ul>
 <li><strong>Definition</strong>: The proportion of reads that successfully align to a gene region but in the opposite direction to the annotated gene.</li>
@@ -935,13 +935,13 @@ The HTML web report is a comprehensive display platform for single-cell RNA sequ
 <tr>
 <td align="left">
 <strong>Include introns</strong><br>
-<em>Include Introns</em>
+<em></em>
 </td>
 <td>
 <ul>
 <li><strong>Definition</strong>: Controls whether reads aligned to intronic regions are included in gene expression counts.</li>
-<li><strong>Enabled State (Default)</strong>: When set to `True`, reads from intronic regions <strong>are counted</strong> towards the expression of the corresponding gene. This mode captures gene activity more comprehensively, especially suitable for nuclear sequencing or scenarios requiring pre-mRNA analysis.</li>
-<li><strong>Disabled State</strong>: When set to `False`, <strong>only exonic</strong> reads are counted towards gene expression. This mode focuses on the quantification of mature mRNA.</li>
+<li><strong>Enabled State (Default)</strong>: When set to <code>True</code>, reads from intronic regions <strong>are counted</strong> towards the expression of the corresponding gene. This mode captures gene activity more comprehensively, especially suitable for nuclear sequencing or scenarios requiring pre-mRNA analysis.</li>
+<li><strong>Disabled State</strong>: When set to <code>False</code>, <strong>only exonic</strong> reads are counted towards gene expression. This mode focuses on the quantification of mature mRNA.</li>
 </ul>
 </td>
 </tr>
@@ -998,7 +998,7 @@ Displays the distribution of the number of captured cell barcodes (Beads) in rea
 ##### 📊 Cell Data Distribution
 
 **Chart Function**:
-Through three separate violin plots, it shows the distribution of high-quality cells across three key quality metrics: **number of genes (nGenes)**, **number of UMIs (nUMI)**, and **mitochondrial gene percentage (percent.mt)**.
+Through three separate violin plots, it shows the distribution of high-quality cells across three key quality metrics: **number of genes (nGenes)**, **number of UMIs (nUMI)**, and **mitochondrial gene percentage (percent\.mt)**.
 
 **How to Interpret**:
 *   **Number of Genes and UMIs**: The higher the center of the distribution (the widest part), the higher the transcriptome complexity and capture efficiency of the cells.
@@ -1091,7 +1091,7 @@ Assesses the adequacy of sequencing depth and data complexity, i.e., whether fur
 </tr>
 <tr>
 <td align="left"><strong>🔬 Analysis Pipeline</strong></td>
-<td><a href="../pipeline.md">Analysis Pipeline Description</a> - Technical details of the entire analysis pipeline.</td>
+<td><a href="../pipeline/pipeline.md">Analysis Pipeline Description</a> - Technical details of the entire analysis workflow.</td>
 </tr>
 <tr>
 <td align="left"><strong>🔧 Installation & Configuration</strong></td>
@@ -1104,15 +1104,15 @@ Assesses the adequacy of sequencing depth and data complexity, i.e., whether fur
 
 <div align="center">
 
-> 💡 **Tip**
+> 💡 <strong>Tip</strong>
 > 
 > This document is continuously updated. If you find any errors or need additional information, please provide feedback.
 > 
-> 📝 **Document Version:** 3.0 beta | **Last Updated:** 2025
+> 📝 <strong>Document Version:</strong> 3.0 | <strong>Last Updated:</strong> 2025
 
 ---
 
-**🔬 DNBelab C Series HT scRNA Analysis Software**  
-*A High-Performance Single-Cell RNA Sequencing Data Analysis Pipeline*
+<strong>🔬 DNBelab C Series HT scRNA Analysis Software</strong>  
+<em>A High-Performance Single-Cell RNA Sequencing Data Analysis Pipeline</em>
 
 </div>

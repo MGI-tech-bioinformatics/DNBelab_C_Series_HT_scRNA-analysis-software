@@ -219,13 +219,30 @@ read_signac_C4 <span class="hljs-operator">&lt;-</span> <span class="hljs-keywor
 </div>
 <div style="background-color: #f8f9fa; border: 1px solid #dee2e6; padding: 1px 20px; margin: 20px 0; border-radius: 8px;">
 <h4>R (ArchR)</h4>
-<p>Create Arrow files from the <code>fragments.tsv.gz</code> file.</p>
-<pre><code class="language-r">library<span class="hljs-punctuation">(</span>ArchR<span class="hljs-punctuation">)</span>
+<p>Create Arrow files from either <code>fragments.tsv.gz</code> (raw fragments) or <code>filtered.fragments.tsv.gz</code> (cell-filtered fragments).</p>
+<p>Note:</p>
+<ul>
+<li>ArchR-only filtering: point to the raw <code>fragments.tsv.gz</code> and rely on <code>filterTSS</code>/<code>filterFrags</code> thresholds.</li>
+<li>Combined filtering: point to <code>filtered.fragments.tsv.gz</code> generated after dnbc4tools cell filtering, then apply ArchR thresholds as an additional filter.</li>
+</ul>
+<pre><code class="language-r"><span class="hljs-comment"># Option A: ArchR-only filtering (raw fragments)</span>
+library<span class="hljs-punctuation">(</span>ArchR<span class="hljs-punctuation">)</span>
 ArrowFiles <span class="hljs-operator">&lt;-</span> createArrowFiles<span class="hljs-punctuation">(</span>
   inputFiles <span class="hljs-operator">=</span> <span class="hljs-string">&quot;/outs/fragments.tsv.gz&quot;</span><span class="hljs-punctuation">,</span>
   sampleNames <span class="hljs-operator">=</span> <span class="hljs-string">&quot;MySample&quot;</span><span class="hljs-punctuation">,</span>
-  filterTSS <span class="hljs-operator">=</span> <span class="hljs-number">4</span><span class="hljs-punctuation">,</span> 
-  filterFrags <span class="hljs-operator">=</span> <span class="hljs-number">1000</span><span class="hljs-punctuation">,</span> 
+  filterTSS <span class="hljs-operator">=</span> <span class="hljs-number">4</span><span class="hljs-punctuation">,</span>
+  filterFrags <span class="hljs-operator">=</span> <span class="hljs-number">1000</span><span class="hljs-punctuation">,</span>
+  addTileMat <span class="hljs-operator">=</span> <span class="hljs-literal">TRUE</span><span class="hljs-punctuation">,</span>
+  addGeneScoreMat <span class="hljs-operator">=</span> <span class="hljs-literal">TRUE</span>
+<span class="hljs-punctuation">)</span>
+</code></pre>
+<pre><code class="language-r"><span class="hljs-comment"># Option B: Use dnbc4tools cell-filtered fragments then ArchR filters</span>
+library<span class="hljs-punctuation">(</span>ArchR<span class="hljs-punctuation">)</span>
+ArrowFiles <span class="hljs-operator">&lt;-</span> createArrowFiles<span class="hljs-punctuation">(</span>
+  inputFiles <span class="hljs-operator">=</span> <span class="hljs-string">&quot;/outs/filtered.fragments.tsv.gz&quot;</span><span class="hljs-punctuation">,</span>
+  sampleNames <span class="hljs-operator">=</span> <span class="hljs-string">&quot;MySample&quot;</span><span class="hljs-punctuation">,</span>
+  filterTSS <span class="hljs-operator">=</span> <span class="hljs-number">4</span><span class="hljs-punctuation">,</span>
+  filterFrags <span class="hljs-operator">=</span> <span class="hljs-number">1000</span><span class="hljs-punctuation">,</span>
   addTileMat <span class="hljs-operator">=</span> <span class="hljs-literal">TRUE</span><span class="hljs-punctuation">,</span>
   addGeneScoreMat <span class="hljs-operator">=</span> <span class="hljs-literal">TRUE</span>
 <span class="hljs-punctuation">)</span>

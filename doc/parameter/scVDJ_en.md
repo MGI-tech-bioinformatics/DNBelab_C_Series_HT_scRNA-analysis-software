@@ -295,15 +295,15 @@ CCTGGACTCCTGGGCCCCAG</code></pre>
 
 <div align="center">
 
-> 💡 **Tip**
+> 💡 <strong>Tip</strong>
 > 
 > This document is continuously updated. If you find any errors or have information to add, your feedback is welcome.
 > 
-> 📝 **Document Version:** 3.0 beta | **Last Updated:** 2025
+> 📝 <strong>Document Version:</strong> 3.0 | <strong>Last Updated:</strong> 2025
 
 ---
 
-**🧬 DNBelab C Series HT scVDJ Analysis Software**  
-*High-performance single-cell immune repertoire data analysis pipeline*
+<strong>🧬 DNBelab C Series HT scVDJ Analysis Software</strong>  
+<em>High-performance single-cell immune repertoire data analysis pipeline</em>
 
 </div>

@@ -783,7 +783,7 @@ HTML网页报告是单细胞VDJ测序分析的综合展示平台，整合了从�
 
 > 💡 **使用建议**: 建议按照报告展示顺序依次查看各项指标。
 
-> ⚠️ **质量标准**: 各项指标均提供了推荐阈值和质量等级，请结合具体实验目标进行综合评估。
+> **注意**: 以下标准仅供参考，实际质量评估应考虑组织类型、细胞状态和实验目标等多种因素。不同样本间存在显著差异，建议结合具体实验背景进行判断。
 
 ### 📊 报告主要内容与结构
 
@@ -1335,7 +1335,7 @@ HTML网页报告是单细胞VDJ测序分析的综合展示平台，整合了从�
 </tr>
 <tr>
 <td align="left"><strong>🔬 分析流程</strong></td>
-<td><a href="../pipeline.md">分析流程说明</a> - 整个分析流程的技术细节</td>
+<td><a href="../pipeline/pipeline.md">分析流程说明</a> - 整个分析流程的技术细节</td>
 </tr>
 <tr>
 <td align="left"><strong>🔧 安装配置</strong></td>
@@ -1348,15 +1348,15 @@ HTML网页报告是单细胞VDJ测序分析的综合展示平台，整合了从�
 
 <div align="center">
 
-> 💡 **提示**
+> 💡 <strong>提示</strong>
 > 
 > 本文档持续更新中，如发现内容错误或需要补充的信息，欢迎反馈。
 > 
-> 📝 **文档版本：** 3.0 beta | **最后更新：** 2025年
+> 📝 <strong>文档版本：</strong> 3.0 | <strong>最后更新：</strong> 2025年
 
 ---
 
-**🔬 DNBelab C Series HT scVDJ Analysis Software**  
-*高性能单细胞V(D)J测序数据分析流程*
+<strong>🔬 DNBelab C Series HT scVDJ Analysis Software</strong>  
+<em>高性能单细胞V(D)J测序数据分析流程</em>
 
 </div>

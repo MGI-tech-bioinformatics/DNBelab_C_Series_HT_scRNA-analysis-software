@@ -27,7 +27,7 @@
 </div>
 
 <div style="background-color: #e7f3fe; border-left: 6px solid #2196F3; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
-💡 **使用说明**：`$dnbc4tools` 代表可执行程序路径，需替换为您的实际安装路径。换行符 `\` 用于在命令行中将命令分为多行，以提高可读性。
+💡 <strong>使用说明</strong>：<code>$dnbc4tools</code> 代表可执行程序路径，需替换为您的实际安装路径。换行符 `\` 用于在命令行中将命令分为多行，以提高可读性。
 </div>
 
 ---
@@ -56,7 +56,7 @@
 </table>
 
 <div style="background-color: #fffbe6; border-left: 6px solid #ffc107; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
-⚠️ **注意**：请确保 FASTQ 文件质量良好，并记录文件路径以备后续分析使用。
+⚠️ <strong>注意</strong>：请确保 FASTQ 文件质量良好，并记录文件路径以备后续分析使用。
 </div>
 
 ---
@@ -88,12 +88,12 @@
 </table>
 
 <div style="background-color: #e7f3fe; border-left: 6px solid #2196F3; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
-💡 **推荐数据来源**：优先使用 [Ensembl 数据库](https://www.ensembl.org/index.html)提供的文件。Ensembl 的 GTF 文件包含可选标签，便于通过 `dnbc4tools tools mkgtf` 进行过滤。
+💡 <strong>推荐数据来源</strong>：优先使用 [Ensembl 数据库](https://www.ensembl.org/index.html)提供的文件。Ensembl 的 GTF 文件包含可选标签，便于通过 <code>$dnbc4tools tools mkgtf</code> 进行过滤。
 </div>
 
 **GTF 文件要求**：
-- 必须包含 "gene" 或 "transcript" 类型以及 "exon" 类型的注释。
-- 属性中必须包含 "gene_id" 或 "gene_name" 以及 "transcript_id" 或 "transcript_name"。
+- 必须包含 <code>gene</code> 或 <code>transcript</code> 类型以及 <code>exon</code> 类型的注释。
+- 属性中必须包含 <code>gene_id</code> 或 <code>gene_name</code> 以及 <code>transcript_id</code> 或 <code>transcript_name</code>。
 - 不支持 GFF 文件格式。
 - 基因组文件与注释文件需版本对应。
 
@@ -138,7 +138,7 @@ $dnbc4tools tools mkgtf \
 ```
 
 <div style="background-color: #fffbe6; border-left: 6px solid #ffc107; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
-⚠️ **注意**：需要查看 GTF 文件中的 tag 确定 `type` 的类型。
+⚠️ <strong>注意</strong>：需要查看 GTF 文件中的 tag 确定 <code>type</code> 的类型。
 </div>
 
 <div align="center">
@@ -285,35 +285,34 @@ $dnbc4tools rna mkref \
     ],
     "mtgenes": "/opt/database/Homo_sapiens/star/mtgene.list",
     "species": "Homo_sapiens",
-    "version": "dnbc4tools 3.0beta"
+    "version": "dnbc4tools 3.0"
 }
 ```
 
 <div style="background-color: #fffbe6; border-left: 6px solid #ffc107; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
-⚠️ **注意**：构建参考数据库可能需要较长时间，具体取决于基因组大小和计算性能。软件主分析流程兼容旧版本数据库。
+⚠️ <strong>注意</strong>：构建参考数据库可能需要较长时间，具体取决于基因组大小和计算性能。软件主分析流程兼容旧版本数据库。
 </div>
 
 运行时将打印如下信息：
 
 ```shell
-Creating new reference folder at /opt/database/Homo_sapiens
+2025-11-12 15:56:12 Creating new reference folder at /opt/database/Homo_sapiens
 ...done
 
-Writing genome FASTA file into reference folder...
+ 2025-11-12 15:56:12 Writing genome FASTA file into reference folder...                             
 ...done
 
-Indexing genome FASTA file...
+ 2025-11-12 15:56:14 Indexing genome FASTA file...                                                  
 ...done
 
-Writing genes GTF file into reference folder...
+ 2025-11-12 15:56:15 Writing genes GTF file into reference folder...                                
 ...done
 
-Generating STAR genome index...
-...done.
-
-Writing Reference JSON file into reference folder...
+ 2025-11-12 15:57:11 Generating STAR genome index...                                                
 ...done
 
+ 2025-11-12 15:59:29 Writing Reference JSON file into reference folder...                           
+...done
 Analysis Complete
 ```
 
@@ -358,7 +357,7 @@ $dnbc4tools rna multi \
 </table>
 
 <div style="background-color: #fffbe6; border-left: 6px solid #ffc107; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
-⚠️ **注意**：多个 fastq 文件以逗号分隔，R1 和 R2 文件以分号分隔。
+⚠️ <strong>注意</strong>：多个 fastq 文件以逗号分隔，R1 和 R2 文件以分号分隔。
 </div>
 
 ```tsv
@@ -412,43 +411,67 @@ $dnbc4tools rna run \
 在对试剂版本和暗反应自动检测后，软件开始运行分析，以下是一个示例：
 
 ```shell
-2025-06-04 16:29:35 Performing RNA data processing
-Chemistry(darkreaction) determined in oligoR1: darkreaction
-Chemistry(darkreaction) determined in oligoR2: darkreaction
-Chemistry(darkreaction) determined in cDNAR1: darkreaction
+──────────────────────────── Parsed FASTQ Inputs — 2025-11-12 15:00:24 ─────────────────────────────
+┌─────────────┬────────────────────────────────────────────────────────────────────────────────────┐
+│ Type        │ Path                                                                               │
+├─────────────┼────────────────────────────────────────────────────────────────────────────────────┤
+│ cDNA Read1  │ /data/test_cDNA_R1.fastq.gz                                                        │
+│ cDNA Read2  │ /data/test_cDNA_R2.fastq.gz                                                        │
+│ oligo Read1 │ /data/test_oligo_1_R1.fastq.gz                                                     │
+│ oligo Read2 │ /data/test_oligo_2_R2.fastq.gz                                                     │
+└─────────────┴────────────────────────────────────────────────────────────────────────────────────┘
+────────────────────────────────────────────────────────────────────────────────────────────────────
 
-2025-06-04 16:29:37 Processing oligo library filtering...
+
+──────────────────────────── Chemistry Detection — 2025-11-12 15:00:31 ─────────────────────────────
+┌───────────────────────────────────────────────┬──────────────────────────────────────────────────┐
+│ Type                                          │ Result                                           │
+├───────────────────────────────────────────────┼──────────────────────────────────────────────────┤
+│ oligo Read1                                   │ darkreaction                                     │
+│ oligo Read2                                   │ darkreaction                                     │
+└───────────────────────────────────────────────┴──────────────────────────────────────────────────┘
+────────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+──────────────────────────── Chemistry Detection — 2025-11-12 15:00:31 ─────────────────────────────
+┌─────────────────────────────────────────────┬────────────────────────────────────────────────────┐
+│ Type                                        │ Result                                             │
+├─────────────────────────────────────────────┼────────────────────────────────────────────────────┤
+│ cDNA Read1                                  │ darkreaction                                       │
+└─────────────────────────────────────────────┴────────────────────────────────────────────────────┘
+────────────────────────────────────────────────────────────────────────────────────────────────────
+
+ 2025-11-12 15:00:31 Starting oligo library filtering...                                            
 ...done
 
-2025-06-04 16:59:39 Processing cDNA library filtering...
+ 2025-11-12 15:05:53 Starting cDNA library filtering...                                             
 ...done
 
-2025-06-04 17:50:10 Processing alignment and counting...
+ 2025-11-12 15:07:49 Performing read alignment and UMI counting...                                  
 ...done
 
-2025-06-05 01:20:56 Calculating bead similarity, merging beads within the same droplet...
+ 2025-11-12 15:15:25 Calculating bead similarity and merging beads within droplets...               
 ...done
 
-2025-06-05 01:22:17 Generating raw gene expression matrix...
+ 2025-11-12 15:15:41 Generating raw gene expression matrix...                                       
 ...done
 
-2025-06-05 01:31:38 Generating cell-filtered gene expression matrix...
+ 2025-11-12 15:17:24 Generating cell-filtered gene expression matrix...                             
 ...done
 
-2025-06-05 01:33:07 Calculating sequencing saturation metrics...
+ 2025-11-12 15:17:43 Calculating sequencing saturation metrics...                                   
 ...done
 
-2025-06-05 01:34:23 Generating position-sorted BAM file...
+ 2025-11-12 15:18:08 Generating position-sorted BAM file...                                         
 ...done
 
-2025-06-05 02:23:17 Performing dimensionality reduction and clustering analysis...
+ 2025-11-12 15:24:46 Performing dimensionality reduction and clustering analysis...                 
 ...done
 
-2025-06-05 02:24:57 Generating analysis report and summary statistics...
+ 2025-11-12 15:27:21 Generating analysis report and summary statistics...                           
 ...done
 
-Analysis Finished
-Elapsed Time: 9:56:09
+Analysis Finished Elapsed Time: 0:28:56
 ```
 
 当出现 `Analysis Finished` 消息时，表示分析已成功完成。

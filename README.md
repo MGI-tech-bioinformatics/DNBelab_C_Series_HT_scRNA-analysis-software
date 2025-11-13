@@ -2,10 +2,7 @@
 
 # DNBelab C Series™ HT Single-Cell Analysis Software
 
-[![Github Release](https://img.shields.io/github/v/release/MGI-tech-bioinformatics/DNBelab_C_Series_HT_scRNA-analysis-software)](https://github.com/MGI-tech-bioinformatics/DNBelab_C_Series_HT_scRNA-analysis-software/releases)
-[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-[![Documentation](https://img.shields.io/badge/docs-latest-brightgreen.svg)](https://lishuangshuang0616.github.io/DNBelab_C_Series_HT_scRNA-analysis-software/Document/README.html)
-[![Platform](https://img.shields.io/badge/platform-Linux-lightgrey.svg)](#system-requirements)
+[![Github Release](https://img.shields.io/github/v/release/MGI-tech-bioinformatics/DNBelab_C_Series_HT_scRNA-analysis-software)](https://github.com/MGI-tech-bioinformatics/DNBelab_C_Series_HT_scRNA-analysis-software/releases) [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE) [![Documentation](https://img.shields.io/badge/docs-latest-brightgreen.svg)](https://lishuangshuang0616.github.io/DNBelab_C_Series_HT_scRNA-analysis-software/Document/README.html) [![Platform](https://img.shields.io/badge/platform-Linux-lightgrey.svg)](#system-requirements)
 
 **The official pipeline for flexible and high-performance analysis of DNBelab C Series™ single-cell data.**
 
@@ -84,7 +81,7 @@ The command-line tool for this pipeline is named **`dnbc4tools`**.
 
 ## 🚀 What's New
 
-### What's New in v3.0 (Beta)
+### What's New in v3.0 (RC)
 
 <details open>
 <summary><strong>New Features & Improvements</strong></summary>
@@ -107,7 +104,7 @@ The command-line tool for this pipeline is named **`dnbc4tools`**.
 
 </details>
 
-> **Note**: This is a feature-complete beta release. It is intended for testing and feedback. For production use, please use the [latest stable version](https://github.com/MGI-tech-bioinformatics/DNBelab_C_Series_HT_scRNA-analysis-software/releases).
+> **Note**: This is a Release Candidate (RC). It is intended for staging and pre-production validation; not recommended for mission-critical production. For production use, please use the [latest stable release](https://github.com/MGI-tech-bioinformatics/DNBelab_C_Series_HT_scRNA-analysis-software/releases).
 
 **Full Release History**: [Release Notes](./doc/release.md)
 

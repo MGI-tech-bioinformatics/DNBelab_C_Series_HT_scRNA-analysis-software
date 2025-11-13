@@ -1,6 +1,6 @@
 <div align="right">
 
-[🏠 Home](../../README.md) | [🌐 Chinese](scATAC.md)
+[🏠 Home](../../README.md) | [🌐 中文](scATAC.md)
 
 </div>
 
@@ -10,7 +10,7 @@
 
 **A Complete Guide to Single-Cell ATAC Sequencing Analysis Output Files**
 
-[📁 Directory Structure](#directory-structure) • [📋 File Details](#file-details) • [🧬 Data Matrix](#peak-matrix) • [📊 Analysis Summary](#analysis-summary) • [📊 Report Interpretation](#report-interpretation)
+[📁 Directory Structure](#directory-structure) • [📋 File Details](#file-details) • [🧬 Data Matrix](#peak-matrix-files) • [📊 Analysis Summary](#analysis-summary) • [📊 Report Interpretation](#web-report-interpretation)
 
 </div>
 
@@ -203,7 +203,7 @@ The index file for `alignment.fragments.sorted.tagged.bam`.
 
 ---
 
-### 📈 Peak Matrix <a id="peak-matrix"></a>
+### 📈 Peak Matrix Files <a id="peak-matrix-files"></a>
 
 <div align="center">
 
@@ -345,7 +345,7 @@ An interactive, comprehensive analysis report in HTML web format.
 
 *   **Content & Format**:
     *   Can be opened in any modern browser without an internet connection.
-    *   For a detailed interpretation of the report, please refer to the [Web Report Interpretation](#report-interpretation) section below.
+    *   For a detailed interpretation of the report, please refer to the [Web Report Interpretation](#web-report-interpretation) section below.
     *   Key content modules included are as follows:
         <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
         <thead>
@@ -410,7 +410,7 @@ Market Exchange Format (MEX) is a standard format for storing sparse count matri
 
 ---
 
-## 📊 Web Report Interpretation <a id="report-interpretation"></a>
+## 📊 Web Report Interpretation <a id="web-report-interpretation"></a>
 
 <div align="center">
 
@@ -418,11 +418,11 @@ Market Exchange Format (MEX) is a standard format for storing sparse count matri
 
 </div>
 
-HTML web report is a comprehensive display platform for single-cell ATAC sequencing analysis, integrating complete results from data quality control to downstream epigenomic analysis. The report uses interactive visualization design to help users quickly evaluate experiment quality, understand analysis results and guide subsequent research directions.
+The HTML web report is a comprehensive display platform for single-cell ATAC sequencing analysis, integrating complete results from data quality control to downstream epigenomic analysis. The report uses interactive visualization design to help users quickly evaluate experiment quality, understand analysis results and guide subsequent research directions.
 
 > 💡 **Usage Suggestion**: It is recommended to review the metrics in the order they are presented in the report.
 
-> ⚠️ **Quality Standards**: Recommended thresholds and quality levels are provided for each metric. Please conduct a comprehensive evaluation based on specific experimental goals.
+> **Note**: The following standards are for reference only. Actual quality assessment should consider factors such as sample type, cell state, and experimental goals. Since significant differences can exist between samples, we recommend interpreting the results in the context of your specific experimental background.
 
 ### 📊 Main Report Content and Structure
 
@@ -459,12 +459,6 @@ HTML web report is a comprehensive display platform for single-cell ATAC sequenc
 <td align="left">≥ 10,000</td>
 <td align="left">2,000–10,000</td>
 <td align="left">< 2,000</td>
-</tr>
-<tr>
-<td align="left"><strong>TSS enrichment score</strong></td>
-<td align="left">≥ 6</td>
-<td align="left">4–6</td>
-<td align="left">< 4</td>
 </tr>
 <tr>
 <td align="left"><strong>Median fraction of fragments overlapping peaks</strong></td>
@@ -597,7 +591,7 @@ HTML web report is a comprehensive display platform for single-cell ATAC sequenc
 <li><strong>Definition</strong>: The proportion of all valid fragments that are successfully assigned to a high-quality cell ID.</li>
 <li><strong>Biological Significance</strong>: Reflects the efficiency of cell capture and the signal-to-noise ratio.</li>
 <li><strong>Quality Interpretation</strong>:
-<ul><li><strong>High-Quality Sample</strong>: A high ratio (e.g., > 50%) indicates high cell capture efficiency and low background noise.</li><li><strong>Quality Issue</strong>: A low ratio may indicate poor sample quality or library construction anomalies.</li></ul>
+<ul><li><strong>Quality Issue</strong>: A low ratio may indicate poor sample quality or library construction anomalies.</li></ul>
 </li>
 </ul>
 </td>
@@ -662,7 +656,7 @@ HTML web report is a comprehensive display platform for single-cell ATAC sequenc
 <td align="left">< 75%</td>
 </tr>
 <tr>
-<td align="left"><strong>Reads mapped to genome</strong></td>
+<td align="left"><strong>Confidently mapped read pairs</strong></td>
 <td align="left">> 80%</td>
 <td align="left">50–80%</td>
 <td align="left">< 50%</td>
@@ -682,7 +676,7 @@ HTML web report is a comprehensive display platform for single-cell ATAC sequenc
 <tbody>
 <tr>
 <td align="left">
-<strong>Total read pairs</strong><br>
+<strong>Total number of reads pairs</strong><br>
 <em></em>
 </td>
 <td>
@@ -707,7 +701,7 @@ HTML web report is a comprehensive display platform for single-cell ATAC sequenc
 </tr>
 <tr>
 <td align="left">
-<strong>Reads mapped to genome</strong><br>
+<strong>Confidently mapped read pairs</strong><br>
 <em></em>
 </td>
 <td>
@@ -847,11 +841,11 @@ Shows the insertion length distribution of deduplicated ATAC-seq fragments, whic
 
 **How to Interpret**:
 *   **Periodic Peaks**:
-    *   **< 200 bp (mainly ~100bp)**: The first major peak, representing fragments from **Nucleosome-Free Regions (NFR)**, i.e., open chromatin.
-    *   **~200 bp - ~400 bp**: The second peak, representing fragments containing a **single nucleosome**.
-    *   **~400 bp and above**: Subsequent peaks, representing fragments containing **di- and tri-nucleosomes**, reflecting higher-order chromatin structure.
+    *   **<100 bp**: The first major peak, representing fragments from **Nucleosome-Free Regions (NFR)**, i.e., open chromatin.
+    *   **~200 bp**: The second peak, representing fragments containing a **single nucleosome**.
+    *   **~400 bp, ~600 bp**: Subsequent peaks, representing fragments containing **di- and tri-nucleosomes**.
 *   **Quality Assessment**:
-    *   **High-Quality Sample**: Exhibits clear, periodic peaks (~200bp periodicity); a prominent NFR peak; and potentially a small 10.5bp periodicity from the DNA helix.
+    *   **High-Quality Sample**: Exhibits clear, periodic peaks with a ~200bp periodicity, and a prominent NFR peak. This indicates good nuclear integrity and clear chromatin structure.
     *   **Poor-Quality Sample**: A flat curve with no periodic features, which usually implies sample over-lysis and destruction of chromatin structure.
 
 ---
@@ -867,7 +861,7 @@ Shows the insertion length distribution of deduplicated ATAC-seq fragments, whic
 *   **Biological Significance**: This is a key metric for measuring library complexity and sequencing saturation.
 *   **Quality Interpretation**: 
     *   A high duplication rate (e.g., > 20-30%) usually indicates that sequencing depth is nearing saturation.
-    *   A very low duplication rate (e.g., < 10%) may suggest insufficient sequencing depth.
+    *   A very low duplication rate (e.g., < 10%) may suggest insufficient sequencing depth, and more sequencing is recommended to discover more unique fragments.
 
 <div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
 
@@ -893,12 +887,12 @@ Identifies potential cell subgroups by clustering cells with similar chromatin a
 
 **How to Interpret**:
 *   **Left Plot (Cell Type Clustering)**:
-    *   **Content**: Unsupervised clustering based on chromatin accessibility data using the Louvain algorithm.
-    *   **Coordinates**: High-dimensional data is projected into 2D space using the UMAP algorithm.
-    *   **Interpretation**: Each dot is a cell. Different colors represent different clusters, which may correspond to different cell types or states. Cells that are spatially close have more similar open chromatin patterns.
+    *   Each dot is a cell.
+    *   Different colors represent different clusters, which may correspond to different cell types or states.
+    *   Cells that are spatially close have more similar open chromatin patterns.
 *   **Right Plot (Fragment Count Distribution)**:
-    *   **Content**: Overlays the total fragment count for each cell onto the same UMAP coordinates using a color gradient.
-    *   **Interpretation**: Deeper colors indicate higher fragment counts and better data quality. This can help validate the reliability of clusters and identify clusters that may be composed of low-quality cells.
+    *   Overlays the total fragment count for each cell onto the same UMAP coordinates using a color gradient.
+    *   Deeper colors indicate higher fragment counts and better data quality. This can help validate the reliability of clusters and identify clusters that may be composed of low-quality cells.
 
 <div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
 
@@ -909,7 +903,7 @@ Displays the enrichment of ATAC-seq fragment cleavage sites around the Transcrip
 
 **How to Interpret**:
 *   **Axes**:
-    *   **X-axis**: Position relative to the TSS (0 is the TSS), typically showing a range of ±1,000 bp.
+    *   **X-axis**: Position relative to the TSS (0 is the TSS).
     *   **Y-axis**: Normalized signal intensity (cleavage frequency).
 *   **Key Feature**: A high-quality ATAC-seq experiment will show a sharp, prominent enrichment peak at the TSS center (point 0), with the signal dropping off rapidly on either side.
 *   **Quality Assessment**:
@@ -953,14 +947,13 @@ Assesses the sufficiency of sequencing depth and data complexity, i.e., whether 
 ##### 📊 Bead Similarity Ranking
 
 **Chart Function**:
-Used in the C4 ATAC technology to merge multiple beads from the same cell droplet by calculating Jaccard similarity, a key step to ensure unique cell identity.
+Used in the C4 ATAC technology to merge multiple beads from the same cell droplet by calculating Jaccard similarity.
 
 **How to Interpret**:
-*   **Technical Background**: In C4 ATAC, a single droplet can contain multiple beads. To get accurate single-cell data, fragments originating from the same cell must be merged.
 *   **Axes**:
     *   **X-axis**: All pairs of beads, ranked in descending order by their Jaccard similarity value.
     *   **Y-axis**: The Jaccard similarity index (log scale).
-*   **Merging Strategy**:
+*   **Key Feature**:
     *   **Blue Area**: Jaccard similarity is higher than the threshold automatically calculated by the Otsu algorithm. These bead pairs are considered to be from the same cell, and their fragments will be merged.
     *   **Gray Area**: Jaccard similarity is below the threshold. These are considered beads from different cells and are not merged.
 
@@ -988,7 +981,7 @@ Used in the C4 ATAC technology to merge multiple beads from the same cell drople
 </tr>
 <tr>
 <td align="left"><strong>🔬 Analysis Pipeline</strong></td>
-<td><a href="../pipeline.md">Analysis Pipeline Description</a> - Technical details of the entire analysis workflow.</td>
+<td><a href="../pipeline/pipeline.md">Analysis Pipeline Description</a> - Technical details of the entire analysis workflow.</td>
 </tr>
 <tr>
 <td align="left"><strong>🔧 Installation & Setup</strong></td>
@@ -997,17 +990,19 @@ Used in the C4 ATAC technology to merge multiple beads from the same cell drople
 </tbody>
 </table>
 
+
+
 <div align="center">
 
-> 💡 **Tip**
+> 💡 <strong>Tip</strong>
 > 
 > This document is continuously updated. If you find any errors or have information to add, feedback is welcome.
 > 
-> 📝 **Document Version:** 3.0 beta | **Last Updated:** 2025
+> 📝 <strong>Document Version:</strong> 3.0 | <strong>Last Updated:</strong> 2025
 
 ---
 
-**🔬 DNBelab C Series HT scATAC Analysis Software**  
-*A High-Performance Pipeline for Single-Cell ATAC Sequencing Data Analysis*
+<strong>🔬 DNBelab C Series HT scATAC Analysis Software</strong>  
+<em>A High-Performance Pipeline for Single-Cell ATAC Sequencing Data Analysis</em>
 
 </div>

@@ -27,7 +27,7 @@ This document provides a detailed guide for analyzing single-cell VDJ sequencing
 </div>
 
 <div style="background-color: #e7f3fe; border-left: 6px solid #2196F3; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
-💡 **Usage Note**: `$dnbc4tools` represents the executable path and must be replaced with the actual installation path. The backslash `\` is used to split a command across multiple lines for readability.
+💡 <strong>Usage Note</strong>: <code>$dnbc4tools</code> represents the executable path and must be replaced with the actual installation path. The backslash `\` is used to split a command across multiple lines for readability.
 </div>
 
 ---
@@ -53,7 +53,7 @@ $dnbc4tools rna run \
 ```
 
 <div style="background-color: #fffbe6; border-left: 6px solid #ffc107; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
-⚠️ **Note**: 5' transcriptome analysis is a prerequisite for VDJ analysis and must be completed first.
+⚠️ <strong>Note</strong>: 5' transcriptome analysis is a prerequisite for VDJ analysis and must be completed first.
 </div>
 
 ### Required Files for VDJ Analysis
@@ -82,7 +82,7 @@ The analysis requires the following files:
 The analysis requires the `singlecell.csv` file from the 5' transcriptome analysis output directory. This file contains merged information from the `cell` and `barcode` columns, as well as an `is_cell_barcode` column (1 for a cell, 0 for a non-cell), which is used to identify valid cells.
 
 <div style="background-color: #fffbe6; border-left: 6px solid #ffc107; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
-⚠️ **Note**: Ensure the path to the `singlecell.csv` file is correct, as this file is crucial for linking the transcriptome and VDJ analyses.
+⚠️ <strong>Note</strong>: Ensure the path to the <code>singlecell.csv</code> file is correct, as this file is crucial for linking the transcriptome and VDJ analyses.
 </div>
 
 Example file content:
@@ -147,31 +147,46 @@ $dnbc4tools vdj run \
 After auto-detecting the dark reaction, the software begins the analysis. Here is an example:
 
 ```shell
-2025-04-23 23:01:01 Performing VDJ data processing
-Chemistry(darkreaction) determined in fastqR1: darkreaction
+──────────────────────────── Parsed FASTQ Inputs — 2025-11-12 15:13:16 ─────────────────────────────
+┌───────┬──────────────────────────────────────────────────────────────────────────────────────────┐
+│ Type  │ Path                                                                                     │
+├───────┼──────────────────────────────────────────────────────────────────────────────────────────┤
+│ Read1 │ /data/test_ATAC_R1.fastq.gz                                                              │
+│ Read2 │ /data/test_ATAC_R2.fastq.gz                                                              │
+└───────┴──────────────────────────────────────────────────────────────────────────────────────────┘
+────────────────────────────────────────────────────────────────────────────────────────────────────
 
-2025-04-23 23:01:02 Processing VDJ library filtering...
+
+──────────────────────────── Chemistry Detection — 2025-11-12 15:13:20 ─────────────────────────────
+┌─────────────────────────────────┬────────────────────────────────────────────────────────────────┐
+│ Type                            │ Result                                                         │
+├─────────────────────────────────┼────────────────────────────────────────────────────────────────┤
+│ Read1                           │ darkreaction                                                   │
+└─────────────────────────────────┴────────────────────────────────────────────────────────────────┘
+────────────────────────────────────────────────────────────────────────────────────────────────────
+
+ 2025-11-12 15:13:20 Starting VDJ library filtering...                                              
 ...done
 
-2025-04-23 23:31:13 Preparing data for VDJ assembly...
+ 2025-11-12 15:15:46 Preparing input data for VDJ assembly...                                       
 ...done
 
-2025-04-24 00:21:14 Sequence Assembly and annotation of VDJ Gene Segments
+ 2025-11-12 15:18:14 Performing VDJ sequence assembly and gene segment annotation...                
 ...done
 
-2025-04-24 02:49:16 Cell calling for VDJ analysis...
+ 2025-11-12 16:03:18 Performing cell calling for VDJ data...                                        
 ...done
 
-2025-04-24 02:51:52 Generating VDJ clonotype analysis...
+ 2025-11-12 16:04:02 Generating VDJ clonotype analysis...                                           
 ...done
 
-2025-04-24 02:53:49 Converting VDJ results from cellbarcode to cellid...
+ 2025-11-12 16:05:02 Converting VDJ results from cellbarcode to cell ID...                          
 ...done
 
-2025-04-24 02:53:58 Statistical analysis and report generation for results.
+ 2025-11-12 16:05:15 Generating analysis report and summary statistics...                           
 ...done
 
-Analysis Finished Elapsed Time: 3:53:07
+Analysis Finished Elapsed Time: 0:52:24
 ```
 
 A successful run will end with `Analysis Finished`.
