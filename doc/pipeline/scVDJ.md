@@ -27,7 +27,7 @@
 </div>
 
 <div style="background-color: #e7f3fe; border-left: 6px solid #2196F3; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
-💡 **使用说明**：`$dnbc4tools` 代表可执行程序路径，使用时需要替换为实际安装路径。换行符 `\` 用于在命令行中将命令分为多行，以提高可读性。
+💡 <strong>使用说明</strong>：<code>$dnbc4tools</code> 代表可执行程序路径，使用时需要替换为实际安装路径。换行符 `\` 用于在命令行中将命令分为多行，以提高可读性。
 </div>
 
 ---
@@ -53,7 +53,7 @@ $dnbc4tools rna run \
 ```
 
 <div style="background-color: #fffbe6; border-left: 6px solid #ffc107; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
-⚠️ **注意**：5端转录组分析是VDJ分析的前提，需要先完成此步骤才能进行后续分析。
+⚠️ <strong>注意</strong>：5端转录组分析是VDJ分析的前提，需要先完成此步骤才能进行后续分析。
 </div>
 
 ### VDJ分析所需文件
@@ -82,7 +82,7 @@ $dnbc4tools rna run \
 分析需要5'端转录组分析结果目录中的 `singlecell.csv` 文件。该文件包含 `cell` 和 `barcode` 列的合并信息，以及 `is_cell_barcode` 列（1表示细胞，0表示非细胞），用于鉴定有效的细胞。
 
 <div style="background-color: #fffbe6; border-left: 6px solid #ffc107; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
-⚠️ **注意**：确保singlecell.csv文件路径正确，该文件是连接转录组和VDJ分析的关键。
+⚠️ <strong>注意</strong>：确保singlecell.csv文件路径正确，该文件是连接转录组和VDJ分析的关键。
 </div>
 
 参考示例文件内容：
@@ -147,31 +147,46 @@ $dnbc4tools vdj run \
 在对暗反应自动检测后，软件开始运行分析，以下是一个示例：
 
 ```shell
-2025-04-23 23:01:01 Performing VDJ data processing
-Chemistry(darkreaction) determined in fastqR1: darkreaction
+──────────────────────────── Parsed FASTQ Inputs — 2025-11-12 15:13:16 ─────────────────────────────
+┌───────┬──────────────────────────────────────────────────────────────────────────────────────────┐
+│ Type  │ Path                                                                                     │
+├───────┼──────────────────────────────────────────────────────────────────────────────────────────┤
+│ Read1 │ /data/test_ATAC_R1.fastq.gz                                                              │
+│ Read2 │ /data/test_ATAC_R2.fastq.gz                                                              │
+└───────┴──────────────────────────────────────────────────────────────────────────────────────────┘
+────────────────────────────────────────────────────────────────────────────────────────────────────
 
-2025-04-23 23:01:02 Processing VDJ library filtering...
+
+──────────────────────────── Chemistry Detection — 2025-11-12 15:13:20 ─────────────────────────────
+┌─────────────────────────────────┬────────────────────────────────────────────────────────────────┐
+│ Type                            │ Result                                                         │
+├─────────────────────────────────┼────────────────────────────────────────────────────────────────┤
+│ Read1                           │ darkreaction                                                   │
+└─────────────────────────────────┴────────────────────────────────────────────────────────────────┘
+────────────────────────────────────────────────────────────────────────────────────────────────────
+
+ 2025-11-12 15:13:20 Starting VDJ library filtering...                                              
 ...done
 
-2025-04-23 23:31:13 Preparing data for VDJ assembly...
+ 2025-11-12 15:15:46 Preparing input data for VDJ assembly...                                       
 ...done
 
-2025-04-24 00:21:14 Sequence Assembly and annotation of VDJ Gene Segments
+ 2025-11-12 15:18:14 Performing VDJ sequence assembly and gene segment annotation...                
 ...done
 
-2025-04-24 02:49:16 Cell calling for VDJ analysis...
+ 2025-11-12 16:03:18 Performing cell calling for VDJ data...                                        
 ...done
 
-2025-04-24 02:51:52 Generating VDJ clonotype analysis...
+ 2025-11-12 16:04:02 Generating VDJ clonotype analysis...                                           
 ...done
 
-2025-04-24 02:53:49 Converting VDJ results from cellbarcode to cellid...
+ 2025-11-12 16:05:02 Converting VDJ results from cellbarcode to cell ID...                          
 ...done
 
-2025-04-24 02:53:58 Statistical analysis and report generation for results.
+ 2025-11-12 16:05:15 Generating analysis report and summary statistics...                           
 ...done
 
-Analysis Finished Elapsed Time: 3:53:07
+Analysis Finished Elapsed Time: 0:52:24
 ```
 
 成功的运行会以 `Analysis Finished` 结束。

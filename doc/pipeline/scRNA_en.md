@@ -27,7 +27,7 @@ This document provides a complete guide on how to use dnbc4tools for single-cell
 </div>
 
 <div style="background-color: #e7f3fe; border-left: 6px solid #2196F3; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
-💡 **Usage Note**: `$dnbc4tools` represents the executable path and must be replaced with the actual installation path. The backslash `\` is used to split a command across multiple lines for readability.
+💡 <strong>Usage Note</strong>: <code>$dnbc4tools</code> represents the executable path and must be replaced with the actual installation path. The backslash `\` is used to split a command across multiple lines for readability.
 </div>
 
 ---
@@ -56,7 +56,7 @@ Two types of FASTQ files are required for the analysis:
 </table>
 
 <div style="background-color: #fffbe6; border-left: 6px solid #ffc107; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
-⚠️ **Note**: Ensure that the FASTQ files are of good quality and record their paths for subsequent analysis.
+⚠️ <strong>Note</strong>: Ensure that the FASTQ files are of good quality and record their paths for subsequent analysis.
 </div>
 
 ---
@@ -88,12 +88,12 @@ Two types of FASTQ files are required for the analysis:
 </table>
 
 <div style="background-color: #e7f3fe; border-left: 6px solid #2196F3; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
-💡 **Recommended Data Source**: It is recommended to use files from the [Ensembl database](https://www.ensembl.org/index.html). Ensembl's GTF files contain optional tags that facilitate filtering with `dnbc4tools tools mkgtf`.
+💡 <strong>Recommended Data Source</strong>: It is recommended to use files from the [Ensembl database](https://www.ensembl.org/index.html). Ensembl's GTF files contain optional tags that facilitate filtering with <code>dnbc4tools tools mkgtf</code>.
 </div>
 
 **GTF File Requirements**:
-- Must contain annotations of type "gene" or "transcript" as well as "exon".
-- Attributes must include "gene_id" or "gene_name" and "transcript_id" or "transcript_name".
+- Must contain annotations of type <code>gene</code> or <code>transcript</code> as well as <code>exon</code>.
+- Attributes must include <code>gene_id</code> or <code>gene_name</code> and <code>transcript_id</code> or <code>transcript_name</code>.
 - The GFF file format is not supported.
 - The genome file and annotation file must be from corresponding versions.
 
@@ -138,7 +138,131 @@ $dnbc4tools tools mkgtf \
 ```
 
 <div style="background-color: #fffbe6; border-left: 6px solid #ffc107; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
-⚠️ **Note**: You need to check the tags in the GTF file to determine the `type`.
+⚠️ <strong>Note</strong>: You need to check the tags in the GTF file to determine the <code>type</code>.
+</div>
+
+<div align="center">
+  <img src="https://s2.loli.net/2024/10/09/afGqtQocTE9h3uR.png" alt="GTF File Type Example" width="800">
+</div>
+
+Example Output:
+
+```shell
+$cat gtf_type.txt
+Type    Count
+protein_coding  20006
+lncRNA  17755
+processed_pseudogene    10159
+unprocessed_pseudogene  2605
+misc_RNA        2221
+snRNA   1910
+miRNA   1879
+TEC     1056
+transcribed_unprocessed_pseudogene      950
+snoRNA  943
+transcribed_processed_pseudogene        503
+rRNA_pseudogene 497
+IG_V_pseudogene 187
+transcribed_unitary_pseudogene  146
+IG_V_gene       145
+......
+```
+
+#### Correct GTF File
+
+If a GTF file has incomplete content, the main analysis pipeline may fail due to incomplete annotations. This function can automatically fill in missing information in gene and transcript entries to ensure the pipeline runs smoothly.
+
+```shell
+# Correct GTF file
+$dnbc4tools tools mkgtf \
+  --action check \
+  --ingtf genes.gtf \
+  --output corrected.gtf
+```
+
+The software cross-references `gene_id` with `gene_name` and `transcript_id` with `transcript_name` to fill in missing details and flags locations where multiple gene information might exist.
+
+#### Filter Gene Types
+
+```shell
+# Filter gene types
+$dnbc4tools tools mkgtf \
+  --ingtf genes.gtf \
+  --output genes.filter.gtf \
+  --type gene_biotype
+```
+
+Default included gene types:
+```
+protein_coding
+lncRNA/lincRNA
+antisense
+IG_V_gene
+IG_LV_gene
+IG_D_gene
+IG_J_gene
+IG_C_gene
+IG_V_pseudogene
+IG_J_pseudogene
+IG_C_pseudogene
+TR_V_gene
+TR_D_gene
+TR_J_gene
+TR_C_gene
+```
+
+You can also use the `include` parameter to customize the gene types to be retained:
+
+```shell
+# Custom gene type filtering
+$dnbc4tools tools mkgtf \
+  --ingtf genes.gtf \
+  --output genes.filter.gtf \
+  --type gene_biotype \
+  --include protein_coding,lncRNA,lincRNA,\
+        antisense,IG_V_gene,IG_LV_gene,IG_J_gene,\
+        IG_C_gene,IG_V_pseudogene,IG_J_pseudogene,\
+        IG_C_pseudogene,TR_V_gene,TR_D_gene,TR_J_gene,TR_C_gene
+```
+
+We provide three functions for GTF file processing:
+
+<table style="width:100%; border-collapse: collapse; margin: 1.5em 0; box-shadow: 0 2px 3px rgba(0,0,0,0.1);">
+  <thead style="background-color: #f2f2f2; border-bottom: 2px solid #ddd;">
+    <tr>
+      <th style="padding: 12px 15px; border: 1px solid #ddd; text-align: left;">Function</th>
+      <th style="padding: 12px 15px; border: 1px solid #ddd; text-align: left;">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;"><b>Gene Type Statistics</b></td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;">Count the number of various gene types in a GTF file.</td>
+    </tr>
+    <tr>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;"><b>Correct GTF File</b></td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;">Fill in missing information to ensure the GTF file meets analysis requirements.</td>
+    </tr>
+    <tr>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;"><b>Filter Gene Types</b></td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;">Filter specific gene types based on research needs.</td>
+    </tr>
+  </tbody>
+</table>
+
+#### Gene Type Statistics
+
+```shell
+# Count gene type quantities
+$dnbc4tools tools mkgtf \
+  --action stat \
+  --ingtf genes.gtf \
+  --output gtfstat.txt \
+  --type gene_biotype
+```
+
+<div style="background-color: #fffbe6; border-left: 6px solid #ffc107; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
+⚠️ <strong>Note</strong>: You need to check the tags in the GTF file to determine the <code>type</code>.
 </div>
 
 <div align="center">
@@ -285,35 +409,34 @@ The `ref.json` file records the main information of the database.
     ],
     "mtgenes": "/opt/database/Homo_sapiens/star/mtgene.list",
     "species": "Homo_sapiens",
-    "version": "dnbc4tools 3.0beta"
+    "version": "dnbc4tools 3.0"
 }
 ```
 
 <div style="background-color: #fffbe6; border-left: 6px solid #ffc107; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
-⚠️ **Note**: Building the reference database can be time-consuming, depending on the genome size and computational resources. The main analysis pipeline is compatible with older database versions.
+⚠️ <code>Note</code>: Building the reference database can be time-consuming, depending on the genome size and computational resources. The main analysis pipeline is compatible with older database versions.
 </div>
 
 The following information will be printed during runtime:
 
 ```shell
-Creating new reference folder at /opt/database/Homo_sapiens
+2025-11-12 15:56:12 Creating new reference folder at /opt/database/Homo_sapiens
 ...done
 
-Writing genome FASTA file into reference folder...
+ 2025-11-12 15:56:12 Writing genome FASTA file into reference folder...                             
 ...done
 
-Indexing genome FASTA file...
+ 2025-11-12 15:56:14 Indexing genome FASTA file...                                                  
 ...done
 
-Writing genes GTF file into reference folder...
+ 2025-11-12 15:56:15 Writing genes GTF file into reference folder...                                
 ...done
 
-Generating STAR genome index...
-...done.
-
-Writing Reference JSON file into reference folder...
+ 2025-11-12 15:57:11 Generating STAR genome index...                                                
 ...done
 
+ 2025-11-12 15:59:29 Writing Reference JSON file into reference folder...                           
+...done
 Analysis Complete
 ```
 
@@ -358,7 +481,7 @@ The `sample.tsv` file is tab-separated (`\t`) and contains three columns:
 </table>
 
 <div style="background-color: #fffbe6; border-left: 6px solid #ffc107; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
-⚠️ **Note**: Multiple FASTQ files should be separated by commas, and R1/R2 files by semicolons.
+⚠️ <code>Note</code>: Multiple FASTQ files should be separated by commas, and R1/R2 files by semicolons.
 </div>
 
 ```tsv
@@ -409,43 +532,67 @@ $dnbc4tools rna run \
 After auto-detecting the reagent version and dark reaction, the software begins the analysis. Here is an example:
 
 ```shell
-2025-06-04 16:29:35 Performing RNA data processing
-Chemistry(darkreaction) determined in oligoR1: darkreaction
-Chemistry(darkreaction) determined in oligoR2: darkreaction
-Chemistry(darkreaction) determined in cDNAR1: darkreaction
+──────────────────────────── Parsed FASTQ Inputs — 2025-11-12 15:00:24 ─────────────────────────────
+┌─────────────┬────────────────────────────────────────────────────────────────────────────────────┐
+│ Type        │ Path                                                                               │
+├─────────────┼────────────────────────────────────────────────────────────────────────────────────┤
+│ cDNA Read1  │ /data/test_cDNA_R1.fastq.gz                                                        │
+│ cDNA Read2  │ /data/test_cDNA_R2.fastq.gz                                                        │
+│ oligo Read1 │ /data/test_oligo_1_R1.fastq.gz                                                     │
+│ oligo Read2 │ /data/test_oligo_2_R2.fastq.gz                                                     │
+└─────────────┴────────────────────────────────────────────────────────────────────────────────────┘
+────────────────────────────────────────────────────────────────────────────────────────────────────
 
-2025-06-04 16:29:37 Processing oligo library filtering...
+
+──────────────────────────── Chemistry Detection — 2025-11-12 15:00:31 ─────────────────────────────
+┌───────────────────────────────────────────────┬──────────────────────────────────────────────────┐
+│ Type                                          │ Result                                           │
+├───────────────────────────────────────────────┼──────────────────────────────────────────────────┤
+│ oligo Read1                                   │ darkreaction                                     │
+│ oligo Read2                                   │ darkreaction                                     │
+└───────────────────────────────────────────────┴──────────────────────────────────────────────────┘
+────────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+──────────────────────────── Chemistry Detection — 2025-11-12 15:00:31 ─────────────────────────────
+┌─────────────────────────────────────────────┬────────────────────────────────────────────────────┐
+│ Type                                        │ Result                                             │
+├─────────────────────────────────────────────┼────────────────────────────────────────────────────┤
+│ cDNA Read1                                  │ darkreaction                                       │
+└─────────────────────────────────────────────┴────────────────────────────────────────────────────┘
+────────────────────────────────────────────────────────────────────────────────────────────────────
+
+ 2025-11-12 15:00:31 Starting oligo library filtering...                                            
 ...done
 
-2025-06-04 16:59:39 Processing cDNA library filtering...
+ 2025-11-12 15:05:53 Starting cDNA library filtering...                                             
 ...done
 
-2025-06-04 17:50:10 Processing alignment and counting...
+ 2025-11-12 15:07:49 Performing read alignment and UMI counting...                                  
 ...done
 
-2025-06-05 01:20:56 Calculating bead similarity, merging beads within the same droplet...
+ 2025-11-12 15:15:25 Calculating bead similarity and merging beads within droplets...               
 ...done
 
-2025-06-05 01:22:17 Generating raw gene expression matrix...
+ 2025-11-12 15:15:41 Generating raw gene expression matrix...                                       
 ...done
 
-2025-06-05 01:31:38 Generating cell-filtered gene expression matrix...
+ 2025-11-12 15:17:24 Generating cell-filtered gene expression matrix...                             
 ...done
 
-2025-06-05 01:33:07 Calculating sequencing saturation metrics...
+ 2025-11-12 15:17:43 Calculating sequencing saturation metrics...                                   
 ...done
 
-2025-06-05 01:34:23 Generating position-sorted BAM file...
+ 2025-11-12 15:18:08 Generating position-sorted BAM file...                                         
 ...done
 
-2025-06-05 02:23:17 Performing dimensionality reduction and clustering analysis...
+ 2025-11-12 15:24:46 Performing dimensionality reduction and clustering analysis...                 
 ...done
 
-2025-06-05 02:24:57 Generating analysis report and summary statistics...
+ 2025-11-12 15:27:21 Generating analysis report and summary statistics...                           
 ...done
 
-Analysis Finished
-Elapsed Time: 9:56:09
+Analysis Finished Elapsed Time: 0:28:56
 ```
 
 When the message `Analysis Finished` appears, the analysis is successfully completed.

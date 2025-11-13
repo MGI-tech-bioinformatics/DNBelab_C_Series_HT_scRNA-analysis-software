@@ -1,5 +1,5 @@
 <div align="right">
-  <a href="../README.md">🏠 Home</a>
+  <a href="../../README.md">🏠 Home</a>
 </div>
 
 # 🔬 Analysis Workflows
@@ -30,10 +30,10 @@
 
 | Category | Resource |
 | :--- | :--- |
-| **⚙️ General Parameters** | [Parameter Reference](../parameter/parameter_en.md) / [参数参考](../parameter/parameter.md) |
-| **🧬 RNA Parameters** | [RNA Parameters Guide](./parameter/scRNA_en.md) / [RNA 参数](./parameter/scRNA.md) |
-| **🧪 ATAC Parameters** | [ATAC Parameters Guide](./parameter/scATAC_en.md) / [ATAC 参数](./parameter/scATAC.md) |
-| **🦠 VDJ Parameters** | [VDJ Parameters Guide](./parameter/scVDJ_en.md) / [VDJ 参数](./parameter/scVDJ.md) |
+| **⚙️ General Parameters** | [Parameter Reference](../parameter/parameter.md) |
+| **🧬 RNA Parameters** | [RNA Parameters Guide](../parameter/scRNA_en.md) / [RNA 参数](../parameter/scRNA.md) |
+| **🧪 ATAC Parameters** | [ATAC Parameters Guide](../parameter/scATAC_en.md) / [ATAC 参数](../parameter/scATAC.md) |
+| **🦠 VDJ Parameters** | [VDJ Parameters Guide](../parameter/scVDJ_en.md) / [VDJ 参数](../parameter/scVDJ.md) |
 
 </details>
 

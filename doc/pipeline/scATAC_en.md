@@ -27,7 +27,7 @@ This document provides a detailed guide for analyzing single-cell ATAC sequencin
 </div>
 
 <div style="background-color: #e7f3fe; border-left: 6px solid #2196F3; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
-💡 **Usage Note**: `$dnbc4tools` represents the executable path and must be replaced with the actual installation path. The backslash `\` is used to split a command across multiple lines for readability.
+💡 <strong>Usage Note</strong>: <code>$dnbc4tools</code> represents the executable path and must be replaced with the actual installation path. The backslash `\` is used to split a command across multiple lines for readability.
 </div>
 
 ---
@@ -52,7 +52,7 @@ The analysis requires FASTQ files:
 </table>
 
 <div style="background-color: #fffbe6; border-left: 6px solid #ffc107; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
-⚠️ **Note**: Ensure that the FASTQ files are of good quality and record their paths for subsequent analysis.
+⚠️ <strong>Note</strong>: Ensure that the FASTQ files are of good quality and record their paths for subsequent analysis.
 </div>
 
 ---
@@ -84,17 +84,17 @@ The analysis requires FASTQ files:
 </table>
 
 <div style="background-color: #e7f3fe; border-left: 6px solid #2196F3; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
-💡 **Recommended Data Source**: It is recommended to use files from the [Ensembl database](https://www.ensembl.org/index.html). Ensembl's GTF files contain optional tags that facilitate filtering with `dnbc4tools tools mkgtf`.
+💡 <strong>Recommended Data Source</strong>: It is recommended to use files from the [Ensembl database](https://www.ensembl.org/index.html). Ensembl's GTF files contain optional tags that facilitate filtering with <code>dnbc4tools tools mkgtf</code>.
 </div>
 
 **GTF File Requirements**:
-- Must include annotations of type "gene" or "transcript".
+- Must include annotations of type <code>gene</code> or <code>transcript</code>.
 - The GFF file format is not supported.
 - The genome file and annotation file must be from corresponding versions.
 
 ### GTF File Processing (Optional)
 
-For details on GTF file filtering, please [refer to the scRNA analysis pipeline](./scRNA.md#gtf-file-processing-optional).
+For details on GTF file filtering, please [refer to the scRNA analysis pipeline](./scRNA_en.md#gtf-file-processing-optional).
 
 ### Build Reference Database
 
@@ -146,40 +146,39 @@ The `ref.json` file records the main information of the database:
     "chromeSize": "/opt/database/Mus_musculus/regions/chrom.sizes",
     "tss": "/opt/database/Mus_musculus/regions/tss.bed",
     "promoter": "/opt/database/Mus_musculus/regions/promoter.bed",
-    "version": "dnbc4tools 3.0beta",
+    "version": "dnbc4tools 3.0",
     "blacklist": "None",
     "genomesize": "mm"
 }
 ```
 
 <div style="background-color: #fffbe6; border-left: 6px solid #ffc107; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
-⚠️ **Note**: Building the reference database can be time-consuming, depending on the genome size and computational resources. The main analysis pipeline is compatible with older database versions.
+⚠️ <strong>Note</strong>: Building the reference database can be time-consuming, depending on the genome size and computational resources. The main analysis pipeline is compatible with older database versions.
 </div>
 
 The following information will be printed during runtime:
 
 ```shell
-Creating new reference folder at /opt/database/Mus_musculus
+ 2025-11-12 16:13:32 Creating new reference folder at /opt/database/Mus_musculus      
 ...done
 
-Writing genome FASTA file into reference folder...
+ 2025-11-12 16:13:32 Writing genome FASTA file into reference folder...                             
 ...done
 
-Indexing genome FASTA file...
+ 2025-11-12 16:13:33 Indexing genome FASTA file...                                                  
 ...done
 
-Writing genes GTF file into reference folder...
+ 2025-11-12 16:13:34 Writing genes GTF file into reference folder...                                
 ...done
 
-Extracting TSS and promoter regions from GTF file...
+ 2025-11-12 16:13:38 Extracting TSS and promoter regions from GTF file...                           
 ...done
 
-Generating Chromap genome index...
+ 2025-11-12 16:13:42 Generating Chromap genome index...                                             
 ...done
 
-Writing reference JSON file...
+ 2025-11-12 16:14:07 Writing reference JSON file...                                                 
 ...done
-
 Analysis Complete
 ```
 
@@ -220,7 +219,7 @@ The `sample.tsv` file is tab-separated (`\t`) and contains two columns:
 </table>
 
 <div style="background-color: #fffbe6; border-left: 6px solid #ffc107; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
-⚠️ **Note**:
+⚠️ <strong>Note</strong>:
 - Multiple FASTQ files should be separated by commas (`,`).
 - R1 and R2 files should be separated by semicolons (`;`).
 </div>
@@ -266,32 +265,47 @@ $dnbc4tools atac run \
 After auto-detecting the reagent version and dark reaction, the software begins the analysis. Here is an example:
 
 ```shell
-2025-06-03 16:24:27 Performing ATAC data processing
-Chemistry(darkreaction) determined in fastqR1: darkreaction
-Chemistry(darkreaction) determined in fastqR2: darkreaction
+──────────────────────────── Parsed FASTQ Inputs — 2025-11-12 15:05:39 ─────────────────────────────
+┌───────┬──────────────────────────────────────────────────────────────────────────────────────────┐
+│ Type  │ Path                                                                                     │
+├───────┼──────────────────────────────────────────────────────────────────────────────────────────┤
+│ Read1 │ /data/test_ATAC_R1.fastq.gz                                                              │
+│ Read2 │ /data/test_ATAC_R2.fastq.gz                                                              │
+└───────┴──────────────────────────────────────────────────────────────────────────────────────────┘
+────────────────────────────────────────────────────────────────────────────────────────────────────
 
-2025-06-03 16:24:30 Performing quality control and alignment on raw data...
+
+──────────────────────────── Chemistry Detection — 2025-11-12 15:05:49 ─────────────────────────────
+┌─────────────────────────────────┬────────────────────────────────────────────────────────────────┐
+│ Type                            │ Result                                                         │
+├─────────────────────────────────┼────────────────────────────────────────────────────────────────┤
+│ Read1                           │ darkreaction                                                   │
+│ Read2                           │ darkreaction                                                   │
+└─────────────────────────────────┴────────────────────────────────────────────────────────────────┘
+────────────────────────────────────────────────────────────────────────────────────────────────────
+
+ 2025-11-12 15:05:49 Performing raw data quality control and alignment...                           
 ...done
 
-2025-06-03 16:36:25 Computing bead similarity and merging beads within droplets...
+ 2025-11-12 15:24:56 Calculating bead similarity and merging beads within droplets...               
 ...done
 
-2025-06-03 16:38:21 Processing fragments for peak calling...
+ 2025-11-12 15:28:00 Processing fragments for peak calling...                                       
 ...done
 
-2025-06-03 16:40:06 Generating raw peaks matrix...
+ 2025-11-12 15:31:22 Generating raw peak count matrix...                                            
 ...done
 
-2025-06-03 16:47:30 Generating filtered peaks matrix...
+ 2025-11-12 15:38:18 Generating cell-filtered peak count matrix...                                  
 ...done
 
-2025-06-03 16:50:52 Conducting dimensionality reduction and clustering...
+ 2025-11-12 15:43:23 Performing dimensionality reduction and clustering...                          
 ...done
 
-2025-06-03 16:54:44 Statistical analysis and report generation for results...
+ 2025-11-12 15:50:03 Generating analysis report and summary statistics...                           
 ...done
 
-Analysis Finished Elapsed Time: 0:30:43
+Analysis Finished Elapsed Time: 0:44:41
 ```
 
 A successful run will end with `Analysis Finished`.

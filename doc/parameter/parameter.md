@@ -29,7 +29,7 @@ This page provides a central reference for all parameter documentation for the `
 | :--- | :--- |
 | **🚀 Getting Started** | [Quick Start Guide](../quickstart.md) |
 | **📂 Output Files** | [Output File Reference](../outs/outs.md) |
-| **🔬 Workflow Details** | [Analysis Workflows](../pipeline.md) |
+| **🔬 Workflow Details** | [Analysis Workflows](../pipeline/pipeline.md) |
 | **🔧 Setup** | [Installation Guide](../installation.md) |
 | **🆘 Support** | [Report an Issue on GitHub](https://github.com/MGI-tech-bioinformatics/DNBelab_C_Series_HT_scRNA-analysis-software/issues) |
 

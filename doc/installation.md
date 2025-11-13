@@ -55,7 +55,7 @@
 
 ## ◆ Software Download <a id="software-download"></a>
 
-### dnbc4tools 3.0 beta (Released: Oct 23, 2025)
+### dnbc4tools 3.0 rc (Released: Nov 12, 2025)
 
 <table style="width:100%; border-collapse: collapse; margin: 1.5em 0; box-shadow: 0 2px 3px rgba(0,0,0,0.1);">
   <thead style="background-color: #f2f2f2; border-bottom: 2px solid #ddd;">
@@ -67,19 +67,19 @@
   <tbody>
     <tr>
       <td style="padding: 12px 15px; border: 1px solid #ddd;"><b>File Name</b></td>
-      <td style="padding: 12px 15px; border: 1px solid #ddd;">dnbc4tools3.0beta_v5.tar.gz</td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;">dnbc4tools3.0rc.tar.gz</td>
     </tr>
     <tr>
       <td style="padding: 12px 15px; border: 1px solid #ddd;"><b>File Size</b></td>
-      <td style="padding: 12px 15px; border: 1px solid #ddd;">511M</td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;">513M</td>
     </tr>
     <tr>
       <td style="padding: 12px 15px; border: 1px solid #ddd;"><b>MD5 Checksum</b></td>
-      <td style="padding: 12px 15px; border: 1px solid #ddd;">89892ce3c60218861acc0cfbada81304</td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;">c4afc33b4d90142eba7df1da8c45bffc</td>
     </tr>
     <tr>
       <td style="padding: 12px 15px; border: 1px solid #ddd;"><b>Download</b></td>
-      <td style="padding: 12px 15px; border: 1px solid #ddd;"><a href="https://bgipan.genomics.cn/#/link/2rDAe6SsoQYpXJZv2oxB" target="_blank">BGI CloudDrive</a> (Access Code: sdH4)</td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;"><a href="https://bgipan.genomics.cn/#/link/a7myOreuJYIeJzn6Y6z3" target="_blank">BGI CloudDrive</a> (Access Code: PUaq)</td>
     </tr>
   </tbody>
 </table>
@@ -89,7 +89,7 @@
 ## ◆ Installation Process <a id="installation-process"></a>
 
 <div style="background-color: #e7f3fe; border-left: 6px solid #2196F3; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
-*dnbc4tools* is distributed as a self-contained `tar.gz` package that includes all precompiled dependencies. This allows it to run on most Linux environments without requiring additional setup.
+<em>dnbc4tools</em> is distributed as a self-contained <em>tar.gz</em> package that includes all precompiled dependencies. This allows it to run on most Linux environments without requiring additional setup.
 </div>
 
 ### Step 1: Extract the Package
@@ -101,7 +101,7 @@ Extract the dnbc4tools package to your preferred directory (example uses `/opt/s
 cd /opt/software
 
 # Extract the package
-tar -xzvf dnbc4tools3.0beta.tar.gz
+tar -xzvf dnbc4tools3.0.tar.gz
 ```
 
 ### Step 2: Verify Directory Structure 
@@ -117,23 +117,23 @@ After extraction, you should see the following directory structure:
   </thead>
   <tbody>
     <tr>
-      <td style="padding: 12px 15px; border: 1px solid #ddd;">`dnbc4tools3.0beta/dnbc4tools`</td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;"><code>dnbc4tools3.0/dnbc4tools</code></td>
       <td style="padding: 12px 15px; border: 1px solid #ddd;">Main executable</td>
     </tr>
     <tr>
-      <td style="padding: 12px 15px; border: 1px solid #ddd;">`dnbc4tools3.0beta/external`</td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;"><code>dnbc4tools3.0/external</code></td>
       <td style="padding: 12px 15px; border: 1px solid #ddd;">External dependencies</td>
     </tr>
     <tr>
-      <td style="padding: 12px 15px; border: 1px solid #ddd;">`dnbc4tools3.0beta/lib`</td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;"><code>dnbc4tools3.0/lib</code></td>
       <td style="padding: 12px 15px; border: 1px solid #ddd;">Library files</td>
     </tr>
     <tr>
-      <td style="padding: 12px 15px; border: 1px solid #ddd;">`dnbc4tools3.0beta/misc`</td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;"><code>dnbc4tools3.0/misc</code></td>
       <td style="padding: 12px 15px; border: 1px solid #ddd;">Miscellaneous files</td>
     </tr>
     <tr>
-      <td style="padding: 12px 15px; border: 1px solid #ddd;">`dnbc4tools3.0beta/sourceC4.bash`</td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;"><code>dnbc4tools3.0/sourceC4.bash</code></td>
       <td style="padding: 12px 15px; border: 1px solid #ddd;">Environment configuration script</td>
     </tr>
   </tbody>
@@ -149,7 +149,7 @@ Confirm that the installation was successful by running these commands:
 
 ```bash
 # Navigate to installation directory
-cd /opt/software/dnbc4tools3.0beta
+cd /opt/software/dnbc4tools3.0
 
 # Test basic functionality
 ./dnbc4tools --help
@@ -165,7 +165,7 @@ cd /opt/software/dnbc4tools3.0beta
 
 ## ◆ Next Steps <a id="next-steps"></a>
 
-Congratulations! You've successfully installed dnbc4tools 3.0 beta! Here's what you can do next:
+Congratulations! You've successfully installed dnbc4tools 3.0! Here's what you can do next:
 
 - 🚀 **[Run the Quick Start Tutorial](./quickstart.md)** to perform your first analysis.
 - 🧪 **[Download Sample Data](./dataset.md)** to test the pipelines.

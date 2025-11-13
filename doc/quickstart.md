@@ -20,7 +20,7 @@
 
 **Before you begin:**
 - Ensure dnbc4tools is installed. See the [Installation Guide](./installation.md).
-- In all commands, replace `$dnbc4tools` with your actual installation path (e.g., `/opt/software/dnbc4tools3.0beta/dnbc4tools`).
+- In all commands, replace `$dnbc4tools` with your actual installation path (e.g., `/opt/software/dnbc4tools3.0/dnbc4tools`).
 - The backslash `\` is used to split a single command across multiple lines for readability. It is optional.
 
 </div>
@@ -144,7 +144,7 @@ $dnbc4tools atac run \
 > Immune receptor repertoire profiling (requires 5' RNA-seq data)
 
 <div style="background-color: #fffbe6; border-left: 6px solid #ffc107; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
-⚠️ **Prerequisite**: Complete 5' scRNA analysis first to establish cell-bead correspondence.
+⚠️ <strong>Prerequisite</strong>: Complete 5' scRNA analysis first to establish cell-bead correspondence.
 </div>
 
 ### Step 1: 5' RNA Analysis

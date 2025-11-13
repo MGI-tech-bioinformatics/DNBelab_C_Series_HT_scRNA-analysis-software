@@ -783,7 +783,7 @@ The HTML web report is a comprehensive platform for displaying single-cell VDJ s
 
 > 💡 **Usage Suggestion**: It is recommended to review the metrics in the order they are presented in the report.
 
-> ⚠️ **Quality Standards**: Each metric is provided with recommended thresholds and quality levels. Please conduct a comprehensive evaluation based on your specific experimental goals.
+> **Note**: The following standards are for reference only. Actual quality assessment should consider multiple factors such as tissue type, cell state, and experimental objectives. Significant differences may exist between samples, so judgment should be based on the specific experimental context.
 
 ### 📊 Main Report Content and Structure
 
@@ -844,7 +844,7 @@ The HTML web report is a comprehensive platform for displaying single-cell VDJ s
 <tr>
 <td align="left">
 <strong>Estimated number of cells</strong><br>
-<em>Estimated Cell Count</em>
+<em></em>
 </td>
 <td>
 <ul>
@@ -859,7 +859,7 @@ The HTML web report is a comprehensive platform for displaying single-cell VDJ s
 <tr>
 <td align="left">
 <strong>Mean reads per cell</strong><br>
-<em>Mean Reads per Cell</em>
+<em></em>
 </td>
 <td>
 <ul>
@@ -877,7 +877,7 @@ The HTML web report is a comprehensive platform for displaying single-cell VDJ s
 <tr>
 <td align="left">
 <strong>Fraction of Reads in Cells</strong><br>
-<em>Fraction of Reads in Cells</em>
+<em></em>
 </td>
 <td>
 <ul>
@@ -894,7 +894,7 @@ The HTML web report is a comprehensive platform for displaying single-cell VDJ s
 <tr>
 <td align="left">
 <strong>Median TRA/TRB or IGH/IGK/IGL UMIs per cell</strong><br>
-<em>Median UMIs per Cell for Specific Chains</em>
+<em></em>
 </td>
 <td>
 <ul>
@@ -906,7 +906,7 @@ The HTML web report is a comprehensive platform for displaying single-cell VDJ s
 <tr>
 <td align="left">
 <strong>Number of cells with TRA/TRB or IGH/IGK/IGL contig</strong><br>
-<em>Cells with TRA/TRB or IGH/IGK/IGL Contigs</em>
+<em></em>
 </td>
 <td>
 <ul>
@@ -918,7 +918,7 @@ The HTML web report is a comprehensive platform for displaying single-cell VDJ s
 <tr>
 <td align="left">
 <strong>Cells with V-J spanning TRA/TRB or IGH/IGK/IGL contig</strong><br>
-<em>Cells with V-J Spanning TRA/TRB or IGH/IGK/IGL Contigs</em>
+<em></em>
 </td>
 <td>
 <ul>
@@ -930,18 +930,18 @@ The HTML web report is a comprehensive platform for displaying single-cell VDJ s
 <tr>
 <td align="left">
 <strong>Cells with productive TRA/TRB or IGH/IGK/IGL contig</strong><br>
-<em>Cells with Functional TRA/TRB or IGH/IGK/IGL Contigs</em>
+<em></em>
 </td>
 <td>
 <ul>
-<li><strong>Definition</strong>: Must simultaneously meet strict criteria: V-J spanning (for TRA/IGK/IGL) or V-D-J spanning (for TRB/IGH), `productive` is true (no frameshift mutations and a complete CDR3), and is in-frame.</li>
+<li><strong>Definition</strong>: Must simultaneously meet strict criteria: V-J spanning (for TRA/IGK/IGL) or V-D-J spanning (for TRB/IGH), <code>productive</code> is true (no frameshift mutations and a complete CDR3), and is in-frame.</li>
 </ul>
 </td>
 </tr>
 <tr>
 <td align="left">
 <strong>Paired clonotype diversity</strong><br>
-<em>Paired Clonotype Diversity</em>
+<em></em>
 </td>
 <td>
 <ul>
@@ -1016,7 +1016,7 @@ The HTML web report is a comprehensive platform for displaying single-cell VDJ s
 <tr>
 <td align="left">
 <strong>Valid barcodes</strong><br>
-<em>Valid Barcode Rate</em>
+<em></em>
 </td>
 <td>
 <ul>
@@ -1029,11 +1029,11 @@ The HTML web report is a comprehensive platform for displaying single-cell VDJ s
 <tr>
 <td align="left">
 <strong>Valid UMIs</strong><br>
-<em>Valid UMI Rate</em>
+<em></em>
 </td>
 <td>
 <ul>
-<li><strong>Definition</strong>: The proportion of all reads whose Unique Molecular Identifier (UMI) sequence does not contain 'N' bases and is not a homopolymer (e.g., AAAAAA).</li>
+<li><strong>Definition</strong>: The proportion of all reads whose Unique Molecular Identifier (UMI) sequence does not contain <code>N</code> bases and is not a homopolymer (e.g., AAAAAA).</li>
 <li><strong>Biological Significance</strong>: Reflects the sequencing quality of the UMI sequence, which is key to accurate molecular counting.</li>
 </ul>
 </td>
@@ -1041,7 +1041,7 @@ The HTML web report is a comprehensive platform for displaying single-cell VDJ s
 <tr>
 <td align="left">
 <strong>Q30 bases Quality</strong><br>
-<em>Q30 Base Rate</em>
+<em></em>
 </td>
 <td>
 <ul>
@@ -1099,7 +1099,7 @@ The HTML web report is a comprehensive platform for displaying single-cell VDJ s
 <tr>
 <td align="left">
 <strong>Reads mapped to any V(D)J gene</strong><br>
-<em>Fraction of Reads Mapped to Any V(D)J Gene</em>
+<em></em>
 </td>
 <td>
 <ul>
@@ -1115,7 +1115,7 @@ The HTML web report is a comprehensive platform for displaying single-cell VDJ s
 <tr>
 <td align="left">
 <strong>Reads mapped to TRA/TRB/IGH/IGK/IGL</strong><br>
-<em>Fraction of Reads Mapped to Specific TRA/TRB/IGH/IGK/IGL Chains</em>
+<em></em>
 </td>
 <td>
 <ul>
@@ -1177,7 +1177,7 @@ The HTML web report is a comprehensive platform for displaying single-cell VDJ s
 <tr>
 <td align="left">
 <strong>Number of Cells with Productive V-J Spanning Pair</strong><br>
-<em>Absolute Number of Cells with Productive V-J Spanning Pairs</em>
+<em></em>
 </td>
 <td>
 <ul>
@@ -1188,7 +1188,7 @@ The HTML web report is a comprehensive platform for displaying single-cell VDJ s
 <tr>
 <td align="left">
 <strong>Cells with productive V-J spanning pair</strong><br>
-<em>Fraction of Cells with Productive V-J Spanning Pairs</em>
+<em></em>
 </td>
 <td>
 <ul>
@@ -1207,7 +1207,7 @@ The HTML web report is a comprehensive platform for displaying single-cell VDJ s
 <tr>
 <td align="left">
 <strong>Cells with productive V-J spanning (IGK, IGH) pair</strong><br>
-<em>Fraction of Cells with Productive IGK/IGH Pairs</em>
+<em></em>
 </td>
 <td>
 <ul>
@@ -1225,7 +1225,7 @@ The HTML web report is a comprehensive platform for displaying single-cell VDJ s
 <tr>
 <td align="left">
 <strong>Cells with productive V-J spanning (IGL, IGH) pair</strong><br>
-<em>Fraction of Cells with Productive IGL/IGH Pairs</em>
+<em></em>
 </td>
 <td>
 <ul>
@@ -1243,7 +1243,7 @@ The HTML web report is a comprehensive platform for displaying single-cell VDJ s
 <tr>
 <td align="left">
 <strong>Cells with productive V-J spanning (TRA, TRB) pair</strong><br>
-<em>Fraction of Cells with Productive TRA/TRB Pairs</em>
+<em></em>
 </td>
 <td>
 <ul>
@@ -1335,7 +1335,7 @@ The HTML web report is a comprehensive platform for displaying single-cell VDJ s
 </tr>
 <tr>
 <td align="left"><strong>🔬 Analysis Pipeline</strong></td>
-<td><a href="../pipeline.md">Analysis Pipeline Description</a> - Technical details of the entire analysis workflow.</td>
+<td><a href="../pipeline/pipeline.md">Analysis Pipeline Description</a> - Technical details of the entire analysis workflow.</td>
 </tr>
 <tr>
 <td align="left"><strong>🔧 Installation & Setup</strong></td>
@@ -1348,15 +1348,15 @@ The HTML web report is a comprehensive platform for displaying single-cell VDJ s
 
 <div align="center">
 
-> 💡 **Tip**
+> 💡 <strong>Tip</strong>
 > 
-> This document is continuously updated. If you find any errors or need additional information, please feel free to provide feedback.
+> This document is continuously updated. If you find any errors or need additional information, please provide feedback.
 > 
-> 📝 **Document Version:** 3.0 beta | **Last Updated:** 2025
+> 📝 <strong>Document Version:</strong> 3.0 | <strong>Last Updated:</strong> 2025
 
-<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
+---
 
-**🔬 DNBelab C Series HT scVDJ Analysis Software**  
-*High-Performance Single-Cell V(D)J Sequencing Data Analysis Pipeline*
+<strong>🔬 DNBelab C Series HT scVDJ Analysis Software</strong>  
+<em>High-Performance Single-Cell V(D)J Sequencing Data Analysis Pipeline</em>
 
 </div>

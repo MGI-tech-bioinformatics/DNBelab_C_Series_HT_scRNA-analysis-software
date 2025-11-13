@@ -186,7 +186,7 @@ Filtering Settings:
   --tss_cutoff &lt;FLOAT&gt;  Minimum TSS proportion threshold to retain a cell [default: 0] (e.g., 0.2).
   --jaccard_cutoff &lt;FLOAT&gt;
                         Jaccard similarity threshold for merging beads (e.g., 0.02).
-  --merge_cutoff &lt;INT&gt;  Minimum number of fragments when merging beads [default: 1000].
+  --merge_cutoff &lt;INT&gt;  Minimum number of fragments when merging beads [default: 500].
 
 Analysis Settings:
   --need_bam            Enable generation of BAM files containing aligned reads. Note: generating BAM files increases computational time and disk space usage.
@@ -358,7 +358,6 @@ dnbc4tools atac run --name sample2 --fastqs ./fq --genomeDir ./ref --darkreactio
 --customize "cb,R1:1-10;cb,R1:11-20;R1,R1:21-70;R2,R2:1-50"</code></pre>
 <pre><code># Example 2: Assume R1 structure is: Fixed (6bp) -> Barcode 1 (10bp) -> Fixed (6bp) -> Barcode 2 (10bp) -> Fixed (33bp) -> Insert (50bp). R2 structure is: Fixed (19bp) -> Insert (50bp).
 --customize "cb,R1:7-16;cb,R1:23-32;R1,R1:66-115;R2,R2:20-69"</code></pre>
-</details>
 <p><strong>⚠️ Notes:</strong></p>
 <ul>
 <li><strong>Must use quotes:</strong> The entire string must be enclosed in double quotes due to special characters.</li>
@@ -639,7 +638,7 @@ dnbc4tools atac mkref --fasta genome.fa --ingtf genes.gtf --noindex</code></pre>
     <span class="hljs-attr">&quot;chromeSize&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;/database/scATAC/Homo_sapiens/regions/chrom.sizes&quot;</span><span class="hljs-punctuation">,</span>
     <span class="hljs-attr">&quot;tss&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;/database/scATAC/Homo_sapiens/regions/tss.bed&quot;</span><span class="hljs-punctuation">,</span>
     <span class="hljs-attr">&quot;promoter&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;/database/scATAC/Homo_sapiens/regions/promoter.bed&quot;</span><span class="hljs-punctuation">,</span>
-    <span class="hljs-attr">&quot;version&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;3.0beta&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;version&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;dnbc4tools 3.0&quot;</span><span class="hljs-punctuation">,</span>
     <span class="hljs-attr">&quot;blacklist&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;None&quot;</span><span class="hljs-punctuation">,</span>
     <span class="hljs-attr">&quot;genomesize&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;hs&quot;</span>
 <span class="hljs-punctuation">}</span>
@@ -700,7 +699,7 @@ For other analysis parameter settings, please refer to the corresponding paramet
 <blockquote>
 <p>💡 <strong>Tip</strong></p>
 <p>This document is continuously updated. If you find any errors or have information to add, your feedback is welcome.</p>
-<p>📝 <strong>Document Version:</strong> 3.0 beta | <strong>Last Updated:</strong> 2025</p>
+<p>📝 <strong>Document Version:</strong> 3.0 | <strong>Last Updated:</strong> 2025</p>
 </blockquote>
 <hr>
 <p><strong>🔬 DNBelab C Series HT scATAC Analysis Software</strong><br>

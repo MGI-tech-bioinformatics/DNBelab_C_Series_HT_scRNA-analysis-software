@@ -295,15 +295,15 @@ CCTGGACTCCTGGGCCCCAG</code></pre>
 
 <div align="center">
 
-> 💡 **提示**
+> 💡 <strong>提示</strong>
 > 
 > 本文档持续更新中，如发现内容错误或需要补充的信息，欢迎反馈。
 > 
-> 📝 **文档版本：** 3.0 beta | **最后更新：** 2025年
+> 📝 <strong>文档版本：</strong> 3.0 | <strong>最后更新：</strong> 2025年
 
 ---
 
-**🧬 DNBelab C Series HT scVDJ Analysis Software**  
-*高性能单细胞免疫组库数据分析流程*
+<strong>🧬 DNBelab C Series HT scVDJ Analysis Software</strong>  
+<em>高性能单细胞免疫组库数据分析流程</em>
 
 </div>

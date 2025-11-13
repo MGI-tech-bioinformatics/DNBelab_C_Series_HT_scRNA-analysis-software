@@ -139,12 +139,12 @@
         </head>
         <body class="vscode-body vscode-light">
             <div align="right">
-<p><a href="../../README.html">🏠 Home</a> | <a href="scATAC.html">🌐 Chinese</a></p>
+<p><a href="../../README.html">🏠 Home</a> | <a href="scATAC.html">🌐 中文</a></p>
 </div>
 <h1 id="-dnbelab-c-series-ht-scatac-analysis-output-documentation">🧬 DNBelab C Series HT scATAC Analysis Output Documentation</h1>
 <div align="center">
 <p><strong>A Complete Guide to Single-Cell ATAC Sequencing Analysis Output Files</strong></p>
-<p><a href="#directory-structure">📁 Directory Structure</a> • <a href="#file-details">📋 File Details</a> • <a href="#peak-matrix">🧬 Data Matrix</a> • <a href="#analysis-summary">📊 Analysis Summary</a> • <a href="#report-interpretation">📊 Report Interpretation</a></p>
+<p><a href="#directory-structure">📁 Directory Structure</a> • <a href="#file-details">📋 File Details</a> • <a href="#peak-matrix-files">🧬 Data Matrix</a> • <a href="#analysis-summary">📊 Analysis Summary</a> • <a href="#web-report-interpretation">📊 Report Interpretation</a></p>
 </div>
 <hr>
 <h2 id="-overview-">📖 Overview <a id="overview"></a></h2>
@@ -358,7 +358,7 @@
 </li>
 </ul>
 <hr>
-<h3 id="-peak-matrix-">📈 Peak Matrix <a id="peak-matrix"></a></h3>
+<h3 id="-peak-matrix-files-">📈 Peak Matrix Files <a id="peak-matrix-files"></a></h3>
 <div align="center">
 <p><strong>🎯 Core Content</strong>: The single-cell peak signal count matrix, divided into raw and quality-controlled filtered data, using the standard sparse matrix format.</p>
 </div>
@@ -519,7 +519,7 @@
 <p><strong>Content &amp; Format</strong>:</p>
 <ul>
 <li>Can be opened in any modern browser without an internet connection.</li>
-<li>For a detailed interpretation of the report, please refer to the <a href="#report-interpretation">Web Report Interpretation</a> section below.</li>
+<li>For a detailed interpretation of the report, please refer to the <a href="#web-report-interpretation">Web Report Interpretation</a> section below.</li>
 <li>Key content modules included are as follows:<table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
@@ -591,16 +591,16 @@
 </li>
 </ul>
 <hr>
-<h2 id="-web-report-interpretation-">📊 Web Report Interpretation <a id="report-interpretation"></a></h2>
+<h2 id="-web-report-interpretation-">📊 Web Report Interpretation <a id="web-report-interpretation"></a></h2>
 <div align="center">
 <p><strong>🎯 Overview</strong>: The HTML web report provides a comprehensive visualization and detailed interpretation of the single-cell ATAC sequencing analysis results, including an evaluation of key performance indicators to help users quickly understand the experiment's quality and results.</p>
 </div>
-<p>HTML web report is a comprehensive display platform for single-cell ATAC sequencing analysis, integrating complete results from data quality control to downstream epigenomic analysis. The report uses interactive visualization design to help users quickly evaluate experiment quality, understand analysis results and guide subsequent research directions.</p>
+<p>The HTML web report is a comprehensive display platform for single-cell ATAC sequencing analysis, integrating complete results from data quality control to downstream epigenomic analysis. The report uses interactive visualization design to help users quickly evaluate experiment quality, understand analysis results and guide subsequent research directions.</p>
 <blockquote>
 <p>💡 <strong>Usage Suggestion</strong>: It is recommended to review the metrics in the order they are presented in the report.</p>
 </blockquote>
 <blockquote>
-<p>⚠️ <strong>Quality Standards</strong>: Recommended thresholds and quality levels are provided for each metric. Please conduct a comprehensive evaluation based on specific experimental goals.</p>
+<p><strong>Note</strong>: The following standards are for reference only. Actual quality assessment should consider factors such as sample type, cell state, and experimental goals. Since significant differences can exist between samples, we recommend interpreting the results in the context of your specific experimental background.</p>
 </blockquote>
 <h3 id="-main-report-content-and-structure">📊 Main Report Content and Structure</h3>
 <div align="center">
@@ -630,12 +630,6 @@
 <td align="left">≥ 10,000</td>
 <td align="left">2,000–10,000</td>
 <td align="left">< 2,000</td>
-</tr>
-<tr>
-<td align="left"><strong>TSS enrichment score</strong></td>
-<td align="left">≥ 6</td>
-<td align="left">4–6</td>
-<td align="left">< 4</td>
 </tr>
 <tr>
 <td align="left"><strong>Median fraction of fragments overlapping peaks</strong></td>
@@ -765,7 +759,7 @@
 <li><strong>Definition</strong>: The proportion of all valid fragments that are successfully assigned to a high-quality cell ID.</li>
 <li><strong>Biological Significance</strong>: Reflects the efficiency of cell capture and the signal-to-noise ratio.</li>
 <li><strong>Quality Interpretation</strong>:
-<ul><li><strong>High-Quality Sample</strong>: A high ratio (e.g., > 50%) indicates high cell capture efficiency and low background noise.</li><li><strong>Quality Issue</strong>: A low ratio may indicate poor sample quality or library construction anomalies.</li></ul>
+<ul><li><strong>Quality Issue</strong>: A low ratio may indicate poor sample quality or library construction anomalies.</li></ul>
 </li>
 </ul>
 </td>
@@ -824,7 +818,7 @@
 <td align="left">< 75%</td>
 </tr>
 <tr>
-<td align="left"><strong>Reads mapped to genome</strong></td>
+<td align="left"><strong>Confidently mapped read pairs</strong></td>
 <td align="left">> 80%</td>
 <td align="left">50–80%</td>
 <td align="left">< 50%</td>
@@ -842,7 +836,7 @@
 <tbody>
 <tr>
 <td align="left">
-<strong>Total read pairs</strong><br>
+<strong>Total number of reads pairs</strong><br>
 <em></em>
 </td>
 <td>
@@ -867,7 +861,7 @@
 </tr>
 <tr>
 <td align="left">
-<strong>Reads mapped to genome</strong><br>
+<strong>Confidently mapped read pairs</strong><br>
 <em></em>
 </td>
 <td>
@@ -1010,14 +1004,14 @@ Shows the insertion length distribution of deduplicated ATAC-seq fragments, whic
 <ul>
 <li><strong>Periodic Peaks</strong>:
 <ul>
-<li><strong>&lt; 200 bp (mainly ~100bp)</strong>: The first major peak, representing fragments from <strong>Nucleosome-Free Regions (NFR)</strong>, i.e., open chromatin.</li>
-<li><strong>~200 bp - ~400 bp</strong>: The second peak, representing fragments containing a <strong>single nucleosome</strong>.</li>
-<li><strong>~400 bp and above</strong>: Subsequent peaks, representing fragments containing <strong>di- and tri-nucleosomes</strong>, reflecting higher-order chromatin structure.</li>
+<li><strong>&lt;100 bp</strong>: The first major peak, representing fragments from <strong>Nucleosome-Free Regions (NFR)</strong>, i.e., open chromatin.</li>
+<li><strong>~200 bp</strong>: The second peak, representing fragments containing a <strong>single nucleosome</strong>.</li>
+<li><strong>~400 bp, ~600 bp</strong>: Subsequent peaks, representing fragments containing <strong>di- and tri-nucleosomes</strong>.</li>
 </ul>
 </li>
 <li><strong>Quality Assessment</strong>:
 <ul>
-<li><strong>High-Quality Sample</strong>: Exhibits clear, periodic peaks (~200bp periodicity); a prominent NFR peak; and potentially a small 10.5bp periodicity from the DNA helix.</li>
+<li><strong>High-Quality Sample</strong>: Exhibits clear, periodic peaks with a ~200bp periodicity, and a prominent NFR peak. This indicates good nuclear integrity and clear chromatin structure.</li>
 <li><strong>Poor-Quality Sample</strong>: A flat curve with no periodic features, which usually implies sample over-lysis and destruction of chromatin structure.</li>
 </ul>
 </li>
@@ -1034,7 +1028,7 @@ Shows the insertion length distribution of deduplicated ATAC-seq fragments, whic
 <li><strong>Quality Interpretation</strong>:
 <ul>
 <li>A high duplication rate (e.g., &gt; 20-30%) usually indicates that sequencing depth is nearing saturation.</li>
-<li>A very low duplication rate (e.g., &lt; 10%) may suggest insufficient sequencing depth.</li>
+<li>A very low duplication rate (e.g., &lt; 10%) may suggest insufficient sequencing depth, and more sequencing is recommended to discover more unique fragments.</li>
 </ul>
 </li>
 </ul>
@@ -1057,15 +1051,15 @@ Identifies potential cell subgroups by clustering cells with similar chromatin a
 <ul>
 <li><strong>Left Plot (Cell Type Clustering)</strong>:
 <ul>
-<li><strong>Content</strong>: Unsupervised clustering based on chromatin accessibility data using the Louvain algorithm.</li>
-<li><strong>Coordinates</strong>: High-dimensional data is projected into 2D space using the UMAP algorithm.</li>
-<li><strong>Interpretation</strong>: Each dot is a cell. Different colors represent different clusters, which may correspond to different cell types or states. Cells that are spatially close have more similar open chromatin patterns.</li>
+<li>Each dot is a cell.</li>
+<li>Different colors represent different clusters, which may correspond to different cell types or states.</li>
+<li>Cells that are spatially close have more similar open chromatin patterns.</li>
 </ul>
 </li>
 <li><strong>Right Plot (Fragment Count Distribution)</strong>:
 <ul>
-<li><strong>Content</strong>: Overlays the total fragment count for each cell onto the same UMAP coordinates using a color gradient.</li>
-<li><strong>Interpretation</strong>: Deeper colors indicate higher fragment counts and better data quality. This can help validate the reliability of clusters and identify clusters that may be composed of low-quality cells.</li>
+<li>Overlays the total fragment count for each cell onto the same UMAP coordinates using a color gradient.</li>
+<li>Deeper colors indicate higher fragment counts and better data quality. This can help validate the reliability of clusters and identify clusters that may be composed of low-quality cells.</li>
 </ul>
 </li>
 </ul>
@@ -1077,7 +1071,7 @@ Displays the enrichment of ATAC-seq fragment cleavage sites around the Transcrip
 <ul>
 <li><strong>Axes</strong>:
 <ul>
-<li><strong>X-axis</strong>: Position relative to the TSS (0 is the TSS), typically showing a range of ±1,000 bp.</li>
+<li><strong>X-axis</strong>: Position relative to the TSS (0 is the TSS).</li>
 <li><strong>Y-axis</strong>: Normalized signal intensity (cleavage frequency).</li>
 </ul>
 </li>
@@ -1132,17 +1126,16 @@ Assesses the sufficiency of sequencing depth and data complexity, i.e., whether 
 <div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
 <h5 id="-bead-similarity-ranking">📊 Bead Similarity Ranking</h5>
 <p><strong>Chart Function</strong>:<br>
-Used in the C4 ATAC technology to merge multiple beads from the same cell droplet by calculating Jaccard similarity, a key step to ensure unique cell identity.</p>
+Used in the C4 ATAC technology to merge multiple beads from the same cell droplet by calculating Jaccard similarity.</p>
 <p><strong>How to Interpret</strong>:</p>
 <ul>
-<li><strong>Technical Background</strong>: In C4 ATAC, a single droplet can contain multiple beads. To get accurate single-cell data, fragments originating from the same cell must be merged.</li>
 <li><strong>Axes</strong>:
 <ul>
 <li><strong>X-axis</strong>: All pairs of beads, ranked in descending order by their Jaccard similarity value.</li>
 <li><strong>Y-axis</strong>: The Jaccard similarity index (log scale).</li>
 </ul>
 </li>
-<li><strong>Merging Strategy</strong>:
+<li><strong>Key Feature</strong>:
 <ul>
 <li><strong>Blue Area</strong>: Jaccard similarity is higher than the threshold automatically calculated by the Otsu algorithm. These bead pairs are considered to be from the same cell, and their fragments will be merged.</li>
 <li><strong>Gray Area</strong>: Jaccard similarity is below the threshold. These are considered beads from different cells and are not merged.</li>
@@ -1170,7 +1163,7 @@ Used in the C4 ATAC technology to merge multiple beads from the same cell drople
 </tr>
 <tr>
 <td align="left"><strong>🔬 Analysis Pipeline</strong></td>
-<td><a href="../pipeline.html">Analysis Pipeline Description</a> - Technical details of the entire analysis workflow.</td>
+<td><a href="../pipeline/pipeline.html">Analysis Pipeline Description</a> - Technical details of the entire analysis workflow.</td>
 </tr>
 <tr>
 <td align="left"><strong>🔧 Installation & Setup</strong></td>
@@ -1182,7 +1175,7 @@ Used in the C4 ATAC technology to merge multiple beads from the same cell drople
 <blockquote>
 <p>💡 <strong>Tip</strong></p>
 <p>This document is continuously updated. If you find any errors or have information to add, feedback is welcome.</p>
-<p>📝 <strong>Document Version:</strong> 3.0 beta | <strong>Last Updated:</strong> 2025</p>
+<p>📝 <strong>Document Version:</strong> 3.0 | <strong>Last Updated:</strong> 2025</p>
 </blockquote>
 <hr>
 <p><strong>🔬 DNBelab C Series HT scATAC Analysis Software</strong><br>

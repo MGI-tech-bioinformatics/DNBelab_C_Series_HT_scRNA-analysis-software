@@ -445,9 +445,9 @@ dnbc4tools rna run --name sample1 --fastqs ./fq --genomeDir ./ref --minumi 500</
 </ul>
 <p><strong>Default:</strong> <code>auto</code></p>
 <p><strong>Example:</strong></p>
-<pre><code># Scenario: Library is known to be scRNAv2HT and auto-analysis failed
-dnbc4tools rna run --name sample2 --fastqs ./fq --genomeDir ./ref --chemistry scRNAv2HT</code></pre>
-<p><strong>⚠️ Important Note:</strong> Incorrect settings may lead to cell barcode identification failure. Specify manually only if you know the library structure or if auto-detection fails.</p>
+<pre><code># Scenario: Known library is scRNAv3HT with no dark reaction and auto-analysis failed
+dnbc4tools rna run --name sample2 --fastqs ./fq --genomeDir ./ref --chemistry scRNAv3HT --darkreaction unset,unset</code></pre>
+<p><strong>⚠️ Important Note:</strong> Incorrect settings may lead to cell barcode identification failure. Specify manually only if you know the library structure or if auto-detection fails. You also need to set the <code>--darkreaction</code> parameter.</p>
 </div>
 <div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
 <h4><code>--darkreaction</code> <span style="font-size: 0.8em; font-weight: normal; color: #f39c12;">(Optional)</span></h4>
@@ -469,7 +469,7 @@ dnbc4tools rna run --name sample2 --fastqs ./fq --genomeDir ./ref --chemistry sc
 --darkreaction R1,R1</code></pre>
 <pre><code># Example 3: Neither library has dark cycles
 --darkreaction unset,unset</code></pre>
-<p><strong>⚠️ Important Note:</strong> Incorrect settings may lead to cell barcode identification failure. Specify manually only if you know the library structure or if auto-detection fails.</p>
+<p><strong>⚠️ Important Note:</strong> Incorrect settings may lead to cell barcode identification failure. Specify manually only if you know the library structure or if auto-detection fails. You also need to set the <code>--chemistry</code> parameter.</p>
 </div>
 <div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
 <h4><code>--customize</code> <span style="font-size: 0.8em; font-weight: normal; color: #9b59b6;">(Advanced)</span></h4>
@@ -764,7 +764,7 @@ dnbc4tools rna mkref --fasta genome.fa --ingtf genes.gtf --noindex</code></pre>
     <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
     <span class="hljs-attr">&quot;mtgenes&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;/database/scRNA/Homo_sapiens/star/mtgene.list&quot;</span><span class="hljs-punctuation">,</span>
     <span class="hljs-attr">&quot;species&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Homo_sapiens&quot;</span><span class="hljs-punctuation">,</span>
-    <span class="hljs-attr">&quot;version&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;dnbc4tools 3.0beta&quot;</span>
+    <span class="hljs-attr">&quot;version&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;dnbc4tools 3.0&quot;</span>
 <span class="hljs-punctuation">}</span>
 </code></pre>
 <p>📋 <strong>Dual-Species ref.json File Example</strong>:</p>
@@ -783,7 +783,7 @@ dnbc4tools rna mkref --fasta genome.fa --ingtf genes.gtf --noindex</code></pre>
     <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
     <span class="hljs-attr">&quot;mtgenes&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;/database/scRNA/hg38_and_mm10/star/mtgene.list&quot;</span><span class="hljs-punctuation">,</span>
     <span class="hljs-attr">&quot;species&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;hg38_and_mm10&quot;</span><span class="hljs-punctuation">,</span>
-    <span class="hljs-attr">&quot;version&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;dnbc4tools 3.0beta&quot;</span>
+    <span class="hljs-attr">&quot;version&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;dnbc4tools 3.0&quot;</span>
 <span class="hljs-punctuation">}</span>
 </code></pre>
 <p>📋 <strong>Performance Optimization Recommendations</strong>:</p>
@@ -832,11 +832,13 @@ optional arguments:
   </details>
 </ul>
 <p style="margin-top: 15px;"><strong>Default:</strong> None</p>
+<details open>
 <summary><strong>Example:</strong></summary>
 <pre><code># Example 1: SampleA, with 1 pair of R1/R2 files for cDNA and oligo each
 SampleA	/path/to/A_cDNA_R1.fq.gz;/path/to/A_cDNA_R2.fq.gz	/path/to/A_oligo_R1.fq.gz;/path/to/A_oligo_R2.fq.gz</code></pre>
 <pre><code># Example 2: SampleB, with 2 pairs of R1/R2 files for cDNA, and 1 pair for oligo
 SampleB	/path/to/B_cDNA_L01_R1.fq.gz,/path/to/B_cDNA_L02_R1.fq.gz;/path/to/B_cDNA_L01_R2.fq.gz,/path/to/B_cDNA_L02_R2.fq.gz	/path/to/B_oligo_R1.fq.gz;/path/to/B_oligo_R2.fq.gz</code></pre>
+</details>
 </div>
 <blockquote>
 <p>📝 <strong>Parameter Inheritance Note</strong></p>
@@ -847,7 +849,7 @@ SampleB	/path/to/B_cDNA_L01_R1.fq.gz,/path/to/B_cDNA_L02_R1.fq.gz;/path/to/B_cDN
 <blockquote>
 <p>💡 <strong>Tip</strong></p>
 <p>This document is continuously updated. If you find any errors or have information to add, your feedback is welcome.</p>
-<p>📝 <strong>Document Version:</strong> 3.0 beta | <strong>Last Updated:</strong> 2025</p>
+<p>📝 <strong>Document Version:</strong> 3.0 | <strong>Last Updated:</strong> 2025</p>
 </blockquote>
 <hr>
 <p><strong>🧬 DNBelab C Series HT scRNA Analysis Software</strong><br>

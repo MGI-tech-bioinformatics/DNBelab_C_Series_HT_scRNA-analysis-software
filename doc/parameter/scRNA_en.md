@@ -341,9 +341,9 @@ dnbc4tools rna run --name sample1 --fastqs ./fq --genomeDir ./ref --minumi 500</
 </ul>
 <p><strong>Default:</strong> <code>auto</code></p>
 <p><strong>Example:</strong></p>
-<pre><code># Scenario: Library is known to be scRNAv2HT and auto-analysis failed
-dnbc4tools rna run --name sample2 --fastqs ./fq --genomeDir ./ref --chemistry scRNAv2HT</code></pre>
-<p><strong>⚠️ Important Note:</strong> Incorrect settings may lead to cell barcode identification failure. Specify manually only if you know the library structure or if auto-detection fails.</p>
+<pre><code># Scenario: Known library is scRNAv3HT with no dark reaction and auto-analysis failed
+dnbc4tools rna run --name sample2 --fastqs ./fq --genomeDir ./ref --chemistry scRNAv3HT --darkreaction unset,unset</code></pre>
+<p><strong>⚠️ Important Note:</strong> Incorrect settings may lead to cell barcode identification failure. Specify manually only if you know the library structure or if auto-detection fails. You also need to set the <code>--darkreaction</code> parameter.</p>
 </div>
 
 <div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
@@ -368,7 +368,7 @@ dnbc4tools rna run --name sample2 --fastqs ./fq --genomeDir ./ref --chemistry sc
 
 <pre><code># Example 3: Neither library has dark cycles
 --darkreaction unset,unset</code></pre>
-<p><strong>⚠️ Important Note:</strong> Incorrect settings may lead to cell barcode identification failure. Specify manually only if you know the library structure or if auto-detection fails.</p>
+<p><strong>⚠️ Important Note:</strong> Incorrect settings may lead to cell barcode identification failure. Specify manually only if you know the library structure or if auto-detection fails. You also need to set the <code>--chemistry</code> parameter.</p>
 </div>
 
 <div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
@@ -698,7 +698,7 @@ dnbc4tools rna mkref --fasta genome.fa --ingtf genes.gtf --noindex</code></pre>
 >     ],
 >     "mtgenes": "/database/scRNA/Homo_sapiens/star/mtgene.list",
 >     "species": "Homo_sapiens",
->     "version": "dnbc4tools 3.0beta"
+>     "version": "dnbc4tools 3.0"
 > }
 > ```
 > 
@@ -719,7 +719,7 @@ dnbc4tools rna mkref --fasta genome.fa --ingtf genes.gtf --noindex</code></pre>
 >     ],
 >     "mtgenes": "/database/scRNA/hg38_and_mm10/star/mtgene.list",
 >     "species": "hg38_and_mm10",
->     "version": "dnbc4tools 3.0beta"
+>     "version": "dnbc4tools 3.0"
 > }
 > ```
 > 
@@ -774,11 +774,13 @@ optional arguments:
   </details>
 </ul>
 <p style="margin-top: 15px;"><strong>Default:</strong> None</p>
+<details open>
 <summary><strong>Example:</strong></summary>
 <pre><code># Example 1: SampleA, with 1 pair of R1/R2 files for cDNA and oligo each
 SampleA	/path/to/A_cDNA_R1.fq.gz;/path/to/A_cDNA_R2.fq.gz	/path/to/A_oligo_R1.fq.gz;/path/to/A_oligo_R2.fq.gz</code></pre>
 <pre><code># Example 2: SampleB, with 2 pairs of R1/R2 files for cDNA, and 1 pair for oligo
 SampleB	/path/to/B_cDNA_L01_R1.fq.gz,/path/to/B_cDNA_L02_R1.fq.gz;/path/to/B_cDNA_L01_R2.fq.gz,/path/to/B_cDNA_L02_R2.fq.gz	/path/to/B_oligo_R1.fq.gz;/path/to/B_oligo_R2.fq.gz</code></pre>
+</details>
 </div>
 
 > 📝 **Parameter Inheritance Note**
@@ -789,15 +791,15 @@ SampleB	/path/to/B_cDNA_L01_R1.fq.gz,/path/to/B_cDNA_L02_R1.fq.gz;/path/to/B_cDN
 
 <div align="center">
 
-> 💡 **Tip**
+> 💡 <strong>Tip</strong>
 > 
 > This document is continuously updated. If you find any errors or have information to add, your feedback is welcome.
 > 
-> 📝 **Document Version:** 3.0 beta | **Last Updated:** 2025
+> 📝 <strong>Document Version:</strong> 3.0 | <strong>Last Updated:</strong> 2025
 
 ---
 
-**🧬 DNBelab C Series HT scRNA Analysis Software**  
-*High-performance single-cell transcriptome data analysis pipeline*
+<strong>🧬 DNBelab C Series HT scRNA Analysis Software</strong>  
+<em>High-performance single-cell transcriptome data analysis pipeline</em>
 
 </div>

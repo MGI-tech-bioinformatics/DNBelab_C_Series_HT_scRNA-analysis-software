@@ -701,7 +701,7 @@
 <p>💡 <strong>使用建议</strong>: 建议按照报告展示顺序依次查看各项指标。</p>
 </blockquote>
 <blockquote>
-<p>⚠️ <strong>质量标准</strong>: 各项指标均提供了推荐阈值和质量等级，请结合具体实验目标进行综合评估。</p>
+<p><strong>注意</strong>: 以下标准仅供参考，实际质量评估应考虑组织类型、细胞状态和实验目标等多种因素。不同样本间存在显著差异，建议结合具体实验背景进行判断。</p>
 </blockquote>
 <h3 id="-报告主要内容与结构">📊 报告主要内容与结构</h3>
 <div align="center">
@@ -796,7 +796,7 @@
 <td>
 <ul>
 <li><strong>定义</strong>: 平均分配到每个细胞上的原始测序读段（Reads）数量。</li>
-<li><strong>计算</strong>: `原始测序读段总数 / 估计细胞数量`</li>
+<li><strong>计算</strong>: <em>原始测序读段总数</em> / <em>估计细胞数量</em></li>
 <li><strong>质量判读</strong>: 建议此值 ≥ 30,000 以确保充分的转录本覆盖。</li>
 </ul>
 </td>
@@ -866,7 +866,7 @@
 </td>
 <td>
 <ul>
-<li><strong>定义</strong>: 评估测序深度是否充分的指标，计算方法为 `1 - (去重后的UMI数 / 总Reads数)`。</li>
+<li><strong>定义</strong>: 评估测序深度是否充分的指标，计算方法为 <em>1 - (去重后的UMI数 / 总Reads数)</em>。</li>
 <li><strong>生物学意义</strong>: 反映了文库复杂度和测序的成本效益。高饱和度意味着增加测序深度带来的新基因发现收益递减。</li>
 <li><strong>典型范围</strong>: 40% – 85% 是一个比较理想的范围。</li>
 </ul>
@@ -1172,7 +1172,7 @@
 <div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
 <h5 id="-细胞数据分布图-cell-data-distribution">📊 细胞数据分布图 (Cell Data Distribution)</h5>
 <p><strong>图表功能</strong>:<br>
-通过三个独立的小提琴图，分别展示高质量细胞在 <strong>基因数 (nGenes)</strong>、<strong>UMI数 (nUMI)</strong> 和 <strong>线粒体基因比例 (<a href="http://percent.mt">percent.mt</a>)</strong> 这三个关键质量指标上的分布情况。</p>
+通过三个独立的小提琴图，分别展示高质量细胞在 <strong>基因数 (nGenes)</strong>、<strong>UMI数 (nUMI)</strong> 和 <strong>线粒体基因比例 (percent.mt)</strong> 这三个关键质量指标上的分布情况。</p>
 <p><strong>如何解读</strong>:</p>
 <ul>
 <li><strong>基因数和UMI数</strong>: 分布的中心（最宽处）越高，表明细胞的转录组复杂度和捕获效率越高。</li>
@@ -1251,7 +1251,7 @@
 </tr>
 <tr>
 <td align="left"><strong>🔬 分析流程</strong></td>
-<td><a href="../pipeline.html">分析流程说明</a> - 整个分析流程的技术细节</td>
+<td><a href="../pipeline/pipeline.html">分析流程说明</a> - 整个分析流程的技术细节</td>
 </tr>
 <tr>
 <td align="left"><strong>🔧 安装配置</strong></td>
@@ -1263,7 +1263,7 @@
 <blockquote>
 <p>💡 <strong>提示</strong></p>
 <p>本文档持续更新中，如发现内容错误或需要补充的信息，欢迎反馈。</p>
-<p>📝 <strong>文档版本：</strong> 3.0 beta | <strong>最后更新：</strong> 2025年</p>
+<p>📝 <strong>文档版本：</strong> 3.0 | <strong>最后更新：</strong> 2025年</p>
 </blockquote>
 <hr>
 <p><strong>🔬 DNBelab C Series HT scRNA Analysis Software</strong><br>
