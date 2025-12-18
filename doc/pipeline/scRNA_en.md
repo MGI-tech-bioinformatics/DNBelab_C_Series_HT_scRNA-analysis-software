@@ -44,10 +44,7 @@ The GTF file must contain annotations of type "gene" or "transcript" and "exon",
 
 GTF files from ENSEMBL or UCSC often contain many gene types. Filtering for relevant gene types reduces annotation overlap and filters reads mapped to multiple genes.
 
-We support:
-- Gene type counting
-- Gene type filtering
-- GTF format correction
+We support: Gene type counting, Gene type filtering and GTF format correction
 
 - **Count Gene Types** (Optional):
 

@@ -22,9 +22,7 @@ An open source and flexible pipeline to analyze high-throughput DNBelab C Series
 
 - Please use github issue tracker for questions. [**issues**](https://github.com/MGI-tech-bioinformatics/DNBelab_C_Series_HT_scRNA-analysis-software/issues)
 
-- ✨ **Version 3.0 Release Candidate (RC) Available**  
-  A release candidate version is now available: [version3.0](https://github.com/MGI-tech-bioinformatics/DNBelab_C_Series_HT_scRNA-analysis-software/tree/version3.0)  
-
-  **RC Notice:** This version is feature-complete and stable, but may still undergo minor changes before the final release. We welcome community testing and feedback!  For production environments, please consider the ***latest stable release***.
+- ✨ **Version 3.0 stable release available**  
+  A stable release version is now available: [version3.0](https://github.com/MGI-tech-bioinformatics/DNBelab_C_Series_HT_scRNA-analysis-software/tree/version3.0)  
 
 - If the web report cannot be opened, please refer to the issue [documentation](doc/issue_en.md), the download links have been fixed.
