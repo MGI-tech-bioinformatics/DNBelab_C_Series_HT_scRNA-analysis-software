@@ -81,30 +81,31 @@ The command-line tool for this pipeline is named **`dnbc4tools`**.
 
 ## 🚀 What's New
 
-### What's New in v3.0 (RC)
+### What's New in v3.0
 
 <details open>
 <summary><strong>New Features & Improvements</strong></summary>
 
 #### RNA-Seq Enhancements
-- **Enhanced Annotation**: Improved RNA annotation logic for higher accuracy
-- **Interactive Reports**: Upgraded HTML visualizations with better parameters
-- **Extended Metadata**: Added `gene_id` and `gene_name` to feature matrices
-- **Enriched BAM Files**: Enhanced outputs with comprehensive metadata
-- **Mixed-Species Analysis**: Full support for dual-species samples
+- **Annotation Logic**: Optimized RNA annotation for improved accuracy
+- **HTML Reports**: Updated interactive reports with more informative metrics
+- **Feature Matrices**: Included `gene_id` and `gene_name` in the feature file
+- **BAM Output**: Added comprehensive metadata tags to BAM alignment file
+- **Mixed Species**: Enabled support for dual-species analysis
 
 #### VDJ Analysis Upgrades
-- **Algorithm Optimization**: Refined V(D)J assembly and annotation
-- **Standardized Output**: Updated formats for better tool compatibility
+- **Assembly & Annotation**: Improved algorithms for V(D)J assembly and annotation
+- **Output Format**: Standardized outputs for better compatibility with third-party tools
 
 #### Performance & Usability
-- **Streamlined Storage**: Reduced disk usage by removing intermediate files
-- **Better Organization**: Reorganized directories and logs for clarity
-- **Faster Processing**: Multi-threading optimizations across all workflows
+- **Storage Optimization**: Automatic removal of intermediate files to save disk space
+- **Directory Structure**: Reorganized output directories and logs for better readability
+- **Parallel Processing**: Implemented multi-threading for faster execution
 
 </details>
 
-> **Note**: This is a Release Candidate (RC). It is intended for staging and pre-production validation; not recommended for mission-critical production. For production use, please use the [latest stable release](https://github.com/MGI-tech-bioinformatics/DNBelab_C_Series_HT_scRNA-analysis-software/releases).
+
+> **Note**: This is the stable release version. Users on beta or Release Candidate (RC) versions should update to this stable release. If you wish to use version 2.1.3, please switch to the [`version2.0`](https://github.com/MGI-tech-bioinformatics/DNBelab_C_Series_HT_scRNA-analysis-software/tree/version2.0) branch.
 
 **Full Release History**: [Release Notes](./doc/release.md)
 
