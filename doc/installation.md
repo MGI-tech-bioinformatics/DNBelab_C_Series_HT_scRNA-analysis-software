@@ -55,7 +55,7 @@
 
 ## ◆ Software Download <a id="software-download"></a>
 
-### dnbc4tools 3.0 rc (Released: Nov 12, 2025)
+### dnbc4tools 3.0 (Released: Dec 18, 2025)
 
 <table style="width:100%; border-collapse: collapse; margin: 1.5em 0; box-shadow: 0 2px 3px rgba(0,0,0,0.1);">
   <thead style="background-color: #f2f2f2; border-bottom: 2px solid #ddd;">
@@ -67,7 +67,7 @@
   <tbody>
     <tr>
       <td style="padding: 12px 15px; border: 1px solid #ddd;"><b>File Name</b></td>
-      <td style="padding: 12px 15px; border: 1px solid #ddd;">dnbc4tools3.0rc.tar.gz</td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;">dnbc4tools-3.0.tar.gz</td>
     </tr>
     <tr>
       <td style="padding: 12px 15px; border: 1px solid #ddd;"><b>File Size</b></td>
@@ -75,14 +75,20 @@
     </tr>
     <tr>
       <td style="padding: 12px 15px; border: 1px solid #ddd;"><b>MD5 Checksum</b></td>
-      <td style="padding: 12px 15px; border: 1px solid #ddd;">c4afc33b4d90142eba7df1da8c45bffc</td>
-    </tr>
-    <tr>
-      <td style="padding: 12px 15px; border: 1px solid #ddd;"><b>Download</b></td>
-      <td style="padding: 12px 15px; border: 1px solid #ddd;"><a href="https://bgipan.genomics.cn/#/link/a7myOreuJYIeJzn6Y6z3" target="_blank">BGI CloudDrive</a> (Access Code: PUaq)</td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;">4579e3875770ee958317d7f856b26dde</td>
     </tr>
   </tbody>
 </table>
+
+**Download Options:**
+- **CNGB link**: [dnbc4tools-3.0.tar.gz](https://ftp2.cngb.org/pub/CNSA/data7/CNP0008672/Single_Cell/CSE0000574/dnbc4tools-3.0.tar.gz)
+
+```bash
+#### Download using `wget`
+wget -O dnbc4tools-3.0.tar.gz "ftp://ftp2.cngb.org/pub/CNSA/data7/CNP0008672/Single_Cell/CSE0000574/dnbc4tools-3.0.tar.gz"
+#### Download using `curl`
+curl -o dnbc4tools-3.0.tar.gz "ftp://ftp2.cngb.org/pub/CNSA/data7/CNP0008672/Single_Cell/CSE0000574/dnbc4tools-3.0.tar.gz"
+```
 
 ---
 
@@ -101,7 +107,7 @@ Extract the dnbc4tools package to your preferred directory (example uses `/opt/s
 cd /opt/software
 
 # Extract the package
-tar -xzvf dnbc4tools3.0.tar.gz
+tar -xzvf dnbc4tools-3.0.tar.gz
 ```
 
 ### Step 2: Verify Directory Structure 

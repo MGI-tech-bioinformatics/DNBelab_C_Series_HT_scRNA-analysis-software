@@ -148,7 +148,7 @@
 </div>
 <hr>
 <h2 id="-latest-release-">◆ Latest Release <a id="latest-release"></a></h2>
-<p><strong>dnbc4tools 3.0 rc</strong> (Nov 12, 2025) - <a href="#30-rc-nov-12-2025">See Details</a></p>
+<p><strong>dnbc4tools 3.0</strong> (Dec 18, 2025) - <a href="#30-dec-18-2025">See Details</a></p>
 <p><strong>Key Highlights:</strong></p>
 <ul>
 <li>Enhanced RNA annotation and dual-species support</li>
@@ -156,38 +156,35 @@
 <li>Streamlined storage and better performance</li>
 <li>Updated output formats for better compatibility</li>
 </ul>
-<div style="background-color: #fffbe6; border-left: 6px solid #ffc107; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
-⚠️ <strong>RC Notice</strong>: Version 3.0 is currently a Release Candidate (RC). It is feature-complete and undergoing final validation; minor bugs may still be present. Recommended for staging and pre-production environments. For mission-critical production, please use the <a href="https://github.com/MGI-tech-bioinformatics/DNBelab_C_Series_HT_scRNA-analysis-software/releases">latest stable release</a>.
-</div>
 <hr>
 <h2 id="-release-history-">◆ Release History <a id="release-history"></a></h2>
-<h3 id="30-rc-nov-12-2025-">3.0 rc (Nov 12, 2025) <a id="30-rc-nov-12-2025"></a></h3>
+<h3 id="30-dec-18-2025-">3.0 (Dec 18, 2025) <a id="30-dec-18-2025"></a></h3>
 <div style="padding-left: 20px;">
 <h4>RNA-Seq Enhancements</h4>
 <ul>
-  <li><strong>Alignment & Annotation</strong>: Prioritized exonic loci for improved accuracy and better handling of multi-gene mapped reads.</li>
-  <li><strong>Barcode Processing</strong>: Added correction for cell barcodes with ambiguous 'N' bases.</li>
-  <li><strong>Dual-Species Support</strong>: Full support to build and analyze dual-species references.</li>
-  <li><strong>Output Improvements</strong>: Enhanced BAM files (CC/CB tags), three-column feature matrix (ID, name, type), and updated web reports.</li>
-  <li><strong>Parameter Updates</strong>: Auto-estimated <em>expectcells</em> and a new <em>minumi</em> parameter.</li>
+  <li><strong>Alignment & Annotation</strong>: Refined prioritization of exonic loci to improve quantification accuracy and resolve multi-gene mapping ambiguities.</li>
+  <li><strong>Barcode Processing</strong>: Implemented error correction logic for cell barcodes containing ambiguous 'N' bases.</li>
+  <li><strong>Dual-Species Support</strong>: Added robust support for building and analyzing mixed-species reference genomes.</li>
+  <li><strong>Output Improvements</strong>: Enriched BAM files with cell tags (CC/CB), updated feature matrices to include gene ID, gene name, and library type.</li>
+  <li><strong>Parameter Updates</strong>: Introduced automatic estimation for <em>expectcells</em> and added a new <em>minumi</em> threshold parameter.</li>
 </ul>
 <h4>ATAC-Seq Enhancements</h4>
 <ul>
-  <li><strong>QC & Reporting</strong>: Added Q30 statistics for barcodes/reads and insert size distribution from deduplicated fragments.</li>
-  <li><strong>Technical Updates</strong>: Upgraded chromap to v0.3.3, improved barcode correction, and enhanced BAM output.</li>
+  <li><strong>QC & Reporting</strong>: Expanded QC metrics to include barcode/read Q30 statistics and insert size distributions derived from deduplicated fragments.</li>
+  <li><strong>Technical Updates</strong>: Upgraded alignment engine to chromap v0.3.3, enhanced barcode correction algorithms, and enriched BAM outputs.</li>
 </ul>
 <h4>VDJ Enhancements</h4>
 <ul>
-  <li><strong>Assembly & Annotation</strong>: Advanced per-cell assembly for full-length contigs and stricter filtering.</li>
-  <li><strong>Performance</strong>: Removed full data preload requirement for low-memory analysis.</li>
-  <li><strong>Output & Reporting</strong>: Enhanced <em>contig_annotations.csv</em>, improved QC metrics, and added consensus sequence annotations.</li>
-  <li><strong>Compatibility</strong>: Custom reference support for non-human/mouse species.</li>
+  <li><strong>Assembly & Annotation</strong>: Advanced per-cell assembly algorithms to maximize full-length contig recovery with stricter filtering criteria.</li>
+  <li><strong>Performance</strong>: Optimized memory management to eliminate the need for full data preloading during analysis.</li>
+  <li><strong>Output & Reporting</strong>: Enhanced <em>contig_annotations.csv</em> with comprehensive details, improved QC metrics, and added consensus sequence annotations.</li>
+  <li><strong>Compatibility</strong>: Enabled support for custom reference generation for non-human/mouse species.</li>
 </ul>
 <h4>Cross-Module Improvements</h4>
 <ul>
-  <li>Standardized <em>customize</em> parameter across all modules.</li>
-  <li>Significant storage reduction through optimized file structure.</li>
-  <li>Removed intermediate files and <em>process</em> parameter functionality.</li>
+  <li><strong>Parameter Standardization</strong>: Unified the <em>customize</em> parameter usage across all analysis modules.</li>
+  <li><strong>Storage Efficiency</strong>: Achieved significant reduction in disk usage through optimized file organization.</li>
+  <li><strong>Workflow Optimization</strong>: Deprecated the <em>process</em> parameter and automated the cleanup of intermediate files to streamline execution.</li>
 </ul>
 </div>
 <hr>
@@ -344,7 +341,7 @@
 <h3 id="historical-versions">Historical Versions</h3>
 <p>Additional version information available at <a href="https://github.com/MGI-tech-bioinformatics/DNBelab_C_Series_HT_scRNA-analysis-software/releases">GitHub Releases</a>.</p>
 <div style="background-color: #fffbe6; border-left: 6px solid #ffc107; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
-⚠️ <strong>Release Guidance</strong>:
+<strong>Release Guidance</strong>:
 <br/>
 <strong>Stable</strong>: Recommended for production environments; receives security and critical bug fixes.
 <br/>
