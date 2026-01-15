@@ -22,18 +22,14 @@ To run the *dnbc4tools* package on a Linux-based system, the following minimum r
 | Item | Details |
 |------|----------|
 | **File Name** | dnbc4tools2.1.3.tar.gz |
-| **File Size** | 495M |
-| **MD5 Checksum** | f17bb2cbd71726cbb296a1eb6ade697d |
+| **File Size** | 494M |
+| **MD5 Checksum** | dac23475b79cb07cc5b7d4f092aa67fa |
 
 **Download Options:**
-- **CNGB link**: [dnbc4tools2.1.3.tar.gz](https://ftp2.cngb.org/pub/CNSA/data7/CNP0006367/Single_Cell/CSE0000448/dnbc4tools2.1.3.tar.gz)
+- **BGI CloudDrive link**: [dnbc4tools2.1.3.tar.gz](https://bgipan.genomics.cn/#/link/eCSNwpwnrlc2Mdqtjy6A) (Access Code: CABq)
 
-```shell
-#### Download using `wget`
-wget -O dnbc4tools2.1.3.tar.gz "ftp://ftp2.cngb.org/pub/CNSA/data7/CNP0006367/Single_Cell/CSE0000448/dnbc4tools2.1.3.tar.gz"
-#### Download using `curl`
-curl -o dnbc4tools2.1.3.tar.gz "ftp://ftp2.cngb.org/pub/CNSA/data7/CNP0006367/Single_Cell/CSE0000448/dnbc4tools2.1.3.tar.gz"
-```
+> [!Note]
+> **Update (January 15, 2026):** This package has been re-uploaded to fix an issue where HTML reports failed to open.
 
 **New Features in dnbc4tools 2.1.3**
 
