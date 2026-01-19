@@ -92,8 +92,9 @@ curl -o dnbc4tools-3.0.tar.gz "ftp://ftp2.cngb.org/pub/CNSA/data7/CNP0008672/Sin
 
 <div style="margin-top: 15px;">
   <strong>Looking for older versions?</strong><br>
-  For previous version downloads and installation instructions, please visit the <a href="./installation_previous.md"><strong>Previous Installation Guide</strong></a>.
+  For previous version downloads and installation instructions, please visit the <a href="./installation_previous.md">Previous Installation Guide</a>.
 </div>
+
 ---
 
 ## ◆ Installation Process <a id="installation-process"></a>
