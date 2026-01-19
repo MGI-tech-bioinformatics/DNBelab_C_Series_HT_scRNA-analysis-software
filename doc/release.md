@@ -236,7 +236,7 @@
 
 ### Historical Versions
 
-Additional version information available at [GitHub Releases](https://github.com/MGI-tech-bioinformatics/DNBelab_C_Series_HT_scRNA-analysis-software/releases).
+Detailed download links and installation instructions for older versions are available in the [Previous Installation Guide](./installation_previous.md). Additional information can be found at [GitHub Releases](https://github.com/MGI-tech-bioinformatics/DNBelab_C_Series_HT_scRNA-analysis-software/releases).
 
 <div style="background-color: #fffbe6; border-left: 6px solid #ffc107; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
 <strong>Release Guidance</strong>:
