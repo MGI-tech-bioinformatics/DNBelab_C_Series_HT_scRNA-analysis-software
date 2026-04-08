@@ -23,23 +23,31 @@
 ### 📊 用法 <a id="usage-mkgtf"></a>
 
 ```shell
-$ dnbc4tools tools mkgtf -h
+$ dnbc4tools tools mkgtf
+dnbc4tools 3.1
+
+Filter and process GTF annotation files.
+
+Usage: dnbc4tools tools mkgtf [OPTIONS]
 
 optional arguments:
-  -h, --help            show this help message and exit
+  -h, --help       show this help message and exit
 
 Basic Settings:
-  --action <STR>        Select action type: 'mkgtf'(filter), 'stat'(statistics) or 'check'(validation) [default: mkgtf]
-  --ingtf <FILE>        Path to input GTF annotation file
-  --output <FILE>       Path to output file
+  --action <STR>   Operation type: 'mkgtf' (filter by gene types), 'stats' (count statistics), 'check' (validate format) [default: mkgtf] (e.g., `stats`).
+  --ingtf <FILE>   Path to input GTF annotation file (required) (e.g., `genes.gtf`).
+  --output <FILE>  Path to output file. Required for "mkgtf" and "check" actions. If not provided for "stats" action, statistics will be printed to stdout.
 
-Filter Settings:
-  GTF file format requirements:
-                  RNA analysis requires "gene"/"transcript" and "exon" types, plus gene_id/name and transcript_id/name attributes.
+Analysis Settings:
+  --include <STR>  Comma-separated list of gene types to include. Supports wildcards (e.g., 'IG_*' will match 'IG_V_gene', 'IG_C_gene'). [default:
+                   protein_coding,lncRNA,lincRNA,antisense,IG_*,TR_*].
+  --type <STR>     Attribute name for gene type classification (e.g., gene_biotype, gene_type). Use 'auto' to automatically detect. [default: auto].
+  --feature <STR>  Feature type to process from GTF. Use 'transcript' if no 'gene' entries exist [default: gene].
 
-  --include <STR>       Set filter parameters in 'mkgtf' mode, multiple filters separated by commas. Default includes: protein_coding, lncRNA, lincRNA, antisense, IG_*/TR_* genes
-  --type <STR>          Set according to gene type tag in GTF attributes [default: gene_biotype]
-  --feature <STR>       Select information from feature column. If no 'gene' rows, select 'transcript' [default: gene]
+Usage Examples:
+  Statistics:   dnbc4tools tools mkgtf --action stats --ingtf genes.gtf
+  Filtering:    dnbc4tools tools mkgtf --ingtf genes.gtf --output filtered.gtf --include 'protein_coding,lncRNA'
+  Validation:   dnbc4tools tools mkgtf --action check --ingtf genes.gtf --output corrected.gtf
 ```
 
 ### 📝 参数说明
@@ -62,6 +70,7 @@ Filter Settings:
 <p>指定处理结果的输出文件。</p>
 <ul>
   <li><strong>功能:</strong> 根据操作模式生成不同类型的输出文件。</li>
+  <li><strong>条件要求:</strong> 当 <code>--action mkgtf</code> 或 <code>--action check</code> 时必须提供；当 <code>--action stats</code> 时可省略，统计结果会输出到标准输出。</li>
   <li><strong>自动创建:</strong> 如果指定的输出目录不存在，将会被自动创建。</li>
 </ul>
 <p><strong>默认值:</strong> 无</p>
@@ -69,7 +78,7 @@ Filter Settings:
 <pre><code># 当 action 为 'mkgtf' (过滤)
 --output ./filtered_genes.gtf</code></pre>
 
-<pre><code># 当 action 为 'stat' (统计)
+<pre><code># 当 action 为 'stats' (统计)
 --output ./gene_statistics.txt</code></pre>
 
 <pre><code># 当 action 为 'check' (校验)
@@ -85,12 +94,12 @@ Filter Settings:
 <p>选择要执行的操作类型。</p>
 <ul>
   <li><strong><code>mkgtf</code>:</strong> (默认) 根据基因类型过滤GTF文件。</li>
-  <li><strong><code>stat</code>:</strong> 统计GTF文件中的基因类型。</li>
+  <li><strong><code>stats</code>:</strong> 统计GTF文件中的基因类型。</li>
   <li><strong><code>check</code>:</strong> 校验并修复GTF文件格式。</li>
 </ul>
 <p><strong>默认值:</strong> <code>mkgtf</code></p>
 <p><strong>示例:</strong></p>
-<pre><code>--action stat</code></pre>
+<pre><code>--action stats</code></pre>
 </div>
 
 <div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
@@ -98,6 +107,7 @@ Filter Settings:
 <p>在 <code>mkgtf</code> 模式下，指定要保留的基因类型，多个类型以逗号分隔。</p>
 <ul>
   <li><strong>功能:</strong> 用于精确筛选您感兴趣的基因集合。</li>
+  <li><strong>通配符:</strong> 支持通配符匹配（例如 <code>IG_*</code> 可匹配 <code>IG_V_gene</code>、<code>IG_C_gene</code>）。</li>
 </ul>
 <p><strong>默认值:</strong> <code>protein_coding,lncRNA,lincRNA,antisense,IG_*,TR_*</code></p>
 <p><strong>示例:</strong></p>
@@ -109,8 +119,9 @@ Filter Settings:
 <p>指定GTF属性中用于标识基因类型的标签。</p>
 <ul>
   <li><strong>功能:</strong> 适配不同来源GTF文件的注释风格。</li>
+  <li><strong>自动识别:</strong> 使用 <code>auto</code> 时，程序会自动检测常见标签（如 <code>gene_biotype</code>、<code>gene_type</code>）。</li>
 </ul>
-<p><strong>默认值:</strong> <code>gene_biotype</code></p>
+<p><strong>默认值:</strong> <code>auto</code></p>
 <p><strong>示例:</strong></p>
 <pre><code>--type gene_type</code></pre>
 </div>
@@ -132,11 +143,11 @@ Filter Settings:
 >
 > - <strong>统计基因类型</strong>:
 >   ```shell
->   dnbc4tools tools mkgtf --action stat --ingtf genes.gtf --output gtfstat.txt --type gene_biotype
+>   dnbc4tools tools mkgtf --action stats --ingtf genes.gtf
 >   ```
 > - <strong>过滤基因类型</strong>:
 >   ```shell
->   dnbc4tools tools mkgtf --action mkgtf --ingtf genes.gtf --output genes.filter.gtf --type gene_biotype
+>   dnbc4tools tools mkgtf --action mkgtf --ingtf genes.gtf --output genes.filter.gtf
 >   ```
 > - <strong>校验并修复 GTF 文件</strong>:
 >   ```shell
@@ -144,6 +155,8 @@ Filter Settings:
 >   ```
 
 ---
+
+<br>
 
 ## 📄 BAM 转 FASTQ (bam2fastq) <a id="bam-转-fastq-bam2fastq"></a>
 
@@ -154,7 +167,7 @@ Filter Settings:
 ### 📊 用法 <a id="usage-bam2fastq"></a>
 
 ```shell
-$ bam2fastq --help
+$ bam2fastq -h
 BAM to FASTQ Converter for C4 Single Cell RNA seq Data
 
 Usage: bam2fastq [OPTIONS] <BAM> <OUTPUT>
@@ -164,10 +177,10 @@ Arguments:
   <OUTPUT>  Directory where FASTQ files will be written
 
 Options:
-  -t, --threads <THREADS>        Number of CPU threads for parallel processing [default: 4]
+  -t, --threads <THREADS>        Number of CPU threads for parallel processing (default: all available cores) [default: 8]
   -r, --locus <REGION>           Process reads from a specific genomic region (format: chr1:1000-2000)
   -n, --reads-per-fastq <READS>  Maximum number of reads per FASTQ file. All reads go to a single file if not specified.
-      --max-memory <MEMORY>      Maximum memory to use in MB. If not specified, will be automatically determined based on system resources.
+      --max-memory <MEMORY>      Maximum memory to use in MB. Auto-determined if not specified.
       --no-compress              Disable gzip compression for output FASTQ files
   -h, --help                     Print help
   -V, --version                  Print version
@@ -187,7 +200,7 @@ Options:
 </ul>
 <p><strong>默认值:</strong> 无</p>
 <p><strong>示例:</strong></p>
-<pre><code>/path/to/your.bam</code></pre>
+<pre><code>/path/outs/anno_decon_sorted.bam</code></pre>
 </div>
 
 <div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
@@ -210,12 +223,12 @@ Options:
 <h4><code>-t, --threads</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(可选)</span></h4>
 <p>设置用于并行处理的CPU线程数。</p>
 <ul>
-  <li><strong>性能说明:</strong> 由于工具需要确保输出顺序与输入一致，因此增加线程数并不能显著提升整体分析速度。</li>
-  <li><strong>建议:</strong> 推荐使用默认的4个线程进行分析。</li>
+  <li><strong>性能说明:</strong> 增加线程数通常可提升BAM解码与写出效率，但受磁盘I/O带宽限制。</li>
+  <li><strong>建议:</strong> 默认值为 <code>所有可用的核心数量</code>；I/O性能较强时可增大该值，机械硬盘环境建议保守设置。</li>
 </ul>
-<p><strong>默认值:</strong> <code>4</code></p>
+<p><strong>默认值:</strong> <code>所有可用的核心数量</code></p>
 <p><strong>示例:</strong></p>
-<pre><code>-t 4</code></pre>
+<pre><code>-t 8</code></pre>
 </div>
 
 <div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
@@ -259,8 +272,7 @@ Options:
 <p>禁用对输出FASTQ文件的gzip压缩，以显著提高分析速度。</p>
 <ul>
   <li><strong>性能瓶颈:</strong> 程序的主要速度瓶颈在于写入压缩文件。</li>
-  <li><strong>强烈建议:</strong> 使用此参数可禁用压缩，从而显著提高整体分析速度。</li>
-  <li><strong>权衡:</strong> 生成的未压缩文件会占用更多磁盘空间，请确保有足够的存储空间。</li>
+  <li><strong>注意:</strong> 得益于软件的并行加速压缩，目前的默认压缩写入速度已获得大幅提升，基本消除分析瓶颈。</li>
 </ul>
 <p><strong>默认值:</strong> 不设置</p>
 </div>
@@ -270,22 +282,23 @@ Options:
 >
 > - <strong>基本转换</strong>:
 >   ```shell
->   bam2fastq input.bam ./output_dir --no-compress
+>   bam2fastq input.bam ./output_dir
 >   ```
 > - <strong>多线程高速转换</strong>:
 >   ```shell
->   bam2fastq -t 8 input.bam ./output_dir --no-compress
->   ```
+>   bam2fastq -t 8 input.bam ./output_dir
 > - <strong>区域特异性转换</strong>:
 >   ```shell
->   bam2fastq -r chr1:1000000-2000000 -t 4 input.bam ./output_dir --no-compress
+>   bam2fastq -r chr1:1000000-2000000 -t 4 input.bam ./output_dir
 >   ```
 > - <strong>大文件分割转换</strong>:
 >   ```shell
->   bam2fastq -n 5000000 -t 4 input.bam ./output_dir --no-compress
+>   bam2fastq -n 5000000 -t 4 input.bam ./output_dir
 >   ```
 
 ---
+
+<br>
 
 ## 🧬 染色体分割 (chromsplit) <a id="染色体分割-chromsplit"></a>
 
@@ -296,19 +309,20 @@ Options:
 ### 📊 用法
 
 ```shell
-$ chromsplit --help
+$ chromsplit  -h
+Split large genome sequences into smaller fragments at N-stretches or intergenic regions
 
 Usage: chromsplit [OPTIONS] --fasta <FA> --prefix <PREFIX>
 
 Options:
-  -f, --fasta <FA>           Input genome sequence file in FASTA format
-  -g, --gtf <GTF>            Optional GTF/GFF annotation file for the genome
-  -o, --prefix <PREFIX>      Prefix for output files
-  --min_length <MIN_LENGTH>  Minimum length of output scaffold fragments [default: 300000000]
-  --max_length <MAX_LENGTH>  Maximum length of output scaffold fragments [default: 500000000]
-  --cut_site <CUT_SITE>      Optional cut site file containing predefined split positions
-  -h, --help                 Print help
-  -V, --version              Print version
+  -f, --fasta <FA>               Input genome sequence file in FASTA format
+  -g, --gtf <GTF>                Optional GTF/GFF annotation file for the genome
+  -o, --prefix <PREFIX>          Prefix for output files (.fa and .cutsite.tsv will be appended)
+      --min_length <MIN_LENGTH>  Minimum length of output scaffold fragments (in base pairs) [default: 300000000]
+      --max_length <MAX_LENGTH>  Maximum length of output scaffold fragments (in base pairs) [default: 500000000]
+      --cut_site <CUT_SITE>      Optional cut site file containing predefined split positions
+  -h, --help                     Print help (see more with '--help')
+  -V, --version                  Print version
 ```
 
 ### 📝 参数说明
@@ -410,6 +424,8 @@ Options:
 
 ---
 
+<br>
+
 ## 📝 FASTQ 切割 (fqsubC4) <a id="fastq-切割-fqsubc4"></a>
 
 > 📝 <strong>核心功能</strong>
@@ -419,18 +435,18 @@ Options:
 ### 📊 用法
 
 ```shell
-$ fqsubC4 --help
+$ fqsubC4 -h
+Extracts regions from FASTQ sequences
 
 Usage: fqsubC4 [OPTIONS] --input <FILE> --output <FILE> --regions <REGIONS>
 
 Options:
-  -i, --input <FILE>           Path to input FASTQ file
-  -o, --output <FILE>          Path to output FASTQ file
-  -r, --regions <REGIONS>      Comma-separated regions in format start:end (e.g., 7:16,23:32,38:47)
-  -b, --batch-size <BATCH_SIZE>  Batch size for processing [default: 100000]
-  --buffer-size <BUFFER_SIZE>  Buffer size for channel between reader and writer [default: 500]
-  -h, --help                   Print help
-  -V, --version                Print version
+  -i, --input <FILE>       Path to input FASTQ file (supports both uncompressed and gzipped formats)
+  -o, --output <FILE>      Path to output FASTQ file （output will be automatically compressed if filename ends with .gz）
+  -r, --regions <REGIONS>  Comma-separated regions in format start:end (e.g., 7:16,23:32,38:47)
+  -t, --threads <THREADS>  Number of threads to use for parallel processing [default: 8]
+  -h, --help               Print help (see more with '--help')
+  -V, --version            Print version
 ```
 
 ### 📝 参数说明
@@ -453,8 +469,7 @@ Options:
 <h4><code>-o, --output &lt;FILE&gt;</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(必需)</span></h4>
 <p>指定输出的FASTQ文件路径。</p>
 <ul>
-  <li><strong>自动压缩:</strong> 如果输出文件名以 <code>.gz</code> 结尾，输出文件将被自动压缩。</li>
-  <li><strong>性能提醒:</strong> GZIP压缩会显著降低处理速度。</li>
+  <li><strong>自动压缩:</strong> 如果输出文件名以 <code>.gz</code> 结尾，输出文件将被自动压缩。推荐使用压缩格式，可以有效减少磁盘I/O和存储空间。</li>
 </ul>
 <p><strong>默认值:</strong> 无</p>
 <p><strong>示例:</strong></p>
@@ -479,26 +494,15 @@ Options:
 #### 🟢 可选参数
 
 <div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
-<h4><code>-b, --batch-size &lt;BATCH_SIZE&gt;</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(可选)</span></h4>
-<p>设置单次批处理的记录数量（即一次性读入内存的FASTQ记录数）。</p>
+<h4><code>-t, --threads &lt;THREADS&gt;</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(可选)</span></h4>
+<p>设置并行处理线程数。</p>
 <ul>
-  <li><strong>性能影响:</strong> 较高的值会使用更多内存，但可能会提升处理性能。</li>
-  <li><strong>平衡策略:</strong> 需要在内存占用和处理效率之间找到平衡。</li>
+  <li><strong>功能:</strong> 提升读取、截取和写出阶段的并行能力，适用于大文件加速处理。</li>
+  <li><strong>建议:</strong> 默认值为 <code>所有可用的核心数量</code>；建议根据CPU核心数和磁盘I/O性能进行调整。</li>
 </ul>
-<p><strong>默认值:</strong> <code>100000</code></p>
+<p><strong>默认值:</strong> <code>所有可用的核心数量</code></p>
 <p><strong>示例:</strong></p>
-<pre><code>--batch-size 200000</code></pre>
-</div>
-
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
-<h4><code>--buffer-size &lt;BUFFER_SIZE&gt;</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(可选)</span></h4>
-<p>设置读取器和写入器之间通道的缓冲区大小。</p>
-<ul>
-  <li><strong>吞吐量优化:</strong> 调整此参数以获得更好的大文件处理吞吐量。</li>
-</ul>
-<p><strong>默认值:</strong> <code>500</code></p>
-<p><strong>示例:</strong></p>
-<pre><code>--buffer-size 1000</code></pre>
+<pre><code>--threads 8</code></pre>
 </div>
 
 > [!NOTE]
@@ -506,8 +510,16 @@ Options:
 >
 > - <strong>基本区域提取</strong>:
 >   ```shell
->   fqsubC4 --input sample.fastq.gz --output extracted.fastq --regions "7:16,23:32"
+>   fqsubC4 --input sample.fastq.gz --output extracted.fastq.gz --regions "7:16,23:32"
 >   ```
+
+---
+
+### 📚 相关文档
+
+- [工具参数总览](./parameter.md)
+- [输出文件总览](../outs/outs.md)
+- [流程文档总览](../pipeline/pipeline.md)
 
 ---
 
@@ -517,7 +529,7 @@ Options:
 > 
 > 本文档持续更新中，如发现内容错误或需要补充的信息，欢迎反馈。
 > 
-> 📝 <strong>文档版本：</strong> 3.0 | <strong>最后更新：</strong> 2025年
+> 📝 <strong>文档版本：</strong> 3.1 | <strong>最后更新：</strong> 2026年4月
 
 ---
 

@@ -23,23 +23,31 @@
 ### 📊 Usage <a id="usage-mkgtf"></a>
 
 ```shell
-$ dnbc4tools tools mkgtf -h
+$ dnbc4tools tools mkgtf
+dnbc4tools 3.1
+
+Filter and process GTF annotation files.
+
+Usage: dnbc4tools tools mkgtf [OPTIONS]
 
 optional arguments:
-  -h, --help            show this help message and exit
+  -h, --help       show this help message and exit
 
 Basic Settings:
-  --action <STR>        Select action type: 'mkgtf'(filter), 'stat'(statistics) or 'check'(validation) [default: mkgtf]
-  --ingtf <FILE>        Path to input GTF annotation file
-  --output <FILE>       Path to output file
+  --action <STR>   Operation type: 'mkgtf' (filter by gene types), 'stats' (count statistics), 'check' (validate format) [default: mkgtf] (e.g., `stats`).
+  --ingtf <FILE>   Path to input GTF annotation file (required) (e.g., `genes.gtf`).
+  --output <FILE>  Path to output file. Required for "mkgtf" and "check" actions. If not provided for "stats" action, statistics will be printed to stdout.
 
-Filter Settings:
-  GTF file format requirements:
-                  RNA analysis requires "gene"/"transcript" and "exon" types, plus gene_id/name and transcript_id/name attributes.
+Analysis Settings:
+  --include <STR>  Comma-separated list of gene types to include. Supports wildcards (e.g., 'IG_*' will match 'IG_V_gene', 'IG_C_gene'). [default:
+                   protein_coding,lncRNA,lincRNA,antisense,IG_*,TR_*].
+  --type <STR>     Attribute name for gene type classification (e.g., gene_biotype, gene_type). Use 'auto' to automatically detect. [default: auto].
+  --feature <STR>  Feature type to process from GTF. Use 'transcript' if no 'gene' entries exist [default: gene].
 
-  --include <STR>       Set filter parameters in 'mkgtf' mode, multiple filters separated by commas. Default includes: protein_coding, lncRNA, lincRNA, antisense, IG_*/TR_* genes
-  --type <STR>          Set according to gene type tag in GTF attributes [default: gene_biotype]
-  --feature <STR>       Select information from feature column. If no 'gene' rows, select 'transcript' [default: gene]
+Usage Examples:
+  Statistics:   dnbc4tools tools mkgtf --action stats --ingtf genes.gtf
+  Filtering:    dnbc4tools tools mkgtf --ingtf genes.gtf --output filtered.gtf --include 'protein_coding,lncRNA'
+  Validation:   dnbc4tools tools mkgtf --action check --ingtf genes.gtf --output corrected.gtf
 ```
 
 ### 📝 Parameter Description
@@ -62,6 +70,7 @@ Filter Settings:
 <p>Specify the output file for the processing results.</p>
 <ul>
   <li><strong>Function:</strong> Generates different types of output files depending on the operation mode.</li>
+  <li><strong>Conditional Requirement:</strong> Required when <code>--action mkgtf</code> or <code>--action check</code> is used; optional when <code>--action stats</code> is used (statistics will be printed to stdout).</li>
   <li><strong>Auto-creation:</strong> The specified output directory will be created automatically if it does not exist.</li>
 </ul>
 <p><strong>Default:</strong> None</p>
@@ -69,7 +78,7 @@ Filter Settings:
 <pre><code># When action is 'mkgtf' (filter)
 --output ./filtered_genes.gtf</code></pre>
 
-<pre><code># When action is 'stat' (statistics)
+<pre><code># When action is 'stats' (statistics)
 --output ./gene_statistics.txt</code></pre>
 
 <pre><code># When action is 'check' (validation)
@@ -85,12 +94,12 @@ Filter Settings:
 <p>Select the type of operation to perform.</p>
 <ul>
   <li><strong><code>mkgtf</code>:</strong> (Default) Filter the GTF file based on gene types.</li>
-  <li><strong><code>stat</code>:</strong> Count the gene types in the GTF file.</li>
+  <li><strong><code>stats</code>:</strong> Count the gene types in the GTF file.</li>
   <li><strong><code>check</code>:</strong> Validate and fix the GTF file format.</li>
 </ul>
 <p><strong>Default:</strong> <code>mkgtf</code></p>
 <p><strong>Example:</strong></p>
-<pre><code>--action stat</code></pre>
+<pre><code>--action stats</code></pre>
 </div>
 
 <div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
@@ -98,6 +107,7 @@ Filter Settings:
 <p>In <code>mkgtf</code> mode, specify the gene types to keep, separated by commas.</p>
 <ul>
   <li><strong>Function:</strong> Used to precisely filter for the gene sets you are interested in.</li>
+  <li><strong>Wildcard Support:</strong> Supports wildcard matching (e.g., <code>IG_*</code> can match <code>IG_V_gene</code>, <code>IG_C_gene</code>).</li>
 </ul>
 <p><strong>Default:</strong> <code>protein_coding,lncRNA,lincRNA,antisense,IG_*,TR_*</code></p>
 <p><strong>Example:</strong></p>
@@ -109,8 +119,9 @@ Filter Settings:
 <p>Specify the tag in the GTF attributes used to identify the gene type.</p>
 <ul>
   <li><strong>Function:</strong> Adapts to the annotation style of GTF files from different sources.</li>
+  <li><strong>Auto-detection:</strong> If set to <code>auto</code>, the program automatically detects common tags (such as <code>gene_biotype</code> and <code>gene_type</code>).</li>
 </ul>
-<p><strong>Default:</strong> <code>gene_biotype</code></p>
+<p><strong>Default:</strong> <code>auto</code></p>
 <p><strong>Example:</strong></p>
 <pre><code>--type gene_type</code></pre>
 </div>
@@ -132,11 +143,11 @@ Filter Settings:
 >
 > - **Count gene types**:
 >   ```shell
->   dnbc4tools tools mkgtf --action stat --ingtf genes.gtf --output gtfstat.txt --type gene_biotype
+>   dnbc4tools tools mkgtf --action stats --ingtf genes.gtf
 >   ```
 > - **Filter gene types**:
 >   ```shell
->   dnbc4tools tools mkgtf --action mkgtf --ingtf genes.gtf --output genes.filter.gtf --type gene_biotype
+>   dnbc4tools tools mkgtf --action mkgtf --ingtf genes.gtf --output genes.filter.gtf
 >   ```
 > - **Validate and fix GTF file**:
 >   ```shell
@@ -144,6 +155,8 @@ Filter Settings:
 >   ```
 
 ---
+
+<br>
 
 ## 📄 BAM to FASTQ (bam2fastq) <a id="bam-to-fastq-bam2fastq"></a>
 
@@ -154,7 +167,7 @@ Filter Settings:
 ### 📊 Usage <a id="usage-bam2fastq"></a>
 
 ```shell
-$ bam2fastq --help
+$ bam2fastq -h
 BAM to FASTQ Converter for C4 Single Cell RNA seq Data
 
 Usage: bam2fastq [OPTIONS] <BAM> <OUTPUT>
@@ -164,10 +177,10 @@ Arguments:
   <OUTPUT>  Directory where FASTQ files will be written
 
 Options:
-  -t, --threads <THREADS>        Number of CPU threads for parallel processing [default: 4]
+  -t, --threads <THREADS>        Number of CPU threads for parallel processing (default: all available cores) [default: 8]
   -r, --locus <REGION>           Process reads from a specific genomic region (format: chr1:1000-2000)
   -n, --reads-per-fastq <READS>  Maximum number of reads per FASTQ file. All reads go to a single file if not specified.
-      --max-memory <MEMORY>      Maximum memory to use in MB. If not specified, will be automatically determined based on system resources.
+      --max-memory <MEMORY>      Maximum memory to use in MB. Auto-determined if not specified.
       --no-compress              Disable gzip compression for output FASTQ files
   -h, --help                     Print help
   -V, --version                  Print version
@@ -210,12 +223,12 @@ Options:
 <h4><code>-t, --threads</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(Optional)</span></h4>
 <p>Set the number of CPU threads for parallel processing.</p>
 <ul>
-  <li><strong>Performance Note:</strong> Since the tool needs to ensure the output order is consistent with the input, increasing the number of threads does not significantly improve the overall analysis speed.</li>
-  <li><strong>Recommendation:</strong> It is recommended to use the default 4 threads for analysis.</li>
+  <li><strong>Performance Note:</strong> Increasing thread count usually improves BAM decoding and writing performance, but actual gain is limited by disk I/O bandwidth.</li>
+  <li><strong>Recommendation:</strong> The default is <code>all available CPU cores</code>; increase it on high-I/O systems, and use a conservative value on HDD-based systems.</li>
 </ul>
-<p><strong>Default:</strong> <code>4</code></p>
+<p><strong>Default:</strong> <code>all available CPU cores</code></p>
 <p><strong>Example:</strong></p>
-<pre><code>-t 4</code></pre>
+<pre><code>-t 8</code></pre>
 </div>
 
 <div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
@@ -259,8 +272,7 @@ Options:
 <p>Disable gzip compression for the output FASTQ files to significantly increase analysis speed.</p>
 <ul>
   <li><strong>Performance Bottleneck:</strong> The main speed bottleneck of the program is writing compressed files.</li>
-  <li><strong>Strongly Recommended:</strong> Using this parameter disables compression, thereby significantly improving the overall analysis speed.</li>
-  <li><strong>Trade-off:</strong> The resulting uncompressed files will occupy more disk space, so ensure you have sufficient storage.</li>
+  <li><strong>Note:</strong> Thanks to parallel accelerated compression, default compressed output performance has been substantially improved and this bottleneck is largely eliminated.</li>
 </ul>
 <p><strong>Default:</strong> Not set</p>
 </div>
@@ -270,22 +282,24 @@ Options:
 >
 > - **Basic conversion**:
 >   ```shell
->   bam2fastq input.bam ./output_dir --no-compress
+>   bam2fastq input.bam ./output_dir
 >   ```
 > - **High-speed multi-threaded conversion**:
 >   ```shell
->   bam2fastq -t 8 input.bam ./output_dir --no-compress
+>   bam2fastq -t 8 input.bam ./output_dir
 >   ```
 > - **Region-specific conversion**:
 >   ```shell
->   bam2fastq -r chr1:1000000-2000000 -t 4 input.bam ./output_dir --no-compress
+>   bam2fastq -r chr1:1000000-2000000 -t 4 input.bam ./output_dir
 >   ```
 > - **Large file splitting conversion**:
 >   ```shell
->   bam2fastq -n 5000000 -t 4 input.bam ./output_dir --no-compress
+>   bam2fastq -n 5000000 -t 4 input.bam ./output_dir
 >   ```
 
 ---
+
+<br>
 
 ## 🧬 Chromosome Splitting (chromsplit) <a id="chromosome-splitting-chromsplit"></a>
 
@@ -296,18 +310,19 @@ Options:
 ### 📊 Usage
 
 ```shell
-$ chromsplit --help
+$ chromsplit  -h
+Split large genome sequences into smaller fragments at N-stretches or intergenic regions
 
 Usage: chromsplit [OPTIONS] --fasta <FA> --prefix <PREFIX>
 
 Options:
   -f, --fasta <FA>           Input genome sequence file in FASTA format
   -g, --gtf <GTF>            Optional GTF/GFF annotation file for the genome
-  -o, --prefix <PREFIX>      Prefix for output files
-  --min_length <MIN_LENGTH>  Minimum length of output scaffold fragments [default: 300000000]
-  --max_length <MAX_LENGTH>  Maximum length of output scaffold fragments [default: 500000000]
+  -o, --prefix <PREFIX>      Prefix for output files (.fa and .cutsite.tsv will be appended)
+      --min_length <MIN_LENGTH>  Minimum length of output scaffold fragments (in base pairs) [default: 300000000]
+      --max_length <MAX_LENGTH>  Maximum length of output scaffold fragments (in base pairs) [default: 500000000]
   --cut_site <CUT_SITE>      Optional cut site file containing predefined split positions
-  -h, --help                 Print help
+  -h, --help                     Print help (see more with '--help')
   -V, --version              Print version
 ```
 
@@ -410,6 +425,8 @@ Options:
 
 ---
 
+<br>
+
 ## 📝 FASTQ Subsetting (fqsubC4) <a id="fastq-subsetting-fqsubc4"></a>
 
 > 📝 <strong>Core Functionality</strong>
@@ -419,18 +436,18 @@ Options:
 ### 📊 Usage
 
 ```shell
-$ fqsubC4 --help
+$ fqsubC4 -h
+Extracts regions from FASTQ sequences
 
 Usage: fqsubC4 [OPTIONS] --input <FILE> --output <FILE> --regions <REGIONS>
 
 Options:
-  -i, --input <FILE>           Path to input FASTQ file
-  -o, --output <FILE>          Path to output FASTQ file
-  -r, --regions <REGIONS>      Comma-separated regions in format start:end (e.g., 7:16,23:32,38:47)
-  -b, --batch-size <BATCH_SIZE>  Batch size for processing [default: 100000]
-  --buffer-size <BUFFER_SIZE>  Buffer size for channel between reader and writer [default: 500]
-  -h, --help                   Print help
-  -V, --version                Print version
+  -i, --input <FILE>       Path to input FASTQ file (supports both uncompressed and gzipped formats)
+  -o, --output <FILE>      Path to output FASTQ file (output will be automatically compressed if filename ends with .gz)
+  -r, --regions <REGIONS>  Comma-separated regions in format start:end (e.g., 7:16,23:32,38:47)
+  -t, --threads <THREADS>  Number of threads to use for parallel processing [default: 8]
+  -h, --help               Print help (see more with '--help')
+  -V, --version            Print version
 ```
 
 ### 📝 Parameter Description
@@ -454,7 +471,7 @@ Options:
 <p>Specify the path for the output FASTQ file.</p>
 <ul>
   <li><strong>Auto-compression:</strong> The output file will be automatically compressed if the filename ends with <code>.gz</code>.</li>
-  <li><strong>Performance Note:</strong> GZIP compression will significantly slow down the processing speed.</li>
+  <li><strong>Recommendation:</strong> Compressed output is recommended to effectively reduce disk I/O and storage usage.</li>
 </ul>
 <p><strong>Default:</strong> None</p>
 <p><strong>Example:</strong></p>
@@ -479,26 +496,15 @@ Options:
 #### 🟢 Optional Parameters
 
 <div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
-<h4><code>-b, --batch-size &lt;BATCH_SIZE&gt;</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(Optional)</span></h4>
-<p>Set the number of records per batch for processing (i.e., the number of FASTQ records read into memory at one time).</p>
+<h4><code>-t, --threads &lt;THREADS&gt;</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(Optional)</span></h4>
+<p>Set the number of threads for parallel processing.</p>
 <ul>
-  <li><strong>Performance Impact:</strong> Higher values use more memory but may improve processing performance.</li>
-  <li><strong>Balancing Act:</strong> A balance needs to be found between memory usage and processing efficiency.</li>
+  <li><strong>Function:</strong> Improves parallelism in read, extraction, and write stages for faster processing of large files.</li>
+  <li><strong>Recommendation:</strong> The default is <code>all available CPU cores</code>; adjust according to CPU cores and disk I/O performance.</li>
 </ul>
-<p><strong>Default:</strong> <code>100000</code></p>
+<p><strong>Default:</strong> <code>all available CPU cores</code></p>
 <p><strong>Example:</strong></p>
-<pre><code>--batch-size 200000</code></pre>
-</div>
-
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
-<h4><code>--buffer-size &lt;BUFFER_SIZE&gt;</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(Optional)</span></h4>
-<p>Set the buffer size for the channel between the reader and writer.</p>
-<ul>
-  <li><strong>Throughput Optimization:</strong> Adjust this parameter for better throughput when processing large files.</li>
-</ul>
-<p><strong>Default:</strong> <code>500</code></p>
-<p><strong>Example:</strong></p>
-<pre><code>--buffer-size 1000</code></pre>
+<pre><code>--threads 8</code></pre>
 </div>
 
 > [!NOTE]
@@ -506,8 +512,16 @@ Options:
 >
 > - **Basic region extraction**:
 >   ```shell
->   fqsubC4 --input sample.fastq.gz --output extracted.fastq --regions "7:16,23:32"
+>   fqsubC4 --input sample.fastq.gz --output extracted.fastq.gz --regions "7:16,23:32"
 >   ```
+
+---
+
+### 📚 Related Docs
+
+- [Tools parameter index](./parameter.md)
+- [Outputs index](../outs/outs.md)
+- [Pipeline index](../pipeline/pipeline.md)
 
 ---
 
@@ -517,7 +531,7 @@ Options:
 > 
 > This document is continuously updated. If you find any errors or have information to add, your feedback is welcome.
 > 
-> 📝 <strong>Document Version:</strong> 3.0 | <strong>Last Updated:</strong> 2025
+> 📝 <strong>Document Version:</strong> 3.1 | <strong>Last Updated:</strong> April 2026
 
 ---
 

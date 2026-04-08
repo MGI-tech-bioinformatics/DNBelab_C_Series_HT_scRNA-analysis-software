@@ -23,7 +23,7 @@ This document provides a detailed guide for analyzing single-cell ATAC sequencin
 **Workflow**: Raw Data → Quality Control → Alignment → Bead Merging → Peak Calling → Cell Identification → Dimensionality Reduction & Clustering → Analysis Report
 
 <div align="center">
-  <img src="https://s2.loli.net/2024/09/27/exd1OyX3n4K8LGq.png" alt="Workflow Diagram" width="800">
+  <img src="../images/scATAC_pipeline.png" alt="scATACpipeline" width="700">
 </div>
 
 <div style="background-color: #e7f3fe; border-left: 6px solid #2196F3; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
@@ -251,13 +251,34 @@ You can then execute these scripts to run the main analysis.
 
 The ATAC main analysis pipeline processes single-cell ATAC library data from a single sample. It filters and aligns reads to generate a fragments file for all beads. Beads are then merged, and peak calling is performed. Cell identification is done using the fragment information within the peak regions. This is followed by cell filtering, dimensionality reduction, and clustering. Finally, the results from all steps are integrated to generate an HTML report and other output files.
 
-Example script for generating an expression matrix for a single sample:
+Two input methods are supported:
+
+**Method 1: Directory (Recommended)**
 
 ```shell
 $dnbc4tools atac run \
   --name sample \
-  --fastq1 /sample/data/test1_R1.fastq.gz,/sample/data/test2_R1.fastq.gz \
-  --fastq2 /sample/data/test1_R2.fastq.gz,/sample/data/test2_R2.fastq.gz \
+  --fastqs /data \
+  --genomeDir /opt/database/Mus_musculus \
+  --threads 10
+```
+
+Directory structure example:
+```
+/data/
+
+├── sample_R1.fastq.gz
+└── sample_R2.fastq.gz
+
+```
+
+**Method 2: Individual Parameters**
+
+```shell
+$dnbc4tools atac run \
+  --name sample \
+  --fastq1 /data/sample_R1.fastq.gz \
+  --fastq2 /data/sample_R2.fastq.gz \
   --genomeDir /opt/database/Mus_musculus \
   --threads 10
 ```
@@ -265,15 +286,15 @@ $dnbc4tools atac run \
 After auto-detecting the reagent version and dark reaction, the software begins the analysis. Here is an example:
 
 ```shell
+
 ──────────────────────────── Parsed FASTQ Inputs — 2025-11-12 15:05:39 ─────────────────────────────
 ┌───────┬──────────────────────────────────────────────────────────────────────────────────────────┐
 │ Type  │ Path                                                                                     │
 ├───────┼──────────────────────────────────────────────────────────────────────────────────────────┤
-│ Read1 │ /data/test_ATAC_R1.fastq.gz                                                              │
-│ Read2 │ /data/test_ATAC_R2.fastq.gz                                                              │
+│ Read1 │ /data/sample_R1.fastq.gz                                                                 │
+│ Read2 │ /data/sample_R2.fastq.gz                                                                 │
 └───────┴──────────────────────────────────────────────────────────────────────────────────────────┘
 ────────────────────────────────────────────────────────────────────────────────────────────────────
-
 
 ──────────────────────────── Chemistry Detection — 2025-11-12 15:05:49 ─────────────────────────────
 ┌─────────────────────────────────┬────────────────────────────────────────────────────────────────┐
@@ -305,7 +326,7 @@ After auto-detecting the reagent version and dark reaction, the software begins 
  2025-11-12 15:50:03 Generating analysis report and summary statistics...                           
 ...done
 
-Analysis Finished Elapsed Time: 0:44:41
+ 2025-11-12 15:50:19 Analysis Finished. Elapsed Time: 0:44:30
 ```
 
 A successful run will end with `Analysis Finished`.
@@ -333,7 +354,8 @@ Upon completion, `outs` (outputs) and `logs` directories will be generated.
 └── singlecell.csv
 ```
 
-**Related Documentation**:
+### 📚 Related Documentation
+
 - [📊 Output File Usage](../io.md)
 - [📋 Analysis Parameter Settings](../parameter/scATAC_en.md)
 - [📝 Output File Descriptions](../outs/scATAC_en.md)

@@ -55,7 +55,7 @@
 
 ## ◆ Software Download <a id="software-download"></a>
 
-### dnbc4tools 3.0 (Released: Dec 18, 2025)
+### dnbc4tools 3.1 (Released: Apr 3, 2026)
 
 <table style="width:100%; border-collapse: collapse; margin: 1.5em 0; box-shadow: 0 2px 3px rgba(0,0,0,0.1);">
   <thead style="background-color: #f2f2f2; border-bottom: 2px solid #ddd;">
@@ -67,27 +67,27 @@
   <tbody>
     <tr>
       <td style="padding: 12px 15px; border: 1px solid #ddd;"><b>File Name</b></td>
-      <td style="padding: 12px 15px; border: 1px solid #ddd;">dnbc4tools-3.0.tar.gz</td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;">dnbc4tools-3.1.tar.gz</td>
     </tr>
     <tr>
       <td style="padding: 12px 15px; border: 1px solid #ddd;"><b>File Size</b></td>
-      <td style="padding: 12px 15px; border: 1px solid #ddd;">513M</td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;">518M</td>
     </tr>
     <tr>
       <td style="padding: 12px 15px; border: 1px solid #ddd;"><b>MD5 Checksum</b></td>
-      <td style="padding: 12px 15px; border: 1px solid #ddd;">d9a26a8848b4d703dbffb99670f82837</td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;">待更新</td>
     </tr>
   </tbody>
 </table>
 
 **Download Options:**
-- **CNGB link**: [dnbc4tools-3.0.tar.gz](https://ftp2.cngb.org/pub/CNSA/data7/CNP0008672/Single_Cell/CSE0000574/dnbc4tools-3.0.tar.gz)
+- **CNGB link**: [dnbc4tools-3.1.tar.gz](https://ftp2.cngb.org/pub/CNSA/data7/CNP0008672/Single_Cell/CSE0000574/dnbc4tools-3.1.tar.gz)
 
 ```bash
 #### Download using `wget`
-wget -O dnbc4tools-3.0.tar.gz "ftp://ftp2.cngb.org/pub/CNSA/data7/CNP0008672/Single_Cell/CSE0000574/dnbc4tools-3.0.tar.gz"
+wget -O dnbc4tools-3.1.tar.gz "ftp://ftp2.cngb.org/pub/CNSA/data7/CNP0008672/Single_Cell/CSE0000574/dnbc4tools-3.1.tar.gz"
 #### Download using `curl`
-curl -o dnbc4tools-3.0.tar.gz "ftp://ftp2.cngb.org/pub/CNSA/data7/CNP0008672/Single_Cell/CSE0000574/dnbc4tools-3.0.tar.gz"
+curl -o dnbc4tools-3.1.tar.gz "ftp://ftp2.cngb.org/pub/CNSA/data7/CNP0008672/Single_Cell/CSE0000574/dnbc4tools-3.1.tar.gz"
 ```
 
 <div style="margin-top: 15px;">
@@ -112,7 +112,7 @@ Extract the dnbc4tools package to your preferred directory (example uses `/opt/s
 cd /opt/software
 
 # Extract the package
-tar -xzvf dnbc4tools-3.0.tar.gz
+tar -xzvf dnbc4tools-3.1.tar.gz
 ```
 
 ### Step 2: Verify Directory Structure 
@@ -128,23 +128,23 @@ After extraction, you should see the following directory structure:
   </thead>
   <tbody>
     <tr>
-      <td style="padding: 12px 15px; border: 1px solid #ddd;"><code>dnbc4tools3.0/dnbc4tools</code></td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;"><code>dnbc4tools3.1/dnbc4tools</code></td>
       <td style="padding: 12px 15px; border: 1px solid #ddd;">Main executable</td>
     </tr>
     <tr>
-      <td style="padding: 12px 15px; border: 1px solid #ddd;"><code>dnbc4tools3.0/external</code></td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;"><code>dnbc4tools3.1/external</code></td>
       <td style="padding: 12px 15px; border: 1px solid #ddd;">External dependencies</td>
     </tr>
     <tr>
-      <td style="padding: 12px 15px; border: 1px solid #ddd;"><code>dnbc4tools3.0/lib</code></td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;"><code>dnbc4tools3.1/lib</code></td>
       <td style="padding: 12px 15px; border: 1px solid #ddd;">Library files</td>
     </tr>
     <tr>
-      <td style="padding: 12px 15px; border: 1px solid #ddd;"><code>dnbc4tools3.0/misc</code></td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;"><code>dnbc4tools3.1/misc</code></td>
       <td style="padding: 12px 15px; border: 1px solid #ddd;">Miscellaneous files</td>
     </tr>
     <tr>
-      <td style="padding: 12px 15px; border: 1px solid #ddd;"><code>dnbc4tools3.0/sourceC4.bash</code></td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;"><code>dnbc4tools3.1/sourceC4.bash</code></td>
       <td style="padding: 12px 15px; border: 1px solid #ddd;">Environment configuration script</td>
     </tr>
   </tbody>
@@ -160,23 +160,35 @@ Confirm that the installation was successful by running these commands:
 
 ```bash
 # Navigate to installation directory
-cd /opt/software/dnbc4tools3.0
+cd /opt/software/dnbc4tools3.1
 
-# Test basic functionality
-./dnbc4tools --help
-./dnbc4tools --version
+# Test
+./dnbc4tools
 
-# Test specific modules
-./dnbc4tools rna --help
-./dnbc4tools atac --help
-./dnbc4tools vdj --help
+dnbc4tools 3.1
+
+Single-cell analysis toolkit for RNA, ATAC, V(D)J, and multi-omics workflows
+
+Usage: dnbc4tools <COMMAND>
+
+Commands:
+  
+    rna          Single-cell RNA-seq analysis
+    atac         Single-cell ATAC-seq analysis
+    vdj          Single-cell V(D)J immune profiling
+    tools        Utility commands and file processing
+    multi        Integrated multi-omics analysis
+
+Options:
+  -h, --help     show this help message and exit
+  -v, --version  show program's version number and exit
 ```
 
 ---
 
 ## ◆ Next Steps <a id="next-steps"></a>
 
-Congratulations! You've successfully installed dnbc4tools 3.0! Here's what you can do next:
+Congratulations! You've successfully installed dnbc4tools 3.1! Here's what you can do next:
 
 - 🚀 **[Run the Quick Start Tutorial](./quickstart.md)** to perform your first analysis.
 - 🧪 **[Download Sample Data](./dataset.md)** to test the pipelines.

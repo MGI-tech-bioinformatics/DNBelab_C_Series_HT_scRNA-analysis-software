@@ -12,6 +12,27 @@
 
 ---
 
+## ◆ v3.x Series <a id="v3x-series"></a>
+
+<table style="width:100%; border-collapse: collapse; margin: 1.5em 0; box-shadow: 0 2px 3px rgba(0,0,0,0.1);">
+  <thead style="background-color: #f2f2f2; border-bottom: 2px solid #ddd;">
+    <tr>
+      <th style="padding: 12px 15px; border: 1px solid #ddd; text-align: left;">Version</th>
+      <th style="padding: 12px 15px; border: 1px solid #ddd; text-align: left;">Release Date</th>
+      <th style="padding: 12px 15px; border: 1px solid #ddd; text-align: left;">Installation Guide</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;"><b>3.0</b></td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;">Dec 18, 2025</td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;"><a href="https://github.com/MGI-tech-bioinformatics/DNBelab_C_Series_HT_scRNA-analysis-software/blob/de7b77ee029ca668d6c197f22e6bb09431893f12/doc/installation.md">View Installation Guide</a></td>
+    </tr>
+  </tbody>
+</table>
+
+---
+
 ## ◆ v2.x Series <a id="v2x-series"></a>
 
 The following v2.x versions are available for projects requiring reproducibility with previous stable pipelines.

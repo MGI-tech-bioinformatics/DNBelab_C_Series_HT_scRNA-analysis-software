@@ -23,7 +23,7 @@ This document provides a detailed guide for analyzing single-cell VDJ sequencing
 **Workflow**: 5' Transcriptome Analysis → VDJ Library Processing → Sequence Assembly & Annotation → Cell Filtering → Clonotype Analysis → Analysis Report
 
 <div align="center">
-  <img src="https://s2.loli.net/2024/09/27/WHFIaNpLV8xu4Pi.png" alt="Workflow Diagram" width="800">
+  <img src="../images/scVDJ_pipeline.png" alt="scVDJpipeline" width="700">
 </div>
 
 <div style="background-color: #e7f3fe; border-left: 6px solid #2196F3; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
@@ -114,33 +114,65 @@ The main VDJ pipeline combines single-cell VDJ library data with the 5' transcri
 
 ### TCR Analysis
 
-To run TCR analysis for a single sample, use the following example script:
+To run TCR analysis for a single sample, two input methods are supported:
+
+**Method 1: Directory (Recommended)**
 
 ```shell
 $dnbc4tools vdj run \
-	--name sample_tcr \
-	--fastq1 /data/sample_tcr_R1.fastq.gz \
-	--fastq2 /data/sample_tcr_R2.fastq.gz \
-	--ref human \
-	--chain TR \
-	--beadstrans /sample_5rna/outs/singlecell.csv \
-	--threads 10
+  --name sample_tcr \
+  --fastqs /data/vdjt \
+  --ref human \
+  --chain TR \
+  --beadstrans /sample_5rna/outs/singlecell.csv \
+  --threads 10
 ```
+
+**Method 2: Individual Parameters**
+
+```shell
+$dnbc4tools vdj run \
+  --name sample_tcr \
+  --fastq1 /data/vdjt/sample_tcr_R1.fastq.gz \
+  --fastq2 /data/vdjt/sample_tcr_R2.fastq.gz \
+  --ref human \
+  --chain TR \
+  --beadstrans /sample_5rna/outs/singlecell.csv \
+  --threads 10
+```
+
+<br>
 
 ### BCR Analysis
 
-To run BCR analysis for a single sample, use the following example script:
+To run BCR analysis for a single sample, two input methods are supported:
+
+**Method 1: Directory (Recommended)**
 
 ```shell
 $dnbc4tools vdj run \
-	--name sample_bcr \
-	--fastq1 /data/sample_bcr_R1.fastq.gz \
-	--fastq2 /data/sample_bcr_R2.fastq.gz \
-	--ref human \
-	--chain IG \
-	--beadstrans /sample_5rna/outs/singlecell.csv \
-	--threads 10
+  --name sample_bcr \
+  --fastqs /data/vdjb \
+  --ref human \
+  --chain IG \
+  --beadstrans /sample_5rna/outs/singlecell.csv \
+  --threads 10
 ```
+
+**Method 2: Individual Parameters**
+
+```shell
+$dnbc4tools vdj run \
+  --name sample_bcr \
+  --fastq1 /data/vdjb/sample_bcr_R1.fastq.gz \
+  --fastq2 /data/vdjb/sample_bcr_R2.fastq.gz \
+  --ref human \
+  --chain IG \
+  --beadstrans /sample_5rna/outs/singlecell.csv \
+  --threads 10
+```
+
+<br>
 
 ### Execution Process
 
@@ -151,8 +183,8 @@ After auto-detecting the dark reaction, the software begins the analysis. Here i
 ┌───────┬──────────────────────────────────────────────────────────────────────────────────────────┐
 │ Type  │ Path                                                                                     │
 ├───────┼──────────────────────────────────────────────────────────────────────────────────────────┤
-│ Read1 │ /data/test_ATAC_R1.fastq.gz                                                              │
-│ Read2 │ /data/test_ATAC_R2.fastq.gz                                                              │
+│ Read1 │ /data/vdjt/sample_tcr_R1.fastq.gz                                                        │
+│ Read2 │ /data/vdjt/sample_tcr_R2.fastq.gz                                                        │
 └───────┴──────────────────────────────────────────────────────────────────────────────────────────┘
 ────────────────────────────────────────────────────────────────────────────────────────────────────
 
@@ -186,7 +218,7 @@ After auto-detecting the dark reaction, the software begins the analysis. Here i
  2025-11-12 16:05:15 Generating analysis report and summary statistics...                           
 ...done
 
-Analysis Finished Elapsed Time: 0:52:24
+ 2025-11-12 16:05:44 Analysis Finished. Elapsed Time: 0:52:24
 ```
 
 A successful run will end with `Analysis Finished`.
@@ -214,7 +246,8 @@ Upon completion, `outs` (outputs) and `logs` directories will be generated. The 
 └── metrics_summary.xls
 ```
 
-**Related Documentation**:
+### 📚 Related Documentation
+
 - [📋 Analysis Parameter Settings](../parameter/scVDJ_en.md)
 - [📝 Output File Descriptions](../outs/scVDJ_en.md)
 

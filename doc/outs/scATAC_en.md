@@ -18,7 +18,7 @@
 
 ## 📖 Overview <a id="overview"></a>
 
-After the single-cell ATAC sequencing analysis is complete, a standardized structure of files and subdirectories is generated in the specified output directory, specifically for chromatin accessibility analysis and epigenomic research. This document details the content, format, and purpose of each output file to help users fully understand and efficiently utilize the scATAC analysis results.
+After single-cell ATAC sequencing analysis is complete, a standardized structure of files and subdirectories is generated in the specified output directory for chromatin accessibility analysis and epigenomic research. This document details the content, format, and purpose of each output file to help users efficiently interpret and use scATAC analysis results.
 
 > 💡 **Tip**: All output files use standard formats compatible with mainstream single-cell epigenomic analysis tools (e.g., Signac, ArchR), adhering to internationally accepted data format standards.
 
@@ -418,7 +418,7 @@ Market Exchange Format (MEX) is a standard format for storing sparse count matri
 
 </div>
 
-The HTML web report is a comprehensive display platform for single-cell ATAC sequencing analysis, integrating complete results from data quality control to downstream epigenomic analysis. The report uses interactive visualization design to help users quickly evaluate experiment quality, understand analysis results and guide subsequent research directions.
+The HTML web report is a comprehensive display platform for single-cell ATAC sequencing analysis, integrating complete results from data quality control to downstream epigenomic analysis. The report uses an interactive visualization design to help users quickly evaluate experimental quality, understand analysis results, and guide subsequent research directions.
 
 > 💡 **Usage Suggestion**: It is recommended to review the metrics in the order they are presented in the report.
 
@@ -441,8 +441,6 @@ The HTML web report is a comprehensive display platform for single-cell ATAC seq
 </div>
 
 **📊 Quality Control Standards:**
-
-> **Note**: The following standards are for reference only. Actual quality assessment should consider factors such as organism type, cell state, and experimental goals. Differences between samples may exist. It is recommended to combine specific experimental background for judgment.
 
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
@@ -494,8 +492,7 @@ The HTML web report is a comprehensive display platform for single-cell ATAC seq
 <tbody>
 <tr>
 <td align="left">
-<strong>Estimated number of cells</strong><br>
-<em></em>
+<strong>Estimated number of cells</strong>
 </td>
 <td>
 <ul>
@@ -509,8 +506,7 @@ The HTML web report is a comprehensive display platform for single-cell ATAC seq
 </tr>
 <tr>
 <td align="left">
-<strong>Species</strong><br>
-<em></em>
+<strong>Species</strong>
 </td>
 <td>
 <ul>
@@ -521,8 +517,7 @@ The HTML web report is a comprehensive display platform for single-cell ATAC seq
 </tr>
 <tr>
 <td align="left">
-<strong>Median fragments per cell</strong><br>
-<em></em>
+<strong>Median fragments per cell</strong>
 </td>
 <td>
 <ul>
@@ -540,8 +535,7 @@ The HTML web report is a comprehensive display platform for single-cell ATAC seq
 </tr>
 <tr>
 <td align="left">
-<strong>Mean raw read pairs per cell</strong><br>
-<em></em>
+<strong>Mean raw read pairs per cell</strong>
 </td>
 <td>
 <ul>
@@ -553,8 +547,7 @@ The HTML web report is a comprehensive display platform for single-cell ATAC seq
 </tr>
 <tr>
 <td align="left">
-<strong>Fraction overlapping peaks</strong><br>
-<em></em>
+<strong>Fraction overlapping peaks</strong>
 </td>
 <td>
 <ul>
@@ -568,8 +561,7 @@ The HTML web report is a comprehensive display platform for single-cell ATAC seq
 </tr>
 <tr>
 <td align="left">
-<strong>Fraction overlapping TSS</strong><br>
-<em></em>
+<strong>Fraction overlapping TSS</strong>
 </td>
 <td>
 <ul>
@@ -583,8 +575,7 @@ The HTML web report is a comprehensive display platform for single-cell ATAC seq
 </tr>
 <tr>
 <td align="left">
-<strong>Fraction of fragments in cells</strong><br>
-<em></em>
+<strong>Fraction of fragments in cells</strong>
 </td>
 <td>
 <ul>
@@ -598,8 +589,7 @@ The HTML web report is a comprehensive display platform for single-cell ATAC seq
 </tr>
 <tr>
 <td align="left">
-<strong>Number of peaks</strong><br>
-<em></em>
+<strong>Number of peaks</strong>
 </td>
 <td>
 <ul>
@@ -624,8 +614,6 @@ The HTML web report is a comprehensive display platform for single-cell ATAC seq
 </div>
 
 **📊 Quality Control Standards:**
-
-> **Note**: The following standards are for reference only. Actual quality assessment should consider factors such as organism type, cell state, and experimental goals. Differences between samples may exist. It is recommended to combine specific experimental background for judgment.
 
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
@@ -676,8 +664,7 @@ The HTML web report is a comprehensive display platform for single-cell ATAC seq
 <tbody>
 <tr>
 <td align="left">
-<strong>Total number of reads pairs</strong><br>
-<em></em>
+<strong>Total number of read pairs</strong>
 </td>
 <td>
 <ul>
@@ -688,8 +675,7 @@ The HTML web report is a comprehensive display platform for single-cell ATAC seq
 </tr>
 <tr>
 <td align="left">
-<strong>Valid barcodes</strong><br>
-<em></em>
+<strong>Valid barcodes</strong>
 </td>
 <td>
 <ul>
@@ -701,8 +687,7 @@ The HTML web report is a comprehensive display platform for single-cell ATAC seq
 </tr>
 <tr>
 <td align="left">
-<strong>Confidently mapped read pairs</strong><br>
-<em></em>
+<strong>Confidently mapped read pairs</strong>
 </td>
 <td>
 <ul>
@@ -715,8 +700,7 @@ The HTML web report is a comprehensive display platform for single-cell ATAC seq
 </tr>
 <tr>
 <td align="left">
-<strong>Mitochondria reads ratio</strong><br>
-<em></em>
+<strong>Mitochondrial reads ratio</strong>
 </td>
 <td>
 <ul>
@@ -728,21 +712,19 @@ The HTML web report is a comprehensive display platform for single-cell ATAC seq
 </tr>
 <tr>
 <td align="left">
-<strong>Nucleosome-free regions</strong><br>
-<em></em>
+<strong>Nucleosome-free regions</strong>
 </td>
 <td>
 <ul>
 <li><strong>Definition</strong>: The proportion of fragments originating from open chromatin regions (i.e., nucleosome-free regions).</li>
 <li><strong>Biological Significance</strong>: Reflects the strength of the valid ATAC-seq signal.</li>
-<li><strong>Quality Interpretation</strong>: A high proportion (e.g., > 40%) indicates good chromatin accessibility and efficient transposase activity.</li>
+<li><strong>Quality Interpretation</strong>: A high proportion (e.g., > 40%) indicates good chromatin accessibility and high transposase efficiency.</li>
 </ul>
 </td>
 </tr>
 <tr>
 <td align="left">
-<strong>Mono-nucleosome regions</strong><br>
-<em></em>
+<strong>Mono-nucleosome regions</strong>
 </td>
 <td>
 <ul>
@@ -753,8 +735,7 @@ The HTML web report is a comprehensive display platform for single-cell ATAC seq
 </tr>
 <tr>
 <td align="left">
-<strong>Q30 bases in barcode</strong><br>
-<em></em>
+<strong>Q30 bases in barcode</strong>
 </td>
 <td>
 <ul>
@@ -765,8 +746,7 @@ The HTML web report is a comprehensive display platform for single-cell ATAC seq
 </tr>
 <tr>
 <td align="left">
-<strong>Q30 bases in read</strong><br>
-<em></em>
+<strong>Q30 bases in read</strong>
 </td>
 <td>
 <ul>
@@ -963,34 +943,10 @@ Used in the C4 ATAC technology to merge multiple beads from the same cell drople
 
 ### 📚 Related Documentation
 
-<table style="width:100%; border-collapse: collapse; margin: 15px 0;">
-<thead>
-<tr>
-<th width="30%" align="left"><strong>Document Type</strong></th>
-<th width="70%" align="left"><strong>Resource Link & Description</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left"><strong>🚀 Quick Start</strong></td>
-<td><a href="../quickstart.md">Quick Start Guide</a> - A complete tutorial for your first analysis.</td>
-</tr>
-<tr>
-<td align="left"><strong>⚙️ Parameter Reference</strong></td>
-<td><a href="../parameter/parameter.md">Parameter Reference Manual</a> - Detailed descriptions of all configurable parameters.</td>
-</tr>
-<tr>
-<td align="left"><strong>🔬 Analysis Pipeline</strong></td>
-<td><a href="../pipeline/pipeline.md">Analysis Pipeline Description</a> - Technical details of the entire analysis workflow.</td>
-</tr>
-<tr>
-<td align="left"><strong>🔧 Installation & Setup</strong></td>
-<td><a href="../installation.md">Installation & Setup Guide</a> - System requirements, installation steps, and environment configuration.</td>
-</tr>
-</tbody>
-</table>
+- [scATAC pipeline doc](../pipeline/scATAC_en.md)
+- [scATAC parameter doc](../parameter/scATAC_en.md)
 
-
+---
 
 <div align="center">
 
@@ -998,7 +954,7 @@ Used in the C4 ATAC technology to merge multiple beads from the same cell drople
 > 
 > This document is continuously updated. If you find any errors or have information to add, feedback is welcome.
 > 
-> 📝 <strong>Document Version:</strong> 3.0 | <strong>Last Updated:</strong> 2025
+> 📝 <strong>Document Version:</strong> 3.1 | <strong>Last Updated:</strong> April 2026
 
 ---
 

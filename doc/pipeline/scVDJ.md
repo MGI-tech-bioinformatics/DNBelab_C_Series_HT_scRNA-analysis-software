@@ -23,14 +23,16 @@
 **工作流程**：5端转录组分析 → VDJ文库处理 → 序列组装注释 → 细胞过滤 → 克隆型分析 → 分析报告
 
 <div align="center">
-  <img src="https://s2.loli.net/2024/09/27/WHFIaNpLV8xu4Pi.png" alt="工作流程图" width="800">
+  <img src="../images/scVDJ_pipeline.png" alt="scVDJpipeline" width="700">
 </div>
 
 <div style="background-color: #e7f3fe; border-left: 6px solid #2196F3; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
-💡 <strong>使用说明</strong>：<code>$dnbc4tools</code> 代表可执行程序路径，使用时需要替换为实际安装路径。换行符 `\` 用于在命令行中将命令分为多行，以提高可读性。
+💡 <strong>使用说明</strong>：<code>$dnbc4tools</code> 代表可执行程序路径，需替换为您的实际安装路径。本文示例使用换行符 `\` 分隔命令以提高可读性，实际分析时可写为单行。
 </div>
 
 ---
+
+<br>
 
 ## 📁 文件准备 <a id="文件准备"></a>
 
@@ -102,6 +104,8 @@ CELL4010_N1,555308,4268,22554,1,AGAGAGTCGCAGCAAGCGAC
 
 ---
 
+<br>
+
 ## 🚀 主分析流程 <a id="主分析流程"></a>
 
 VDJ主分析流程结合了单细胞VDJ文库测序数据和对应样本的5'转录组分析结果，包含以下关键步骤：
@@ -114,33 +118,65 @@ VDJ主分析流程结合了单细胞VDJ文库测序数据和对应样本的5'转
 
 ### TCR分析
 
-为单个样本运行TCR分析，以下是一个示例步骤或脚本模板：
+为单个样本运行TCR分析，支持两种输入方式：
+
+**方式1：目录方式（推荐）**
 
 ```shell
 $dnbc4tools vdj run \
-	--name sample_tcr \
-	--fastq1 /data/sample_tcr_R1.fastq.gz \
-	--fastq2 /data/sample_tcr_R2.fastq.gz \
-	--ref human \
-	--chain TR \
-	--beadstrans /sample_5rna/outs/singlecell.csv \
-	--threads 10
+  --name sample_tcr \
+  --fastqs /data/vdjt \
+  --ref human \
+  --chain TR \
+  --beadstrans /sample_5rna/outs/singlecell.csv \
+  --threads 10
 ```
+
+**方式2：单独参数方式**
+
+```shell
+$dnbc4tools vdj run \
+  --name sample_tcr \
+  --fastq1 /data/vdjt/sample_tcr_R1.fastq.gz \
+  --fastq2 /data/vdjt/sample_tcr_R2.fastq.gz \
+  --ref human \
+  --chain TR \
+  --beadstrans /sample_5rna/outs/singlecell.csv \
+  --threads 10
+```
+
+<br>
 
 ### BCR分析
 
-为单个样本运行BCR分析，以下是一个示例步骤或脚本模板：
+为单个样本运行BCR分析，支持两种输入方式：
+
+**方式1：目录方式（推荐）**
 
 ```shell
 $dnbc4tools vdj run \
-	--name sample_bcr \
-	--fastq1 /data/sample_bcr_R1.fastq.gz \
-	--fastq2 /data/sample_bcr_R2.fastq.gz \
-	--ref human \
-	--chain IG \
-	--beadstrans /sample_5rna/outs/singlecell.csv \
-	--threads 10
+  --name sample_bcr \
+  --fastqs /data/vdjb \
+  --ref human \
+  --chain IG \
+  --beadstrans /sample_5rna/outs/singlecell.csv \
+  --threads 10
 ```
+
+**方式2：单独参数方式**
+
+```shell
+$dnbc4tools vdj run \
+  --name sample_bcr \
+  --fastq1 /data/vdjb/sample_bcr_R1.fastq.gz \
+  --fastq2 /data/vdjb/sample_bcr_R2.fastq.gz \
+  --ref human \
+  --chain IG \
+  --beadstrans /sample_5rna/outs/singlecell.csv \
+  --threads 10
+```
+
+<br>
 
 ### 运行过程
 
@@ -151,8 +187,8 @@ $dnbc4tools vdj run \
 ┌───────┬──────────────────────────────────────────────────────────────────────────────────────────┐
 │ Type  │ Path                                                                                     │
 ├───────┼──────────────────────────────────────────────────────────────────────────────────────────┤
-│ Read1 │ /data/test_ATAC_R1.fastq.gz                                                              │
-│ Read2 │ /data/test_ATAC_R2.fastq.gz                                                              │
+│ Read1 │ /data/vdjt/sample_tcr_R1.fastq.gz                                                        │
+│ Read2 │ /data/vdjt/sample_tcr_R2.fastq.gz                                                        │
 └───────┴──────────────────────────────────────────────────────────────────────────────────────────┘
 ────────────────────────────────────────────────────────────────────────────────────────────────────
 
@@ -186,12 +222,14 @@ $dnbc4tools vdj run \
  2025-11-12 16:05:15 Generating analysis report and summary statistics...                           
 ...done
 
-Analysis Finished Elapsed Time: 0:52:24
+ 2025-11-12 16:05:44 Analysis Finished. Elapsed Time: 0:52:24
 ```
 
 成功的运行会以 `Analysis Finished` 结束。
 
 ---
+
+<br>
 
 ## 📊 结果解析 <a id="结果解析"></a>
 
@@ -214,7 +252,8 @@ Analysis Finished Elapsed Time: 0:52:24
 └── metrics_summary.xls
 ```
 
-**相关文档**：
+### 📚 相关文档
+
 - [📋 分析参数设置](../parameter/scVDJ.md)
 - [📝 输出文件解释](../outs/scVDJ.md)
 

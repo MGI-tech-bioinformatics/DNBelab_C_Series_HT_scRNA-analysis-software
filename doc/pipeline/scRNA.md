@@ -23,14 +23,16 @@
 **工作流程**：原始数据 → 质量控制 → 比对 → 细胞识别 → 表达矩阵 → 分析报告
 
 <div align="center">
-  <img src="https://s2.loli.net/2024/09/26/uKTXv7Q2miNbz1S.png" alt="工作流程图" width="800">
+  <img src="../images/scRNA_pipeline.png" alt="scRNApipeline" width="700">
 </div>
 
 <div style="background-color: #e7f3fe; border-left: 6px solid #2196F3; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
-💡 <strong>使用说明</strong>：<code>$dnbc4tools</code> 代表可执行程序路径，需替换为您的实际安装路径。换行符 `\` 用于在命令行中将命令分为多行，以提高可读性。
+💡 <strong>使用说明</strong>：<code>$dnbc4tools</code> 代表可执行程序路径，需替换为您的实际安装路径。本文示例使用换行符 `\` 分隔命令以提高可读性，实际分析时可写为单行。
 </div>
 
 ---
+
+<br>
 
 ## 📁 文件准备 <a id="文件准备"></a>
 
@@ -60,6 +62,8 @@
 </div>
 
 ---
+
+<br>
 
 ## 📊 参考数据库 <a id="参考数据库"></a>
 
@@ -97,6 +101,8 @@
 - 不支持 GFF 文件格式。
 - 基因组文件与注释文件需版本对应。
 
+<br>
+
 ### GTF 文件处理（可选）
 
 从 ENSEMBL 和 UCSC 等网站下载的 GTF 文件通常包含多种类型的基因。根据您的研究兴趣选择特定的基因类型进行分析，可以有效减少基因注释的重叠，从而提高比对的唯一性。与多个基因非唯一比对的 reads 会被过滤。
@@ -126,19 +132,19 @@
   </tbody>
 </table>
 
+<br>
+
 #### 基因类型统计
 
 ```shell
 # 统计基因类型数量
 $dnbc4tools tools mkgtf \
   --action stat \
-  --ingtf genes.gtf \
-  --output gtfstat.txt \
-  --type gene_biotype
+  --ingtf genes.gtf
 ```
 
 <div style="background-color: #fffbe6; border-left: 6px solid #ffc107; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
-⚠️ <strong>注意</strong>：需要查看 GTF 文件中的 tag 确定 <code>type</code> 的类型。
+⚠️ <strong>注意</strong>：软件会自动尝试识别 <code>type</code> 参数。如需手动确定，可查看 GTF 文件中的 tag。
 </div>
 
 <div align="center">
@@ -148,7 +154,6 @@ $dnbc4tools tools mkgtf \
 输出示例：
 
 ```shell
-$cat gtf_type.txt
 Type    Count
 protein_coding  20006
 lncRNA  17755
@@ -168,6 +173,8 @@ IG_V_gene       145
 ......
 ```
 
+<br>
+
 #### GTF 文件校正
 
 当 GTF 文件内容不完整时，主分析流程可能会因无法完全注释而中断。此功能能够自动填补基因（gene）与转录本（transcript）条目中的缺失信息，确保流程顺利进行。
@@ -181,6 +188,9 @@ $dnbc4tools tools mkgtf \
 ```
 
 软件会根据 `gene_id` 和 `gene_name` 以及 `transcript_id` 和 `transcript_name` 互相填补，并提示可能存在多个基因信息的位置。
+
+<br>
+
 
 #### 基因类型过滤
 
@@ -219,11 +229,13 @@ $dnbc4tools tools mkgtf \
   --ingtf genes.gtf \
   --output genes.filter.gtf \
   --type gene_biotype \
-  --include protein_coding,lncRNA,lincRNA,\
-        antisense,IG_V_gene,IG_LV_gene,IG_J_gene,\
-        IG_C_gene,IG_V_pseudogene,IG_J_pseudogene,\
-        IG_C_pseudogene,TR_V_gene,TR_D_gene,TR_J_gene,TR_C_gene
+  --include protein_coding,lncRNA,lincRNA,antisense,IG_V_gene,\
+           IG_LV_gene,IG_J_gene,IG_C_gene,IG_V_pseudogene,\
+           IG_J_pseudogene,IG_C_pseudogene,TR_V_gene,TR_D_gene,\
+           TR_J_gene,TR_C_gene
 ```
+
+<br>
 
 ### 构建参考数据库
 
@@ -233,9 +245,9 @@ $dnbc4tools tools mkgtf \
 # 构建参考数据库
 $dnbc4tools rna mkref \
   --fasta genome.fa \
-  --ingtf genes.gtf \
+  --ingtf genes.filter.gtf \
   --species Homo_sapiens \
-  --threads 10
+  --threads 20
 ```
 
 **输出结果**：
@@ -243,7 +255,8 @@ $dnbc4tools rna mkref \
 成功运行后，将在指定位置创建参考数据库目录，包含以下文件结构：
 
 ```
-/opt/database/Homo_sapiens
+/database/scRNA/Homo_sapiens
+
 ├── fasta
 │   ├── genome.fa
 │   └── genome.fa.fai
@@ -274,18 +287,18 @@ $dnbc4tools rna mkref \
 ```json
 {
     "chrmt": "chrM",
-    "genome": "/opt/database/Homo_sapiens/fasta/genome.fa",
-    "genomeDir": "/opt/database/Homo_sapiens/star",
-    "gtf": "/opt/database/Homo_sapiens/genes/genes.gtf",
+    "genome": "fasta/genome.fa",
+    "genomeDir": "star",
+    "gtf": "genes/genes.gtf",
     "input_fasta_files": [
         "genome.fa"
     ],
     "input_gtf_files": [
         "genes.filter.gtf"
     ],
-    "mtgenes": "/opt/database/Homo_sapiens/star/mtgene.list",
+    "mtgenes": "star/mtgene.list",
     "species": "Homo_sapiens",
-    "version": "dnbc4tools 3.0"
+    "version": "3.1"
 }
 ```
 
@@ -296,27 +309,30 @@ $dnbc4tools rna mkref \
 运行时将打印如下信息：
 
 ```shell
-2025-11-12 15:56:12 Creating new reference folder at /opt/database/Homo_sapiens
+ 2026-04-03 16:29:02 Creating new reference folder at /database/scRNA/Homo_sapiens                          
 ...done
 
- 2025-11-12 15:56:12 Writing genome FASTA file into reference folder...                             
+ 2026-04-03 16:29:02 Writing genome FASTA file into reference folder...                             
 ...done
 
- 2025-11-12 15:56:14 Indexing genome FASTA file...                                                  
+ 2026-04-03 16:29:57 Indexing genome FASTA file...                                                  
 ...done
 
- 2025-11-12 15:56:15 Writing genes GTF file into reference folder...                                
+ 2026-04-03 16:30:09 Writing genes GTF file into reference folder...                                
 ...done
 
- 2025-11-12 15:57:11 Generating STAR genome index...                                                
+ 2026-04-03 16:33:20 Generating STAR genome index...                                                
 ...done
 
- 2025-11-12 15:59:29 Writing Reference JSON file into reference folder...                           
+ 2026-04-03 17:13:34 Writing Reference JSON file into reference folder...                           
 ...done
-Analysis Complete
+
+ 2026-04-03 17:13:37 RNA reference building finished. 
 ```
 
 ---
+
+<br>
 
 ## 🚀 主流程分析 <a id="主流程分析"></a>
 
@@ -383,7 +399,7 @@ $cat sample1.sh
 
 随后，您可以执行这些脚本以进行主流程分析。
 
-
+<br>
 
 ### 单样本分析
 
@@ -394,19 +410,43 @@ RNA 主分析流程处理单个样本的 cDNA 和 Oligo 文库测序数据。该
 4.  **高级分析**：对过滤后矩阵进行细胞筛选、降维、聚类和注释。
 5.  **报告生成**：输出 HTML 格式的分析报告及其他结果文件。
 
-为单个样本生成表达矩阵的示例脚本：
+支持两种输入方式：
+
+**方式1：目录方式（推荐）**
 
 ```shell
 $dnbc4tools rna run \
-		--name sample \
-		--cDNAfastq1 /data/sample_cDNA_R1.fastq.gz \
-		--cDNAfastq2 /data/sample_cDNA_R2.fastq.gz \
-		--oligofastq1 /data/sample_oligo1_1.fq.gz,/data/sample_oligo2_1.fq.gz \
-		--oligofastq2 /data/sample_oligo1_2.fq.gz,/data/sample_oligo2_2.fq.gz \
-		--genomeDir /opt/database/Homo_sapiens \
-		--threads 30
+  --name sample \
+  --fastqs /data \
+  --genomeDir /opt/database/Homo_sapiens \
+  --threads 30
 ```
 
+目录结构示例：
+```
+/data/
+├── cDNA/
+│   ├── sample_cDNA_R1.fastq.gz
+│   └── sample_cDNA_R2.fastq.gz
+└── oligo/
+    ├── sample_oligo_1_R1.fastq.gz
+    ├── sample_oligo_1_R2.fastq.gz
+    ├── sample_oligo_2_R1.fastq.gz
+    └── sample_oligo_2_R2.fastq.gz
+```
+
+**方式2：单独参数方式**
+
+```shell
+$dnbc4tools rna run \
+  --name sample \
+  --cDNAfastq1 /data/cDNA/sample_cDNA_R1.fastq.gz \
+  --cDNAfastq2 /data/cDNA/sample_cDNA_R2.fastq.gz \
+  --oligofastq1 /data/oligo/sample_oligo_1_R1.fastq.gz,/data/oligo/sample_oligo_2_R1.fastq.gz \
+  --oligofastq2 /data/oligo/sample_oligo_1_R2.fastq.gz,/data/oligo/sample_oligo_2_R2.fastq.gz \
+  --genomeDir /opt/database/Homo_sapiens \
+  --threads 30
+```
 
 在对试剂版本和暗反应自动检测后，软件开始运行分析，以下是一个示例：
 
@@ -415,10 +455,10 @@ $dnbc4tools rna run \
 ┌─────────────┬────────────────────────────────────────────────────────────────────────────────────┐
 │ Type        │ Path                                                                               │
 ├─────────────┼────────────────────────────────────────────────────────────────────────────────────┤
-│ cDNA Read1  │ /data/test_cDNA_R1.fastq.gz                                                        │
-│ cDNA Read2  │ /data/test_cDNA_R2.fastq.gz                                                        │
-│ oligo Read1 │ /data/test_oligo_1_R1.fastq.gz                                                     │
-│ oligo Read2 │ /data/test_oligo_2_R2.fastq.gz                                                     │
+│ cDNA Read1  │ /data/cDNA/sample_cDNA_R1.fastq.gz                                                 │
+│ cDNA Read2  │ /data/cDNA/sample_cDNA_R2.fastq.gz                                                 │
+│ oligo Read1 │ /data/oligo/sample_oligo_1_R1.fastq.gz,/data/oligo/sample_oligo_2_R1.fastq.gz      │
+│ oligo Read2 │ /data/oligo/sample_oligo_1_R2.fastq.gz,/data/oligo/sample_oligo_2_R2.fastq.gz      │
 └─────────────┴────────────────────────────────────────────────────────────────────────────────────┘
 ────────────────────────────────────────────────────────────────────────────────────────────────────
 
@@ -471,12 +511,14 @@ $dnbc4tools rna run \
  2025-11-12 15:27:21 Generating analysis report and summary statistics...                           
 ...done
 
-Analysis Finished Elapsed Time: 0:28:56
+ 2025-11-12 15:27:40 Analysis Finished. Elapsed Time: 0:27:16
 ```
 
 当出现 `Analysis Finished` 消息时，表示分析已成功完成。
 
 ---
+
+<br>
 
 ## 📊 结果解析 <a id="结果解析"></a>
 
@@ -504,10 +546,11 @@ Analysis Finished Elapsed Time: 0:28:56
 └── singlecell.csv
 ```
 
-**相关文档**：
-- [📊 **输出文件使用方法**](../io.md)
-- [📋 **分析参数设置**](../parameter/scRNA.md)
-- [📝 **输出文件解释**](../outs/scRNA.md)
+### 📚 相关文档
+
+- [📊 输出文件使用方法](../io.md)
+- [📋 分析参数设置](../parameter/scRNA.md)
+- [📝 输出文件解释](../outs/scRNA.md)
 
 ---
 

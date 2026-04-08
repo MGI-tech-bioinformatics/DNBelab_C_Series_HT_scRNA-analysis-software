@@ -23,14 +23,16 @@
 **工作流程**：原始数据 → 质量控制 → 比对 → 磁珠合并 → Peak调用 → 细胞识别 → 降维聚类 → 分析报告
 
 <div align="center">
-  <img src="https://s2.loli.net/2024/09/27/exd1OyX3n4K8LGq.png" alt="工作流程图" width="800">
+  <img src="../images/scATAC_pipeline.png" alt="scATACpipeline" width="700">
 </div>
 
 <div style="background-color: #e7f3fe; border-left: 6px solid #2196F3; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
-💡 <strong>使用说明</strong>：<code>$dnbc4tools</code> 代表可执行程序路径，使用时需要替换为实际安装路径。换行符 `\` 用于在命令行中将命令分为多行，以提高可读性。
+💡 <strong>使用说明</strong>：<code>$dnbc4tools</code> 代表可执行程序路径，需替换为您的实际安装路径。本文示例使用换行符 `\` 分隔命令以提高可读性，实际分析时可写为单行。
 </div>
 
 ---
+
+<br>
 
 ## 📁 文件准备 <a id="文件准备"></a>
 
@@ -56,6 +58,8 @@
 </div>
 
 ---
+
+<br>
 
 ## 📊 参考数据库 <a id="参考数据库"></a>
 
@@ -96,6 +100,8 @@
 
 有关GTF文件过滤的详细信息，请[参考scRNA分析流程](./scRNA.md#22-使用dnbc4tools-tools-mkgtf过滤gtf文件可选)。
 
+<br>
+
 ### 构建参考数据库
 
 在运行dnbc4tools atac run分析之前，我们需要优先构建参考数据库。此步骤需要注释文件(GTF)和参考基因组(FASTA)来构建索引文件，用于测序reads的比对和统计分析。
@@ -112,7 +118,7 @@ $dnbc4tools atac mkref \
 成功运行后，将在指定位置创建参考数据库目录，包含以下文件结构：
 
 ```
-/opt/database/Mus_musculus
+/database/scATAC/Mus_musculus
 ├── fasta
 │   ├── genome.fa
 │   ├── genome.fa.fai
@@ -138,15 +144,15 @@ $dnbc4tools atac mkref \
     "input_gtf_files": [
         "genes.gtf"
     ],
-    "genome": "/opt/database/Mus_musculus/fasta/genome.fa",
-    "index": "/opt/database/Mus_musculus/fasta/genome.index",
-    "gtf": "/opt/database/Mus_musculus/genes/genes.gtf",
+    "genome": "fasta/genome.fa",
+    "index": "fasta/genome.index",
+    "gtf": "genes/genes.gtf",
     "chrmt": "chrM",
     "chloroplast": "None",
-    "chromeSize": "/opt/database/Mus_musculus/regions/chrom.sizes",
-    "tss": "/opt/database/Mus_musculus/regions/tss.bed",
-    "promoter": "/opt/database/Mus_musculus/regions/promoter.bed",
-    "version": "dnbc4tools 3.0",
+    "chromeSize": "regions/chrom.sizes",
+    "tss": "regions/tss.bed",
+    "promoter": "regions/promoter.bed",
+    "version": "3.1",
     "blacklist": "None",
     "genomesize": "mm"
 }
@@ -159,27 +165,28 @@ $dnbc4tools atac mkref \
 运行时打印信息，以下是一个示例：
 
 ```shell
- 2025-11-12 16:13:32 Creating new reference folder at /opt/database/Mus_musculus      
+ 2026-04-03 16:32:43 Creating new reference folder at /database/scATAC/Homo_sapiens                            
 ...done
 
- 2025-11-12 16:13:32 Writing genome FASTA file into reference folder...                             
+ 2026-04-03 16:32:43 Writing genome FASTA file into reference folder...                             
 ...done
 
- 2025-11-12 16:13:33 Indexing genome FASTA file...                                                  
+ 2026-04-03 16:33:33 Indexing genome FASTA file...                                                  
 ...done
 
- 2025-11-12 16:13:34 Writing genes GTF file into reference folder...                                
+ 2026-04-03 16:33:44 Writing genes GTF file into reference folder...                                
 ...done
 
- 2025-11-12 16:13:38 Extracting TSS and promoter regions from GTF file...                           
+ 2026-04-03 16:33:59 Extracting TSS and promoter regions from GTF file...                           
 ...done
 
- 2025-11-12 16:13:42 Generating Chromap genome index...                                             
+ 2026-04-03 16:34:03 Generating Chromap genome index...                                             
 ...done
 
- 2025-11-12 16:14:07 Writing reference JSON file...                                                 
+ 2026-04-03 16:42:28 Writing reference JSON file...                                                 
 ...done
-Analysis Complete
+
+ 2026-04-03 16:42:28 ATAC reference building finished.
 ```
 
 ---
@@ -193,7 +200,7 @@ Analysis Complete
 ```shell
 $dnbc4tools atac multi \
   --list sample.tsv \
-  --genomeDir /opt/database/Mus_musculus \
+  --genomeDir /database/scATAC/Mus_musculus \
   --threads 10
 ```
 
@@ -242,7 +249,7 @@ sample3.sh
 
 ```shell
 $cat sample1.sh
-/opt/software/dnbc4tools3.0Beta/dnbc4tools atac run --name sample1 --fastq1 /data/sample1_R1.fq.gz --fastq2 /data/sample1_R2.fq.gz --genomeDir /opt/database/Mus_musculus --threads 10 
+/opt/software/dnbc4tools3.1/dnbc4tools atac run --name sample1 --fastq1 /data/sample1_R1.fq.gz --fastq2 /data/sample1_R2.fq.gz --genomeDir /database/scATAC/Mus_musculus --threads 10 
 ```
 
 执行第四步进行主流程分析。
@@ -253,29 +260,48 @@ $cat sample1.sh
 
 ATAC 主分析流程使用单个样本单细胞 ATAC 文库测序数据，经过过滤和比对生成所有磁珠的 fragments 文件。合并磁珠并执行 peak 调用分析，利用 peaks 区域的片段信息进行细胞识别。随后进行细胞过滤、降维和聚类，最终整合各步骤结果生成 HTML 网页报告并输出分析结果。
 
-为单个样本生成表达矩阵，以下是一个示例步骤或脚本模板：
+支持两种输入方式：
+
+**方式1：目录方式（推荐）**
 
 ```shell
 $dnbc4tools atac run \
   --name sample \
-  --fastq1 /sample/data/test1_R1.fastq.gz,/sample/data/test2_R1.fastq.gz \
-  --fastq2 /sample/data/test1_R2.fastq.gz,/sample/data/test2_R2.fastq.gz \
-  --genomeDir /opt/database/Mus_musculus \
+  --fastqs /data \
+  --genomeDir /database/scATAC/Mus_musculus \
+  --threads 10
+```
+目录结构示例：
+```
+/data/
+
+├── sample_R1.fastq.gz
+└── sample_R2.fastq.gz
+
+```
+
+**方式2：单独参数方式**
+
+```shell
+$dnbc4tools atac run \
+  --name sample \
+  --fastq1 /data/sample_R1.fastq.gz \
+  --fastq2 /data/sample_R2.fastq.gz \
+  --genomeDir /database/scATAC/Mus_musculus \
   --threads 10
 ```
 
 在对试剂版本和暗反应自动检测后，软件开始运行分析，以下是一个示例：
-
 ```shell
+
 ──────────────────────────── Parsed FASTQ Inputs — 2025-11-12 15:05:39 ─────────────────────────────
 ┌───────┬──────────────────────────────────────────────────────────────────────────────────────────┐
 │ Type  │ Path                                                                                     │
 ├───────┼──────────────────────────────────────────────────────────────────────────────────────────┤
-│ Read1 │ /data/test_ATAC_R1.fastq.gz                                                              │
-│ Read2 │ /data/test_ATAC_R2.fastq.gz                                                              │
+│ Read1 │ /data/sample_R1.fastq.gz                                                                 │
+│ Read2 │ /data/sample_R2.fastq.gz                                                                 │
 └───────┴──────────────────────────────────────────────────────────────────────────────────────────┘
 ────────────────────────────────────────────────────────────────────────────────────────────────────
-
 
 ──────────────────────────── Chemistry Detection — 2025-11-12 15:05:49 ─────────────────────────────
 ┌─────────────────────────────────┬────────────────────────────────────────────────────────────────┐
@@ -307,12 +333,14 @@ $dnbc4tools atac run \
  2025-11-12 15:50:03 Generating analysis report and summary statistics...                           
 ...done
 
-Analysis Finished Elapsed Time: 0:44:41
+ 2025-11-12 15:50:19 Analysis Finished. Elapsed Time: 0:44:30
 ```
 
-成功的运行会以 `Analysis Finished` 结束。
+当出现 `Analysis Finished` 消息时，表示分析已成功完成。
 
 ---
+
+<br>
 
 ## 📊 结果解析 <a id="结果解析"></a>
 
@@ -335,7 +363,8 @@ Analysis Finished Elapsed Time: 0:44:41
 └── singlecell.csv
 ```
 
-**相关文档**：
+### 📚 相关文档
+
 - [📊 输出文件使用方法](../io.md)
 - [📋 分析参数设置](../parameter/scATAC.md)
 - [📝 输出文件解释](../outs/scATAC.md)

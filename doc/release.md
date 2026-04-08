@@ -16,21 +16,54 @@
 
 ## ◆ Latest Release <a id="latest-release"></a>
 
-**dnbc4tools 3.0** (Dec 18, 2025) - [See Details](#30-dec-18-2025)
+**dnbc4tools 3.1** (Apr 3, 2026) - [See Details](#31-apr-3-2026)
 
 **Key Highlights:**
-- Enhanced RNA annotation and dual-species support
-- Improved VDJ assembly algorithms  
-- Streamlined storage and better performance
-- Updated output formats for better compatibility
+- Multi-omics analysis mode: RNA + VDJ combined analysis support
+- Bug fixes for RNA analysis
+- Performance improvements for bam2fastq and fqsubC4 tools
 
 ---
 
 ## ◆ Release History <a id="release-history"></a>
 
-### 3.0 (Dec 18, 2025) <a id="30-dec-18-2025"></a>
+### 3.1 (Apr 3, 2026) <a id="31-apr-3-2026"></a>
 
 <div style="padding-left: 20px;">
+
+<h4>Multi-omics Analysis</h4>
+<ul>
+  <li><strong>New Multi-omics Mode</strong>: Added support for single-sample multi-omics analysis. Now supports RNA + VDJ combined analysis or individual omics analysis.</li>
+</ul>
+
+<h4>RNA Analysis Enhancements</h4>
+<ul>
+  <li><strong>Consistent Cell Analysis</strong>: Added new parameter <em>--consistent_cells</em> to enable analysis using existing merged results and cell assignments for consistent downstream processing.</li>
+</ul>
+
+<h4>RNA Analysis Bug Fixes</h4>
+<ul>
+  <li><strong>Fraction Reads in Cells</strong>: Fixed calculation error in "fraction reads in cells" metric.</li>
+  <li><strong>Species Database</strong>: Fixed bug that occurs when single species contains underscore "_" in dual-species database.</li>
+</ul>
+
+<h4>Performance Optimization</h4>
+<ul>
+  <li><strong>Speed Improvement</strong>: Optimized processing speed for bam2fastq and fqsubC4 tools.</li>
+</ul>
+
+<h4>Configuration & CLI Fixes</h4>
+<ul>
+  <li><strong>CLI Consistency</strong>: Standardized help text and metavar formatting across modules, including multi-sample commands.</li>
+</ul>
+
+</div>
+
+---
+
+<details>
+<summary><strong>3.0 (Dec 18, 2025)</strong></summary>
+<div style="padding-left: 20px; margin-top: 1em;">
 
 <h4>RNA-Seq Enhancements</h4>
 <ul>
@@ -63,6 +96,7 @@
 </ul>
 
 </div>
+</details>
 
 ---
 
@@ -217,9 +251,14 @@
   </thead>
   <tbody>
     <tr>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;"><b>3.1+</b></td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;">Multi-omics (RNA + VDJ)</td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;">RNA + VDJ combined analysis</td>
+    </tr>
+    <tr>
       <td style="padding: 12px 15px; border: 1px solid #ddd;"><b>2.1.3+</b></td>
-      <td style="padding: 12px 15px; border: 1px solid #ddd;">RNA 5' + VDJ analysis modules</td>
-      <td style="padding: 12px 15px; border: 1px solid #ddd;">VDJ analysis, 5' RNA workflows</td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;">RNA 5', VDJ</td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;">VDJ, 5' RNA</td>
     </tr>
     <tr>
       <td style="padding: 12px 15px; border: 1px solid #ddd;"><b>2.1.0+</b></td>

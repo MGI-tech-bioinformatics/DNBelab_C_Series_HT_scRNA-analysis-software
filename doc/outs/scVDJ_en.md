@@ -18,9 +18,9 @@
 
 ## 📖 Overview <a id="overview"></a>
 
-After the single-cell VDJ analysis is complete, a standardized set of files and subdirectories is generated in the specified output directory, specifically for immune receptor repertoire analysis. This document details the content, format, and purpose of each output file to help users fully understand and efficiently utilize the V(D)J analysis results.
+After single-cell V(D)J analysis is complete, a standardized set of files and subdirectories is generated in the specified output directory for immune receptor repertoire analysis. This document details the content, format, and purpose of each output file to help users efficiently interpret and use V(D)J analysis results.
 
-> 💡 **Tip**: VDJ analysis requires 5' end RNA sequencing data, and all output files adhere to the AIRR standard and are compatible with mainstream immunoinformatics tools.
+> 💡 **Tip**: V(D)J analysis requires 5' end RNA sequencing data, and all output files adhere to the AIRR standard and are compatible with mainstream immunoinformatics tools.
 
 > ⚠️ **Prerequisite**: 5' end single-cell RNA sequencing analysis must be completed first.
 
@@ -49,7 +49,7 @@ After the single-cell VDJ analysis is complete, a standardized set of files and 
 
 ## 📋 Detailed File Description <a id="detailed-file-description"></a>
 
-### 🧬 VDJ Assembly and Annotation Files <a id="vdj-assembly-and-annotation-files"></a>
+### 🧬 V(D)J Assembly and Annotation Files <a id="vdj-assembly-and-annotation-files"></a>
 
 <div align="center">
 
@@ -375,7 +375,7 @@ Contains detailed annotation information for all contig sequences (from both cel
     <tbody>
     <tr>
     <td align="left"><code>sample</code></td>
-    <td>Sample name of the VDJ library.</td>
+    <td>Sample name of the V(D)J library.</td>
     </tr>
     <tr>
     <td align="left"><code>barcode</code></td>
@@ -541,7 +541,7 @@ A high-quality subset of `all_contig.fasta`, containing only high-quality contig
 
 <div align="center">
 
-**🎯 Core Content**: Precise identification, frequency statistics, and CDR3 sequence diversity analysis of TCR and BCR clonotypes.
+**🎯 Core Content**: Precise identification, frequency statistics, and CDR3-sequence diversity analysis of TCR and BCR clonotypes.
 
 </div>
 
@@ -598,7 +598,7 @@ A statistical analysis file for clonotypes, providing detailed descriptive infor
 Provides detailed annotation information for each clonotype's consensus sequence.
 
 *   **Purpose**:
-    *   **Representative Sequence Annotation**: Provides a complete V(D)J gene, CDR/FWR region annotation for a representative sequence of each clonotype.
+    *   **Representative Sequence Annotation**: Provides complete V(D)J gene and CDR/FWR region annotations for a representative sequence of each clonotype.
     *   **Clonotype-Level Analysis**: Supports sequence feature analysis at the clonotype level.
 
 *   **Content and Format**:
@@ -623,7 +623,7 @@ Provides detailed annotation information for each clonotype's consensus sequence
     </tr>
     <tr>
     <td align="left"><code>sample</code></td>
-    <td>Sample name of the VDJ library.</td>
+    <td>Sample name of the V(D)J library.</td>
     </tr>
     <tr>
     <td align="left"><code>length</code></td>
@@ -779,7 +779,7 @@ An interactive comprehensive analysis report in HTML web format.
 
 </div>
 
-The HTML web report is a comprehensive platform for displaying single-cell VDJ sequencing analysis, integrating complete results from data quality control to downstream immune repertoire analysis. The report uses an interactive visual design to help users quickly assess experimental quality, understand analysis results, and guide future research directions.
+The HTML web report is a comprehensive platform for displaying single-cell V(D)J sequencing analysis, integrating complete results from data quality control to downstream immune repertoire analysis. The report uses an interactive visual design to help users quickly assess experimental quality, understand analysis results, and guide future research directions.
 
 > 💡 **Usage Suggestion**: It is recommended to review the metrics in the order they are presented in the report.
 
@@ -795,7 +795,7 @@ The HTML web report is a comprehensive platform for displaying single-cell VDJ s
 
 ### 🧬 Detailed Explanation of Core Analysis Metrics
 
-#### 🧬 VDJ Analysis Metrics <a id="vdj-analysis-metrics"></a>
+#### 🧬 V(D)J Analysis Metrics <a id="vdj-analysis-metrics"></a>
 
 <div align="center">
 
@@ -843,8 +843,7 @@ The HTML web report is a comprehensive platform for displaying single-cell VDJ s
 <tbody>
 <tr>
 <td align="left">
-<strong>Estimated number of cells</strong><br>
-<em></em>
+<strong>Estimated number of cells</strong>
 </td>
 <td>
 <ul>
@@ -858,8 +857,7 @@ The HTML web report is a comprehensive platform for displaying single-cell VDJ s
 </tr>
 <tr>
 <td align="left">
-<strong>Mean reads per cell</strong><br>
-<em></em>
+<strong>Mean reads per cell</strong>
 </td>
 <td>
 <ul>
@@ -876,8 +874,7 @@ The HTML web report is a comprehensive platform for displaying single-cell VDJ s
 </tr>
 <tr>
 <td align="left">
-<strong>Fraction of Reads in Cells</strong><br>
-<em></em>
+<strong>Fraction of Reads in Cells</strong>
 </td>
 <td>
 <ul>
@@ -893,8 +890,7 @@ The HTML web report is a comprehensive platform for displaying single-cell VDJ s
 </tr>
 <tr>
 <td align="left">
-<strong>Median TRA/TRB or IGH/IGK/IGL UMIs per cell</strong><br>
-<em></em>
+<strong>Median TRA/TRB or IGH/IGK/IGL UMIs per cell</strong>
 </td>
 <td>
 <ul>
@@ -905,20 +901,18 @@ The HTML web report is a comprehensive platform for displaying single-cell VDJ s
 </tr>
 <tr>
 <td align="left">
-<strong>Number of cells with TRA/TRB or IGH/IGK/IGL contig</strong><br>
-<em></em>
+<strong>Number of cells with TRA/TRB or IGH/IGK/IGL contig</strong>
 </td>
 <td>
 <ul>
 <li><strong>Definition</strong>: Cells in which at least one T-cell receptor (TRA/TRB) or B-cell receptor (IGH/IGK/IGL) gene rearrangement was detected via single-cell sequencing.</li>
-<li><strong>Note</strong>: This includes both complete and incomplete VDJ rearrangement events. It only requires the presence of a contig for the relevant gene and does not require it to be functional. It may include fragmented contigs that do not span the V-J region or non-productive rearrangements.</li>
+<li><strong>Note</strong>: This includes both complete and incomplete V(D)J rearrangement events. It only requires the presence of a contig for the relevant gene and does not require it to be functional. It may include fragmented contigs that do not span the V-J region or non-productive rearrangements.</li>
 </ul>
 </td>
 </tr>
 <tr>
 <td align="left">
-<strong>Cells with V-J spanning TRA/TRB or IGH/IGK/IGL contig</strong><br>
-<em></em>
+<strong>Cells with V-J spanning TRA/TRB or IGH/IGK/IGL contig</strong>
 </td>
 <td>
 <ul>
@@ -929,8 +923,7 @@ The HTML web report is a comprehensive platform for displaying single-cell VDJ s
 </tr>
 <tr>
 <td align="left">
-<strong>Cells with productive TRA/TRB or IGH/IGK/IGL contig</strong><br>
-<em></em>
+<strong>Cells with productive TRA/TRB or IGH/IGK/IGL contig</strong>
 </td>
 <td>
 <ul>
@@ -940,8 +933,7 @@ The HTML web report is a comprehensive platform for displaying single-cell VDJ s
 </tr>
 <tr>
 <td align="left">
-<strong>Paired clonotype diversity</strong><br>
-<em></em>
+<strong>Paired clonotype diversity</strong>
 </td>
 <td>
 <ul>
@@ -1015,8 +1007,7 @@ The HTML web report is a comprehensive platform for displaying single-cell VDJ s
 <tbody>
 <tr>
 <td align="left">
-<strong>Valid barcodes</strong><br>
-<em></em>
+<strong>Valid barcodes</strong>
 </td>
 <td>
 <ul>
@@ -1028,8 +1019,7 @@ The HTML web report is a comprehensive platform for displaying single-cell VDJ s
 </tr>
 <tr>
 <td align="left">
-<strong>Valid UMIs</strong><br>
-<em></em>
+<strong>Valid UMIs</strong>
 </td>
 <td>
 <ul>
@@ -1040,12 +1030,11 @@ The HTML web report is a comprehensive platform for displaying single-cell VDJ s
 </tr>
 <tr>
 <td align="left">
-<strong>Q30 bases Quality</strong><br>
-<em></em>
+<strong>Q30 Base Quality</strong>
 </td>
 <td>
 <ul>
-<li><strong>Definition</strong>: The proportion of bases with a sequencing quality score of Q30 or higher in the cell barcode, UMI, and RNA read sequences.</li>
+<li><strong>Definition</strong>: The proportion of bases with a sequencing quality score of Q30 or higher in cell barcode, UMI, and RNA read sequences.</li>
 <li><strong>Significance</strong>: Q30 represents a base sequencing error rate of less than 0.1%. This metric directly affects the accuracy of cell identity, molecular counting, and gene alignment.</li>
 </ul>
 </td>
@@ -1098,8 +1087,7 @@ The HTML web report is a comprehensive platform for displaying single-cell VDJ s
 <tbody>
 <tr>
 <td align="left">
-<strong>Reads mapped to any V(D)J gene</strong><br>
-<em></em>
+<strong>Reads mapped to any V(D)J gene</strong>
 </td>
 <td>
 <ul>
@@ -1114,8 +1102,7 @@ The HTML web report is a comprehensive platform for displaying single-cell VDJ s
 </tr>
 <tr>
 <td align="left">
-<strong>Reads mapped to TRA/TRB/IGH/IGK/IGL</strong><br>
-<em></em>
+<strong>Reads mapped to TRA/TRB/IGH/IGK/IGL</strong>
 </td>
 <td>
 <ul>
@@ -1176,8 +1163,7 @@ The HTML web report is a comprehensive platform for displaying single-cell VDJ s
 <tbody>
 <tr>
 <td align="left">
-<strong>Number of Cells with Productive V-J Spanning Pair</strong><br>
-<em></em>
+<strong>Number of Cells with Productive V-J Spanning Pair</strong>
 </td>
 <td>
 <ul>
@@ -1187,8 +1173,7 @@ The HTML web report is a comprehensive platform for displaying single-cell VDJ s
 </tr>
 <tr>
 <td align="left">
-<strong>Cells with productive V-J spanning pair</strong><br>
-<em></em>
+<strong>Cells with productive V-J spanning pair</strong>
 </td>
 <td>
 <ul>
@@ -1206,8 +1191,7 @@ The HTML web report is a comprehensive platform for displaying single-cell VDJ s
 </tr>
 <tr>
 <td align="left">
-<strong>Cells with productive V-J spanning (IGK, IGH) pair</strong><br>
-<em></em>
+<strong>Cells with productive V-J spanning (IGK, IGH) pair</strong>
 </td>
 <td>
 <ul>
@@ -1224,8 +1208,7 @@ The HTML web report is a comprehensive platform for displaying single-cell VDJ s
 </tr>
 <tr>
 <td align="left">
-<strong>Cells with productive V-J spanning (IGL, IGH) pair</strong><br>
-<em></em>
+<strong>Cells with productive V-J spanning (IGL, IGH) pair</strong>
 </td>
 <td>
 <ul>
@@ -1242,8 +1225,7 @@ The HTML web report is a comprehensive platform for displaying single-cell VDJ s
 </tr>
 <tr>
 <td align="left">
-<strong>Cells with productive V-J spanning (TRA, TRB) pair</strong><br>
-<em></em>
+<strong>Cells with productive V-J spanning (TRA, TRB) pair</strong>
 </td>
 <td>
 <ul>
@@ -1287,7 +1269,7 @@ The HTML web report is a comprehensive platform for displaying single-cell VDJ s
     *   🔷 **Blue Gradient Area**: The mixed transition zone between cells and background noise.
 *   **Quality Assessment**:
     *   An ideal sample should show good separation between cell-associated barcodes and the background, indicated by a steep drop in the curve.
-    *   VDJ-B data may show a group of cells with high UMI counts, which are typically high-expressing plasma cells.
+    *   BCR V(D)J data may show a group of cells with high UMI counts, which are typically high-expressing plasma cells.
 
 <div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
 
@@ -1317,34 +1299,10 @@ The HTML web report is a comprehensive platform for displaying single-cell VDJ s
 
 ### 📚 Related Documentation
 
-<table style="width:100%; border-collapse: collapse; margin: 15px 0;">
-<thead>
-<tr>
-<th width="30%" align="left"><strong>Document Type</strong></th>
-<th width="70%" align="left"><strong>Resource Link and Description</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left"><strong>🚀 Quick Start</strong></td>
-<td><a href="../quickstart.md">Quick Start Guide</a> - A complete tutorial for your first analysis.</td>
-</tr>
-<tr>
-<td align="left"><strong>⚙️ Parameter Reference</strong></td>
-<td><a href="../parameter/parameter.md">Parameter Reference Manual</a> - Detailed descriptions of all configurable parameters.</td>
-</tr>
-<tr>
-<td align="left"><strong>🔬 Analysis Pipeline</strong></td>
-<td><a href="../pipeline/pipeline.md">Analysis Pipeline Description</a> - Technical details of the entire analysis workflow.</td>
-</tr>
-<tr>
-<td align="left"><strong>🔧 Installation & Setup</strong></td>
-<td><a href="../installation.md">Installation and Setup Guide</a> - System requirements, installation steps, and environment configuration.</td>
-</tr>
-</tbody>
-</table>
+- [scVDJ pipeline doc](../pipeline/scVDJ_en.md)
+- [scVDJ parameter doc](../parameter/scVDJ_en.md)
 
-
+---
 
 <div align="center">
 
@@ -1352,7 +1310,7 @@ The HTML web report is a comprehensive platform for displaying single-cell VDJ s
 > 
 > This document is continuously updated. If you find any errors or need additional information, please provide feedback.
 > 
-> 📝 <strong>Document Version:</strong> 3.0 | <strong>Last Updated:</strong> 2025
+> 📝 <strong>Document Version:</strong> 3.1 | <strong>Last Updated:</strong> April 2026
 
 ---
 

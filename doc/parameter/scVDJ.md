@@ -19,46 +19,49 @@
 ### 📊 用法 <a id="usage"></a>
 
 ```shell
-$ dnbc4tools vdj run -h
-usage: dnbc4tools vdj run [OPTIONS] 
+$ dnbc4tools vdj run
+dnbc4tools 3.1
+
+Process a single-cell V(D)J sample.
+
+Usage: dnbc4tools vdj run [OPTIONS]
 
 optional arguments:
-  -h, --help            show this help message and exit
+  -h, --help                   show this help message and exit
 
 Input Files:
-  Choose ONE input method: either --fastqs (directory) OR individual FASTQ files (-1 and -2).
+  Choose one input method: either `--fastqs` (directory input) or individual FASTQ files (`--fastq1` and `--fastq2`).
 
-  --fastqs <DIR>        Input directory containing paired-end FASTQ files. The pipeline automatically detects Read1/Read2 files. Example: ./fastq_dir
-  -1, --fastq1 <FILE> [<FILE> ...]
-                        Read1 FASTQ file(s) (supports wildcards and comma-separated lists). Example: sample1_L01_R1.fastq.gz,sample1_L02_R1.fastq.gz
-  -2, --fastq2 <FILE> [<FILE> ...]
-                        Read2 FASTQ file(s) (supports wildcards and comma-separated lists). Must match --fastq1 order. Example: sample1_L01_R2.fastq.gz,sample1_L02_R2.fastq.gz
+  --fastqs <DIR>               Input directory containing paired-end FASTQ files.
+                               The pipeline automatically detects Read 1 and Read 2 files (e.g., `./fastq_dir`).
+  --fastq1 <FILE>              Read 1 FASTQ file(s). Wildcards and comma-separated lists are supported (e.g., `sample1_L01_R1.fastq.gz,sample1_L02_R1.fastq.gz`).
+  --fastq2 <FILE>              Read 2 FASTQ file(s). Wildcards and comma-separated lists are supported.
+                               Must match the order provided to `--fastq1` (e.g., `sample1_L01_R2.fastq.gz,sample1_L02_R2.fastq.gz`).
 
 Basic Settings:
-  -n, --name <STR>      Unique identifier for the sample (e.g., sample1). Used for naming output files and reports.
-  -r, --ref <REF>         Reference database: 'human'/'mouse' (case-insensitive) or path to a custom reference directory containing reference.json. Examples: human | mouse | ./custom_vdj_ref
-  -c, --chain <STR>     VDJ receptor type: 'IG' (B-cell receptors) or 'TR' (T-cell receptors).
-  -o, --outdir <DIR>    Output directory for results and reports [default: current directory]. Example: ./output
-  -t, --threads <INT>   Number of CPU threads for parallel processing [default: all available cores] (e.g., 16).
-  -s, --beadstrans <FILE>
-                        RNA analysis singlecell.csv file for filtering cells and merging beads information. When not provided, all cells will be kept by default (equivalent to --keep_all_cells).
+  -n, --name <STR>             Unique identifier for the sample. Used for naming output files and reports (e.g., `sample1`).
+  -r, --ref REF                Reference database: `human` or `mouse` (case-insensitive), or a path to a custom reference directory containing `reference.json` (e.g., `human` |
+                               `mouse` | `./custom_vdj_ref`).
+  -c, --chain <STR>            VDJ receptor type: `IG` (B-cell receptors) or `TR` (T-cell receptors).
+  -o, --outdir <DIR>           Output directory for results and reports [default: current directory] (e.g., `./output`).
+  -t, --threads <INT>          Number of CPU threads for parallel processing [default: all available cores] (e.g., `16`).
+  -s, --beadstrans <FILE>      RNA-analysis `singlecell.csv` file providing cell-filtering and bead-merging information.
+                               When not provided, all cells will be kept by default (equivalent to `--keep_all_cells`).
 
 Library Settings:
-  Auto-detection is recommended for dark cycles. Available modes include "R1" and "unset".
-  For multiple files, ensure consistent settings across all inputs.
-  customize: Specify sequence structure patterns for parsing.
-
-  --darkreaction <STR>  Dark cycle setting for VDJ library [default: auto]. Use 'R1' if dark cycles occur in Read1; otherwise leave as 'auto' or 'unset'.
-  --customize <STR>     Sequence structure patterns, format: <type>,<read>:<start>-<end> separated by ';'. Types include: cb (cell barcode), umi (UMI) R1/R2 (sequence). Example:
-                        "cb,R1:1-10;cb,R1:11-20;umi,R1:21-30;R1,R1:31-120;R2,R2:1-150"
-  --enrichment_primers <FILE>
-                        Custom inner enrichment primers file (one primer sequence per line). Required when using a custom reference database.
+  --darkreaction <STR>         Dark cycle setting for VDJ library [default: auto].
+                               Use `R1` if dark cycles occur in Read 1; otherwise use `auto` or `unset`.
+  --customize <STR>            Sequence-structure patterns, in the format `<type>,<read>:<start>-<end>` separated by `;`.
+                               Supported types: `cb` (cell barcode), `umi` (UMI), and `R1`/`R2` (sequence) (e.g.,
+                               `"cb,R1:1-10;cb,R1:11-20;umi,R1:21-30;R1,R1:31-120;R2,R2:1-150"`).
+  --enrichment_primers <FILE>  Custom inner enrichment primers file (one primer sequence per line). Required when using a custom reference database.
 
 Analysis Settings:
-  --keep_all_cells      Keep all cells in analysis without RNA data filtering. If --beadstrans is not provided, this behavior is enabled by default.
-  --r2_only             Only use R2 reads for VDJ assembly. Manual setting required because Read1 assembly requirements cannot be auto-detected.
-  --sample_read_pairs <INT>
-                        Subsample the specified number of read pairs from the input FASTQ files (e.g., 1000000).
+  --keep_all_cells             Retain all cells in the analysis without RNA-based filtering.
+                               If `--beadstrans` is not provided, this behavior is enabled by default.
+  --r2_only                    Use only Read 2 sequences for VDJ assembly. This setting must be enabled manually because the Read 1 assembly requirement cannot be detected
+                               automatically.
+  --sample_read_pairs <INT>    Subsample the specified number of read pairs from the input FASTQ files (e.g., `1000000`).
 ```
 
 ### 📝 参数说明
@@ -132,7 +135,7 @@ Analysis Settings:
 </div>
 
 <div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
-<h4><code>-1, --fastq1</code> <span style="font-size: 0.8em; font-weight: normal; color: #3498db;">(方式2A)</span></h4>
+<h4><code>--fastq1</code> <span style="font-size: 0.8em; font-weight: normal; color: #3498db;">(方式2A)</span></h4>
 <p>单独指定一个或多个VDJ文库的Read1 FASTQ文件。</p>
 <ul>
   <li><strong>支持:</strong> 可以使用通配符 (<code>*</code>) 匹配文件，使用逗号分隔来指定多个文件。</li>
@@ -144,7 +147,7 @@ Analysis Settings:
 </div>
 
 <div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
-<h4><code>-2, --fastq2</code> <span style="font-size: 0.8em; font-weight: normal; color: #3498db;">(方式2B)</span></h4>
+<h4><code>--fastq2</code> <span style="font-size: 0.8em; font-weight: normal; color: #3498db;">(方式2B)</span></h4>
 <p>单独指定一个或多个VDJ文库的Read2 FASTQ文件。</p>
 <ul>
   <li><strong>支持:</strong> 可以使用通配符 (<code>*</code>) 匹配文件，使用逗号分隔来指定多个文件。</li>
@@ -157,7 +160,10 @@ Analysis Settings:
 
 > ⚠️ **输入方式选择：**
 > - **🔸 方式1：** 使用`--fastqs`指定包含配对文件的目录。
-> - **🔸 方式2：** 使用`-1, --fastq1`和`-2, --fastq2`分别指定R1和R2文件。
+> - **🔸 方式2：** 使用`--fastq1`和`--fastq2`分别指定R1和R2文件。
+
+> ℹ️ **兼容别名**
+> - 历史短参数 `-1/-2` 仍可使用，但在新版帮助信息中默认隐藏，建议优先使用长参数以便脚本可读性更好。
 
 > ⚠️ **重要提示：** 参数下所有文件必须来自同一文库，测序模式和暗反应设置保持一致，不同文库的数据不能合并分析。
 ---
@@ -293,13 +299,20 @@ CCTGGACTCCTGGGCCCCAG</code></pre>
 
 ---
 
+### 📚 相关文档
+
+- [scVDJ 流程文档](../pipeline/scVDJ.md)
+- [scVDJ 输出文档](../outs/scVDJ.md)
+
+---
+
 <div align="center">
 
 > 💡 <strong>提示</strong>
-> 
+>
 > 本文档持续更新中，如发现内容错误或需要补充的信息，欢迎反馈。
-> 
-> 📝 <strong>文档版本：</strong> 3.0 | <strong>最后更新：</strong> 2025年
+>
+> 📝 <strong>文档版本：</strong> 3.1 | <strong>最后更新：</strong> 2026年4月
 
 ---
 

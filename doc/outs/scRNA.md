@@ -30,10 +30,11 @@
 .
 ├── analysis/                      # 下游分析结果目录
 │   ├── cluster.csv                # 细胞聚类结果文件
+│   ├── cell_classification.csv    # 双物种细胞归属结果文件（仅双物种分析）
 │   ├── marker.csv                 # 差异表达基因标记文件
 │   └── QC_Cluster.h5ad            # 质控和聚类后的AnnData对象
-├── anno_decon_sorted.bam          # 比对注释并排序的BAM文件
-├── anno_decon_sorted.bam.bai      # BAM索引文件
+├── anno_decon_sorted.bam          # 比对注释并排序的 BAM 文件
+├── anno_decon_sorted.bam.bai      # BAM 索引文件
 ├── filter_feature.h5ad            # 过滤后的特征矩阵（AnnData格式）
 ├── filter_matrix/                 # 过滤后的基因表达矩阵目录
 │   ├── barcodes.tsv.gz            # 细胞条形码文件
@@ -44,7 +45,7 @@
 │   ├── barcodes.tsv.gz            # 原始细胞条形码文件
 │   ├── features.tsv.gz            # 原始基因/特征信息文件
 │   └── matrix.mtx.gz              # 原始稀疏矩阵文件
-├── singlecell.csv                 # 单细胞metadata信息表
+├── singlecell.csv                 # 单细胞元数据表
 └── *_scRNA_report.html            # HTML格式的分析报告
 ```
 
@@ -76,7 +77,7 @@
     *   每个读段都通过 TAG 字段标记了细胞来源、UMI 和基因注释信息。
 
 *   **关键TAG字段说明**:
-    *   BAM文件通过丰富的TAG字段来存储单细胞特有的信息，主要分为细胞/分子标识和基因注释两大类。
+    *   BAM 文件通过丰富的 TAG 字段来存储单细胞特有的信息，主要分为细胞/分子标识和基因注释两大类。
 
     **🧬 细胞和分子标识标签：**
 
@@ -93,8 +94,8 @@
     <tr>
     <td align="left"><code>CB</code></td>
     <td align="left">String</td>
-    <td align="left">细胞条形码合并后的细胞ID</td>
-    <td>用于将reads归属到特定细胞，是经过纠错和合并的最终细胞ID</td>
+    <td align="left">细胞条形码合并后的细胞 ID</td>
+    <td>用于将 reads 归属到特定细胞，是经过纠错和合并的最终细胞 ID</td>
     </tr>
     <tr>
     <td align="left"><code>CC</code></td>
@@ -117,20 +118,20 @@
     <tr>
     <td align="left"><code>UB</code></td>
     <td align="left">String</td>
-    <td align="left">错误校正后的UMI序列</td>
-    <td>用于分子去重，识别PCR重复和原始mRNA分子</td>
+    <td align="left">错误校正后的 UMI 序列</td>
+    <td>用于分子去重，识别 PCR 重复和原始 mRNA 分子</td>
     </tr>
     <tr>
     <td align="left"><code>UR</code></td>
     <td align="left">String</td>
-    <td align="left">原始测序UMI序列</td>
-    <td>保留原始UMI信息，用于质量评估和算法优化</td>
+    <td align="left">原始测序 UMI 序列</td>
+    <td>保留原始 UMI 信息，用于质量评估和算法优化</td>
     </tr>
     <tr>
     <td align="left"><code>UY</code></td>
     <td align="left">String</td>
     <td align="left">UMI质量分数</td>
-    <td>Phred质量分数，评估UMI测序的准确性</td>
+    <td>Phred 质量分数，评估 UMI 测序的准确性</td>
     </tr>
     </tbody>
     </table>
@@ -187,8 +188,8 @@
 `anno_decon_sorted.bam` 文件的索引。
 
 *   **核心用途**:
-    *   **快速数据访问**: 允许 IGV、Samtools 等工具在无需完整加载BAM文件的情况下，快速跳转和读取任意基因组区域的比对数据。
-    *   **性能保障**: 是所有对BAM文件进行随机访问操作的性能保障。
+    *   **快速数据访问**: 允许 IGV、Samtools 等工具在无需完整加载 BAM 文件的情况下，快速跳转并读取任意基因组区域的比对数据。
+    *   **性能保障**: 是所有对 BAM 文件进行随机访问操作的性能保障。
 *   **格式与说明**:
     *   索引文件由 `samtools index` 命令生成。为了兼容不同大小的基因组，流程会自动选择合适的索引格式（BAI 或 CSI）。
 
@@ -206,7 +207,7 @@
         </tr>
         <tr>
         <td align="left"><strong>CSI 格式</strong></td>
-        <td>当BAM文件包含长度超过 512 Mbp (2^29-1 bp) 的染色体时自动生成，以支持超大基因组。</td>
+        <td>当 BAM 文件包含长度超过 512 Mbp (2^29-1 bp) 的染色体时自动生成，以支持超大基因组。</td>
         </tr>
         </tbody>
         </table>
@@ -241,7 +242,7 @@
         <tbody>
         <tr>
         <td align="left"><code>barcodes.tsv.gz</code></td>
-        <td>细胞ID列表，标识通过质控筛选的高质量细胞。每行包含一个细胞ID信息，对应矩阵的列索引</td>
+        <td>细胞 ID 列表，标识通过质控筛选的高质量细胞。每行包含一个细胞 ID 信息，对应矩阵的列索引</td>
         </tr>
         <tr>
         <td align="left"><code>features.tsv.gz</code></td>
@@ -279,7 +280,7 @@
 经过细胞鉴定和过滤后的特征矩阵，采用 AnnData (`.h5ad`) 格式存储，是 `filter_matrix/` 目录内容的替代和补充。
 
 *   **核心用途**:
-    *   **Python生态系统集成**: 作为 `scanpy` 等Python单细胞分析库的标准输入格式，无缝衔接下游分析。
+    *   **Python 生态系统集成**: 作为 `scanpy` 等 Python 单细胞分析库的标准输入格式，无缝衔接下游分析。
     *   **数据整合**: 单个文件即可封装表达矩阵、细胞元数据和基因元数据，便于管理和分享。
 *   **内容与格式**:
     *   基于 HDF5 的二进制格式，详细格式参考[AnnData格式说明](#anndata-format-h5ad)。
@@ -298,17 +299,61 @@
 
 #### 📄 cluster.csv
 
-细胞聚类分析结果文件，采用 CSV 格式。包含每个细胞的ID、所属聚类、降维坐标以及关键质控指标。
+细胞聚类分析结果文件，采用 CSV 格式。包含每个细胞的 ID、所属聚类、降维坐标以及关键质控指标。
 
 *   **核心用途**:
-    *   **聚类结果可视化**: 可直接用于绘图软件，可视化UMAP降维结果。
+    *   **聚类结果可视化**: 可直接用于绘图软件，可视化 UMAP 降维结果。
     *   **细胞注释基础**: 为手动或自动细胞类型注释提供基础分组信息。
 *   **内容与格式**:
     *   每一行代表一个高质量细胞，主要列包括：
-        *   `Barcode`: 细胞ID
+        *   `Barcode`: 细胞 ID
         *   `Cluster`: 该细胞所属的聚类编号
-        *   `UMAP_1`, `UMAP_2`: UMAP降维的二维坐标
-        *   `nGene`, `nUMI`: 每个细胞检测到的基因数和UMI数
+        *   `UMAP_1`, `UMAP_2`: UMAP 降维的二维坐标
+        *   `nGene`, `nUMI`: 每个细胞检测到的基因数和 UMI 数
+
+<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
+
+#### 📄 cell_classification.csv（仅双物种分析）
+
+双物种（如 `hg38 + mm10`）分析时生成的细胞物种归属结果文件，采用 CSV 格式。
+
+*   **核心用途**:
+    *   **细胞物种鉴定**: 判定每个细胞主要来源于哪一个物种。
+    *   **混合细胞识别**: 标记潜在双细胞/混合细胞（`Multiplet`），用于后续过滤或单独分析。
+*   **内容与格式**:
+    *   每一行代表一个细胞条形码，主要列包括：
+        *   `barcode`: 细胞条形码 ID
+        *   `hg38`: 归属于人参考（hg38）的计数
+        *   `mm10`: 归属于鼠参考（mm10）的计数
+        *   `call`: 物种归属结果（`hg38` / `mm10` / `Multiplet`）
+
+示例：
+
+```csv
+barcode,hg38,mm10,call
+CELL1_N2,17098,821,hg38
+CELL2_N8,56978,1939,hg38
+CELL5_N2,868,4216,mm10
+CELL8_N2,2371,71601,mm10
+CELL10_N2,1299,36697,mm10
+CELL11_N1,1633,44048,mm10
+CELL14_N3,110102,2919,hg38
+CELL19_N1,763,19995,mm10
+CELL21_N3,44712,1603,hg38
+CELL27_N3,64247,90800,Multiplet
+CELL31_N3,87308,2773,hg38
+CELL32_N2,1871,51359,mm10
+CELL36_N2,871,19635,mm10
+CELL38_N3,42964,1487,hg38
+CELL41_N3,360,6379,mm10
+CELL42_N3,2853,74058,mm10
+CELL43_N7,54863,1875,hg38
+CELL44_N2,14431,638,hg38
+CELL46_N3,4071,129035,mm10
+CELL47_N4,1865,51515,mm10
+CELL49_N2,49776,1521,hg38
+CELL51_N5,1362,40817,mm10
+```
 
 <div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
 
@@ -318,7 +363,7 @@
 
 *   **核心用途**:
     *   **细胞类型鉴定**: 通过查找已知细胞类型的标记基因，对无监督聚类结果进行生物学注释。
-    *   **功能富集分析**: 可作为后续GO、KEGG等功能富集分析的输入基因列表。
+    *   **功能富集分析**: 可作为后续 GO、KEGG 等功能富集分析的输入基因列表。
 *   **内容与格式**:
     *   每一行代表一个基因在一个聚类中的差异表达信息，主要列包括：
         *   `cluster`: 基因作为标记基因的聚类编号
@@ -334,7 +379,7 @@
 经过完整质控、降维和聚类分析的单细胞数据对象，采用 AnnData (`.h5ad`) 格式。它整合了上游的表达矩阵和下游的分析结果。
 
 *   **核心用途**:
-    *   **分析复现与探索**: 包含完整的分析流程和结果，可直接在`scanpy`中加载，进行深入探索性分析或可视化。
+    *   **分析复现与探索**: 包含完整的分析流程和结果，可直接在 `scanpy` 中加载，进行深入探索性分析或可视化。
     *   **数据交付**: 作为最终分析结果的交付文件，结构清晰，信息完整。
 *   **内容与格式**:
     *   在 `filter_feature.h5ad` 的基础上，增加了以下信息：
@@ -372,11 +417,11 @@
         <tbody>
         <tr>
         <td align="left"><strong>基本统计</strong></td>
-        <td>总 reads数、有效条形码比例、UMI质量、Q30碱基质量等基础测序指标</td>
+        <td>总 reads 数、有效条形码比例、UMI 质量、Q30 碱基质量等基础测序指标</td>
         </tr>
         <tr>
         <td align="left"><strong>细胞识别</strong></td>
-        <td>估计细胞数量、每细胞中位基因/UMI数、测序饱和度等细胞调用结果</td>
+        <td>估计细胞数量、每细胞中位基因/UMI 数、测序饱和度等细胞调用结果</td>
         </tr>
         <tr>
         <td align="left"><strong>比对指标</strong></td>
@@ -389,10 +434,10 @@
         <summary><strong>推荐质量阈值：</strong></summary>
         <ul>
         <li>✅ <strong>有效条形码比例</strong>: >70%</li>
-        <li>✅ <strong>Q30碱基质量</strong>: >75%（条形码和UMI区域）</li>
+        <li>✅ <strong>Q30 碱基质量</strong>: >75%（条形码和 UMI 区域）</li>
         <li>✅ <strong>转录组置信比对率</strong>: >30%</li>
-        <li>✅ <strong>细胞内reads比例</strong>: >50% (核样本>30%)</li>
-        <li>✅ <strong>每细胞平均reads数</strong>: >15,000</li>
+        <li>✅ <strong>细胞内 reads 比例</strong>: >50% (核样本 >30%)</li>
+        <li>✅ <strong>每细胞平均 reads 数</strong>: >15,000</li>
         </ul>
         </details>
 
@@ -404,11 +449,11 @@
 
 *   **核心用途**:
     *   **精细化质控**: 支持用户根据自定义标准进行更精细的细胞过滤和分析。
-    *   **下游分析输入**: 可作为下游分析工具的细胞元数据(metadata)输入，支持VDJ分析中的细胞过滤和磁珠合并操作。
+    *   **下游分析输入**: 可作为下游分析工具的细胞元数据（metadata）输入，支持 VDJ 分析中的细胞过滤和磁珠合并操作。
 
 *   **内容与格式**:
     *   每一行代表一个细胞条形码。
-    *   主要列包括：UMI数量、基因数量、线粒体基因比例以及是否被判定为高质量细胞、磁珠合并信息等。
+    *   主要列包括：UMI 数量、基因数量、线粒体基因比例以及是否被判定为高质量细胞、磁珠合并信息等。
 
 <div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
 
@@ -454,7 +499,7 @@ Market Exchange Format (MEX) 是单细胞分析中用于存储稀疏计数矩阵
         </tr>
         <tr>
         <td align="left"><code>barcodes.tsv.gz</code></td>
-        <td>压缩的细胞条形码文件。每行是一个细胞ID，行号对应矩阵的<strong>列</strong>。格式例如`CELL1_N2`，其中`CELL1`为细胞ID，`N2`为由两个条形码组成。</td>
+        <td>压缩的细胞条形码文件。每行是一个细胞 ID，行号对应矩阵的<strong>列</strong>。格式例如`CELL1_N2`，其中`CELL1`为细胞 ID，`N2`为由两个条形码组成。</td>
         </tr>
         <tr>
         <td align="left"><code>features.tsv.gz</code></td>
@@ -467,7 +512,7 @@ Market Exchange Format (MEX) 是单细胞分析中用于存储稀疏计数矩阵
 
 ### 🗃️ AnnData格式 (`.h5ad`) <a id="anndata-format-h5ad"></a>
 
-**格式概述:** AnnData ("Annotated Data") 是专为矩阵型数据设计的数据结构，特别适用于单细胞RNA测序数据分析。基于HDF5格式，提供高效的数据存储和访问能力。
+**格式概述:** AnnData ("Annotated Data") 是专为矩阵型数据设计的数据结构，特别适用于单细胞 RNA 测序数据分析。基于 HDF5 格式，提供高效的数据存储和访问能力。
 
 #### 🏗️ 数据结构
 
@@ -491,11 +536,11 @@ Market Exchange Format (MEX) 是单细胞分析中用于存储稀疏计数矩阵
 
 <div align="center">
 
-**🎯 概述**: HTML网页报告提供了单细胞RNA测序分析结果的全面可视化展示和详细解读，包含关键性能指标的评估，帮助用户快速了解实验质量和分析结果
+**🎯 概述**: HTML 网页报告提供了单细胞 RNA 测序分析结果的全面可视化展示和详细解读，包含关键性能指标评估，帮助用户快速了解实验质量和分析结果
 
 </div>
 
-HTML网页报告是单细胞RNA测序分析的综合展示平台，整合了从数据质量控制到下游生物学分析的完整结果。该报告采用交互式可视化设计，帮助用户快速评估实验质量、理解分析结果并指导后续研究方向。
+HTML 网页报告是单细胞 RNA 测序分析的综合展示平台，整合了从数据质量控制到下游生物学分析的完整结果。该报告采用交互式可视化设计，帮助用户快速评估实验质量、理解分析结果并指导后续研究方向。
 
 > 💡 **使用建议**: 建议按照报告展示顺序依次查看各项指标。
 
@@ -575,7 +620,7 @@ HTML网页报告是单细胞RNA测序分析的综合展示平台，整合了从�
 <td>
 <ul>
 <li><strong>定义</strong>: 从测序数据中鉴定出的有效细胞（区别于背景噪音或空液滴）的总数。</li>
-<li><strong>计算过程</strong>: 合并同液滴的细胞条形码后，基于空滴模型（EmptyDrops）预测真实细胞。</li>
+<li><strong>计算过程</strong>: 基于条形码的UMI分布并结合空滴模型（EmptyDrops）识别真实细胞。</li>
 <li><strong>质量判读</strong>: 
 <ul><li><strong>异常原因</strong>: 细胞计数不准、细胞裂解、样本或文库质量差、测序深度低。</li></ul>
 </li>
@@ -597,7 +642,7 @@ HTML网页报告是单细胞RNA测序分析的综合展示平台，整合了从�
 <tr>
 <td align="left">
 <strong>Mean reads per cell</strong><br>
-<em>每细胞平均Reads数</em>
+<em>每细胞平均 Reads 数</em>
 </td>
 <td>
 <ul>
@@ -610,12 +655,12 @@ HTML网页报告是单细胞RNA测序分析的综合展示平台，整合了从�
 <tr>
 <td align="left">
 <strong>Median/Mean UMI per cell</strong><br>
-<em>细胞中位/平均UMI数</em>
+<em>细胞中位/平均 UMI 数</em>
 </td>
 <td>
 <ul>
 <li><strong>定义</strong>: 每个细胞中检测到的唯一分子标识符(UMI)数量的中位数/平均值。</li>
-<li><strong>生物学意义</strong>: 用于评估单细胞测序的基因表达水平，比Reads数更能准确地反映原始mRNA分子的丰度。</li>
+<li><strong>生物学意义</strong>: 用于评估单细胞测序的基因表达水平，比 Reads 数更能准确反映原始 mRNA 分子的丰度。</li>
 <li><strong>质量判读</strong>: 该指标受细胞类型、测序深度和文库质量影响，数值偏低可能提示测序深度不足或样本质量不佳。</li>
 </ul>
 </td>
@@ -653,11 +698,11 @@ HTML网页报告是单细胞RNA测序分析的综合展示平台，整合了从�
 <tr>
 <td align="left">
 <strong>Fraction reads in cells</strong><br>
-<em>细胞内Reads比例</em>
+<em>细胞内 Reads 比例</em>
 </td>
 <td>
 <ul>
-<li><strong>定义</strong>: 在所有有效比对的Reads（valid barcodes/umi且置信比对上转录本的Reads）中，成功归属于高质量细胞ID的Reads所占的比例。</li>
+<li><strong>定义</strong>: 在所有通过条形码与 UMI 质控并可置信比对至转录组的 Reads 中，成功归属到高质量细胞条形码的 Reads 比例。</li>
 <li><strong>生物学意义</strong>: 反映细胞捕获的效率和信噪比。</li>
 <li><strong>质量判读</strong>:
 <ul><li><strong>质量问题</strong>: 比例偏低可能指示样本质量差（如细胞大量破碎，释放游离RNA）或文库构建异常。</li></ul>
@@ -672,7 +717,7 @@ HTML网页报告是单细胞RNA测序分析的综合展示平台，整合了从�
 </td>
 <td>
 <ul>
-<li><strong>定义</strong>: 评估测序深度是否充分的指标，计算方法为 <em>1 - (去重后的UMI数 / 总Reads数)</em>。</li>
+<li><strong>定义</strong>: 评估测序深度是否充分的指标，计算方法为 <em>1 - (去重后的 UMI 数 / 总 Reads 数)</em>。</li>
 <li><strong>生物学意义</strong>: 反映了文库复杂度和测序的成本效益。高饱和度意味着增加测序深度带来的新基因发现收益递减。</li>
 <li><strong>典型范围</strong>: 40% – 85% 是一个比较理想的范围。</li>
 </ul>
@@ -742,7 +787,7 @@ HTML网页报告是单细胞RNA测序分析的综合展示平台，整合了从�
 </td>
 <td>
 <ul>
-<li><strong>定义</strong>: 分配给该样本的原始测序读段（Read Pairs）的总数量。</li>
+<li><strong>定义</strong>: 分配给该样本的原始测序读段对（Read Pairs）总数。</li>
 <li><strong>意义</strong>: 代表本次测序的总体数据量。理论上读段数量越多对细胞转录本覆盖就越全面。</li>
 </ul>
 </td>
@@ -763,24 +808,24 @@ HTML网页报告是单细胞RNA测序分析的综合展示平台，整合了从�
 <tr>
 <td align="left">
 <strong>Valid UMIs</strong><br>
-<em>有效UMI比例</em>
+<em>有效 UMI 比例</em>
 </td>
 <td>
 <ul>
 <li><strong>定义</strong>: 在所有读段中，其唯一分子标识符 (UMI) 序列不包含'N'碱基且不为同聚物（如AAAAAA）的比例。</li>
-<li><strong>生物学意义</strong>: 反映了UMI序列的测序质量，是准确进行分子计数的关键。</li>
+<li><strong>生物学意义</strong>: 反映了 UMI 序列的测序质量，是准确进行分子计数的关键。</li>
 </ul>
 </td>
 </tr>
 <tr>
 <td align="left">
 <strong>Q30 bases in barcode/UMI/read</strong><br>
-<em>Q30碱基比例</em>
+<em>Q30 碱基比例</em>
 </td>
 <td>
 <ul>
-<li><strong>定义</strong>: 在细胞条形码、UMI 和 RNA读段序列中，测序质量值Q30及以上的碱基所占的比例。</li>
-<li><strong>意义</strong>: Q30代表碱基的测序错误率低于0.1%，该指标直接影响细胞身份识别、分子计数和基因比对的准确性。</li>
+<li><strong>定义</strong>: 在细胞条形码、UMI 和 RNA 读段序列中，测序质量值 Q30 及以上碱基所占的比例。</li>
+<li><strong>意义</strong>: Q30 表示碱基测序错误率低于 0.1%，该指标直接影响细胞身份识别、分子计数和基因比对的准确性。</li>
 </ul>
 </td>
 </tr>
@@ -795,7 +840,7 @@ HTML网页报告是单细胞RNA测序分析的综合展示平台，整合了从�
 
 <div align="center">
 
-**🎯 核心功能**: 评估reads与参考基因组的比对质量，包括比对率、特异性和基因组区域分布
+**🎯 核心功能**: 评估 Reads 与参考基因组的比对质量，包括比对率、特异性和基因组区域分布
 
 </div>
 
@@ -821,13 +866,13 @@ HTML网页报告是单细胞RNA测序分析的综合展示平台，整合了从�
 <tr>
 <td align="left"><strong>Reads mapped confidently to transcriptome</strong></td>
 <td align="left">≥ 50%</td>
-<td align="left">30-50%</td>
+<td align="left">30–50%</td>
 <td align="left">< 30%</td>
 </tr>
 <tr>
 <td align="left"><strong>Reads mapped antisense to gene</strong></td>
 <td align="left">< 10%</td>
-<td align="left">10-30%</td>
+<td align="left">10–30%</td>
 <td align="left">> 30%</td>
 </tr>
 </tbody>
@@ -864,7 +909,7 @@ HTML网页报告是单细胞RNA测序分析的综合展示平台，整合了从�
 </td>
 <td>
 <ul>
-<li><strong>定义</strong>: 在所有读段中，以高质量（STAR MAPQ值255）成功比对到基因组<strong>唯一</strong>位置的读段比例。</li>
+<li><strong>定义</strong>: 在所有读段中，以高质量（STAR MAPQ 值 255）成功比对到基因组<strong>唯一</strong>位置的读段比例。</li>
 <li><strong>技术细节</strong>: 对于多重比对的读段，仅在一种特定情况下会被校正为置信读段：当该读段同时比对到一个外显子区域和一个或多个非外显子区域时，流程会采纳其在外显子区域的比对结果，并将其保留。</li>
 <li><strong>生物学意义</strong>: 这是进行基因表达定量和区域分析的有效数据基础。低比例可能由重复序列、序列质量差或参考基因组不匹配引起。</li>
 </ul>
@@ -877,9 +922,9 @@ HTML网页报告是单细胞RNA测序分析的综合展示平台，整合了从�
 </td>
 <td>
 <ul>
-<li><strong>定义</strong>在所有读段中，能够以高置信度唯一比对到<strong>单个基因</strong>（默认包含外显子和内含子）的读段所占的比例。
-<li><strong>技术细节</strong>：为保证定量准确性，当一个读段比对区域为多个不同基因的交叉位置时，该读段将被视为来源不明确而被过滤。</li>
-<li><strong>生物学意义</strong>：此为评估文库质量和数据可靠性的核心指标。比例越高，意味着用于下游定量分析的有效数据越多，结果越可靠。</li>
+<li><strong>定义</strong>: 在所有读段中，能够以高置信度唯一比对到<strong>单个基因</strong>（默认包含外显子和内含子）的读段所占的比例。</li>
+<li><strong>技术细节</strong>: 为保证定量准确性，当一个读段落在多个基因的重叠区域时，该读段会被判定为来源不明确并被过滤。</li>
+<li><strong>生物学意义</strong>: 此为评估文库质量和数据可靠性的核心指标。比例越高，意味着用于下游定量分析的有效数据越多，结果越可靠。</li>
 </ul>
 </td>
 </tr>
@@ -892,7 +937,7 @@ HTML网页报告是单细胞RNA测序分析的综合展示平台，整合了从�
 <ul>
 <li><strong>定义</strong>: 在置信比对到基因组的读段中，落入已注释的<strong>外显子</strong>区域的比例。</li>
 <li><strong>技术细节</strong>: 当读段至少有50%落入外显子区域时，才被认为是置信比对到外显子区域。</li>
-<li><strong>生物学意义</strong>: 这是成熟mRNA的主要来源，是评估文库质量的核心指标。在标准的全细胞scRNA-seq中，该比例应较高。</li>
+<li><strong>生物学意义</strong>: 这是成熟 mRNA 的主要来源，是评估文库质量的核心指标。在标准的全细胞 scRNA-seq 中，该比例应较高。</li>
 </ul>
 </td>
 </tr>
@@ -939,7 +984,7 @@ HTML网页报告是单细胞RNA测序分析的综合展示平台，整合了从�
 </td>
 <td>
 <ul>
-<li><strong>定义</strong>: 控制是否在基因表达计数中包含比对到内含子区域的reads。
+<li><strong>定义</strong>: 控制是否在基因表达计数中包含比对到内含子区域的 reads。</li>
 <li><strong>开启状态 (默认)</strong>：当设置为 <code>True</code> 时，内含子区域的 reads <strong>会被计入</strong>相应基因的表达量。此模式能更全面地捕获基因活性，特别适用于核测序或需要分析 pre-mRNA 的场景。</li>
 <li><strong>关闭状态</strong>：当设置为 <code>False</code> 时，<strong>只有外显子</strong>区域的 reads 才被计入基因表达量。此模式专注于成熟 mRNA 的定量分析。</li>
 </ul>
@@ -966,7 +1011,7 @@ HTML网页报告是单细胞RNA测序分析的综合展示平台，整合了从�
 ##### 📊 细胞鉴定曲线图 (Barcode Rank Plot)
 
 **图表功能**:
-该图通过将所有细胞按其包含的UMI数进行排序，来区分高质量的真实细胞与背景噪音。
+该图通过将所有细胞按其包含的 UMI 数进行排序，来区分高质量的真实细胞与背景噪音。
 
 <div align="center">
 <img src="../images/html_scrna3.jpg" alt="scRNA网页报告" width="300">
@@ -975,9 +1020,9 @@ HTML网页报告是单细胞RNA测序分析的综合展示平台，整合了从�
 **如何解读**:
 *   **视觉编码**: 🔵 蓝线（有效细胞）| ⬜ 灰线（背景噪音）| 🔷 蓝色渐变区（混合区域）
 *   **图表轴系详解**: 
-    - **X轴**: Barcode Rank（细胞排序）- 按UMI总数降序排列（对数刻度）
-    - **Y轴**: UMI Counts（UMI计数）- 每个细胞的总UMI数量（对数刻度）
-    - **交互**: 悬停显示细胞排序位置、UMI数量和该区段真实细胞比例
+    - **X轴**: Barcode Rank（细胞排序）- 按 UMI 总数降序排列（对数刻度）
+    - **Y轴**: UMI Counts（UMI 计数）- 每个细胞的总 UMI 数量（对数刻度）
+    - **交互**: 悬停显示细胞排序位置、UMI 数量和该区段真实细胞比例
 *   **质量评估指导**: 
     - **理想模式**: 明显"拐点"区分真实细胞和背景，真实细胞区域陡峭下降，背景区域平缓分布
     - **异常模式**: 缺乏明显拐点（细胞浓度过低）、平缓下降（背景RNA过高）
@@ -998,13 +1043,13 @@ HTML网页报告是单细胞RNA测序分析的综合展示平台，整合了从�
 ##### 📊 细胞数据分布图 (Cell Data Distribution)
 
 **图表功能**:
-通过三个独立的小提琴图，分别展示高质量细胞在 **基因数 (nGenes)**、**UMI数 (nUMI)** 和 **线粒体基因比例 (percent\.mt)** 这三个关键质量指标上的分布情况。
+通过三个独立的小提琴图，分别展示高质量细胞在 **基因数 (nGenes)**、**UMI 数 (nUMI)** 和 **线粒体基因比例 (percent.mt)** 这三个关键质量指标上的分布情况。
 
 **如何解读**:
-*   **基因数和UMI数**: 分布的中心（最宽处）越高，表明细胞的转录组复杂度和捕获效率越高。
-*   **线粒体基因比例**: 分布应集中在较低的百分比（通常 < 10-20%）。比例过高可能表示细胞凋亡或压力状态。
+*   **基因数和 UMI 数**: 分布的中心（最宽处）越高，表明细胞的转录组复杂度和捕获效率越高。
+*   **线粒体基因比例**: 分布应集中在较低的百分比（通常 < 10%–20%）。比例过高可能表示细胞凋亡或压力状态。
 
-</br>
+<br>
 
 ---
 
@@ -1023,11 +1068,11 @@ HTML网页报告是单细胞RNA测序分析的综合展示平台，整合了从�
 ##### 🌀 细胞聚类分析图 (Cluster Analysis)
 
 **图表功能**:
-通过UMAP降维和Louvain聚类算法，将具有相似基因表达模式的细胞在二维空间中聚集在一起，从而识别潜在的细胞亚群。
+通过 UMAP 降维和 Louvain 聚类算法，将具有相似基因表达模式的细胞在二维空间中聚集在一起，从而识别潜在的细胞亚群。
 
 **如何解读**:
 *   **左图 (细胞类型聚类)**: 每个点代表一个细胞，不同颜色代表不同的细胞聚类。空间位置相近的细胞，其基因表达谱也更相似。
-*   **右图 (UMI数分布)**: 在相同的UMAP空间上，用颜色梯度展示每个细胞的总UMI数。可用于辅助判断聚类结果的可靠性，例如某些cluster是否由低质量细胞组成。
+*   **右图 (UMI 数分布)**: 在相同的 UMAP 空间上，用颜色梯度展示每个细胞的总 UMI 数。可用于辅助判断聚类结果的可靠性，例如某些 cluster 是否由低质量细胞组成。
 
 <div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
 
@@ -1053,7 +1098,7 @@ HTML网页报告是单细胞RNA测序分析的综合展示平台，整合了从�
 
 **如何解读**:
 *   **注释结果**: 为每个聚类提供一个可能的细胞类型标签。
-*   **物种支持**: Human(Homo sapiens)/ Mouse(Mus musculus), 其他物种不提供细胞类型注释。
+*   **物种支持**: Human (Homo sapiens) / Mouse (Mus musculus)；其他物种暂不提供细胞类型注释。
 *   **使用建议**: 自动注释结果仅供参考，其准确性依赖于参考数据库的质量和样本的相似性。建议结合标记基因进行手动验证和校正。
 
 <div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
@@ -1061,11 +1106,40 @@ HTML网页报告是单细胞RNA测序分析的综合展示平台，整合了从�
 ##### 📊 测序饱和度曲线 (Sequencing Saturation Curve)
 
 **图表功能**:
-评估测序深度的充分性和数据复杂度，即继续增加测序量能否发现更多新的基因或UMI。
+评估测序深度的充分性和数据复杂度，即继续增加测序量能否发现更多新的基因或 UMI。
 
 **如何解读**:
 *   **坐标轴**: X轴为平均每个细胞的测序读段数，Y轴为饱和度/平均每个细胞的中位基因数。
 *   **曲线趋势**: 曲线如果趋于平缓，表明测序已接近饱和，增加测序深度对发现新基因的贡献不大。如果曲线仍在快速上升，则表明增加测序可能仍有较大收益。
+
+<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
+
+##### 🧪 双物种细胞归属页面（仅双物种分析）
+
+当输入为双物种参考（例如 `hg38 + mm10`）时，网页报告会新增“细胞物种归属”页面，用于展示双物种拆分与混合细胞识别结果。
+
+<div align="center">
+<img src="../images/html_scrna4.png" alt="scRNA双物种细胞归属页面" width="500">
+</div>
+
+**图表功能**:
+该页面同时给出液滴层面的多细胞率、细胞层面的物种归属散点图，以及按物种拆分后的质量统计，便于快速判断双物种分离效果。
+
+**如何解读**:
+*   **Droplet 概览区（左上）**:
+    - `Droplets with >0 Cell`: 至少含 1 个细胞的液滴数。
+    - `Droplets with >1Cell (Observed / Inferred)`: 观测/推断的多细胞液滴数量。
+    - `Fraction Droplets with >1 Cell`: 多细胞液滴（推断）占比。该值越高，通常表示双细胞风险越高。
+*   **Cell UMI Counts 散点图（右上）**:
+    - X 轴为 `hg38 UMI counts`，Y 轴为 `mm10 UMI counts`。
+    - 主要沿 X 轴分布的点通常判定为 `hg38` 细胞；主要沿 Y 轴分布的点通常判定为 `mm10` 细胞。
+    - 同时在两个轴上都较高的点常见于 `Multiplet`（混合/双细胞）。
+*   **Summary 统计区（下方）**:
+    - 分别给出 `hg38` 与 `mm10` 的细胞数量、每细胞中位 UMI / 基因数、总检出基因数，以及比对相关指标。
+    - 若两个物种在细胞数量与核心质量指标上差异过大，通常提示上样比例、样本状态或分离效果存在偏差。
+*   **使用建议**:
+    - 建议将 `call=Multiplet` 细胞在下游聚类前单独标记或剔除。
+    - 建议结合 `analysis/cell_classification.csv` 与该页面散点图共同判读，而非仅依赖单一阈值。
 
 ---
 
@@ -1073,34 +1147,10 @@ HTML网页报告是单细胞RNA测序分析的综合展示平台，整合了从�
 
 ### 📚 相关文档
 
-<table style="width:100%; border-collapse: collapse; margin: 15px 0;">
-<thead>
-<tr>
-<th width="30%" align="left"><strong>文档类型</strong></th>
-<th width="70%" align="left"><strong>资源链接和描述</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left"><strong>🚀 快速入门</strong></td>
-<td><a href="../quickstart.md">快速入门指南</a> - 第一次分析的完整教程</td>
-</tr>
-<tr>
-<td align="left"><strong>⚙️ 参数参考</strong></td>
-<td><a href="../parameter/parameter.md">参数参考手册</a> - 所有可配置参数的详细说明</td>
-</tr>
-<tr>
-<td align="left"><strong>🔬 分析流程</strong></td>
-<td><a href="../pipeline/pipeline.md">分析流程说明</a> - 整个分析流程的技术细节</td>
-</tr>
-<tr>
-<td align="left"><strong>🔧 安装配置</strong></td>
-<td><a href="../installation.md">安装配置指南</a> - 系统要求、安装步骤和环境配置</td>
-</tr>
-</tbody>
-</table>
+- [scRNA 流程文档](../pipeline/scRNA.md)
+- [scRNA 参数文档](../parameter/scRNA.md)
 
-
+---
 
 <div align="center">
 
@@ -1108,7 +1158,7 @@ HTML网页报告是单细胞RNA测序分析的综合展示平台，整合了从�
 > 
 > 本文档持续更新中，如发现内容错误或需要补充的信息，欢迎反馈。
 > 
-> 📝 <strong>文档版本：</strong> 3.0 | <strong>最后更新：</strong> 2025年
+> 📝 <strong>文档版本：</strong> 3.1 | <strong>最后更新：</strong> 2026年4月
 
 ---
 

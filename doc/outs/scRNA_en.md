@@ -30,6 +30,7 @@ After the single-cell RNA analysis is complete, a standardized file and subdirec
 .
 ├── analysis/                      # Downstream analysis results directory
 │   ├── cluster.csv                # Cell clustering results file
+│   ├── cell_classification.csv    # Species assignment file for dual-species analysis
 │   ├── marker.csv                 # Differentially expressed gene marker file
 │   └── QC_Cluster.h5ad            # AnnData object after quality control and clustering
 ├── anno_decon_sorted.bam          # Aligned, annotated, and sorted BAM file
@@ -312,6 +313,50 @@ The cell clustering analysis result file in CSV format. It contains each cell's 
 
 <div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
 
+#### 📄 cell_classification.csv (Dual-species analysis only)
+
+A cell-level species assignment file generated for dual-species analyses (e.g., `hg38 + mm10`), in CSV format.
+
+*   **Core Purpose**:
+    *   **Species assignment per cell**: Determines which species each cell primarily originates from.
+    *   **Mixed-cell detection**: Flags potential doublets/mixed cells (`Multiplet`) for downstream filtering or separate analysis.
+*   **Content and Format**:
+    *   Each row represents one cell barcode, with major columns including:
+        *   `barcode`: Cell barcode ID
+        *   `hg38`: Count assigned to human reference (hg38)
+        *   `mm10`: Count assigned to mouse reference (mm10)
+        *   `call`: Species assignment result (`hg38` / `mm10` / `Multiplet`)
+
+Example:
+
+```csv
+barcode,hg38,mm10,call
+CELL1_N2,17098,821,hg38
+CELL2_N8,56978,1939,hg38
+CELL5_N2,868,4216,mm10
+CELL8_N2,2371,71601,mm10
+CELL10_N2,1299,36697,mm10
+CELL11_N1,1633,44048,mm10
+CELL14_N3,110102,2919,hg38
+CELL19_N1,763,19995,mm10
+CELL21_N3,44712,1603,hg38
+CELL27_N3,64247,90800,Multiplet
+CELL31_N3,87308,2773,hg38
+CELL32_N2,1871,51359,mm10
+CELL36_N2,871,19635,mm10
+CELL38_N3,42964,1487,hg38
+CELL41_N3,360,6379,mm10
+CELL42_N3,2853,74058,mm10
+CELL43_N7,54863,1875,hg38
+CELL44_N2,14431,638,hg38
+CELL46_N3,4071,129035,mm10
+CELL47_N4,1865,51515,mm10
+CELL49_N2,49776,1521,hg38
+CELL51_N5,1362,40817,mm10
+```
+
+<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
+
 #### 📄 marker.csv
 
 A list of differentially expressed genes (marker genes) for each cluster, in CSV format. It records information such as the significance of each gene's expression in a specific cluster and changes in expression levels.
@@ -518,6 +563,7 @@ The HTML web report is a comprehensive display platform for single-cell RNA sequ
 </div>
 
 **📊 Quality Control Standards:**
+
 > **Note**: The following standards are for reference only. Actual quality assessment should consider multiple factors such as tissue type, cell state, and experimental goals. Significant differences may exist between different samples, and it is recommended to make judgments based on the specific experimental context.
 
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
@@ -569,8 +615,7 @@ The HTML web report is a comprehensive display platform for single-cell RNA sequ
 <tbody>
 <tr>
 <td align="left">
-<strong>Estimated number of cells</strong><br>
-<em></em>
+<strong>Estimated number of cells</strong>
 </td>
 <td>
 <ul>
@@ -584,8 +629,7 @@ The HTML web report is a comprehensive display platform for single-cell RNA sequ
 </tr>
 <tr>
 <td align="left">
-<strong>Species</strong><br>
-<em></em>
+<strong>Species</strong>
 </td>
 <td>
 <ul>
@@ -596,8 +640,7 @@ The HTML web report is a comprehensive display platform for single-cell RNA sequ
 </tr>
 <tr>
 <td align="left">
-<strong>Mean reads per cell</strong><br>
-<em></em>
+<strong>Mean reads per cell</strong>
 </td>
 <td>
 <ul>
@@ -609,8 +652,7 @@ The HTML web report is a comprehensive display platform for single-cell RNA sequ
 </tr>
 <tr>
 <td align="left">
-<strong>Median/Mean UMI per cell</strong><br>
-<em></em>
+<strong>Median/Mean UMI per cell</strong>
 </td>
 <td>
 <ul>
@@ -622,8 +664,7 @@ The HTML web report is a comprehensive display platform for single-cell RNA sequ
 </tr>
 <tr>
 <td align="left">
-<strong>Median/Mean genes per cell</strong><br>
-<em></em>
+<strong>Median/Mean genes per cell</strong>
 </td>
 <td>
 <ul>
@@ -639,8 +680,7 @@ The HTML web report is a comprehensive display platform for single-cell RNA sequ
 </tr>
 <tr>
 <td align="left">
-<strong>Total genes detected</strong><br>
-<em></em>
+<strong>Total genes detected</strong>
 </td>
 <td>
 <ul>
@@ -652,8 +692,7 @@ The HTML web report is a comprehensive display platform for single-cell RNA sequ
 </tr>
 <tr>
 <td align="left">
-<strong>Fraction reads in cells</strong><br>
-<em></em>
+<strong>Fraction reads in cells</strong>
 </td>
 <td>
 <ul>
@@ -667,8 +706,7 @@ The HTML web report is a comprehensive display platform for single-cell RNA sequ
 </tr>
 <tr>
 <td align="left">
-<strong>Sequencing saturation</strong><br>
-<em></em>
+<strong>Sequencing saturation</strong>
 </td>
 <td>
 <ul>
@@ -692,7 +730,6 @@ The HTML web report is a comprehensive display platform for single-cell RNA sequ
 </div>
 
 **📊 Quality Control Standards:**
-> **Note**: The following standards are for reference only. Actual quality assessment should consider multiple factors such as tissue type, cell state, and experimental goals. Significant differences may exist between different samples, and it is recommended to make judgments based on the specific experimental context.
 
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
@@ -737,8 +774,7 @@ The HTML web report is a comprehensive display platform for single-cell RNA sequ
 <tbody>
 <tr>
 <td align="left">
-<strong>Number of reads</strong><br>
-<em></em>
+<strong>Number of reads</strong>
 </td>
 <td>
 <ul>
@@ -749,8 +785,7 @@ The HTML web report is a comprehensive display platform for single-cell RNA sequ
 </tr>
 <tr>
 <td align="left">
-<strong>Valid barcodes</strong><br>
-<em></em>
+<strong>Valid barcodes</strong>
 </td>
 <td>
 <ul>
@@ -762,8 +797,7 @@ The HTML web report is a comprehensive display platform for single-cell RNA sequ
 </tr>
 <tr>
 <td align="left">
-<strong>Valid UMIs</strong><br>
-<em></em>
+<strong>Valid UMIs</strong>
 </td>
 <td>
 <ul>
@@ -774,8 +808,7 @@ The HTML web report is a comprehensive display platform for single-cell RNA sequ
 </tr>
 <tr>
 <td align="left">
-<strong>Q30 bases in barcode/UMI/read</strong><br>
-<em></em>
+<strong>Q30 bases in barcode/UMI/read</strong>
 </td>
 <td>
 <ul>
@@ -800,7 +833,6 @@ The HTML web report is a comprehensive display platform for single-cell RNA sequ
 </div>
 
 **📊 Quality Control Standards:**
-> **Note**: The following standards are for reference only. Actual quality assessment should consider multiple factors such as tissue type, cell state, and experimental goals. Significant differences may exist between different samples, and it is recommended to make judgments based on the specific experimental context.
 
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
@@ -845,8 +877,7 @@ The HTML web report is a comprehensive display platform for single-cell RNA sequ
 <tbody>
 <tr>
 <td align="left">
-<strong>Reads mapped to genome</strong><br>
-<em></em>
+<strong>Reads mapped to genome</strong>
 </td>
 <td>
 <ul>
@@ -859,8 +890,7 @@ The HTML web report is a comprehensive display platform for single-cell RNA sequ
 </tr>
 <tr>
 <td align="left">
-<strong>Reads mapped confidently to genome</strong><br>
-<em></em>
+<strong>Reads mapped confidently to genome</strong>
 </td>
 <td>
 <ul>
@@ -872,8 +902,7 @@ The HTML web report is a comprehensive display platform for single-cell RNA sequ
 </tr>
 <tr>
 <td align="left">
-<strong>Reads mapped confidently to transcriptome</strong><br>
-<em></em>
+<strong>Reads mapped confidently to transcriptome</strong>
 </td>
 <td>
 <ul>
@@ -885,8 +914,7 @@ The HTML web report is a comprehensive display platform for single-cell RNA sequ
 </tr>
 <tr>
 <td align="left">
-<strong>Reads mapped confidently to exonic regions</strong><br>
-<em></em>
+<strong>Reads mapped confidently to exonic regions</strong>
 </td>
 <td>
 <ul>
@@ -898,8 +926,7 @@ The HTML web report is a comprehensive display platform for single-cell RNA sequ
 </tr>
 <tr>
 <td align="left">
-<strong>Reads mapped confidently to intronic regions</strong><br>
-<em></em>
+<strong>Reads mapped confidently to intronic regions</strong>
 </td>
 <td>
 <ul>
@@ -911,8 +938,7 @@ The HTML web report is a comprehensive display platform for single-cell RNA sequ
 </tr>
 <tr>
 <td align="left">
-<strong>Reads mapped confidently to intergenic regions</strong><br>
-<em></em>
+<strong>Reads mapped confidently to intergenic regions</strong>
 </td>
 <td>
 <ul>
@@ -923,8 +949,7 @@ The HTML web report is a comprehensive display platform for single-cell RNA sequ
 </tr>
 <tr>
 <td align="left">
-<strong>Reads mapped antisense to gene</strong><br>
-<em></em>
+<strong>Reads mapped antisense to gene</strong>
 </td><td>
 <ul>
 <li><strong>Definition</strong>: The proportion of reads that successfully align to a gene region but in the opposite direction to the annotated gene.</li>
@@ -934,8 +959,7 @@ The HTML web report is a comprehensive display platform for single-cell RNA sequ
 </tr>
 <tr>
 <td align="left">
-<strong>Include introns</strong><br>
-<em></em>
+<strong>Include introns</strong>
 </td>
 <td>
 <ul>
@@ -998,13 +1022,13 @@ Displays the distribution of the number of captured cell barcodes (Beads) in rea
 ##### 📊 Cell Data Distribution
 
 **Chart Function**:
-Through three separate violin plots, it shows the distribution of high-quality cells across three key quality metrics: **number of genes (nGenes)**, **number of UMIs (nUMI)**, and **mitochondrial gene percentage (percent\.mt)**.
+Through three separate violin plots, it shows the distribution of high-quality cells across three key quality metrics: **number of genes (nGenes)**, **number of UMIs (nUMI)**, and **mitochondrial gene percentage (percent.mt)**.
 
 **How to Interpret**:
 *   **Number of Genes and UMIs**: The higher the center of the distribution (the widest part), the higher the transcriptome complexity and capture efficiency of the cells.
 *   **Mitochondrial Gene Percentage**: The distribution should be concentrated at a low percentage (usually < 10-20%). A high percentage may indicate cell apoptosis or stress.
 
-</br>
+<br>
 
 ---
 
@@ -1067,40 +1091,45 @@ Assesses the adequacy of sequencing depth and data complexity, i.e., whether fur
 *   **Axes**: The X-axis is the average number of sequencing reads per cell, and the Y-axis is the saturation / median number of genes per cell.
 *   **Curve Trend**: If the curve tends to flatten, it indicates that sequencing is approaching saturation, and increasing sequencing depth will not contribute much to the discovery of new genes. If the curve is still rising rapidly, it indicates that increasing sequencing may still yield significant benefits.
 
+<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
+
+##### 🧪 Dual-Species Cell Assignment Page (Dual-species analysis only)
+
+When a dual-species reference is used (e.g., `hg38 + mm10`), the HTML report adds a dedicated page for species assignment and mixed-cell identification.
+
+<div align="center">
+<img src="../images/html_scrna4.png" alt="scRNA dual-species cell assignment page" width="500">
+</div>
+
+**Chart Function**:
+This page combines droplet-level multiplet statistics, cell-level species scatter plots, and per-species summary metrics, allowing quick assessment of species separation quality.
+
+**How to Interpret**:
+*   **Droplet overview (top-left)**:
+    - `Droplets with >0 Cell`: Number of droplets containing at least one cell.
+    - `Droplets with >1Cell (Observed / Inferred)`: Observed/inferred number of multi-cell droplets.
+    - `Fraction Droplets with >1 Cell`: Fraction of multi-cell droplets (inferred). Higher values generally indicate higher doublet risk.
+*   **Cell UMI Counts scatter (top-right)**:
+    - X-axis: `hg38 UMI counts`; Y-axis: `mm10 UMI counts`.
+    - Points mainly distributed along the X-axis are typically assigned as `hg38`; points mainly along the Y-axis are typically assigned as `mm10`.
+    - Points with high counts on both axes are often `Multiplet` (mixed/doublet) cells.
+*   **Summary panel (bottom)**:
+    - Separately reports cell count, median UMI/genes per cell, total genes detected, and mapping-related metrics for `hg38` and `mm10`.
+    - Large imbalance between species in key metrics may indicate issues in loading ratio, sample condition, or species separation performance.
+*   **Usage suggestions**:
+    - Mark or remove `call=Multiplet` cells before downstream clustering.
+    - Interpret this page together with `analysis/cell_classification.csv` rather than relying on a single threshold.
+
 ---
 
 ## 🎯 More Resources <a id="more-resources"></a>
 
 ### 📚 Related Documentation
 
-<table style="width:100%; border-collapse: collapse; margin: 15px 0;">
-<thead>
-<tr>
-<th width="30%" align="left"><strong>Document Type</strong></th>
-<th width="70%" align="left"><strong>Resource Link and Description</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left"><strong>🚀 Quick Start</strong></td>
-<td><a href="../quickstart.md">Quick Start Guide</a> - A complete tutorial for your first analysis.</td>
-</tr>
-<tr>
-<td align="left"><strong>⚙️ Parameter Reference</strong></td>
-<td><a href="../parameter/parameter.md">Parameter Reference Manual</a> - Detailed descriptions of all configurable parameters.</td>
-</tr>
-<tr>
-<td align="left"><strong>🔬 Analysis Pipeline</strong></td>
-<td><a href="../pipeline/pipeline.md">Analysis Pipeline Description</a> - Technical details of the entire analysis workflow.</td>
-</tr>
-<tr>
-<td align="left"><strong>🔧 Installation & Configuration</strong></td>
-<td><a href="../installation.md">Installation & Configuration Guide</a> - System requirements, installation steps, and environment configuration.</td>
-</tr>
-</tbody>
-</table>
+- [scRNA pipeline doc](../pipeline/scRNA_en.md)
+- [scRNA parameter doc](../parameter/scRNA_en.md)
 
-
+---
 
 <div align="center">
 
@@ -1108,7 +1137,7 @@ Assesses the adequacy of sequencing depth and data complexity, i.e., whether fur
 > 
 > This document is continuously updated. If you find any errors or need additional information, please provide feedback.
 > 
-> 📝 <strong>Document Version:</strong> 3.0 | <strong>Last Updated:</strong> 2025
+> 📝 <strong>Document Version:</strong> 3.1 | <strong>Last Updated:</strong> April 2026
 
 ---
 

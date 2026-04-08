@@ -60,7 +60,7 @@ The command-line tool for this pipeline is named **`dnbc4tools`**.
 | **[Installation](./doc/installation.md)** | Set up dnbc4tools on your system. |
 | **[Quick Start](./doc/quickstart.md)** | Run your first analysis with sample data. |
 | **[Pipeline Guides](./doc/pipeline/pipeline.md)** | In-depth workflow documentation for: <br> [scRNA-seq](./doc/pipeline/scRNA_en.md) \| [scATAC-seq](./doc/pipeline/scATAC_en.md) \| [scVDJ-seq](./doc/pipeline/scVDJ_en.md) |
-| **[Parameters](./doc/parameter/parameter.md)** | Command reference and parameter settings for: <br> [scRNA-seq](./doc/parameter/scRNA_en.md) \| [scATAC-seq](./doc/parameter/scATAC_en.md) \| [scVDJ-seq](./doc/parameter/scVDJ_en.md) |
+| **[Parameters](./doc/parameter/parameter.md)** | Command reference and parameter settings for: <br> [scRNA-seq](./doc/parameter/scRNA_en.md) \| [scATAC-seq](./doc/parameter/scATAC_en.md) \| [scVDJ-seq](./doc/parameter/scVDJ_en.md) \| [Multi-omics](./doc/parameter/multi_en.md) |
 | **[Outputs](./doc/outs/outs.md)** | Guides to understanding your results for: <br> [scRNA-seq](./doc/outs/scRNA_en.md) \| [scATAC-seq](./doc/outs/scATAC_en.md) \| [scVDJ-seq](./doc/outs/scVDJ_en.md) |
 | **[Analysis](./doc/io.md)** | Analyze results in R and Python. |
 | **[Demo Datasets](./doc/dataset.md)** | Access sample datasets for testing. |
@@ -81,26 +81,13 @@ The command-line tool for this pipeline is named **`dnbc4tools`**.
 
 ## 🚀 What's New
 
-### What's New in v3.0
+### What's New in v3.1
 
 <details open>
 <summary><strong>New Features & Improvements</strong></summary>
 
-#### RNA-Seq Enhancements
-- **Annotation Logic**: Optimized RNA annotation for improved accuracy
-- **HTML Reports**: Updated interactive reports with more informative metrics
-- **Feature Matrices**: Included `gene_id` and `gene_name` in the feature file
-- **BAM Output**: Added comprehensive metadata tags to BAM alignment file
-- **Mixed Species**: Enabled support for dual-species analysis
-
-#### VDJ Analysis Upgrades
-- **Assembly & Annotation**: Improved algorithms for V(D)J assembly and annotation
-- **Output Format**: Standardized outputs for better compatibility with third-party tools
-
-#### Performance & Usability
-- **Storage Optimization**: Automatic removal of intermediate files to save disk space
-- **Directory Structure**: Reorganized output directories and logs for better readability
-- **Parallel Processing**: Implemented multi-threading for faster execution
+#### Multi-omics Analysis
+- **Multi-omics Mode**: Added support for single-sample multi-omics analysis. Now supports RNA + VDJ combined analysis or individual omics analysis.
 
 </details>
 
