@@ -1,6 +1,6 @@
 <div align="right">
 
-[🏠 主页](../../README.md) | [🌐 English](scRNA_en.md)
+[🏠 主页](../../README.md) • [English](scRNA_en.md)
 
 </div>
 
@@ -61,7 +61,7 @@
 
 </div>
 
-<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
+---
 
 #### 📄 anno_decon_sorted.bam
 
@@ -181,7 +181,7 @@
     </tbody>
     </table>
 
-<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
+---
 
 #### 📄 anno_decon_sorted.bam.bai
 
@@ -259,7 +259,7 @@
     *   **空间高效**: 稀疏矩阵格式（`.mtx`）仅存储非零元素，极大节省了存储空间。
     *   **高度兼容**: MEX 格式是单细胞社区的标准，兼容 Seurat, Scanpy 等几乎所有主流分析工具。
 
-<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
+---
 
 #### 📁 原始基因表达矩阵 (`raw_matrix/`)
 
@@ -273,7 +273,7 @@
     *   采用标准的 **Market Matrix Exchange (MEX)** 格式，其文件组成与 `filter_matrix/` 目录完全相同。
     *   包含所有被检测到的条形码，包括高质量细胞、低质量细胞和背景液滴。
 
-<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
+---
 
 #### 📄 filter_feature.h5ad
 
@@ -295,7 +295,7 @@
 
 </div>
 
-<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
+---
 
 #### 📄 cluster.csv
 
@@ -311,7 +311,7 @@
         *   `UMAP_1`, `UMAP_2`: UMAP 降维的二维坐标
         *   `nGene`, `nUMI`: 每个细胞检测到的基因数和 UMI 数
 
-<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
+---
 
 #### 📄 cell_classification.csv（仅双物种分析）
 
@@ -355,7 +355,7 @@ CELL49_N2,49776,1521,hg38
 CELL51_N5,1362,40817,mm10
 ```
 
-<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
+---
 
 #### 📄 marker.csv
 
@@ -372,7 +372,7 @@ CELL51_N5,1362,40817,mm10
         *   `p_val_adj`: 调整后的p值，评估统计显著性
         *   `pct.1`, `pct.2`: 该基因在目标聚类和其他聚类中的表达细胞比例
 
-<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
+---
 
 #### 📄 QC_Cluster.h5ad
 
@@ -441,7 +441,7 @@ CELL51_N5,1362,40817,mm10
         </ul>
         </details>
 
-<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
+---
 
 #### 📄 singlecell.csv
 
@@ -455,7 +455,7 @@ CELL51_N5,1362,40817,mm10
     *   每一行代表一个细胞条形码。
     *   主要列包括：UMI 数量、基因数量、线粒体基因比例以及是否被判定为高质量细胞、磁珠合并信息等。
 
-<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
+---
 
 #### 📄 *_scRNA_report.html
 
@@ -726,7 +726,7 @@ HTML 网页报告是单细胞 RNA 测序分析的综合展示平台，整合了�
 </tbody>
 </table>
 
-<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
+---
 
 #### 🔬 测序指标 (Sequencing Metrics) <a id="测序指标"></a>
 
@@ -834,7 +834,7 @@ HTML 网页报告是单细胞 RNA 测序分析的综合展示平台，整合了�
 
 > **注**: 以上所有比例的计算均以原始测序读段(Number of Reads)为准，确保了各项指标之间的可比性和一致性。
 
-<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
+---
 
 #### 🗺️ 比对指标 (Mapping Metrics) <a id="比对指标"></a>
 
@@ -995,7 +995,7 @@ HTML 网页报告是单细胞 RNA 测序分析的综合展示平台，整合了�
 
 > **注**: 以上所有比例的计算均以原始测序读段(Number of Reads)为准，确保了各项指标之间的可比性和一致性。
 
-<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
+---
 
 ### 📈 交互式可视化图表解读 <a id="交互式可视化图表解读"></a>
 
@@ -1027,7 +1027,7 @@ HTML 网页报告是单细胞 RNA 测序分析的综合展示平台，整合了�
     - **理想模式**: 明显"拐点"区分真实细胞和背景，真实细胞区域陡峭下降，背景区域平缓分布
     - **异常模式**: 缺乏明显拐点（细胞浓度过低）、平缓下降（背景RNA过高）
 
-<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
+---
 
 ##### 📊 液滴磁珠分布图 (Droplet Beads Distribution)
 
@@ -1038,7 +1038,7 @@ HTML 网页报告是单细胞 RNA 测序分析的综合展示平台，整合了�
 *   **理论分布**: 液滴中磁珠的数量分布理论上符合**泊松分布**，这反映了微反应体系中随机捕获过程的统计特性。
 *   **实际影响**: 最终的分布会受到测序饱和度、液滴大小均一性、细胞浓度等实验因素的影响。
 
-<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
+---
 
 ##### 📊 细胞数据分布图 (Cell Data Distribution)
 
@@ -1074,7 +1074,7 @@ HTML 网页报告是单细胞 RNA 测序分析的综合展示平台，整合了�
 *   **左图 (细胞类型聚类)**: 每个点代表一个细胞，不同颜色代表不同的细胞聚类。空间位置相近的细胞，其基因表达谱也更相似。
 *   **右图 (UMI 数分布)**: 在相同的 UMAP 空间上，用颜色梯度展示每个细胞的总 UMI 数。可用于辅助判断聚类结果的可靠性，例如某些 cluster 是否由低质量细胞组成。
 
-<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
+---
 
 ##### 📈 标记基因分析 (Marker Genes)
 
@@ -1089,7 +1089,7 @@ HTML 网页报告是单细胞 RNA 测序分析的综合展示平台，整合了�
     - **pct.1 / pct.2**: 目标聚类/其他聚类中表达该基因的细胞比例
 *   **交互功能**: 聚类筛选（下拉菜单选择特定聚类）| 基因搜索（搜索框快速定位基因表达）
 
-<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
+---
 
 ##### 🧬 细胞类型自动注释 (Cell Type Annotation)
 
@@ -1101,7 +1101,7 @@ HTML 网页报告是单细胞 RNA 测序分析的综合展示平台，整合了�
 *   **物种支持**: Human (Homo sapiens) / Mouse (Mus musculus)；其他物种暂不提供细胞类型注释。
 *   **使用建议**: 自动注释结果仅供参考，其准确性依赖于参考数据库的质量和样本的相似性。建议结合标记基因进行手动验证和校正。
 
-<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
+---
 
 ##### 📊 测序饱和度曲线 (Sequencing Saturation Curve)
 
@@ -1112,7 +1112,7 @@ HTML 网页报告是单细胞 RNA 测序分析的综合展示平台，整合了�
 *   **坐标轴**: X轴为平均每个细胞的测序读段数，Y轴为饱和度/平均每个细胞的中位基因数。
 *   **曲线趋势**: 曲线如果趋于平缓，表明测序已接近饱和，增加测序深度对发现新基因的贡献不大。如果曲线仍在快速上升，则表明增加测序可能仍有较大收益。
 
-<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
+---
 
 ##### 🧪 双物种细胞归属页面（仅双物种分析）
 

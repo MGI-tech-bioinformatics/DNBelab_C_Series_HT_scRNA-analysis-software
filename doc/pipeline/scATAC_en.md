@@ -1,6 +1,6 @@
 <div align="right">
 
-[🏠 Home](../../README.md) | [🌐 中文](scATAC.md)
+[🏠 Home](../../README.md) • [中文](scATAC.md)
 
 </div>
 

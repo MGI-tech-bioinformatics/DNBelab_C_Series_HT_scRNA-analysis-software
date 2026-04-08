@@ -75,7 +75,7 @@
     </tr>
     <tr>
       <td style="padding: 12px 15px; border: 1px solid #ddd;"><b>MD5 Checksum</b></td>
-      <td style="padding: 12px 15px; border: 1px solid #ddd;">待更新</td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;"><em>To be updated upon release</em></td>
     </tr>
   </tbody>
 </table>

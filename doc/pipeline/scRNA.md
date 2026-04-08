@@ -191,7 +191,6 @@ $dnbc4tools tools mkgtf \
 
 <br>
 
-
 #### 基因类型过滤
 
 ```shell
@@ -556,4 +555,4 @@ $dnbc4tools rna run \
 
 ## ❓ 常见问题
 
-> `内容待补充`
+> <em>Content coming soon...</em>

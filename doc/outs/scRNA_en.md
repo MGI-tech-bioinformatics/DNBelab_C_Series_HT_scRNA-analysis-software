@@ -1,6 +1,6 @@
 <div align="right">
 
-[🏠 Home](../../README.md) | [🌐 中文](scRNA.md)
+[🏠 Home](../../README.md) • [中文](scRNA.md)
 
 </div>
 
@@ -61,7 +61,7 @@ After the single-cell RNA analysis is complete, a standardized file and subdirec
 
 </div>
 
-<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
+---
 
 #### 📄 anno_decon_sorted.bam
 
@@ -181,7 +181,7 @@ This is the scRNA-seq alignment result file containing all raw data.
     </tbody>
     </table>
 
-<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
+---
 
 #### 📄 anno_decon_sorted.bam.bai
 
@@ -259,7 +259,7 @@ Contains the gene expression count matrix after filtering for high-quality cells
     *   **Space Efficient**: The sparse matrix format (`.mtx`) only stores non-zero elements, greatly saving storage space.
     *   **Highly Compatible**: The MEX format is a standard in the single-cell community, compatible with almost all mainstream analysis tools like Seurat and Scanpy.
 
-<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
+---
 
 #### 📁 Raw Gene Expression Matrix (`raw_matrix/`)
 
@@ -273,7 +273,7 @@ Contains the raw gene expression count matrix for all detected cell barcodes (un
     *   Uses the standard **Market Matrix Exchange (MEX)** format, with a file composition identical to the `filter_matrix/` directory.
     *   Includes all detected barcodes, including high-quality cells, low-quality cells, and background droplets.
 
-<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
+---
 
 #### 📄 filter_feature.h5ad
 
@@ -295,7 +295,7 @@ The feature matrix after cell identification and filtering, stored in AnnData (`
 
 </div>
 
-<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
+---
 
 #### 📄 cluster.csv
 
@@ -311,7 +311,7 @@ The cell clustering analysis result file in CSV format. It contains each cell's 
         *   `UMAP_1`, `UMAP_2`: The 2D coordinates from UMAP dimensionality reduction
         *   `nGene`, `nUMI`: The number of genes and UMIs detected in each cell
 
-<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
+---
 
 #### 📄 cell_classification.csv (Dual-species analysis only)
 
@@ -355,7 +355,7 @@ CELL49_N2,49776,1521,hg38
 CELL51_N5,1362,40817,mm10
 ```
 
-<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
+---
 
 #### 📄 marker.csv
 
@@ -372,7 +372,7 @@ A list of differentially expressed genes (marker genes) for each cluster, in CSV
         *   `p_val_adj`: Adjusted p-value, assessing statistical significance
         *   `pct.1`, `pct.2`: The proportion of cells expressing the gene in the target cluster versus other clusters
 
-<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
+---
 
 #### 📄 QC_Cluster.h5ad
 
@@ -441,7 +441,7 @@ A summary table of key analysis metrics in Excel format, providing a comprehensi
         </ul>
         </details>
 
-<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
+---
 
 #### 📄 singlecell.csv
 
@@ -455,7 +455,7 @@ A single-cell level quality control information table in CSV format, recording d
     *   Each row represents a cell barcode.
     *   Major columns include: UMI count, gene count, mitochondrial gene fraction, and whether it was identified as a high-quality cell, bead merging information, etc.
 
-<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
+---
 
 #### 📄 *_scRNA_report.html
 
@@ -719,7 +719,7 @@ The HTML web report is a comprehensive display platform for single-cell RNA sequ
 </tbody>
 </table>
 
-<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
+---
 
 #### 🔬 Sequencing Metrics <a id="sequencing-metrics"></a>
 
@@ -822,7 +822,7 @@ The HTML web report is a comprehensive display platform for single-cell RNA sequ
 
 > **Note**: All proportions above are calculated based on the total number of raw sequencing reads (Number of Reads), ensuring comparability and consistency across metrics.
 
-<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
+---
 
 #### 🗺️ Mapping Metrics <a id="mapping-metrics"></a>
 
@@ -974,7 +974,7 @@ The HTML web report is a comprehensive display platform for single-cell RNA sequ
 
 > **Note**: All proportions above are calculated based on the total number of raw sequencing reads (Number of Reads), ensuring comparability and consistency across metrics.
 
-<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
+---
 
 ### 📈 Interactive Visualization Chart Interpretation <a id="interactive-visualization-chart-interpretation"></a>
 
@@ -1006,7 +1006,7 @@ This plot distinguishes high-quality real cells from background noise by ranking
     - **Ideal Pattern**: A clear "knee point" distinguishes real cells from the background, with a steep drop in the real cell region and a flat distribution in the background region.
     - **Abnormal Pattern**: Lack of a clear knee point (cell concentration too low), or a gradual decline (background RNA too high).
 
-<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
+---
 
 ##### 📊 Droplet Beads Distribution
 
@@ -1017,7 +1017,7 @@ Displays the distribution of the number of captured cell barcodes (Beads) in rea
 *   **Theoretical Distribution**: The distribution of beads in droplets theoretically follows a **Poisson distribution**, reflecting the statistical properties of the random capture process in the micro-reaction system.
 *   **Actual Influences**: The final distribution is affected by experimental factors such as sequencing saturation, droplet size uniformity, and cell concentration.
 
-<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
+---
 
 ##### 📊 Cell Data Distribution
 
@@ -1053,7 +1053,7 @@ Using UMAP dimensionality reduction and the Louvain clustering algorithm, cells 
 *   **Left Plot (Cell Type Clustering)**: Each point represents a cell, and different colors represent different cell clusters. Cells that are close in space have more similar gene expression profiles.
 *   **Right Plot (UMI Count Distribution)**: On the same UMAP space, a color gradient shows the total UMI count for each cell. This can be used to help assess the reliability of the clustering results, for example, whether certain clusters are composed of low-quality cells.
 
-<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
+---
 
 ##### 📈 Marker Genes Analysis
 
@@ -1068,7 +1068,7 @@ Displays the characteristic differentially expressed genes for each cell cluster
     - **pct.1 / pct.2**: The proportion of cells expressing the gene in the target cluster versus other clusters.
 *   **Interactive Features**: Cluster filtering (select a specific cluster from the dropdown menu) | Gene search (use the search box to quickly locate gene expression).
 
-<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
+---
 
 ##### 🧬 Cell Type Annotation
 
@@ -1080,7 +1080,7 @@ On the UMAP plot, each cluster is labeled with a cell type inferred from a refer
 *   **Species Support**: Human (Homo sapiens) / Mouse (Mus musculus). Cell type annotation is not provided for other species.
 *   **Usage Suggestion**: The automatic annotation results are for reference only. Their accuracy depends on the quality of the reference database and the similarity of the sample. It is recommended to manually verify and correct them in conjunction with marker genes.
 
-<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
+---
 
 ##### 📊 Sequencing Saturation Curve
 
@@ -1091,7 +1091,7 @@ Assesses the adequacy of sequencing depth and data complexity, i.e., whether fur
 *   **Axes**: The X-axis is the average number of sequencing reads per cell, and the Y-axis is the saturation / median number of genes per cell.
 *   **Curve Trend**: If the curve tends to flatten, it indicates that sequencing is approaching saturation, and increasing sequencing depth will not contribute much to the discovery of new genes. If the curve is still rising rapidly, it indicates that increasing sequencing may still yield significant benefits.
 
-<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
+---
 
 ##### 🧪 Dual-Species Cell Assignment Page (Dual-species analysis only)
 

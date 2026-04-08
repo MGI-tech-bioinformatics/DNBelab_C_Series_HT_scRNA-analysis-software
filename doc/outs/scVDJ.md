@@ -1,6 +1,6 @@
 <div align="right">
 
-[🏠 主页](../../README.md) | [🌐 English](scVDJ_en.md)
+[🏠 主页](../../README.md) • [English](scVDJ_en.md)
 
 </div>
 
@@ -57,7 +57,7 @@
 
 </div>
 
-<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
+---
 
 #### 🧵 V(D)J 转录本结构与组成
 
@@ -100,7 +100,7 @@
 
 > 🧬 **技术优势**: V(D)J 分析流程可精确识别并提供框架区（FWR）和互补决定区（CDR）的氨基酸与核苷酸序列。所有组装重叠群和克隆型共识序列的 V(D)J 注释信息均以多种标准格式输出。
 
-<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
+---
 
 
 #### 🔍 重要注释标准说明
@@ -198,7 +198,7 @@
 
 </div>
 
-<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
+---
 
 #### 📄 airr_annotations.tsv
 
@@ -351,7 +351,7 @@
     </tbody>
     </table>
 
-<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
+---
 
 #### 📄 all_contig_annotations.csv
 
@@ -500,7 +500,7 @@
     </tbody>
     </table>
 
-<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
+---
 
 #### 📄 all_contig.fasta
 
@@ -512,7 +512,7 @@
 *   **内容与格式**:
     *   采用标准 FASTA 格式，每个序列对应一个重叠群，序列标识符为重叠群的唯一名称。
 
-<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
+---
 
 #### 📄 filtered_contig_annotations.csv
 
@@ -524,7 +524,7 @@
 *   **内容与格式**:
     *   文件格式与 `all_contig_annotations.csv` 完全相同。
 
-<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
+---
 
 #### 📄 filtered_contig.fasta
 
@@ -545,7 +545,7 @@
 
 </div>
 
-<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
+---
 
 #### 📄 clonotypes.csv
 
@@ -591,7 +591,7 @@
     </tbody>
     </table>
 
-<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
+---
 
 #### 📄 consensus_annotations.csv
 
@@ -676,7 +676,7 @@
     </tbody>
     </table>
 
-<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
+---
 
 #### 📄 consensus.fasta
 
@@ -698,7 +698,7 @@
 
 </div>
 
-<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
+---
 
 #### 📄 metrics_summary.xls
 
@@ -754,7 +754,7 @@
         </ul>
         </details>
 
-<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
+---
 
 #### 📄 *_scVDJ_TR(IG)_report.html
 
@@ -958,7 +958,7 @@ HTML 网页报告是单细胞 V(D)J 测序分析的综合展示平台，整合�
 </tbody>
 </table>
 
-<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
+---
 
 #### 🔬 测序指标 (Sequencing Metrics) <a id="测序指标"></a>
 
@@ -1053,7 +1053,7 @@ HTML 网页报告是单细胞 V(D)J 测序分析的综合展示平台，整合�
 </tbody>
 </table>
 
-<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
+---
 
 #### 🧬 基因富集性能指标 (Enrichment Metrics) <a id="基因富集性能指标"></a>
 
@@ -1131,7 +1131,7 @@ HTML 网页报告是单细胞 V(D)J 测序分析的综合展示平台，整合�
 </tbody>
 </table>
 
-<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
+---
 
 #### 🧬 V(D)J 注释分析 (V(D)J Annotation) <a id="vdj注释分析"></a>
 
@@ -1289,7 +1289,7 @@ HTML 网页报告是单细胞 V(D)J 测序分析的综合展示平台，整合�
     *   一个理想的样本在细胞相关条形码与背景之间应有良好分离，表现为曲线的陡峭下降。
     *   BCR V(D)J 数据中可能出现一组高 UMI 计数的细胞，这些通常是高表达的浆细胞。
 
-<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
+---
 
 #### 📈 可视化图表2 <a id="可视化图表2"></a>
 

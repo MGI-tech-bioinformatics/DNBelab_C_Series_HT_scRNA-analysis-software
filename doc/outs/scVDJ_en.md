@@ -1,6 +1,6 @@
 <div align="right">
 
-[🏠 Home](../../README.md) | [🌐 中文](scVDJ.md)
+[🏠 Home](../../README.md) • [中文](scVDJ.md)
 
 </div>
 
@@ -57,7 +57,7 @@ After single-cell V(D)J analysis is complete, a standardized set of files and su
 
 </div>
 
-<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
+---
 
 #### 🧵 V(D)J Transcript Structure and Composition
 
@@ -100,7 +100,7 @@ After single-cell V(D)J analysis is complete, a standardized set of files and su
 
 > 🧬 **Technical Advantage**: The V(D)J analysis pipeline can accurately identify and provide the amino acid and nucleotide sequences of the framework (FWR) and complementarity determining (CDR) regions. All V(D)J annotation information for assembled contigs and clonotype consensus sequences is output in various standard formats.
 
-<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
+---
 
 
 #### 🔍 Explanation of Important Annotation Standards
@@ -198,7 +198,7 @@ A contig sequence is identified as a **productive sequence** (i.e., functionally
 
 </div>
 
-<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
+---
 
 #### 📄 airr_annotations.tsv
 
@@ -351,7 +351,7 @@ Contains annotated and consensus sequences of V(D)J rearrangements in the AIRR s
     </tbody>
     </table>
 
-<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
+---
 
 #### 📄 all_contig_annotations.csv
 
@@ -500,7 +500,7 @@ Contains detailed annotation information for all contig sequences (from both cel
     </tbody>
     </table>
 
-<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
+---
 
 #### 📄 all_contig.fasta
 
@@ -512,7 +512,7 @@ Contains the nucleotide sequences of all assembled contigs.
 *   **Content and Format**:
     *   Standard FASTA format, where each sequence corresponds to a contig, and the sequence identifier is the unique name of the contig.
 
-<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
+---
 
 #### 📄 filtered_contig_annotations.csv
 
@@ -524,7 +524,7 @@ A high-quality subset of `all_contig_annotations.csv`, containing only the annot
 *   **Content and Format**:
     *   The file format is identical to `all_contig_annotations.csv`.
 
-<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
+---
 
 #### 📄 filtered_contig.fasta
 
@@ -545,7 +545,7 @@ A high-quality subset of `all_contig.fasta`, containing only high-quality contig
 
 </div>
 
-<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
+---
 
 #### 📄 clonotypes.csv
 
@@ -591,7 +591,7 @@ A statistical analysis file for clonotypes, providing detailed descriptive infor
     </tbody>
     </table>
 
-<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
+---
 
 #### 📄 consensus_annotations.csv
 
@@ -676,7 +676,7 @@ Provides detailed annotation information for each clonotype's consensus sequence
     </tbody>
     </table>
 
-<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
+---
 
 #### 📄 consensus.fasta
 
@@ -698,7 +698,7 @@ A FASTA file containing the consensus sequence for each clonotype.
 
 </div>
 
-<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
+---
 
 #### 📄 metrics_summary.xls
 
@@ -754,7 +754,7 @@ A summary table of key analysis metrics in Excel format, providing a comprehensi
         </ul>
         </details>
 
-<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
+---
 
 #### 📄 *_scVDJ_TR(IG)_report.html
 
@@ -950,7 +950,7 @@ The HTML web report is a comprehensive platform for displaying single-cell V(D)J
 </tbody>
 </table>
 
-<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
+---
 
 #### 🔬 Sequencing Metrics <a id="sequencing-metrics"></a>
 
@@ -1042,7 +1042,7 @@ The HTML web report is a comprehensive platform for displaying single-cell V(D)J
 </tbody>
 </table>
 
-<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
+---
 
 #### 🧬 Enrichment Metrics <a id="enrichment-metrics"></a>
 
@@ -1118,7 +1118,7 @@ The HTML web report is a comprehensive platform for displaying single-cell V(D)J
 </tbody>
 </table>
 
-<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
+---
 
 #### 🧬 V(D)J Annotation Analysis (V(D)J Annotation) <a id="vdj-annotation-analysis"></a>
 
@@ -1271,7 +1271,7 @@ The HTML web report is a comprehensive platform for displaying single-cell V(D)J
     *   An ideal sample should show good separation between cell-associated barcodes and the background, indicated by a steep drop in the curve.
     *   BCR V(D)J data may show a group of cells with high UMI counts, which are typically high-expressing plasma cells.
 
-<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
+---
 
 #### 📈 Visualization Chart 2 <a id="visualization-chart-2"></a>
 
@@ -1293,7 +1293,7 @@ The HTML web report is a comprehensive platform for displaying single-cell V(D)J
 *   **Top Chart (Top 10 Clonotypes)**: A bar chart showing the percentage of cells occupied by the 10 most abundant clonotypes in the sample. It intuitively reflects the relative abundance distribution of clonotypes and the concentration of the immune response.
 *   **Bottom Table (Detailed Information)**: Provides complete descriptive information for the top 10 most abundant clonotypes, including their clonotype ID, CDR3 amino acid/nucleotide sequences, absolute frequency, and relative proportion.
 
-<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
+---
 
 ## 🎯 More Resources <a id="more-resources"></a>
 

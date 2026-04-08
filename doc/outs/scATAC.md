@@ -1,6 +1,6 @@
 <div align="right">
 
-[🏠 主页](../../README.md) | [🌐 English](scATAC_en.md)
+[🏠 主页](../../README.md) • [English](scATAC_en.md)
 
 </div>
 
@@ -59,7 +59,7 @@
 
 </div>
 
-<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
+---
 
 #### 📄 fragments.tsv.gz
 
@@ -108,7 +108,7 @@
 *   **坐标调整**:
     *   为精确定位转座酶切位点，片段区间经过调整：起始位置从最左端比对位置向前移动4bp，结束位置从最右端比对位置向后移动5bp。
 
-<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
+---
 
 #### 📄 fragments.tsv.gz.tbi
 
@@ -120,7 +120,7 @@
 *   **格式**:
     *   由 `tabix` 工具生成的标准二进制索引文件。
 
-<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
+---
 
 #### 📄 filtered.fragments.tsv.gz
 
@@ -133,7 +133,7 @@
     *   文件格式与 `fragments.tsv.gz` 完全相同（压缩的 BED-like TSV），包含相同的5列信息。
     *   仅包含通过细胞过滤算法（例如，基于TSS富集和峰区域覆盖的片段数）被识别为"真实细胞"的片段。
 
-<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
+---
 
 #### 📄 filtered.fragments.tsv.gz.tbi
 
@@ -144,7 +144,7 @@
 *   **格式**:
     *   由 `tabix` 工具生成的标准二进制索引文件。
 
-<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
+---
 
 #### 📄 alignment.fragments.sorted.tagged.bam
 
@@ -189,7 +189,7 @@
         </tbody>
         </table>
 
-<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
+---
 
 #### 📄 alignment.fragments.sorted.tagged.bam.bai
 
@@ -248,7 +248,7 @@
     *   **空间高效**: 稀疏矩阵格式（`.mtx`）仅存储非零元素，极大节省了存储空间。
     *   **高度兼容**: MEX 格式是单细胞社区的标准（关于矩阵格式详见[Market Matrix格式说明](#market-matrix-format-mtxgz)），兼容 Seurat, Signac, Scanpy 等几乎所有主流分析工具。
 
-<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
+---
 
 #### 📁 原始峰矩阵 (`raw_peak_matrix/`)
 
@@ -318,7 +318,7 @@
         </ul>
         </details>
 
-<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
+---
 
 #### 📄 singlecell.csv
 
@@ -332,7 +332,7 @@
     *   每一行代表一个细胞条形码。
     *   主要列包括：片段数量、峰数量、TSS/peak区域片段数以及是否被判定为高质量细胞、磁珠合并信息等。
 
-<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
+---
 
 #### 📄 *_scATAC_report.html
 
@@ -612,7 +612,7 @@ HTML 网页报告是单细胞 ATAC 测序分析的综合展示平台，整合了
 </tbody>
 </table>
 
-<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
+---
 
 #### 🔬 测序指标 (Sequencing Metrics) <a id="测序指标"></a>
 
@@ -776,7 +776,7 @@ HTML 网页报告是单细胞 ATAC 测序分析的综合展示平台，整合了
 </tbody>
 </table>
 
-<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
+---
 
 #### 📈 可视化图表1 <a id="可视化图表1"></a>
 
@@ -803,7 +803,7 @@ HTML 网页报告是单细胞 ATAC 测序分析的综合展示平台，整合了
     *   鼠标悬停可查看细胞的详细排序和片段数。
     *   蓝色区域的颜色深浅代表该区域内真实细胞的密度。
 
-<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
+---
 
 ##### 📊 液滴磁珠分布图 (Droplet Beads Distribution)
 
@@ -814,7 +814,7 @@ HTML 网页报告是单细胞 ATAC 测序分析的综合展示平台，整合了
 *   **理论分布**: 液滴中磁珠的数量分布理论上符合**泊松分布**，这反映了微反应体系中随机捕获过程的统计特性。
 *   **实际影响**: 最终的分布会受到测序饱和度、液滴大小均一性、细胞浓度等实验因素的影响。
 
-<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
+---
 
 ##### 📊 细胞数据分布图 (Cell Data Distribution)
 
@@ -830,7 +830,7 @@ HTML 网页报告是单细胞 ATAC 测序分析的综合展示平台，整合了
     *   **TSS富集比例 (TSS Proportion)**: 展示了TSS区域片段占比的分布。分布的中心越高，说明细胞整体的转录活性信号越好。
     *   **Peak区域片段比例 (Peak Proportion)**: 展示了峰区域片段占比的分布。分布的中心越高，说明信噪比越高。
 
-<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
+---
 
 ##### 📊 片段长度分布图 (Fragment Length Distribution)
 
@@ -861,7 +861,7 @@ HTML 网页报告是单细胞 ATAC 测序分析的综合展示平台，整合了
     *   高重复率（如 > 20-30%）通常表示测序深度已接近饱和。
     *   极低的重复率（如 < 10%）可能表示测序深度不足，建议增加测序以发现更多独特的片段。
 
-<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
+---
 
 **Jaccard threshold** (Jaccard相似度阈值)
 *   **定义**: 用于判断任意两个磁珠（Beads）是否来自同一个细胞液滴的相似度阈值。
@@ -892,7 +892,7 @@ HTML 网页报告是单细胞 ATAC 测序分析的综合展示平台，整合了
     *   在与左图相同的 UMAP 空间上，用颜色梯度展示每个细胞的总片段数。
     *   颜色越深，代表该细胞的片段数越多，数据质量越高。可用于辅助判断聚类结果的可靠性。
 
-<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
+---
 
 ##### 📈 转录起始位点(TSS)富集图 (TSS Enrichment Profile)
 
@@ -910,7 +910,7 @@ HTML 网页报告是单细胞 ATAC 测序分析的综合展示平台，整合了
     *   **TSS富集分数 (TSS Enrichment Score)** 是该图的量化指标。分数越高（如 > 4-6），代表信噪比越好，数据质量越高。
     *   若曲线平坦，无明显尖峰，则提示样本质量差或实验失败。
 
-<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
+---
 
 ##### 📊 单细胞靶向图 (Single Cell Targeting Plot)
 
@@ -926,7 +926,7 @@ HTML 网页报告是单细胞 ATAC 测序分析的综合展示平台，整合了
     *   **左下角**: 低片段数 + 低TSS富集分数。这些点被认为是背景噪音或空液滴，在分析中会被过滤掉。
     *   理想情况下，真实细胞和背景噪音之间应该有清晰的分界。
 
-<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
+---
 
 ##### 📈 饱和度曲线图 (Saturation Curve)
 
@@ -942,7 +942,7 @@ HTML 网页报告是单细胞 ATAC 测序分析的综合展示平台，整合了
     *   **平台期/饱和阶段**: 曲线逐渐平缓，表明文库的复杂度已基本被完全测序，继续增加测序深度，新发现的片段数量收益递减。
 *   **质量评估**: 饱和度（重复率）是该曲线的量化指标。建议饱和度在20%-50%之间，以在成本和数据完整性之间取得平衡。
 
-<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
+---
 
 ##### 📊 磁珠相似性排序图 (Bead Similarity Ranking)
 

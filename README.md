@@ -59,9 +59,9 @@ The command-line tool for this pipeline is named **`dnbc4tools`**.
 | :--- | :--- |
 | **[Installation](./doc/installation.md)** | Set up dnbc4tools on your system. |
 | **[Quick Start](./doc/quickstart.md)** | Run your first analysis with sample data. |
-| **[Pipeline Guides](./doc/pipeline/pipeline.md)** | In-depth workflow documentation for: <br> [scRNA-seq](./doc/pipeline/scRNA_en.md) \| [scATAC-seq](./doc/pipeline/scATAC_en.md) \| [scVDJ-seq](./doc/pipeline/scVDJ_en.md) |
+| **[Pipeline Guides](./doc/pipeline/pipeline.md)** | In-depth workflow documentation for: <br> [scRNA-seq](./doc/pipeline/scRNA_en.md) \| [scATAC-seq](./doc/pipeline/scATAC_en.md) \| [scVDJ-seq](./doc/pipeline/scVDJ_en.md) \| [Multi-omics](./doc/pipeline/multi_en.md) |
 | **[Parameters](./doc/parameter/parameter.md)** | Command reference and parameter settings for: <br> [scRNA-seq](./doc/parameter/scRNA_en.md) \| [scATAC-seq](./doc/parameter/scATAC_en.md) \| [scVDJ-seq](./doc/parameter/scVDJ_en.md) \| [Multi-omics](./doc/parameter/multi_en.md) |
-| **[Outputs](./doc/outs/outs.md)** | Guides to understanding your results for: <br> [scRNA-seq](./doc/outs/scRNA_en.md) \| [scATAC-seq](./doc/outs/scATAC_en.md) \| [scVDJ-seq](./doc/outs/scVDJ_en.md) |
+| **[Outputs](./doc/outs/outs.md)** | Guides to understanding your results for: <br> [scRNA-seq](./doc/outs/scRNA_en.md) \| [scATAC-seq](./doc/outs/scATAC_en.md) \| [scVDJ-seq](./doc/outs/scVDJ_en.md) \| [Multi-omics](./doc/outs/multi_en.md) |
 | **[Analysis](./doc/io.md)** | Analyze results in R and Python. |
 | **[Demo Datasets](./doc/dataset.md)** | Access sample datasets for testing. |
 

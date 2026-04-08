@@ -1,6 +1,6 @@
 <div align="right">
 
-[🏠 主页](../../README.md) | [🌐 English](scATAC_en.md)
+[🏠 主页](../../README.md) • [English](scATAC_en.md)
 
 </div>
 
@@ -373,4 +373,4 @@ $dnbc4tools atac run \
 
 ## ❓ 常见问题
 
-> `内容待补充`
+> <em>Content coming soon...</em>
