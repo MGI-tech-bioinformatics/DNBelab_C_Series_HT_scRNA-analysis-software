@@ -1,5 +1,7 @@
 <div align="right">
-  <a href="../../README.md">🏠 Home</a>
+
+[🏠 Home](../../README.md)
+
 </div>
 
 # 🔬 Analysis Workflows
@@ -8,6 +10,12 @@
 
 **A complete guide to the dnbc4tools analysis pipelines**
 
+</div>
+
+---
+
+<div style="background-color: #e7f3fe; border-left: 6px solid #2196F3; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
+💡 <strong>Getting Started</strong>: Choose an analysis pipeline below based on your data type. Each guide provides step-by-step instructions from data preparation to result interpretation.
 </div>
 
 ---
@@ -23,22 +31,23 @@
 
 ---
 
-## 📚 Command Parameters
+## 📚 Related Documentation
 
-<details>
-<summary><strong>Click to expand parameter documentation</strong></summary>
-<br>
-
-| Category | Resource |
+| Resource | Description |
 | :--- | :--- |
-| **⚙️ General Parameters** | [Parameter Reference](../parameter/parameter.md) |
-| **🧬 RNA Parameters** | [RNA Parameters Guide](../parameter/scRNA_en.md) / [RNA 参数](../parameter/scRNA.md) |
-| **🧪 ATAC Parameters** | [ATAC Parameters Guide](../parameter/scATAC_en.md) / [ATAC 参数](../parameter/scATAC.md) |
-| **🦠 VDJ Parameters** | [VDJ Parameters Guide](../parameter/scVDJ_en.md) / [VDJ 参数](../parameter/scVDJ.md) |
-| **🧩 Multi Parameters** | [Multi-omics Parameters Guide](../parameter/multi_en.md) / [Multi-omics 参数](../parameter/multi.md) |
-
-</details>
+| [⚙️ Parameters](../parameter/parameter.md) | Command reference and configuration options |
+| [📁 Outputs](../outs/outs.md) | Understanding result files and reports |
+| [🚀 Quick Start](../quickstart.md) | Get started in 5 minutes |
+| [🔧 Installation](../installation.md) | Software setup and requirements |
 
 ---
 
-*This document serves as a top-level index. For detailed file descriptions, please refer to the analysis-specific guides linked above.*
+<div align="center">
+
+> 💡 <strong>Need Help?</strong>
+>
+> For detailed workflow instructions, click on any analysis type above.
+>
+> 📝 <strong>Document Version:</strong> 3.1 | <strong>Last Updated:</strong> April 2026
+
+</div>

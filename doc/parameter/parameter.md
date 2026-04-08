@@ -1,10 +1,22 @@
 <div align="right">
-  <a href="../../README.md">🏠 Home</a>
+
+[🏠 Home](../../README.md)
+
 </div>
 
 # 📋 dnbc4tools Parameter Reference
 
-This page provides a central reference for all parameter documentation for the `dnbc4tools` analysis pipelines.
+<div align="center">
+
+**Complete command and parameter documentation**
+
+</div>
+
+---
+
+<div style="background-color: #e7f3fe; border-left: 6px solid #2196F3; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
+💡 <strong>Documentation Guide</strong>: Each parameter guide includes detailed descriptions, default values, and usage examples for all available options.
+</div>
 
 ---
 
@@ -20,22 +32,23 @@ This page provides a central reference for all parameter documentation for the `
 
 ---
 
-## 📚 General Resources & Support
+## 📚 Related Documentation
 
-<details>
-<summary><strong>Click to expand project documentation and support links</strong></summary>
-<br>
-
-| Category | Resource |
+| Resource | Description |
 | :--- | :--- |
-| **🚀 Getting Started** | [Quick Start Guide](../quickstart.md) |
-| **📂 Output Files** | [Output File Reference](../outs/outs.md) |
-| **🔬 Workflow Details** | [Analysis Workflows](../pipeline/pipeline.md) |
-| **🔧 Setup** | [Installation Guide](../installation.md) |
-| **🆘 Support** | [Report an Issue on GitHub](https://github.com/MGI-tech-bioinformatics/DNBelab_C_Series_HT_scRNA-analysis-software/issues) |
-
-</details>
+| [🔬 Workflows](../pipeline/pipeline.md) | Analysis pipeline guides |
+| [📁 Outputs](../outs/outs.md) | Understanding result files |
+| [🚀 Quick Start](../quickstart.md) | Get started in 5 minutes |
+| [🔧 Installation](../installation.md) | Software setup and requirements |
 
 ---
 
-*This document serves as a top-level index. For detailed parameter descriptions, please refer to the analysis-specific guides linked above.*
+<div align="center">
+
+> 💡 <strong>Need Help?</strong>
+>
+> For detailed parameter descriptions, click on any analysis type above.
+>
+> 📝 <strong>Document Version:</strong> 3.1 | <strong>Last Updated:</strong> April 2026
+
+</div>

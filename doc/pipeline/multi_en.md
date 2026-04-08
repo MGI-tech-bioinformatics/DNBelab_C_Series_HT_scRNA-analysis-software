@@ -361,25 +361,6 @@ After completion, results are organized under `<outdir>/<name>/`:
 
 ---
 
-<br>
-
-## ❓ FAQ <a id="faq"></a>
-
-### Q1: Why is one omics page missing from the report?
-
-**Common causes**:
-- The module is not enabled in the CSV (missing corresponding section)
-- The module failed during execution
-- The module was skipped and has no reusable output
-
-**Troubleshooting**:
-```shell
-# Check module status
-cat logs/run_manifest.json | grep -A 5 "<module_name>"
-```
-
----
-
 ## 📚 Related Documentation
 
 - [📋 Parameter Settings](../parameter/multi_en.md)
