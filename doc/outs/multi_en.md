@@ -4,25 +4,43 @@
 
 </div>
 
+<br>
+
 # 🧩 DNBelab C Series HT Multi-omics Output Documentation
+
+<br>
 
 <div align="center">
 
 **Complete Guide to Integrated Multi-omics Output Files**
 
+<br>
+
 [📁 Directory Structure](#output-directory-structure) • [📋 File Details](#detailed-file-description) • [📊 Report Interpretation](#report-interpretation)
 
 </div>
 
+<br>
+
 ---
+
+<br>
 
 ## 📖 Overview <a id="overview"></a>
 
+<br>
+
 The multi-omics workflow organizes key RNA / ATAC / VDJ outputs into one sample directory, enabling cross-omics review in a single report.
+
+<br>
 
 > 💡 **Tip**: The combined report is designed for fast overview and cross-module inspection. For deeper interpretation, see the dedicated single-omics outs docs.
 
+<br>
+
 ---
+
+<br>
 
 ## 📁 Output Directory Structure <a id="output-directory-structure"></a>
 
@@ -38,6 +56,8 @@ The multi-omics workflow organizes key RNA / ATAC / VDJ outputs into one sample 
 
 ---
 
+<br>
+
 ## 📋 Detailed File Description <a id="detailed-file-description"></a>
 
 ### 📄 `outs/<sample>_multi_report.html`
@@ -51,6 +71,8 @@ The multi-omics workflow organizes key RNA / ATAC / VDJ outputs into one sample 
 - **Purpose**: Downstream module-specific analysis or single-omics reuse.
 
 ---
+
+<br>
 
 ## 📊 Report Interpretation <a id="report-interpretation"></a>
 
@@ -186,17 +208,26 @@ Reference:
 
 ---
 
-## 🎯 More Resources <a id="more-resources"></a>
+<br>
 
-### 📚 Related Documentation
+## 📚 Related Documentation
 
-- Multi parameter reference: [multi parameter doc](../parameter/multi_en.md)
-- Multi pipeline reference: [multi pipeline doc](../pipeline/multi_en.md)
-- scRNA outputs: [scRNA output doc](./scRNA_en.md)
-- scATAC outputs: [scATAC output doc](./scATAC_en.md)
-- scVDJ outputs: [scVDJ output doc](./scVDJ_en.md)
+<br>
+
+| Document | Description |
+| :--- | :--- |
+| [🔬 Multi Pipeline](../pipeline/multi_en.md) | Detailed multi-omics analysis workflow |
+| [⚙️ Multi Parameters](../parameter/multi_en.md) | Command parameter reference |
+| [🧬 scRNA Outputs](./scRNA_en.md) | scRNA module output documentation |
+| [🧪 scATAC Outputs](./scATAC_en.md) | scATAC module output documentation |
+| [🦠 scVDJ Outputs](./scVDJ_en.md) | scVDJ module output documentation |
+| [📁 Output Files](./outs.md) | Return to output documentation index |
+
+<br>
 
 ---
+
+<br>
 
 <div align="center">
 
@@ -206,9 +237,6 @@ Reference:
 > 
 > 📝 <strong>Document Version:</strong> 3.1 | <strong>Last Updated:</strong> April 2026
 
----
-
-<strong>🔬 DNBelab C Series HT Multi-omics Analysis Software</strong>  
-<em>High-performance single-cell multi-omics data analysis platform</em>
+</div>
 
 </div>

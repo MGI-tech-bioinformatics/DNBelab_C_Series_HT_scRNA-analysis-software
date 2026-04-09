@@ -4,27 +4,47 @@
 
 </div>
 
+<br>
+
 # 🧬 DNBelab C Series HT scVDJ Analysis Output Documentation
+
+<br>
 
 <div align="center">
 
 **A Complete Guide to Single-Cell V(D)J Sequencing Analysis Output Files**
 
+<br>
+
 [📁 Directory Structure](#output-directory-structure) • [📋 File Details](#detailed-file-description) • [📊 Analysis Metrics](#analysis-metrics-summary) • [📊 Report Interpretation](#web-report-interpretation)
 
 </div>
 
+<br>
+
 ---
+
+<br>
 
 ## 📖 Overview <a id="overview"></a>
 
+<br>
+
 After single-cell V(D)J analysis is complete, a standardized set of files and subdirectories is generated in the specified output directory for immune receptor repertoire analysis. This document details the content, format, and purpose of each output file to help users efficiently interpret and use V(D)J analysis results.
+
+<br>
 
 > 💡 **Tip**: V(D)J analysis requires 5' end RNA sequencing data, and all output files adhere to the AIRR standard and are compatible with mainstream immunoinformatics tools.
 
+<br>
+
 > ⚠️ **Prerequisite**: 5' end single-cell RNA sequencing analysis must be completed first.
 
+<br>
+
 ---
+
+<br>
 
 ## 📁 Output Directory Structure <a id="output-directory-structure"></a>
 
@@ -45,17 +65,24 @@ After single-cell V(D)J analysis is complete, a standardized set of files and su
 └── *_scVDJ_TR(IG)_report.html              # Analysis report in HTML format
 ```
 
+<br>
+
 ---
+
+<br>
 
 ## 📋 Detailed File Description <a id="detailed-file-description"></a>
 
+
 ### 🧬 V(D)J Assembly and Annotation Files <a id="vdj-assembly-and-annotation-files"></a>
+
 
 <div align="center">
 
 **🎯 Core Content**: Results of V(D)J contig sequence assembly, precise annotation, and quality assessment, covering the complete information of TCR and BCR rearranged sequences.
 
 </div>
+
 
 ---
 
@@ -771,6 +798,8 @@ An interactive comprehensive analysis report in HTML web format.
 
 ---
 
+<br>
+
 ## 📊 Web Report Interpretation <a id="web-report-interpretation"></a>
 
 <div align="center">
@@ -1295,14 +1324,23 @@ The HTML web report is a comprehensive platform for displaying single-cell V(D)J
 
 ---
 
-## 🎯 More Resources <a id="more-resources"></a>
+<br>
 
-### 📚 Related Documentation
+## 📚 Related Documentation
 
-- [scVDJ pipeline doc](../pipeline/scVDJ_en.md)
-- [scVDJ parameter doc](../parameter/scVDJ_en.md)
+<br>
+
+| Document | Description |
+| :--- | :--- |
+| [🔬 scVDJ Pipeline](../pipeline/scVDJ_en.md) | Detailed scVDJ analysis workflow |
+| [⚙️ scVDJ Parameters](../parameter/scVDJ_en.md) | Command parameter reference |
+| [📁 Output Files](./outs.md) | Return to output documentation index |
+
+<br>
 
 ---
+
+<br>
 
 <div align="center">
 
@@ -1312,9 +1350,6 @@ The HTML web report is a comprehensive platform for displaying single-cell V(D)J
 > 
 > 📝 <strong>Document Version:</strong> 3.1 | <strong>Last Updated:</strong> April 2026
 
----
-
-<strong>🔬 DNBelab C Series HT scVDJ Analysis Software</strong>  
-<em>High-Performance Single-Cell V(D)J Sequencing Data Analysis Pipeline</em>
+</div>
 
 </div>

@@ -149,49 +149,49 @@
 <hr>
 <h2 id="-main-analysis-pipeline-run-">🔬 Main Analysis Pipeline (run) <a id="main-analysis-pipeline-run"></a></h2>
 <h3 id="-usage-">📊 Usage <a id="usage"></a></h3>
-<pre><code class="language-shell"><span class="hljs-meta prompt_">$ </span><span class="language-bash">dnbc4tools atac run --<span class="hljs-built_in">help</span></span>
+<pre><code class="language-shell"><span class="hljs-meta prompt_">$ </span><span class="language-bash">dnbc4tools atac run</span>
+dnbc4tools 3.1
+
+Process a single-cell ATAC-seq sample.
+
 Usage: dnbc4tools atac run [OPTIONS]
 
 optional arguments:
-  -h, --help            show this help message and exit
+  -h, --help                 show this help message and exit
 
 Input Files:
-  Choose ONE input method: either --fastqs (directory) OR individual FASTQ files (-1 and -2).
+  Choose one input method: either `--fastqs` (directory input) or individual FASTQ files (`--fastq1` and `--fastq2`).
 
-  --fastqs &lt;DIR&gt;        Input directory containing paired-end FASTQ files. The pipeline automatically detects Read1/Read2 files. Example: ./fastq_dir
-  -1, --fastq1 &lt;FILE&gt; [&lt;FILE&gt; ...]
-                        Read1 FASTQ file(s) for the ATAC library (supports wildcards and comma-separated lists). Example: sample1_L01_R1.fastq.gz,sample1_L02_R1.fastq.gz
-  -2, --fastq2 &lt;FILE&gt; [&lt;FILE&gt; ...]
-                        Read2 FASTQ file(s) for the ATAC library (supports wildcards and comma-separated lists). Must match --fastq1 order. Example: sample1_L01_R2.fastq.gz,sample1_L02_R2.fastq.gz
+  --fastqs &lt;DIR&gt;             Input directory containing paired-end FASTQ files.
+                             The pipeline automatically detects Read 1 and Read 2 files (e.g., `./fastq_dir`).
+  --fastq1 &lt;FILE&gt;            Read 1 FASTQ file(s) for the ATAC library. Wildcards and comma-separated lists are supported (e.g.,
+                             `sample1_L01_R1.fastq.gz,sample1_L02_R1.fastq.gz`).
+  --fastq2 &lt;FILE&gt;            Read 2 FASTQ file(s) for the ATAC library. Wildcards and comma-separated lists are supported.
+                             Must match the order provided to `--fastq1` (e.g., `sample1_L01_R2.fastq.gz,sample1_L02_R2.fastq.gz`).
 
 Basic Settings:
-  -n, --name &lt;STR&gt;      Unique identifier for the sample (e.g., sample1). Used for naming output files and reports.
-  -g, --genomeDir &lt;DIR&gt;
-                        Path to reference genome directory. Must contain the required index and annotation resources.
-  -o, --outdir &lt;DIR&gt;    Output directory for results and reports [default: current directory]. Example: ./output
-  -t, --threads &lt;INT&gt;   Number of CPU threads for parallel processing [default: 10].
+  -n, --name &lt;STR&gt;           Unique identifier for the sample. Used for naming output files and reports (e.g., `sample1`).
+  -g, --genomeDir &lt;DIR&gt;      Path to reference genome directory. Must contain the required index and annotation resources.
+  -o, --outdir &lt;DIR&gt;         Output directory for results and reports [default: current directory] (e.g., `./output`).
+  -t, --threads &lt;INT&gt;        Number of CPU threads for parallel processing [default: 10].
 
 Library Settings:
-  Configure sequencing library settings and dark cycles.
-  Auto-detection is recommended for dark cycles.
-  Use --customize to specify sequence structure patterns when needed.
-
-  --darkreaction &lt;STR&gt;  Dark cycle setting for ATAC library [default: auto]. Options: auto (automatic detection), R1R2 (both reads), R1 (Read1 only), R2 (Read2 only), unset (no dark cycles).
-  --customize &lt;STR&gt;     Customize read structure for barcode/sequence extraction, format: &lt;type&gt;,&lt;read&gt;:&lt;start&gt;-&lt;end&gt; separated by &#x27;;&#x27;. Types: cb (cell barcode), R1 (sequence from Read1), R2 (sequence from Read2). Example:
-                        &quot;cb,R1:1-10;cb,R1:11-20;R1,R1:21-70;R2,R2:1-50&quot;.
+  --darkreaction &lt;STR&gt;       Dark cycle setting for ATAC library [default: auto].
+                             Supported values: `auto` (automatic detection), `R1R2` (both reads), `R1` (Read 1 only), `R2` (Read 2 only), and `unset` (no dark cycles).
+  --customize &lt;STR&gt;          Custom read structure for barcode or sequence extraction, in the format `&lt;type&gt;,&lt;read&gt;:&lt;start&gt;-&lt;end&gt;` separated by `;`.
+                             Types: `cb` (cell barcode), `R1` (sequence from Read1), `R2` (sequence from Read2) (e.g., `&quot;cb,R1:1-10;cb,R1:11-20;R1,R1:21-70;R2,R2:1-50&quot;`).
 
 Filtering Settings:
-  --forcecells &lt;INT&gt;    Force pipeline to use exactly this number of cells, overriding detection (e.g., 5000).
-  --frags_cutoff &lt;INT&gt;  Minimum number of unique fragments to retain a cell [default: 1000].
-  --tss_cutoff &lt;FLOAT&gt;  Minimum TSS proportion threshold to retain a cell [default: 0] (e.g., 0.2).
-  --jaccard_cutoff &lt;FLOAT&gt;
-                        Jaccard similarity threshold for merging beads (e.g., 0.02).
-  --merge_cutoff &lt;INT&gt;  Minimum number of fragments when merging beads [default: 500].
+  --forcecells &lt;INT&gt;         Force pipeline to use exactly this number of cells, overriding expected cell detection (e.g., `5000`).
+  --frags_cutoff &lt;INT&gt;       Minimum number of unique fragments to retain a cell [default: 1000].
+  --tss_cutoff &lt;FLOAT&gt;       Minimum TSS proportion threshold to retain a cell [default: 0.0] (e.g., `0.2`).
+  --jaccard_cutoff &lt;FLOAT&gt;   Jaccard similarity threshold for bead merging (e.g., `0.02`).
+  --merge_cutoff &lt;INT&gt;       Minimum number of fragments when merging beads [default: 500].
 
 Analysis Settings:
-  --need_bam            Enable generation of BAM files containing aligned reads. Note: generating BAM files increases computational time and disk space usage.
-  --sample_read_pairs &lt;INT&gt;
-                        Subsample the specified number of read pairs from the input FASTQ files (e.g., 1000000).
+  --need_bam                 Enable generation of BAM files containing aligned reads.
+                             Note: generating BAM files increases run time and disk-space usage.
+  --sample_read_pairs &lt;INT&gt;  Subsample the specified number of read pairs from the input FASTQ files (e.g., `1000000`).
 </code></pre>
 <h3 id="-parameter-description">📝 Parameter Description</h3>
 <h4 id="-required-parameters">🔴 Required Parameters</h4>
@@ -237,7 +237,7 @@ Analysis Settings:
 <pre><code>--fastqs ./fastq_directory</code></pre>
 </div>
 <div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
-<h4><code>-1, --fastq1</code> <span style="font-size: 0.8em; font-weight: normal; color: #3498db;">(Method 2A)</span></h4>
+<h4><code>--fastq1</code> <span style="font-size: 0.8em; font-weight: normal; color: #3498db;">(Method 2A)</span></h4>
 <p>Specify one or more Read1 FASTQ files individually.</p>
 <ul>
   <li><strong>Support:</strong> You can use wildcards (<code>*</code>) to match files or a comma-separated list for multiple files.</li>
@@ -248,7 +248,7 @@ Analysis Settings:
 <pre><code>--fastq1 sample1_L01_R1.fastq.gz,sample1_L02_R1.fastq.gz</code></pre>
 </div>
 <div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
-<h4><code>-2, --fastq2</code> <span style="font-size: 0.8em; font-weight: normal; color: #3498db;">(Method 2B)</span></h4>
+<h4><code>--fastq2</code> <span style="font-size: 0.8em; font-weight: normal; color: #3498db;">(Method 2B)</span></h4>
 <p>Specify one or more Read2 FASTQ files individually.</p>
 <ul>
   <li><strong>Support:</strong> You can use wildcards (<code>*</code>) to match files or a comma-separated list for multiple files.</li>
@@ -262,7 +262,13 @@ Analysis Settings:
 <p>⚠️ <strong>Input Method Selection:</strong></p>
 <ul>
 <li><strong>🔸 Method 1:</strong> Use <code>--fastqs</code> to specify a directory containing paired FASTQ files.</li>
-<li><strong>🔸 Method 2:</strong> Use <code>-1, --fastq1</code> and <code>-2, --fastq2</code> to specify R1 and R2 files respectively.</li>
+<li><strong>🔸 Method 2:</strong> Use <code>--fastq1</code> and <code>--fastq2</code> to specify R1 and R2 files respectively.</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>ℹ️ <strong>Compatible aliases</strong></p>
+<ul>
+<li>Legacy short options <code>-1/-2</code> are still supported, but hidden in current help output. Long options are recommended for better script readability.</li>
 </ul>
 </blockquote>
 <blockquote>
@@ -654,14 +660,19 @@ dnbc4tools atac mkref --fasta genome.fa --ingtf genes.gtf --noindex</code></pre>
 <hr>
 <h2 id="-multi-sample-operations-multi-">📋 Multi-sample Operations (multi) <a id="multi-sample-operations-multi"></a></h2>
 <h3 id="-usage-1">📊 Usage</h3>
-<pre><code class="language-shell"><span class="hljs-meta prompt_">$ </span><span class="language-bash">dnbc4tools atac multi</span> 
+<pre><code class="language-shell"><span class="hljs-meta prompt_">$ </span><span class="language-bash">dnbc4tools atac multi</span>
+dnbc4tools 3.1
+
+Process multiple ATAC-seq samples.
+
 Usage: dnbc4tools atac multi [OPTIONS]
+
 optional arguments:
   -h, --help         show this help message and exit
-  --list &lt;STR&gt;       Path to the sample list file. Each line should contain sample name and FASTQ paths.
-  --outdir &lt;DIR&gt;     Output directory. [default: current directory].
-  --threads &lt;INT&gt;    Number of threads used for analysis.
-  --genomeDir &lt;DIR&gt;  Path to the directory where genome files are stored.
+  --list &lt;STR&gt;       Path to the sample list file. Each line must contain the sample name and FASTQ paths.
+  --outdir &lt;DIR&gt;     Output directory for analysis results [default: current directory].
+  --threads &lt;INT&gt;    Number of CPU threads to use for analysis.
+  --genomeDir &lt;DIR&gt;  Path to the directory containing the reference genome files.
 </code></pre>
 <h3 id="-parameter-description-2">📝 Parameter Description</h3>
 <h4 id="-required-parameters-2">🔴 Required Parameters</h4>
@@ -694,16 +705,41 @@ SampleB	/path/to/B_L01_R1.fq.gz,/path/to/B_L02_R1.fq.gz;/path/to/B_L01_R2.fq.gz,
 <p>📝 <strong>Parameter Inheritance Note</strong><br><br>
 For other analysis parameter settings, please refer to the corresponding parameters of the <code>dnbc4tools atac run</code> command.</p>
 </blockquote>
-<hr>
-<div align="center">
 <blockquote>
-<p>💡 <strong>Tip</strong></p>
-<p>This document is continuously updated. If you find any errors or have information to add, your feedback is welcome.</p>
-<p>📝 <strong>Document Version:</strong> 3.0 | <strong>Last Updated:</strong> 2025</p>
+<p>📌 <strong>Execution Behavior</strong></p>
+<p><code>dnbc4tools atac multi</code> generates per-sample execution scripts (for example, <code>sample1.sh</code>) for batch submission and reuse. By default, it does not automatically run all sample analyses serially.</p>
 </blockquote>
 <hr>
-<p><strong>🔬 DNBelab C Series HT scATAC Analysis Software</strong><br>
-<em>High-performance single-cell ATAC sequencing data analysis pipeline</em></p>
+<br>
+<h2 id="-related-documentation">📚 Related Documentation</h2>
+<br>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Resource</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><a href="../pipeline/scATAC_en.html">🔬 scATAC Pipeline</a></td>
+<td style="text-align:left">Single-cell ATAC analysis workflow guide</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="../outs/scATAC_en.html">📁 scATAC Output</a></td>
+<td style="text-align:left">Detailed output file interpretation</td>
+</tr>
+</tbody>
+</table>
+<br>
+<hr>
+<br>
+<div align="center">
+<blockquote>
+<p>💡 <strong>Need Help?</strong></p>
+<p>This document is continuously updated. If you find any errors or have information to add, feedback is welcome.</p>
+<p>📝 <strong>Document Version:</strong> 3.1 | <strong>Last Updated:</strong> April 2026</p>
+</blockquote>
 </div>
 
             <script async src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>

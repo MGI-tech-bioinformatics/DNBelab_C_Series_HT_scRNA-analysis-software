@@ -4,7 +4,11 @@
 
 </div>
 
+<br>
+
 # 📋 dnbc4tools Parameter Reference
+
+<br>
 
 <div align="center">
 
@@ -12,13 +16,21 @@
 
 </div>
 
+<br>
+
 ---
+
+<br>
 
 <div style="background-color: #e7f3fe; border-left: 6px solid #2196F3; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
 💡 <strong>Documentation Guide</strong>: Each parameter guide includes detailed descriptions, default values, and usage examples for all available options.
 </div>
 
+<br>
+
 ---
+
+<br>
 
 ## 🔬 Analysis Pipelines
 
@@ -30,9 +42,15 @@
 | **🧩 Multi-omics** | **Parameters for integrated multi-omics analysis.** <br> <ul><li>`run`: Integrated RNA/ATAC/VDJ workflow</li></ul> | [**➡️ English Guide**](./multi_en.md) <br> [**➡️ 中文指南**](./multi.md) |
 | **🔧 Utility Tools** | **Parameters for helper and utility scripts.** <br> <ul><li>`mkgtf`: GTF file manipulation</li><li>`bam2fastq`: BAM to FASTQ conversion</li><li>`chromsplit`: Genome splitting</li><li>`fqsubC4`: FASTQ subsequence extraction</li></ul> | [**➡️ English Guide**](./tools_en.md) <br> [**➡️ 中文指南**](./tools.md) |
 
+<br>
+
 ---
 
+<br>
+
 ## 📚 Related Documentation
+
+<br>
 
 | Resource | Description |
 | :--- | :--- |
@@ -41,7 +59,11 @@
 | [🚀 Quick Start](../quickstart.md) | Get started in 5 minutes |
 | [🔧 Installation](../installation.md) | Software setup and requirements |
 
+<br>
+
 ---
+
+<br>
 
 <div align="center">
 

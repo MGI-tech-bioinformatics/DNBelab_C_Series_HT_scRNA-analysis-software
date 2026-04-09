@@ -142,17 +142,23 @@
             <div align="right">
 <p><a href="../../README.html">🏠 Home</a> • <a href="scVDJ.html">中文</a></p>
 </div>
+<br>
 <h1 id="-dnbelab-c-series-ht-scvdj-analysis-pipeline">🧬 DNBelab C Series HT scVDJ Analysis Pipeline</h1>
+<br>
 <div align="center">
 <p><strong>A Complete Guide to Single-Cell VDJ Sequencing Data Analysis</strong></p>
+<br>
 <p><a href="#overview">📋 Overview</a> • <a href="#file-preparation">📁 File Preparation</a> • <a href="#main-pipeline">🚀 Main Pipeline</a> • <a href="#results-interpretation">📊 Results Interpretation</a></p>
 </div>
+<br>
 <hr>
+<br>
 <h2 id="-overview-">📋 Overview <a id="overview"></a></h2>
+<br>
 <p>This document provides a detailed guide for analyzing single-cell VDJ sequencing data using dnbc4tools.</p>
 <p><strong>Workflow</strong>: 5' Transcriptome Analysis → VDJ Library Processing → Sequence Assembly &amp; Annotation → Cell Filtering → Clonotype Analysis → Analysis Report</p>
 <div align="center">
-  <img src="https://s2.loli.net/2024/09/27/WHFIaNpLV8xu4Pi.png" alt="Workflow Diagram" width="800">
+  <img src="../images/scVDJ_pipeline.png" alt="scVDJpipeline" width="700">
 </div>
 <div style="background-color: #e7f3fe; border-left: 6px solid #2196F3; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
 💡 <strong>Usage Note</strong>: <code>$dnbc4tools</code> represents the executable path and must be replaced with the actual installation path. The backslash `\` is used to split a command across multiple lines for readability.
@@ -222,35 +228,57 @@ CELL4010_N1,555308,4268,22554,1,AGAGAGTCGCAGCAAGCGAC
 <li>Integrate results from all steps to generate an HTML report and other output files.</li>
 </ol>
 <h3 id="tcr-analysis">TCR Analysis</h3>
-<p>To run TCR analysis for a single sample, use the following example script:</p>
+<p>To run TCR analysis for a single sample, two input methods are supported:</p>
+<p><strong>Method 1: Directory (Recommended)</strong></p>
 <pre><code class="language-shell"><span class="hljs-meta prompt_">$</span><span class="language-bash">dnbc4tools vdj run \
-	--name sample_tcr \
-	--fastq1 /data/sample_tcr_R1.fastq.gz \
-	--fastq2 /data/sample_tcr_R2.fastq.gz \
-	--ref human \
-	--chain TR \
-	--beadstrans /sample_5rna/outs/singlecell.csv \
-	--threads 10</span>
+  --name sample_tcr \
+  --fastqs /data/vdjt \
+  --ref human \
+  --chain TR \
+  --beadstrans /sample_5rna/outs/singlecell.csv \
+  --threads 10</span>
 </code></pre>
+<p><strong>Method 2: Individual Parameters</strong></p>
+<pre><code class="language-shell"><span class="hljs-meta prompt_">$</span><span class="language-bash">dnbc4tools vdj run \
+  --name sample_tcr \
+  --fastq1 /data/vdjt/sample_tcr_R1.fastq.gz \
+  --fastq2 /data/vdjt/sample_tcr_R2.fastq.gz \
+  --ref human \
+  --chain TR \
+  --beadstrans /sample_5rna/outs/singlecell.csv \
+  --threads 10</span>
+</code></pre>
+<br>
 <h3 id="bcr-analysis">BCR Analysis</h3>
-<p>To run BCR analysis for a single sample, use the following example script:</p>
+<p>To run BCR analysis for a single sample, two input methods are supported:</p>
+<p><strong>Method 1: Directory (Recommended)</strong></p>
 <pre><code class="language-shell"><span class="hljs-meta prompt_">$</span><span class="language-bash">dnbc4tools vdj run \
-	--name sample_bcr \
-	--fastq1 /data/sample_bcr_R1.fastq.gz \
-	--fastq2 /data/sample_bcr_R2.fastq.gz \
-	--ref human \
-	--chain IG \
-	--beadstrans /sample_5rna/outs/singlecell.csv \
-	--threads 10</span>
+  --name sample_bcr \
+  --fastqs /data/vdjb \
+  --ref human \
+  --chain IG \
+  --beadstrans /sample_5rna/outs/singlecell.csv \
+  --threads 10</span>
 </code></pre>
+<p><strong>Method 2: Individual Parameters</strong></p>
+<pre><code class="language-shell"><span class="hljs-meta prompt_">$</span><span class="language-bash">dnbc4tools vdj run \
+  --name sample_bcr \
+  --fastq1 /data/vdjb/sample_bcr_R1.fastq.gz \
+  --fastq2 /data/vdjb/sample_bcr_R2.fastq.gz \
+  --ref human \
+  --chain IG \
+  --beadstrans /sample_5rna/outs/singlecell.csv \
+  --threads 10</span>
+</code></pre>
+<br>
 <h3 id="execution-process">Execution Process</h3>
 <p>After auto-detecting the dark reaction, the software begins the analysis. Here is an example:</p>
 <pre><code class="language-shell">──────────────────────────── Parsed FASTQ Inputs — 2025-11-12 15:13:16 ─────────────────────────────
 ┌───────┬──────────────────────────────────────────────────────────────────────────────────────────┐
 │ Type  │ Path                                                                                     │
 ├───────┼──────────────────────────────────────────────────────────────────────────────────────────┤
-│ Read1 │ /data/test_ATAC_R1.fastq.gz                                                              │
-│ Read2 │ /data/test_ATAC_R2.fastq.gz                                                              │
+│ Read1 │ /data/vdjt/sample_tcr_R1.fastq.gz                                                        │
+│ Read2 │ /data/vdjt/sample_tcr_R2.fastq.gz                                                        │
 └───────┴──────────────────────────────────────────────────────────────────────────────────────────┘
 ────────────────────────────────────────────────────────────────────────────────────────────────────
 
@@ -284,7 +312,7 @@ CELL4010_N1,555308,4268,22554,1,AGAGAGTCGCAGCAAGCGAC
  2025-11-12 16:05:15 Generating analysis report and summary statistics...                           
 ...done
 
-Analysis Finished Elapsed Time: 0:52:24
+ 2025-11-12 16:05:44 Analysis Finished. Elapsed Time: 0:52:24
 </code></pre>
 <p>A successful run will end with <code>Analysis Finished</code>.</p>
 <hr>
@@ -305,16 +333,50 @@ Analysis Finished Elapsed Time: 0:52:24
 ├── filtered_contig.fasta.fai
 └── metrics_summary.xls
 </code></pre>
-<p><strong>Related Documentation</strong>:</p>
-<ul>
-<li><a href="../parameter/scVDJ_en.html">📋 Analysis Parameter Settings</a></li>
-<li><a href="../outs/scVDJ_en.html">📝 Output File Descriptions</a></li>
-</ul>
+<br>
 <hr>
+<br>
+<h2 id="-related-documentation">📚 Related Documentation</h2>
+<br>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Resource</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><a href="../io.html">📊 Output File Usage</a></td>
+<td style="text-align:left">Understanding output file structure and formats</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="../parameter/scVDJ_en.html">📋 Analysis Parameters</a></td>
+<td style="text-align:left">Complete parameter reference and descriptions</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="../outs/scVDJ_en.html">📝 Output Descriptions</a></td>
+<td style="text-align:left">Detailed interpretation of analysis results</td>
+</tr>
+</tbody>
+</table>
+<br>
+<hr>
+<br>
 <h2 id="-frequently-asked-questions">❓ Frequently Asked Questions</h2>
 <blockquote>
 <p><code>Content to be added</code></p>
 </blockquote>
+<br>
+<hr>
+<br>
+<div align="center">
+<blockquote>
+<p>💡 <strong>Need Help?</strong></p>
+<p>This document is continuously updated. If you find any errors or have information to add, feedback is welcome.</p>
+<p>📝 <strong>Document Version:</strong> 3.1 | <strong>Last Updated:</strong> April 2026</p>
+</blockquote>
+</div>
 
             <script async src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
             

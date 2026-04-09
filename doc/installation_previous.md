@@ -1,8 +1,14 @@
 <div align="right">
-  <a href="../README.md">Home</a>
+
+[🏠 Home](../README.md)
+
 </div>
 
+<br>
+
 # DNBelab C Series™ Software Previous Installation
+
+<br>
 
 <div align="center">
 
@@ -10,7 +16,11 @@
 
 </div>
 
+<br>
+
 ---
+
+<br>
 
 ## ◆ v3.x Series <a id="v3x-series"></a>
 

@@ -639,24 +639,29 @@ SampleB	/path/to/B_L01_R1.fq.gz,/path/to/B_L02_R1.fq.gz;/path/to/B_L01_R2.fq.gz,
 
 ---
 
-### 📚 Related Docs
+<br>
 
-- [scATAC Pipeline Doc](../pipeline/scATAC_en.md)
-- [scATAC Output Doc](../outs/scATAC_en.md)
+## 📚 Related Documentation
+
+<br>
+
+| Resource | Description |
+| :--- | :--- |
+| [🔬 scATAC Pipeline](../pipeline/scATAC_en.md) | Single-cell ATAC analysis workflow guide |
+| [📁 scATAC Output](../outs/scATAC_en.md) | Detailed output file interpretation |
+
+<br>
 
 ---
+
+<br>
 
 <div align="center">
 
-> 💡 <strong>Tip</strong>
+> 💡 <strong>Need Help?</strong>
 >
-> This document is continuously updated. If you find any errors or have information to add, your feedback is welcome.
+> This document is continuously updated. If you find any errors or have information to add, feedback is welcome.
 >
 > 📝 <strong>Document Version:</strong> 3.1 | <strong>Last Updated:</strong> April 2026
-
----
-
-<strong>🔬 DNBelab C Series HT scATAC Analysis Software</strong>  
-<em>High-performance single-cell ATAC sequencing data analysis pipeline</em>
 
 </div>

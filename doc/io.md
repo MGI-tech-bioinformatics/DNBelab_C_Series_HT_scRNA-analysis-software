@@ -1,24 +1,36 @@
 <div align="right">
-  <a href="../README.md">Home</a>
+
+[🏠 Home](../README.md)
+
 </div>
 
+<br>
+
 # Output Analysis Guide
+
+<br>
 
 <div align="center">
 
 **How to analyze dnbc4tools output in R and Python**
 
-[scRNA Analysis](#scrna-analysis) • [scATAC Analysis](#scatac-analysis) 
+<br>
+
+[◆ scRNA](#scrna-analysis) • [◆ scATAC](#scatac-analysis)
 
 </div>
 
+<br>
+
 ---
+
+<br>
 
 ## scRNA Analysis <a id="scrna-analysis"></a>
 
-<div style="background-color: #f8f9fa; border: 1px solid #dee2e6; padding: 1px 20px; margin: 20px 0; border-radius: 8px;">
+<div style="background-color: #e7f3fe; border-left: 6px solid #2196F3; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
 
-<h4>R (Seurat)</h4>
+**R (Seurat)**
 
 Load the filtered gene expression matrix using the `Read10X` function.
 
@@ -29,9 +41,9 @@ counts.data <- Read10X(data.dir = "/outs/filter_matrix")
 
 </div>
 
-<div style="background-color: #f8f9fa; border: 1px solid #dee2e6; padding: 1px 20px; margin: 20px 0; border-radius: 8px;">
+<div style="background-color: #e7f3fe; border-left: 6px solid #2196F3; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
 
-<h4>Python (Scanpy)</h4>
+**Python (Scanpy)**
 
 You can load the data using either the `h5ad` file or the MEX matrix directory.
 
@@ -53,9 +65,9 @@ adata = sc.read_10x_mtx('/outs/filter_matrix')
 
 ## scATAC Analysis <a id="scatac-analysis"></a>
 
-<div style="background-color: #f8f9fa; border: 1px solid #dee2e6; padding: 1px 20px; margin: 20px 0; border-radius: 8px;">
+<div style="background-color: #e7f3fe; border-left: 6px solid #2196F3; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
 
-<h4>R (Signac)</h4>
+**R (Signac)**
 
 Load the filtered peak matrix and create a Seurat object.
 
@@ -106,13 +118,13 @@ read_signac_C4 <- function(mex_dir_path, fragments, singlecellmetadata){
 
 </div>
 
-<div style="background-color: #f8f9fa; border: 1px solid #dee2e6; padding: 1px 20px; margin: 20px 0; border-radius: 8px;">
+<div style="background-color: #e7f3fe; border-left: 6px solid #2196F3; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
 
-<h4>R (ArchR)</h4>
+**R (ArchR)**
 
 Create Arrow files from either `fragments.tsv.gz` (raw fragments) or `filtered.fragments.tsv.gz` (cell-filtered fragments).
 
-Note:
+**Note:**
 - ArchR-only filtering: point to the raw `fragments.tsv.gz` and rely on `filterTSS`/`filterFrags` thresholds.
 - Combined filtering: point to `filtered.fragments.tsv.gz` generated after dnbc4tools cell filtering, then apply ArchR thresholds as an additional filter.
 
@@ -144,9 +156,9 @@ ArrowFiles <- createArrowFiles(
 
 </div>
 
-<div style="background-color: #f8f9fa; border: 1px solid #dee2e6; padding: 1px 20px; margin: 20px 0; border-radius: 8px;">
+<div style="background-color: #e7f3fe; border-left: 6px solid #2196F3; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
 
-<h4>Python (AnnData)</h4>
+**Python (AnnData)**
 
 Load the filtered peak matrix into an AnnData object.
 
@@ -184,42 +196,13 @@ def read_atac_C4(path):
 
 ## Common Output Files <a id="common-output-files"></a>
 
-<table style="width:100%; border-collapse: collapse; margin: 1.5em 0; box-shadow: 0 2px 3px rgba(0,0,0,0.1);">
-  <thead style="background-color: #f2f2f2; border-bottom: 2px solid #ddd;">
-    <tr>
-      <th style="padding: 12px 15px; border: 1px solid #ddd; text-align: left;">File / Directory</th>
-      <th style="padding: 12px 15px; border: 1px solid #ddd; text-align: left;">Description</th>
-      <th style="padding: 12px 15px; border: 1px solid #ddd; text-align: left;">Analysis Type</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="padding: 12px 15px; border: 1px solid #ddd;"><code>filter_matrix/</code></td>
-      <td style="padding: 12px 15px; border: 1px solid #ddd;">Filtered gene expression matrix (MEX format).</td>
-      <td style="padding: 12px 15px; border: 1px solid #ddd;">scRNA-seq</td>
-    </tr>
-    <tr>
-      <td style="padding: 12px 15px; border: 1px solid #ddd;"><code>filter_peak_matrix/</code></td>
-      <td style="padding: 12px 15px; border: 1px solid #ddd;">Filtered peak accessibility matrix (MEX format).</td>
-      <td style="padding: 12px 15px; border: 1px solid #ddd;">scATAC-seq</td>
-    </tr>
-    <tr>
-      <td style="padding: 12px 15px; border: 1px solid #ddd;"><code>filter_feature.h5ad</code></td>
-      <td style="padding: 12px 15px; border: 1px solid #ddd;">Filtered matrix in AnnData format (Python-ready).</td>
-      <td style="padding: 12px 15px; border: 1px solid #ddd;">scRNA-seq</td>
-    </tr>
-    <tr>
-      <td style="padding: 12px 15px; border: 1px solid #ddd;"><code>fragments.tsv.gz</code></td>
-      <td style="padding: 12px 15px; border: 1px solid #ddd;">Fragment file for ATAC analysis.</td>
-      <td style="padding: 12px 15px; border: 1px solid #ddd;">scATAC-seq</td>
-    </tr>
-    <tr>
-      <td style="padding: 12px 15px; border: 1px solid #ddd;"><code>singlecell.csv</code></td>
-      <td style="padding: 12px 15px; border: 1px solid #ddd;">Cell metadata and QC metrics.</td>
-      <td style="padding: 12px 15px; border: 1px solid #ddd;">All</td>
-    </tr>
-  </tbody>
-</table>
+| File / Directory | Description | Analysis Type |
+| :--- | :--- | :--- |
+| `filter_matrix/` | Filtered gene expression matrix (MEX format). | scRNA-seq |
+| `filter_peak_matrix/` | Filtered peak accessibility matrix (MEX format). | scATAC-seq |
+| `filter_feature.h5ad` | Filtered matrix in AnnData format (Python-ready). | scRNA-seq |
+| `fragments.tsv.gz` | Fragment file for ATAC analysis. | scATAC-seq |
+| `singlecell.csv` | Cell metadata and QC metrics. | All |
 
 ---
 

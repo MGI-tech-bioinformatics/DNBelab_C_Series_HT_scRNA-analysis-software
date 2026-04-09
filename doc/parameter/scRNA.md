@@ -4,13 +4,19 @@
 
 </div>
 
+<br>
+
 # 🧬 DNBelab C Series HT scRNA 分析参数
+
+<br>
 
 <div align="center">
 
 [🔬 主分析流程 (run)](#主分析流程-run) • [📊 参考数据库构建 (mkref)](#参考数据库构建-mkref) • [📋 多样本操作 (multi)](#多样本操作-multi)
 
 </div>
+
+<br>
 
 ---
 
@@ -289,6 +295,7 @@ dnbc4tools rna run --name sample1 --fastqs ./fq --genomeDir ./ref --minumi 500</
     </ul>
   </li>
   <li><strong>说明:</strong> 其他额外列会被忽略，不影响流程执行。</li>
+  <li><strong>注意:</strong> 如果同时包含 <code>cell</code> 和 <code>barcode</code>，那么 oligo 数据的分析结果将不会对最终合并存在作用，可使用任何其他非该样本的 oligo 数据不会影响分析结果。</li>
 </ul>
 <p><strong>默认值:</strong> 无</p>
 <p><strong>示例:</strong></p>
@@ -818,24 +825,29 @@ SampleB	/path/to/B_cDNA_L01_R1.fq.gz,/path/to/B_cDNA_L02_R1.fq.gz;/path/to/B_cDN
 
 ---
 
-### 📚 相关文档
+<br>
 
-- [scRNA 流程文档](../pipeline/scRNA.md)
-- [scRNA 输出文档](../outs/scRNA.md)
+## 📚 相关文档
+
+<br>
+
+| 资源 | 描述 |
+| :--- | :--- |
+| [🔬 scRNA 流程文档](../pipeline/scRNA.md) | 单细胞 RNA 分析流程指南 |
+| [📁 scRNA 输出文档](../outs/scRNA.md) | 输出文件详细解读 |
+
+<br>
 
 ---
 
+<br>
+
 <div align="center">
 
-> 💡 <strong>提示</strong>
+> 💡 <strong>需要帮助？</strong>
 >
 > 本文档持续更新中，如发现内容错误或需要补充的信息，欢迎反馈。
 >
 > 📝 <strong>文档版本：</strong> 3.1 | <strong>最后更新：</strong> 2026年4月
-
----
-
-**🧬 DNBelab C Series HT scRNA Analysis Software**  
-<em>高性能单细胞转录组数据分析流程</em>
 
 </div>

@@ -139,20 +139,29 @@
         </head>
         <body class="vscode-body vscode-light">
             <div align="right">
-<p><a href="../../README.html">🏠 Home</a> | <a href="scATAC.html">🌐 中文</a></p>
+<p><a href="../../README.html">🏠 Home</a> • <a href="scATAC.html">中文</a></p>
 </div>
+<br>
 <h1 id="-dnbelab-c-series-ht-scatac-analysis-output-documentation">🧬 DNBelab C Series HT scATAC Analysis Output Documentation</h1>
+<br>
 <div align="center">
 <p><strong>A Complete Guide to Single-Cell ATAC Sequencing Analysis Output Files</strong></p>
+<br>
 <p><a href="#directory-structure">📁 Directory Structure</a> • <a href="#file-details">📋 File Details</a> • <a href="#peak-matrix-files">🧬 Data Matrix</a> • <a href="#analysis-summary">📊 Analysis Summary</a> • <a href="#web-report-interpretation">📊 Report Interpretation</a></p>
 </div>
+<br>
 <hr>
+<br>
 <h2 id="-overview-">📖 Overview <a id="overview"></a></h2>
-<p>After the single-cell ATAC sequencing analysis is complete, a standardized structure of files and subdirectories is generated in the specified output directory, specifically for chromatin accessibility analysis and epigenomic research. This document details the content, format, and purpose of each output file to help users fully understand and efficiently utilize the scATAC analysis results.</p>
+<br>
+<p>After single-cell ATAC sequencing analysis is complete, a standardized structure of files and subdirectories is generated in the specified output directory for chromatin accessibility analysis and epigenomic research. This document details the content, format, and purpose of each output file to help users efficiently interpret and use scATAC analysis results.</p>
+<br>
 <blockquote>
 <p>💡 <strong>Tip</strong>: All output files use standard formats compatible with mainstream single-cell epigenomic analysis tools (e.g., Signac, ArchR), adhering to internationally accepted data format standards.</p>
 </blockquote>
+<br>
 <hr>
+<br>
 <h2 id="-directory-structure-">📁 Directory Structure <a id="directory-structure"></a></h2>
 <pre><code>.
 ├── alignment.fragments.sorted.tagged.bam       # QC-filtered alignment results (requires 'need_bam' parameter for analysis)
@@ -174,12 +183,13 @@
 └── *_scATAC_report.html                        # Analysis report in HTML format
 </code></pre>
 <hr>
+<br>
 <h2 id="-file-details-">📋 File Details <a id="file-details"></a></h2>
 <h3 id="-atac-fragment-and-peak-files-">🧬 ATAC Fragment and Peak Files <a id="atac-fragment-and-peak-files"></a></h3>
 <div align="center">
 <p><strong>🎯 Core Content</strong>: ATAC-seq fragment information and peak identification results, containing complete chromatin accessibility data and cell barcode tags.</p>
 </div>
-<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
+<hr>
 <h4 id="-fragmentstsvgz">📄 fragments.tsv.gz</h4>
 <p><code>fragments.tsv.gz</code> is a compressed TSV file containing ATAC-seq fragment information, which is one of the core data for downstream analysis. Its main features and contents are as follows:</p>
 <ul>
@@ -239,7 +249,7 @@
 </ul>
 </li>
 </ul>
-<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
+<hr>
 <h4 id="-fragmentstsvgztbi">📄 fragments.tsv.gz.tbi</h4>
 <p>The Tabix index file for <code>fragments.tsv.gz</code>.</p>
 <ul>
@@ -255,7 +265,7 @@
 </ul>
 </li>
 </ul>
-<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
+<hr>
 <h4 id="-filteredfragmentstsvgz">📄 filtered.fragments.tsv.gz</h4>
 <p>This is the ATAC-seq fragment file after cell quality control and filtering. It is a subset of <code>fragments.tsv.gz</code>, containing only fragments from high-quality cells.</p>
 <ul>
@@ -272,7 +282,7 @@
 </ul>
 </li>
 </ul>
-<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
+<hr>
 <h4 id="-filteredfragmentstsvgztbi">📄 filtered.fragments.tsv.gz.tbi</h4>
 <p>The Tabix index file for <code>filtered.fragments.tsv.gz</code>.</p>
 <ul>
@@ -287,7 +297,7 @@
 </ul>
 </li>
 </ul>
-<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
+<hr>
 <h4 id="-alignmentfragmentssortedtaggedbam">📄 alignment.fragments.sorted.tagged.bam</h4>
 <p>This is the ATAC-seq alignment result file containing all fragments that have a valid barcode and were successfully aligned.</p>
 <ul>
@@ -341,7 +351,7 @@
 </ul>
 </li>
 </ul>
-<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
+<hr>
 <h4 id="-alignmentfragmentssortedtaggedbambai">📄 alignment.fragments.sorted.tagged.bam.bai</h4>
 <p>The index file for <code>alignment.fragments.sorted.tagged.bam</code>.</p>
 <ul>
@@ -408,7 +418,7 @@
 </ul>
 </li>
 </ul>
-<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
+<hr>
 <h4 id="-raw-peak-matrix-raw_peak_matrix">📁 Raw Peak Matrix (<code>raw_peak_matrix/</code>)</h4>
 <p>Contains the raw peak count matrix for all detected cell barcodes (without filtering).</p>
 <ul>
@@ -484,7 +494,7 @@
 </ul>
 </li>
 </ul>
-<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
+<hr>
 <h4 id="-singlecellcsv">📄 singlecell.csv</h4>
 <p>A CSV-formatted table of cell-level quality control information, recording detailed statistics for each cell barcode.</p>
 <ul>
@@ -503,7 +513,7 @@
 </ul>
 </li>
 </ul>
-<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
+<hr>
 <h4 id="-_scatac_reporthtml">📄 *_scATAC_report.html</h4>
 <p>An interactive, comprehensive analysis report in HTML web format.</p>
 <ul>
@@ -547,6 +557,7 @@
 </li>
 </ul>
 <hr>
+<br>
 <h2 id="-file-format-description-">📄 File Format Description <a id="file-format-description"></a></h2>
 <blockquote>
 <p><strong>Technical Specification</strong>: A detailed description of the standard formats used for the output files.</p>
@@ -591,11 +602,12 @@
 </li>
 </ul>
 <hr>
+<br>
 <h2 id="-web-report-interpretation-">📊 Web Report Interpretation <a id="web-report-interpretation"></a></h2>
 <div align="center">
 <p><strong>🎯 Overview</strong>: The HTML web report provides a comprehensive visualization and detailed interpretation of the single-cell ATAC sequencing analysis results, including an evaluation of key performance indicators to help users quickly understand the experiment's quality and results.</p>
 </div>
-<p>The HTML web report is a comprehensive display platform for single-cell ATAC sequencing analysis, integrating complete results from data quality control to downstream epigenomic analysis. The report uses interactive visualization design to help users quickly evaluate experiment quality, understand analysis results and guide subsequent research directions.</p>
+<p>The HTML web report is a comprehensive display platform for single-cell ATAC sequencing analysis, integrating complete results from data quality control to downstream epigenomic analysis. The report uses an interactive visualization design to help users quickly evaluate experimental quality, understand analysis results, and guide subsequent research directions.</p>
 <blockquote>
 <p>💡 <strong>Usage Suggestion</strong>: It is recommended to review the metrics in the order they are presented in the report.</p>
 </blockquote>
@@ -612,9 +624,6 @@
 <p><strong>🎯 Core Function</strong>: Cell identification, quality assessment, and chromatin accessibility statistics, providing key indicators for the overall effectiveness of the experiment.</p>
 </div>
 <p><strong>📊 Quality Control Standards:</strong></p>
-<blockquote>
-<p><strong>Note</strong>: The following standards are for reference only. Actual quality assessment should consider factors such as organism type, cell state, and experimental goals. Differences between samples may exist. It is recommended to combine specific experimental background for judgment.</p>
-</blockquote>
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
@@ -662,8 +671,7 @@
 <tbody>
 <tr>
 <td align="left">
-<strong>Estimated number of cells</strong><br>
-<em></em>
+<strong>Estimated number of cells</strong>
 </td>
 <td>
 <ul>
@@ -677,8 +685,7 @@
 </tr>
 <tr>
 <td align="left">
-<strong>Species</strong><br>
-<em></em>
+<strong>Species</strong>
 </td>
 <td>
 <ul>
@@ -689,8 +696,7 @@
 </tr>
 <tr>
 <td align="left">
-<strong>Median fragments per cell</strong><br>
-<em></em>
+<strong>Median fragments per cell</strong>
 </td>
 <td>
 <ul>
@@ -708,8 +714,7 @@
 </tr>
 <tr>
 <td align="left">
-<strong>Mean raw read pairs per cell</strong><br>
-<em></em>
+<strong>Mean raw read pairs per cell</strong>
 </td>
 <td>
 <ul>
@@ -721,8 +726,7 @@
 </tr>
 <tr>
 <td align="left">
-<strong>Fraction overlapping peaks</strong><br>
-<em></em>
+<strong>Fraction overlapping peaks</strong>
 </td>
 <td>
 <ul>
@@ -736,8 +740,7 @@
 </tr>
 <tr>
 <td align="left">
-<strong>Fraction overlapping TSS</strong><br>
-<em></em>
+<strong>Fraction overlapping TSS</strong>
 </td>
 <td>
 <ul>
@@ -751,8 +754,7 @@
 </tr>
 <tr>
 <td align="left">
-<strong>Fraction of fragments in cells</strong><br>
-<em></em>
+<strong>Fraction of fragments in cells</strong>
 </td>
 <td>
 <ul>
@@ -766,8 +768,7 @@
 </tr>
 <tr>
 <td align="left">
-<strong>Number of peaks</strong><br>
-<em></em>
+<strong>Number of peaks</strong>
 </td>
 <td>
 <ul>
@@ -780,15 +781,12 @@
 </tr>
 </tbody>
 </table>
-<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
+<hr>
 <h4 id="-sequencing-metrics-">🔬 Sequencing Metrics <a id="sequencing-metrics"></a></h4>
 <div align="center">
 <p><strong>🎯 Core Function</strong>: Basic quality assessment of sequencing data, including barcode identification rate, alignment quality, and sequencing accuracy.</p>
 </div>
 <p><strong>📊 Quality Control Standards:</strong></p>
-<blockquote>
-<p><strong>Note</strong>: The following standards are for reference only. Actual quality assessment should consider factors such as organism type, cell state, and experimental goals. Differences between samples may exist. It is recommended to combine specific experimental background for judgment.</p>
-</blockquote>
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
 <tr>
@@ -836,8 +834,7 @@
 <tbody>
 <tr>
 <td align="left">
-<strong>Total number of reads pairs</strong><br>
-<em></em>
+<strong>Total number of read pairs</strong>
 </td>
 <td>
 <ul>
@@ -848,8 +845,7 @@
 </tr>
 <tr>
 <td align="left">
-<strong>Valid barcodes</strong><br>
-<em></em>
+<strong>Valid barcodes</strong>
 </td>
 <td>
 <ul>
@@ -861,8 +857,7 @@
 </tr>
 <tr>
 <td align="left">
-<strong>Confidently mapped read pairs</strong><br>
-<em></em>
+<strong>Confidently mapped read pairs</strong>
 </td>
 <td>
 <ul>
@@ -875,8 +870,7 @@
 </tr>
 <tr>
 <td align="left">
-<strong>Mitochondria reads ratio</strong><br>
-<em></em>
+<strong>Mitochondrial reads ratio</strong>
 </td>
 <td>
 <ul>
@@ -888,21 +882,19 @@
 </tr>
 <tr>
 <td align="left">
-<strong>Nucleosome-free regions</strong><br>
-<em></em>
+<strong>Nucleosome-free regions</strong>
 </td>
 <td>
 <ul>
 <li><strong>Definition</strong>: The proportion of fragments originating from open chromatin regions (i.e., nucleosome-free regions).</li>
 <li><strong>Biological Significance</strong>: Reflects the strength of the valid ATAC-seq signal.</li>
-<li><strong>Quality Interpretation</strong>: A high proportion (e.g., > 40%) indicates good chromatin accessibility and efficient transposase activity.</li>
+<li><strong>Quality Interpretation</strong>: A high proportion (e.g., > 40%) indicates good chromatin accessibility and high transposase efficiency.</li>
 </ul>
 </td>
 </tr>
 <tr>
 <td align="left">
-<strong>Mono-nucleosome regions</strong><br>
-<em></em>
+<strong>Mono-nucleosome regions</strong>
 </td>
 <td>
 <ul>
@@ -913,8 +905,7 @@
 </tr>
 <tr>
 <td align="left">
-<strong>Q30 bases in barcode</strong><br>
-<em></em>
+<strong>Q30 bases in barcode</strong>
 </td>
 <td>
 <ul>
@@ -925,8 +916,7 @@
 </tr>
 <tr>
 <td align="left">
-<strong>Q30 bases in read</strong><br>
-<em></em>
+<strong>Q30 bases in read</strong>
 </td>
 <td>
 <ul>
@@ -937,7 +927,7 @@
 </tr>
 </tbody>
 </table>
-<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
+<hr>
 <h4 id="-visualization-chart-1-">📈 Visualization Chart 1 <a id="visualization-chart-1"></a></h4>
 <div align="center">
 <p><strong>🎯 Core Function</strong>: Multi-dimensional visualization for cell quality control, fragment analysis, and chromatin accessibility assessment.</p>
@@ -967,7 +957,7 @@ This plot distinguishes high-quality real cells from background noise by ranking
 </ul>
 </li>
 </ul>
-<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
+<hr>
 <h5 id="-droplet-beads-distribution">📊 Droplet Beads Distribution</h5>
 <p><strong>Chart Function</strong>:<br>
 Shows the distribution of the number of cell barcodes (Beads) captured in real cell droplets.</p>
@@ -976,7 +966,7 @@ Shows the distribution of the number of cell barcodes (Beads) captured in real c
 <li><strong>Theoretical Distribution</strong>: The distribution of beads in droplets theoretically follows a <strong>Poisson distribution</strong>, reflecting the statistical nature of the random capture process in the micro-reaction system.</li>
 <li><strong>Practical Influences</strong>: The final distribution is affected by experimental factors such as sequencing saturation, droplet size uniformity, and cell concentration.</li>
 </ul>
-<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
+<hr>
 <h5 id="-cell-data-distribution">📊 Cell Data Distribution</h5>
 <p><strong>Chart Function</strong>:<br>
 Displays the distribution of three key quality metrics—<strong>Fragments</strong>, <strong>TSS Proportion</strong>, and <strong>Peak Proportion</strong>—for high-quality cells using three separate violin plots.</p>
@@ -996,7 +986,7 @@ Displays the distribution of three key quality metrics—<strong>Fragments</stro
 </ul>
 </li>
 </ul>
-<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
+<hr>
 <h5 id="-fragment-length-distribution">📊 Fragment Length Distribution</h5>
 <p><strong>Chart Function</strong>:<br>
 Shows the insertion length distribution of deduplicated ATAC-seq fragments, which is a key chart for assessing sample quality and chromatin structure integrity.</p>
@@ -1032,7 +1022,7 @@ Shows the insertion length distribution of deduplicated ATAC-seq fragments, whic
 </ul>
 </li>
 </ul>
-<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
+<hr>
 <p><strong>Jaccard threshold</strong></p>
 <ul>
 <li><strong>Definition</strong>: The similarity threshold used to determine if any two beads originate from the same cell droplet.</li>
@@ -1063,7 +1053,7 @@ Identifies potential cell subgroups by clustering cells with similar chromatin a
 </ul>
 </li>
 </ul>
-<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
+<hr>
 <h5 id="-tss-enrichment-profile">📈 TSS Enrichment Profile</h5>
 <p><strong>Chart Function</strong>:<br>
 Displays the enrichment of ATAC-seq fragment cleavage sites around the Transcription Start Sites (TSS) of all genes, serving as a core metric for ATAC-seq signal-to-noise ratio and data quality.</p>
@@ -1083,7 +1073,7 @@ Displays the enrichment of ATAC-seq fragment cleavage sites around the Transcrip
 </ul>
 </li>
 </ul>
-<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
+<hr>
 <h5 id="-single-cell-targeting-plot">📊 Single Cell Targeting Plot</h5>
 <p><strong>Chart Function</strong>:<br>
 Evaluates the effectiveness of the cell calling algorithm by displaying two key quality metrics for each cell in a scatter plot.</p>
@@ -1103,7 +1093,7 @@ Evaluates the effectiveness of the cell calling algorithm by displaying two key 
 </ul>
 </li>
 </ul>
-<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
+<hr>
 <h5 id="-saturation-curve">📈 Saturation Curve</h5>
 <p><strong>Chart Function</strong>:<br>
 Assesses the sufficiency of sequencing depth and data complexity, i.e., whether further sequencing will yield more unique fragments.</p>
@@ -1123,7 +1113,7 @@ Assesses the sufficiency of sequencing depth and data complexity, i.e., whether 
 </li>
 <li><strong>Quality Assessment</strong>: Saturation (or the duplication rate) is the quantitative metric for this curve. A saturation rate between 20%-50% is recommended to balance cost and data completeness.</li>
 </ul>
-<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
+<hr>
 <h5 id="-bead-similarity-ranking">📊 Bead Similarity Ranking</h5>
 <p><strong>Chart Function</strong>:<br>
 Used in the C4 ATAC technology to merge multiple beads from the same cell droplet by calculating Jaccard similarity.</p>
@@ -1143,44 +1133,42 @@ Used in the C4 ATAC technology to merge multiple beads from the same cell drople
 </li>
 </ul>
 <hr>
-<h2 id="-more-resources-">🎯 More Resources <a id="more-resources"></a></h2>
-<h3 id="-related-documentation">📚 Related Documentation</h3>
-<table style="width:100%; border-collapse: collapse; margin: 15px 0;">
+<br>
+<h2 id="-related-documentation">📚 Related Documentation</h2>
+<br>
+<table>
 <thead>
 <tr>
-<th width="30%" align="left"><strong>Document Type</strong></th>
-<th width="70%" align="left"><strong>Resource Link & Description</strong></th>
+<th style="text-align:left">Document</th>
+<th style="text-align:left">Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left"><strong>🚀 Quick Start</strong></td>
-<td><a href="../quickstart.html">Quick Start Guide</a> - A complete tutorial for your first analysis.</td>
+<td style="text-align:left"><a href="../pipeline/scATAC_en.html">🔬 scATAC Pipeline</a></td>
+<td style="text-align:left">Detailed scATAC analysis workflow</td>
 </tr>
 <tr>
-<td align="left"><strong>⚙️ Parameter Reference</strong></td>
-<td><a href="../parameter/parameter.html">Parameter Reference Manual</a> - Detailed descriptions of all configurable parameters.</td>
+<td style="text-align:left"><a href="../parameter/scATAC_en.html">⚙️ scATAC Parameters</a></td>
+<td style="text-align:left">Command parameter reference</td>
 </tr>
 <tr>
-<td align="left"><strong>🔬 Analysis Pipeline</strong></td>
-<td><a href="../pipeline/pipeline.html">Analysis Pipeline Description</a> - Technical details of the entire analysis workflow.</td>
-</tr>
-<tr>
-<td align="left"><strong>🔧 Installation & Setup</strong></td>
-<td><a href="../installation.html">Installation & Setup Guide</a> - System requirements, installation steps, and environment configuration.</td>
+<td style="text-align:left"><a href="./outs.html">📁 Output Files</a></td>
+<td style="text-align:left">Return to output documentation index</td>
 </tr>
 </tbody>
 </table>
+<br>
+<hr>
+<br>
 <div align="center">
 <blockquote>
 <p>💡 <strong>Tip</strong></p>
 <p>This document is continuously updated. If you find any errors or have information to add, feedback is welcome.</p>
-<p>📝 <strong>Document Version:</strong> 3.0 | <strong>Last Updated:</strong> 2025</p>
+<p>📝 <strong>Document Version:</strong> 3.1 | <strong>Last Updated:</strong> April 2026</p>
 </blockquote>
-<hr>
-<p><strong>🔬 DNBelab C Series HT scATAC Analysis Software</strong><br>
-<em>A High-Performance Pipeline for Single-Cell ATAC Sequencing Data Analysis</em></p>
 </div>
+
             
             
         </body>

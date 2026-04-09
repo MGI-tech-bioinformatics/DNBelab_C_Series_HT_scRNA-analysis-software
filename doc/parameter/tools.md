@@ -4,13 +4,19 @@
 
 </div>
 
+<br>
+
 # 🧬 DNBelab C Series HT 工具类分析参数
+
+<br>
 
 <div align="center">
 
 [🛠️ GTF 文件操作 (mkgtf)](#gtf-文件操作-mkgtf) • [📄 BAM 转 FASTQ (bam2fastq)](#bam-转-fastq-bam2fastq) • [🧬 染色体分割 (chromsplit)](#染色体分割-chromsplit) • [📝 FASTQ 切割 (fqsubC4)](#fastq-切割-fqsubc4)
 
 </div>
+
+<br>
 
 ---
 
@@ -515,25 +521,30 @@ Options:
 
 ---
 
-### 📚 相关文档
+<br>
 
-- [工具参数总览](./parameter.md)
-- [输出文件总览](../outs/outs.md)
-- [流程文档总览](../pipeline/pipeline.md)
+## 📚 相关文档
+
+<br>
+
+| 资源 | 描述 |
+| :--- | :--- |
+| [⚙️ 工具参数总览](./parameter.md) | 所有工具参数概览 |
+| [📁 输出文件总览](../outs/outs.md) | 输出文件详细解读 |
+| [🔬 流程文档总览](../pipeline/pipeline.md) | 分析流程指南 |
+
+<br>
 
 ---
+
+<br>
 
 <div align="center">
 
-> 💡 <strong>提示</strong>
-> 
+> 💡 <strong>需要帮助？</strong>
+>
 > 本文档持续更新中，如发现内容错误或需要补充的信息，欢迎反馈。
-> 
+>
 > 📝 <strong>文档版本：</strong> 3.1 | <strong>最后更新：</strong> 2026年4月
-
----
-
-<strong>🛠️ DNBelab C Series HT Tool-based Analysis Parameters</strong>  
-<em>高性能单细胞数据分析工具参数配置指南</em>
 
 </div>

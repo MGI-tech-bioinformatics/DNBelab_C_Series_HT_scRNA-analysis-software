@@ -140,22 +140,38 @@
         </head>
         <body class="vscode-body vscode-light">
             <div align="right">
-  <a href="../README.html">Home</a>
+<p><a href="../README.html">🏠 Home</a></p>
 </div>
+<br>
 <h1 id="quick-start-guide">Quick Start Guide</h1>
+<br>
 <div align="center">
 <p><strong>Get started with dnbc4tools</strong></p>
-<p><a href="#single-cell-rna-analysis">◆ RNA-seq</a> • <a href="#single-cell-atac-analysis">◆ ATAC-seq</a> • <a href="#single-cell-vdj-analysis">◆ VDJ-seq</a></p>
+<br>
+<p><a href="#single-cell-rna-analysis">◆ RNA-seq</a> • <a href="#single-cell-atac-analysis">◆ ATAC-seq</a> • <a href="#single-cell-vdj-analysis">◆ VDJ-seq</a> • <a href="#integrated-multi-omics-analysis">◆ Multi-omics</a></p>
 </div>
+<br>
 <hr>
+<br>
 <h2 id="prerequisites">Prerequisites</h2>
 <div style="background-color: #e7f3fe; border-left: 6px solid #2196F3; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
 <p><strong>Before you begin:</strong></p>
 <ul>
 <li>Ensure dnbc4tools is installed. See the <a href="./installation.html">Installation Guide</a>.</li>
-<li>In all commands, replace <code>$dnbc4tools</code> with your actual installation path (e.g., <code>/opt/software/dnbc4tools3.0/dnbc4tools</code>).</li>
+<li>In all commands, replace <code>$dnbc4tools</code> with your actual installation path (e.g., <code>/opt/software/dnbc4tools3.1/dnbc4tools</code>).</li>
 <li>The backslash <code>\</code> is used to split a single command across multiple lines for readability. It is optional.</li>
 </ul>
+</div>
+<hr>
+<h2 id="file-naming-conventions">File Naming Conventions</h2>
+<div style="background-color: #e7f3fe; border-left: 6px solid #2196F3; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
+The pipeline automatically detects paired-end files based on naming patterns. The following conventions are supported:
+<ul>
+  <li><strong>Supported extensions:</strong> <code>.fastq.gz</code>, <code>.fq.gz</code>, <code>.fastq</code>, <code>.fq</code></li>
+  <li><strong>R1 patterns:</strong> <code>_R1_</code>, <code>_R1</code>, <code>_1</code>, <code>_read1</code></li>
+  <li><strong>R2 patterns:</strong> <code>_R2_</code>, <code>_R2</code>, <code>_2</code>, <code>_read2</code></li>
+</ul>
+Examples: <code>sample_R1.fastq.gz</code>, <code>sample_1.fastq.gz</code>, <code>sample_R1_001.fastq.gz</code> are all recognized as R1 files.
 </div>
 <hr>
 <h2 id="-single-cell-rna-analysis-">◆ Single-Cell RNA Analysis <a id="single-cell-rna-analysis"></a></h2>
@@ -173,8 +189,8 @@ gzip -d GRCh38.primary_assembly.genome.fa.gz
 gzip -d gencode.v32.primary_assembly.annotation.gtf.gz
 
 <span class="hljs-comment"># Build reference</span>
-<span class="hljs-variable">$dnbc4tools</span> tools mkgtf --ingtf gencode.v32.primary_assembly.annotation.gtf --output genes.filter.gtf --<span class="hljs-built_in">type</span> gene_type
-<span class="hljs-variable">$dnbc4tools</span> rna mkref --ingtf genes.filter.gtf --fasta GRCh38.primary_assembly.genome.fa --threads 10 --species Homo_sapiens
+<span class="hljs-variable">$dnbc4tools</span> tools mkgtf --ingtf gencode.v32.primary_assembly.annotation.gtf --output genes.filtered.gtf
+<span class="hljs-variable">$dnbc4tools</span> rna mkref --ingtf genes.filtered.gtf --fasta GRCh38.primary_assembly.genome.fa --threads 10 --species Homo_sapiens
 </code></pre>
 <p><strong>Mouse (GRCm38)</strong></p>
 <pre><code class="language-bash"><span class="hljs-comment"># Download reference files</span>
@@ -186,24 +202,39 @@ gzip -d GRCm38.primary_assembly.genome.fa.gz
 gzip -d gencode.vM23.primary_assembly.annotation.gtf.gz
 
 <span class="hljs-comment"># Build reference</span>
-<span class="hljs-variable">$dnbc4tools</span> tools mkgtf --ingtf gencode.vM23.primary_assembly.annotation.gtf --output genes.filter.gtf --<span class="hljs-built_in">type</span> gene_type
-<span class="hljs-variable">$dnbc4tools</span> rna mkref --ingtf genes.filter.gtf --fasta GRCm38.primary_assembly.genome.fa --threads 10 --species Mus_musculus
+<span class="hljs-variable">$dnbc4tools</span> tools mkgtf --ingtf gencode.vM23.primary_assembly.annotation.gtf --output genes.filtered.gtf
+<span class="hljs-variable">$dnbc4tools</span> rna mkref --ingtf genes.filtered.gtf --fasta GRCm38.primary_assembly.genome.fa --threads 10 --species Mus_musculus
 </code></pre>
 <p><strong>Human-Mouse Mixed Reference</strong></p>
 <pre><code class="language-bash"><span class="hljs-comment"># Prepare both references as above, then:</span>
 <span class="hljs-variable">$dnbc4tools</span> rna mkref \
     --fasta GRCh38.primary_assembly.genome.fa,GRCm38.primary_assembly.genome.fa \
-    --ingtf hg38/genes.filter.gtf,mm10/genes.filter.gtf \
+    --ingtf hg38/genes.filtered.gtf,mm10/genes.filtered.gtf \
     --species hg38,mm10 \
     --threads 10
 </code></pre>
 <h3 id="step-2-run-analysis">Step 2: Run Analysis</h3>
-<p><strong>Standard RNA-seq Analysis</strong></p>
+<p><strong>Quick Input (<code>--fastqs</code>)</strong></p>
 <pre><code class="language-bash"><span class="hljs-variable">$dnbc4tools</span> rna run \
-    --cDNAfastq1 /test/data/test_cDNA_R1.fastq.gz \
-    --cDNAfastq2 /test/data/test_cDNA_R2.fastq.gz \
-    --oligofastq1 /test/data/test_oligo1_1.fq.gz,/test/data/test_oligo2_1.fq.gz \
-    --oligofastq2 /test/data/test_oligo1_2.fq.gz,/test/data/test_oligo2_2.fq.gz \
+    --fastqs /test/data/rna_fastqs \
+    --genomeDir /database/scRNA/Mus_musculus/mm10 \
+    --name <span class="hljs-built_in">test</span> \
+    --threads 30
+</code></pre>
+<blockquote>
+<p>Directory structure recommendation:</p>
+<ul>
+<li><code>/test/data/rna_fastqs/cDNA/*_R1*.fastq.gz</code>, <code>*_R2*.fastq.gz</code></li>
+<li><code>/test/data/rna_fastqs/oligo/*_R1*.fastq.gz</code>, <code>*_R2*.fastq.gz</code></li>
+</ul>
+<p>See <a href="#file-naming-conventions">File Naming Conventions</a> for supported patterns.</p>
+</blockquote>
+<p><strong>Detailed Input (--cDNAfastq1/2 --oligofastq1/2)</strong></p>
+<pre><code class="language-bash"><span class="hljs-variable">$dnbc4tools</span> rna run \
+    --cDNAfastq1 /test/data/rna_fastqs/cDNA/test_R1.fastq.gz \
+    --cDNAfastq2 /test/data/rna_fastqs/cDNA/test_R2.fastq.gz \
+    --oligofastq1 /test/data/rna_fastqs/oligo/test_1_1.fq.gz,/test/data/rna_fastqs/oligo/test_2_1.fq.gz \
+    --oligofastq2 /test/data/rna_fastqs/oligo/test_1_2.fq.gz,/test/data/rna_fastqs/oligo/test_2_2.fq.gz \
     --genomeDir /database/scRNA/Mus_musculus/mm10 \
     --name <span class="hljs-built_in">test</span> \
     --threads 30
@@ -224,8 +255,8 @@ gzip -d GRCh38.primary_assembly.genome.fa.gz
 gzip -d gencode.v32.primary_assembly.annotation.gtf.gz
 
 <span class="hljs-comment"># Build reference</span>
-<span class="hljs-variable">$dnbc4tools</span> tools mkgtf --ingtf gencode.v32.primary_assembly.annotation.gtf --output genes.filter.gtf --<span class="hljs-built_in">type</span> gene_type
-<span class="hljs-variable">$dnbc4tools</span> atac mkref --fasta GRCh38.primary_assembly.genome.fa --ingtf genes.filter.gtf --species Homo_sapiens --prefix chr
+<span class="hljs-variable">$dnbc4tools</span> tools mkgtf --ingtf gencode.v32.primary_assembly.annotation.gtf --output genes.filtered.gtf
+<span class="hljs-variable">$dnbc4tools</span> atac mkref --fasta GRCh38.primary_assembly.genome.fa --ingtf genes.filtered.gtf --species Homo_sapiens --prefix chr
 </code></pre>
 <p><strong>Mouse (GRCm38)</strong></p>
 <pre><code class="language-bash"><span class="hljs-comment"># Download reference files</span>
@@ -237,11 +268,25 @@ gzip -d GRCm38.primary_assembly.genome.fa.gz
 gzip -d gencode.vM23.primary_assembly.annotation.gtf.gz
 
 <span class="hljs-comment"># Build reference</span>
-<span class="hljs-variable">$dnbc4tools</span> tools mkgtf --ingtf gencode.vM23.primary_assembly.annotation.gtf --output genes.filter.gtf --<span class="hljs-built_in">type</span> gene_type
-<span class="hljs-variable">$dnbc4tools</span> atac mkref --fasta GRCm38.primary_assembly.genome.fa --ingtf genes.filter.gtf --species Mus_musculus --prefix chr
+<span class="hljs-variable">$dnbc4tools</span> tools mkgtf --ingtf gencode.vM23.primary_assembly.annotation.gtf --output genes.filtered.gtf
+<span class="hljs-variable">$dnbc4tools</span> atac mkref --fasta GRCm38.primary_assembly.genome.fa --ingtf genes.filtered.gtf --species Mus_musculus --prefix chr
 </code></pre>
 <h3 id="step-2-run-analysis-1">Step 2: Run Analysis</h3>
-<p><strong>ATAC-seq Analysis</strong></p>
+<p><strong>Quick Input (<code>--fastqs</code>)</strong></p>
+<pre><code class="language-bash"><span class="hljs-variable">$dnbc4tools</span> atac run \
+    --fastqs /test/data \
+    --genomeDir /database/scATAC/Mus_musculus/mm10 \
+    --name <span class="hljs-built_in">test</span> \
+    --threads 10
+</code></pre>
+<blockquote>
+<p>Directory structure recommendation:</p>
+<ul>
+<li><code>/test/data/*_R1*.fastq.gz</code>, <code>*_R2*.fastq.gz</code></li>
+</ul>
+<p>See <a href="#file-naming-conventions">File Naming Conventions</a> for supported patterns.</p>
+</blockquote>
+<p><strong>Detailed Input (--fastq1/2)</strong></p>
 <pre><code class="language-bash"><span class="hljs-variable">$dnbc4tools</span> atac run \
     --fastq1 /test/data/test1_R1.fastq.gz,/test/data/test2_R1.fastq.gz \
     --fastq2 /test/data/test1_R2.fastq.gz,/test/data/test2_R2.fastq.gz \
@@ -259,17 +304,34 @@ gzip -d gencode.vM23.primary_assembly.annotation.gtf.gz
 </div>
 <h3 id="step-1-5-rna-analysis">Step 1: 5' RNA Analysis</h3>
 <p><strong>5' scRNA-seq Analysis</strong></p>
+<div style="background-color: #e7f3fe; border-left: 6px solid #2196F3; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
+💡 <strong>Note:</strong> For 5' scRNA-seq data, you must add the <code>--end5</code> parameter to specify the library chemistry.
+</div>
 <pre><code class="language-bash"><span class="hljs-variable">$dnbc4tools</span> rna run \
-    --cDNAfastq1 /test/data/test_cDNA_R1.fastq.gz \
-    --cDNAfastq2 /test/data/test_cDNA_R2.fastq.gz \
-    --oligofastq1 /test/data/test_oligo1_1.fq.gz,/test/data/test_oligo2_1.fq.gz \
-    --oligofastq2 /test/data/test_oligo1_2.fq.gz,/test/data/test_oligo2_2.fq.gz \
+    --fastqs /test/rna/data \
     --genomeDir /database/scRNA/Homo_sapiens \
     --name <span class="hljs-built_in">test</span> \
     --threads 30 \
     --end5
 </code></pre>
 <h3 id="step-2-vdj-analysis">Step 2: VDJ Analysis</h3>
+<p><strong>Quick Input (<code>--fastqs</code>)</strong></p>
+<pre><code class="language-bash"><span class="hljs-variable">$dnbc4tools</span> vdj run \
+    --fastqs /test/data \
+    --beadstrans /scRNA/test1/outs/singlecell.csv \
+    --ref human \
+    --name test_human_tcr \
+    --threads 20 \
+    --chain TR
+</code></pre>
+<blockquote>
+<p>Directory structure recommendation:</p>
+<ul>
+<li><code>/test/data/*_R1*.fastq.gz, *_R2*.fastq.gz</code></li>
+</ul>
+<p>See <a href="#file-naming-conventions">File Naming Conventions</a> for supported patterns.</p>
+</blockquote>
+<p><strong>Detailed Input (--fastq1/2)</strong></p>
 <p><strong>TCR Analysis (Human)</strong></p>
 <pre><code class="language-bash"><span class="hljs-variable">$dnbc4tools</span> vdj run \
     --fastq1 /test/data/test1_R1.fastq.gz,/test/data/test2_R1.fastq.gz \
@@ -282,8 +344,8 @@ gzip -d gencode.vM23.primary_assembly.annotation.gtf.gz
 </code></pre>
 <p><strong>TCR Analysis (Mouse)</strong></p>
 <pre><code class="language-bash"><span class="hljs-variable">$dnbc4tools</span> vdj run \
-    --fastq1 /test/data/test3_R1.fastq.gz,/test/data/test4_R1.fastq.gz \
-    --fastq2 /test/data/test3_R2.fastq.gz,/test/data/test4_R2.fastq.gz \
+    --fastq1 /test/data_tcrmouse/test3_R1.fastq.gz,/test/data_tcrmouse/test4_R1.fastq.gz \
+    --fastq2 /test/data_tcrmouse/test3_R2.fastq.gz,/test/data_tcrmouse/test4_R2.fastq.gz \
     --beadstrans /scRNA/test2/outs/singlecell.csv \
     --ref mouse \
     --name test_mouse_tcr \
@@ -292,8 +354,8 @@ gzip -d gencode.vM23.primary_assembly.annotation.gtf.gz
 </code></pre>
 <p><strong>BCR Analysis (Human)</strong></p>
 <pre><code class="language-bash"><span class="hljs-variable">$dnbc4tools</span> vdj run \
-    --fastq1 /test/data/test5_R1.fastq.gz,/test/data/test6_R1.fastq.gz \
-    --fastq2 /test/data/test5_R2.fastq.gz,/test/data/test6_R2.fastq.gz \
+    --fastq1 /test/data_bcrhuman/test5_R1.fastq.gz,/test/data_bcrhuman/test6_R1.fastq.gz \
+    --fastq2 /test/data_bcrhuman/test5_R2.fastq.gz,/test/data_bcrhuman/test6_R2.fastq.gz \
     --beadstrans /scRNA/test1/outs/singlecell.csv \
     --ref human \
     --name test_human_bcr \
@@ -302,8 +364,8 @@ gzip -d gencode.vM23.primary_assembly.annotation.gtf.gz
 </code></pre>
 <p><strong>BCR Analysis (Mouse)</strong></p>
 <pre><code class="language-bash"><span class="hljs-variable">$dnbc4tools</span> vdj run \
-    --fastq1 /test/data/test7_R1.fastq.gz,/test/data/test8_R1.fastq.gz \
-    --fastq2 /test/data/test7_R2.fastq.gz,/test/data/test8_R2.fastq.gz \
+    --fastq1 /test/data_bcrmouse/test7_R1.fastq.gz,/test/data_bcrmouse/test8_R1.fastq.gz \
+    --fastq2 /test/data_bcrmouse/test7_R2.fastq.gz,/test/data_bcrmouse/test8_R2.fastq.gz \
     --beadstrans /scRNA/test2/outs/singlecell.csv \
     --ref mouse \
     --name test_mouse_bcr \
@@ -311,55 +373,125 @@ gzip -d gencode.vM23.primary_assembly.annotation.gtf.gz
     --chain IG
 </code></pre>
 <hr>
+<h2 id="-multi-omics-analysis-">◆ Multi-omics Analysis <a id="integrated-multi-omics-analysis"></a></h2>
+<blockquote>
+<p>Run RNA/ATAC/VDJ pipelines in one integrated workflow and generate a unified report</p>
+</blockquote>
+<h3 id="step-1-prepare-config-file">Step 1: Prepare Config File</h3>
+<blockquote>
+<p>Recommended: in <code>[libraries]</code>, <code>fastqs</code> should be the FASTQ directory path for each omics library; the pipeline will auto-detect R1/R2 files in each directory.</p>
+</blockquote>
+<pre><code class="language-ini"><span class="hljs-section">[libraries]</span>
+fastqs,feature_types
+/test/data/rna,rna
+/test/data/vdj-t,vdj-t
+/test/data/vdj-b,vdj-b
+
+<span class="hljs-section">[rna]</span>
+genomeDir,/database/scRNA/Homo_sapiens
+end5,true
+
+<span class="hljs-section">[atac]</span>
+
+<span class="hljs-section">[vdj-t]</span>
+ref,human
+
+<span class="hljs-section">[vdj-b]</span>
+ref,human
+</code></pre>
+<blockquote>
+<p>📁 Directory structure:</p>
+<ul>
+<li>RNA: <code>/test/data/rna/cDNA/</code> and <code>/test/data/rna/oligo/</code></li>
+<li>ATAC: paired FASTQ files under <code>/test/data/atac/</code></li>
+<li>VDJ-T: paired FASTQ files under <code>/test/data/vdj-t/</code></li>
+<li>VDJ-B: paired FASTQ files under <code>/test/data/vdj-b/</code></li>
+</ul>
+</blockquote>
+<h3 id="step-2-run-multi-omics-pipeline">Step 2: Run Multi-omics Pipeline</h3>
+<pre><code class="language-bash"><span class="hljs-variable">$dnbc4tools</span> multi run \
+    --name test_multi \
+    --csv ./multi_config.csv \
+    --outdir ./multi_output \
+    --threads 20
+</code></pre>
+<hr>
 <h2 id="-command-reference-">◆ Command Reference <a id="command-reference"></a></h2>
 <h3 id="essential-commands-summary">Essential Commands Summary</h3>
-<table style="width:100%; border-collapse: collapse; margin: 1.5em 0; box-shadow: 0 2px 3px rgba(0,0,0,0.1);">
-  <thead style="background-color: #f2f2f2; border-bottom: 2px solid #ddd;">
-    <tr>
-      <th style="padding: 12px 15px; border: 1px solid #ddd; text-align: left;">Workflow</th>
-      <th style="padding: 12px 15px; border: 1px solid #ddd; text-align: left;">Command</th>
-      <th style="padding: 12px 15px; border: 1px solid #ddd; text-align: left;">Purpose</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="padding: 12px 15px; border: 1px solid #ddd;">RNA Analysis</td>
-      <td style="padding: 12px 15px; border: 1px solid #ddd;"><code>dnbc4tools rna run</code></td>
-      <td style="padding: 12px 15px; border: 1px solid #ddd;">Complete RNA-seq pipeline</td>
-    </tr>
-    <tr>
-      <td style="padding: 12px 15px; border: 1px solid #ddd;">ATAC Analysis</td>
-      <td style="padding: 12px 15px; border: 1px solid #ddd;"><code>dnbc4tools atac run</code></td>
-      <td style="padding: 12px 15px; border: 1px solid #ddd;">Complete ATAC-seq pipeline</td>
-    </tr>
-    <tr>
-      <td style="padding: 12px 15px; border: 1px solid #ddd;">VDJ Analysis</td>
-      <td style="padding: 12px 15px; border: 1px solid #ddd;"><code>dnbc4tools vdj run</code></td>
-      <td style="padding: 12px 15px; border: 1px solid #ddd;">TCR/BCR repertoire analysis</td>
-    </tr>
-    <tr>
-      <td style="padding: 12px 15px; border: 1px solid #ddd;">Reference Building</td>
-      <td style="padding: 12px 15px; border: 1px solid #ddd;"><code>dnbc4tools rna mkref</code></td>
-      <td style="padding: 12px 15px; border: 1px solid #ddd;">Build RNA reference database</td>
-    </tr>
-    <tr>
-      <td style="padding: 12px 15px; border: 1px solid #ddd;">Reference Building</td>
-      <td style="padding: 12px 15px; border: 1px solid #ddd;"><code>dnbc4tools atac mkref</code></td>
-      <td style="padding: 12px 15px; border: 1px solid #ddd;">Build ATAC reference database</td>
-    </tr>
-    <tr>
-      <td style="padding: 12px 15px; border: 1px solid #ddd;">GTF Processing</td>
-      <td style="padding: 12px 15px; border: 1px solid #ddd;"><code>dnbc4tools tools mkgtf</code></td>
-      <td style="padding: 12px 15px; border: 1px solid #ddd;">Filter and process GTF files</td>
-    </tr>
-  </tbody>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Workflow</th>
+<th style="text-align:left">Command</th>
+<th style="text-align:left">Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>RNA Analysis</strong></td>
+<td style="text-align:left"><code>dnbc4tools rna run</code></td>
+<td style="text-align:left">Complete RNA-seq pipeline</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>ATAC Analysis</strong></td>
+<td style="text-align:left"><code>dnbc4tools atac run</code></td>
+<td style="text-align:left">Complete ATAC-seq pipeline</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>VDJ Analysis</strong></td>
+<td style="text-align:left"><code>dnbc4tools vdj run</code></td>
+<td style="text-align:left">TCR/BCR repertoire analysis</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Reference Building</strong></td>
+<td style="text-align:left"><code>dnbc4tools rna mkref</code></td>
+<td style="text-align:left">Build RNA reference database</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Reference Building</strong></td>
+<td style="text-align:left"><code>dnbc4tools atac mkref</code></td>
+<td style="text-align:left">Build ATAC reference database</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Multi-omics</strong></td>
+<td style="text-align:left"><code>dnbc4tools multi run</code></td>
+<td style="text-align:left">Integrated RNA/ATAC/VDJ analysis and unified report</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>GTF Processing</strong></td>
+<td style="text-align:left"><code>dnbc4tools tools mkgtf</code></td>
+<td style="text-align:left">Filter and process GTF files</td>
+</tr>
+</tbody>
 </table>
-<h3 id="further-reading">Further Reading</h3>
-<ul>
-<li><strong>Parameters</strong>: <a href="./parameter/parameter.html">Complete Reference</a> | <a href="./parameter/scRNA_en.html">RNA-specific</a> | <a href="./parameter/scATAC_en.html">ATAC-specific</a> | <a href="./parameter/scVDJ_en.html">VDJ-specific</a></li>
-<li><strong>Outputs</strong>: <a href="./outs/outs.html">Output File Guide</a> | <a href="./io.html">R/Python Usage</a></li>
-<li><strong>Support</strong>: <a href="./installation.html">Installation Guide</a> | <a href="https://github.com/MGI-tech-bioinformatics/DNBelab_C_Series_HT_scRNA-analysis-software/issues">GitHub Issues</a></li>
-</ul>
+<hr>
+<h2 id="-related-documentation">📚 Related Documentation</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Resource</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><a href="./pipeline/pipeline.html">🔬 Pipelines</a></td>
+<td style="text-align:left">Analysis workflow guides</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="./parameter/parameter.html">⚙️ Parameters</a></td>
+<td style="text-align:left">Command reference and configuration options</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="./outs/outs.html">📁 Outputs</a></td>
+<td style="text-align:left">Understanding result files and reports</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="https://github.com/MGI-tech-bioinformatics/DNBelab_C_Series_HT_scRNA-analysis-software/issues">🆘 GitHub Issues</a></td>
+<td style="text-align:left">Report bugs or request features</td>
+</tr>
+</tbody>
+</table>
 
             <script async src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
             

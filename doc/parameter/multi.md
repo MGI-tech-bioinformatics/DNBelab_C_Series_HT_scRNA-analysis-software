@@ -269,27 +269,32 @@ fastqs,feature_types
 
 ---
 
-### 📚 相关文档
+<br>
 
-- [Multi 流程文档](../pipeline/multi.md)
-- [Multi 输出文档](../outs/multi.md)
-- [scRNA 参数文档](./scRNA.md)
-- [scATAC 参数文档](./scATAC.md)
-- [scVDJ 参数文档](./scVDJ.md)
+## 📚 相关文档
+
+<br>
+
+| 资源 | 描述 |
+| :--- | :--- |
+| [🚀 Multi 流程文档](../pipeline/multi.md) | 多组学整合分析流程指南 |
+| [📁 Multi 输出文档](../outs/multi.md) | 输出文件详细解读 |
+| [🧬 scRNA 参数文档](./scRNA.md) | 单细胞 RNA 分析参数 |
+| [🧪 scATAC 参数文档](./scATAC.md) | 单细胞 ATAC 分析参数 |
+| [🦠 scVDJ 参数文档](./scVDJ.md) | 单细胞 VDJ 分析参数 |
+
+<br>
 
 ---
 
+<br>
+
 <div align="center">
 
-> 💡 <strong>提示</strong>
+> 💡 <strong>需要帮助？</strong>
 >
 > 本页聚焦参数与配置填写，建议与流程文档、输出文档配套使用。
 >
 > 📝 <strong>文档版本：</strong> 3.1 | <strong>最后更新：</strong> 2026年4月
-
----
-
-<strong>🧩 DNBelab C Series HT Multi-omics Analysis Software</strong>  
-<em>高性能单细胞多组学整合分析流程</em>
 
 </div>

@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>&#x1f9e9; DNBelab C Series HT Multi-omics Output Documentation</title>
+            <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only],
+.vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+.vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+            
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+<style>
+:root {
+  --color-note: #0969da;
+  --color-tip: #1a7f37;
+  --color-warning: #9a6700;
+  --color-severe: #bc4c00;
+  --color-caution: #d1242f;
+  --color-important: #8250df;
+}
+
+</style>
+<style>
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-note: #2f81f7;
+    --color-tip: #3fb950;
+    --color-warning: #d29922;
+    --color-severe: #db6d28;
+    --color-caution: #f85149;
+    --color-important: #a371f7;
+  }
+}
+
+</style>
+<style>
+.markdown-alert {
+  padding: 0.5rem 1rem;
+  margin-bottom: 16px;
+  color: inherit;
+  border-left: .25em solid #888;
+}
+
+.markdown-alert>:first-child {
+  margin-top: 0
+}
+
+.markdown-alert>:last-child {
+  margin-bottom: 0
+}
+
+.markdown-alert .markdown-alert-title {
+  display: flex;
+  font-weight: 500;
+  align-items: center;
+  line-height: 1
+}
+
+.markdown-alert .markdown-alert-title .octicon {
+  margin-right: 0.5rem;
+  display: inline-block;
+  overflow: visible !important;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
+
+.markdown-alert.markdown-alert-note {
+  border-left-color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-note .markdown-alert-title {
+  color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-important {
+  border-left-color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-important .markdown-alert-title {
+  color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-warning {
+  border-left-color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-warning .markdown-alert-title {
+  color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-tip {
+  border-left-color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-tip .markdown-alert-title {
+  color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-caution {
+  border-left-color: var(--color-caution);
+}
+
+.markdown-alert.markdown-alert-caution .markdown-alert-title {
+  color: var(--color-caution);
+}
+
+</style>
+        
+        </head>
+        <body class="vscode-body vscode-light">
+            <div align="right">
+<p><a href="../../README.html">🏠 Home</a> • <a href="multi.html">中文</a></p>
+</div>
+<br>
+<h1 id="-dnbelab-c-series-ht-multi-omics-output-documentation">🧩 DNBelab C Series HT Multi-omics Output Documentation</h1>
+<br>
+<div align="center">
+<p><strong>Complete Guide to Integrated Multi-omics Output Files</strong></p>
+<br>
+<p><a href="#output-directory-structure">📁 Directory Structure</a> • <a href="#detailed-file-description">📋 File Details</a> • <a href="#report-interpretation">📊 Report Interpretation</a></p>
+</div>
+<br>
+<hr>
+<br>
+<h2 id="-overview-">📖 Overview <a id="overview"></a></h2>
+<br>
+<p>The multi-omics workflow organizes key RNA / ATAC / VDJ outputs into one sample directory, enabling cross-omics review in a single report.</p>
+<br>
+<blockquote>
+<p>💡 <strong>Tip</strong>: The combined report is designed for fast overview and cross-module inspection. For deeper interpretation, see the dedicated single-omics outs docs.</p>
+</blockquote>
+<br>
+<hr>
+<br>
+<h2 id="-output-directory-structure-">📁 Output Directory Structure <a id="output-directory-structure"></a></h2>
+<pre><code class="language-text">&lt;outdir&gt;/&lt;sample&gt;/
+└── outs/
+    ├── &lt;sample&gt;_multi_report.html             # Combined multi-omics report
+    ├── rna/                                   # RNA outputs (if enabled)
+    ├── atac/                                  # ATAC outputs (if enabled)
+    ├── vdj-t/                                 # VDJ-T outputs (if enabled)
+    └── vdj-b/                                 # VDJ-B outputs (if enabled)
+</code></pre>
+<hr>
+<br>
+<h2 id="-detailed-file-description-">📋 Detailed File Description <a id="detailed-file-description"></a></h2>
+<h3 id="-outssample_multi_reporthtml">📄 <code>outs/&lt;sample&gt;_multi_report.html</code></h3>
+<ul>
+<li><strong>Content</strong>: Integrated QC and analysis views across RNA / ATAC / VDJ.</li>
+<li><strong>Purpose</strong>: One-page cross-omics quality and result overview.</li>
+</ul>
+<h3 id="-outsrna-outsatac-outsvdj-t-outsvdj-b">📁 <code>outs/rna</code>, <code>outs/atac</code>, <code>outs/vdj-t</code>, <code>outs/vdj-b</code></h3>
+<ul>
+<li><strong>Content</strong>: Standard module outputs (matrices, metrics tables, module reports, etc.).</li>
+<li><strong>Purpose</strong>: Downstream module-specific analysis or single-omics reuse.</li>
+</ul>
+<hr>
+<br>
+<h2 id="-report-interpretation-">📊 Report Interpretation <a id="report-interpretation"></a></h2>
+<h3 id="-summary-and-navigation">🧭 Summary and Navigation</h3>
+<div align="center">
+<img src="../images/html_multi_summary.png" alt="multi summary page" width="760">
+</div>
+<p>The <code>Summary</code> page defines two-level navigation:</p>
+<ul>
+<li><strong>Top omics tabs (level-1)</strong>: <code>RNA</code>, <code>ATAC</code>, <code>VDJ-T</code>, <code>VDJ-B</code>.</li>
+<li><strong>Left functional tabs (level-2)</strong>: <code>Summary</code>, <code>Cells</code>, <code>Library</code>.</li>
+</ul>
+<p>Left-tab roles:</p>
+<ul>
+<li><code>Summary</code>: Core overview metrics and run parameters for current module.</li>
+<li><code>Cells</code>: Cell-level QC, clustering, annotation, and clonotype views.</li>
+<li><code>Library</code>: Library/sequencing-level quality metrics (Q30, mapping, enrichment).</li>
+</ul>
+<h3 id="️-configuration-parameters">⚙️ Configuration Parameters</h3>
+<div align="center">
+<img src="../images/html_multi_parameter.png" alt="multi configuration parameters page" width="760">
+</div>
+<p>This section is used for reproducibility and troubleshooting.</p>
+<p>Page content includes:</p>
+<ul>
+<li>Module parameter blocks for <code>[rna]</code>, <code>[atac]</code>, <code>[vdj-t]</code>, <code>[vdj-b]</code>.</li>
+<li>Input mapping from <code>[libraries]</code> (<code>fastqs</code> and <code>feature_types</code>).</li>
+<li><code>Input FASTQs</code> list of actual FASTQ paths.</li>
+<li>Omics-tab switching to inspect each module's parameter block.</li>
+</ul>
+<hr>
+<h3 id="-rna-pages">🧬 RNA Pages</h3>
+<h4 id="rna--cells"><code>RNA &gt; Cells</code></h4>
+<div align="center">
+<img src="../images/html_multi_scrna_cells.png" alt="multi RNA cells page" width="760">
+</div>
+<p>Page content includes:</p>
+<ul>
+<li><code>RNA Quality Metrics</code>: Cell-level quality summaries.</li>
+<li><code>RNA Beads to Cells</code>: Barcode-rank curve and beads-per-cell distribution.</li>
+<li><code>RNA Cluster Analysis</code>: Clustering and UMAP visualization.</li>
+<li><code>RNA Cell Annotation</code>: Cell-type annotation results.</li>
+<li><code>Top Features by Cluster</code>: Marker-feature table per cluster.</li>
+</ul>
+<h4 id="rna--library"><code>RNA &gt; Library</code></h4>
+<div align="center">
+<img src="../images/html_multi_scrna_library.png" alt="multi RNA library page" width="760">
+</div>
+<p>Page content includes:</p>
+<ul>
+<li><code>Sequencing Metrics</code>: Reads, valid barcodes, valid UMIs, Q30.</li>
+<li><code>Mapping Metrics</code>: Read composition for all reads and filtered cells.</li>
+<li><code>Saturation</code>: Sequencing-saturation and gene-discovery curves.</li>
+</ul>
+<p>Reference:</p>
+<ul>
+<li><a href="./scRNA_en.html">scRNA output doc</a></li>
+</ul>
+<hr>
+<h3 id="-atac-pages">🧬 ATAC Pages</h3>
+<h4 id="atac--cells"><code>ATAC &gt; Cells</code></h4>
+<div align="center">
+<img src="../images/html_multi_scatac_cells.png" alt="multi ATAC cells page" width="760">
+</div>
+<p>Page content includes:</p>
+<ul>
+<li><code>ATAC Quality Metrics</code>: Cell-level fragment and TSS-related metrics.</li>
+<li><code>ATAC Beads to Cells</code>: Barcode-rank curve and beads-per-cell distribution.</li>
+<li><code>ATAC Cluster Analysis</code>: ATAC clustering and low-dimensional visualization.</li>
+<li><code>Targeting</code>: TSS enrichment profile and targeting-related charts.</li>
+</ul>
+<h4 id="atac--library"><code>ATAC &gt; Library</code></h4>
+<div align="center">
+<img src="../images/html_multi_scatac_library.png" alt="multi ATAC library page" width="760">
+</div>
+<p>Page content includes:</p>
+<ul>
+<li><code>ATAC Metrics</code>: Read pairs, valid barcodes, mapping, mitochondrial ratio, etc.</li>
+<li><code>Cell Quality Metrics</code>: Duplication rate, Jaccard threshold, and related curves.</li>
+</ul>
+<p>Reference:</p>
+<ul>
+<li><a href="./scATAC_en.html">scATAC output doc</a></li>
+</ul>
+<hr>
+<h3 id="-vdj-pages">🧬 VDJ Pages</h3>
+<h4 id="vdj-t--vdj-b--cells"><code>VDJ-T / VDJ-B &gt; Cells</code></h4>
+<div align="center">
+<img src="../images/html_multi_scvdj_cells.png" alt="multi VDJ cells page" width="760">
+</div>
+<p>Page content includes:</p>
+<ul>
+<li><code>VDJ Quality Metrics</code>: Productive pairing and UMI/read support.</li>
+<li><code>V(D)J Annotation</code>: Chain-level and pairing annotation stats.</li>
+<li><code>VDJ Clonotypes</code>: Clonotype abundance plot and top-clonotype table.</li>
+<li><code>VDJ Target</code>: V(D)J cells on low-dimensional visualization.</li>
+</ul>
+<h4 id="vdj-t--vdj-b--library"><code>VDJ-T / VDJ-B &gt; Library</code></h4>
+<div align="center">
+<img src="../images/html_multi_scvdj_library.png" alt="multi VDJ library page" width="760">
+</div>
+<p>Page content includes:</p>
+<ul>
+<li><code>Sequencing</code>: Reads, valid barcodes, valid UMIs, Q30.</li>
+<li><code>Enrichment</code>: Mapping proportions to V(D)J genes and chain types (TRA/TRB or IGH/IGK/IGL).</li>
+</ul>
+<p>Reference:</p>
+<ul>
+<li><a href="./scVDJ_en.html">scVDJ output doc</a></li>
+</ul>
+<hr>
+<br>
+<h2 id="-related-documentation">📚 Related Documentation</h2>
+<br>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Document</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><a href="../pipeline/multi_en.html">🔬 Multi Pipeline</a></td>
+<td style="text-align:left">Detailed multi-omics analysis workflow</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="../parameter/multi_en.html">⚙️ Multi Parameters</a></td>
+<td style="text-align:left">Command parameter reference</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="./scRNA_en.html">🧬 scRNA Outputs</a></td>
+<td style="text-align:left">scRNA module output documentation</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="./scATAC_en.html">🧪 scATAC Outputs</a></td>
+<td style="text-align:left">scATAC module output documentation</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="./scVDJ_en.html">🦠 scVDJ Outputs</a></td>
+<td style="text-align:left">scVDJ module output documentation</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="./outs.html">📁 Output Files</a></td>
+<td style="text-align:left">Return to output documentation index</td>
+</tr>
+</tbody>
+</table>
+<br>
+<hr>
+<br>
+<div align="center">
+<blockquote>
+<p>💡 <strong>Tip</strong></p>
+<p>This document is continuously updated. If you find any errors or need additional information, please provide feedback.</p>
+<p>📝 <strong>Document Version:</strong> 3.1 | <strong>Last Updated:</strong> April 2026</p>
+</blockquote>
+</div>
+</div>
+
+            
+            
+        </body>
+        </html>

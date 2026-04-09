@@ -1,46 +1,166 @@
-<div align="right">
+<!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>&#x1f9e9; DNBelab C Series HT Multi-omics &#x5206;&#x6790;&#x6d41;&#x7a0b;</title>
+            <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
 
-[🏠 主页](../../README.md) • [English](multi_en.md)
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only],
+.vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+.vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
 
+</style>
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+<link href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+<style>
+:root {
+  --color-note: #0969da;
+  --color-tip: #1a7f37;
+  --color-warning: #9a6700;
+  --color-severe: #bc4c00;
+  --color-caution: #d1242f;
+  --color-important: #8250df;
+}
+
+</style>
+<style>
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-note: #2f81f7;
+    --color-tip: #3fb950;
+    --color-warning: #d29922;
+    --color-severe: #db6d28;
+    --color-caution: #f85149;
+    --color-important: #a371f7;
+  }
+}
+
+</style>
+<style>
+.markdown-alert {
+  padding: 0.5rem 1rem;
+  margin-bottom: 16px;
+  color: inherit;
+  border-left: .25em solid #888;
+}
+
+.markdown-alert>:first-child {
+  margin-top: 0
+}
+
+.markdown-alert>:last-child {
+  margin-bottom: 0
+}
+
+.markdown-alert .markdown-alert-title {
+  display: flex;
+  font-weight: 500;
+  align-items: center;
+  line-height: 1
+}
+
+.markdown-alert .markdown-alert-title .octicon {
+  margin-right: 0.5rem;
+  display: inline-block;
+  overflow: visible !important;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
+
+.markdown-alert.markdown-alert-note {
+  border-left-color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-note .markdown-alert-title {
+  color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-important {
+  border-left-color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-important .markdown-alert-title {
+  color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-warning {
+  border-left-color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-warning .markdown-alert-title {
+  color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-tip {
+  border-left-color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-tip .markdown-alert-title {
+  color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-caution {
+  border-left-color: var(--color-caution);
+}
+
+.markdown-alert.markdown-alert-caution .markdown-alert-title {
+  color: var(--color-caution);
+}
+
+</style>
+        
+        </head>
+        <body class="vscode-body vscode-light">
+            <div align="right">
+<p><a href="../../README.html">🏠 主页</a> • <a href="multi_en.html">English</a></p>
 </div>
-
 <br>
-
-# 🧩 DNBelab C Series HT Multi-omics 分析流程
-
+<h1 id="-dnbelab-c-series-ht-multi-omics-分析流程">🧩 DNBelab C Series HT Multi-omics 分析流程</h1>
 <br>
-
 <div align="center">
-
-**单细胞多组学整合分析完整指南**
-
+<p><strong>单细胞多组学整合分析完整指南</strong></p>
 <br>
-
-[📋 概述](#概述) • [📁 输入配置](#输入配置) • [🚀 主流程分析](#主流程分析) • [📊 结果解析](#结果解析) 
-
+<p><a href="#%E6%A6%82%E8%BF%B0">📋 概述</a> • <a href="#%E8%BE%93%E5%85%A5%E9%85%8D%E7%BD%AE">📁 输入配置</a> • <a href="#%E4%B8%BB%E6%B5%81%E7%A8%8B%E5%88%86%E6%9E%90">🚀 主流程分析</a> • <a href="#%E7%BB%93%E6%9E%9C%E8%A7%A3%E6%9E%90">📊 结果解析</a></p>
 </div>
-
 <br>
-
----
-
+<hr>
 <br>
-
-## 📋 概述 <a id="概述"></a>
-
+<h2 id="-概述-">📋 概述 <a id="概述"></a></h2>
 <br>
-
-Multi-omics 流程用于统一编排 RNA / ATAC / VDJ 子流程，通过一份配置文件完成多组学联合运行，并生成组合报告用于跨组学联看。
-
-**工作流程**：配置准备 → 模块调度 → 并行分析 → 状态汇总 → 组合报告
-
-
+<p>Multi-omics 流程用于统一编排 RNA / ATAC / VDJ 子流程，通过一份配置文件完成多组学联合运行，并生成组合报告用于跨组学联看。</p>
+<p><strong>工作流程</strong>：配置准备 → 模块调度 → 并行分析 → 状态汇总 → 组合报告</p>
 <div style="background-color: #e7f3fe; border-left: 6px solid #2196F3; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
 💡 <strong>使用说明</strong>：<code>$dnbc4tools</code> 代表可执行程序路径，需替换为您的实际安装路径。本文示例使用换行符 <code>\</code> 分隔命令以提高可读性，实际分析时可写为单行。
 </div>
-
-**核心特点**：
-
+<p><strong>核心特点</strong>：</p>
 <table style="width:100%; border-collapse: collapse; margin: 1.5em 0; box-shadow: 0 2px 3px rgba(0,0,0,0.1);">
   <thead style="background-color: #f2f2f2; border-bottom: 2px solid #ddd;">
     <tr>
@@ -67,17 +187,11 @@ Multi-omics 流程用于统一编排 RNA / ATAC / VDJ 子流程，通过一份�
     </tr>
   </tbody>
 </table>
-
----
-
+<hr>
 <br>
-
-## 📁 输入配置 <a id="输入配置"></a>
-
-### 配置文件结构
-
-`multi run` 使用 CSV 配置文件定义各模块参数和输入数据，通常包含以下分段：
-
+<h2 id="-输入配置-">📁 输入配置 <a id="输入配置"></a></h2>
+<h3 id="配置文件结构">配置文件结构</h3>
+<p><code>multi run</code> 使用 CSV 配置文件定义各模块参数和输入数据，通常包含以下分段：</p>
 <table style="width:100%; border-collapse: collapse; margin: 1.5em 0; box-shadow: 0 2px 3px rgba(0,0,0,0.1);">
   <thead style="background-color: #f2f2f2; border-bottom: 2px solid #ddd;">
     <tr>
@@ -114,22 +228,15 @@ Multi-omics 流程用于统一编排 RNA / ATAC / VDJ 子流程，通过一份�
     </tr>
   </tbody>
 </table>
-
 <div style="background-color: #e7f3fe; border-left: 6px solid #2196F3; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
-📚 <strong>详细配置说明</strong>：请参考 <a href="../parameter/multi.md">Multi 参数文档</a> 了解完整的 CSV 配置规范和参数映射关系。
+📚 <strong>详细配置说明</strong>：请参考 <a href="../parameter/multi.html">Multi 参数文档</a> 了解完整的 CSV 配置规范和参数映射关系。
 </div>
-
----
-
+<hr>
 <br>
-
-### 最小配置示例
-
+<h3 id="最小配置示例">最小配置示例</h3>
 <details open>
 <summary>📄 配置示例</summary>
-
-```csv
-[rna]
+<pre><code class="language-csv">[rna]
 genomeDir,/database/scRNA/Human
 
 [vdj-t]
@@ -139,26 +246,18 @@ ref,human
 fastqs,feature_types
 /rawdata/rna/demo,rna
 /rawdata/tcr/demo,vdj-t
-```
-
+</code></pre>
 </details>
-
----
-
+<hr>
 <br>
-
-### 运行命令
-
-```shell
-$dnbc4tools multi run \
+<h3 id="运行命令">运行命令</h3>
+<pre><code class="language-shell"><span class="hljs-meta prompt_">$</span><span class="language-bash">dnbc4tools multi run \
   --csv sample.csv \
   --name demo \
   --outdir /data/result \
-  --threads 20
-```
-
-**参数说明**：
-
+  --threads 20</span>
+</code></pre>
+<p><strong>参数说明</strong>：</p>
 <table style="width:100%; border-collapse: collapse; margin: 1.5em 0; box-shadow: 0 2px 3px rgba(0,0,0,0.1);">
   <thead style="background-color: #f2f2f2; border-bottom: 2px solid #ddd;">
     <tr>
@@ -190,16 +289,11 @@ $dnbc4tools multi run \
     </tr>
   </tbody>
 </table>
-
----
-
+<hr>
 <br>
-
-### 运行前检查清单
-
+<h3 id="运行前检查清单">运行前检查清单</h3>
 <div style="background-color: #fffbe6; border-left: 6px solid #ffc107; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
 ⚠️ <strong>建议运行前确认以下事项</strong>：
-
 <ol style="margin: 10px 0;">
   <li><code>--csv</code> 与 <code>--name</code> 参数已正确提供</li>
   <li>CSV 文件中至少启用了一个组学模块（包含对应分段）</li>
@@ -207,15 +301,10 @@ $dnbc4tools multi run \
   <li>各模块所需参考数据库参数（如 <code>genomeDir</code>、<code>ref</code>）完整且路径有效</li>
 </ol>
 </div>
-
----
-
+<hr>
 <br>
-
-## 🚀 主流程分析 <a id="主流程分析"></a>
-
-### 执行流程
-
+<h2 id="-主流程分析-">🚀 主流程分析 <a id="主流程分析"></a></h2>
+<h3 id="执行流程">执行流程</h3>
 <table style="width:100%; border-collapse: collapse; margin: 1.5em 0; box-shadow: 0 2px 3px rgba(0,0,0,0.1);">
   <thead style="background-color: #f2f2f2; border-bottom: 2px solid #ddd;">
     <tr>
@@ -246,13 +335,9 @@ $dnbc4tools multi run \
     </tr>
   </tbody>
 </table>
-
----
-
+<hr>
 <br>
-
-### 执行要点
-
+<h3 id="执行要点">执行要点</h3>
 <div style="background-color: #e7f3fe; border-left: 6px solid #2196F3; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
 <strong>核心原则</strong>：
 <ul style="margin: 10px 0;">
@@ -260,17 +345,11 @@ $dnbc4tools multi run \
   <li>某模块失败<b>不会</b>改变其他模块已完成结果，但会反映到最终状态汇总</li>
 </ul>
 </div>
-
 <br>
-
----
-
+<hr>
 <br>
-
-### 典型运行日志
-
-```shell
-Warning: ATAC joint analysis is currently unsupported. Libraries will be analyzed independently and summarized in a single report.
+<h3 id="典型运行日志">典型运行日志</h3>
+<pre><code class="language-shell">Warning: ATAC joint analysis is currently unsupported. Libraries will be analyzed independently and summarized in a single report.
 
 
 ───────────────────────── Running checking libraries — 2026-04-08 13:39:42 ─────────────────────────
@@ -316,22 +395,15 @@ Warning: ATAC joint analysis is currently unsupported. Libraries will be analyze
  2026-04-08 13:40:24 Starting oligo library filtering...    
 
  ...                                        
-```
-
----
-
+</code></pre>
+<hr>
 <br>
-
-## 📊 结果解析 <a id="结果解析"></a>
-
-### 输出目录结构
-
-运行完成后，结果集中在 `<outdir>/<name>/` 目录下：
-
-```text
-<outdir>/<name>/
+<h2 id="-结果解析-">📊 结果解析 <a id="结果解析"></a></h2>
+<h3 id="输出目录结构">输出目录结构</h3>
+<p>运行完成后，结果集中在 <code>&lt;outdir&gt;/&lt;name&gt;/</code> 目录下：</p>
+<pre><code class="language-text">&lt;outdir&gt;/&lt;name&gt;/
 ├── outs/                                    # 整理后的输出结果
-│   ├── <sample>_multi_report.html           # 多组学组合报告
+│   ├── &lt;sample&gt;_multi_report.html           # 多组学组合报告
 │   ├── rna/                                 # RNA 结果目录（若启用）
 │   ├── atac/                                # ATAC 结果目录（若启用）
 │   ├── vdj-t/                               # VDJ-T 结果目录（若启用）
@@ -343,16 +415,11 @@ Warning: ATAC joint analysis is currently unsupported. Libraries will be analyze
 ├── ATAC_ANALYSIS_WORKFLOW_PROCESSING/
 ├── VDJ-T_ANALYSIS_WORKFLOW_PROCESSING/
 └── VDJ-B_ANALYSIS_WORKFLOW_PROCESSING/
-```
-
+</code></pre>
 <br>
-
----
-
+<hr>
 <br>
-
-### 重点输出文件
-
+<h3 id="重点输出文件">重点输出文件</h3>
 <table style="width:100%; border-collapse: collapse; margin: 1.5em 0; box-shadow: 0 2px 3px rgba(0,0,0,0.1);">
   <thead style="background-color: #f2f2f2; border-bottom: 2px solid #ddd;">
     <tr>
@@ -383,39 +450,55 @@ Warning: ATAC joint analysis is currently unsupported. Libraries will be analyze
     </tr>
   </tbody>
 </table>
-
 <div style="background-color: #e7f3fe; border-left: 6px solid #2196F3; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
-📚 <strong>详细输出说明</strong>：请参考 <a href="../outs/multi.md">Multi 输出文档</a> 了解组合报告的详细解读方法。
+📚 <strong>详细输出说明</strong>：请参考 <a href="../outs/multi.html">Multi 输出文档</a> 了解组合报告的详细解读方法。
 </div>
-
----
-
+<hr>
 <br>
-
-## 📚 相关文档
-
+<h2 id="-相关文档">📚 相关文档</h2>
 <br>
-
-| 资源 | 描述 |
-| :--- | :--- |
-| [📋 分析参数设置](../parameter/multi.md) | 查看完整参数选项和说明 |
-| [📝 输出文件解释](../outs/multi.md) | 详细解读分析结果文件 |
-| [🧬 scRNA 流程文档](./scRNA.md) | 单细胞 RNA 分析流程指南 |
-| [🧪 scATAC 流程文档](./scATAC.md) | 单细胞 ATAC 分析流程指南 |
-| [🦠 scVDJ 流程文档](./scVDJ.md) | 单细胞 VDJ 分析流程指南 |
-
+<table>
+<thead>
+<tr>
+<th style="text-align:left">资源</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><a href="../parameter/multi.html">📋 分析参数设置</a></td>
+<td style="text-align:left">查看完整参数选项和说明</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="../outs/multi.html">📝 输出文件解释</a></td>
+<td style="text-align:left">详细解读分析结果文件</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="./scRNA.html">🧬 scRNA 流程文档</a></td>
+<td style="text-align:left">单细胞 RNA 分析流程指南</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="./scATAC.html">🧪 scATAC 流程文档</a></td>
+<td style="text-align:left">单细胞 ATAC 分析流程指南</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="./scVDJ.html">🦠 scVDJ 流程文档</a></td>
+<td style="text-align:left">单细胞 VDJ 分析流程指南</td>
+</tr>
+</tbody>
+</table>
 <br>
-
----
-
+<hr>
 <br>
-
 <div align="center">
-
-> 💡 <strong>需要帮助？</strong>
->
-> 本文档持续更新中，如发现内容错误或需要补充的信息，欢迎反馈。
->
-> 📝 <strong>文档版本：</strong> 3.1 | <strong>最后更新：</strong> 2026年4月
-
+<blockquote>
+<p>💡 <strong>需要帮助？</strong></p>
+<p>本文档持续更新中，如发现内容错误或需要补充的信息，欢迎反馈。</p>
+<p>📝 <strong>文档版本：</strong> 3.1 | <strong>最后更新：</strong> 2026年4月</p>
+</blockquote>
 </div>
+
+            <script async src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
+            
+        </body>
+        </html>

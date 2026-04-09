@@ -4,25 +4,43 @@
 
 </div>
 
+<br>
+
 # 🧬 DNBelab C Series HT scRNA Analysis Output Documentation
+
+<br>
 
 <div align="center">
 
 **A Complete Guide to Single-Cell RNA Sequencing Analysis Output Files**
 
+<br>
+
 [📁 Directory Structure](#output-directory-structure) • [📋 File Details](#detailed-file-description) • [🧬 Data Matrix](#feature-matrix-files) • [📊 Analysis Results](#analysis-results-directory-analysis) • [📊 Report Interpretation](#web-report-interpretation)
 
 </div>
 
+<br>
+
 ---
+
+<br>
 
 ## 📖 Overview <a id="overview"></a>
 
+<br>
+
 After the single-cell RNA analysis is complete, a standardized file and subdirectory structure is generated in the specified output directory, specifically for gene expression profile analysis and cell type identification. This document details the content, format, and purpose of each output file to help users fully understand and efficiently utilize the single-cell RNA analysis results.
+
+<br>
 
 > 💡 **Tip**: All output files use standard formats compatible with mainstream single-cell analysis tools (such as Scanpy, Seurat, etc.) and follow internationally recognized data format specifications.
 
+<br>
+
 ---
+
+<br>
 
 ## 📁 Output Directory Structure <a id="output-directory-structure"></a>
 
@@ -49,9 +67,14 @@ After the single-cell RNA analysis is complete, a standardized file and subdirec
 └── *_scRNA_report.html            # Analysis report in HTML format
 ```
 
+<br>
+
 ---
 
+<br>
+
 ## 📋 Detailed File Description <a id="detailed-file-description"></a>
+
 
 ### 🧬 Alignment and Annotation Files <a id="alignment-and-annotation-files"></a>
 
@@ -327,33 +350,33 @@ A cell-level species assignment file generated for dual-species analyses (e.g., 
         *   `mm10`: Count assigned to mouse reference (mm10)
         *   `call`: Species assignment result (`hg38` / `mm10` / `Multiplet`)
 
-Example:
+    *   **Example**:
 
-```csv
-barcode,hg38,mm10,call
-CELL1_N2,17098,821,hg38
-CELL2_N8,56978,1939,hg38
-CELL5_N2,868,4216,mm10
-CELL8_N2,2371,71601,mm10
-CELL10_N2,1299,36697,mm10
-CELL11_N1,1633,44048,mm10
-CELL14_N3,110102,2919,hg38
-CELL19_N1,763,19995,mm10
-CELL21_N3,44712,1603,hg38
-CELL27_N3,64247,90800,Multiplet
-CELL31_N3,87308,2773,hg38
-CELL32_N2,1871,51359,mm10
-CELL36_N2,871,19635,mm10
-CELL38_N3,42964,1487,hg38
-CELL41_N3,360,6379,mm10
-CELL42_N3,2853,74058,mm10
-CELL43_N7,54863,1875,hg38
-CELL44_N2,14431,638,hg38
-CELL46_N3,4071,129035,mm10
-CELL47_N4,1865,51515,mm10
-CELL49_N2,49776,1521,hg38
-CELL51_N5,1362,40817,mm10
-```
+        ```csv
+        barcode,hg38,mm10,call
+        CELL1_N2,17098,821,hg38
+        CELL2_N8,56978,1939,hg38
+        CELL5_N2,868,4216,mm10
+        CELL8_N2,2371,71601,mm10
+        CELL10_N2,1299,36697,mm10
+        CELL11_N1,1633,44048,mm10
+        CELL14_N3,110102,2919,hg38
+        CELL19_N1,763,19995,mm10
+        CELL21_N3,44712,1603,hg38
+        CELL27_N3,64247,90800,Multiplet
+        CELL31_N3,87308,2773,hg38
+        CELL32_N2,1871,51359,mm10
+        CELL36_N2,871,19635,mm10
+        CELL38_N3,42964,1487,hg38
+        CELL41_N3,360,6379,mm10
+        CELL42_N3,2853,74058,mm10
+        CELL43_N7,54863,1875,hg38
+        CELL44_N2,14431,638,hg38
+        CELL46_N3,4071,129035,mm10
+        CELL47_N4,1865,51515,mm10
+        CELL49_N2,49776,1521,hg38
+        CELL51_N5,1362,40817,mm10
+        ```
 
 ---
 
@@ -472,6 +495,8 @@ An interactive comprehensive analysis report in HTML web format.
 
 ---
 
+<br>
+
 ## 📄 File Format Description <a id="file-format-description"></a>
 
 > **Technical Specifications**: Detailed descriptions of the standard formats used for output files.
@@ -531,6 +556,8 @@ The Market Exchange Format (MEX) is a standard format used in single-cell analys
 | **uns** | Unstructured data | Any object |
 
 ---
+
+<br>
 
 ## 📊 Web Report Interpretation <a id="web-report-interpretation"></a>
 
@@ -1122,14 +1149,23 @@ This page combines droplet-level multiplet statistics, cell-level species scatte
 
 ---
 
-## 🎯 More Resources <a id="more-resources"></a>
+<br>
 
-### 📚 Related Documentation
+## 📚 Related Documentation
 
-- [scRNA pipeline doc](../pipeline/scRNA_en.md)
-- [scRNA parameter doc](../parameter/scRNA_en.md)
+<br>
+
+| Document | Description |
+| :--- | :--- |
+| [🔬 scRNA Pipeline](../pipeline/scRNA_en.md) | Detailed scRNA analysis workflow |
+| [⚙️ scRNA Parameters](../parameter/scRNA_en.md) | Command parameter reference |
+| [📁 Output Files](./outs.md) | Return to output documentation index |
+
+<br>
 
 ---
+
+<br>
 
 <div align="center">
 
@@ -1138,10 +1174,5 @@ This page combines droplet-level multiplet statistics, cell-level species scatte
 > This document is continuously updated. If you find any errors or need additional information, please provide feedback.
 > 
 > 📝 <strong>Document Version:</strong> 3.1 | <strong>Last Updated:</strong> April 2026
-
----
-
-<strong>🔬 DNBelab C Series HT scRNA Analysis Software</strong>  
-<em>A High-Performance Single-Cell RNA Sequencing Data Analysis Pipeline</em>
 
 </div>

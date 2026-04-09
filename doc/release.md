@@ -1,18 +1,30 @@
 <div align="right">
-  <a href="../README.md">Home</a>
+
+[🏠 Home](../README.md)
+
 </div>
 
+<br>
+
 # Release Notes
+
+<br>
 
 <div align="center">
 
 **Official release history of DNBelab C Series™ HT Single-Cell Analysis Software**
 
+<br>
+
 [◆ Latest Release](#latest-release) • [◆ All Versions](#release-history) • [◆ Version Guide](#version-selection-guide)
 
 </div>
 
+<br>
+
 ---
+
+<br>
 
 ## ◆ Latest Release <a id="latest-release"></a>
 

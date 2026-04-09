@@ -4,13 +4,19 @@
 
 </div>
 
+<br>
+
 # 🧬 DNBelab C Series HT scVDJ Analysis Parameters
+
+<br>
 
 <div align="center">
 
 [🔬 Main Analysis Pipeline (run)](#main-analysis-pipeline-run)
 
 </div>
+
+<br>
 
 ---
 
@@ -299,24 +305,29 @@ CCTGGACTCCTGGGCCCCAG</code></pre>
 
 ---
 
-### 📚 Related Docs
+<br>
 
-- [scVDJ Pipeline Doc](../pipeline/scVDJ_en.md)
-- [scVDJ Output Doc](../outs/scVDJ_en.md)
+## 📚 Related Documentation
+
+<br>
+
+| Resource | Description |
+| :--- | :--- |
+| [🔬 scVDJ Pipeline](../pipeline/scVDJ_en.md) | Single-cell VDJ analysis workflow guide |
+| [📁 scVDJ Output](../outs/scVDJ_en.md) | Detailed output file interpretation |
+
+<br>
 
 ---
+
+<br>
 
 <div align="center">
 
-> 💡 <strong>Tip</strong>
+> 💡 <strong>Need Help?</strong>
 >
-> This document is continuously updated. If you find any errors or have information to add, your feedback is welcome.
+> This document is continuously updated. If you find any errors or have information to add, feedback is welcome.
 >
 > 📝 <strong>Document Version:</strong> 3.1 | <strong>Last Updated:</strong> April 2026
-
----
-
-<strong>🧬 DNBelab C Series HT scVDJ Analysis Software</strong>  
-<em>High-performance single-cell immune repertoire data analysis pipeline</em>
 
 </div>

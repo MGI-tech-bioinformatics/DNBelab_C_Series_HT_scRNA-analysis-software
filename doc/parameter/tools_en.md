@@ -517,25 +517,30 @@ Options:
 
 ---
 
-### 📚 Related Docs
+<br>
 
-- [Tools parameter index](./parameter.md)
-- [Outputs index](../outs/outs.md)
-- [Pipeline index](../pipeline/pipeline.md)
+## 📚 Related Documentation
+
+<br>
+
+| Resource | Description |
+| :--- | :--- |
+| [⚙️ Tools Overview](./parameter.md) | Overview of all tool parameters |
+| [📁 Outputs](../outs/outs.md) | Detailed output file interpretation |
+| [🔬 Pipelines](../pipeline/pipeline.md) | Analysis workflow guides |
+
+<br>
 
 ---
+
+<br>
 
 <div align="center">
 
-> 💡 <strong>Tip</strong>
-> 
-> This document is continuously updated. If you find any errors or have information to add, your feedback is welcome.
-> 
+> 💡 <strong>Need Help?</strong>
+>
+> This document is continuously updated. If you find any errors or have information to add, feedback is welcome.
+>
 > 📝 <strong>Document Version:</strong> 3.1 | <strong>Last Updated:</strong> April 2026
-
----
-
-<strong>🛠️ DNBelab C Series HT Tool-based Analysis Parameters</strong>  
-<em>A parameter configuration guide for high-performance single-cell data analysis tools</em>
 
 </div>

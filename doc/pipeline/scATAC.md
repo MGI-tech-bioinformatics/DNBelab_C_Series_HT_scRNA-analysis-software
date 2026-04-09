@@ -4,19 +4,31 @@
 
 </div>
 
+<br>
+
 # 🧬 DNBelab C Series HT scATAC 分析流程
+
+<br>
 
 <div align="center">
 
 **单细胞 ATAC 测序数据分析完整指南**
 
+<br>
+
 [📋 概述](#概述) • [📁 文件准备](#文件准备) • [📊 参考数据库](#参考数据库) • [🚀 主分析流程](#主分析流程) • [📊 结果解析](#结果解析)
 
 </div>
 
+<br>
+
 ---
 
+<br>
+
 ## 📋 概述 <a id="概述"></a>
+
+<br>
 
 本文档详细介绍了使用 dnbc4tools 进行单细胞 ATAC 测序数据分析的完整流程。
 
@@ -191,6 +203,8 @@ $dnbc4tools atac mkref \
 
 ---
 
+<br>
+
 ## 🚀 主分析流程 <a id="主分析流程"></a>
 
 ### 多样本批处理（可选）
@@ -363,14 +377,44 @@ $dnbc4tools atac run \
 └── singlecell.csv
 ```
 
-### 📚 相关文档
-
-- [📊 输出文件使用方法](../io.md)
-- [📋 分析参数设置](../parameter/scATAC.md)
-- [📝 输出文件解释](../outs/scATAC.md)
+<br>
 
 ---
+
+<br>
+
+## 📚 相关文档
+
+<br>
+
+| 资源 | 描述 |
+| :--- | :--- |
+| [📊 输出文件使用方法](../io.md) | 了解输出文件结构和格式 |
+| [📋 分析参数设置](../parameter/scATAC.md) | 查看完整参数选项和说明 |
+| [📝 输出文件解释](../outs/scATAC.md) | 详细解读分析结果文件 |
+
+<br>
+
+---
+
+<br>
 
 ## ❓ 常见问题
 
 > <em>Content coming soon...</em>
+
+<br>
+
+---
+
+<br>
+
+<div align="center">
+
+> 💡 <strong>需要帮助？</strong>
+>
+> 本文档持续更新中，如发现内容错误或需要补充的信息，欢迎反馈。
+>
+> 📝 <strong>文档版本：</strong> 3.1 | <strong>最后更新：</strong> 2026年4月
+
+</div>

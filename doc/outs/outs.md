@@ -4,23 +4,39 @@
 
 </div>
 
+<br>
+
 # 📁 DNBelab C Series Analysis Outputs
+
+<br>
 
 <div align="center">
 
 **A complete guide to understanding your analysis results**
 
+<br>
+
 </div>
 
+<br>
+
 ---
+
+<br>
 
 <div style="background-color: #e7f3fe; border-left: 6px solid #2196F3; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
 💡 <strong>Quick Tip</strong>: Select your analysis type below to view detailed output file descriptions and report interpretation guides.
 </div>
 
+<br>
+
 ---
 
+<br>
+
 ## 🔬 Output Guides
+
+<br>
 
 | Analysis Type | Description & Key Features | Documentation |
 | :--- | :--- | :--- |
@@ -29,9 +45,15 @@
 | **🦠 Single-Cell VDJ** | **Pipeline**: V(D)J repertoire analysis outputs. <br> <ul><li>Full-length V(D)J sequence reconstruction</li><li>Clonotype identification and grouping</li><li>Cell-level receptor annotations</li><li>Comprehensive assembly metrics</li></ul> | [**➡️ English Guide**](./scVDJ_en.md) <br> [**➡️ 中文指南**](./scVDJ.md) |
 | **🧩 Multi-omics** | **Pipeline**: Integrated multi-omics outputs. <br> <ul><li>Unified multi-omics HTML report</li><li>Per-module status summary</li><li>Organized RNA/ATAC/VDJ outputs in one run directory</li><li>Run manifest and diagnostics logs</li></ul> | [**➡️ English Guide**](./multi_en.md) <br> [**➡️ 中文指南**](./multi.md) |
 
+<br>
+
 ---
 
+<br>
+
 ## 📚 Related Documentation
+
+<br>
 
 | Resource | Description |
 | :--- | :--- |
@@ -40,7 +62,11 @@
 | [🚀 Quick Start](../quickstart.md) | Get started in 5 minutes |
 | [🔧 Installation](../installation.md) | Software setup and requirements |
 
+<br>
+
 ---
+
+<br>
 
 <div align="center">
 

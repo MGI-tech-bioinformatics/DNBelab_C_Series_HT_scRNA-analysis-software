@@ -289,6 +289,7 @@ dnbc4tools rna run --name sample1 --fastqs ./fq --genomeDir ./ref --minumi 500</
     </ul>
   </li>
   <li><strong>Note:</strong> Any additional columns are ignored and do not affect pipeline execution.</li>
+  <li><strong>Caution:</strong> If both <code>cell</code> and <code>barcode</code> are present, the oligo data analysis results will not contribute to the final merging. Any other oligo data not from this sample can be used without affecting the analysis results.</li>
 </ul>
 <p><strong>Default:</strong> None</p>
 <p><strong>Example:</strong></p>
@@ -818,24 +819,29 @@ SampleB	/path/to/B_cDNA_L01_R1.fq.gz,/path/to/B_cDNA_L02_R1.fq.gz;/path/to/B_cDN
 
 ---
 
-### 📚 Related Docs
+<br>
 
-- [scRNA Pipeline Doc](../pipeline/scRNA_en.md)
-- [scRNA Output Doc](../outs/scRNA_en.md)
+## 📚 Related Documentation
+
+<br>
+
+| Resource | Description |
+| :--- | :--- |
+| [🔬 scRNA Pipeline](../pipeline/scRNA_en.md) | Single-cell RNA analysis workflow guide |
+| [📁 scRNA Output](../outs/scRNA_en.md) | Detailed output file interpretation |
+
+<br>
 
 ---
+
+<br>
 
 <div align="center">
 
-> 💡 <strong>Tip</strong>
+> 💡 <strong>Need Help?</strong>
 >
-> This document is continuously updated. If you find any errors or have information to add, your feedback is welcome.
+> This document is continuously updated. If you find any errors or have information to add, feedback is welcome.
 >
 > 📝 <strong>Document Version:</strong> 3.1 | <strong>Last Updated:</strong> April 2026
-
----
-
-<strong>🧬 DNBelab C Series HT scRNA Analysis Software</strong>  
-<em>High-performance single-cell transcriptome data analysis pipeline</em>
 
 </div>

@@ -1,12 +1,22 @@
 <div align="right">
-  <a href="../README.md">Home</a>
+
+[🏠 Home](../README.md)
+
 </div>
+
+<br>
 
 # DNBelab C Series Demo Datasets
 
+<br>
+
 Demo datasets are hosted on CNGB (China National GeneBank). Only mouse samples data is provided.
 
+<br>
+
 ---
+
+<br>
 
 <table style="width:100%; border-collapse: collapse; margin: 1.5em 0;">
   <thead style="background-color: #f2f2f2; border-bottom: 2px solid #ddd;">
@@ -19,7 +29,7 @@ Demo datasets are hosted on CNGB (China National GeneBank). Only mouse samples d
   <tbody>
     <tr>
       <td style="padding: 12px 15px; border: 1px solid #ddd;"><b>scRNA-seq v3</b></td>
-      <td style="padding: 12px 15px; border: 1px solid #ddd;">Mouse sample with separate cDNA (large) and Oligo (small) libraries.</td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;">Mouse sample with separate cDNA and Oligo libraries.</td>
       <td style="padding: 12px 15px; border: 1px solid #ddd;"><a href="https://db.cngb.org/data_resources/project/CNP0005575/" target="_blank">CNP0005575</a></td>
     </tr>
     <tr>

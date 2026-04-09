@@ -139,20 +139,29 @@
         </head>
         <body class="vscode-body vscode-light">
             <div align="right">
-<p><a href="../../README.html">🏠 主页</a> | <a href="scATAC_en.html">🌐 English</a></p>
+<p><a href="../../README.html">🏠 主页</a> • <a href="scATAC_en.html">English</a></p>
 </div>
+<br>
 <h1 id="-dnbelab-c-series-ht-scatac-分析输出文档">🧬 DNBelab C Series HT scATAC 分析输出文档</h1>
+<br>
 <div align="center">
-<p><strong>单细胞ATAC测序分析输出文件完整指南</strong></p>
+<p><strong>单细胞 ATAC 测序分析输出文件完整指南</strong></p>
+<br>
 <p><a href="#%E8%BE%93%E5%87%BA%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84">📁 目录结构</a> • <a href="#%E8%AF%A6%E7%BB%86%E6%96%87%E4%BB%B6%E8%AF%B4%E6%98%8E">📋 文件详情</a> • <a href="#%E5%B3%B0%E7%9F%A9%E9%98%B5%E6%96%87%E4%BB%B6">🧬 数据矩阵</a> • <a href="#%E5%88%86%E6%9E%90%E6%8C%87%E6%A0%87%E6%B1%87%E6%80%BB">📊 分析结果</a> • <a href="#%E7%BD%91%E9%A1%B5%E6%8A%A5%E5%91%8A%E9%87%8A%E4%B9%89">📊 报告解读</a></p>
 </div>
+<br>
 <hr>
+<br>
 <h2 id="-概述-">📖 概述 <a id="概述"></a></h2>
-<p>单细胞ATAC测序分析完成后，会在指定的输出目录中生成标准化的文件和子目录结构，专门用于染色质可及性分析和表观基因组学研究。本文档详细说明了每个输出文件的内容、格式和用途，帮助用户充分理解和高效利用单细胞ATAC分析结果。</p>
+<br>
+<p>单细胞 ATAC 测序分析完成后，会在指定的输出目录中生成标准化的文件和子目录结构，专门用于染色质可及性分析和表观基因组学研究。本文档详细说明每个输出文件的内容、格式和用途，帮助用户充分理解并高效利用单细胞 ATAC 分析结果。</p>
+<br>
 <blockquote>
 <p>💡 <strong>提示</strong>: 所有输出文件均采用标准格式，兼容主流单细胞表观基因组分析工具（如Signac、ArchR等），遵循国际通用的数据格式规范。</p>
 </blockquote>
+<br>
 <hr>
+<br>
 <h2 id="-输出目录结构-">📁 输出目录结构 <a id="输出目录结构"></a></h2>
 <pre><code>.
 ├── alignment.fragments.sorted.tagged.bam       # 质控后的比对结果（分析需添加need_bam参数）
@@ -173,13 +182,15 @@
 ├── singlecell.csv                              # 细胞信息汇总表
 └── *_scATAC_report.html                        # HTML格式的分析报告
 </code></pre>
+<br>
 <hr>
+<br>
 <h2 id="-文件详细说明-">📋 文件详细说明 <a id="详细文件说明"></a></h2>
 <h3 id="-atac片段和峰文件-">🧬 ATAC片段和峰文件 <a id="atac片段和峰文件"></a></h3>
 <div align="center">
-<p><strong>🎯 核心内容</strong>: ATAC-seq片段信息和峰识别结果，包含完整的染色质可及性数据和细胞条形码标记</p>
+<p><strong>🎯 核心内容</strong>: ATAC-seq 片段信息和峰识别结果，包含完整的染色质可及性数据和细胞条形码标记</p>
 </div>
-<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
+<hr>
 <h4 id="-fragmentstsvgz">📄 fragments.tsv.gz</h4>
 <p><code>fragments.tsv.gz</code> 是一个包含 ATAC-seq 片段信息的压缩 TSV 文件，是进行下游分析的核心数据之一。它的主要特点和内容如下：</p>
 <ul>
@@ -239,7 +250,7 @@
 </ul>
 </li>
 </ul>
-<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
+<hr>
 <h4 id="-fragmentstsvgztbi">📄 fragments.tsv.gz.tbi</h4>
 <p><code>fragments.tsv.gz</code> 文件的 Tabix 索引。</p>
 <ul>
@@ -255,7 +266,7 @@
 </ul>
 </li>
 </ul>
-<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
+<hr>
 <h4 id="-filteredfragmentstsvgz">📄 filtered.fragments.tsv.gz</h4>
 <p>这是经过细胞质量控制和过滤后的 ATAC-seq 片段文件，是 <code>fragments.tsv.gz</code> 的子集，仅包含高质量细胞的片段。</p>
 <ul>
@@ -268,11 +279,11 @@
 <li><strong>内容与格式</strong>:
 <ul>
 <li>文件格式与 <code>fragments.tsv.gz</code> 完全相同（压缩的 BED-like TSV），包含相同的5列信息。</li>
-<li>仅包含通过细胞过滤算法（例如，基于TSS富集和峰区域覆盖的片段数）被识别为“真实细胞”的片段。</li>
+<li>仅包含通过细胞过滤算法（例如，基于TSS富集和峰区域覆盖的片段数）被识别为&quot;真实细胞&quot;的片段。</li>
 </ul>
 </li>
 </ul>
-<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
+<hr>
 <h4 id="-filteredfragmentstsvgztbi">📄 filtered.fragments.tsv.gz.tbi</h4>
 <p><code>filtered.fragments.tsv.gz</code> 文件的 Tabix 索引。</p>
 <ul>
@@ -287,7 +298,7 @@
 </ul>
 </li>
 </ul>
-<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
+<hr>
 <h4 id="-alignmentfragmentssortedtaggedbam">📄 alignment.fragments.sorted.tagged.bam</h4>
 <p>这是包含所有具有有效条形码（valid barcode）并且成功比对的片段的 ATAC-seq 比对结果文件。</p>
 <ul>
@@ -328,7 +339,7 @@
 <tr>
 <td align="left"><code>CC</code></td>
 <td align="left">Z</td>
-<td>经过错误校正细胞条形码序列</td>
+<td>经过错误校正的细胞条形码序列</td>
 </tr>
 <tr>
 <td align="left"><code>CR</code></td>
@@ -341,7 +352,7 @@
 </ul>
 </li>
 </ul>
-<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
+<hr>
 <h4 id="-alignmentfragmentssortedtaggedbambai">📄 alignment.fragments.sorted.tagged.bam.bai</h4>
 <p><code>alignment.fragments.sorted.tagged.bam</code> 文件的索引。</p>
 <ul>
@@ -408,7 +419,7 @@
 </ul>
 </li>
 </ul>
-<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
+<hr>
 <h4 id="-原始峰矩阵-raw_peak_matrix">📁 原始峰矩阵 (<code>raw_peak_matrix/</code>)</h4>
 <p>包含所有检测到的细胞条形码（未经过滤）的原始峰计数矩阵。</p>
 <ul>
@@ -484,7 +495,7 @@
 </ul>
 </li>
 </ul>
-<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
+<hr>
 <h4 id="-singlecellcsv">📄 singlecell.csv</h4>
 <p>采用 CSV 格式的单细胞级别质量控制信息表，记录了每个细胞条形码的详细统计数据。</p>
 <ul>
@@ -503,7 +514,7 @@
 </ul>
 </li>
 </ul>
-<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
+<hr>
 <h4 id="-_scatac_reporthtml">📄 *_scATAC_report.html</h4>
 <p>采用 HTML 网页格式的交互式综合分析报告。</p>
 <ul>
@@ -547,6 +558,7 @@
 </li>
 </ul>
 <hr>
+<br>
 <h2 id="-文件格式说明-">📄 文件格式说明 <a id="文件格式说明"></a></h2>
 <blockquote>
 <p><strong>技术规范</strong>: 输出文件采用的标准格式详细说明</p>
@@ -591,11 +603,12 @@
 </li>
 </ul>
 <hr>
+<br>
 <h2 id="-网页报告释义-">📊 网页报告释义 <a id="网页报告释义"></a></h2>
 <div align="center">
-<p><strong>🎯 概述</strong>: HTML 网页报告提供了单细胞ATAC测序分析结果的全面可视化展示和详细解读，包含关键性能指标的评估，帮助用户快速了解实验质量和分析结果</p>
+<p><strong>🎯 概述</strong>: HTML 网页报告提供了单细胞 ATAC 测序分析结果的全面可视化展示和详细解读，包含关键性能指标的评估，帮助用户快速了解实验质量和分析结果</p>
 </div>
-<p>HTML网页报告是单细胞ATAC测序分析的综合展示平台，整合了从数据质量控制到下游表观基因组学分析的完整结果。该报告采用交互式可视化设计，帮助用户快速评估实验质量、理解分析结果并指导后续研究方向。</p>
+<p>HTML 网页报告是单细胞 ATAC 测序分析的综合展示平台，整合了从数据质量控制到下游表观基因组学分析的完整结果。该报告采用交互式可视化设计，帮助用户快速评估实验质量、理解分析结果并指导后续研究方向。</p>
 <blockquote>
 <p>💡 <strong>使用建议</strong>: 建议按照报告展示顺序依次查看各项指标。</p>
 </blockquote>
@@ -727,7 +740,7 @@
 <td>
 <ul>
 <li><strong>定义</strong>: 单个细胞内，其片段（fragments）落入开放染色质区域（Peaks）的比例。</li>
-<li><strong>生物学意义</strong>: 这是一个关键的信噪比指标。高比例意味着转座酶攻击更集中于开放染色质，数据信噪比高。</li>
+<li><strong>生物学意义</strong>: 这是一个关键的信噪比指标。高比例意味着转座酶切割更集中于开放染色质，数据信噪比高。</li>
 <li><strong>质量判读</strong>:
 <ul><li><strong>质量警告</strong>: < 15% 可能提示样本质量问题。</li></ul>
 </li>
@@ -780,7 +793,7 @@
 </tr>
 </tbody>
 </table>
-<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
+<hr>
 <h4 id="-测序指标-sequencing-metrics-">🔬 测序指标 (Sequencing Metrics) <a id="测序指标"></a></h4>
 <div align="center">
 <p><strong>🎯 核心功能</strong>: 测序数据的基础质量评估，包括条形码识别率、比对质量和测序准确性</p>
@@ -841,7 +854,7 @@
 </td>
 <td>
 <ul>
-<li><strong>定义</strong>: 分配给该样本的原始测序读段对（Read Pairs）的总数量。</li>
+<li><strong>定义</strong>: 分配给该样本的原始测序读段对（Read Pairs）总数。</li>
 <li><strong>意义</strong>: 代表本次测序的总体数据量。</li>
 </ul>
 </td>
@@ -876,7 +889,7 @@
 <tr>
 <td align="left">
 <strong>Mitochondria reads ratio</strong><br>
-<em>线粒体reads比例</em>
+<em>线粒体 reads 比例</em>
 </td>
 <td>
 <ul>
@@ -895,7 +908,7 @@
 <ul>
 <li><strong>定义</strong>: 来自开放染色质区域（即无核小体区域）的片段比例。</li>
 <li><strong>生物学意义</strong>: 反映了有效的ATAC-seq信号强度。</li>
-<li><strong>质量判读</strong>: 高比例（如 > 40%）表示良好的染色质可及性信号和高效的转座酶活性。</li>
+<li><strong>质量判读</strong>: 高比例（如 > 40%）表示良好的染色质可及性信号和高效的转座酶效率。</li>
 </ul>
 </td>
 </tr>
@@ -907,7 +920,7 @@
 <td>
 <ul>
 <li><strong>定义</strong>: 包含单个核小体的片段区域所占的比例。</li>
-<li><strong>生物学意义</strong>: 反映了染色质结构的完整性。该指标与“无核小体区域比例”共同评估染色质状态。</li>
+<li><strong>生物学意义</strong>: 反映了染色质结构的完整性。该指标与"无核小体区域比例"共同评估染色质状态。</li>
 </ul>
 </td>
 </tr>
@@ -918,8 +931,8 @@
 </td>
 <td>
 <ul>
-<li><strong>定义</strong>: 在细胞条形码（Cell Barcode）序列中，测序质量值Q30及以上的碱基所占的比例。</li>
-<li><strong>意义</strong>: Q30代表碱基的测序错误率低于0.1%，该指标直接影响细胞身份识别的准确性。</li>
+<li><strong>定义</strong>: 在细胞条形码（Cell Barcode）序列中，测序质量值 Q30 及以上的碱基所占比例。</li>
+<li><strong>意义</strong>: Q30 代表碱基测序错误率低于 0.1%，该指标直接影响细胞身份识别的准确性。</li>
 </ul>
 </td>
 </tr>
@@ -930,14 +943,14 @@
 </td>
 <td>
 <ul>
-<li><strong>定义</strong>: 在测序读段（Read）序列中，测序质量值Q30及以上的碱基所占的比例。</li>
+<li><strong>定义</strong>: 在测序读段（Read）序列中，测序质量值 Q30 及以上的碱基所占比例。</li>
 <li><strong>意义</strong>: 反映了整体测序数据的质量水平，是后续比对和片段识别准确性的基础。</li>
 </ul>
 </td>
 </tr>
 </tbody>
 </table>
-<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
+<hr>
 <h4 id="-可视化图表1-">📈 可视化图表1 <a id="可视化图表1"></a></h4>
 <div align="center">
 <p><strong>🎯 核心功能</strong>: 细胞质量控制、片段分析和染色质可及性评估的多维度可视化展示</p>
@@ -955,7 +968,7 @@
 </li>
 <li><strong>关键特征 (Knee Point)</strong>:
 <ul>
-<li>图中曲线通常会有一个明显的“拐点”（Knee Point）。</li>
+<li>图中曲线通常会有一个明显的&quot;拐点&quot;（Knee Point）。</li>
 <li>拐点左侧的 <strong>蓝色区域</strong> 代表被算法识别为高质量的真实细胞。</li>
 <li>拐点右侧的 <strong>灰色区域</strong> 则代表背景噪音。</li>
 </ul>
@@ -967,7 +980,7 @@
 </ul>
 </li>
 </ul>
-<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
+<hr>
 <h5 id="-液滴磁珠分布图-droplet-beads-distribution">📊 液滴磁珠分布图 (Droplet Beads Distribution)</h5>
 <p><strong>图表功能</strong>:<br>
 展示在真实细胞液滴中，捕获到的细胞条形码（Beads）的数量分布情况。</p>
@@ -976,7 +989,7 @@
 <li><strong>理论分布</strong>: 液滴中磁珠的数量分布理论上符合<strong>泊松分布</strong>，这反映了微反应体系中随机捕获过程的统计特性。</li>
 <li><strong>实际影响</strong>: 最终的分布会受到测序饱和度、液滴大小均一性、细胞浓度等实验因素的影响。</li>
 </ul>
-<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
+<hr>
 <h5 id="-细胞数据分布图-cell-data-distribution">📊 细胞数据分布图 (Cell Data Distribution)</h5>
 <p><strong>图表功能</strong>:<br>
 通过三个独立的小提琴图（Violin Plots），分别展示高质量细胞在 <strong>片段数 (Fragments)</strong>、<strong>TSS富集比例 (TSS Proportion)</strong> 和 <strong>Peak区域片段比例 (Peak Proportion)</strong> 这三个关键质量指标上的分布情况。</p>
@@ -996,7 +1009,7 @@
 </ul>
 </li>
 </ul>
-<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
+<hr>
 <h5 id="-片段长度分布图-fragment-length-distribution">📊 片段长度分布图 (Fragment Length Distribution)</h5>
 <p><strong>图表功能</strong>:<br>
 展示去重后ATAC-seq片段的插入长度分布，是评估样本质量和染色质结构完整性的关键图表。</p>
@@ -1032,7 +1045,7 @@
 </ul>
 </li>
 </ul>
-<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
+<hr>
 <p><strong>Jaccard threshold</strong> (Jaccard相似度阈值)</p>
 <ul>
 <li><strong>定义</strong>: 用于判断任意两个磁珠（Beads）是否来自同一个细胞液滴的相似度阈值。</li>
@@ -1046,7 +1059,7 @@
 </div>
 <h5 id="-细胞聚类分析图-cluster-analysis">🌀 细胞聚类分析图 (Cluster Analysis)</h5>
 <p><strong>图表功能</strong>:<br>
-通过UMAP降维和Louvain聚类算法，将具有相似染色质可及性模式的细胞在二维空间中聚集在一起，从而识别潜在的细胞亚群。</p>
+通过 UMAP 降维和 Louvain 聚类算法，将具有相似染色质可及性模式的细胞在二维空间中聚集在一起，从而识别潜在的细胞亚群。</p>
 <p><strong>如何解读</strong>:</p>
 <ul>
 <li><strong>左图 (细胞类型聚类)</strong>:
@@ -1058,12 +1071,12 @@
 </li>
 <li><strong>右图 (片段数分布)</strong>:
 <ul>
-<li>在与左图相同的UMAP空间上，用颜色梯度展示每个细胞的总片段数。</li>
+<li>在与左图相同的 UMAP 空间上，用颜色梯度展示每个细胞的总片段数。</li>
 <li>颜色越深，代表该细胞的片段数越多，数据质量越高。可用于辅助判断聚类结果的可靠性。</li>
 </ul>
 </li>
 </ul>
-<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
+<hr>
 <h5 id="-转录起始位点tss富集图-tss-enrichment-profile">📈 转录起始位点(TSS)富集图 (TSS Enrichment Profile)</h5>
 <p><strong>图表功能</strong>:<br>
 展示在所有基因的转录起始位点（TSS）周围，ATAC-seq片段切割位点的富集情况，是衡量ATAC-seq信噪比和数据质量的核心指标。</p>
@@ -1088,7 +1101,7 @@
 </ul>
 </li>
 </ul>
-<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
+<hr>
 <h5 id="-单细胞靶向图-single-cell-targeting-plot">📊 单细胞靶向图 (Single Cell Targeting Plot)</h5>
 <p><strong>图表功能</strong>:<br>
 通过散点图展示每个细胞的两个关键质量指标，用于评估细胞识别（Cell Calling）算法的效果。</p>
@@ -1108,7 +1121,7 @@
 </ul>
 </li>
 </ul>
-<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
+<hr>
 <h5 id="-饱和度曲线图-saturation-curve">📈 饱和度曲线图 (Saturation Curve)</h5>
 <p><strong>图表功能</strong>:<br>
 评估测序深度的充分性和数据复杂度，即继续增加测序量能否发现更多新的（Unique）片段。</p>
@@ -1128,7 +1141,7 @@
 </li>
 <li><strong>质量评估</strong>: 饱和度（重复率）是该曲线的量化指标。建议饱和度在20%-50%之间，以在成本和数据完整性之间取得平衡。</li>
 </ul>
-<div align="left" style="color: #ccc; margin: 2em 0;">-----------</div>
+<hr>
 <h5 id="-磁珠相似性排序图-bead-similarity-ranking">📊 磁珠相似性排序图 (Bead Similarity Ranking)</h5>
 <p><strong>图表功能</strong>:<br>
 该图用于C4 ATAC技术中，通过计算Jaccard相似度来合并来自同一细胞液滴的多个磁珠（Beads）。</p>
@@ -1148,44 +1161,42 @@
 </li>
 </ul>
 <hr>
-<h2 id="-更多资源-">🎯 更多资源 <a id="更多资源"></a></h2>
-<h3 id="-相关文档">📚 相关文档</h3>
-<table style="width:100%; border-collapse: collapse; margin: 15px 0;">
+<br>
+<h2 id="-相关文档">📚 相关文档</h2>
+<br>
+<table>
 <thead>
 <tr>
-<th width="30%" align="left"><strong>文档类型</strong></th>
-<th width="70%" align="left"><strong>资源链接和描述</strong></th>
+<th style="text-align:left">文档</th>
+<th style="text-align:left">说明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left"><strong>🚀 快速入门</strong></td>
-<td><a href="../quickstart.html">快速入门指南</a> - 第一次分析的完整教程</td>
+<td style="text-align:left"><a href="../pipeline/scATAC.html">🔬 scATAC 流程</a></td>
+<td style="text-align:left">scATAC 分析流程详细说明</td>
 </tr>
 <tr>
-<td align="left"><strong>⚙️ 参数参考</strong></td>
-<td><a href="../parameter/parameter.html">参数参考手册</a> - 所有可配置参数的详细说明</td>
+<td style="text-align:left"><a href="../parameter/scATAC.html">⚙️ scATAC 参数</a></td>
+<td style="text-align:left">命令参数参考文档</td>
 </tr>
 <tr>
-<td align="left"><strong>🔬 分析流程</strong></td>
-<td><a href="../pipeline/pipeline.html">分析流程说明</a> - 整个分析流程的技术细节</td>
-</tr>
-<tr>
-<td align="left"><strong>🔧 安装配置</strong></td>
-<td><a href="../installation.html">安装配置指南</a> - 系统要求、安装步骤和环境配置</td>
+<td style="text-align:left"><a href="./outs.html">📁 输出文件</a></td>
+<td style="text-align:left">返回总输出文档索引</td>
 </tr>
 </tbody>
 </table>
+<br>
+<hr>
+<br>
 <div align="center">
 <blockquote>
 <p>💡 <strong>提示</strong></p>
 <p>本文档持续更新中，如发现内容错误或需要补充的信息，欢迎反馈。</p>
-<p>📝 <strong>文档版本：</strong> 3.0 | <strong>最后更新：</strong> 2025年</p>
+<p>📝 <strong>文档版本：</strong> 3.1 | <strong>最后更新：</strong> 2026年4月</p>
 </blockquote>
-<hr>
-<p><strong>🔬 DNBelab C Series HT scATAC Analysis Software</strong><br>
-<em>高性能单细胞ATAC测序数据分析流程</em></p>
 </div>
+
             
             
         </body>

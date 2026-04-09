@@ -1,18 +1,30 @@
 <div align="right">
-  <a href="../README.md">Home</a>
+
+[🏠 Home](../README.md)
+
 </div>
 
+<br>
+
 # Quick Start Guide
+
+<br>
 
 <div align="center">
 
 **Get started with dnbc4tools**
 
+<br>
+
 [◆ RNA-seq](#single-cell-rna-analysis) • [◆ ATAC-seq](#single-cell-atac-analysis) • [◆ VDJ-seq](#single-cell-vdj-analysis) • [◆ Multi-omics](#integrated-multi-omics-analysis)
 
 </div>
 
+<br>
+
 ---
+
+<br>
 
 ## Prerequisites
 
@@ -33,8 +45,8 @@
 The pipeline automatically detects paired-end files based on naming patterns. The following conventions are supported:
 <ul>
   <li><strong>Supported extensions:</strong> <code>.fastq.gz</code>, <code>.fq.gz</code>, <code>.fastq</code>, <code>.fq</code></li>
-  <li><strong>R1 patterns:</strong> <code>_R1_</code>, <code>_R1</code>, <code>_1</code>, <code>R1</code>, <code>_read1</code></li>
-  <li><strong>R2 patterns:</strong> <code>_R2_</code>, <code>_R2</code>, <code>_2</code>, <code>R2</code>, <code>_read2</code></li>
+  <li><strong>R1 patterns:</strong> <code>_R1_</code>, <code>_R1</code>, <code>_1</code>, <code>_read1</code></li>
+  <li><strong>R2 patterns:</strong> <code>_R2_</code>, <code>_R2</code>, <code>_2</code>, <code>_read2</code></li>
 </ul>
 Examples: <code>sample_R1.fastq.gz</code>, <code>sample_1.fastq.gz</code>, <code>sample_R1_001.fastq.gz</code> are all recognized as R1 files.
 </div>
@@ -58,8 +70,8 @@ gzip -d GRCh38.primary_assembly.genome.fa.gz
 gzip -d gencode.v32.primary_assembly.annotation.gtf.gz
 
 # Build reference
-$dnbc4tools tools mkgtf --ingtf gencode.v32.primary_assembly.annotation.gtf --output genes.filter.gtf --type gene_type
-$dnbc4tools rna mkref --ingtf genes.filter.gtf --fasta GRCh38.primary_assembly.genome.fa --threads 10 --species Homo_sapiens
+$dnbc4tools tools mkgtf --ingtf gencode.v32.primary_assembly.annotation.gtf --output genes.filtered.gtf
+$dnbc4tools rna mkref --ingtf genes.filtered.gtf --fasta GRCh38.primary_assembly.genome.fa --threads 10 --species Homo_sapiens
 ```
 
 **Mouse (GRCm38)**
@@ -73,8 +85,8 @@ gzip -d GRCm38.primary_assembly.genome.fa.gz
 gzip -d gencode.vM23.primary_assembly.annotation.gtf.gz
 
 # Build reference
-$dnbc4tools tools mkgtf --ingtf gencode.vM23.primary_assembly.annotation.gtf --output genes.filter.gtf --type gene_type
-$dnbc4tools rna mkref --ingtf genes.filter.gtf --fasta GRCm38.primary_assembly.genome.fa --threads 10 --species Mus_musculus
+$dnbc4tools tools mkgtf --ingtf gencode.vM23.primary_assembly.annotation.gtf --output genes.filtered.gtf
+$dnbc4tools rna mkref --ingtf genes.filtered.gtf --fasta GRCm38.primary_assembly.genome.fa --threads 10 --species Mus_musculus
 ```
 
 **Human-Mouse Mixed Reference**
@@ -82,7 +94,7 @@ $dnbc4tools rna mkref --ingtf genes.filter.gtf --fasta GRCm38.primary_assembly.g
 # Prepare both references as above, then:
 $dnbc4tools rna mkref \
     --fasta GRCh38.primary_assembly.genome.fa,GRCm38.primary_assembly.genome.fa \
-    --ingtf hg38/genes.filter.gtf,mm10/genes.filter.gtf \
+    --ingtf hg38/genes.filtered.gtf,mm10/genes.filtered.gtf \
     --species hg38,mm10 \
     --threads 10
 ```
@@ -135,8 +147,8 @@ gzip -d GRCh38.primary_assembly.genome.fa.gz
 gzip -d gencode.v32.primary_assembly.annotation.gtf.gz
 
 # Build reference
-$dnbc4tools tools mkgtf --ingtf gencode.v32.primary_assembly.annotation.gtf --output genes.filter.gtf --type gene_type
-$dnbc4tools atac mkref --fasta GRCh38.primary_assembly.genome.fa --ingtf genes.filter.gtf --species Homo_sapiens --prefix chr
+$dnbc4tools tools mkgtf --ingtf gencode.v32.primary_assembly.annotation.gtf --output genes.filtered.gtf
+$dnbc4tools atac mkref --fasta GRCh38.primary_assembly.genome.fa --ingtf genes.filtered.gtf --species Homo_sapiens --prefix chr
 ```
 
 **Mouse (GRCm38)**
@@ -150,8 +162,8 @@ gzip -d GRCm38.primary_assembly.genome.fa.gz
 gzip -d gencode.vM23.primary_assembly.annotation.gtf.gz
 
 # Build reference
-$dnbc4tools tools mkgtf --ingtf gencode.vM23.primary_assembly.annotation.gtf --output genes.filter.gtf --type gene_type
-$dnbc4tools atac mkref --fasta GRCm38.primary_assembly.genome.fa --ingtf genes.filter.gtf --species Mus_musculus --prefix chr
+$dnbc4tools tools mkgtf --ingtf gencode.vM23.primary_assembly.annotation.gtf --output genes.filtered.gtf
+$dnbc4tools atac mkref --fasta GRCm38.primary_assembly.genome.fa --ingtf genes.filtered.gtf --species Mus_musculus --prefix chr
 ```
 
 ### Step 2: Run Analysis
@@ -192,13 +204,15 @@ $dnbc4tools atac run \
 ### Step 1: 5' RNA Analysis
 
 
-**5' scRNA-seq Analysis** 
+**5' scRNA-seq Analysis**
+
+<div style="background-color: #e7f3fe; border-left: 6px solid #2196F3; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
+💡 <strong>Note:</strong> For 5' scRNA-seq data, you must add the <code>--end5</code> parameter to specify the library chemistry.
+</div>
+
 ```bash
 $dnbc4tools rna run \
-    --cDNAfastq1 /test/data/test_cDNA_R1.fastq.gz \
-    --cDNAfastq2 /test/data/test_cDNA_R2.fastq.gz \
-    --oligofastq1 /test/data/test_oligo1_1.fq.gz,/test/data/test_oligo2_1.fq.gz \
-    --oligofastq2 /test/data/test_oligo1_2.fq.gz,/test/data/test_oligo2_2.fq.gz \
+    --fastqs /test/rna/data \
     --genomeDir /database/scRNA/Homo_sapiens \
     --name test \
     --threads 30 \
@@ -324,56 +338,24 @@ $dnbc4tools multi run \
 
 ### Essential Commands Summary
 
-<table style="width:100%; border-collapse: collapse; margin: 1.5em 0; box-shadow: 0 2px 3px rgba(0,0,0,0.1);">
-  <thead style="background-color: #f2f2f2; border-bottom: 2px solid #ddd;">
-    <tr>
-      <th style="padding: 12px 15px; border: 1px solid #ddd; text-align: left;">Workflow</th>
-      <th style="padding: 12px 15px; border: 1px solid #ddd; text-align: left;">Command</th>
-      <th style="padding: 12px 15px; border: 1px solid #ddd; text-align: left;">Purpose</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="padding: 12px 15px; border: 1px solid #ddd;">RNA Analysis</td>
-      <td style="padding: 12px 15px; border: 1px solid #ddd;"><code>dnbc4tools rna run</code></td>
-      <td style="padding: 12px 15px; border: 1px solid #ddd;">Complete RNA-seq pipeline</td>
-    </tr>
-    <tr>
-      <td style="padding: 12px 15px; border: 1px solid #ddd;">ATAC Analysis</td>
-      <td style="padding: 12px 15px; border: 1px solid #ddd;"><code>dnbc4tools atac run</code></td>
-      <td style="padding: 12px 15px; border: 1px solid #ddd;">Complete ATAC-seq pipeline</td>
-    </tr>
-    <tr>
-      <td style="padding: 12px 15px; border: 1px solid #ddd;">VDJ Analysis</td>
-      <td style="padding: 12px 15px; border: 1px solid #ddd;"><code>dnbc4tools vdj run</code></td>
-      <td style="padding: 12px 15px; border: 1px solid #ddd;">TCR/BCR repertoire analysis</td>
-    </tr>
-    <tr>
-      <td style="padding: 12px 15px; border: 1px solid #ddd;">Reference Building</td>
-      <td style="padding: 12px 15px; border: 1px solid #ddd;"><code>dnbc4tools rna mkref</code></td>
-      <td style="padding: 12px 15px; border: 1px solid #ddd;">Build RNA reference database</td>
-    </tr>
-    <tr>
-      <td style="padding: 12px 15px; border: 1px solid #ddd;">Reference Building</td>
-      <td style="padding: 12px 15px; border: 1px solid #ddd;"><code>dnbc4tools atac mkref</code></td>
-      <td style="padding: 12px 15px; border: 1px solid #ddd;">Build ATAC reference database</td>
-    </tr>
-    <tr>
-      <td style="padding: 12px 15px; border: 1px solid #ddd;">Multi-omics</td>
-      <td style="padding: 12px 15px; border: 1px solid #ddd;"><code>dnbc4tools multi run</code></td>
-      <td style="padding: 12px 15px; border: 1px solid #ddd;">Integrated RNA/ATAC/VDJ analysis and unified report</td>
-    </tr>
-    <tr>
-      <td style="padding: 12px 15px; border: 1px solid #ddd;">GTF Processing</td>
-      <td style="padding: 12px 15px; border: 1px solid #ddd;"><code>dnbc4tools tools mkgtf</code></td>
-      <td style="padding: 12px 15px; border: 1px solid #ddd;">Filter and process GTF files</td>
-    </tr>
-  </tbody>
-</table>
+| Workflow | Command | Purpose |
+| :--- | :--- | :--- |
+| **RNA Analysis** | `dnbc4tools rna run` | Complete RNA-seq pipeline |
+| **ATAC Analysis** | `dnbc4tools atac run` | Complete ATAC-seq pipeline |
+| **VDJ Analysis** | `dnbc4tools vdj run` | TCR/BCR repertoire analysis |
+| **Reference Building** | `dnbc4tools rna mkref` | Build RNA reference database |
+| **Reference Building** | `dnbc4tools atac mkref` | Build ATAC reference database |
+| **Multi-omics** | `dnbc4tools multi run` | Integrated RNA/ATAC/VDJ analysis and unified report |
+| **GTF Processing** | `dnbc4tools tools mkgtf` | Filter and process GTF files |
 
 
-### Further Reading
+---
 
-- **Parameters**: [Complete Reference](./parameter/parameter.md) | [RNA-specific](./parameter/scRNA_en.md) | [ATAC-specific](./parameter/scATAC_en.md) | [VDJ-specific](./parameter/scVDJ_en.md)
-- **Outputs**: [Output File Guide](./outs/outs.md) | [R/Python Usage](./io.md)
-- **Support**: [Installation Guide](./installation.md) | [GitHub Issues](https://github.com/MGI-tech-bioinformatics/DNBelab_C_Series_HT_scRNA-analysis-software/issues)
+## 📚 Related Documentation
+
+| Resource | Description |
+| :--- | :--- |
+| [🔬 Pipelines](./pipeline/pipeline.md) | Analysis workflow guides |
+| [⚙️ Parameters](./parameter/parameter.md) | Command reference and configuration options |
+| [📁 Outputs](./outs/outs.md) | Understanding result files and reports |
+| [🆘 GitHub Issues](https://github.com/MGI-tech-bioinformatics/DNBelab_C_Series_HT_scRNA-analysis-software/issues) | Report bugs or request features |

@@ -4,13 +4,19 @@
 
 </div>
 
+<br>
+
 # 🧬 DNBelab C Series HT scVDJ 分析参数
+
+<br>
 
 <div align="center">
 
 [🔬 主分析流程 (run)](#主分析流程-run)
 
 </div>
+
+<br>
 
 ---
 
@@ -299,24 +305,29 @@ CCTGGACTCCTGGGCCCCAG</code></pre>
 
 ---
 
-### 📚 相关文档
+<br>
 
-- [scVDJ 流程文档](../pipeline/scVDJ.md)
-- [scVDJ 输出文档](../outs/scVDJ.md)
+## 📚 相关文档
+
+<br>
+
+| 资源 | 描述 |
+| :--- | :--- |
+| [🔬 scVDJ 流程文档](../pipeline/scVDJ.md) | 单细胞 VDJ 分析流程指南 |
+| [📁 scVDJ 输出文档](../outs/scVDJ.md) | 输出文件详细解读 |
+
+<br>
 
 ---
 
+<br>
+
 <div align="center">
 
-> 💡 <strong>提示</strong>
+> 💡 <strong>需要帮助？</strong>
 >
 > 本文档持续更新中，如发现内容错误或需要补充的信息，欢迎反馈。
 >
 > 📝 <strong>文档版本：</strong> 3.1 | <strong>最后更新：</strong> 2026年4月
-
----
-
-<strong>🧬 DNBelab C Series HT scVDJ Analysis Software</strong>  
-<em>高性能单细胞免疫组库数据分析流程</em>
 
 </div>

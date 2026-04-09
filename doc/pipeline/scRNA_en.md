@@ -4,19 +4,31 @@
 
 </div>
 
+<br>
+
 # 🧬 DNBelab C Series HT scRNA Analysis Pipeline
+
+<br>
 
 <div align="center">
 
 **A Complete Guide to Single-Cell RNA Sequencing Data Analysis**
 
+<br>
+
 [📋 Overview](#overview) • [📁 File Preparation](#file-preparation) • [📊 Reference Data](#reference-data) • [🚀 Main Pipeline](#main-pipeline) • [📊 Results Interpretation](#results-interpretation)
 
 </div>
 
+<br>
+
 ---
 
+<br>
+
 ## 📋 Overview <a id="overview"></a>
+
+<br>
 
 This document provides a complete guide on how to use dnbc4tools for single-cell RNA sequencing data analysis.
 
@@ -526,14 +538,44 @@ Upon completion, `outs` (outputs) and `logs` directories will be generated. The 
 └── singlecell.csv
 ```
 
-### 📚 Related Documentation
-
-- [📊 Output File Usage](../io.md)
-- [📋 Analysis Parameter Settings](../parameter/scRNA_en.md)
-- [📝 Output File Descriptions](../outs/scRNA_en.md)
+<br>
 
 ---
+
+<br>
+
+## 📚 Related Documentation
+
+<br>
+
+| Resource | Description |
+| :--- | :--- |
+| [📊 Output File Usage](../io.md) | Understanding output file structure and formats |
+| [📋 Analysis Parameters](../parameter/scRNA_en.md) | Complete parameter reference and descriptions |
+| [📝 Output Descriptions](../outs/scRNA_en.md) | Detailed interpretation of analysis results |
+
+<br>
+
+---
+
+<br>
 
 ## ❓ Frequently Asked Questions
 
 > `Content to be added`
+
+<br>
+
+---
+
+<br>
+
+<div align="center">
+
+> 💡 <strong>Need Help?</strong>
+>
+> This document is continuously updated. If you find any errors or need additional information, please provide feedback.
+>
+> 📝 <strong>Document Version:</strong> 3.1 | <strong>Last Updated:</strong> April 2026
+
+</div>

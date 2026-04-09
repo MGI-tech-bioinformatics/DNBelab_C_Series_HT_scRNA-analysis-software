@@ -1,12 +1,22 @@
 <div align="right">
-  <a href="../README.md">Home</a>
+
+[🏠 Home](../README.md)
+
 </div>
+
+<br>
 
 # JSON Configuration Guide
 
+<br>
+
 This document explains the JSON configuration used to define the library structure for `dnbc4tools`.
 
+<br>
+
 ---
+
+<br>
 
 ## Library Structures
 

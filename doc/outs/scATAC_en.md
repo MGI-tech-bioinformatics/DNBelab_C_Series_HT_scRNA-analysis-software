@@ -4,25 +4,43 @@
 
 </div>
 
+<br>
+
 # 🧬 DNBelab C Series HT scATAC Analysis Output Documentation
+
+<br>
 
 <div align="center">
 
 **A Complete Guide to Single-Cell ATAC Sequencing Analysis Output Files**
 
+<br>
+
 [📁 Directory Structure](#directory-structure) • [📋 File Details](#file-details) • [🧬 Data Matrix](#peak-matrix-files) • [📊 Analysis Summary](#analysis-summary) • [📊 Report Interpretation](#web-report-interpretation)
 
 </div>
 
+<br>
+
 ---
+
+<br>
 
 ## 📖 Overview <a id="overview"></a>
 
+<br>
+
 After single-cell ATAC sequencing analysis is complete, a standardized structure of files and subdirectories is generated in the specified output directory for chromatin accessibility analysis and epigenomic research. This document details the content, format, and purpose of each output file to help users efficiently interpret and use scATAC analysis results.
+
+<br>
 
 > 💡 **Tip**: All output files use standard formats compatible with mainstream single-cell epigenomic analysis tools (e.g., Signac, ArchR), adhering to internationally accepted data format standards.
 
+<br>
+
 ---
+
+<br>
 
 ## 📁 Directory Structure <a id="directory-structure"></a>
 
@@ -48,6 +66,8 @@ After single-cell ATAC sequencing analysis is complete, a standardized structure
 ```
 
 ---
+
+<br>
 
 ## 📋 File Details <a id="file-details"></a>
 
@@ -372,6 +392,8 @@ An interactive, comprehensive analysis report in HTML web format.
 
 ---
 
+<br>
+
 ## 📄 File Format Description <a id="file-format-description"></a>
 
 > **Technical Specification**: A detailed description of the standard formats used for the output files.
@@ -409,6 +431,8 @@ Market Exchange Format (MEX) is a standard format for storing sparse count matri
         </table>
 
 ---
+
+<br>
 
 ## 📊 Web Report Interpretation <a id="web-report-interpretation"></a>
 
@@ -939,14 +963,23 @@ Used in the C4 ATAC technology to merge multiple beads from the same cell drople
 
 ---
 
-## 🎯 More Resources <a id="more-resources"></a>
+<br>
 
-### 📚 Related Documentation
+## 📚 Related Documentation
 
-- [scATAC pipeline doc](../pipeline/scATAC_en.md)
-- [scATAC parameter doc](../parameter/scATAC_en.md)
+<br>
+
+| Document | Description |
+| :--- | :--- |
+| [🔬 scATAC Pipeline](../pipeline/scATAC_en.md) | Detailed scATAC analysis workflow |
+| [⚙️ scATAC Parameters](../parameter/scATAC_en.md) | Command parameter reference |
+| [📁 Output Files](./outs.md) | Return to output documentation index |
+
+<br>
 
 ---
+
+<br>
 
 <div align="center">
 
@@ -955,10 +988,5 @@ Used in the C4 ATAC technology to merge multiple beads from the same cell drople
 > This document is continuously updated. If you find any errors or have information to add, feedback is welcome.
 > 
 > 📝 <strong>Document Version:</strong> 3.1 | <strong>Last Updated:</strong> April 2026
-
----
-
-<strong>🔬 DNBelab C Series HT scATAC Analysis Software</strong>  
-<em>A High-Performance Pipeline for Single-Cell ATAC Sequencing Data Analysis</em>
 
 </div>

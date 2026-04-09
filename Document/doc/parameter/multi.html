@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>&#x1f9e9; DNBelab C Series HT Multi-omics &#x5206;&#x6790;&#x53c2;&#x6570;</title>
+            <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only],
+.vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+.vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+<link href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+<style>
+:root {
+  --color-note: #0969da;
+  --color-tip: #1a7f37;
+  --color-warning: #9a6700;
+  --color-severe: #bc4c00;
+  --color-caution: #d1242f;
+  --color-important: #8250df;
+}
+
+</style>
+<style>
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-note: #2f81f7;
+    --color-tip: #3fb950;
+    --color-warning: #d29922;
+    --color-severe: #db6d28;
+    --color-caution: #f85149;
+    --color-important: #a371f7;
+  }
+}
+
+</style>
+<style>
+.markdown-alert {
+  padding: 0.5rem 1rem;
+  margin-bottom: 16px;
+  color: inherit;
+  border-left: .25em solid #888;
+}
+
+.markdown-alert>:first-child {
+  margin-top: 0
+}
+
+.markdown-alert>:last-child {
+  margin-bottom: 0
+}
+
+.markdown-alert .markdown-alert-title {
+  display: flex;
+  font-weight: 500;
+  align-items: center;
+  line-height: 1
+}
+
+.markdown-alert .markdown-alert-title .octicon {
+  margin-right: 0.5rem;
+  display: inline-block;
+  overflow: visible !important;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
+
+.markdown-alert.markdown-alert-note {
+  border-left-color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-note .markdown-alert-title {
+  color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-important {
+  border-left-color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-important .markdown-alert-title {
+  color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-warning {
+  border-left-color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-warning .markdown-alert-title {
+  color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-tip {
+  border-left-color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-tip .markdown-alert-title {
+  color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-caution {
+  border-left-color: var(--color-caution);
+}
+
+.markdown-alert.markdown-alert-caution .markdown-alert-title {
+  color: var(--color-caution);
+}
+
+</style>
+        
+        </head>
+        <body class="vscode-body vscode-light">
+            <div align="right">
+<p><a href="../../README.html">🏠 主页</a> • <a href="multi_en.html">English</a></p>
+</div>
+<h1 id="-dnbelab-c-series-ht-multi-omics-分析参数">🧩 DNBelab C Series HT Multi-omics 分析参数</h1>
+<div align="center">
+<p><strong>多组学整合流程参数与配置说明</strong></p>
+<p><a href="#%E5%A4%9A%E7%BB%84%E5%AD%A6%E6%95%B4%E5%90%88%E6%B5%81%E7%A8%8B-run">🚀 多组学整合流程 (run)</a> • <a href="#csv-%E9%85%8D%E7%BD%AE%E8%A7%84%E8%8C%83">🧾 CSV 配置规范</a> • <a href="#%E6%A8%A1%E5%9D%97%E5%8F%82%E6%95%B0%E6%98%A0%E5%B0%84">🧬 模块参数映射</a> • <a href="#%E9%85%8D%E7%BD%AE%E7%A4%BA%E4%BE%8B">💡 配置示例</a></p>
+</div>
+<hr>
+<h2 id="-多组学整合流程-run-">🚀 多组学整合流程 (run) <a id="多组学整合流程-run"></a></h2>
+<h3 id="-用法">📊 用法</h3>
+<pre><code class="language-shell"><span class="hljs-meta prompt_">$ </span><span class="language-bash">dnbc4tools multi run</span>
+dnbc4tools 3.1
+
+Process an integrated multi-omics sample.
+Coordinate RNA, ATAC, and V(D)J workflows within a single run.
+Generate a unified multi-omics report.
+
+Usage: dnbc4tools multi run [OPTIONS]
+
+optional arguments:
+  -h, --help             show this help message and exit
+
+Basic Options:
+  -n, --name NAME        Unique identifier for the sample.
+  -c, --csv CSV          CSV file containing pipeline configuration settings.
+  -o, --outdir OUTDIR    Output directory for analysis results.
+  -t, --threads THREADS  Number of CPU threads to use.
+</code></pre>
+<h3 id="-参数说明">📝 参数说明</h3>
+<h4 id="-必需参数">🔴 必需参数</h4>
+<blockquote>
+<p>⚠️ <strong>成功运行 multi 流程必须提供的参数</strong></p>
+</blockquote>
+<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<h4><code>-n, --name</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(必需)</span></h4>
+<p>指定本次 multi 任务名称。</p>
+<ul>
+  <li><strong>功能:</strong> 作为输出目录和报告中的样本标识。</li>
+  <li><strong>影响:</strong> 最终输出路径通常为 <code>&lt;outdir&gt;/&lt;name&gt;/</code>。</li>
+</ul>
+<p><strong>默认值:</strong> 无</p>
+<p><strong>示例:</strong></p>
+<pre><code>--name demo</code></pre>
+</div>
+<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<h4><code>-c, --csv</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(必需)</span></h4>
+<p>指定多组学配置 CSV 文件。</p>
+<ul>
+  <li><strong>功能:</strong> 定义 RNA / ATAC / VDJ 各模块参数，以及输入数据来源。</li>
+  <li><strong>要求:</strong> 文件中应包含模块配置段和 <code>[libraries]</code> 输入映射。</li>
+</ul>
+<p><strong>默认值:</strong> 无</p>
+<p><strong>示例:</strong></p>
+<pre><code>--csv sample.csv</code></pre>
+</div>
+<hr>
+<h4 id="-基本设置参数">🟢 基本设置参数</h4>
+<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<h4><code>-o, --outdir</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(可选)</span></h4>
+<p>指定 multi 流程输出目录。</p>
+<ul>
+  <li><strong>功能:</strong> 存放整合报告、模块输出和运行日志。</li>
+  <li><strong>建议:</strong> 为不同任务使用独立目录，便于结果管理。</li>
+</ul>
+<p><strong>默认值:</strong> <code>./</code> (当前目录)</p>
+<p><strong>示例:</strong></p>
+<pre><code>--outdir /data/result</code></pre>
+</div>
+<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<h4><code>-t, --threads</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(可选)</span></h4>
+<p>设置流程可用 CPU 线程数。</p>
+<ul>
+  <li><strong>功能:</strong> 控制并行度，影响整体运行速度。</li>
+  <li><strong>建议:</strong> 根据机器资源和并发任务数量设置。</li>
+</ul>
+<p><strong>默认值:</strong> 使用软件默认线程策略</p>
+<p><strong>示例:</strong></p>
+<pre><code>--threads 20</code></pre>
+</div>
+<hr>
+<h4 id="-运行行为说明">🟢 运行行为说明</h4>
+<ul>
+<li><strong>统一编排</strong>：通过一份配置文件调度 RNA / ATAC / VDJ 子流程。</li>
+<li><strong>状态汇总</strong>：汇总模块运行状态，并生成整合 HTML 报告。</li>
+<li><strong>模块分段配置</strong>：各模块参数在对应分段中配置（<code>[rna]</code>、<code>[atac]</code>、<code>[vdj-t]</code>、<code>[vdj-b]</code>）。</li>
+</ul>
+<hr>
+<h2 id="-csv-配置规范-">🧾 CSV 配置规范 <a id="csv-配置规范"></a></h2>
+<h3 id="-配置文件模板">📋 配置文件模板</h3>
+<details open>
+<summary>📄 点击展开完整模板（RNA + VDJ-T/B 示例）</summary>
+<pre><code class="language-csv">[rna]
+genomeDir,/database/scRNA/Human
+no_bam,true
+end5,true
+include_introns,true
+
+[vdj-t]
+ref,human
+
+[vdj-b]
+ref,human
+
+[libraries]
+fastqs,feature_types
+/rawdata/rna/demo,rna
+/rawdata/tcr/demo,vdj-t
+/rawdata/bcr/demo,vdj-b
+</code></pre>
+</details>
+<hr>
+<h3 id="️-填写规则高频易错点">⚠️ 填写规则（高频易错点）</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">序号</th>
+<th style="text-align:left">规则</th>
+<th style="text-align:left">正确示例</th>
+<th style="text-align:left">错误示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">1</td>
+<td style="text-align:left">分段名使用<strong>方括号</strong></td>
+<td style="text-align:left"><code>[rna]</code>、<code>[libraries]</code></td>
+<td style="text-align:left"><code>rna:</code>、<code>libraries</code></td>
+</tr>
+<tr>
+<td style="text-align:left">2</td>
+<td style="text-align:left">使用 <code>key,value</code> 格式</td>
+<td style="text-align:left"><code>no_bam,true</code></td>
+<td style="text-align:left"><code>no_bam=true</code></td>
+</tr>
+<tr>
+<td style="text-align:left">3</td>
+<td style="text-align:left">参数值允许逗号</td>
+<td style="text-align:left"><code>darkreaction,R1,R1R2</code></td>
+<td style="text-align:left">-</td>
+</tr>
+<tr>
+<td style="text-align:left">4</td>
+<td style="text-align:left"><code>customize</code> 可重复，单值参数建议仅保留最终定义</td>
+<td style="text-align:left">-</td>
+<td style="text-align:left">-</td>
+</tr>
+<tr>
+<td style="text-align:left">5</td>
+<td style="text-align:left"><code>feature_types</code> 必须与模块名一致</td>
+<td style="text-align:left"><code>rna</code>、<code>vdj-t</code></td>
+<td style="text-align:left"><code>RNA</code>、<code>VDJ</code></td>
+</tr>
+<tr>
+<td style="text-align:left">6</td>
+<td style="text-align:left">建议使用<strong>绝对路径</strong></td>
+<td style="text-align:left"><code>/data/sample</code></td>
+<td style="text-align:left">-</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h3 id="-beadstrans-行为说明">🔍 <code>beadstrans</code> 行为说明</h3>
+<p>在 multi 场景中，VDJ 的细胞筛选默认与 RNA 分析结果对齐。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">模式</th>
+<th style="text-align:left">行为描述</th>
+<th style="text-align:left">适用场景</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">🟢 <strong>默认</strong></td>
+<td style="text-align:left">使用 RNA 分析的细胞信息进行 VDJ 过滤</td>
+<td style="text-align:left">常规多组学分析</td>
+</tr>
+<tr>
+<td style="text-align:left">🟡 <strong>自定义</strong></td>
+<td style="text-align:left">显式填写 <code>beadstrans</code> 参数，使用自定义细胞文件</td>
+<td style="text-align:left">需要独立定义 VDJ 细胞时</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="-模块参数映射-">🧬 模块参数映射 <a id="模块参数映射"></a></h2>
+<h3 id="-参数分段与子流程映射">🔗 参数分段与子流程映射</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">配置分段</th>
+<th style="text-align:left">对应子流程</th>
+<th style="text-align:left">详细参数文档</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">🧬 <code>[rna]</code></td>
+<td style="text-align:left"><code>dnbc4tools rna run</code></td>
+<td style="text-align:left"><a href="./scRNA.html">scRNA 参数 →</a></td>
+</tr>
+<tr>
+<td style="text-align:left">🧪 <code>[atac]</code></td>
+<td style="text-align:left"><code>dnbc4tools atac run</code></td>
+<td style="text-align:left"><a href="./scATAC.html">scATAC 参数 →</a></td>
+</tr>
+<tr>
+<td style="text-align:left">🎯 <code>[vdj-t]</code> / <code>[vdj-b]</code></td>
+<td style="text-align:left"><code>dnbc4tools vdj run</code></td>
+<td style="text-align:left"><a href="./scVDJ.html">scVDJ 参数 →</a></td>
+</tr>
+<tr>
+<td style="text-align:left">📚 <code>[libraries]</code></td>
+<td style="text-align:left">multi 输入映射</td>
+<td style="text-align:left"><a href="#csv-%E9%85%8D%E7%BD%AE%E8%A7%84%E8%8C%83">见 CSV 配置规范 ↑</a></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h3 id="-各分段可填参数">📝 各分段可填参数</h3>
+<h4 id="rna-分段参数"><code>[rna]</code> 分段参数</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">类别</th>
+<th style="text-align:left">参数名</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>参考基因组</strong></td>
+<td style="text-align:left"><code>genomeDir</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>细胞筛选</strong></td>
+<td style="text-align:left"><code>expectcells</code>, <code>forcecells</code>, <code>minumi</code>, <code>consistent_cells</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>测序化学</strong></td>
+<td style="text-align:left"><code>chemistry</code>, <code>darkreaction</code>, <code>customize</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>分析选项</strong></td>
+<td style="text-align:left"><code>calling_method</code>, <code>no_introns</code>, <code>end5</code>, <code>no_bam</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>采样</strong></td>
+<td style="text-align:left"><code>sample_read_pairs</code></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h4 id="atac-分段参数"><code>[atac]</code> 分段参数</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">类别</th>
+<th style="text-align:left">参数名</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>参考基因组</strong></td>
+<td style="text-align:left"><code>genomeDir</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>细胞筛选</strong></td>
+<td style="text-align:left"><code>forcecells</code>, <code>frags_cutoff</code>, <code>tss_cutoff</code>, <code>jaccard_cutoff</code>, <code>merge_cutoff</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>测序化学</strong></td>
+<td style="text-align:left"><code>darkreaction</code>, <code>customize</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>输出选项</strong></td>
+<td style="text-align:left"><code>need_bam</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>采样</strong></td>
+<td style="text-align:left"><code>sample_read_pairs</code></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h4 id="vdj-t--vdj-b-分段参数"><code>[vdj-t]</code> / <code>[vdj-b]</code> 分段参数</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">类别</th>
+<th style="text-align:left">参数名</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>参考数据</strong></td>
+<td style="text-align:left"><code>ref</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>细胞筛选</strong></td>
+<td style="text-align:left"><code>beadstrans</code>, <code>keep_all_cells</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>测序化学</strong></td>
+<td style="text-align:left"><code>darkreaction</code>, <code>customize</code>, <code>r2_only</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>引物</strong></td>
+<td style="text-align:left"><code>enrichment_primers</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>采样</strong></td>
+<td style="text-align:left"><code>sample_read_pairs</code></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h4 id="libraries-分段必填"><code>[libraries]</code> 分段（必填）</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">列名</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>fastqs</code></td>
+<td style="text-align:left">FASTQ 文件路径（建议绝对路径）</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>feature_types</code></td>
+<td style="text-align:left">数据类型：<code>rna</code> / <code>atac</code> / <code>vdj-t</code> / <code>vdj-b</code></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h3 id="-重要提示">💡 重要提示</h3>
+<ul>
+<li><strong>[libraries] 集中配置</strong>：建议将所有模块的输入文件统一在 <code>[libraries]</code> 中配置，便于管理</li>
+<li><strong>customize 参数</strong>：可按规则填写多条；其余单值参数建议仅保留最终定义</li>
+</ul>
+<hr>
+<h2 id="-配置示例-">💡 配置示例 <a id="配置示例"></a></h2>
+<h3 id="示例1rna">示例1：RNA</h3>
+<pre><code class="language-csv">[rna]
+genomeDir,/database/scRNA/Human
+
+[libraries]
+fastqs,feature_types
+/rawdata/rna/demo,rna
+</code></pre>
+<h3 id="示例2rna--atac--vdj-t--vdj-b全模块">示例2：RNA + ATAC + VDJ-T + VDJ-B（全模块）</h3>
+<pre><code class="language-csv">[rna]
+genomeDir,/database/scRNA/Human
+include_introns,true
+
+[atac]
+genomeDir,/database/scATAC/Human
+
+[vdj-t]
+ref,human
+
+[vdj-b]
+ref,human
+
+[libraries]
+fastqs,feature_types
+/rawdata/rna/demo,rna
+/rawdata/atac/demo,atac
+/rawdata/tcr/demo,vdj-t
+/rawdata/bcr/demo,vdj-b
+</code></pre>
+<hr>
+<br>
+<h2 id="-相关文档">📚 相关文档</h2>
+<br>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">资源</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><a href="../pipeline/multi.html">🚀 Multi 流程文档</a></td>
+<td style="text-align:left">多组学整合分析流程指南</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="../outs/multi.html">📁 Multi 输出文档</a></td>
+<td style="text-align:left">输出文件详细解读</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="./scRNA.html">🧬 scRNA 参数文档</a></td>
+<td style="text-align:left">单细胞 RNA 分析参数</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="./scATAC.html">🧪 scATAC 参数文档</a></td>
+<td style="text-align:left">单细胞 ATAC 分析参数</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="./scVDJ.html">🦠 scVDJ 参数文档</a></td>
+<td style="text-align:left">单细胞 VDJ 分析参数</td>
+</tr>
+</tbody>
+</table>
+<br>
+<hr>
+<br>
+<div align="center">
+<blockquote>
+<p>💡 <strong>需要帮助？</strong></p>
+<p>本页聚焦参数与配置填写，建议与流程文档、输出文档配套使用。</p>
+<p>📝 <strong>文档版本：</strong> 3.1 | <strong>最后更新：</strong> 2026年4月</p>
+</blockquote>
+</div>
+
+            <script async src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
+            
+        </body>
+        </html>

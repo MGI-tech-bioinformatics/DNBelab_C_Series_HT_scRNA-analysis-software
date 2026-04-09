@@ -646,24 +646,29 @@ SampleB /path/to/B_L01_R1.fq.gz,/path/to/B_L02_R1.fq.gz;/path/to/B_L01_R2.fq.gz,
 
 ---
 
-### 📚 相关文档
+<br>
 
-- [scATAC 流程文档](../pipeline/scATAC.md)
-- [scATAC 输出文档](../outs/scATAC.md)
+## 📚 相关文档
+
+<br>
+
+| 资源 | 描述 |
+| :--- | :--- |
+| [🔬 scATAC 流程文档](../pipeline/scATAC.md) | 单细胞 ATAC 分析流程指南 |
+| [📁 scATAC 输出文档](../outs/scATAC.md) | 输出文件详细解读 |
+
+<br>
 
 ---
 
+<br>
+
 <div align="center">
 
-> 💡 <strong>提示</strong>
+> 💡 <strong>需要帮助？</strong>
 >
 > 本文档持续更新中，如发现内容错误或需要补充的信息，欢迎反馈。
 >
 > 📝 <strong>文档版本：</strong> 3.1 | <strong>最后更新：</strong> 2026年4月
-
----
-
-<strong>🔬 DNBelab C Series HT scATAC Analysis Software</strong>  
-<em>高性能单细胞ATAC测序数据分析流程</em>
 
 </div>

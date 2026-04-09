@@ -4,25 +4,43 @@
 
 </div>
 
+<br>
+
 # 🧩 DNBelab C Series HT Multi-omics 分析输出文档
+
+<br>
 
 <div align="center">
 
 **多组学整合分析输出文件完整指南**
 
+<br>
+
 [📁 目录结构](#输出目录结构) • [📋 文件详情](#详细文件说明) • [📊 报告解读](#网页报告释义)
 
 </div>
 
+<br>
+
 ---
+
+<br>
 
 ## 📖 概述 <a id="概述"></a>
 
+<br>
+
 Multi-omics 流程会将 RNA / ATAC / VDJ 的关键结果统一整理到一个样本目录，支持在同一份报告中完成跨组学浏览和对比。
+
+<br>
 
 > 💡 **提示**：组合报告用于快速总览和跨模块联看。需要深入解释时，请进入对应单组学 outs 文档。
 
+<br>
+
 ---
+
+<br>
 
 ## 📁 输出目录结构 <a id="输出目录结构"></a>
 
@@ -36,11 +54,19 @@ Multi-omics 流程会将 RNA / ATAC / VDJ 的关键结果统一整理到一个�
     └── vdj-b/                                 # VDJ-B 结果目录（若启用）
 ```
 
+<br>
+
 ---
+
+<br>
 
 ## 📋 详细文件说明 <a id="详细文件说明"></a>
 
+<br>
+
 ### 📄 `outs/<sample>_multi_report.html`
+
+<br>
 
 - **内容**：整合展示 RNA / ATAC / VDJ 的核心 QC 与分析图表。
 - **用途**：一页内完成跨组学质量检查与结果浏览。
@@ -53,6 +79,8 @@ Multi-omics 流程会将 RNA / ATAC / VDJ 的关键结果统一整理到一个�
 <br>
 
 ---
+
+<br>
 
 ## 📊 网页报告释义 <a id="网页报告释义"></a>
 
@@ -192,17 +220,26 @@ Multi-omics 流程会将 RNA / ATAC / VDJ 的关键结果统一整理到一个�
 
 ---
 
-## 🎯 更多资源 <a id="更多资源"></a>
+<br>
 
-### 📚 相关文档
+## 📚 相关文档
 
-- Multi 参数说明：[multi 参数文档](../parameter/multi.md)
-- Multi 流程说明：[multi 流程文档](../pipeline/multi.md)
-- scRNA 输出：[scRNA 输出文档](./scRNA.md)
-- scATAC 输出：[scATAC 输出文档](./scATAC.md)
-- scVDJ 输出：[scVDJ 输出文档](./scVDJ.md)
+<br>
+
+| 文档 | 说明 |
+| :--- | :--- |
+| [🔬 Multi 流程](../pipeline/multi.md) | Multi 分析流程详细说明 |
+| [⚙️ Multi 参数](../parameter/multi.md) | 命令参数参考文档 |
+| [🧬 scRNA 输出](./scRNA.md) | scRNA 模块输出文件说明 |
+| [🧪 scATAC 输出](./scATAC.md) | scATAC 模块输出文件说明 |
+| [🦠 scVDJ 输出](./scVDJ.md) | scVDJ 模块输出文件说明 |
+| [📁 输出文件](./outs.md) | 返回总输出文档索引 |
+
+<br>
 
 ---
+
+<br>
 
 <div align="center">
 

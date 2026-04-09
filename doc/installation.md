@@ -1,51 +1,40 @@
 <div align="right">
-  <a href="../README.md">Home</a>
+
+[🏠 Home](../README.md)
+
 </div>
 
+<br>
+
 # DNBelab C Series™ Software Installation
+
+<br>
 
 <div align="center">
 
 **Complete installation guide for the DNBelab C Series™ HT Single-Cell Analysis Software package**
 
-[◆ Requirements](#system-requirements) • [◆ Download](#software-download) • [◆ Installation](#installation-process) • [◆ Verification](#verification--testing) 
+<br>
+
+[◆ Requirements](#system-requirements) • [◆ Download](#software-download) • [◆ Installation](#installation-process) • [◆ Verification](#verification--testing)
 
 </div>
 
+<br>
+
 ---
+
+<br>
 
 ## ◆ System Requirements <a id="system-requirements"></a>
 
-<table style="width:100%; border-collapse: collapse; margin: 1.5em 0; box-shadow: 0 2px 3px rgba(0,0,0,0.1);">
-  <thead style="background-color: #f2f2f2; border-bottom: 2px solid #ddd;">
-    <tr>
-      <th style="padding: 12px 15px; border: 1px solid #ddd; text-align: left;">Category</th>
-      <th style="padding: 12px 15px; border: 1px solid #ddd; text-align: left;">Requirement</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="padding: 12px 15px; border: 1px solid #ddd;"><b>Processor</b></td>
-      <td style="padding: 12px 15px; border: 1px solid #ddd;">x86-64 compatible processors</td>
-    </tr>
-    <tr>
-      <td style="padding: 12px 15px; border: 1px solid #ddd;"><b>Memory</b></td>
-      <td style="padding: 12px 15px; border: 1px solid #ddd;">50GB RAM or higher (128GB+ recommended)</td>
-    </tr>
-    <tr>
-      <td style="padding: 12px 15px; border: 1px solid #ddd;"><b>CPU</b></td>
-      <td style="padding: 12px 15px; border: 1px solid #ddd;">Minimum 8 cores (16+ cores recommended)</td>
-    </tr>
-    <tr>
-      <td style="padding: 12px 15px; border: 1px solid #ddd;"><b>Storage</b></td>
-      <td style="padding: 12px 15px; border: 1px solid #ddd;">Sufficient disk space for data processing (SSD recommended)</td>
-    </tr>
-    <tr>
-      <td style="padding: 12px 15px; border: 1px solid #ddd;"><b>OS</b></td>
-      <td style="padding: 12px 15px; border: 1px solid #ddd;">Linux 64-bit (CentOS 7.x, Ubuntu 20.04+)</td>
-    </tr>
-  </tbody>
-</table>
+| Category | Requirement |
+| :--- | :--- |
+| **Processor** | x86-64 compatible processors |
+| **Memory** | 50GB RAM or higher (128GB+ recommended) |
+| **CPU** | Minimum 8 cores (16+ cores recommended) |
+| **Storage** | Sufficient disk space for data processing (SSD recommended) |
+| **OS** | Linux 64-bit (CentOS 7.x, Ubuntu 20.04+) |
 
 <div style="background-color: #e7f3fe; border-left: 6px solid #2196F3; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
 💡 Compatible with higher software and hardware configurations.
@@ -57,28 +46,11 @@
 
 ### dnbc4tools 3.1 (Released: Apr 3, 2026)
 
-<table style="width:100%; border-collapse: collapse; margin: 1.5em 0; box-shadow: 0 2px 3px rgba(0,0,0,0.1);">
-  <thead style="background-color: #f2f2f2; border-bottom: 2px solid #ddd;">
-    <tr>
-      <th style="padding: 12px 15px; border: 1px solid #ddd; text-align: left;">Package Details</th>
-      <th style="padding: 12px 15px; border: 1px solid #ddd; text-align: left;">Information</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="padding: 12px 15px; border: 1px solid #ddd;"><b>File Name</b></td>
-      <td style="padding: 12px 15px; border: 1px solid #ddd;">dnbc4tools-3.1.tar.gz</td>
-    </tr>
-    <tr>
-      <td style="padding: 12px 15px; border: 1px solid #ddd;"><b>File Size</b></td>
-      <td style="padding: 12px 15px; border: 1px solid #ddd;">518M</td>
-    </tr>
-    <tr>
-      <td style="padding: 12px 15px; border: 1px solid #ddd;"><b>MD5 Checksum</b></td>
-      <td style="padding: 12px 15px; border: 1px solid #ddd;"><em>To be updated upon release</em></td>
-    </tr>
-  </tbody>
-</table>
+| Package Details | Information |
+| :--- | :--- |
+| **File Name** | dnbc4tools-3.1.tar.gz |
+| **File Size** | 518M |
+| **MD5 Checksum** | *To be updated upon release* |
 
 **Download Options:**
 - **CNGB link**: [dnbc4tools-3.1.tar.gz](https://ftp2.cngb.org/pub/CNSA/data7/CNP0008672/Single_Cell/CSE0000574/dnbc4tools-3.1.tar.gz)
@@ -119,36 +91,13 @@ tar -xzvf dnbc4tools-3.1.tar.gz
 
 After extraction, you should see the following directory structure:
 
-<table style="width:100%; border-collapse: collapse; margin: 1.5em 0; box-shadow: 0 2px 3px rgba(0,0,0,0.1);">
-  <thead style="background-color: #f2f2f2; border-bottom: 2px solid #ddd;">
-    <tr>
-      <th style="padding: 12px 15px; border: 1px solid #ddd; text-align: left;">Component</th>
-      <th style="padding: 12px 15px; border: 1px solid #ddd; text-align: left;">Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="padding: 12px 15px; border: 1px solid #ddd;"><code>dnbc4tools3.1/dnbc4tools</code></td>
-      <td style="padding: 12px 15px; border: 1px solid #ddd;">Main executable</td>
-    </tr>
-    <tr>
-      <td style="padding: 12px 15px; border: 1px solid #ddd;"><code>dnbc4tools3.1/external</code></td>
-      <td style="padding: 12px 15px; border: 1px solid #ddd;">External dependencies</td>
-    </tr>
-    <tr>
-      <td style="padding: 12px 15px; border: 1px solid #ddd;"><code>dnbc4tools3.1/lib</code></td>
-      <td style="padding: 12px 15px; border: 1px solid #ddd;">Library files</td>
-    </tr>
-    <tr>
-      <td style="padding: 12px 15px; border: 1px solid #ddd;"><code>dnbc4tools3.1/misc</code></td>
-      <td style="padding: 12px 15px; border: 1px solid #ddd;">Miscellaneous files</td>
-    </tr>
-    <tr>
-      <td style="padding: 12px 15px; border: 1px solid #ddd;"><code>dnbc4tools3.1/sourceC4.bash</code></td>
-      <td style="padding: 12px 15px; border: 1px solid #ddd;">Environment configuration script</td>
-    </tr>
-  </tbody>
-</table>
+| Component | Description |
+| :--- | :--- |
+| `dnbc4tools3.1/dnbc4tools` | Main executable |
+| `dnbc4tools3.1/external` | External dependencies |
+| `dnbc4tools3.1/lib` | Library files |
+| `dnbc4tools3.1/misc` | Miscellaneous files |
+| `dnbc4tools3.1/sourceC4.bash` | Environment configuration script |
 
 ---
 
@@ -186,11 +135,12 @@ Options:
 
 ---
 
-## ◆ Next Steps <a id="next-steps"></a>
+## 📚 Related Documentation
 
-Congratulations! You've successfully installed dnbc4tools 3.1! Here's what you can do next:
-
-- 🚀 **[Run the Quick Start Tutorial](./quickstart.md)** to perform your first analysis.
-- 🧪 **[Download Sample Data](./dataset.md)** to test the pipelines.
-- 🔬 **[Explore Analysis Workflows](./pipeline/pipeline.md)** to choose your analysis type.
-- ⚙️ **[Review Command Parameters](./parameter/parameter.md)** to fine-tune your analysis.
+| Resource | Description |
+| :--- | :--- |
+| [🚀 Quick Start](./quickstart.md) | Step-by-step tutorial for your first analysis |
+| [🔬 Pipeline Guides](./pipeline/pipeline.md) | Workflow documentation for all analysis types |
+| [⚙️ Parameters](./parameter/parameter.md) | Command reference and configuration options |
+| [📁 Outputs](./outs/outs.md) | Understanding result files and reports |
+| [🧪 Sample Data](./dataset.md) | Download sample datasets for testing |

@@ -142,17 +142,23 @@
             <div align="right">
 <p><a href="../../README.html">🏠 Home</a> • <a href="scRNA.html">中文</a></p>
 </div>
+<br>
 <h1 id="-dnbelab-c-series-ht-scrna-analysis-pipeline">🧬 DNBelab C Series HT scRNA Analysis Pipeline</h1>
+<br>
 <div align="center">
 <p><strong>A Complete Guide to Single-Cell RNA Sequencing Data Analysis</strong></p>
+<br>
 <p><a href="#overview">📋 Overview</a> • <a href="#file-preparation">📁 File Preparation</a> • <a href="#reference-data">📊 Reference Data</a> • <a href="#main-pipeline">🚀 Main Pipeline</a> • <a href="#results-interpretation">📊 Results Interpretation</a></p>
 </div>
+<br>
 <hr>
+<br>
 <h2 id="-overview-">📋 Overview <a id="overview"></a></h2>
+<br>
 <p>This document provides a complete guide on how to use dnbc4tools for single-cell RNA sequencing data analysis.</p>
 <p><strong>Workflow</strong>: Raw Data → Quality Control → Alignment → Cell Identification → Expression Matrix → Analysis Report</p>
 <div align="center">
-  <img src="https://s2.loli.net/2024/09/26/uKTXv7Q2miNbz1S.png" alt="Workflow Diagram" width="800">
+  <img src="../images/scRNA_pipeline.png" alt="scRNApipeline" width="700">
 </div>
 <div style="background-color: #e7f3fe; border-left: 6px solid #2196F3; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
 💡 <strong>Usage Note</strong>: <code>$dnbc4tools</code> represents the executable path and must be replaced with the actual installation path. The backslash `\` is used to split a command across multiple lines for readability.
@@ -284,107 +290,6 @@ IG_V_gene       145
 </code></pre>
 <p>The software cross-references <code>gene_id</code> with <code>gene_name</code> and <code>transcript_id</code> with <code>transcript_name</code> to fill in missing details and flags locations where multiple gene information might exist.</p>
 <h4 id="filter-gene-types">Filter Gene Types</h4>
-<pre><code class="language-shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">Filter gene types</span>
-<span class="hljs-meta prompt_">$</span><span class="language-bash">dnbc4tools tools mkgtf \
-  --ingtf genes.gtf \
-  --output genes.filter.gtf \
-  --<span class="hljs-built_in">type</span> gene_biotype</span>
-</code></pre>
-<p>Default included gene types:</p>
-<pre><code>protein_coding
-lncRNA/lincRNA
-antisense
-IG_V_gene
-IG_LV_gene
-IG_D_gene
-IG_J_gene
-IG_C_gene
-IG_V_pseudogene
-IG_J_pseudogene
-IG_C_pseudogene
-TR_V_gene
-TR_D_gene
-TR_J_gene
-TR_C_gene
-</code></pre>
-<p>You can also use the <code>include</code> parameter to customize the gene types to be retained:</p>
-<pre><code class="language-shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">Custom gene <span class="hljs-built_in">type</span> filtering</span>
-<span class="hljs-meta prompt_">$</span><span class="language-bash">dnbc4tools tools mkgtf \
-  --ingtf genes.gtf \
-  --output genes.filter.gtf \
-  --<span class="hljs-built_in">type</span> gene_biotype \
-  --include protein_coding,lncRNA,lincRNA,\
-        antisense,IG_V_gene,IG_LV_gene,IG_J_gene,\
-        IG_C_gene,IG_V_pseudogene,IG_J_pseudogene,\
-        IG_C_pseudogene,TR_V_gene,TR_D_gene,TR_J_gene,TR_C_gene</span>
-</code></pre>
-<p>We provide three functions for GTF file processing:</p>
-<table style="width:100%; border-collapse: collapse; margin: 1.5em 0; box-shadow: 0 2px 3px rgba(0,0,0,0.1);">
-  <thead style="background-color: #f2f2f2; border-bottom: 2px solid #ddd;">
-    <tr>
-      <th style="padding: 12px 15px; border: 1px solid #ddd; text-align: left;">Function</th>
-      <th style="padding: 12px 15px; border: 1px solid #ddd; text-align: left;">Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="padding: 12px 15px; border: 1px solid #ddd;"><b>Gene Type Statistics</b></td>
-      <td style="padding: 12px 15px; border: 1px solid #ddd;">Count the number of various gene types in a GTF file.</td>
-    </tr>
-    <tr>
-      <td style="padding: 12px 15px; border: 1px solid #ddd;"><b>Correct GTF File</b></td>
-      <td style="padding: 12px 15px; border: 1px solid #ddd;">Fill in missing information to ensure the GTF file meets analysis requirements.</td>
-    </tr>
-    <tr>
-      <td style="padding: 12px 15px; border: 1px solid #ddd;"><b>Filter Gene Types</b></td>
-      <td style="padding: 12px 15px; border: 1px solid #ddd;">Filter specific gene types based on research needs.</td>
-    </tr>
-  </tbody>
-</table>
-<h4 id="gene-type-statistics-1">Gene Type Statistics</h4>
-<pre><code class="language-shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">Count gene <span class="hljs-built_in">type</span> quantities</span>
-<span class="hljs-meta prompt_">$</span><span class="language-bash">dnbc4tools tools mkgtf \
-  --action <span class="hljs-built_in">stat</span> \
-  --ingtf genes.gtf \
-  --output gtfstat.txt \
-  --<span class="hljs-built_in">type</span> gene_biotype</span>
-</code></pre>
-<div style="background-color: #fffbe6; border-left: 6px solid #ffc107; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
-⚠️ <strong>Note</strong>: You need to check the tags in the GTF file to determine the <code>type</code>.
-</div>
-<div align="center">
-  <img src="https://s2.loli.net/2024/10/09/afGqtQocTE9h3uR.png" alt="GTF File Type Example" width="800">
-</div>
-<p>Example Output:</p>
-<pre><code class="language-shell"><span class="hljs-meta prompt_">$</span><span class="language-bash"><span class="hljs-built_in">cat</span> gtf_type.txt</span>
-Type    Count
-protein_coding  20006
-lncRNA  17755
-processed_pseudogene    10159
-unprocessed_pseudogene  2605
-misc_RNA        2221
-snRNA   1910
-miRNA   1879
-TEC     1056
-transcribed_unprocessed_pseudogene      950
-snoRNA  943
-transcribed_processed_pseudogene        503
-rRNA_pseudogene 497
-IG_V_pseudogene 187
-transcribed_unitary_pseudogene  146
-IG_V_gene       145
-......
-</code></pre>
-<h4 id="correct-gtf-file-1">Correct GTF File</h4>
-<p>If a GTF file has incomplete content, the main analysis pipeline may fail due to incomplete annotations. This function can automatically fill in missing information in gene and transcript entries to ensure the pipeline runs smoothly.</p>
-<pre><code class="language-shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">Correct GTF file</span>
-<span class="hljs-meta prompt_">$</span><span class="language-bash">dnbc4tools tools mkgtf \
-  --action check \
-  --ingtf genes.gtf \
-  --output corrected.gtf</span>
-</code></pre>
-<p>The software cross-references <code>gene_id</code> with <code>gene_name</code> and <code>transcript_id</code> with <code>transcript_name</code> to fill in missing details and flags locations where multiple gene information might exist.</p>
-<h4 id="filter-gene-types-1">Filter Gene Types</h4>
 <pre><code class="language-shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">Filter gene types</span>
 <span class="hljs-meta prompt_">$</span><span class="language-bash">dnbc4tools tools mkgtf \
   --ingtf genes.gtf \
@@ -553,25 +458,44 @@ sample3.sh
 <li><strong>Advanced Analysis</strong>: Filters cells, performs dimensionality reduction, clustering, and annotation on the filtered matrix.</li>
 <li><strong>Report Generation</strong>: Outputs an HTML report and other result files.</li>
 </ol>
-<p>Example script for generating an expression matrix for a single sample:</p>
+<p>Two input methods are supported:</p>
+<p><strong>Method 1: Directory (Recommended)</strong></p>
 <pre><code class="language-shell"><span class="hljs-meta prompt_">$</span><span class="language-bash">dnbc4tools rna run \
-		--name sample \
-		--cDNAfastq1 /data/sample_cDNA_R1.fastq.gz \
-		--cDNAfastq2 /data/sample_cDNA_R2.fastq.gz \
-		--oligofastq1 /data/sample_oligo1_1.fq.gz,/data/sample_oligo2_1.fq.gz \
-		--oligofastq2 /data/sample_oligo1_2.fq.gz,/data/sample_oligo2_2.fq.gz \
-		--genomeDir /opt/database/Homo_sapiens \
-		--threads 30</span>
+  --name sample \
+  --fastqs /data \
+  --genomeDir /opt/database/Homo_sapiens \
+  --threads 30</span>
+</code></pre>
+<p>Directory structure example:</p>
+<pre><code>/data/
+├── cDNA/
+│   ├── sample_cDNA_R1.fastq.gz
+│   └── sample_cDNA_R2.fastq.gz
+└── oligo/
+    ├── sample_oligo_1_R1.fastq.gz
+    ├── sample_oligo_1_R2.fastq.gz
+    ├── sample_oligo_2_R1.fastq.gz
+    └── sample_oligo_2_R2.fastq.gz
+</code></pre>
+<p><strong>Method 2: Individual Parameters</strong></p>
+<pre><code class="language-shell"><span class="hljs-meta prompt_">$</span><span class="language-bash">dnbc4tools rna run \
+  --name sample \
+  --cDNAfastq1 /data/cDNA/sample_cDNA_R1.fastq.gz \
+  --cDNAfastq2 /data/cDNA/sample_cDNA_R2.fastq.gz \
+  --oligofastq1 /data/oligo/sample_oligo_1_R1.fastq.gz,/data/oligo/sample_oligo_2_R1.fastq.gz \
+  --oligofastq2 /data/oligo/sample_oligo_1_R2.fastq.gz,/data/oligo/sample_oligo_2_R2.fastq.gz \
+  --genomeDir /opt/database/Homo_sapiens \
+  --threads 30</span>
 </code></pre>
 <p>After auto-detecting the reagent version and dark reaction, the software begins the analysis. Here is an example:</p>
 <pre><code class="language-shell">──────────────────────────── Parsed FASTQ Inputs — 2025-11-12 15:00:24 ─────────────────────────────
 ┌─────────────┬────────────────────────────────────────────────────────────────────────────────────┐
 │ Type        │ Path                                                                               │
 ├─────────────┼────────────────────────────────────────────────────────────────────────────────────┤
-│ cDNA Read1  │ /data/test_cDNA_R1.fastq.gz                                                        │
-│ cDNA Read2  │ /data/test_cDNA_R2.fastq.gz                                                        │
-│ oligo Read1 │ /data/test_oligo_1_R1.fastq.gz                                                     │
-│ oligo Read2 │ /data/test_oligo_2_R2.fastq.gz                                                     │
+│ cDNA Read1  │ /data/cDNA/sample_cDNA_R1.fastq.gz                                                 │
+│ cDNA Read2  │ /data/cDNA/sample_cDNA_R2.fastq.gz                                                 │
+│ oligo Read1 │ /data/oligo/sample_oligo_1_R1.fastq.gz,/data/oligo/sample_oligo_2_R1.fastq.gz      │
+│ oligo Read2 │ /data/oligo/sample_oligo_1_R2.fastq.gz,/data/oligo/sample_oligo_2_R2.fastq.gz      │
 └─────────────┴────────────────────────────────────────────────────────────────────────────────────┘
 ────────────────────────────────────────────────────────────────────────────────────────────────────
 
@@ -624,7 +548,7 @@ sample3.sh
  2025-11-12 15:27:21 Generating analysis report and summary statistics...                           
 ...done
 
-Analysis Finished Elapsed Time: 0:28:56
+ 2025-11-12 15:27:40 Analysis Finished. Elapsed Time: 0:27:16
 </code></pre>
 <p>When the message <code>Analysis Finished</code> appears, the analysis is successfully completed.</p>
 <hr>
@@ -650,17 +574,50 @@ Analysis Finished Elapsed Time: 0:28:56
 ├── *_scRNA_report.html
 └── singlecell.csv
 </code></pre>
-<p><strong>Related Documentation</strong>:</p>
-<ul>
-<li><a href="../io.html">📊 <strong>Output File Usage</strong></a></li>
-<li><a href="../parameter/scRNA_en.html">📋 <strong>Analysis Parameter Settings</strong></a></li>
-<li><a href="../outs/scRNA_en.html">📝 <strong>Output File Descriptions</strong></a></li>
-</ul>
+<br>
 <hr>
+<br>
+<h2 id="-related-documentation">📚 Related Documentation</h2>
+<br>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Resource</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><a href="../io.html">📊 Output File Usage</a></td>
+<td style="text-align:left">Understanding output file structure and formats</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="../parameter/scRNA_en.html">📋 Analysis Parameters</a></td>
+<td style="text-align:left">Complete parameter reference and descriptions</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="../outs/scRNA_en.html">📝 Output Descriptions</a></td>
+<td style="text-align:left">Detailed interpretation of analysis results</td>
+</tr>
+</tbody>
+</table>
+<br>
+<hr>
+<br>
 <h2 id="-frequently-asked-questions">❓ Frequently Asked Questions</h2>
 <blockquote>
 <p><code>Content to be added</code></p>
 </blockquote>
+<br>
+<hr>
+<br>
+<div align="center">
+<blockquote>
+<p>💡 <strong>Need Help?</strong></p>
+<p>This document is continuously updated. If you find any errors or need additional information, please provide feedback.</p>
+<p>📝 <strong>Document Version:</strong> 3.1 | <strong>Last Updated:</strong> April 2026</p>
+</blockquote>
+</div>
 
             <script async src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
             

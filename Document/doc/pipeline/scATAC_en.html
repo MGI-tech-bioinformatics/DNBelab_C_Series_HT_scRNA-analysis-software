@@ -140,24 +140,31 @@
         </head>
         <body class="vscode-body vscode-light">
             <div align="right">
-<p><a href="../../README.html">🏠 Home</a> | <a href="scATAC.html">🌐 中文</a></p>
+<p><a href="../../README.html">🏠 Home</a> • <a href="scATAC.html">中文</a></p>
 </div>
+<br>
 <h1 id="-dnbelab-c-series-ht-scatac-analysis-pipeline">🧬 DNBelab C Series HT scATAC Analysis Pipeline</h1>
+<br>
 <div align="center">
 <p><strong>A Complete Guide to Single-Cell ATAC Sequencing Data Analysis</strong></p>
+<br>
 <p><a href="#overview">📋 Overview</a> • <a href="#file-preparation">📁 File Preparation</a> • <a href="#reference-data">📊 Reference Data</a> • <a href="#main-pipeline">🚀 Main Pipeline</a> • <a href="#results-interpretation">📊 Results Interpretation</a></p>
 </div>
+<br>
 <hr>
+<br>
 <h2 id="-overview-">📋 Overview <a id="overview"></a></h2>
+<br>
 <p>This document provides a detailed guide for analyzing single-cell ATAC sequencing data using dnbc4tools.</p>
 <p><strong>Workflow</strong>: Raw Data → Quality Control → Alignment → Bead Merging → Peak Calling → Cell Identification → Dimensionality Reduction &amp; Clustering → Analysis Report</p>
 <div align="center">
-  <img src="https://s2.loli.net/2024/09/27/exd1OyX3n4K8LGq.png" alt="Workflow Diagram" width="800">
+  <img src="../images/scATAC_pipeline.png" alt="scATACpipeline" width="700">
 </div>
 <div style="background-color: #e7f3fe; border-left: 6px solid #2196F3; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
 💡 <strong>Usage Note</strong>: <code>$dnbc4tools</code> represents the executable path and must be replaced with the actual installation path. The backslash `\` is used to split a command across multiple lines for readability.
 </div>
 <hr>
+<br>
 <h2 id="-file-preparation-">📁 File Preparation <a id="file-preparation"></a></h2>
 <p>The analysis requires FASTQ files:</p>
 <table style="width:100%; border-collapse: collapse; margin: 1.5em 0; box-shadow: 0 2px 3px rgba(0,0,0,0.1);">
@@ -332,24 +339,39 @@ sample3.sh
 <p>You can then execute these scripts to run the main analysis.</p>
 <h3 id="single-sample-analysis">Single-Sample Analysis</h3>
 <p>The ATAC main analysis pipeline processes single-cell ATAC library data from a single sample. It filters and aligns reads to generate a fragments file for all beads. Beads are then merged, and peak calling is performed. Cell identification is done using the fragment information within the peak regions. This is followed by cell filtering, dimensionality reduction, and clustering. Finally, the results from all steps are integrated to generate an HTML report and other output files.</p>
-<p>Example script for generating an expression matrix for a single sample:</p>
+<p>Two input methods are supported:</p>
+<p><strong>Method 1: Directory (Recommended)</strong></p>
 <pre><code class="language-shell"><span class="hljs-meta prompt_">$</span><span class="language-bash">dnbc4tools atac run \
   --name sample \
-  --fastq1 /sample/data/test1_R1.fastq.gz,/sample/data/test2_R1.fastq.gz \
-  --fastq2 /sample/data/test1_R2.fastq.gz,/sample/data/test2_R2.fastq.gz \
+  --fastqs /data \
+  --genomeDir /opt/database/Mus_musculus \
+  --threads 10</span>
+</code></pre>
+<p>Directory structure example:</p>
+<pre><code>/data/
+
+├── sample_R1.fastq.gz
+└── sample_R2.fastq.gz
+
+</code></pre>
+<p><strong>Method 2: Individual Parameters</strong></p>
+<pre><code class="language-shell"><span class="hljs-meta prompt_">$</span><span class="language-bash">dnbc4tools atac run \
+  --name sample \
+  --fastq1 /data/sample_R1.fastq.gz \
+  --fastq2 /data/sample_R2.fastq.gz \
   --genomeDir /opt/database/Mus_musculus \
   --threads 10</span>
 </code></pre>
 <p>After auto-detecting the reagent version and dark reaction, the software begins the analysis. Here is an example:</p>
-<pre><code class="language-shell">──────────────────────────── Parsed FASTQ Inputs — 2025-11-12 15:05:39 ─────────────────────────────
+<pre><code class="language-shell">
+──────────────────────────── Parsed FASTQ Inputs — 2025-11-12 15:05:39 ─────────────────────────────
 ┌───────┬──────────────────────────────────────────────────────────────────────────────────────────┐
 │ Type  │ Path                                                                                     │
 ├───────┼──────────────────────────────────────────────────────────────────────────────────────────┤
-│ Read1 │ /data/test_ATAC_R1.fastq.gz                                                              │
-│ Read2 │ /data/test_ATAC_R2.fastq.gz                                                              │
+│ Read1 │ /data/sample_R1.fastq.gz                                                                 │
+│ Read2 │ /data/sample_R2.fastq.gz                                                                 │
 └───────┴──────────────────────────────────────────────────────────────────────────────────────────┘
 ────────────────────────────────────────────────────────────────────────────────────────────────────
-
 
 ──────────────────────────── Chemistry Detection — 2025-11-12 15:05:49 ─────────────────────────────
 ┌─────────────────────────────────┬────────────────────────────────────────────────────────────────┐
@@ -381,7 +403,7 @@ sample3.sh
  2025-11-12 15:50:03 Generating analysis report and summary statistics...                           
 ...done
 
-Analysis Finished Elapsed Time: 0:44:41
+ 2025-11-12 15:50:19 Analysis Finished. Elapsed Time: 0:44:30
 </code></pre>
 <p>A successful run will end with <code>Analysis Finished</code>.</p>
 <hr>
@@ -402,17 +424,50 @@ Analysis Finished Elapsed Time: 0:44:41
 │   └── peaks.bed.gz
 └── singlecell.csv
 </code></pre>
-<p><strong>Related Documentation</strong>:</p>
-<ul>
-<li><a href="../io.html">📊 Output File Usage</a></li>
-<li><a href="../parameter/scATAC_en.html">📋 Analysis Parameter Settings</a></li>
-<li><a href="../outs/scATAC_en.html">📝 Output File Descriptions</a></li>
-</ul>
+<br>
 <hr>
+<br>
+<h2 id="-related-documentation">📚 Related Documentation</h2>
+<br>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Resource</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><a href="../io.html">📊 Output File Usage</a></td>
+<td style="text-align:left">Understanding output file structure and formats</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="../parameter/scATAC_en.html">📋 Analysis Parameters</a></td>
+<td style="text-align:left">Complete parameter reference and descriptions</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="../outs/scATAC_en.html">📝 Output Descriptions</a></td>
+<td style="text-align:left">Detailed interpretation of analysis results</td>
+</tr>
+</tbody>
+</table>
+<br>
+<hr>
+<br>
 <h2 id="-frequently-asked-questions">❓ Frequently Asked Questions</h2>
 <blockquote>
 <p><code>Content to be added</code></p>
 </blockquote>
+<br>
+<hr>
+<br>
+<div align="center">
+<blockquote>
+<p>💡 <strong>Need Help?</strong></p>
+<p>This document is continuously updated. If you find any errors or have information to add, feedback is welcome.</p>
+<p>📝 <strong>Document Version:</strong> 3.1 | <strong>Last Updated:</strong> April 2026</p>
+</blockquote>
+</div>
 
             <script async src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
             

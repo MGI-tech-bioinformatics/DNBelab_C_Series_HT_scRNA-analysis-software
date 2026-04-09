@@ -263,27 +263,32 @@ fastqs,feature_types
 
 ---
 
-### 📚 Related Docs
+<br>
 
-- [Multi pipeline doc](../pipeline/multi_en.md)
-- [Multi output doc](../outs/multi_en.md)
-- [scRNA parameter doc](./scRNA_en.md)
-- [scATAC parameter doc](./scATAC_en.md)
-- [scVDJ parameter doc](./scVDJ_en.md)
+## 📚 Related Documentation
+
+<br>
+
+| Resource | Description |
+| :--- | :--- |
+| [🚀 Multi Pipeline](../pipeline/multi_en.md) | Multi-omics integrated workflow guide |
+| [📁 Multi Output](../outs/multi_en.md) | Detailed output file interpretation |
+| [🧬 scRNA Parameters](./scRNA_en.md) | Single-cell RNA analysis parameters |
+| [🧪 scATAC Parameters](./scATAC_en.md) | Single-cell ATAC analysis parameters |
+| [🦠 scVDJ Parameters](./scVDJ_en.md) | Single-cell VDJ analysis parameters |
+
+<br>
 
 ---
 
+<br>
+
 <div align="center">
 
-> 💡 <strong>Tip</strong>
+> 💡 <strong>Need Help?</strong>
 >
 > This page focuses on parameter and configuration authoring and should be used together with pipeline and output docs.
 >
 > 📝 <strong>Document Version:</strong> 3.1 | <strong>Last Updated:</strong> April 2026
-
----
-
-<strong>🧩 DNBelab C Series HT Multi-omics Analysis Software</strong>  
-<em>High-performance integrated pipeline for single-cell multi-omics analysis</em>
 
 </div>

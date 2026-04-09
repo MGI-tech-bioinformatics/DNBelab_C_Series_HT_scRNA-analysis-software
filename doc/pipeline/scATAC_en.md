@@ -4,19 +4,31 @@
 
 </div>
 
+<br>
+
 # 🧬 DNBelab C Series HT scATAC Analysis Pipeline
+
+<br>
 
 <div align="center">
 
 **A Complete Guide to Single-Cell ATAC Sequencing Data Analysis**
 
+<br>
+
 [📋 Overview](#overview) • [📁 File Preparation](#file-preparation) • [📊 Reference Data](#reference-data) • [🚀 Main Pipeline](#main-pipeline) • [📊 Results Interpretation](#results-interpretation)
 
 </div>
 
+<br>
+
 ---
 
+<br>
+
 ## 📋 Overview <a id="overview"></a>
+
+<br>
 
 This document provides a detailed guide for analyzing single-cell ATAC sequencing data using dnbc4tools.
 
@@ -31,6 +43,8 @@ This document provides a detailed guide for analyzing single-cell ATAC sequencin
 </div>
 
 ---
+
+<br>
 
 ## 📁 File Preparation <a id="file-preparation"></a>
 
@@ -354,14 +368,44 @@ Upon completion, `outs` (outputs) and `logs` directories will be generated.
 └── singlecell.csv
 ```
 
-### 📚 Related Documentation
-
-- [📊 Output File Usage](../io.md)
-- [📋 Analysis Parameter Settings](../parameter/scATAC_en.md)
-- [📝 Output File Descriptions](../outs/scATAC_en.md)
+<br>
 
 ---
+
+<br>
+
+## 📚 Related Documentation
+
+<br>
+
+| Resource | Description |
+| :--- | :--- |
+| [📊 Output File Usage](../io.md) | Understanding output file structure and formats |
+| [📋 Analysis Parameters](../parameter/scATAC_en.md) | Complete parameter reference and descriptions |
+| [📝 Output Descriptions](../outs/scATAC_en.md) | Detailed interpretation of analysis results |
+
+<br>
+
+---
+
+<br>
 
 ## ❓ Frequently Asked Questions
 
 > `Content to be added`
+
+<br>
+
+---
+
+<br>
+
+<div align="center">
+
+> 💡 <strong>Need Help?</strong>
+>
+> This document is continuously updated. If you find any errors or have information to add, feedback is welcome.
+>
+> 📝 <strong>Document Version:</strong> 3.1 | <strong>Last Updated:</strong> April 2026
+
+</div>

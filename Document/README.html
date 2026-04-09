@@ -143,45 +143,18 @@
 <p><a href="https://github.com/MGI-tech-bioinformatics/DNBelab_C_Series_HT_scRNA-analysis-software/releases"><img src="https://img.shields.io/github/v/release/MGI-tech-bioinformatics/DNBelab_C_Series_HT_scRNA-analysis-software" alt="Github Release"></a> <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License"></a> <a href="https://lishuangshuang0616.github.io/DNBelab_C_Series_HT_scRNA-analysis-software/Document/README.html"><img src="https://img.shields.io/badge/docs-latest-brightgreen.svg" alt="Documentation"></a> <a href="#system-requirements"><img src="https://img.shields.io/badge/platform-Linux-lightgrey.svg" alt="Platform"></a></p>
 <p><strong>The official pipeline for flexible and high-performance analysis of DNBelab C Series™ single-cell data.</strong></p>
 <p>The command-line tool for this pipeline is named <strong><code>dnbc4tools</code></strong>.</p>
-<p>🧬 <strong>scRNA-seq</strong> | 🧪 <strong>scATAC-seq</strong> | 🦠 <strong>scVDJ-seq</strong></p>
+<p>🧬 <strong>scRNA-seq</strong> | 🧪 <strong>scATAC-seq</strong> | 🦠 <strong>scVDJ-seq</strong> | 🧩 <strong>Multi-omics</strong></p>
 <p>📚 <strong>Documentation</strong>: <a href="https://mgi-tech-bioinformatics.github.io/DNBelab_C_Series_HT_scRNA-analysis-software/Document/README.html"><strong>User Guide</strong></a></p>
 </div>
 <hr>
-<h2 id="️-system-requirements">🖥️ System Requirements</h2>
-<table>
-<tr>
-<td><strong>Hardware</strong></td>
-<td><strong>Specification</strong></td>
-<td><strong>Recommendation</strong></td>
-</tr>
-<tr>
-<td>Processor</td>
-<td>x86-64 compatible</td>
-<td>Multi-core server CPU</td>
-</tr>
-<tr>
-<td>Memory</td>
-<td>50GB RAM minimum</td>
-<td>128GB+ recommended</td>
-</tr>
-<tr>
-<td>CPU Cores</td>
-<td>8 cores minimum</td>
-<td>16+ cores</td>
-</tr>
-<tr>
-<td>Storage</td>
-<td>SSD recommended</td>
-<td>High-speed SSD</td>
-</tr>
-<tr>
-<td>OS</td>
-<td>Linux 64-bit</td>
-<td>Ubuntu 20.04+ / CentOS 7+</td>
-</tr>
-</table>
+<h2 id="-whats-new-in-v31">✨ What's New in v3.1</h2>
+<ul>
+<li>🧩 <strong>Multi-omics Analysis</strong>: Single-sample multi-omics workflow supporting RNA + VDJ combined analysis</li>
+</ul>
+<p>📋 <strong><a href="./doc/release.html">Full Release Notes</a></strong></p>
 <hr>
 <h2 id="-documentation">📚 Documentation</h2>
+<h3 id="core-guides">Core Guides</h3>
 <table>
 <thead>
 <tr>
@@ -199,18 +172,6 @@
 <td style="text-align:left">Run your first analysis with sample data.</td>
 </tr>
 <tr>
-<td style="text-align:left"><strong><a href="./doc/pipeline/pipeline.html">Pipeline Guides</a></strong></td>
-<td style="text-align:left">In-depth workflow documentation for: <br> <a href="./doc/pipeline/scRNA_en.html">scRNA-seq</a> | <a href="./doc/pipeline/scATAC_en.html">scATAC-seq</a> | <a href="./doc/pipeline/scVDJ_en.html">scVDJ-seq</a></td>
-</tr>
-<tr>
-<td style="text-align:left"><strong><a href="./doc/parameter/parameter.html">Parameters</a></strong></td>
-<td style="text-align:left">Command reference and parameter settings for: <br> <a href="./doc/parameter/scRNA_en.html">scRNA-seq</a> | <a href="./doc/parameter/scATAC_en.html">scATAC-seq</a> | <a href="./doc/parameter/scVDJ_en.html">scVDJ-seq</a></td>
-</tr>
-<tr>
-<td style="text-align:left"><strong><a href="./doc/outs/outs.html">Outputs</a></strong></td>
-<td style="text-align:left">Guides to understanding your results for: <br> <a href="./doc/outs/scRNA_en.html">scRNA-seq</a> | <a href="./doc/outs/scATAC_en.html">scATAC-seq</a> | <a href="./doc/outs/scVDJ_en.html">scVDJ-seq</a></td>
-</tr>
-<tr>
 <td style="text-align:left"><strong><a href="./doc/io.html">Analysis</a></strong></td>
 <td style="text-align:left">Analyze results in R and Python.</td>
 </tr>
@@ -220,45 +181,44 @@
 </tr>
 </tbody>
 </table>
+<h3 id="pipeline-specific-guides">Pipeline-Specific Guides</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Topic</th>
+<th style="text-align:left">Links</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong><a href="./doc/pipeline/pipeline.html">Pipeline Guides</a></strong></td>
+<td style="text-align:left">In-depth workflow documentation for: <br> <a href="./doc/pipeline/scRNA_en.html">scRNA-seq</a> | <a href="./doc/pipeline/scATAC_en.html">scATAC-seq</a> | <a href="./doc/pipeline/scVDJ_en.html">scVDJ-seq</a> | <a href="./doc/pipeline/multi_en.html">Multi-omics</a></td>
+</tr>
+<tr>
+<td style="text-align:left"><strong><a href="./doc/parameter/parameter.html">Parameters</a></strong></td>
+<td style="text-align:left">Command reference and parameter settings for: <br> <a href="./doc/parameter/scRNA_en.html">scRNA-seq</a> | <a href="./doc/parameter/scATAC_en.html">scATAC-seq</a> | <a href="./doc/parameter/scVDJ_en.html">scVDJ-seq</a> | <a href="./doc/parameter/multi_en.html">Multi-omics</a></td>
+</tr>
+<tr>
+<td style="text-align:left"><strong><a href="./doc/outs/outs.html">Outputs</a></strong></td>
+<td style="text-align:left">Guides to understanding your results for: <br> <a href="./doc/outs/scRNA_en.html">scRNA-seq</a> | <a href="./doc/outs/scATAC_en.html">scATAC-seq</a> | <a href="./doc/outs/scVDJ_en.html">scVDJ-seq</a> | <a href="./doc/outs/multi_en.html">Multi-omics</a></td>
+</tr>
+</tbody>
+</table>
 <hr>
 <h2 id="-support-and-community">🤝 Support and Community</h2>
-<h3 id="get-help">Get Help</h3>
-<p><strong>Questions, Bug Reports, or Feature Requests:</strong><br>
-<a href="https://github.com/MGI-tech-bioinformatics/DNBelab_C_Series_HT_scRNA-analysis-software/issues">GitHub Issues</a></p>
+<h3 id="get-help--report-issues">Get Help &amp; Report Issues</h3>
+<ul>
+<li><strong>Questions, bug reports, feature requests</strong>: <a href="https://github.com/MGI-tech-bioinformatics/DNBelab_C_Series_HT_scRNA-analysis-software/issues">GitHub Issues</a></li>
+</ul>
 <h3 id="contact-information">Contact Information</h3>
 <ul>
 <li><strong>Website</strong>: <a href="https://www.mgitech.cn">www.mgitech.cn</a></li>
 </ul>
 <hr>
-<h2 id="-whats-new">🚀 What's New</h2>
-<h3 id="whats-new-in-v30">What's New in v3.0</h3>
-<details open>
-<summary><strong>New Features & Improvements</strong></summary>
-<h4 id="rna-seq-enhancements">RNA-Seq Enhancements</h4>
-<ul>
-<li><strong>Annotation Logic</strong>: Optimized RNA annotation for improved accuracy</li>
-<li><strong>HTML Reports</strong>: Updated interactive reports with more informative metrics</li>
-<li><strong>Feature Matrices</strong>: Included <code>gene_id</code> and <code>gene_name</code> in the feature file</li>
-<li><strong>BAM Output</strong>: Added comprehensive metadata tags to BAM alignment file</li>
-<li><strong>Mixed Species</strong>: Enabled support for dual-species analysis</li>
-</ul>
-<h4 id="vdj-analysis-upgrades">VDJ Analysis Upgrades</h4>
-<ul>
-<li><strong>Assembly &amp; Annotation</strong>: Improved algorithms for V(D)J assembly and annotation</li>
-<li><strong>Output Format</strong>: Standardized outputs for better compatibility with third-party tools</li>
-</ul>
-<h4 id="performance--usability">Performance &amp; Usability</h4>
-<ul>
-<li><strong>Storage Optimization</strong>: Automatic removal of intermediate files to save disk space</li>
-<li><strong>Directory Structure</strong>: Reorganized output directories and logs for better readability</li>
-<li><strong>Parallel Processing</strong>: Implemented multi-threading for faster execution</li>
-</ul>
-</details>
-<blockquote>
-<p><strong>Note</strong>: This is the stable release version. Users on beta or Release Candidate (RC) versions should update to this stable release. If you wish to use version 2.1.3, please switch to the <a href="https://github.com/MGI-tech-bioinformatics/DNBelab_C_Series_HT_scRNA-analysis-software/tree/version2.0"><code>version2.0</code></a> branch.</p>
-</blockquote>
-<p><strong>Full Release History</strong>: <a href="./doc/release.html">Release Notes</a></p>
-<hr>
+<h2 id="-version-note">🧾 Version Note</h2>
+<p>This is the stable release version (<strong>v3.1</strong>).<br>
+Users on beta or RC versions are recommended to update.</p>
+<p>For version <strong>2.1.3</strong>, switch to the <a href="https://github.com/MGI-tech-bioinformatics/DNBelab_C_Series_HT_scRNA-analysis-software/tree/version2.0"><code>version2.0</code></a> branch.</p>
 
             
             
