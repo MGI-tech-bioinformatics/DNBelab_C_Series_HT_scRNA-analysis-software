@@ -658,7 +658,7 @@ SampleB	/path/to/B_L01_R1.fq.gz,/path/to/B_L02_R1.fq.gz;/path/to/B_L01_R2.fq.gz,
 
 <div align="center">
 
-> 💡 <strong>Need Help?</strong>
+> 💡 <strong>Feedback & Support</strong>
 >
 > This document is continuously updated. If you find any errors or have information to add, feedback is welcome.
 >

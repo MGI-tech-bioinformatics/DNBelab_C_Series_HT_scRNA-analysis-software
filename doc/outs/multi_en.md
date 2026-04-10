@@ -4,27 +4,17 @@
 
 </div>
 
-<br>
-
 # 🧩 DNBelab C Series HT Multi-omics Output Documentation
-
-<br>
 
 <div align="center">
 
 **Complete Guide to Integrated Multi-omics Output Files**
 
-<br>
-
 [📁 Directory Structure](#output-directory-structure) • [📋 File Details](#detailed-file-description) • [📊 Report Interpretation](#report-interpretation)
 
 </div>
 
-<br>
-
 ---
-
-<br>
 
 ## 📖 Overview <a id="overview"></a>
 
@@ -231,12 +221,10 @@ Reference:
 
 <div align="center">
 
-> 💡 <strong>Tip</strong>
+> 💡 <strong>Feedback & Support</strong>
 > 
 > This document is continuously updated. If you find any errors or need additional information, please provide feedback.
 > 
 > 📝 <strong>Document Version:</strong> 3.1 | <strong>Last Updated:</strong> April 2026
-
-</div>
 
 </div>

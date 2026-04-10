@@ -4,31 +4,19 @@
 
 </div>
 
-<br>
-
 # 🧩 DNBelab C Series HT Multi-omics Analysis Pipeline
-
-<br>
 
 <div align="center">
 
 **Complete Guide for Single-Cell Multi-omics Integrated Analysis**
 
-<br>
-
 [📋 Overview](#overview) • [📁 Input Configuration](#input-configuration) • [🚀 Main Pipeline](#main-pipeline) • [📊 Results](#results) • [❓ FAQ](#faq)
 
 </div>
 
-<br>
-
 ---
 
-<br>
-
 ## 📋 Overview <a id="overview"></a>
-
-<br>
 
 The Multi-omics workflow orchestrates RNA / ATAC / VDJ sub-pipelines, enabling multi-omics joint analysis through a single configuration file and generating integrated reports for cross-omics inspection.
 
@@ -375,6 +363,8 @@ After completion, results are organized under `<outdir>/<name>/`:
 
 ---
 
+<br>
+
 ## 📚 Related Documentation
 
 <br>
@@ -395,7 +385,7 @@ After completion, results are organized under `<outdir>/<name>/`:
 
 <div align="center">
 
-> 💡 <strong>Need Help?</strong>
+> 💡 <strong>Feedback & Support</strong>
 >
 > This document is continuously updated. If you find any errors or have information to add, feedback is welcome.
 >

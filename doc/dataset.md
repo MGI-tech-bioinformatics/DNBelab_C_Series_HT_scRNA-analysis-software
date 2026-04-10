@@ -4,19 +4,11 @@
 
 </div>
 
-<br>
-
 # DNBelab C Series Demo Datasets
-
-<br>
 
 Demo datasets are hosted on CNGB (China National GeneBank). Only mouse samples data is provided.
 
-<br>
-
 ---
-
-<br>
 
 <table style="width:100%; border-collapse: collapse; margin: 1.5em 0;">
   <thead style="background-color: #f2f2f2; border-bottom: 2px solid #ddd;">

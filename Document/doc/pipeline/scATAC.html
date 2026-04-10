@@ -142,19 +142,13 @@
             <div align="right">
 <p><a href="../../README.html">🏠 主页</a> • <a href="scATAC_en.html">English</a></p>
 </div>
-<br>
 <h1 id="-dnbelab-c-series-ht-scatac-分析流程">🧬 DNBelab C Series HT scATAC 分析流程</h1>
-<br>
 <div align="center">
 <p><strong>单细胞 ATAC 测序数据分析完整指南</strong></p>
-<br>
 <p><a href="#%E6%A6%82%E8%BF%B0">📋 概述</a> • <a href="#%E6%96%87%E4%BB%B6%E5%87%86%E5%A4%87">📁 文件准备</a> • <a href="#%E5%8F%82%E8%80%83%E6%95%B0%E6%8D%AE%E5%BA%93">📊 参考数据库</a> • <a href="#%E4%B8%BB%E5%88%86%E6%9E%90%E6%B5%81%E7%A8%8B">🚀 主分析流程</a> • <a href="#%E7%BB%93%E6%9E%9C%E8%A7%A3%E6%9E%90">📊 结果解析</a></p>
 </div>
-<br>
 <hr>
-<br>
 <h2 id="-概述-">📋 概述 <a id="概述"></a></h2>
-<br>
 <p>本文档详细介绍了使用 dnbc4tools 进行单细胞 ATAC 测序数据分析的完整流程。</p>
 <p><strong>工作流程</strong>：原始数据 → 质量控制 → 比对 → 磁珠合并 → Peak调用 → 细胞识别 → 降维聚类 → 分析报告</p>
 <div align="center">
@@ -210,7 +204,7 @@
   </tbody>
 </table>
 <div style="background-color: #e7f3fe; border-left: 6px solid #2196F3; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
-💡 <strong>推荐数据来源</strong>：优先使用[Ensembl数据库](https://www.ensembl.org/index.html)提供的文件。Ensembl的GTF文件包含可选标签，便于过滤（通过<code>dnbc4tools tools mkgtf</code>）。
+💡 <strong>推荐数据来源</strong>：优先使用 <a href="https://www.ensembl.org/index.html">Ensembl 数据库</a> 提供的文件。Ensembl 的 GTF 文件包含可选标签，便于通过 <code>dnbc4tools tools mkgtf</code> 进行过滤。
 </div>
 <p><strong>GTF文件要求</strong>：</p>
 <ul>
@@ -429,7 +423,6 @@ sample3.sh
 │   └── peaks.bed.gz
 └── singlecell.csv
 </code></pre>
-<br>
 <hr>
 <br>
 <h2 id="-相关文档">📚 相关文档</h2>

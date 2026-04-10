@@ -4,19 +4,13 @@
 
 </div>
 
-<br>
-
 # 🧬 DNBelab C Series HT 工具类分析参数
-
-<br>
 
 <div align="center">
 
 [🛠️ GTF 文件操作 (mkgtf)](#gtf-文件操作-mkgtf) • [📄 BAM 转 FASTQ (bam2fastq)](#bam-转-fastq-bam2fastq) • [🧬 染色体分割 (chromsplit)](#染色体分割-chromsplit) • [📝 FASTQ 切割 (fqsubC4)](#fastq-切割-fqsubc4)
 
 </div>
-
-<br>
 
 ---
 
@@ -541,7 +535,7 @@ Options:
 
 <div align="center">
 
-> 💡 <strong>需要帮助？</strong>
+> 💡 <strong>反馈与支持</strong>
 >
 > 本文档持续更新中，如发现内容错误或需要补充的信息，欢迎反馈。
 >

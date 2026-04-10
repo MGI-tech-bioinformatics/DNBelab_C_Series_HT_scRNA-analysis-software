@@ -285,7 +285,7 @@ fastqs,feature_types
 
 <div align="center">
 
-> 💡 <strong>Need Help?</strong>
+> 💡 <strong>Feedback & Support</strong>
 >
 > This page focuses on parameter and configuration authoring and should be used together with pipeline and output docs.
 >

@@ -4,31 +4,19 @@
 
 </div>
 
-<br>
-
 # 🧬 DNBelab C Series HT scRNA 分析流程
-
-<br>
 
 <div align="center">
 
 **单细胞 RNA 测序数据分析完整指南**
 
-<br>
-
 [📋 概述](#概述) • [📁 文件准备](#文件准备) • [📊 参考数据库](#参考数据库) • [🚀 主流程分析](#主流程分析) • [📊 结果解析](#结果解析)
 
 </div>
 
-<br>
-
 ---
 
-<br>
-
 ## 📋 概述 <a id="概述"></a>
-
-<br>
 
 本文档旨在提供一份完整的指南，详细介绍如何使用 dnbc4tools 对单细胞 RNA 测序数据进行分析。
 
@@ -104,7 +92,7 @@
 </table>
 
 <div style="background-color: #e7f3fe; border-left: 6px solid #2196F3; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
-💡 <strong>推荐数据来源</strong>：优先使用 [Ensembl 数据库](https://www.ensembl.org/index.html)提供的文件。Ensembl 的 GTF 文件包含可选标签，便于通过 <code>$dnbc4tools tools mkgtf</code> 进行过滤。
+💡 <strong>推荐数据来源</strong>：优先使用 <a href="https://www.ensembl.org/index.html">Ensembl 数据库</a> 提供的文件。Ensembl 的 GTF 文件包含可选标签，便于通过 <code>dnbc4tools tools mkgtf</code> 进行过滤。
 </div>
 
 **GTF 文件要求**：
@@ -557,8 +545,6 @@ $dnbc4tools rna run \
 └── singlecell.csv
 ```
 
-<br>
-
 ---
 
 <br>
@@ -570,8 +556,8 @@ $dnbc4tools rna run \
 | 资源 | 描述 |
 | :--- | :--- |
 | [📊 输出文件使用方法](../io.md) | 了解输出文件结构和格式 |
-| [📋 分析参数设置](../parameter/scRNA.md) | 查看完整参数选项和说明 |
-| [📝 输出文件解释](../outs/scRNA.md) | 详细解读分析结果文件 |
+| [📋 分析参数设置](../parameter/scRNA.md) | 完整的参数参考和说明 |
+| [📝 输出文件解释](../outs/scRNA.md) | 分析结果的详细解读 |
 
 <br>
 
@@ -581,7 +567,7 @@ $dnbc4tools rna run \
 
 ## ❓ 常见问题
 
-> <em>Content coming soon...</em>
+> <em>内容即将添加...</em>
 
 <br>
 
@@ -591,10 +577,10 @@ $dnbc4tools rna run \
 
 <div align="center">
 
-> 💡 <strong>需要帮助？</strong>
+> 💡 <strong>反馈与支持</strong>
 >
-> 本文档持续更新中，如发现内容错误或需要补充的信息，欢迎反馈。
+> 本文档持续更新中，如发现错误或有补充信息，请反馈。
 >
-> 📝 <strong>文档版本：</strong> 3.1 | <strong>最后更新：</strong> 2026年4月
+> 📝 <strong>文档版本：</strong>3.1 | <strong>最后更新：</strong>2026年4月
 
 </div>

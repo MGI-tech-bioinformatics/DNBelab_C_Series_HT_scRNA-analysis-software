@@ -4,31 +4,19 @@
 
 </div>
 
-<br>
-
 # 🧬 DNBelab C Series HT scATAC 分析流程
-
-<br>
 
 <div align="center">
 
 **单细胞 ATAC 测序数据分析完整指南**
 
-<br>
-
 [📋 概述](#概述) • [📁 文件准备](#文件准备) • [📊 参考数据库](#参考数据库) • [🚀 主分析流程](#主分析流程) • [📊 结果解析](#结果解析)
 
 </div>
 
-<br>
-
 ---
 
-<br>
-
 ## 📋 概述 <a id="概述"></a>
-
-<br>
 
 本文档详细介绍了使用 dnbc4tools 进行单细胞 ATAC 测序数据分析的完整流程。
 
@@ -100,7 +88,7 @@
 </table>
 
 <div style="background-color: #e7f3fe; border-left: 6px solid #2196F3; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
-💡 <strong>推荐数据来源</strong>：优先使用[Ensembl数据库](https://www.ensembl.org/index.html)提供的文件。Ensembl的GTF文件包含可选标签，便于过滤（通过<code>dnbc4tools tools mkgtf</code>）。
+💡 <strong>推荐数据来源</strong>：优先使用 <a href="https://www.ensembl.org/index.html">Ensembl 数据库</a> 提供的文件。Ensembl 的 GTF 文件包含可选标签，便于通过 <code>dnbc4tools tools mkgtf</code> 进行过滤。
 </div>
 
 **GTF文件要求**：
@@ -377,8 +365,6 @@ $dnbc4tools atac run \
 └── singlecell.csv
 ```
 
-<br>
-
 ---
 
 <br>
@@ -411,7 +397,7 @@ $dnbc4tools atac run \
 
 <div align="center">
 
-> 💡 <strong>需要帮助？</strong>
+> 💡 <strong>反馈与支持</strong>
 >
 > 本文档持续更新中，如发现内容错误或需要补充的信息，欢迎反馈。
 >

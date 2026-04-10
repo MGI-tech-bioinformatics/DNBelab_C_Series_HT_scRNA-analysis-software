@@ -4,25 +4,15 @@
 
 </div>
 
-<br>
-
 # 📁 DNBelab C Series Analysis Outputs
-
-<br>
 
 <div align="center">
 
 **A complete guide to understanding your analysis results**
 
-<br>
-
 </div>
 
-<br>
-
 ---
-
-<br>
 
 <div style="background-color: #e7f3fe; border-left: 6px solid #2196F3; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
 💡 <strong>Quick Tip</strong>: Select your analysis type below to view detailed output file descriptions and report interpretation guides.
@@ -70,7 +60,7 @@
 
 <div align="center">
 
-> 💡 <strong>Need Help?</strong>
+> 💡 <strong>Feedback & Support</strong>
 >
 > For detailed output file descriptions, click on any analysis type above.
 >

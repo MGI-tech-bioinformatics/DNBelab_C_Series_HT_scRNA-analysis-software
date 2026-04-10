@@ -4,19 +4,13 @@
 
 </div>
 
-<br>
-
 # 🧬 DNBelab C Series HT scVDJ Analysis Parameters
-
-<br>
 
 <div align="center">
 
 [🔬 Main Analysis Pipeline (run)](#main-analysis-pipeline-run)
 
 </div>
-
-<br>
 
 ---
 
@@ -324,7 +318,7 @@ CCTGGACTCCTGGGCCCCAG</code></pre>
 
 <div align="center">
 
-> 💡 <strong>Need Help?</strong>
+> 💡 <strong>Feedback & Support</strong>
 >
 > This document is continuously updated. If you find any errors or have information to add, feedback is welcome.
 >

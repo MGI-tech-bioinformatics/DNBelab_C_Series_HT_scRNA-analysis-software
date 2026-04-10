@@ -4,31 +4,19 @@
 
 </div>
 
-<br>
-
 # 🧬 DNBelab C Series HT scVDJ 分析流程
-
-<br>
 
 <div align="center">
 
 **单细胞 VDJ 测序数据分析完整指南**
 
-<br>
-
 [📋 概述](#概述) • [📁 文件准备](#文件准备) • [🚀 主分析流程](#主分析流程) • [📊 结果解析](#结果解析)
 
 </div>
 
-<br>
-
 ---
 
-<br>
-
 ## 📋 概述 <a id="概述"></a>
-
-<br>
 
 本文档详细介绍了使用 dnbc4tools 进行单细胞 VDJ 测序数据分析的完整流程。
 
@@ -264,8 +252,6 @@ $dnbc4tools vdj run \
 └── metrics_summary.xls
 ```
 
-<br>
-
 ---
 
 <br>
@@ -298,7 +284,7 @@ $dnbc4tools vdj run \
 
 <div align="center">
 
-> 💡 <strong>需要帮助？</strong>
+> 💡 <strong>反馈与支持</strong>
 >
 > 本文档持续更新中，如发现内容错误或需要补充的信息，欢迎反馈。
 >

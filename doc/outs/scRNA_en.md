@@ -4,27 +4,17 @@
 
 </div>
 
-<br>
-
 # 🧬 DNBelab C Series HT scRNA Analysis Output Documentation
-
-<br>
 
 <div align="center">
 
 **A Complete Guide to Single-Cell RNA Sequencing Analysis Output Files**
 
-<br>
-
 [📁 Directory Structure](#output-directory-structure) • [📋 File Details](#detailed-file-description) • [🧬 Data Matrix](#feature-matrix-files) • [📊 Analysis Results](#analysis-results-directory-analysis) • [📊 Report Interpretation](#web-report-interpretation)
 
 </div>
 
-<br>
-
 ---
-
-<br>
 
 ## 📖 Overview <a id="overview"></a>
 
@@ -1169,7 +1159,7 @@ This page combines droplet-level multiplet statistics, cell-level species scatte
 
 <div align="center">
 
-> 💡 <strong>Tip</strong>
+> 💡 <strong>Feedback & Support</strong>
 > 
 > This document is continuously updated. If you find any errors or need additional information, please provide feedback.
 > 

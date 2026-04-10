@@ -4,19 +4,11 @@
 
 </div>
 
-<br>
-
 # JSON Configuration Guide
-
-<br>
 
 This document explains the JSON configuration used to define the library structure for `dnbc4tools`.
 
-<br>
-
 ---
-
-<br>
 
 ## Library Structures
 

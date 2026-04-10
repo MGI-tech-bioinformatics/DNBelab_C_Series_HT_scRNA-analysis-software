@@ -4,27 +4,17 @@
 
 </div>
 
-<br>
-
 # Quick Start Guide
-
-<br>
 
 <div align="center">
 
 **Get started with dnbc4tools**
 
-<br>
-
 [◆ RNA-seq](#single-cell-rna-analysis) • [◆ ATAC-seq](#single-cell-atac-analysis) • [◆ VDJ-seq](#single-cell-vdj-analysis) • [◆ Multi-omics](#integrated-multi-omics-analysis)
 
 </div>
 
-<br>
-
 ---
-
-<br>
 
 ## Prerequisites
 

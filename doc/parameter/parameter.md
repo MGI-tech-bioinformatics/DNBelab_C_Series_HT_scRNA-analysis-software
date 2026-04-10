@@ -67,7 +67,7 @@
 
 <div align="center">
 
-> 💡 <strong>Need Help?</strong>
+> 💡 <strong>Feedback & Support</strong>
 >
 > For detailed parameter descriptions, click on any analysis type above.
 >

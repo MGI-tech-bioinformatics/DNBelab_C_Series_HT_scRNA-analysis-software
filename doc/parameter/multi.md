@@ -291,7 +291,7 @@ fastqs,feature_types
 
 <div align="center">
 
-> 💡 <strong>需要帮助？</strong>
+> 💡 <strong>反馈与支持</strong>
 >
 > 本页聚焦参数与配置填写，建议与流程文档、输出文档配套使用。
 >

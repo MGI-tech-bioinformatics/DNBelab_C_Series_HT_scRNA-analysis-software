@@ -70,7 +70,7 @@
 
 <div align="center">
 
-> 💡 <strong>Need Help?</strong>
+> 💡 <strong>Feedback & Support</strong>
 >
 > For detailed workflow instructions, click on any analysis type above.
 >

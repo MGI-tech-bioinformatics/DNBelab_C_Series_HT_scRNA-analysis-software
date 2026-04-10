@@ -4,31 +4,19 @@
 
 </div>
 
-<br>
-
 # 🧩 DNBelab C Series HT Multi-omics 分析流程
-
-<br>
 
 <div align="center">
 
 **单细胞多组学整合分析完整指南**
 
-<br>
-
 [📋 概述](#概述) • [📁 输入配置](#输入配置) • [🚀 主流程分析](#主流程分析) • [📊 结果解析](#结果解析) 
 
 </div>
 
-<br>
-
 ---
 
-<br>
-
 ## 📋 概述 <a id="概述"></a>
-
-<br>
 
 Multi-omics 流程用于统一编排 RNA / ATAC / VDJ 子流程，通过一份配置文件完成多组学联合运行，并生成组合报告用于跨组学联看。
 
@@ -412,7 +400,7 @@ Warning: ATAC joint analysis is currently unsupported. Libraries will be analyze
 
 <div align="center">
 
-> 💡 <strong>需要帮助？</strong>
+> 💡 <strong>反馈与支持</strong>
 >
 > 本文档持续更新中，如发现内容错误或需要补充的信息，欢迎反馈。
 >

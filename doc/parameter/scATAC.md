@@ -665,7 +665,7 @@ SampleB /path/to/B_L01_R1.fq.gz,/path/to/B_L02_R1.fq.gz;/path/to/B_L01_R2.fq.gz,
 
 <div align="center">
 
-> 💡 <strong>需要帮助？</strong>
+> 💡 <strong>反馈与支持</strong>
 >
 > 本文档持续更新中，如发现内容错误或需要补充的信息，欢迎反馈。
 >

@@ -4,31 +4,19 @@
 
 </div>
 
-<br>
-
 # 🧬 DNBelab C Series HT scATAC Analysis Pipeline
-
-<br>
 
 <div align="center">
 
 **A Complete Guide to Single-Cell ATAC Sequencing Data Analysis**
 
-<br>
-
 [📋 Overview](#overview) • [📁 File Preparation](#file-preparation) • [📊 Reference Data](#reference-data) • [🚀 Main Pipeline](#main-pipeline) • [📊 Results Interpretation](#results-interpretation)
 
 </div>
 
-<br>
-
 ---
 
-<br>
-
 ## 📋 Overview <a id="overview"></a>
-
-<br>
 
 This document provides a detailed guide for analyzing single-cell ATAC sequencing data using dnbc4tools.
 
@@ -98,7 +86,7 @@ The analysis requires FASTQ files:
 </table>
 
 <div style="background-color: #e7f3fe; border-left: 6px solid #2196F3; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
-💡 <strong>Recommended Data Source</strong>: It is recommended to use files from the [Ensembl database](https://www.ensembl.org/index.html). Ensembl's GTF files contain optional tags that facilitate filtering with <code>dnbc4tools tools mkgtf</code>.
+💡 <strong>Recommended Data Source</strong>: It is recommended to use files from the <a href="https://www.ensembl.org/index.html">Ensembl database</a>. Ensembl's GTF files contain optional tags that facilitate filtering with <code>dnbc4tools tools mkgtf</code>.
 </div>
 
 **GTF File Requirements**:
@@ -368,8 +356,6 @@ Upon completion, `outs` (outputs) and `logs` directories will be generated.
 └── singlecell.csv
 ```
 
-<br>
-
 ---
 
 <br>
@@ -402,7 +388,7 @@ Upon completion, `outs` (outputs) and `logs` directories will be generated.
 
 <div align="center">
 
-> 💡 <strong>Need Help?</strong>
+> 💡 <strong>Feedback & Support</strong>
 >
 > This document is continuously updated. If you find any errors or have information to add, feedback is welcome.
 >

@@ -4,27 +4,17 @@
 
 </div>
 
-<br>
-
 # 🧬 DNBelab C Series HT scVDJ Analysis Output Documentation
-
-<br>
 
 <div align="center">
 
 **A Complete Guide to Single-Cell V(D)J Sequencing Analysis Output Files**
 
-<br>
-
 [📁 Directory Structure](#output-directory-structure) • [📋 File Details](#detailed-file-description) • [📊 Analysis Metrics](#analysis-metrics-summary) • [📊 Report Interpretation](#web-report-interpretation)
 
 </div>
 
-<br>
-
 ---
-
-<br>
 
 ## 📖 Overview <a id="overview"></a>
 
@@ -1344,7 +1334,7 @@ The HTML web report is a comprehensive platform for displaying single-cell V(D)J
 
 <div align="center">
 
-> 💡 <strong>Tip</strong>
+> 💡 <strong>Feedback & Support</strong>
 > 
 > This document is continuously updated. If you find any errors or need additional information, please provide feedback.
 > 

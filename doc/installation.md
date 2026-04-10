@@ -4,27 +4,17 @@
 
 </div>
 
-<br>
-
 # DNBelab C Series™ Software Installation
-
-<br>
 
 <div align="center">
 
 **Complete installation guide for the DNBelab C Series™ HT Single-Cell Analysis Software package**
 
-<br>
-
 [◆ Requirements](#system-requirements) • [◆ Download](#software-download) • [◆ Installation](#installation-process) • [◆ Verification](#verification--testing)
 
 </div>
 
-<br>
-
 ---
-
-<br>
 
 ## ◆ System Requirements <a id="system-requirements"></a>
 

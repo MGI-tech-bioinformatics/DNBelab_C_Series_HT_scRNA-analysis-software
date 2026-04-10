@@ -4,27 +4,17 @@
 
 </div>
 
-<br>
-
 # 🧬 DNBelab C Series HT scATAC Analysis Output Documentation
-
-<br>
 
 <div align="center">
 
 **A Complete Guide to Single-Cell ATAC Sequencing Analysis Output Files**
 
-<br>
-
 [📁 Directory Structure](#directory-structure) • [📋 File Details](#file-details) • [🧬 Data Matrix](#peak-matrix-files) • [📊 Analysis Summary](#analysis-summary) • [📊 Report Interpretation](#web-report-interpretation)
 
 </div>
 
-<br>
-
 ---
-
-<br>
 
 ## 📖 Overview <a id="overview"></a>
 
@@ -983,7 +973,7 @@ Used in the C4 ATAC technology to merge multiple beads from the same cell drople
 
 <div align="center">
 
-> 💡 <strong>Tip</strong>
+> 💡 <strong>Feedback & Support</strong>
 > 
 > This document is continuously updated. If you find any errors or have information to add, feedback is welcome.
 > 

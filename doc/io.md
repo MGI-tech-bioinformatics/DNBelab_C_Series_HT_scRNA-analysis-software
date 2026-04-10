@@ -4,27 +4,17 @@
 
 </div>
 
-<br>
-
 # Output Analysis Guide
-
-<br>
 
 <div align="center">
 
 **How to analyze dnbc4tools output in R and Python**
 
-<br>
-
 [◆ scRNA](#scrna-analysis) • [◆ scATAC](#scatac-analysis)
 
 </div>
 
-<br>
-
 ---
-
-<br>
 
 ## scRNA Analysis <a id="scrna-analysis"></a>
 
