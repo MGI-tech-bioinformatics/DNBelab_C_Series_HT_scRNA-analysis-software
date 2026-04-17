@@ -1,22 +1,33 @@
-<div align="right">
+<div align="right" style="margin-bottom: 20px; max-width: 1200px; margin-left: auto; margin-right: auto;">
 
-[🏠 主页](../../README.md) • [English](scVDJ_en.md)
-
-</div>
-
-# 🧬 DNBelab C Series HT scVDJ 分析流程
-
-<div align="center">
-
-**单细胞 VDJ 测序数据分析完整指南**
-
-[📋 概述](#概述) • [📁 文件准备](#文件准备) • [🚀 主分析流程](#主分析流程) • [📊 结果解析](#结果解析)
+[主页](../../README.md) • [English](scVDJ_en.md)
 
 </div>
 
----
+<div align="center" style="padding: 40px 20px; background: linear-gradient(135deg, #f5f5f7 0%, #ffffff 100%); border-radius: 12px; margin-bottom: 30px; max-width: 1200px; margin-left: auto; margin-right: auto;">
 
-## 📋 概述 <a id="概述"></a>
+<h1 style="font-size: 48px; font-weight: 600; color: #1d1d1f; margin: 0 0 16px 0; letter-spacing: -0.02em;">DNBelab C Series HT scVDJ 分析流程</h1>
+
+<p style="font-size: 21px; color: #86868b; margin: 0 0 30px 0; font-weight: 400;">单细胞 VDJ 测序数据分析完整指南</p>
+
+<div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+<a href="#概述" style="background: #0071e3; color: white; padding: 8px 16px; border-radius: 980px; text-decoration: none; font-size: 14px;">概述</a>
+<a href="#文件准备" style="background: transparent; color: #0071e3; padding: 8px 16px; border-radius: 980px; text-decoration: none; font-size: 14px; border: 1px solid #0071e3;">文件准备</a>
+<a href="#主分析流程" style="background: transparent; color: #0071e3; padding: 8px 16px; border-radius: 980px; text-decoration: none; font-size: 14px; border: 1px solid #0071e3;">主分析流程</a>
+<a href="#结果解析" style="background: transparent; color: #0071e3; padding: 8px 16px; border-radius: 980px; text-decoration: none; font-size: 14px; border: 1px solid #0071e3;">结果解析</a>
+</div>
+
+</div>
+
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
+
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
+
+## 概述 <a id="概述"></a>
+
+</div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
 
 本文档详细介绍了使用 dnbc4tools 进行单细胞 VDJ 测序数据分析的完整流程。
 
@@ -27,14 +38,21 @@
 </div>
 
 <div style="background-color: #e7f3fe; border-left: 6px solid #2196F3; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
-💡 <strong>使用说明</strong>：<code>$dnbc4tools</code> 代表可执行程序路径，需替换为您的实际安装路径。本文示例使用换行符 `\` 分隔命令以提高可读性，实际分析时可写为单行。
+ <strong>使用说明</strong>：<code>$dnbc4tools</code> 代表可执行程序路径，需替换为您的实际安装路径。本文示例使用换行符 `\` 分隔命令以提高可读性，实际分析时可写为单行。
 </div>
 
----
 
-<br>
+</div>
 
-## 📁 文件准备 <a id="文件准备"></a>
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
+
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
+
+## 文件准备 <a id="文件准备"></a>
+
+</div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
 
 ### 5端转录组分析
 
@@ -55,7 +73,7 @@ $dnbc4tools rna run \
 ```
 
 <div style="background-color: #fffbe6; border-left: 6px solid #ffc107; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
-⚠️ <strong>注意</strong>：5端转录组分析是VDJ分析的前提，需要先完成此步骤才能进行后续分析。
+ <strong>注意</strong>：5端转录组分析是VDJ分析的前提，需要先完成此步骤才能进行后续分析。
 </div>
 
 ### VDJ分析所需文件
@@ -84,7 +102,7 @@ $dnbc4tools rna run \
 分析需要5'端转录组分析结果目录中的 `singlecell.csv` 文件。该文件包含 `cell` 和 `barcode` 列的合并信息，以及 `is_cell_barcode` 列（1表示细胞，0表示非细胞），用于鉴定有效的细胞。
 
 <div style="background-color: #fffbe6; border-left: 6px solid #ffc107; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
-⚠️ <strong>注意</strong>：确保singlecell.csv文件路径正确，该文件是连接转录组和VDJ分析的关键。
+ <strong>注意</strong>：确保singlecell.csv文件路径正确，该文件是连接转录组和VDJ分析的关键。
 </div>
 
 参考示例文件内容：
@@ -102,11 +120,18 @@ CELL726_N4,585934,4617,22660,1,ACCTACGGCGTTACTATGTG;CGACGCTCTCGACAGTTAGG;CGGCAGA
 CELL4010_N1,555308,4268,22554,1,AGAGAGTCGCAGCAAGCGAC
 ```
 
----
 
-<br>
+</div>
 
-## 🚀 主分析流程 <a id="主分析流程"></a>
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
+
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
+
+## 主分析流程 <a id="主分析流程"></a>
+
+</div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
 
 VDJ主分析流程结合了单细胞VDJ文库测序数据和对应样本的5'转录组分析结果，包含以下关键步骤：
 
@@ -145,7 +170,6 @@ $dnbc4tools vdj run \
   --threads 10
 ```
 
-<br>
 
 ### BCR分析
 
@@ -176,7 +200,6 @@ $dnbc4tools vdj run \
   --threads 10
 ```
 
-<br>
 
 ### 运行过程
 
@@ -227,11 +250,18 @@ $dnbc4tools vdj run \
 
 成功的运行会以 `Analysis Finished` 结束。
 
----
 
-<br>
+</div>
 
-## 📊 结果解析 <a id="结果解析"></a>
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
+
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
+
+## 结果解析 <a id="结果解析"></a>
+
+</div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
 
 分析完成后，将生成结果输出目录outs，logs日志目录，其中outs目录包括：
 
@@ -252,42 +282,54 @@ $dnbc4tools vdj run \
 └── metrics_summary.xls
 ```
 
----
 
-<br>
+</div>
 
-## 📚 相关文档
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
 
-<br>
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
+
+## 相关文档
+
+</div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
 
 | 资源 | 描述 |
 | :--- | :--- |
-| [📊 输出文件使用方法](../io.md) | 了解输出文件结构和格式 |
-| [📋 分析参数设置](../parameter/scVDJ.md) | 查看完整参数选项和说明 |
-| [📝 输出文件解释](../outs/scVDJ.md) | 详细解读分析结果文件 |
+| [输出文件使用方法](../io.md) | 了解输出文件结构和格式 |
+| [分析参数设置](../parameter/scVDJ.md) | 查看完整参数选项和说明 |
+| [输出文件解释](../outs/scVDJ.md) | 详细解读分析结果文件 |
 
-<br>
 
----
+</div>
 
-<br>
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
 
-## ❓ 常见问题
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
 
-> <em>Content coming soon...</em>
+## 常见问题
 
-<br>
+</div>
 
----
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
 
-<br>
+本节正在更新中。
+
+</div>
+
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
+
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
 
 <div align="center">
 
-> 💡 <strong>反馈与支持</strong>
+> <strong>反馈与支持</strong>
 >
 > 本文档持续更新中，如发现内容错误或需要补充的信息，欢迎反馈。
 >
-> 📝 <strong>文档版本：</strong> 3.1 | <strong>最后更新：</strong> 2026年4月
+> <strong>文档版本：</strong> 3.1 | <strong>最后更新：</strong> 2026年4月
+
+</div>
 
 </div>

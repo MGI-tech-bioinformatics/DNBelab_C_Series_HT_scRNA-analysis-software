@@ -1,6 +1,6 @@
 <div align="right">
 
-[🏠 Home](../README.md)
+[Home](../README.md)
 
 </div>
 

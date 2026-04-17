@@ -1,26 +1,38 @@
-<div align="right">
+<div align="right" style="margin-bottom: 20px; max-width: 1200px; margin-left: auto; margin-right: auto;">
 
-[🏠 Home](../../README.md) • [中文](tools.md)
-
-</div>
-
-# 🧬 DNBelab C Series HT Tool-based Analysis Parameters
-
-<div align="center">
-
-[🛠️ GTF File Operations (mkgtf)](#gtf-file-operations-mkgtf) • [📄 BAM to FASTQ (bam2fastq)](#bam-to-fastq-bam2fastq) • [🧬 Chromosome Splitting (chromsplit)](#chromosome-splitting-chromsplit) • [📝 FASTQ Subsetting (fqsubC4)](#fastq-subsetting-fqsubc4)
+<a href="../../README.md" style="color: #0071e3; text-decoration: none; font-size: 14px;">Home</a> <span style="color: rgba(0,0,0,0.3);">•</span> <a href="tools.md" style="color: #0071e3; text-decoration: none; font-size: 14px;">中文</a>
 
 </div>
 
----
+<div align="center" style="padding: 40px 20px; background: linear-gradient(135deg, #f5f5f7 0%, #ffffff 100%); border-radius: 12px; margin-bottom: 30px; max-width: 1200px; margin-left: auto; margin-right: auto;">
 
-## 🛠️ GTF File Operations (mkgtf) <a id="gtf-file-operations-mkgtf"></a>
+<h1 style="font-size: 48px; font-weight: 600; color: #1d1d1f; margin: 0 0 16px 0; letter-spacing: -0.02em;">Tool Analysis Parameters</h1>
 
-> 🧬 <strong>Core Functionality</strong>
-> 
+<p style="font-size: 21px; color: rgba(0,0,0,0.6); margin: 0 0 30px 0; font-weight: 400;">Complete configuration guide for DNBelab C Series HT tool commands</p>
+
+<div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+<a href="#gtf-file-operations-mkgtf" style="background: #0071e3; color: white; padding: 8px 16px; border-radius: 980px; text-decoration: none; font-size: 14px;">mkgtf</a>
+<a href="#bam-to-fastq-bam2fastq" style="background: transparent; color: #0071e3; padding: 8px 16px; border-radius: 980px; text-decoration: none; font-size: 14px; border: 1px solid #0071e3;">bam2fastq</a>
+<a href="#chromosome-splitting-chromsplit" style="background: transparent; color: #0071e3; padding: 8px 16px; border-radius: 980px; text-decoration: none; font-size: 14px; border: 1px solid #0071e3;">chromsplit</a>
+<a href="#fastq-subsetting-fqsubc4" style="background: transparent; color: #0071e3; padding: 8px 16px; border-radius: 980px; text-decoration: none; font-size: 14px; border: 1px solid #0071e3;">fqsubC4</a>
+</div>
+
+</div>
+
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
+
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
+
+## GTF File Operations (mkgtf) <a id="gtf-file-operations-mkgtf"></a>
+
+</div>
+
+> <strong>Core Functionality</strong>
 > A comprehensive tool for GTF file operations, supporting gene type statistics, intelligent filtering, and file format validation. It provides high-quality, standardized gene annotation data for single-cell analysis.
 
-### 📊 Usage <a id="usage-mkgtf"></a>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #d2d2d7; overflow-x: auto;">
+
+### Usage <a id="usage-mkgtf"></a>
 
 ```shell
 $ dnbc4tools tools mkgtf
@@ -50,11 +62,21 @@ Usage Examples:
   Validation:   dnbc4tools tools mkgtf --action check --ingtf genes.gtf --output corrected.gtf
 ```
 
-### 📝 Parameter Description
+</div>
 
-#### 🔴 Required Parameters
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+### Parameter Description
+
+</div>
+
+<div style="max-width: 1200px; margin: 0 auto;">
+
+#### Required Parameters
+
+</div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>--ingtf</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(Required)</span></h4>
 <p>Specify the path to the input GTF gene annotation file.</p>
 <ul>
@@ -65,7 +87,7 @@ Usage Examples:
 <pre><code>--ingtf Homo_sapiens.GRCh38.108.gtf</code></pre>
 </div>
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>--output</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(Required)</span></h4>
 <p>Specify the output file for the processing results.</p>
 <ul>
@@ -85,11 +107,15 @@ Usage Examples:
 --output ./corrected.gtf</code></pre>
 </div>
 
----
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
 
-#### 🟢 Optional Parameters
+<div style="max-width: 1200px; margin: 0 auto;">
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+#### Optional Parameters
+
+</div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>--action</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(Optional)</span></h4>
 <p>Select the type of operation to perform.</p>
 <ul>
@@ -102,7 +128,7 @@ Usage Examples:
 <pre><code>--action stats</code></pre>
 </div>
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>--include</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(Optional)</span></h4>
 <p>In <code>mkgtf</code> mode, specify the gene types to keep, separated by commas.</p>
 <ul>
@@ -114,7 +140,7 @@ Usage Examples:
 <pre><code>--include protein_coding,lncRNA</code></pre>
 </div>
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>--type</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(Optional)</span></h4>
 <p>Specify the tag in the GTF attributes used to identify the gene type.</p>
 <ul>
@@ -126,7 +152,7 @@ Usage Examples:
 <pre><code>--type gene_type</code></pre>
 </div>
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>--feature</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(Optional)</span></h4>
 <p>Specify from which column (feature) of the GTF file to extract information.</p>
 <ul>
@@ -139,32 +165,37 @@ Usage Examples:
 </div>
 
 > [!NOTE]
-> ### 💡 Usage Examples
+> ### Usage Examples
 >
 > - **Count gene types**:
->   ```shell
->   dnbc4tools tools mkgtf --action stats --ingtf genes.gtf
->   ```
+> ```shell
+> dnbc4tools tools mkgtf --action stats --ingtf genes.gtf
+> ```
 > - **Filter gene types**:
->   ```shell
->   dnbc4tools tools mkgtf --action mkgtf --ingtf genes.gtf --output genes.filter.gtf
->   ```
+> ```shell
+> dnbc4tools tools mkgtf --action mkgtf --ingtf genes.gtf --output genes.filter.gtf
+> ```
 > - **Validate and fix GTF file**:
->   ```shell
->   dnbc4tools tools mkgtf --action check --ingtf genes.gtf --output corrected.gtf
->   ```
+> ```shell
+> dnbc4tools tools mkgtf --action check --ingtf genes.gtf --output corrected.gtf
+> ```
 
----
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
 
 <br>
 
-## 📄 BAM to FASTQ (bam2fastq) <a id="bam-to-fastq-bam2fastq"></a>
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
 
-> 📄 <strong>Professional Conversion Tool</strong>
-> 
+## BAM to FASTQ (bam2fastq) <a id="bam-to-fastq-bam2fastq"></a>
+
+</div>
+
+> <strong>Professional Conversion Tool</strong>
 > An efficient BAM file manipulation tool specialized for converting C4 RNA BAM files into FASTQ format. It supports multi-threaded parallel processing and flexible output configuration.
 
-### 📊 Usage <a id="usage-bam2fastq"></a>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #d2d2d7; overflow-x: auto;">
+
+### Usage <a id="usage-bam2fastq"></a>
 
 ```shell
 $ bam2fastq -h
@@ -186,11 +217,21 @@ Options:
   -V, --version                  Print version
 ```
 
-### 📝 Parameter Description
+</div>
 
-#### 🔴 Required Parameters
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+### Parameter Description
+
+</div>
+
+<div style="max-width: 1200px; margin: 0 auto;">
+
+#### Required Parameters
+
+</div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>&lt;BAM&gt;</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(Required)</span></h4>
 <p>Specify the path to the input BAM file.</p>
 <ul>
@@ -203,7 +244,7 @@ Options:
 <pre><code>/path/to/your.bam</code></pre>
 </div>
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>&lt;OUTPUT&gt;</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(Required)</span></h4>
 <p>Specify the directory for the output FASTQ files.</p>
 <ul>
@@ -215,11 +256,15 @@ Options:
 <pre><code>/path/to/output_dir</code></pre>
 </div>
 
----
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
 
-#### 🟢 Optional Parameters
+<div style="max-width: 1200px; margin: 0 auto;">
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+#### Optional Parameters
+
+</div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>-t, --threads</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(Optional)</span></h4>
 <p>Set the number of CPU threads for parallel processing.</p>
 <ul>
@@ -231,7 +276,7 @@ Options:
 <pre><code>-t 8</code></pre>
 </div>
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>-r, --locus</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(Optional)</span></h4>
 <p>Process only reads from a specific genomic region.</p>
 <ul>
@@ -243,7 +288,7 @@ Options:
 <pre><code>-r chr1:1000-2000</code></pre>
 </div>
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>-n, --reads-per-fastq</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(Optional)</span></h4>
 <p>Set the maximum number of reads per output FASTQ file.</p>
 <ul>
@@ -255,7 +300,7 @@ Options:
 <pre><code>-n 10000000</code></pre>
 </div>
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>--max-memory &lt;MEMORY&gt;</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(Optional)</span></h4>
 <p>Set the maximum memory the tool can use (in MB).</p>
 <ul>
@@ -267,7 +312,7 @@ Options:
 <pre><code>--max-memory 8192</code></pre>
 </div>
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>--no-compress</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(Flag)</span></h4>
 <p>Disable gzip compression for the output FASTQ files to significantly increase analysis speed.</p>
 <ul>
@@ -278,36 +323,41 @@ Options:
 </div>
 
 > [!NOTE]
-> ### 💡 Usage Examples
+> ### Usage Examples
 >
 > - **Basic conversion**:
->   ```shell
->   bam2fastq input.bam ./output_dir
->   ```
+> ```shell
+> bam2fastq input.bam ./output_dir
+> ```
 > - **High-speed multi-threaded conversion**:
->   ```shell
->   bam2fastq -t 8 input.bam ./output_dir
->   ```
+> ```shell
+> bam2fastq -t 8 input.bam ./output_dir
+> ```
 > - **Region-specific conversion**:
->   ```shell
->   bam2fastq -r chr1:1000000-2000000 -t 4 input.bam ./output_dir
->   ```
+> ```shell
+> bam2fastq -r chr1:1000000-2000000 -t 4 input.bam ./output_dir
+> ```
 > - **Large file splitting conversion**:
->   ```shell
->   bam2fastq -n 5000000 -t 4 input.bam ./output_dir
->   ```
+> ```shell
+> bam2fastq -n 5000000 -t 4 input.bam ./output_dir
+> ```
 
----
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
 
 <br>
 
-## 🧬 Chromosome Splitting (chromsplit) <a id="chromosome-splitting-chromsplit"></a>
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
 
-> 🧬 <strong>Core Functionality</strong>
-> 
+## Chromosome Splitting (chromsplit) <a id="chromosome-splitting-chromsplit"></a>
+
+</div>
+
+> <strong>Core Functionality</strong>
 > A professional genome sequence splitting tool that intelligently identifies split points to maintain gene annotation integrity. It is primarily used in ATAC library construction to ensure chromosome lengths do not exceed the 2^29-1 limit.
 
-### 📊 Usage
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #d2d2d7; overflow-x: auto;">
+
+### Usage
 
 ```shell
 $ chromsplit  -h
@@ -326,11 +376,21 @@ Options:
   -V, --version              Print version
 ```
 
-### 📝 Parameter Description
+</div>
 
-#### 🔴 Required Parameters
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+### Parameter Description
+
+</div>
+
+<div style="max-width: 1200px; margin: 0 auto;">
+
+#### Required Parameters
+
+</div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>-f, --fasta &lt;FA&gt;</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(Required)</span></h4>
 <p>Specify the input genome sequence file.</p>
 <ul>
@@ -342,7 +402,7 @@ Options:
 <pre><code>--fasta genome.fasta</code></pre>
 </div>
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>-o, --prefix &lt;PREFIX&gt;</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(Required)</span></h4>
 <p>Specify the prefix for the output files.</p>
 <ul>
@@ -354,11 +414,15 @@ Options:
 <pre><code>--prefix split_genome</code></pre>
 </div>
 
----
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
 
-#### 🟢 Optional Parameters
+<div style="max-width: 1200px; margin: 0 auto;">
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+#### Optional Parameters
+
+</div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>-g, --gtf &lt;GTF&gt;</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(Optional)</span></h4>
 <p>Specify the gene annotation file (GTF/GFF format).</p>
 <ul>
@@ -370,7 +434,7 @@ Options:
 <pre><code>--gtf annotation.gtf</code></pre>
 </div>
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>--min_length &lt;MIN_LENGTH&gt;</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(Optional)</span></h4>
 <p>Set the minimum length of the output fragments (unit: bp).</p>
 <ul>
@@ -381,7 +445,7 @@ Options:
 <pre><code>--min_length 300000000</code></pre>
 </div>
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>--max_length &lt;MAX_LENGTH&gt;</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(Optional)</span></h4>
 <p>Set the maximum length of the output fragments (unit: bp).</p>
 <ul>
@@ -392,7 +456,7 @@ Options:
 <pre><code>--max_length 500000000</code></pre>
 </div>
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>--cut_site &lt;CUT_SITE&gt;</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(Optional)</span></h4>
 <p>Provide a text file containing predefined split positions.</p>
 <ul>
@@ -404,36 +468,41 @@ Options:
 </div>
 
 > [!NOTE]
-> ### 💡 Usage Examples
+> ### Usage Examples
 >
 > - **Basic splitting**:
->   ```shell
->   chromsplit --fasta genome.fasta --prefix split_result
->   ```
+> ```shell
+> chromsplit --fasta genome.fasta --prefix split_result
+> ```
 > - **Intelligent splitting with annotation file**:
->   ```shell
->   chromsplit --fasta genome.fasta --gtf annotation.gtf --prefix split_genome
->   ```
+> ```shell
+> chromsplit --fasta genome.fasta --gtf annotation.gtf --prefix split_genome
+> ```
 > - **Custom length splitting**:
->   ```shell
->   chromsplit --fasta genome.fasta --prefix custom_split --min_length 300000000 --max_length 500000000
->   ```
+> ```shell
+> chromsplit --fasta genome.fasta --prefix custom_split --min_length 300000000 --max_length 500000000
+> ```
 > - **Using predefined split positions**:
->   ```shell
->   chromsplit --fasta genome.fasta --gtf annotation.gtf --prefix precise_split --cut_site custom_cuts.txt
->   ```
+> ```shell
+> chromsplit --fasta genome.fasta --gtf annotation.gtf --prefix precise_split --cut_site custom_cuts.txt
+> ```
 
----
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
 
 <br>
 
-## 📝 FASTQ Subsetting (fqsubC4) <a id="fastq-subsetting-fqsubc4"></a>
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
 
-> 📝 <strong>Core Functionality</strong>
-> 
+## FASTQ Subsetting (fqsubC4) <a id="fastq-subsetting-fqsubc4"></a>
+
+</div>
+
+> <strong>Core Functionality</strong>
 > A professional tool for extracting regions from FASTQ sequences, supporting precise sequence position clipping. It is mainly used to resolve data format inconsistencies from multiple sequencing runs, ensuring standardized processing of C4 sequencing data.
 
-### 📊 Usage
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #d2d2d7; overflow-x: auto;">
+
+### Usage
 
 ```shell
 $ fqsubC4 -h
@@ -450,11 +519,21 @@ Options:
   -V, --version            Print version
 ```
 
-### 📝 Parameter Description
+</div>
 
-#### 🔴 Required Parameters
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+### Parameter Description
+
+</div>
+
+<div style="max-width: 1200px; margin: 0 auto;">
+
+#### Required Parameters
+
+</div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>-i, --input &lt;FILE&gt;</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(Required)</span></h4>
 <p>Specify the path to the input FASTQ file.</p>
 <ul>
@@ -466,7 +545,7 @@ Options:
 <pre><code>--input sample_R1.fastq.gz</code></pre>
 </div>
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>-o, --output &lt;FILE&gt;</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(Required)</span></h4>
 <p>Specify the path for the output FASTQ file.</p>
 <ul>
@@ -478,7 +557,7 @@ Options:
 <pre><code>--output extracted_R1.fastq.gz</code></pre>
 </div>
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>-r, --regions &lt;REGIONS&gt;</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(Required)</span></h4>
 <p>Specify the regions to be extracted from the sequences.</p>
 <ul>
@@ -491,11 +570,15 @@ Options:
 <pre><code>--regions 7:16,23:32,38:47</code></pre>
 </div>
 
----
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
 
-#### 🟢 Optional Parameters
+<div style="max-width: 1200px; margin: 0 auto;">
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+#### Optional Parameters
+
+</div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>-t, --threads &lt;THREADS&gt;</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(Optional)</span></h4>
 <p>Set the number of threads for parallel processing.</p>
 <ul>
@@ -508,39 +591,39 @@ Options:
 </div>
 
 > [!NOTE]
-> ### 💡 Usage Example
+> ### Usage Example
 >
 > - **Basic region extraction**:
->   ```shell
->   fqsubC4 --input sample.fastq.gz --output extracted.fastq.gz --regions "7:16,23:32"
->   ```
+> ```shell
+> fqsubC4 --input sample.fastq.gz --output extracted.fastq.gz --regions "7:16,23:32"
+> ```
 
----
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
 
-<br>
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
 
-## 📚 Related Documentation
+## Related Documentation
 
-<br>
+</div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
 
 | Resource | Description |
 | :--- | :--- |
-| [⚙️ Tools Overview](./parameter.md) | Overview of all tool parameters |
-| [📁 Outputs](../outs/outs.md) | Detailed output file interpretation |
-| [🔬 Pipelines](../pipeline/pipeline.md) | Analysis workflow guides |
+| [Tools Overview](./parameter.md) | Overview of all tool parameters |
+| [Outputs](../outs/outs.md) | Detailed output file interpretation |
+| [Pipelines](../pipeline/pipeline.md) | Analysis workflow guides |
 
-<br>
+</div>
 
----
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
 
-<br>
+<div style="background: #f5f5f7; border-radius: 12px; padding: 20px; margin: 24px auto; max-width: 1200px;">
 
-<div align="center">
-
-> 💡 <strong>Feedback & Support</strong>
+> <strong>Feedback & Support</strong>
 >
 > This document is continuously updated. If you find any errors or have information to add, feedback is welcome.
 >
-> 📝 <strong>Document Version:</strong> 3.1 | <strong>Last Updated:</strong> April 2026
+> <strong>Document Version:</strong> 3.1 | <strong>Last Updated:</strong> April 2026
 
 </div>

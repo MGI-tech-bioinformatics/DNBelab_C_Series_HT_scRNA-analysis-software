@@ -1,38 +1,47 @@
-<div align="right">
+<div align="right" style="margin-bottom: 20px; max-width: 1200px; margin-left: auto; margin-right: auto;">
 
-[🏠 Home](../../README.md) • [中文](scRNA.md)
-
-</div>
-
-# 🧬 DNBelab C Series HT scRNA Analysis Output Documentation
-
-<div align="center">
-
-**A Complete Guide to Single-Cell RNA Sequencing Analysis Output Files**
-
-[📁 Directory Structure](#output-directory-structure) • [📋 File Details](#detailed-file-description) • [🧬 Data Matrix](#feature-matrix-files) • [📊 Analysis Results](#analysis-results-directory-analysis) • [📊 Report Interpretation](#web-report-interpretation)
+[Home](../../README.md) • [中文](scRNA.md)
 
 </div>
 
----
+<div align="center" style="padding: 40px 20px; background: linear-gradient(135deg, #f5f5f7 0%, #ffffff 100%); border-radius: 12px; margin-bottom: 30px; max-width: 1200px; margin-left: auto; margin-right: auto;">
+
+<h1 style="font-size: 48px; font-weight: 600; color: #1d1d1f; margin: 0 0 16px 0; letter-spacing: -0.02em;">scRNA Analysis Output</h1>
+
+<p style="font-size: 21px; color: rgba(0,0,0,0.6); margin: 0 0 30px 0; font-weight: 400;">A Complete Guide to Single-Cell RNA Sequencing Analysis Output Files</p>
+
+<div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+<a href="#output-directory-structure" style="background: #0071e3; color: white; padding: 8px 16px; border-radius: 980px; text-decoration: none; font-size: 14px;">Directory Structure</a>
+<a href="#detailed-file-description" style="background: transparent; color: #0071e3; padding: 8px 16px; border-radius: 980px; text-decoration: none; font-size: 14px; border: 1px solid #0071e3;">File Details</a>
+<a href="#feature-matrix-files" style="background: transparent; color: #0071e3; padding: 8px 16px; border-radius: 980px; text-decoration: none; font-size: 14px; border: 1px solid #0071e3;">Data Matrix</a>
+<a href="#web-report-interpretation" style="background: transparent; color: #0071e3; padding: 8px 16px; border-radius: 980px; text-decoration: none; font-size: 14px; border: 1px solid #0071e3;">Report Interpretation</a>
+</div>
+
+</div>
+
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
+
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
 
 ## 📖 Overview <a id="overview"></a>
-
-<br>
 
 After the single-cell RNA analysis is complete, a standardized file and subdirectory structure is generated in the specified output directory, specifically for gene expression profile analysis and cell type identification. This document details the content, format, and purpose of each output file to help users fully understand and efficiently utilize the single-cell RNA analysis results.
 
 <br>
 
-> 💡 **Tip**: All output files use standard formats compatible with mainstream single-cell analysis tools (such as Scanpy, Seurat, etc.) and follow internationally recognized data format specifications.
+> **Tip**: All output files use standard formats compatible with mainstream single-cell analysis tools (such as Scanpy, Seurat, etc.) and follow internationally recognized data format specifications.
 
-<br>
+</div>
 
----
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
 
-<br>
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
 
-## 📁 Output Directory Structure <a id="output-directory-structure"></a>
+## Output Directory Structure <a id="output-directory-structure"></a>
+
+</div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 20px; margin: 20px auto; max-width: 1200px; overflow-x: auto; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
 
 ```
 .
@@ -57,24 +66,32 @@ After the single-cell RNA analysis is complete, a standardized file and subdirec
 └── *_scRNA_report.html            # Analysis report in HTML format
 ```
 
-<br>
+</div>
 
----
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
 
-<br>
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
 
-## 📋 Detailed File Description <a id="detailed-file-description"></a>
-
-
-### 🧬 Alignment and Annotation Files <a id="alignment-and-annotation-files"></a>
-
-<div align="center">
-
-**🎯 Core Content**: Result files from aligning raw sequencing data to the reference genome, containing complete alignment information and cell barcode tags.
+## Detailed File Description <a id="detailed-file-description"></a>
 
 </div>
 
----
+
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
+
+### Alignment and Annotation Files <a id="alignment-and-annotation-files"></a>
+
+<div align="center">
+
+**Core Content**: Result files from aligning raw sequencing data to the reference genome, containing complete alignment information and cell barcode tags.
+
+</div>
+
+</div>
+
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
 
 #### 📄 anno_decon_sorted.bam
 
@@ -92,15 +109,15 @@ This is the scRNA-seq alignment result file containing all raw data.
 *   **Key TAG Field Descriptions**:
     *   The BAM file uses rich TAG fields to store single-cell specific information, mainly divided into cell/molecule identifiers and gene annotations.
 
-    **🧬 Cell and Molecular Identifier Tags:**
+    **Cell and Molecular Identifier Tags:**
 
-    <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
-    <thead>
+    <table style="width:100%; border-collapse: collapse; margin: 15px 0; border-radius: 8px; overflow: hidden;">
+    <thead style="background-color: #f5f5f7; border-bottom: 1px solid #d2d2d7;">
     <tr>
-    <th width="10%" align="left"><strong>Tag</strong></th>
-    <th width="15%" align="left"><strong>Type</strong></th>
-    <th width="37%" align="left"><strong>Description</strong></th>
-    <th width="38%" align="left"><strong>Biological Significance</strong></th>
+    <th width="10%" align="left" style="padding: 12px 16px; font-weight: 600; color: #1d1d1f;">Tag</th>
+    <th width="15%" align="left" style="padding: 12px 16px; font-weight: 600; color: #1d1d1f;">Type</th>
+    <th width="37%" align="left" style="padding: 12px 16px; font-weight: 600; color: #1d1d1f;">Description</th>
+    <th width="38%" align="left" style="padding: 12px 16px; font-weight: 600; color: #1d1d1f;">Biological Significance</th>
     </tr>
     </thead>
     <tbody>
@@ -149,15 +166,15 @@ This is the scRNA-seq alignment result file containing all raw data.
     </tbody>
     </table>
 
-    **🧬 Gene Annotation and Functional Tags:**
+    **Gene Annotation and Functional Tags:**
 
-    <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
-    <thead>
+    <table style="width:100%; border-collapse: collapse; margin: 15px 0; border-radius: 8px; overflow: hidden;">
+    <thead style="background-color: #f5f5f7; border-bottom: 1px solid #d2d2d7;">
     <tr>
-    <th width="10%" align="left"><strong>Tag</strong></th>
-    <th width="15%" align="left"><strong>Type</strong></th>
-    <th width="37%" align="left"><strong>Description</strong></th>
-    <th width="38%" align="left"><strong>Functional Purpose</strong></th>
+    <th width="10%" align="left" style="padding: 12px 16px; font-weight: 600; color: #1d1d1f;">Tag</th>
+    <th width="15%" align="left" style="padding: 12px 16px; font-weight: 600; color: #1d1d1f;">Type</th>
+    <th width="37%" align="left" style="padding: 12px 16px; font-weight: 600; color: #1d1d1f;">Description</th>
+    <th width="38%" align="left" style="padding: 12px 16px; font-weight: 600; color: #1d1d1f;">Functional Purpose</th>
     </tr>
     </thead>
     <tbody>
@@ -194,7 +211,11 @@ This is the scRNA-seq alignment result file containing all raw data.
     </tbody>
     </table>
 
----
+</div>
+
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
 
 #### 📄 anno_decon_sorted.bam.bai
 
@@ -225,17 +246,25 @@ The index file for `anno_decon_sorted.bam`.
         </tbody>
         </table>
 
----
+</div>
 
-### 📈 Feature Matrix Files <a id="feature-matrix-files"></a>
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
+
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
+
+### Feature Matrix Files <a id="feature-matrix-files"></a>
 
 <div align="center">
 
-**🎯 Core Content**: Single-cell gene expression count matrices, divided into raw and quality-controlled filtered data, using standard sparse matrix or AnnData format.
+**Core Content**: Single-cell gene expression count matrices, divided into raw and quality-controlled filtered data, using standard sparse matrix or AnnData format.
 
 </div>
 
-#### 📁 Filtered Gene Expression Matrix (`filter_matrix/`)
+</div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+
+#### Filtered Gene Expression Matrix (`filter_matrix/`)
 
 Contains the gene expression count matrix after filtering for high-quality cells, which is the core data for downstream quantitative analysis.
 
@@ -272,9 +301,13 @@ Contains the gene expression count matrix after filtering for high-quality cells
     *   **Space Efficient**: The sparse matrix format (`.mtx`) only stores non-zero elements, greatly saving storage space.
     *   **Highly Compatible**: The MEX format is a standard in the single-cell community, compatible with almost all mainstream analysis tools like Seurat and Scanpy.
 
----
+</div>
 
-#### 📁 Raw Gene Expression Matrix (`raw_matrix/`)
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+
+#### Raw Gene Expression Matrix (`raw_matrix/`)
 
 Contains the raw gene expression count matrix for all detected cell barcodes (unfiltered).
 
@@ -286,7 +319,11 @@ Contains the raw gene expression count matrix for all detected cell barcodes (un
     *   Uses the standard **Market Matrix Exchange (MEX)** format, with a file composition identical to the `filter_matrix/` directory.
     *   Includes all detected barcodes, including high-quality cells, low-quality cells, and background droplets.
 
----
+</div>
+
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
 
 #### 📄 filter_feature.h5ad
 
@@ -298,17 +335,25 @@ The feature matrix after cell identification and filtering, stored in AnnData (`
 *   **Content and Format**:
     *   A binary format based on HDF5. For details, refer to the [AnnData Format Description](#anndata-format-h5ad).
 
----
+</div>
 
-### 📊 Analysis Results Directory (`analysis/`) <a id="analysis-results-directory-analysis"></a>
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
+
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
+
+### Analysis Results Directory (`analysis/`) <a id="analysis-results-directory-analysis"></a>
 
 <div align="center">
 
-**🎯 Core Content**: Results of downstream bioinformatics analysis, including cell clustering, differential genes, and post-QC data.
+**Core Content**: Results of downstream bioinformatics analysis, including cell clustering, differential genes, and post-QC data.
 
 </div>
 
----
+</div>
+
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
 
 #### 📄 cluster.csv
 
@@ -324,7 +369,11 @@ The cell clustering analysis result file in CSV format. It contains each cell's 
         *   `UMAP_1`, `UMAP_2`: The 2D coordinates from UMAP dimensionality reduction
         *   `nGene`, `nUMI`: The number of genes and UMIs detected in each cell
 
----
+</div>
+
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
 
 #### 📄 cell_classification.csv (Dual-species analysis only)
 
@@ -340,35 +389,38 @@ A cell-level species assignment file generated for dual-species analyses (e.g., 
         *   `mm10`: Count assigned to mouse reference (mm10)
         *   `call`: Species assignment result (`hg38` / `mm10` / `Multiplet`)
 
-    *   **Example**:
+<p><strong>Example:</strong></p>
+<div style="background-color: #f5f5f7; border-radius: 12px; padding: 20px; margin: 16px auto; max-width: 1200px; overflow-x: auto; border: 1px solid #d2d2d7;">
+<pre><code>barcode,hg38,mm10,call
+CELL1_N2,17098,821,hg38
+CELL2_N8,56978,1939,hg38
+CELL5_N2,868,4216,mm10
+CELL8_N2,2371,71601,mm10
+CELL10_N2,1299,36697,mm10
+CELL11_N1,1633,44048,mm10
+CELL14_N3,110102,2919,hg38
+CELL19_N1,763,19995,mm10
+CELL21_N3,44712,1603,hg38
+CELL27_N3,64247,90800,Multiplet
+CELL31_N3,87308,2773,hg38
+CELL32_N2,1871,51359,mm10
+CELL36_N2,871,19635,mm10
+CELL38_N3,42964,1487,hg38
+CELL41_N3,360,6379,mm10
+CELL42_N3,2853,74058,mm10
+CELL43_N7,54863,1875,hg38
+CELL44_N2,14431,638,hg38
+CELL46_N3,4071,129035,mm10
+CELL47_N4,1865,51515,mm10
+CELL49_N2,49776,1521,hg38
+CELL51_N5,1362,40817,mm10</code></pre>
+</div>
 
-        ```csv
-        barcode,hg38,mm10,call
-        CELL1_N2,17098,821,hg38
-        CELL2_N8,56978,1939,hg38
-        CELL5_N2,868,4216,mm10
-        CELL8_N2,2371,71601,mm10
-        CELL10_N2,1299,36697,mm10
-        CELL11_N1,1633,44048,mm10
-        CELL14_N3,110102,2919,hg38
-        CELL19_N1,763,19995,mm10
-        CELL21_N3,44712,1603,hg38
-        CELL27_N3,64247,90800,Multiplet
-        CELL31_N3,87308,2773,hg38
-        CELL32_N2,1871,51359,mm10
-        CELL36_N2,871,19635,mm10
-        CELL38_N3,42964,1487,hg38
-        CELL41_N3,360,6379,mm10
-        CELL42_N3,2853,74058,mm10
-        CELL43_N7,54863,1875,hg38
-        CELL44_N2,14431,638,hg38
-        CELL46_N3,4071,129035,mm10
-        CELL47_N4,1865,51515,mm10
-        CELL49_N2,49776,1521,hg38
-        CELL51_N5,1362,40817,mm10
-        ```
+</div>
 
----
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
 
 #### 📄 marker.csv
 
@@ -385,7 +437,11 @@ A list of differentially expressed genes (marker genes) for each cluster, in CSV
         *   `p_val_adj`: Adjusted p-value, assessing statistical significance
         *   `pct.1`, `pct.2`: The proportion of cells expressing the gene in the target cluster versus other clusters
 
----
+</div>
+
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
 
 #### 📄 QC_Cluster.h5ad
 
@@ -400,15 +456,23 @@ A single-cell data object that has undergone complete quality control, dimension
         *   `obsm`: Contains dimensionality reduction coordinates (`X_umap`).
         *   `uns`: Contains unstructured results such as marker genes (`marker_genes`).
 
----
+</div>
 
-### 📝 Analysis Metrics Summary <a id="analysis-metrics-summary"></a>
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
+
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
+
+### Analysis Metrics Summary <a id="analysis-metrics-summary"></a>
 
 <div align="center">
 
-**🎯 Core Content**: A summary of experimental quality assessment and statistical metrics, providing comprehensive data quality control information.
+**Core Content**: A summary of experimental quality assessment and statistical metrics, providing comprehensive data quality control information.
 
 </div>
+
+</div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
 
 #### 📄 metrics_summary.xls
 
@@ -446,15 +510,19 @@ A summary table of key analysis metrics in Excel format, providing a comprehensi
         <details open>
         <summary><strong>Recommended Quality Thresholds:</strong></summary>
         <ul>
-        <li>✅ <strong>Valid Barcode Fraction</strong>: >70%</li>
-        <li>✅ <strong>Q30 Base Quality</strong>: >75% (for barcode and UMI regions)</li>
-        <li>✅ <strong>Reads Mapped Confidently to Transcriptome</strong>: >30%</li>
-        <li>✅ <strong>Fraction Reads in Cells</strong>: >50% (or >30% for nuclear samples)</li>
-        <li>✅ <strong>Mean Reads per Cell</strong>: >15,000</li>
+        <li><strong>Valid Barcode Fraction</strong>: >70%</li>
+        <li><strong>Q30 Base Quality</strong>: >75% (for barcode and UMI regions)</li>
+        <li><strong>Reads Mapped Confidently to Transcriptome</strong>: >30%</li>
+        <li><strong>Fraction Reads in Cells</strong>: >50% (or >30% for nuclear samples)</li>
+        <li><strong>Mean Reads per Cell</strong>: >15,000</li>
         </ul>
         </details>
 
----
+</div>
+
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
 
 #### 📄 singlecell.csv
 
@@ -468,7 +536,11 @@ A single-cell level quality control information table in CSV format, recording d
     *   Each row represents a cell barcode.
     *   Major columns include: UMI count, gene count, mitochondrial gene fraction, and whether it was identified as a high-quality cell, bead merging information, etc.
 
----
+</div>
+
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
 
 #### 📄 *_scRNA_report.html
 
@@ -483,15 +555,21 @@ An interactive comprehensive analysis report in HTML web format.
     *   Can be opened in any modern browser without an internet connection.
     *   For a detailed interpretation of the report, please refer to the [Web Report Interpretation](#web-report-interpretation) section below.
 
----
+</div>
 
-<br>
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
+
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
 
 ## 📄 File Format Description <a id="file-format-description"></a>
 
 > **Technical Specifications**: Detailed descriptions of the standard formats used for output files.
 
-#### 📊 Market Matrix Format (`.mtx.gz`) <a id="market-matrix-format-mtxgz"></a>
+</div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+
+#### Market Matrix Format (`.mtx.gz`) <a id="market-matrix-format-mtxgz"></a>
 The Market Exchange Format (MEX) is a standard format used in single-cell analysis for storing sparse count matrices, offering advantages of space efficiency and high compatibility.
 
 *   **Core Advantages**:
@@ -523,9 +601,13 @@ The Market Exchange Format (MEX) is a standard format used in single-cell analys
         </tbody>
         </table>
 
----
+</div>
 
-### 🗃️ AnnData Format (`.h5ad`) <a id="anndata-format-h5ad"></a>
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+
+### AnnData Format (`.h5ad`) <a id="anndata-format-h5ad"></a>
 
 **Format Overview:** AnnData ("Annotated Data") is a data structure designed for matrix-like data, particularly suitable for single-cell RNA sequencing data analysis. Based on the HDF5 format, it provides efficient data storage and access capabilities.
 
@@ -535,7 +617,7 @@ The Market Exchange Format (MEX) is a standard format used in single-cell analys
 <img src="../images/anndata.jpg" alt="AnnData Format Structure Diagram" width="400">
 </div>
 
-| 📁 **Component** | 🎯 **Function** | 📏 **Dimensions** |
+| **Component** | **Function** | **Dimensions** |
 |-------------|-------------|-------------|
 | **X** | Main expression matrix | n_cells × n_genes |
 | **obs** | Cell metadata | n_cells × n_obs_features |
@@ -545,41 +627,61 @@ The Market Exchange Format (MEX) is a standard format used in single-cell analys
 | **layers** | Multi-layer data | n_cells × n_genes |
 | **uns** | Unstructured data | Any object |
 
----
+</div>
+
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
 
 <br>
 
-## 📊 Web Report Interpretation <a id="web-report-interpretation"></a>
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
+
+## Web Report Interpretation <a id="web-report-interpretation"></a>
 
 <div align="center">
 
-**🎯 Overview**: The HTML web report provides a comprehensive visual display and detailed interpretation of single-cell RNA sequencing analysis results, including the evaluation of key performance indicators, to help users quickly understand the experimental quality and analysis results.
+**Overview**: The HTML web report provides a comprehensive visual display and detailed interpretation of single-cell RNA sequencing analysis results, including the evaluation of key performance indicators, to help users quickly understand the experimental quality and analysis results.
 
 </div>
 
+</div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+
 The HTML web report is a comprehensive display platform for single-cell RNA sequencing analysis, integrating complete results from data quality control to downstream biological analysis. The report uses an interactive visual design to help users quickly assess experimental quality, understand analysis results, and guide future research directions.
 
-> 💡 **Usage Suggestion**: It is recommended to review the metrics in the order they are presented in the report.
+> **Usage Suggestion**: It is recommended to review the metrics in the order they are presented in the report.
 
 > **Note**: The following standards are for reference only. Actual quality assessment should consider multiple factors such as tissue type, cell state, and experimental goals. Significant differences may exist between different samples, and it is recommended to make judgments based on the specific experimental context.
 
-### 📊 Main Content and Structure of the Report
+</div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+
+### Main Content and Structure of the Report
 
 <div align="center">
 <img src="../images/html_scrna1.png" alt="scRNA Web Report" width="500">
 </div>
 
-### 🧬 Detailed Explanation of Core Analysis Metrics
+</div>
 
-#### 🧬 Cell Metrics <a id="cell-metrics"></a>
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
 
-<div align="center">
-
-**🎯 Core Function**: Cell identification, quality assessment, and gene expression statistics, providing key indicators of the overall effectiveness of the experiment.
+### Detailed Explanation of Core Analysis Metrics
 
 </div>
 
-**📊 Quality Control Standards:**
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+
+#### Cell Metrics <a id="cell-metrics"></a>
+
+<div align="center">
+
+**Core Function**: Cell identification, quality assessment, and gene expression statistics, providing key indicators of the overall effectiveness of the experiment.
+
+</div>
+
+**Quality Control Standards:**
 
 > **Note**: The following standards are for reference only. Actual quality assessment should consider multiple factors such as tissue type, cell state, and experimental goals. Significant differences may exist between different samples, and it is recommended to make judgments based on the specific experimental context.
 
@@ -620,7 +722,7 @@ The HTML web report is a comprehensive display platform for single-cell RNA sequ
 </tbody>
 </table>
 
-**🔍 Detailed Metric Explanations:**
+**Detailed Metric Explanations:**
 
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
@@ -736,17 +838,21 @@ The HTML web report is a comprehensive display platform for single-cell RNA sequ
 </tbody>
 </table>
 
----
+</div>
 
-#### 🔬 Sequencing Metrics <a id="sequencing-metrics"></a>
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+
+#### Sequencing Metrics <a id="sequencing-metrics"></a>
 
 <div align="center">
 
-**🎯 Core Function**: Basic quality assessment of sequencing data, including barcode identification rate, UMI quality, and sequencing accuracy.
+**Core Function**: Basic quality assessment of sequencing data, including barcode identification rate, UMI quality, and sequencing accuracy.
 
 </div>
 
-**📊 Quality Control Standards:**
+**Quality Control Standards:**
 
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
@@ -779,7 +885,7 @@ The HTML web report is a comprehensive display platform for single-cell RNA sequ
 </tbody>
 </table>
 
-**🔍 Detailed Metric Explanations:**
+**Detailed Metric Explanations:**
 
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
@@ -839,17 +945,21 @@ The HTML web report is a comprehensive display platform for single-cell RNA sequ
 
 > **Note**: All proportions above are calculated based on the total number of raw sequencing reads (Number of Reads), ensuring comparability and consistency across metrics.
 
----
+</div>
 
-#### 🗺️ Mapping Metrics <a id="mapping-metrics"></a>
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+
+#### Mapping Metrics <a id="mapping-metrics"></a>
 
 <div align="center">
 
-**🎯 Core Function**: To assess the quality of read alignment to the reference genome, including alignment rate, specificity, and genomic region distribution.
+**Core Function**: To assess the quality of read alignment to the reference genome, including alignment rate, specificity, and genomic region distribution.
 
 </div>
 
-**📊 Quality Control Standards:**
+**Quality Control Standards:**
 
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
@@ -882,7 +992,7 @@ The HTML web report is a comprehensive display platform for single-cell RNA sequ
 </tbody>
 </table>
 
-**🔍 Detailed Metric Explanations:**
+**Detailed Metric Explanations:**
 
 <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
 <thead>
@@ -991,20 +1101,28 @@ The HTML web report is a comprehensive display platform for single-cell RNA sequ
 
 > **Note**: All proportions above are calculated based on the total number of raw sequencing reads (Number of Reads), ensuring comparability and consistency across metrics.
 
----
+</div>
 
-### 📈 Interactive Visualization Chart Interpretation <a id="interactive-visualization-chart-interpretation"></a>
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
+
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
+
+### Interactive Visualization Chart Interpretation <a id="interactive-visualization-chart-interpretation"></a>
 
 <div align="center">
 
-**🎯 Core Function**: Provides comprehensive data visualization analysis, from cell quality control to a complete display of downstream biological analysis.
+**Core Function**: Provides comprehensive data visualization analysis, from cell quality control to a complete display of downstream biological analysis.
 
 </div>
 
-#### 📊 Visualization Chart Group One: Cell Quality Control Analysis <a id="visualization-chart-group-one"></a>
+</div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+
+#### Visualization Chart Group One: Cell Quality Control Analysis <a id="visualization-chart-group-one"></a>
 
 
-##### 📊 Barcode Rank Plot
+##### Barcode Rank Plot
 
 **Chart Function**:
 This plot distinguishes high-quality real cells from background noise by ranking all cells by their UMI count.
@@ -1023,9 +1141,9 @@ This plot distinguishes high-quality real cells from background noise by ranking
     - **Ideal Pattern**: A clear "knee point" distinguishes real cells from the background, with a steep drop in the real cell region and a flat distribution in the background region.
     - **Abnormal Pattern**: Lack of a clear knee point (cell concentration too low), or a gradual decline (background RNA too high).
 
----
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
 
-##### 📊 Droplet Beads Distribution
+##### Droplet Beads Distribution
 
 **Chart Function**:
 Displays the distribution of the number of captured cell barcodes (Beads) in real cell droplets.
@@ -1034,9 +1152,9 @@ Displays the distribution of the number of captured cell barcodes (Beads) in rea
 *   **Theoretical Distribution**: The distribution of beads in droplets theoretically follows a **Poisson distribution**, reflecting the statistical properties of the random capture process in the micro-reaction system.
 *   **Actual Influences**: The final distribution is affected by experimental factors such as sequencing saturation, droplet size uniformity, and cell concentration.
 
----
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
 
-##### 📊 Cell Data Distribution
+##### Cell Data Distribution
 
 **Chart Function**:
 Through three separate violin plots, it shows the distribution of high-quality cells across three key quality metrics: **number of genes (nGenes)**, **number of UMIs (nUMI)**, and **mitochondrial gene percentage (percent.mt)**.
@@ -1047,17 +1165,21 @@ Through three separate violin plots, it shows the distribution of high-quality c
 
 <br>
 
----
+</div>
+
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
 
 <div align="center">
 <img src="../images/html_scrna2.png" alt="scRNA Web Report" width="500">
 </div>
 
-#### 📊 Visualization Chart Group Two: Downstream Biological Analysis <a id="visualization-chart-group-two"></a>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+
+#### Visualization Chart Group Two: Downstream Biological Analysis <a id="visualization-chart-group-two"></a>
 
 <div align="center">
 
-**🎯 Core Function**: A comprehensive display of cell clustering analysis, differential gene identification, cell type annotation, and sequencing depth assessment.
+**Core Function**: A comprehensive display of cell clustering analysis, differential gene identification, cell type annotation, and sequencing depth assessment.
 
 </div>
 
@@ -1070,9 +1192,9 @@ Using UMAP dimensionality reduction and the Louvain clustering algorithm, cells 
 *   **Left Plot (Cell Type Clustering)**: Each point represents a cell, and different colors represent different cell clusters. Cells that are close in space have more similar gene expression profiles.
 *   **Right Plot (UMI Count Distribution)**: On the same UMAP space, a color gradient shows the total UMI count for each cell. This can be used to help assess the reliability of the clustering results, for example, whether certain clusters are composed of low-quality cells.
 
----
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
 
-##### 📈 Marker Genes Analysis
+##### Marker Genes Analysis
 
 **Chart Function**:
 Displays the characteristic differentially expressed genes for each cell cluster, used to identify and annotate different cell types.
@@ -1085,9 +1207,9 @@ Displays the characteristic differentially expressed genes for each cell cluster
     - **pct.1 / pct.2**: The proportion of cells expressing the gene in the target cluster versus other clusters.
 *   **Interactive Features**: Cluster filtering (select a specific cluster from the dropdown menu) | Gene search (use the search box to quickly locate gene expression).
 
----
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
 
-##### 🧬 Cell Type Annotation
+##### Cell Type Annotation
 
 **Chart Function**:
 On the UMAP plot, each cluster is labeled with a cell type inferred from a reference database (e.g., scHCL, scMCA).
@@ -1097,9 +1219,9 @@ On the UMAP plot, each cluster is labeled with a cell type inferred from a refer
 *   **Species Support**: Human (Homo sapiens) / Mouse (Mus musculus). Cell type annotation is not provided for other species.
 *   **Usage Suggestion**: The automatic annotation results are for reference only. Their accuracy depends on the quality of the reference database and the similarity of the sample. It is recommended to manually verify and correct them in conjunction with marker genes.
 
----
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
 
-##### 📊 Sequencing Saturation Curve
+##### Sequencing Saturation Curve
 
 **Chart Function**:
 Assesses the adequacy of sequencing depth and data complexity, i.e., whether further increasing the sequencing volume can lead to the discovery of more new genes or UMIs.
@@ -1108,9 +1230,9 @@ Assesses the adequacy of sequencing depth and data complexity, i.e., whether fur
 *   **Axes**: The X-axis is the average number of sequencing reads per cell, and the Y-axis is the saturation / median number of genes per cell.
 *   **Curve Trend**: If the curve tends to flatten, it indicates that sequencing is approaching saturation, and increasing sequencing depth will not contribute much to the discovery of new genes. If the curve is still rising rapidly, it indicates that increasing sequencing may still yield significant benefits.
 
----
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
 
-##### 🧪 Dual-Species Cell Assignment Page (Dual-species analysis only)
+##### Dual-Species Cell Assignment Page (Dual-species analysis only)
 
 When a dual-species reference is used (e.g., `hg38 + mm10`), the HTML report adds a dedicated page for species assignment and mixed-cell identification.
 
@@ -1137,32 +1259,33 @@ This page combines droplet-level multiplet statistics, cell-level species scatte
     - Mark or remove `call=Multiplet` cells before downstream clustering.
     - Interpret this page together with `analysis/cell_classification.csv` rather than relying on a single threshold.
 
----
+</div>
 
-<br>
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
 
-## 📚 Related Documentation
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
 
-<br>
+## Related Documentation
+
+</div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
 
 | Document | Description |
 | :--- | :--- |
-| [🔬 scRNA Pipeline](../pipeline/scRNA_en.md) | Detailed scRNA analysis workflow |
-| [⚙️ scRNA Parameters](../parameter/scRNA_en.md) | Command parameter reference |
-| [📁 Output Files](./outs.md) | Return to output documentation index |
+| [scRNA Pipeline](../pipeline/scRNA_en.md) | Detailed scRNA analysis workflow |
+| [scRNA Parameters](../parameter/scRNA_en.md) | Command parameter reference |
+| [Output Files](./outs.md) | Return to output documentation index |
 
-<br>
+</div>
 
----
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
 
-<br>
+<div align="center" style="background: #f5f5f7; border-radius: 12px; padding: 30px; margin: 40px auto; max-width: 1200px;">
 
-<div align="center">
-
-> 💡 <strong>Feedback & Support</strong>
+> <strong>Feedback & Support</strong>
 > 
 > This document is continuously updated. If you find any errors or need additional information, please provide feedback.
-> 
-> 📝 <strong>Document Version:</strong> 3.1 | <strong>Last Updated:</strong> April 2026
+<strong>Document Version:</strong> 3.1 | <strong>Last Updated:</strong> April 2026
 
 </div>

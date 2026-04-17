@@ -1,0 +1,29 @@
+/* Keep side navigation scrollable on long nav trees */
+.md-sidebar__scrollwrap {
+  overflow-y: auto !important;
+  overscroll-behavior: contain;
+}
+
+/* Avoid occasional scroll lock on desktop */
+.md-sidebar--primary,
+.md-sidebar--secondary {
+  height: calc(100vh - 2.4rem);
+}
+
+/* Hide non-clickable site title block above left nav items */
+.md-nav--primary > .md-nav__title {
+  display: none !important;
+}
+
+/* Keep footer color consistent with top header */
+.md-footer,
+.md-footer-meta {
+  background-color: var(--md-primary-fg-color) !important;
+}
+
+.md-footer,
+.md-footer-meta,
+.md-footer a,
+.md-footer-meta a {
+  color: #ffffff !important;
+}

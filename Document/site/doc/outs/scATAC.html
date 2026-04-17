@@ -1,0 +1,3575 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentation site generated from README and doc markdown files">
+      
+      
+      
+      
+        <link rel="prev" href="scRNA_en.html">
+      
+      
+        <link rel="next" href="scATAC_en.html">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>scATAC (ZH) - DNBelab C Series™ HT Single-Cell Analysis Software</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#scatac" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../index.html" title="DNBelab C Series™ HT Single-Cell Analysis Software" class="md-header__button md-logo" aria-label="DNBelab C Series™ HT Single-Cell Analysis Software" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            DNBelab C Series™ HT Single-Cell Analysis Software
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              scATAC (ZH)
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/MGI-tech-bioinformatics/DNBelab_C_Series_HT_scRNA-analysis-software" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    MGI-tech-bioinformatics/DNBelab_C_Series_HT_scRNA-analysis-software
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../index.html" title="DNBelab C Series™ HT Single-Cell Analysis Software" class="md-nav__button md-logo" aria-label="DNBelab C Series™ HT Single-Cell Analysis Software" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    DNBelab C Series™ HT Single-Cell Analysis Software
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/MGI-tech-bioinformatics/DNBelab_C_Series_HT_scRNA-analysis-software" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    MGI-tech-bioinformatics/DNBelab_C_Series_HT_scRNA-analysis-software
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../installation.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Installation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quickstart.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pipeline
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Pipeline
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pipeline/pipeline.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pipeline/scRNA.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    scRNA (ZH)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pipeline/scRNA_en.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    scRNA (EN)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pipeline/scATAC.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    scATAC (ZH)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pipeline/scATAC_en.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    scATAC (EN)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pipeline/scVDJ.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    scVDJ (ZH)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pipeline/scVDJ_en.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    scVDJ (EN)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pipeline/multi.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Multi (ZH)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pipeline/multi_en.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Multi (EN)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Parameter
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Parameter
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../parameter/parameter.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../parameter/scRNA.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    scRNA (ZH)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../parameter/scRNA_en.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    scRNA (EN)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../parameter/scATAC.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    scATAC (ZH)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../parameter/scATAC_en.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    scATAC (EN)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../parameter/scVDJ.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    scVDJ (ZH)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../parameter/scVDJ_en.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    scVDJ (EN)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../parameter/multi.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Multi (ZH)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../parameter/multi_en.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Multi (EN)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../parameter/tools.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tools (ZH)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../parameter/tools_en.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tools (EN)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Outputs
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Outputs
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="outs.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="scRNA.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    scRNA (ZH)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="scRNA_en.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    scRNA (EN)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    scATAC (ZH)
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="scATAC.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    scATAC (ZH)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        概述
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        输出目录结构
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        文件详细说明
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="文件详细说明">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#atac" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ATAC片段和峰文件
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ATAC片段和峰文件">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fragmentstsvgz" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        fragments.tsv.gz
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fragmentstsvgztbi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        fragments.tsv.gz.tbi
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#filteredfragmentstsvgz" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        filtered.fragments.tsv.gz
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#filteredfragmentstsvgztbi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        filtered.fragments.tsv.gz.tbi
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alignmentfragmentssortedtaggedbam" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        alignment.fragments.sorted.tagged.bam
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alignmentfragmentssortedtaggedbambai" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        alignment.fragments.sorted.tagged.bam.bai
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        峰矩阵文件
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="峰矩阵文件">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#filter_peak_matrix" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        过滤后的峰矩阵 (filter_peak_matrix/)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#raw_peak_matrix" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        原始峰矩阵 (raw_peak_matrix/)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        分析指标汇总
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="分析指标汇总">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#metrics_summaryxls" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        metrics_summary.xls
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#singlecellcsv" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        singlecell.csv
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_scatac_reporthtml" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        *_scATAC_report.html
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        文件格式说明
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="文件格式说明">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#market-matrix-mtxgz" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Market Matrix格式 (.mtx.gz)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        网页报告释义
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="网页报告释义">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        报告主要内容与结构
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        核心分析指标详解
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="核心分析指标详解">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cell-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        细胞指标 (Cell Metrics)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sequencing-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        测序指标 (Sequencing Metrics)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        可视化图表1
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#barcode-rank-plot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        细胞排序图 (Barcode Rank Plot)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#droplet-beads-distribution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        液滴磁珠分布图 (Droplet Beads Distribution)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cell-data-distribution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        细胞数据分布图 (Cell Data Distribution)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fragment-length-distribution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        片段长度分布图 (Fragment Length Distribution)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#additional-key-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        其他核心指标 (Additional Key Metrics)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        可视化图表2
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cluster-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        细胞聚类分析图 (Cluster Analysis)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tss-tss-enrichment-profile" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        转录起始位点(TSS)富集图 (TSS Enrichment Profile)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#single-cell-targeting-plot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        单细胞靶向图 (Single Cell Targeting Plot)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#saturation-curve" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        饱和度曲线图 (Saturation Curve)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bead-similarity-ranking" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        磁珠相似性排序图 (Bead Similarity Ranking)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        相关文档
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="scATAC_en.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    scATAC (EN)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="scVDJ.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    scVDJ (ZH)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="scVDJ_en.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    scVDJ (EN)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="multi.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Multi (ZH)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="multi_en.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Multi (EN)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../io.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    I/O Analysis
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../release.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Release Notes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dataset.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dataset
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Additional
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Additional
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../installation_previous.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Previous Installation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../json.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    JSON Spec
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../structure.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Structure
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        概述
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        输出目录结构
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        文件详细说明
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="文件详细说明">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#atac" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ATAC片段和峰文件
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ATAC片段和峰文件">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fragmentstsvgz" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        fragments.tsv.gz
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fragmentstsvgztbi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        fragments.tsv.gz.tbi
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#filteredfragmentstsvgz" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        filtered.fragments.tsv.gz
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#filteredfragmentstsvgztbi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        filtered.fragments.tsv.gz.tbi
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alignmentfragmentssortedtaggedbam" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        alignment.fragments.sorted.tagged.bam
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alignmentfragmentssortedtaggedbambai" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        alignment.fragments.sorted.tagged.bam.bai
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        峰矩阵文件
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="峰矩阵文件">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#filter_peak_matrix" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        过滤后的峰矩阵 (filter_peak_matrix/)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#raw_peak_matrix" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        原始峰矩阵 (raw_peak_matrix/)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        分析指标汇总
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="分析指标汇总">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#metrics_summaryxls" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        metrics_summary.xls
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#singlecellcsv" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        singlecell.csv
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_scatac_reporthtml" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        *_scATAC_report.html
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        文件格式说明
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="文件格式说明">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#market-matrix-mtxgz" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Market Matrix格式 (.mtx.gz)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        网页报告释义
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="网页报告释义">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        报告主要内容与结构
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        核心分析指标详解
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="核心分析指标详解">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cell-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        细胞指标 (Cell Metrics)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sequencing-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        测序指标 (Sequencing Metrics)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        可视化图表1
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#barcode-rank-plot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        细胞排序图 (Barcode Rank Plot)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#droplet-beads-distribution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        液滴磁珠分布图 (Droplet Beads Distribution)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cell-data-distribution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        细胞数据分布图 (Cell Data Distribution)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fragment-length-distribution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        片段长度分布图 (Fragment Length Distribution)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#additional-key-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        其他核心指标 (Additional Key Metrics)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        可视化图表2
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cluster-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        细胞聚类分析图 (Cluster Analysis)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tss-tss-enrichment-profile" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        转录起始位点(TSS)富集图 (TSS Enrichment Profile)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#single-cell-targeting-plot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        单细胞靶向图 (Single Cell Targeting Plot)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#saturation-curve" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        饱和度曲线图 (Saturation Curve)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bead-similarity-ranking" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        磁珠相似性排序图 (Bead Similarity Ranking)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        相关文档
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<div align="right" style="margin-bottom: 20px; max-width: 1200px; margin-left: auto; margin-right: auto;">
+<p><a href="../../index.html">主页</a> • <a href="scATAC_en.html">English</a></p>
+</div>
+<div align="center" style="padding: 40px 20px; background: linear-gradient(135deg, #f5f5f7 0%, #ffffff 100%); border-radius: 12px; margin-bottom: 30px; max-width: 1200px; margin-left: auto; margin-right: auto;">
+<h1 id="scatac" style="font-size: 48px; font-weight: 600; color: #1d1d1f; margin: 0 0 16px 0; letter-spacing: -0.02em;"> scATAC 分析输出<a class="headerlink" href="#scatac" title="Permanent link">&para;</a></h1>
+<p style="font-size: 21px; color: #86868b; margin: 0; font-weight: 400;">单细胞 ATAC 测序分析输出文件完整指南</p>
+<div style="margin-top: 24px;">
+<p><a href="#输出目录结构"> 目录结构</a> • <a href="#详细文件说明">文件详情</a> • <a href="#峰矩阵文件">数据矩阵</a> • <a href="#分析指标汇总">分析结果</a> • <a href="#网页报告释义">报告解读</a></p>
+</div>
+</div>
+<div style="max-width: 1200px; margin: 0 auto;">
+<hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;">
+</div>
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
+<h2 id="_1">概述 <a id="概述"></a><a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<div align="center">
+<p>单细胞 ATAC 测序分析完成后，会在指定的输出目录中生成标准化的文件和子目录结构，专门用于染色质可及性分析和表观基因组学研究。</p>
+</div>
+<blockquote>
+<p><strong>提示</strong>*: 所有输出文件均采用标准格式，兼容主流单细胞表观基因组分析工具（如Signac、ArchR等），遵循国际通用的数据格式规范。</p>
+</blockquote>
+</div>
+<div style="max-width: 1200px; margin: 0 auto;">
+<hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;">
+</div>
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
+<h2 id="_2">输出目录结构 <a id="输出目录结构"></a><a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 20px; margin: 20px auto; max-width: 1200px; overflow-x: auto; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+<pre><code>.
+├── alignment.fragments.sorted.tagged.bam       # 质控后的比对结果（分析需添加need_bam参数）
+├── alignment.fragments.sorted.tagged.bam.bai   # 比对结果索引文件
+├── filter_peak_matrix/                         # 过滤后的峰矩阵MEX格式目录
+│   ├── barcodes.tsv.gz                         # 过滤后的细胞条形码信息
+│   ├── matrix.mtx.gz                           # 过滤后的稀疏矩阵格式的峰信号数据
+│   └── peaks.bed.gz                            # 过滤后的峰位置信息
+├── fragments.tsv.gz                            # 包含所有比对到基因组的片段信息
+├── fragments.tsv.gz.tbi                        # 片段文件的索引，用于快速随机访问
+├── filtered.fragments.tsv.gz                   # 质量控制后的ATAC片段文件，仅包含通过细胞过滤的片段信息
+├── filtered.fragments.tsv.gz.tbi               # 细胞过滤的片段文件的Tabix索引，支持基因组区间的快速查询
+├── metrics_summary.xls                         # 分析质量指标汇总表
+├── raw_peak_matrix/                            # 原始峰矩阵MEX格式目录
+│   ├── barcodes.tsv.gz                         # 原始细胞条形码信息
+│   ├── matrix.mtx.gz                           # 原始稀疏矩阵格式的峰信号数据
+│   └── peaks.bed.gz                            # 原始峰位置信息
+├── singlecell.csv                              # 细胞信息汇总表
+└── *_scATAC_report.html                        # HTML格式的分析报告
+</code></pre>
+</div>
+<div style="max-width: 1200px; margin: 0 auto;">
+<hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;">
+</div>
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
+<h2 id="_3">文件详细说明 <a id="详细文件说明"></a><a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+</div>
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
+<h3 id="atac">ATAC片段和峰文件 <a id="atac片段和峰文件"></a><a class="headerlink" href="#atac" title="Permanent link">&para;</a></h3>
+<div align="center">
+<p><strong>核心内容</strong>: ATAC-seq 片段信息和峰识别结果，包含完整的染色质可及性数据和细胞条形码标记</p>
+</div>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+<h4 id="fragmentstsvgz">fragments.tsv.gz<a class="headerlink" href="#fragmentstsvgz" title="Permanent link">&para;</a></h4>
+<p><code>fragments.tsv.gz</code> 是一个包含 ATAC-seq 片段信息的压缩 TSV 文件，是进行下游分析的核心数据之一。</p>
+<ul>
+<li>
+<p><strong>用途</strong>:</p>
+<ul>
+<li><strong>染色质可及性分析</strong>: 精确定位每个开放染色质区域的基因组坐标。</li>
+<li><strong>数据可视化</strong>: 可直接在 IGV、UCSC 等基因组浏览器中作为 BED 文件加载。</li>
+<li><strong>下游工具输入</strong>: 兼容 ArchR、Signac 等主流单细胞分析工具。</li>
+</ul>
+</li>
+<li>
+<p><strong>内容与格式</strong>:</p>
+<ul>
+<li>文件为 <strong>BED-like</strong> 格式，每行代表一个唯一的 ATAC-seq 片段。</li>
+<li>
+<p>文件具体包含的 <strong>5列信息</strong> 如下表所示：</p>
+<p><table style="width:100%; border-collapse: collapse; margin: 15px 0;">
+<thead>
+<tr>
+<th width="20%" align="left"><strong>字段名</strong></th>
+<th width="80%" align="left"><strong>详细描述</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>chrom</code></td>
+<td>参考基因组染色体名称，标识片段所在的染色体位置</td>
+</tr>
+<tr>
+<td align="left"><code>chromStart</code></td>
+<td>片段在染色体上的调整起始位置（0-based坐标系统），经过转座酶切割位点修正</td>
+</tr>
+<tr>
+<td align="left"><code>chromEnd</code></td>
+<td>片段在染色体上的调整结束位置（不包含该位置），经过转座酶切割位点修正</td>
+</tr>
+<tr>
+<td align="left"><code>barcode</code></td>
+<td>细胞ID标识符，对应BAM文件中的<code>CB</code>标签，用于将片段归属到特定细胞</td>
+</tr>
+<tr>
+<td align="left"><code>readSupport</code></td>
+<td>与该片段相关的总读段对数（包括唯一和重复读段）</td>
+</tr>
+</tbody>
+</table></p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>坐标调整</strong>:</p>
+<ul>
+<li>为精确定位转座酶切位点，片段区间经过调整：起始位置从最左端比对位置向前移动4bp，结束位置从最右端比对位置向后移动5bp。</li>
+</ul>
+</li>
+</ul>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+<h4 id="fragmentstsvgztbi">fragments.tsv.gz.tbi<a class="headerlink" href="#fragmentstsvgztbi" title="Permanent link">&para;</a></h4>
+<p><code>fragments.tsv.gz</code> 文件的 Tabix 索引。</p>
+<ul>
+<li><strong>核心用途</strong>:<ul>
+<li><strong>快速数据访问</strong>: 允许对大型 <code>fragments.tsv.gz</code> 文件进行快速的、基于基因组区间的查询，而无需读取整个文件。</li>
+<li><strong>工具性能优化</strong>: 被 ArchR、Signac、IGV 等工具用于高效加载和处理特定区域的数据。</li>
+</ul>
+</li>
+<li><strong>格式</strong>:<ul>
+<li>由 <code>tabix</code> 工具生成的标准二进制索引文件。</li>
+</ul>
+</li>
+</ul>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+<h4 id="filteredfragmentstsvgz">filtered.fragments.tsv.gz<a class="headerlink" href="#filteredfragmentstsvgz" title="Permanent link">&para;</a></h4>
+<p>这是经过细胞质量控制和过滤后的 ATAC-seq 片段文件，是 <code>fragments.tsv.gz</code> 的子集，仅包含高质量细胞的片段。</p>
+<ul>
+<li><strong>核心用途</strong>:<ul>
+<li><strong>核心下游分析</strong>: 这是进行细胞聚类、差异可及性分析等核心下游步骤的<strong>推荐输入文件</strong>。</li>
+<li><strong>信噪比提升</strong>: 由于去除了低质量细胞和背景噪音，使用此文件可以提高分析结果的准确性和信噪比。</li>
+</ul>
+</li>
+<li><strong>内容与格式</strong>:<ul>
+<li>文件格式与 <code>fragments.tsv.gz</code> 完全相同（压缩的 BED-like TSV），包含相同的5列信息。</li>
+<li>仅包含通过细胞过滤算法（例如，基于TSS富集和峰区域覆盖的片段数）被识别为"真实细胞"的片段。</li>
+</ul>
+</li>
+</ul>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+<h4 id="filteredfragmentstsvgztbi">filtered.fragments.tsv.gz.tbi<a class="headerlink" href="#filteredfragmentstsvgztbi" title="Permanent link">&para;</a></h4>
+<p><code>filtered.fragments.tsv.gz</code> 文件的 Tabix 索引。</p>
+<ul>
+<li><strong>核心用途</strong>:<ul>
+<li><strong>高效下游分析</strong>: 确保在使用过滤后的片段文件时，下游工具（如 ArchR, Signac）能够快速、高效地访问特定基因组区域的数据。</li>
+</ul>
+</li>
+<li><strong>格式</strong>:<ul>
+<li>由 <code>tabix</code> 工具生成的标准二进制索引文件。</li>
+</ul>
+</li>
+</ul>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+<h4 id="alignmentfragmentssortedtaggedbam">alignment.fragments.sorted.tagged.bam<a class="headerlink" href="#alignmentfragmentssortedtaggedbam" title="Permanent link">&para;</a></h4>
+<p>这是包含所有具有有效条形码（valid barcode）并且成功比对的片段的 ATAC-seq 比对结果文件。</p>
+<ul>
+<li>
+<p><strong>核心用途</strong>:</p>
+<ul>
+<li><strong>深度分析与可视化</strong>: 可用于 IGV 等基因组浏览器进行深度可视化，检查特定基因座的比对情况。</li>
+<li><strong>自定义分析</strong>: 为需要直接操作比对级别数据的用户提供原始输入。</li>
+</ul>
+</li>
+<li>
+<p><strong>内容与格式</strong>:</p>
+<ul>
+<li>采用国际标准的 <strong>BAM (Binary Alignment Map)</strong> 格式。</li>
+<li>文件已按<strong>基因组坐标排序</strong>，并建立了索引（<code>.bai</code> 文件），便于快速随机访问。</li>
+<li>每个读段都通过 TAG 字段标记了细胞来源信息。</li>
+</ul>
+</li>
+<li>
+<p><strong>关键TAG字段说明</strong>:</p>
+<ul>
+<li>
+<p>细胞和分子条形码信息存储在以下TAG字段中：</p>
+<p><table style="width:100%; border-collapse: collapse; margin: 15px 0;">
+<thead>
+<tr>
+<th width="15%" align="left"><strong>标签</strong></th>
+<th width="15%" align="left"><strong>类型</strong></th>
+<th width="70%" align="left"><strong>描述</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>CB</code></td>
+<td align="left">Z</td>
+<td>经过错误校正和细胞合并处理后的细胞条形码标识符</td>
+</tr>
+<tr>
+<td align="left"><code>CC</code></td>
+<td align="left">Z</td>
+<td>经过错误校正的细胞条形码序列</td>
+</tr>
+<tr>
+<td align="left"><code>CR</code></td>
+<td align="left">Z</td>
+<td>测序仪报告的细胞条形码序列</td>
+</tr>
+</tbody>
+</table></p>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+<h4 id="alignmentfragmentssortedtaggedbambai">alignment.fragments.sorted.tagged.bam.bai<a class="headerlink" href="#alignmentfragmentssortedtaggedbambai" title="Permanent link">&para;</a></h4>
+<p><code>alignment.fragments.sorted.tagged.bam</code> 文件的索引。</p>
+<ul>
+<li><strong>核心用途</strong>:<ul>
+<li><strong>快速数据访问</strong>: 允许 IGV、Samtools 等工具在无需完整加载BAM文件的情况下，快速跳转和读取任意基因组区域的比对数据。</li>
+<li><strong>性能保障</strong>: 是所有对BAM文件进行随机访问操作的性能保障。</li>
+</ul>
+</li>
+<li><strong>格式</strong>:<ul>
+<li>由 <code>samtools index</code> 命令生成的标准 <strong>BAI (BAM Index)</strong> 格式。</li>
+</ul>
+</li>
+</ul>
+</div>
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
+<h3 id="_4">峰矩阵文件 <a id="峰矩阵文件"></a><a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<div align="center">
+<p><strong>核心内容</strong>: 单细胞峰信号计数矩阵，分为原始数据和质控过滤后数据，采用标准稀疏矩阵格式</p>
+</div>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+<h4 id="filter_peak_matrix">过滤后的峰矩阵 (<code>filter_peak_matrix/</code>)<a class="headerlink" href="#filter_peak_matrix" title="Permanent link">&para;</a></h4>
+<p>包含经过高质量细胞过滤后的峰计数矩阵，是进行下游定量分析的核心数据。</p>
+<ul>
+<li>
+<p><strong>核心用途</strong>:</p>
+<ul>
+<li><strong>下游定量分析</strong>: 作为细胞聚类、差异可及性分析、轨迹推断等分析的<strong>主要输入</strong>。</li>
+<li><strong>高质量数据</strong>: 只包含被鉴定为真实细胞的条形码，确保分析结果的准确性。</li>
+</ul>
+</li>
+<li>
+<p><strong>内容与格式</strong>:</p>
+<ul>
+<li>采用标准的 <strong>Market Matrix Exchange (MEX)</strong> 格式，由以下三个压缩文件组成：
+    <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
+    <thead>
+    <tr>
+    <th width="25%" align="left"><strong>文件名</strong></th>
+    <th width="75%" align="left"><strong>内容描述</strong></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <td align="left"><code>barcodes.tsv.gz</code></td>
+    <td>细胞ID列表，标识通过质控筛选的高质量细胞。每行包含一个细胞ID信息，对应矩阵的列索引</td>
+    </tr>
+    <tr>
+    <td align="left"><code>peaks.bed.gz</code></td>
+    <td>峰区域位置信息文件，采用BED格式存储。包含染色体、起始位置和结束位置，对应矩阵的行索引</td>
+    </tr>
+    <tr>
+    <td align="left"><code>matrix.mtx.gz</code></td>
+    <td>峰区域计数矩阵，采用 Market Matrix 格式。包含矩阵维度信息和非零元素的行、列索引及数值</td>
+    </tr>
+    </tbody>
+    </table></li>
+</ul>
+</li>
+<li>
+<p><strong>格式优势</strong>:</p>
+<ul>
+<li><strong>空间高效</strong>: 稀疏矩阵格式（<code>.mtx</code>）仅存储非零元素，极大节省了存储空间。</li>
+<li><strong>高度兼容</strong>: MEX 格式是单细胞社区的标准（关于矩阵格式详见<a href="#market-matrix-format-mtxgz">Market Matrix格式说明</a>），兼容 Seurat, Signac, Scanpy 等几乎所有主流分析工具。</li>
+</ul>
+</li>
+</ul>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+<h4 id="raw_peak_matrix">原始峰矩阵 (<code>raw_peak_matrix/</code>)<a class="headerlink" href="#raw_peak_matrix" title="Permanent link">&para;</a></h4>
+<p>包含所有检测到的细胞条形码（未经过滤）的原始峰计数矩阵。</p>
+<ul>
+<li>
+<p><strong>核心用途</strong>:</p>
+<ul>
+<li><strong>质量控制评估</strong>: 可用于评估细胞过滤的效果，或根据自定义标准进行手动过滤。</li>
+<li><strong>数据完整性</strong>: 保留了所有原始数据，可用于深度挖掘或在需要时重新分析。</li>
+</ul>
+</li>
+<li>
+<p><strong>内容与格式</strong>:</p>
+<ul>
+<li>采用标准的 <strong>Market Matrix Exchange (MEX)</strong> 格式，其文件组成与 <code>filter_peak_matrix/</code> 目录完全相同。</li>
+<li>包含所有被检测到的条形码，包括高质量细胞、低质量细胞和背景液滴。</li>
+</ul>
+</li>
+</ul>
+</div>
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
+<h3 id="_5">分析指标汇总 <a id="分析指标汇总"></a><a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<div align="center">
+<p><strong>核心内容</strong>: 实验质量评估和统计指标汇总，提供完整的数据质量控制信息</p>
+</div>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+<h4 id="metrics_summaryxls">metrics_summary.xls<a class="headerlink" href="#metrics_summaryxls" title="Permanent link">&para;</a></h4>
+<p>采用 Excel 格式的关键分析指标汇总表，提供了对实验整体质量的全面评估。</p>
+<ul>
+<li>
+<p><strong>核心用途</strong>:</p>
+<ul>
+<li><strong>质量评估</strong>: 快速评估测序数据质量、比对效率、细胞鉴定结果等核心指标。</li>
+<li><strong>结果概览</strong>: 无需查看所有文件即可对分析结果有一个全面的了解。</li>
+</ul>
+</li>
+<li>
+<p><strong>内容与格式</strong>:</p>
+<ul>
+<li>包含三大类别的关键指标：
+    <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
+    <thead>
+    <tr>
+    <th width="20%" align="left"><strong>指标类别</strong></th>
+    <th width="80%" align="left"><strong>包含内容</strong></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <td align="left"><strong>基本统计</strong></td>
+    <td>总读段对数、有效条形码比例、Q30碱基质量等基础测序指标</td>
+    </tr>
+    <tr>
+    <td align="left"><strong>细胞识别</strong></td>
+    <td>估计细胞数量、峰区域片段占比、TSS区域片段占比、峰检测数量、TSS富集等细胞调用结果</td>
+    </tr>
+    <tr>
+    <td align="left"><strong>比对指标</strong></td>
+    <td>基因组比对率、线粒体比例等比对统计</td>
+    </tr>
+    </tbody>
+    </table></li>
+<li>内置推荐的质量控制标准，方便用户判断：
+    <details open>
+    <summary><strong>推荐质量阈值：</strong></summary>
+    <ul>
+    <li><strong>有效条形码比例</strong>: &gt;70%</li>
+    <li><strong>Q30碱基质量</strong>: &gt;75%（条形码和UMI区域）</li>
+    <li><strong>基因组比对率</strong>: &gt;50%</li>
+    <li><strong>TSS富集分数（人/鼠）</strong>: &gt;4</li>
+    <li><strong>峰区域片段比例</strong>: &gt;15%</li>
+    <li><strong>TSS区域片段比例</strong>: &gt;10%</li>
+    <li><strong>重复序列百分比</strong>: &gt;10%</li>
+    </ul>
+    </details></li>
+</ul>
+</li>
+</ul>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+<h4 id="singlecellcsv">singlecell.csv<a class="headerlink" href="#singlecellcsv" title="Permanent link">&para;</a></h4>
+<p>采用 CSV 格式的单细胞级别质量控制信息表，记录了每个细胞条形码的详细统计数据。</p>
+<ul>
+<li>
+<p><strong>核心用途</strong>:</p>
+<ul>
+<li><strong>精细化质控</strong>: 支持用户根据自定义标准进行更精细的细胞过滤和分析。</li>
+<li><strong>下游分析输入</strong>: 可作为 Signac、Scanpy 等分析工具的细胞元数据(metadata)输入。</li>
+</ul>
+</li>
+<li>
+<p><strong>内容与格式</strong>:</p>
+<ul>
+<li>每一行代表一个细胞条形码。</li>
+<li>主要列包括：片段数量、峰数量、TSS/peak区域片段数以及是否被判定为高质量细胞、磁珠合并信息等。</li>
+</ul>
+</li>
+</ul>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+<h4 id="_scatac_reporthtml">*_scATAC_report.html<a class="headerlink" href="#_scatac_reporthtml" title="Permanent link">&para;</a></h4>
+<p>采用 HTML 网页格式的交互式综合分析报告。</p>
+<ul>
+<li>
+<p><strong>核心用途</strong>:</p>
+<ul>
+<li><strong>结果可视化</strong>: 以交互式图表的形式，直观展示质控结果、细胞聚类、TSS富集等关键分析结果。</li>
+<li><strong>结果解读</strong>: 提供各项指标的生物学意义和技术解释，帮助用户深度解读数据。</li>
+<li><strong>便捷分享</strong>: 单个 HTML 文件，易于传阅和分享。</li>
+</ul>
+</li>
+<li>
+<p><strong>内容与格式</strong>:</p>
+<ul>
+<li>无需网络，可在任何现代浏览器中打开。</li>
+<li>报告的详细解读请参考本文档下方的 <a href="#网页报告释义">网页报告释义</a> 部分。</li>
+<li>包含的关键内容模块如下：
+    <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
+    <thead>
+    <tr>
+    <th width="25%" align="left"><strong>报告特点</strong></th>
+    <th width="75%" align="left"><strong>内容描述</strong></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <td align="left"><strong>交互式图表</strong></td>
+    <td>质控指标、细胞聚类、峰分析等可交互可视化图表</td>
+    </tr>
+    <tr>
+    <td align="left"><strong>统计汇总</strong></td>
+    <td>关键性能指标的数值汇总和趋势分析</td>
+    </tr>
+    <tr>
+    <td align="left"><strong>详细解读</strong></td>
+    <td>各项指标的生物学意义和技术解释</td>
+    </tr>
+    </tbody>
+    </table></li>
+</ul>
+</li>
+</ul>
+</div>
+<div style="max-width: 1200px; margin: 0 auto;">
+<hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;">
+</div>
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
+<h2 id="_6">文件格式说明 <a id="文件格式说明"></a><a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<div align="center">
+<p><strong>技术规范</strong>: 输出文件采用的标准格式详细说明</p>
+</div>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+<h4 id="market-matrix-mtxgz">Market Matrix格式 (<code>.mtx.gz</code>) <a id="market-matrix-format-mtxgz"></a><a class="headerlink" href="#market-matrix-mtxgz" title="Permanent link">&para;</a></h4>
+<p>Market Exchange Format (MEX) 是单细胞分析中用于存储稀疏计数矩阵的标准格式，具有空间高效和高度兼容的优点。</p>
+<ul>
+<li>
+<p><strong>核心优势</strong>:</p>
+<ul>
+<li><strong>空间高效</strong>: 稀疏矩阵仅存储非零元素，对于通常超过95%为零值的单细胞数据，可极大节省存储空间。</li>
+<li><strong>高度兼容</strong>: 作为国际标准格式，可被 Seurat, Scanpy, Signac 等几乎所有主流分析工具直接读取。</li>
+</ul>
+</li>
+<li>
+<p><strong>文件组成</strong>:</p>
+<ul>
+<li>一个完整的MEX格式数据由以下 <strong>三个文件</strong> 构成：
+    <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
+    <thead>
+    <tr>
+    <th width="25%" align="left"><strong>文件名</strong></th>
+    <th width="75%" align="left"><strong>描述</strong></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <td align="left"><code>matrix.mtx.gz</code></td>
+    <td>压缩的稀疏矩阵文件。文件头包含矩阵维度，后续每行记录一个非零元素的位置（行/列索引）和数值。</td>
+    </tr>
+    <tr>
+    <td align="left"><code>barcodes.tsv.gz</code></td>
+    <td>压缩的细胞条形码文件。每行是一个细胞ID，行号对应矩阵的<strong>列</strong>。</td>
+    </tr>
+    <tr>
+    <td align="left"><code>peaks.bed.gz</code></td>
+    <td>压缩的特征（峰）文件。每行是一个峰的BED格式坐标，行号对应矩阵的<strong>行</strong>。</td>
+    </tr>
+    </tbody>
+    </table></li>
+</ul>
+</li>
+</ul>
+</div>
+<div style="max-width: 1200px; margin: 0 auto;">
+<hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;">
+</div>
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
+<h2 id="_7">网页报告释义 <a id="网页报告释义"></a><a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<div align="center">
+<p><strong>概述</strong>: HTML 网页报告提供了单细胞 ATAC 测序分析结果的全面可视化展示和详细解读，包含关键性能指标的评估，帮助用户快速了解实验质量和分析结果</p>
+</div>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+<p>HTML 网页报告是单细胞 ATAC 测序分析的综合展示平台，整合了从数据质量控制到下游表观基因组学分析的完整结果。该报告采用交互式可视化设计，帮助用户快速评估实验质量、理解分析结果并指导后续研究方向。</p>
+<blockquote>
+<p><strong>使用建议</strong>*: 建议按照报告展示顺序依次查看各项指标。</p>
+<p><strong>注意</strong>: 以下标准仅供参考，实际质量评估应考虑组织类型、细胞状态和实验目标等多种因素。不同样本间存在显著差异，建议结合具体实验背景进行判断。</p>
+</blockquote>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+<h3 id="_8">报告主要内容与结构<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<div align="center">
+<p><img src="../images/html_scatac1.png" alt="scATAC网页报告" width="500"></p>
+</div>
+</div>
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
+<h3 id="_9">核心分析指标详解<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+<h4 id="cell-metrics">细胞指标 (Cell Metrics) <a id="细胞指标"></a><a class="headerlink" href="#cell-metrics" title="Permanent link">&para;</a></h4>
+<div align="center">
+<p><strong>核心功能</strong>: 细胞识别、质量评估和染色质可及性统计，提供实验整体效果的关键指标</p>
+</div>
+<p><strong>质量控制标准：</strong></p>
+<blockquote>
+<p><strong>注意</strong>: 以下标准仅供参考，实际质量评估应考虑组织类型、细胞状态和实验目标等多种因素。不同样本间存在显著差异，建议结合具体实验背景进行判断。</p>
+</blockquote>
+<table style="width:100%; border-collapse: collapse; margin: 15px 0;">
+<thead>
+<tr>
+<th align="left" width="25%"><strong>指标名称</strong></th>
+<th align="left" width="30%"><strong>推荐值</strong></th>
+<th align="left" width="30%"><strong>可接受</strong></th>
+<th align="left" width="15%"><strong>需优化</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><strong>Median fragments per cell</strong></td>
+<td align="left">≥ 10,000</td>
+<td align="left">2,000–10,000</td>
+<td align="left">&lt; 2,000</td>
+</tr>
+<tr>
+<td align="left"><strong>Median fraction of fragments overlapping peaks</strong></td>
+<td align="left">≥ 30%</td>
+<td align="left">15–30%</td>
+<td align="left">&lt; 15%</td>
+</tr>
+<tr>
+<td align="left"><strong>Median fraction of fragments overlapping TSS</strong></td>
+<td align="left">≥ 20%</td>
+<td align="left">10–20%</td>
+<td align="left">&lt; 10%</td>
+</tr>
+<tr>
+<td align="left"><strong>Fraction fragments in cells</strong></td>
+<td align="left">≥ 50%</td>
+<td align="left">20–50%</td>
+<td align="left">&lt; 20%</td>
+</tr>
+</tbody>
+</table>
+<p><strong>详细指标解释：</strong></p>
+<table style="width:100%; border-collapse: collapse; margin: 15px 0;">
+<thead>
+<tr>
+<th align="left" width="30%"><strong>指标名称</strong></th>
+<th align="left" width="70%"><strong>详细解释与技术要求</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">
+<strong>Estimated number of cells</strong><br>
+<em>估计细胞数量</em>
+</td>
+<td>
+<ul>
+<li><strong>定义</strong>: 从测序数据中鉴定出的有效细胞（区别于背景噪音或空液滴）的总数。</li>
+<li><strong>计算过程</strong>: 合并同液滴的细胞条形码后，通过峰区域片段数量、TSS比例等参数进行过滤。</li>
+<li><strong>质量判读</strong>: 
+<ul><li><strong>异常原因</strong>: 细胞计数不准、细胞裂解、样本或文库质量差、测序深度低。</ul>
+</li>
+</ul>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td align="left">
+<strong>Species</strong><br>
+<em>物种信息</em>
+</td>
+<td>
+<ul>
+<li><strong>定义</strong>: 分析所采用的物种或参考基因组版本。</li>
+<li><strong>说明</strong>: 该信息来源于建库时提供的参考基因组，用于确保比对和注释的准确性。</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td align="left">
+<strong>Median fragments per cell</strong><br>
+<em>每细胞中位片段数</em>
+</td>
+<td>
+<ul>
+<li><strong>定义</strong>: 单个细胞内所包含的有效ATAC-seq片段数量的中位数。</li>
+<li><strong>生物学意义</strong>: 此指标直接反映了单个细胞核内染色质开放区域的捕获效率和测序深度。数值越高，表明单细胞数据质量越好。</li>
+<li><strong>质量判读</strong>:
+<ul>
+<li><strong>高质量标准</strong>: ≥ 10,000</li>
+<li><strong>推荐最低值</strong>: ≥ 2,000</li>
+<li><strong>注意</strong>: 该数值受细胞类型和测序深度影响较大。</li>
+</ul>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td align="left">
+<strong>Mean raw read pairs per cell</strong><br>
+<em>每细胞平均原始读段对数</em>
+</td>
+<td>
+<ul>
+<li><strong>定义</strong>: 平均分配到每个细胞上的原始测序读段对（Read Pairs）数量。</li>
+<li><strong>计算</strong>: `原始测序读段对总数 / 估计细胞数量`</li>
+<li><strong>质量判读</strong>: 建议此值 ≥ 25,000 以确保充分的染色质覆盖。</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td align="left">
+<strong>Fraction overlapping peaks</strong><br>
+<em>片段重叠峰区域比例</em>
+</td>
+<td>
+<ul>
+<li><strong>定义</strong>: 单个细胞内，其片段（fragments）落入开放染色质区域（Peaks）的比例。</li>
+<li><strong>生物学意义</strong>: 这是一个关键的信噪比指标。高比例意味着转座酶切割更集中于开放染色质，数据信噪比高。</li>
+<li><strong>质量判读</strong>:
+<ul><li><strong>质量警告</strong>: &lt; 15% 可能提示样本质量问题。</ul>
+</li>
+</ul>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td align="left">
+<strong>Fraction overlapping TSS</strong><br>
+<em>TSS区域片段重叠比例</em>
+</td>
+<td>
+<ul>
+<li><strong>定义</strong>: 单个细胞内，其片段落在转录起始位点（TSS）±2kb 区域内的比例。</li>
+<li><strong>生物学意义</strong>: 评估染色质在启动子区域的活跃性与测序特异性的关键指标。</li>
+<li><strong>质量判读</strong>:
+<ul><li><strong>质量警告</strong>: &lt; 10% 可能提示样本质量问题。</ul>
+</li>
+</ul>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td align="left">
+<strong>Fraction of fragments in cells</strong><br>
+<em>细胞内片段比例</em>
+</td>
+<td>
+<ul>
+<li><strong>定义</strong>: 在所有有效片段中，成功归属于高质量细胞ID的片段所占的比例。</li>
+<li><strong>生物学意义</strong>: 反映细胞捕获的效率和信噪比。</li>
+<li><strong>质量判读</strong>:
+<ul><li><strong>质量问题</strong>: 比例偏低可能指示样本质量差或文库构建异常。</ul>
+</li>
+</ul>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td align="left">
+<strong>Number of peaks</strong><br>
+<em>识别峰数量</em>
+</td>
+<td>
+<ul>
+<li><strong>定义</strong>: 通过聚合所有细胞的信号后，在全基因组范围内识别出的开放染色质区域（峰）的总数量。</li>
+<li><strong>生物学意义</strong>: 反映了样本的整体复杂度和可检测到的调控元件数量。</li>
+<li><strong>影响因素</strong>: 受细胞数量、细胞类型异质性及测序深度影响。</li>
+<li><strong>典型范围</strong>: 50,000 – 150,000 个。</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+<h4 id="sequencing-metrics">测序指标 (Sequencing Metrics) <a id="测序指标"></a><a class="headerlink" href="#sequencing-metrics" title="Permanent link">&para;</a></h4>
+<div align="center">
+<p><strong>核心功能</strong>: 测序数据的基础质量评估，包括条形码识别率、比对质量和测序准确性</p>
+</div>
+<p><strong>质量控制标准：</strong></p>
+<blockquote>
+<p><strong>注意</strong>: 以下标准仅供参考，实际质量评估应考虑组织类型、细胞状态和实验目标等多种因素。不同样本间存在显著差异，建议结合具体实验背景进行判断。</p>
+</blockquote>
+<table style="width:100%; border-collapse: collapse; margin: 15px 0;">
+<thead>
+<tr>
+<th align="left" width="25%"><strong>指标类别</strong></th>
+<th align="left" width="25%"><strong>推荐值</strong></th>
+<th align="left" width="25%"><strong>可接受</strong></th>
+<th align="left" width="25%"><strong>需优化</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><strong>Valid barcodes</strong></td>
+<td align="left">≥ 80%</td>
+<td align="left">70–80%</td>
+<td align="left">&lt; 70%</td>
+</tr>
+<tr>
+<td align="left"><strong>Q30 bases in barcode</strong></td>
+<td align="left">&gt; 85%</td>
+<td align="left">75–85%</td>
+<td align="left">&lt; 75%</td>
+</tr>
+<tr>
+<td align="left"><strong>Q30 bases in read</strong></td>
+<td align="left">&gt; 85%</td>
+<td align="left">75–85%</td>
+<td align="left">&lt; 75%</td>
+</tr>
+<tr>
+<td align="left"><strong>Confidently mapped read pairs</strong></td>
+<td align="left">&gt; 80%</td>
+<td align="left">50–80%</td>
+<td align="left">&lt; 50%</td>
+</tr>
+</tbody>
+</table>
+<p><strong>详细指标解释：</strong></p>
+<table style="width:100%; border-collapse: collapse; margin: 15px 0;">
+<thead>
+<tr>
+<th align="left" width="30%"><strong>指标名称</strong></th>
+<th align="left" width="70%"><strong>详细解释与技术要求</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">
+<strong>Total number of reads pairs</strong><br>
+<em>测序读段对总数</em>
+</td>
+<td>
+<ul>
+<li><strong>定义</strong>: 分配给该样本的原始测序读段对（Read Pairs）总数。</li>
+<li><strong>意义</strong>: 代表本次测序的总体数据量。</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td align="left">
+<strong>Valid barcodes</strong><br>
+<em>有效条形码比例</em>
+</td>
+<td>
+<ul>
+<li><strong>定义</strong>: 在所有读段中，其细胞条形码（Cell Barcode）能够匹配到预设白名单（经过容错校正）的读段所占的比例。</li>
+<li><strong>生物学意义</strong>: 反映了细胞标记的有效性。</li>
+<li><strong>质量判读</strong>: 比例过低通常提示文库构建问题（如条形码降解、污染）或测序错误率高。</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td align="left">
+<strong>Confidently mapped read pairs</strong><br>
+<em>基因组比对率</em>
+</td>
+<td>
+<ul>
+<li><strong>定义</strong>: 在所有读段中，成功比对到参考基因组上任意位置的读段所占的比例。</li>
+<li><strong>质量判读</strong>:
+<ul><li><strong>需要关注</strong>: &lt; 50% 可能提示样本污染或物种不匹配。</ul>
+</li>
+</ul>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td align="left">
+<strong>Mitochondria reads ratio</strong><br>
+<em>线粒体 reads 比例</em>
+</td>
+<td>
+<ul>
+<li><strong>定义</strong>: 所有比对上的读段中，比对到线粒体基因组上的读段所占的比例。</li>
+<li><strong>生物学意义</strong>: 这是细胞健康状况的一个重要指标。</li>
+<li><strong>质量判读</strong>: 比例过高（如 &gt; 10%）通常提示细胞死亡或裂解过度，导致胞质中的线粒体DNA被大量捕获。</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td align="left">
+<strong>Nucleosome-free regions</strong><br>
+<em>无核小体区域比例</em>
+</td>
+<td>
+<ul>
+<li><strong>定义</strong>: 来自开放染色质区域（即无核小体区域）的片段比例。</li>
+<li><strong>生物学意义</strong>: 反映了有效的ATAC-seq信号强度。</li>
+<li><strong>质量判读</strong>: 高比例（如 &gt; 40%）表示良好的染色质可及性信号和高效的转座酶效率。</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td align="left">
+<strong>Mono-nucleosome regions</strong><br>
+<em>单核小体区域比例</em>
+</td>
+<td>
+<ul>
+<li><strong>定义</strong>: 包含单个核小体的片段区域所占的比例。</li>
+<li><strong>生物学意义</strong>: 反映了染色质结构的完整性。该指标与"无核小体区域比例"共同评估染色质状态。</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td align="left">
+<strong>Q30 bases in barcode</strong><br>
+<em>条形码Q30碱基比例</em>
+</td>
+<td>
+<ul>
+<li><strong>定义</strong>: 在细胞条形码（Cell Barcode）序列中，测序质量值 Q30 及以上的碱基所占比例。</li>
+<li><strong>意义</strong>: Q30 代表碱基测序错误率低于 0.1%，该指标直接影响细胞身份识别的准确性。</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td align="left">
+<strong>Q30 bases in read</strong><br>
+<em>读段Q30碱基比例</em>
+</td>
+<td>
+<ul>
+<li><strong>定义</strong>: 在测序读段（Read）序列中，测序质量值 Q30 及以上的碱基所占比例。</li>
+<li><strong>意义</strong>: 反映了整体测序数据的质量水平，是后续比对和片段识别准确性的基础。</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
+<h4 id="1">可视化图表1 <a id="可视化图表1"></a><a class="headerlink" href="#1" title="Permanent link">&para;</a></h4>
+<div align="center">
+<p><strong>核心功能</strong>: 细胞质量控制、片段分析和染色质可及性评估的多维度可视化展示</p>
+</div>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+<h4 id="barcode-rank-plot">细胞排序图 (Barcode Rank Plot)<a class="headerlink" href="#barcode-rank-plot" title="Permanent link">&para;</a></h4>
+<p><strong>图表功能</strong>:
+该图通过将所有细胞条形码按其包含的片段数进行排序，来区分高质量的真实细胞与背景噪音。</p>
+<p><strong>如何解读</strong>:
+*   <strong>坐标轴</strong>:
+    *   <strong>X轴 (Barcode Rank)</strong>: 所有细胞条形码按片段数降序排列。左侧为高片段数细胞，右侧为低片段数细胞。
+    *   <strong>Y轴 (Fragment Counts)</strong>: 每个细胞对应的峰区域片段总数（对数刻度）。
+*   <strong>关键特征 (Knee Point)</strong>:
+    *   图中曲线通常会有一个明显的"拐点"（Knee Point）。
+    *   拐点左侧的 <strong>蓝色区域</strong> 代表被算法识别为高质量的真实细胞。
+    *   拐点右侧的 <strong>灰色区域</strong> 则代表背景噪音。
+*   <strong>交互功能</strong>:
+    *   鼠标悬停可查看细胞的详细排序和片段数。
+    *   蓝色区域的颜色深浅代表该区域内真实细胞的密度。</p>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+<h4 id="droplet-beads-distribution">液滴磁珠分布图 (Droplet Beads Distribution)<a class="headerlink" href="#droplet-beads-distribution" title="Permanent link">&para;</a></h4>
+<p><strong>图表功能</strong>:
+展示在真实细胞液滴中，捕获到的细胞条形码（Beads）的数量分布情况。</p>
+<p><strong>如何解读</strong>:
+*   <strong>理论分布</strong>: 液滴中磁珠的数量分布理论上符合<strong>泊松分布</strong>，这反映了微反应体系中随机捕获过程的统计特性。
+*   <strong>实际影响</strong>: 最终的分布会受到测序饱和度、液滴大小均一性、细胞浓度等实验因素的影响。</p>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+<h4 id="cell-data-distribution">细胞数据分布图 (Cell Data Distribution)<a class="headerlink" href="#cell-data-distribution" title="Permanent link">&para;</a></h4>
+<p><strong>图表功能</strong>:
+通过三个独立的小提琴图（Violin Plots），分别展示高质量细胞在 <strong>片段数 (Fragments)</strong>、<strong>TSS富集比例 (TSS Proportion)</strong> 和 <strong>Peak区域片段比例 (Peak Proportion)</strong> 这三个关键质量指标上的分布情况。</p>
+<p><strong>如何解读</strong>:
+*   <strong>小提琴图简介</strong>:
+    *   图的<strong>宽度</strong>表示在该数值位置的细胞密度。越宽的地方，代表有越多的细胞聚集在该数值附近。
+    *   内部的箱线图（Box Plot）展示了中位数、四分位数等统计信息。
+*   <strong>各图解读</strong>:
+    *   <strong>片段数 (Fragments)</strong>: 展示了细胞包含的片段总数的分布。一个好的文库，其分布的中心（最宽处）应该在一个较高的数值。
+    *   <strong>TSS富集比例 (TSS Proportion)</strong>: 展示了TSS区域片段占比的分布。分布的中心越高，说明细胞整体的转录活性信号越好。
+    *   <strong>Peak区域片段比例 (Peak Proportion)</strong>: 展示了峰区域片段占比的分布。分布的中心越高，说明信噪比越高。</p>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+<h4 id="fragment-length-distribution">片段长度分布图 (Fragment Length Distribution)<a class="headerlink" href="#fragment-length-distribution" title="Permanent link">&para;</a></h4>
+<p><strong>图表功能</strong>:
+展示去重后ATAC-seq片段的插入长度分布，是评估样本质量和染色质结构完整性的关键图表。</p>
+<p><strong>如何解读</strong>:
+*   <strong>周期性峰 (Periodic Peaks)</strong>:
+    *   <strong>~100bp 以下</strong>: 第一个高峰，代表<strong>无核小体区域 (Nucleosome-free regions, NFR)</strong> 的片段，即开放的染色质。
+    *   <strong>~200bp 左右</strong>: 第二个高峰，代表包含<strong>单核小体</strong>的片段。
+    *   <strong>~400bp, ~600bp</strong>: 后续的山峰，代表包含<strong>双核小体</strong>、<strong>三核小体</strong>的片段。
+*   <strong>质量评估</strong>:
+    *   <strong>优质样本</strong>: 具有清晰的、以约200bp为周期的阶梯状山峰，且第一个峰（NFR）显著。这表明细胞核完整性好，染色质结构清晰。
+    *   <strong>质量不佳</strong>: 曲线平坦，没有明显的周期性峰，通常意味着样本过度裂解，染色质结构被破坏。</p>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+<h4 id="additional-key-metrics">其他核心指标 (Additional Key Metrics) <a id="其他核心指标"></a><a class="headerlink" href="#additional-key-metrics" title="Permanent link">&para;</a></h4>
+<div align="center">
+<p><img src="../images/html_scatac2.png" alt="scATAC网页报告" width="500"></p>
+</div>
+<p><strong>Percent duplicates</strong> (重复序列百分比)
+*   <strong>定义</strong>: 被认定为PCR重复的片段所占的比例。
+*   <strong>生物学意义</strong>: 这是衡量文库复杂度和测序饱和度的关键指标。
+*   <strong>质量判读</strong>: 
+    *   高重复率（如 &gt; 20-30%）通常表示测序深度已接近饱和。
+    *   极低的重复率（如 &lt; 10%）可能表示测序深度不足，建议增加测序以发现更多独特的片段。</p>
+<p><strong>Jaccard threshold</strong> (Jaccard相似度阈值)
+*   <strong>定义</strong>: 用于判断任意两个磁珠（Beads）是否来自同一个细胞液滴的相似度阈值。
+*   <strong>技术背景</strong>: C4 ATAC技术中，一个液滴可能包含多个磁珠，需要通过计算它们捕获片段的相似度（Jaccard Index）来进行合并。
+*   <strong>算法</strong>: 该阈值通过 Otsu 算法自动确定，以达到最佳区分效果。为保证分析质量，当计算值低于0.02时，系统会自动设为0.02。</p>
+</div>
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
+<h4 id="2">可视化图表2 <a id="可视化图表2"></a><a class="headerlink" href="#2" title="Permanent link">&para;</a></h4>
+<div align="center">
+<p><strong>核心功能</strong>: 细胞聚类分析、TSS富集模式、饱和度评估和磁珠相似性的高级可视化展示</p>
+</div>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+<h4 id="cluster-analysis">细胞聚类分析图 (Cluster Analysis)<a class="headerlink" href="#cluster-analysis" title="Permanent link">&para;</a></h4>
+<p><strong>图表功能</strong>:
+通过 UMAP 降维和 Louvain 聚类算法，将具有相似染色质可及性模式的细胞在二维空间中聚集在一起，从而识别潜在的细胞亚群。</p>
+<p><strong>如何解读</strong>:
+*   <strong>左图 (细胞类型聚类)</strong>:
+    *   每个点代表一个细胞。
+    *   不同颜色代表不同的细胞聚类（Cluster），可能对应不同的细胞类型或状态。
+    *   空间位置相近的细胞，其染色质开放模式也更相似。
+*   <strong>右图 (片段数分布)</strong>:
+    *   在与左图相同的 UMAP 空间上，用颜色梯度展示每个细胞的总片段数。
+    *   颜色越深，代表该细胞的片段数越多，数据质量越高。可用于辅助判断聚类结果的可靠性。</p>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+<h4 id="tss-tss-enrichment-profile">转录起始位点(TSS)富集图 (TSS Enrichment Profile)<a class="headerlink" href="#tss-tss-enrichment-profile" title="Permanent link">&para;</a></h4>
+<p><strong>图表功能</strong>:
+展示在所有基因的转录起始位点（TSS）周围，ATAC-seq片段切割位点的富集情况，是衡量ATAC-seq信噪比和数据质量的核心指标。</p>
+<p><strong>如何解读</strong>:
+*   <strong>坐标轴</strong>:
+    *   <strong>X轴</strong>: 相对TSS的位置（0点为TSS）。
+    *   <strong>Y轴</strong>: 归一化后的信号强度（切割频率）。
+*   <strong>关键特征</strong>:
+    *   一个高质量的ATAC-seq实验，会在TSS中心点（0点）显示出非常明显的信号富集尖峰。
+    *   TSS两侧的信号强度会迅速下降。
+*   <strong>质量评估</strong>:
+    *   <strong>TSS富集分数 (TSS Enrichment Score)</strong> 是该图的量化指标。分数越高（如 &gt; 4-6），代表信噪比越好，数据质量越高。
+    *   若曲线平坦，无明显尖峰，则提示样本质量差或实验失败。</p>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+<h4 id="single-cell-targeting-plot">单细胞靶向图 (Single Cell Targeting Plot)<a class="headerlink" href="#single-cell-targeting-plot" title="Permanent link">&para;</a></h4>
+<p><strong>图表功能</strong>:
+通过散点图展示每个细胞的两个关键质量指标，用于评估细胞识别（Cell Calling）算法的效果。</p>
+<p><strong>如何解读</strong>:
+*   <strong>坐标轴</strong>:
+    *   <strong>X轴 (Fragment Counts)</strong>: 每个细胞的总片段数（对数刻度）。
+    *   <strong>Y轴 (TSS Enrichment)</strong>: 每个细胞的TSS富集分数。
+*   <strong>质量评估</strong>:
+    *   <strong>右上角</strong>: 高片段数 + 高TSS富集分数。这些点被认为是高质量的真实细胞。
+    *   <strong>左下角</strong>: 低片段数 + 低TSS富集分数。这些点被认为是背景噪音或空液滴，在分析中会被过滤掉。
+    *   理想情况下，真实细胞和背景噪音之间应该有清晰的分界。</p>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+<h4 id="saturation-curve">饱和度曲线图 (Saturation Curve)<a class="headerlink" href="#saturation-curve" title="Permanent link">&para;</a></h4>
+<p><strong>图表功能</strong>:
+评估测序深度的充分性和数据复杂度，即继续增加测序量能否发现更多新的（Unique）片段。</p>
+<p><strong>如何解读</strong>:
+*   <strong>坐标轴</strong>:
+    *   <strong>X轴</strong>: 平均每个细胞的测序读段对数（测序深度）。
+    *   <strong>Y轴</strong>: 平均每个细胞的中位唯一片段数。
+*   <strong>曲线趋势</strong>:
+    *   <strong>线性上升阶段</strong>: 曲线陡峭，表明增加测序深度能有效发现更多新片段，投入产出比高。
+    *   <strong>平台期/饱和阶段</strong>: 曲线逐渐平缓，表明文库的复杂度已基本被完全测序，继续增加测序深度，新发现的片段数量收益递减。
+*   <strong>质量评估</strong>: 饱和度（重复率）是该曲线的量化指标。建议饱和度在20%-50%之间，以在成本和数据完整性之间取得平衡。</p>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+<h4 id="bead-similarity-ranking">磁珠相似性排序图 (Bead Similarity Ranking)<a class="headerlink" href="#bead-similarity-ranking" title="Permanent link">&para;</a></h4>
+<p><strong>图表功能</strong>:
+该图用于C4 ATAC技术中，通过计算Jaccard相似度来合并来自同一细胞液滴的多个磁珠（Beads）。</p>
+<p><strong>如何解读</strong>:
+*   <strong>坐标轴</strong>:
+    *   <strong>X轴</strong>: 所有磁珠对按Jaccard相似度降序排列。
+    *   <strong>Y轴</strong>: Jaccard相似度指数（对数刻度）。
+*   <strong>关键特征</strong>:
+    *   <strong>蓝色区域</strong>: Jaccard相似度高于Otsu算法自动计算的阈值。这些磁珠对被认为是来自同一个细胞，其片段将在分析中被合并。
+    *   <strong>灰色区域</strong>: Jaccard相似度低于阈值，被认为是来自不同细胞的磁珠。</p>
+</div>
+<div style="max-width: 1200px; margin: 0 auto;">
+<hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;">
+</div>
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
+<h2 id="_10">相关文档<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">文档</th>
+<th style="text-align: left;">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><a href="../pipeline/scATAC.html">scATAC 流程</a></td>
+<td style="text-align: left;">scATAC 分析流程详细说明</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="../parameter/scATAC.html">scATAC 参数</a></td>
+<td style="text-align: left;">命令参数参考文档</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="outs.html">输出文件</a></td>
+<td style="text-align: left;">返回总输出文档索引</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div align="center" style="background: #f5f5f7; border-radius: 12px; padding: 30px; margin: 40px auto; max-width: 1200px;">
+<blockquote>
+<p><strong>反馈与支持</strong></p>
+<p>本文档持续更新中，如发现内容错误或需要补充的信息，欢迎反馈。</p>
+<p><strong>文档版本：</strong> 3.1 | <strong>最后更新：</strong> 2026年4月</p>
+</blockquote>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 MGI Tech Bioinformatics. All rights reserved.<br>
+Documentation Version 3.1 · Last updated April 2026
+
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["search.suggest", "search.highlight"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

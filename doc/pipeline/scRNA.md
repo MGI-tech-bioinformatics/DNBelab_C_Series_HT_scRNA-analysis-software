@@ -1,22 +1,34 @@
-<div align="right">
+<div align="right" style="margin-bottom: 20px; max-width: 1200px; margin-left: auto; margin-right: auto;">
 
-[🏠 主页](../../README.md) • [English](scRNA_en.md)
-
-</div>
-
-# 🧬 DNBelab C Series HT scRNA 分析流程
-
-<div align="center">
-
-**单细胞 RNA 测序数据分析完整指南**
-
-[📋 概述](#概述) • [📁 文件准备](#文件准备) • [📊 参考数据库](#参考数据库) • [🚀 主流程分析](#主流程分析) • [📊 结果解析](#结果解析)
+[主页](../../README.md) • [English](scRNA_en.md)
 
 </div>
 
----
+<div align="center" style="padding: 40px 20px; background: linear-gradient(135deg, #f5f5f7 0%, #ffffff 100%); border-radius: 12px; margin-bottom: 30px; max-width: 1200px; margin-left: auto; margin-right: auto;">
 
-## 📋 概述 <a id="概述"></a>
+<h1 style="font-size: 48px; font-weight: 600; color: #1d1d1f; margin: 0 0 16px 0; letter-spacing: -0.02em;">DNBelab C Series HT scRNA 分析流程</h1>
+
+<p style="font-size: 21px; color: #86868b; margin: 0 0 30px 0; font-weight: 400;">单细胞 RNA 测序数据分析完整指南</p>
+
+<div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+<a href="#概述" style="background: #0071e3; color: white; padding: 8px 16px; border-radius: 980px; text-decoration: none; font-size: 14px;">概述</a>
+<a href="#文件准备" style="background: transparent; color: #0071e3; padding: 8px 16px; border-radius: 980px; text-decoration: none; font-size: 14px; border: 1px solid #0071e3;">文件准备</a>
+<a href="#参考数据库" style="background: transparent; color: #0071e3; padding: 8px 16px; border-radius: 980px; text-decoration: none; font-size: 14px; border: 1px solid #0071e3;">参考数据库</a>
+<a href="#主流程分析" style="background: transparent; color: #0071e3; padding: 8px 16px; border-radius: 980px; text-decoration: none; font-size: 14px; border: 1px solid #0071e3;">主流程分析</a>
+<a href="#结果解析" style="background: transparent; color: #0071e3; padding: 8px 16px; border-radius: 980px; text-decoration: none; font-size: 14px; border: 1px solid #0071e3;">结果解析</a>
+</div>
+
+</div>
+
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
+
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
+
+## 概述 <a id="概述"></a>
+
+</div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
 
 本文档旨在提供一份完整的指南，详细介绍如何使用 dnbc4tools 对单细胞 RNA 测序数据进行分析。
 
@@ -27,14 +39,21 @@
 </div>
 
 <div style="background-color: #e7f3fe; border-left: 6px solid #2196F3; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
-💡 <strong>使用说明</strong>：<code>$dnbc4tools</code> 代表可执行程序路径，需替换为您的实际安装路径。本文示例使用换行符 `\` 分隔命令以提高可读性，实际分析时可写为单行。
+ <strong>使用说明</strong>：<code>$dnbc4tools</code> 代表可执行程序路径，需替换为您的实际安装路径。本文示例使用换行符 `\` 分隔命令以提高可读性，实际分析时可写为单行。
 </div>
 
----
 
-<br>
+</div>
 
-## 📁 文件准备 <a id="文件准备"></a>
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
+
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
+
+## 文件准备 <a id="文件准备"></a>
+
+</div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
 
 分析需要两种类型的 FASTQ 文件：
 
@@ -58,14 +77,21 @@
 </table>
 
 <div style="background-color: #fffbe6; border-left: 6px solid #ffc107; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
-⚠️ <strong>注意</strong>：请确保 FASTQ 文件质量良好，并记录文件路径以备后续分析使用。
+ <strong>注意</strong>：请确保 FASTQ 文件质量良好，并记录文件路径以备后续分析使用。
 </div>
 
----
 
-<br>
+</div>
 
-## 📊 参考数据库 <a id="参考数据库"></a>
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
+
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
+
+## 参考数据库 <a id="参考数据库"></a>
+
+</div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
 
 ### 文件要求
 
@@ -92,7 +118,7 @@
 </table>
 
 <div style="background-color: #e7f3fe; border-left: 6px solid #2196F3; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
-💡 <strong>推荐数据来源</strong>：优先使用 <a href="https://www.ensembl.org/index.html">Ensembl 数据库</a> 提供的文件。Ensembl 的 GTF 文件包含可选标签，便于通过 <code>dnbc4tools tools mkgtf</code> 进行过滤。
+ <strong>推荐数据来源</strong>：优先使用 <a href="https://www.ensembl.org/index.html">Ensembl 数据库</a> 提供的文件。Ensembl 的 GTF 文件包含可选标签，便于通过 <code>dnbc4tools tools mkgtf</code> 进行过滤。
 </div>
 
 **GTF 文件要求**：
@@ -101,7 +127,6 @@
 - 不支持 GFF 文件格式。
 - 基因组文件与注释文件需版本对应。
 
-<br>
 
 ### GTF 文件处理（可选）
 
@@ -132,7 +157,6 @@
   </tbody>
 </table>
 
-<br>
 
 #### 基因类型统计
 
@@ -144,7 +168,7 @@ $dnbc4tools tools mkgtf \
 ```
 
 <div style="background-color: #fffbe6; border-left: 6px solid #ffc107; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
-⚠️ <strong>注意</strong>：软件会自动尝试识别 <code>type</code> 参数。如需手动确定，可查看 GTF 文件中的 tag。
+ <strong>注意</strong>：软件会自动尝试识别 <code>type</code> 参数。如需手动确定，可查看 GTF 文件中的 tag。
 </div>
 
 <div align="center">
@@ -173,7 +197,6 @@ IG_V_gene       145
 ......
 ```
 
-<br>
 
 #### GTF 文件校正
 
@@ -189,7 +212,6 @@ $dnbc4tools tools mkgtf \
 
 软件会根据 `gene_id` 和 `gene_name` 以及 `transcript_id` 和 `transcript_name` 互相填补，并提示可能存在多个基因信息的位置。
 
-<br>
 
 #### 基因类型过滤
 
@@ -234,7 +256,6 @@ $dnbc4tools tools mkgtf \
            TR_J_gene,TR_C_gene
 ```
 
-<br>
 
 ### 构建参考数据库
 
@@ -302,7 +323,7 @@ $dnbc4tools rna mkref \
 ```
 
 <div style="background-color: #fffbe6; border-left: 6px solid #ffc107; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
-⚠️ <strong>注意</strong>：构建参考数据库可能需要较长时间，具体取决于基因组大小和计算性能。软件主分析流程兼容旧版本数据库。
+ <strong>注意</strong>：构建参考数据库可能需要较长时间，具体取决于基因组大小和计算性能。软件主分析流程兼容旧版本数据库。
 </div>
 
 运行时将打印如下信息：
@@ -329,11 +350,18 @@ $dnbc4tools rna mkref \
  2026-04-03 17:13:37 RNA reference building finished. 
 ```
 
----
 
-<br>
+</div>
 
-## 🚀 主流程分析 <a id="主流程分析"></a>
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
+
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
+
+## 主流程分析 <a id="主流程分析"></a>
+
+</div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
 
 ### 多样本批处理（可选）
 
@@ -372,7 +400,7 @@ $dnbc4tools rna multi \
 </table>
 
 <div style="background-color: #fffbe6; border-left: 6px solid #ffc107; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
-⚠️ <strong>注意</strong>：多个 fastq 文件以逗号分隔，R1 和 R2 文件以分号分隔。
+ <strong>注意</strong>：多个 fastq 文件以逗号分隔，R1 和 R2 文件以分号分隔。
 </div>
 
 ```tsv
@@ -398,7 +426,6 @@ $cat sample1.sh
 
 随后，您可以执行这些脚本以进行主流程分析。
 
-<br>
 
 ### 单样本分析
 
@@ -515,11 +542,18 @@ $dnbc4tools rna run \
 
 当出现 `Analysis Finished` 消息时，表示分析已成功完成。
 
----
 
-<br>
+</div>
 
-## 📊 结果解析 <a id="结果解析"></a>
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
+
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
+
+## 结果解析 <a id="结果解析"></a>
+
+</div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
 
 分析完成后，将生成 `outs`（结果输出）和 `logs`（日志）目录。`outs` 目录结构如下：
 
@@ -545,42 +579,54 @@ $dnbc4tools rna run \
 └── singlecell.csv
 ```
 
----
 
-<br>
+</div>
 
-## 📚 相关文档
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
 
-<br>
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
+
+## 相关文档
+
+</div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
 
 | 资源 | 描述 |
 | :--- | :--- |
-| [📊 输出文件使用方法](../io.md) | 了解输出文件结构和格式 |
-| [📋 分析参数设置](../parameter/scRNA.md) | 完整的参数参考和说明 |
-| [📝 输出文件解释](../outs/scRNA.md) | 分析结果的详细解读 |
+| [输出文件使用方法](../io.md) | 了解输出文件结构和格式 |
+| [分析参数设置](../parameter/scRNA.md) | 完整的参数参考和说明 |
+| [输出文件解释](../outs/scRNA.md) | 分析结果的详细解读 |
 
-<br>
 
----
+</div>
 
-<br>
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
 
-## ❓ 常见问题
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
 
-> <em>内容即将添加...</em>
+## 常见问题
 
-<br>
+</div>
 
----
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
 
-<br>
+本节正在更新中。
+
+</div>
+
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
+
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
 
 <div align="center">
 
-> 💡 <strong>反馈与支持</strong>
+> <strong>反馈与支持</strong>
 >
-> 本文档持续更新中，如发现错误或有补充信息，请反馈。
+> 本文档持续更新中，如发现内容错误或需要补充的信息，欢迎反馈。
 >
-> 📝 <strong>文档版本：</strong>3.1 | <strong>最后更新：</strong>2026年4月
+> <strong>文档版本：</strong> 3.1 | <strong>最后更新：</strong> 2026年4月
+
+</div>
 
 </div>

@@ -1,6 +1,6 @@
 <div align="right">
 
-[🏠 Home](../README.md)
+[Home](../README.md)
 
 </div>
 
@@ -10,13 +10,13 @@
 
 **Complete installation guide for the DNBelab C Series™ HT Single-Cell Analysis Software package**
 
-[◆ Requirements](#system-requirements) • [◆ Download](#software-download) • [◆ Installation](#installation-process) • [◆ Verification](#verification--testing)
+[Requirements](#system-requirements) • [Download](#software-download) • [Installation](#installation-process) • [Verification](#verification--testing)
 
 </div>
 
 ---
 
-## ◆ System Requirements <a id="system-requirements"></a>
+## System Requirements <a id="system-requirements"></a>
 
 | Category | Requirement |
 | :--- | :--- |
@@ -27,12 +27,12 @@
 | **OS** | Linux 64-bit (CentOS 7.x, Ubuntu 20.04+) |
 
 <div style="background-color: #e7f3fe; border-left: 6px solid #2196F3; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
-💡 Compatible with higher software and hardware configurations.
+Compatible with higher software and hardware configurations.
 </div>
 
 ---
 
-## ◆ Software Download <a id="software-download"></a>
+## Software Download <a id="software-download"></a>
 
 ### dnbc4tools 3.1 (Released: Apr 3, 2026)
 
@@ -59,7 +59,7 @@ curl -o dnbc4tools-3.1.tar.gz "ftp://ftp2.cngb.org/pub/CNSA/data7/CNP0008672/Sin
 
 ---
 
-## ◆ Installation Process <a id="installation-process"></a>
+## Installation Process <a id="installation-process"></a>
 
 <div style="background-color: #e7f3fe; border-left: 6px solid #2196F3; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
 <em>dnbc4tools</em> is distributed as a self-contained <em>tar.gz</em> package that includes all precompiled dependencies. This allows it to run on most Linux environments without requiring additional setup.
@@ -91,7 +91,7 @@ After extraction, you should see the following directory structure:
 
 ---
 
-## ◆ Verification & Testing <a id="verification--testing"></a>
+## Verification & Testing <a id="verification--testing"></a>
 
 ### Basic Functionality Test
 
@@ -125,12 +125,12 @@ Options:
 
 ---
 
-## 📚 Related Documentation
+## Related Documentation
 
 | Resource | Description |
 | :--- | :--- |
-| [🚀 Quick Start](./quickstart.md) | Step-by-step tutorial for your first analysis |
-| [🔬 Pipeline Guides](./pipeline/pipeline.md) | Workflow documentation for all analysis types |
-| [⚙️ Parameters](./parameter/parameter.md) | Command reference and configuration options |
-| [📁 Outputs](./outs/outs.md) | Understanding result files and reports |
-| [🧪 Sample Data](./dataset.md) | Download sample datasets for testing |
+| [Quick Start](./quickstart.md) | Step-by-step tutorial for your first analysis |
+| [Pipeline Guides](./pipeline/pipeline.md) | Workflow documentation for all analysis types |
+| [Parameters](./parameter/parameter.md) | Command reference and configuration options |
+| [Outputs](./outs/outs.md) | Understanding result files and reports |
+| [Sample Data](./dataset.md) | Download sample datasets for testing |

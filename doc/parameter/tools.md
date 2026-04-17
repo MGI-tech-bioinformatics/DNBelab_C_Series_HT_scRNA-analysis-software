@@ -1,26 +1,39 @@
-<div align="right">
+<div align="right" style="margin-bottom: 20px; max-width: 1200px; margin-left: auto; margin-right: auto;">
 
-[🏠 主页](../../README.md) • [English](tools_en.md)
-
-</div>
-
-# 🧬 DNBelab C Series HT 工具类分析参数
-
-<div align="center">
-
-[🛠️ GTF 文件操作 (mkgtf)](#gtf-文件操作-mkgtf) • [📄 BAM 转 FASTQ (bam2fastq)](#bam-转-fastq-bam2fastq) • [🧬 染色体分割 (chromsplit)](#染色体分割-chromsplit) • [📝 FASTQ 切割 (fqsubC4)](#fastq-切割-fqsubc4)
+<a href="../../README.md" style="color: #0071e3; text-decoration: none; font-size: 14px;">主页</a> <span style="color: rgba(0,0,0,0.3);">•</span> <a href="tools_en.md" style="color: #0071e3; text-decoration: none; font-size: 14px;">English</a>
 
 </div>
 
----
+<div align="center" style="padding: 40px 20px; background: linear-gradient(135deg, #f5f5f7 0%, #ffffff 100%); border-radius: 12px; margin-bottom: 30px; max-width: 1200px; margin-left: auto; margin-right: auto;">
 
-## 🛠️ GTF 文件操作 (mkgtf) <a id="gtf-文件操作-mkgtf"></a>
+<h1 style="font-size: 48px; font-weight: 600; color: #1d1d1f; margin: 0 0 16px 0; letter-spacing: -0.02em;">工具类分析参数</h1>
 
-> 🧬 <strong>核心功能</strong>
+<p style="font-size: 21px; color: rgba(0,0,0,0.6); margin: 0 0 30px 0; font-weight: 400;">DNBelab C Series HT 工具类参数配置完整指南</p>
+
+<div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+<a href="#gtf-文件操作-mkgtf" style="background: #0071e3; color: white; padding: 8px 16px; border-radius: 980px; text-decoration: none; font-size: 14px;">GTF 文件操作 (mkgtf)</a>
+<a href="#bam-转-fastq-bam2fastq" style="background: transparent; color: #0071e3; padding: 8px 16px; border-radius: 980px; text-decoration: none; font-size: 14px; border: 1px solid #0071e3;">BAM 转 FASTQ</a>
+<a href="#染色体分割-chromsplit" style="background: transparent; color: #0071e3; padding: 8px 16px; border-radius: 980px; text-decoration: none; font-size: 14px; border: 1px solid #0071e3;">染色体分割</a>
+<a href="#fastq-切割-fqsubc4" style="background: transparent; color: #0071e3; padding: 8px 16px; border-radius: 980px; text-decoration: none; font-size: 14px; border: 1px solid #0071e3;">FASTQ 切割</a>
+</div>
+
+</div>
+
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
+
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
+
+## GTF 文件操作 (mkgtf) <a id="gtf-文件操作-mkgtf"></a>
+
+</div>
+
+> <strong>核心功能</strong>
 > 
 > GTF 文件全面操作工具，支持基因类型统计、智能过滤和文件格式校验。为单细胞分析提供高质量、标准化的基因注释数据。
 
-### 📊 用法 <a id="usage-mkgtf"></a>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #d2d2d7; overflow-x: auto;">
+
+### 用法 <a id="usage-mkgtf"></a>
 
 ```shell
 $ dnbc4tools tools mkgtf
@@ -50,11 +63,21 @@ Usage Examples:
   Validation:   dnbc4tools tools mkgtf --action check --ingtf genes.gtf --output corrected.gtf
 ```
 
-### 📝 参数说明
+</div>
 
-#### 🔴 必需参数
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+### 参数说明
+
+</div>
+
+<div style="max-width: 1200px; margin: 0 auto;">
+
+#### 必需参数
+
+</div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>--ingtf</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(必需)</span></h4>
 <p>指定输入的GTF基因注释文件路径。</p>
 <ul>
@@ -65,7 +88,7 @@ Usage Examples:
 <pre><code>--ingtf Homo_sapiens.GRCh38.108.gtf</code></pre>
 </div>
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>--output</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(必需)</span></h4>
 <p>指定处理结果的输出文件。</p>
 <ul>
@@ -85,11 +108,15 @@ Usage Examples:
 --output ./corrected.gtf</code></pre>
 </div>
 
----
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
 
-#### 🟢 可选参数
+<div style="max-width: 1200px; margin: 0 auto;">
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+#### 可选参数
+
+</div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>--action</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(可选)</span></h4>
 <p>选择要执行的操作类型。</p>
 <ul>
@@ -102,7 +129,7 @@ Usage Examples:
 <pre><code>--action stats</code></pre>
 </div>
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>--include</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(可选)</span></h4>
 <p>在 <code>mkgtf</code> 模式下，指定要保留的基因类型，多个类型以逗号分隔。</p>
 <ul>
@@ -114,7 +141,7 @@ Usage Examples:
 <pre><code>--include protein_coding,lncRNA</code></pre>
 </div>
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>--type</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(可选)</span></h4>
 <p>指定GTF属性中用于标识基因类型的标签。</p>
 <ul>
@@ -126,7 +153,7 @@ Usage Examples:
 <pre><code>--type gene_type</code></pre>
 </div>
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>--feature</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(可选)</span></h4>
 <p>指定从GTF文件的哪一列（feature）提取信息。</p>
 <ul>
@@ -138,8 +165,10 @@ Usage Examples:
 <pre><code>--feature transcript</code></pre>
 </div>
 
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
+
 > [!NOTE]
-> #### 💡使用示例
+> #### 使用示例
 >
 > - <strong>统计基因类型</strong>:
 >   ```shell
@@ -154,17 +183,21 @@ Usage Examples:
 >   dnbc4tools tools mkgtf --action check --ingtf genes.gtf --output corrected.gtf
 >   ```
 
----
+</div>
+
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
 
 <br>
 
-## 📄 BAM 转 FASTQ (bam2fastq) <a id="bam-转-fastq-bam2fastq"></a>
+##  BAM 转 FASTQ (bam2fastq) <a id="bam-转-fastq-bam2fastq"></a>
 
-> 📄 <strong>专业转换工具</strong>
+>  <strong>专业转换工具</strong>
 > 
 > 高效的 BAM 文件操作工具，专用于将 C4 RNA BAM 文件转换成 FASTQ 文件。支持多线程并行处理和灵活的输出配置。
 
-### 📊 用法 <a id="usage-bam2fastq"></a>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #d2d2d7; overflow-x: auto;">
+
+### 用法 <a id="usage-bam2fastq"></a>
 
 ```shell
 $ bam2fastq -h
@@ -186,11 +219,21 @@ Options:
   -V, --version                  Print version
 ```
 
-### 📝 参数说明
+</div>
 
-#### 🔴 必需参数
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+### 参数说明
+
+</div>
+
+<div style="max-width: 1200px; margin: 0 auto;">
+
+#### 必需参数
+
+</div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>&lt;BAM&gt;</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(必需)</span></h4>
 <p>指定输入的BAM文件路径。</p>
 <ul>
@@ -203,7 +246,7 @@ Options:
 <pre><code>/path/outs/anno_decon_sorted.bam</code></pre>
 </div>
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>&lt;OUTPUT&gt;</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(必需)</span></h4>
 <p>指定输出FASTQ文件的目录。</p>
 <ul>
@@ -215,11 +258,15 @@ Options:
 <pre><code>/path/to/output_dir</code></pre>
 </div>
 
----
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
 
-#### 🟢 可选参数
+<div style="max-width: 1200px; margin: 0 auto;">
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+#### 可选参数
+
+</div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>-t, --threads</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(可选)</span></h4>
 <p>设置用于并行处理的CPU线程数。</p>
 <ul>
@@ -231,7 +278,7 @@ Options:
 <pre><code>-t 8</code></pre>
 </div>
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>-r, --locus</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(可选)</span></h4>
 <p>仅处理来自特定基因组区域的读段。</p>
 <ul>
@@ -243,7 +290,7 @@ Options:
 <pre><code>-r chr1:1000-2000</code></pre>
 </div>
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>-n, --reads-per-fastq</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(可选)</span></h4>
 <p>设置每个输出FASTQ文件的最大读段数量。</p>
 <ul>
@@ -255,7 +302,7 @@ Options:
 <pre><code>-n 10000000</code></pre>
 </div>
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>--max-memory &lt;MEMORY&gt;</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(可选)</span></h4>
 <p>设定工具可使用的最大内存（单位：MB）。</p>
 <ul>
@@ -267,7 +314,7 @@ Options:
 <pre><code>--max-memory 8192</code></pre>
 </div>
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>--no-compress</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(标志)</span></h4>
 <p>禁用对输出FASTQ文件的gzip压缩，以显著提高分析速度。</p>
 <ul>
@@ -277,8 +324,10 @@ Options:
 <p><strong>默认值:</strong> 不设置</p>
 </div>
 
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
+
 > [!NOTE]
-> ### 💡 使用示例
+> ### 使用示例
 >
 > - <strong>基本转换</strong>:
 >   ```shell
@@ -296,17 +345,21 @@ Options:
 >   bam2fastq -n 5000000 -t 4 input.bam ./output_dir
 >   ```
 
----
+</div>
+
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
 
 <br>
 
-## 🧬 染色体分割 (chromsplit) <a id="染色体分割-chromsplit"></a>
+## 染色体分割 (chromsplit) <a id="染色体分割-chromsplit"></a>
 
-> 🧬 <strong>核心功能</strong>
+>  <strong>核心功能</strong>
 > 
 > 专业的基因组序列分割工具，智能识别分割位点以维护基因注释完整性。主要用于 ATAC 建库时控制染色体长度不超过 2^29-1 的限制要求。
 
-### 📊 用法
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #d2d2d7; overflow-x: auto;">
+
+### 用法
 
 ```shell
 $ chromsplit  -h
@@ -325,11 +378,21 @@ Options:
   -V, --version                  Print version
 ```
 
-### 📝 参数说明
+</div>
 
-#### 🔴 必需参数
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+### 参数说明
+
+</div>
+
+<div style="max-width: 1200px; margin: 0 auto;">
+
+#### 必需参数
+
+</div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>-f, --fasta &lt;FA&gt;</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(必需)</span></h4>
 <p>指定输入的基因组序列文件。</p>
 <ul>
@@ -341,7 +404,7 @@ Options:
 <pre><code>--fasta genome.fasta</code></pre>
 </div>
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>-o, --prefix &lt;PREFIX&gt;</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(必需)</span></h4>
 <p>指定输出文件的前缀。</p>
 <ul>
@@ -353,11 +416,15 @@ Options:
 <pre><code>--prefix split_genome</code></pre>
 </div>
 
----
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
 
-#### 🟢 可选参数
+<div style="max-width: 1200px; margin: 0 auto;">
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+#### 可选参数
+
+</div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>-g, --gtf &lt;GTF&gt;</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(可选)</span></h4>
 <p>指定基因注释文件（GTF/GFF格式）。</p>
 <ul>
@@ -369,7 +436,7 @@ Options:
 <pre><code>--gtf annotation.gtf</code></pre>
 </div>
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>--min_length &lt;MIN_LENGTH&gt;</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(可选)</span></h4>
 <p>设置输出片段的最小长度（单位：bp）。</p>
 <ul>
@@ -380,7 +447,7 @@ Options:
 <pre><code>--min_length 300000000</code></pre>
 </div>
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>--max_length &lt;MAX_LENGTH&gt;</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(可选)</span></h4>
 <p>设置输出片段的最大长度（单位：bp）。</p>
 <ul>
@@ -391,7 +458,7 @@ Options:
 <pre><code>--max_length 500000000</code></pre>
 </div>
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>--cut_site &lt;CUT_SITE&gt;</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(可选)</span></h4>
 <p>提供一个包含预定义分割位置的文本文件。</p>
 <ul>
@@ -402,8 +469,10 @@ Options:
 <pre><code>--cut_site predefined_cuts.txt</code></pre>
 </div>
 
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
+
 > [!NOTE]
-> ### 💡 使用示例
+> ### 使用示例
 >
 > - <strong>基本分割</strong>:
 >   ```shell
@@ -422,17 +491,21 @@ Options:
 >   chromsplit --fasta genome.fasta --gtf annotation.gtf --prefix precise_split --cut_site custom_cuts.txt
 >   ```
 
----
+</div>
+
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
 
 <br>
 
-## 📝 FASTQ 切割 (fqsubC4) <a id="fastq-切割-fqsubc4"></a>
+##  FASTQ 切割 (fqsubC4) <a id="fastq-切割-fqsubc4"></a>
 
-> 📝 <strong>核心功能</strong>
+> <strong>核心功能</strong>
 > 
 > 专业的 FASTQ 序列区域提取工具，支持精确的序列位置截取。主要用于解决多次加测数据格式不一致问题，确保 C4 测序数据的标准化处理。
 
-### 📊 用法
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #d2d2d7; overflow-x: auto;">
+
+### 用法
 
 ```shell
 $ fqsubC4 -h
@@ -449,11 +522,21 @@ Options:
   -V, --version            Print version
 ```
 
-### 📝 参数说明
+</div>
 
-#### 🔴 必需参数
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+### 参数说明
+
+</div>
+
+<div style="max-width: 1200px; margin: 0 auto;">
+
+#### 必需参数
+
+</div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>-i, --input &lt;FILE&gt;</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(必需)</span></h4>
 <p>指定输入的FASTQ文件路径。</p>
 <ul>
@@ -465,7 +548,7 @@ Options:
 <pre><code>--input sample_R1.fastq.gz</code></pre>
 </div>
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>-o, --output &lt;FILE&gt;</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(必需)</span></h4>
 <p>指定输出的FASTQ文件路径。</p>
 <ul>
@@ -476,7 +559,7 @@ Options:
 <pre><code>--output extracted_R1.fastq.gz</code></pre>
 </div>
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>-r, --regions &lt;REGIONS&gt;</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(必需)</span></h4>
 <p>指定要从序列中提取的区域。</p>
 <ul>
@@ -489,11 +572,15 @@ Options:
 <pre><code>--regions 7:16,23:32,38:47</code></pre>
 </div>
 
----
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
 
-#### 🟢 可选参数
+<div style="max-width: 1200px; margin: 0 auto;">
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+#### 可选参数
+
+</div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>-t, --threads &lt;THREADS&gt;</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(可选)</span></h4>
 <p>设置并行处理线程数。</p>
 <ul>
@@ -505,40 +592,44 @@ Options:
 <pre><code>--threads 8</code></pre>
 </div>
 
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
+
 > [!NOTE]
-> ### 💡 使用示例
+> ### 使用示例
 >
 > - <strong>基本区域提取</strong>:
 >   ```shell
 >   fqsubC4 --input sample.fastq.gz --output extracted.fastq.gz --regions "7:16,23:32"
 >   ```
 
----
+</div>
 
-<br>
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
 
-## 📚 相关文档
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
 
-<br>
+## 相关文档
+
+</div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
 
 | 资源 | 描述 |
 | :--- | :--- |
-| [⚙️ 工具参数总览](./parameter.md) | 所有工具参数概览 |
-| [📁 输出文件总览](../outs/outs.md) | 输出文件详细解读 |
-| [🔬 流程文档总览](../pipeline/pipeline.md) | 分析流程指南 |
+| [工具参数总览](./parameter.md) | 所有工具参数概览 |
+| [输出文件总览](../outs/outs.md) | 输出文件详细解读 |
+| [流程文档总览](../pipeline/pipeline.md) | 分析流程指南 |
 
-<br>
+</div>
 
----
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
 
-<br>
+<div align="center" style="background: #f5f5f7; border-radius: 12px; padding: 30px; margin: 40px auto; max-width: 1200px;">
 
-<div align="center">
-
-> 💡 <strong>反馈与支持</strong>
+> <strong>反馈与支持</strong>
 >
 > 本文档持续更新中，如发现内容错误或需要补充的信息，欢迎反馈。
 >
-> 📝 <strong>文档版本：</strong> 3.1 | <strong>最后更新：</strong> 2026年4月
+<strong>文档版本：</strong> 3.1 | <strong>最后更新：</strong> 2026年4月
 
 </div>

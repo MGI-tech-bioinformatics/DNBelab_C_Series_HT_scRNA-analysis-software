@@ -1,6 +1,6 @@
 <div align="right">
 
-[🏠 Home](../README.md)
+[Home](../README.md)
 
 </div>
 
@@ -10,13 +10,13 @@
 
 **Official release history of DNBelab C Series™ HT Single-Cell Analysis Software**
 
-[◆ Latest Release](#latest-release) • [◆ All Versions](#release-history) • [◆ Version Guide](#version-selection-guide)
+[Latest Release](#latest-release) • [All Versions](#release-history) • [Version Guide](#version-selection-guide)
 
 </div>
 
 ---
 
-## ◆ Latest Release <a id="latest-release"></a>
+## Latest Release <a id="latest-release"></a>
 
 **dnbc4tools 3.1** (Apr 3, 2026) - [See Details](#31-apr-3-2026)
 
@@ -27,7 +27,7 @@
 
 ---
 
-## ◆ Release History <a id="release-history"></a>
+## Release History <a id="release-history"></a>
 
 ### 3.1 (Apr 3, 2026) <a id="31-apr-3-2026"></a>
 
@@ -241,7 +241,7 @@
 
 ---
 
-## ◆ Version Selection Guide <a id="version-selection-guide"></a>
+## Version Selection Guide <a id="version-selection-guide"></a>
 
 <table style="width:100%; border-collapse: collapse; margin: 1.5em 0; box-shadow: 0 2px 3px rgba(0,0,0,0.1);">
   <thead style="background-color: #f2f2f2; border-bottom: 2px solid #ddd;">

@@ -1,6 +1,6 @@
 <div align="right">
 
-[🏠 Home](../README.md)
+[Home](../README.md)
 
 </div>
 
@@ -10,7 +10,7 @@
 
 **Get started with dnbc4tools**
 
-[◆ RNA-seq](#single-cell-rna-analysis) • [◆ ATAC-seq](#single-cell-atac-analysis) • [◆ VDJ-seq](#single-cell-vdj-analysis) • [◆ Multi-omics](#integrated-multi-omics-analysis)
+[RNA-seq](#single-cell-rna-analysis) • [ATAC-seq](#single-cell-atac-analysis) • [VDJ-seq](#single-cell-vdj-analysis) • [Multi-omics](#integrated-multi-omics-analysis)
 
 </div>
 
@@ -43,7 +43,7 @@ Examples: <code>sample_R1.fastq.gz</code>, <code>sample_1.fastq.gz</code>, <code
 
 ---
 
-## ◆ Single-Cell RNA Analysis <a id="single-cell-rna-analysis"></a>
+## Single-Cell RNA Analysis <a id="single-cell-rna-analysis"></a>
 
 > Gene expression profiling at single-cell resolution
 
@@ -120,7 +120,7 @@ $dnbc4tools rna run \
 
 ---
 
-## ◆ Single-Cell ATAC Analysis <a id="single-cell-atac-analysis"></a>
+## Single-Cell ATAC Analysis <a id="single-cell-atac-analysis"></a>
 
 > Chromatin accessibility profiling at single-cell resolution
 
@@ -183,12 +183,12 @@ $dnbc4tools atac run \
 
 ---
 
-## ◆ Single-Cell VDJ Analysis <a id="single-cell-vdj-analysis"></a>
+## Single-Cell VDJ Analysis <a id="single-cell-vdj-analysis"></a>
 
 > Immune receptor repertoire profiling (requires 5' RNA-seq data)
 
 <div style="background-color: #fffbe6; border-left: 6px solid #ffc107; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
-⚠️ <strong>Prerequisite</strong>: Complete 5' scRNA analysis first to establish cell-bead correspondence.
+<strong>Prerequisite</strong>: Complete 5' scRNA analysis first to establish cell-bead correspondence.
 </div>
 
 ### Step 1: 5' RNA Analysis
@@ -197,7 +197,7 @@ $dnbc4tools atac run \
 **5' scRNA-seq Analysis**
 
 <div style="background-color: #e7f3fe; border-left: 6px solid #2196F3; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
-💡 <strong>Note:</strong> For 5' scRNA-seq data, you must add the <code>--end5</code> parameter to specify the library chemistry.
+<strong>Note:</strong> For 5' scRNA-seq data, you must add the <code>--end5</code> parameter to specify the library chemistry.
 </div>
 
 ```bash
@@ -278,7 +278,7 @@ $dnbc4tools vdj run \
 
 ---
 
-## ◆ Multi-omics Analysis <a id="integrated-multi-omics-analysis"></a>
+## Multi-omics Analysis <a id="integrated-multi-omics-analysis"></a>
 
 > Run RNA/ATAC/VDJ pipelines in one integrated workflow and generate a unified report
 
@@ -306,7 +306,7 @@ ref,human
 ref,human
 ```
 
-> 📁 Directory structure:
+> Directory structure:
 > - RNA: `/test/data/rna/cDNA/` and `/test/data/rna/oligo/`
 > - ATAC: paired FASTQ files under `/test/data/atac/`
 > - VDJ-T: paired FASTQ files under `/test/data/vdj-t/`
@@ -324,7 +324,7 @@ $dnbc4tools multi run \
 
 ---
 
-## ◆ Command Reference <a id="command-reference"></a>
+## Command Reference <a id="command-reference"></a>
 
 ### Essential Commands Summary
 
@@ -341,11 +341,11 @@ $dnbc4tools multi run \
 
 ---
 
-## 📚 Related Documentation
+## Related Documentation
 
 | Resource | Description |
 | :--- | :--- |
-| [🔬 Pipelines](./pipeline/pipeline.md) | Analysis workflow guides |
-| [⚙️ Parameters](./parameter/parameter.md) | Command reference and configuration options |
-| [📁 Outputs](./outs/outs.md) | Understanding result files and reports |
-| [🆘 GitHub Issues](https://github.com/MGI-tech-bioinformatics/DNBelab_C_Series_HT_scRNA-analysis-software/issues) | Report bugs or request features |
+| [Pipelines](./pipeline/pipeline.md) | Analysis workflow guides |
+| [Parameters](./parameter/parameter.md) | Command reference and configuration options |
+| [Outputs](./outs/outs.md) | Understanding result files and reports |
+| [GitHub Issues](https://github.com/MGI-tech-bioinformatics/DNBelab_C_Series_HT_scRNA-analysis-software/issues) | Report bugs or request features |

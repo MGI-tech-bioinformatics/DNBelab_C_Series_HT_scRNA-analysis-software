@@ -1,6 +1,6 @@
 <div align="right">
 
-[🏠 Home](../README.md)
+[Home](../README.md)
 
 </div>
 
@@ -22,7 +22,7 @@
 
 <br>
 
-## ◆ v3.x Series <a id="v3x-series"></a>
+## v3.x Series <a id="v3x-series"></a>
 
 <table style="width:100%; border-collapse: collapse; margin: 1.5em 0; box-shadow: 0 2px 3px rgba(0,0,0,0.1);">
   <thead style="background-color: #f2f2f2; border-bottom: 2px solid #ddd;">
@@ -43,7 +43,7 @@
 
 ---
 
-## ◆ v2.x Series <a id="v2x-series"></a>
+## v2.x Series <a id="v2x-series"></a>
 
 The following v2.x versions are available for projects requiring reproducibility with previous stable pipelines.
 
@@ -71,7 +71,7 @@ The following v2.x versions are available for projects requiring reproducibility
 
 ---
 
-## ◆ v1.x Series <a id="v1x-series"></a>
+## v1.x Series <a id="v1x-series"></a>
 
 Legacy versions from the v1.x series are archived. Please refer to the GitHub repository for access.
 

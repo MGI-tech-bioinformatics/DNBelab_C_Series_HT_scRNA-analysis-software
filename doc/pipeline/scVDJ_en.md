@@ -1,22 +1,33 @@
-<div align="right">
+<div align="right" style="margin-bottom: 20px; max-width: 1200px; margin-left: auto; margin-right: auto;">
 
-[🏠 Home](../../README.md) • [中文](scVDJ.md)
-
-</div>
-
-# 🧬 DNBelab C Series HT scVDJ Analysis Pipeline
-
-<div align="center">
-
-**A Complete Guide to Single-Cell VDJ Sequencing Data Analysis**
-
-[📋 Overview](#overview) • [📁 File Preparation](#file-preparation) • [🚀 Main Pipeline](#main-pipeline) • [📊 Results Interpretation](#results-interpretation)
+[Home](../../README.md) • [中文](scVDJ.md)
 
 </div>
 
----
+<div align="center" style="padding: 40px 20px; background: linear-gradient(135deg, #f5f5f7 0%, #ffffff 100%); border-radius: 12px; margin-bottom: 30px; max-width: 1200px; margin-left: auto; margin-right: auto;">
 
-## 📋 Overview <a id="overview"></a>
+<h1 style="font-size: 48px; font-weight: 600; color: #1d1d1f; margin: 0 0 16px 0; letter-spacing: -0.02em;">DNBelab C Series HT scVDJ Analysis Pipeline</h1>
+
+<p style="font-size: 21px; color: #86868b; margin: 0 0 30px 0; font-weight: 400;">A Complete Guide to Single-Cell VDJ Sequencing Data Analysis</p>
+
+<div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+<a href="#overview" style="background: #0071e3; color: white; padding: 8px 16px; border-radius: 980px; text-decoration: none; font-size: 14px;">Overview</a>
+<a href="#file-preparation" style="background: transparent; color: #0071e3; padding: 8px 16px; border-radius: 980px; text-decoration: none; font-size: 14px; border: 1px solid #0071e3;">File Preparation</a>
+<a href="#main-pipeline" style="background: transparent; color: #0071e3; padding: 8px 16px; border-radius: 980px; text-decoration: none; font-size: 14px; border: 1px solid #0071e3;">Main Pipeline</a>
+<a href="#results-interpretation" style="background: transparent; color: #0071e3; padding: 8px 16px; border-radius: 980px; text-decoration: none; font-size: 14px; border: 1px solid #0071e3;">Results Interpretation</a>
+</div>
+
+</div>
+
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
+
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
+
+## Overview <a id="overview"></a>
+
+</div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
 
 This document provides a detailed guide for analyzing single-cell VDJ sequencing data using dnbc4tools.
 
@@ -27,12 +38,21 @@ This document provides a detailed guide for analyzing single-cell VDJ sequencing
 </div>
 
 <div style="background-color: #e7f3fe; border-left: 6px solid #2196F3; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
-💡 <strong>Usage Note</strong>: <code>$dnbc4tools</code> represents the executable path and must be replaced with the actual installation path. The backslash `\` is used to split a command across multiple lines for readability.
+ <strong>Usage Note</strong>: <code>$dnbc4tools</code> represents the executable path and must be replaced with the actual installation path. The backslash `\` is used to split a command across multiple lines for readability.
 </div>
 
----
 
-## 📁 File Preparation <a id="file-preparation"></a>
+</div>
+
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
+
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
+
+## File Preparation <a id="file-preparation"></a>
+
+</div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
 
 ### 5' Transcriptome Analysis
 
@@ -53,7 +73,7 @@ $dnbc4tools rna run \
 ```
 
 <div style="background-color: #fffbe6; border-left: 6px solid #ffc107; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
-⚠️ <strong>Note</strong>: 5' transcriptome analysis is a prerequisite for VDJ analysis and must be completed first.
+ <strong>Note</strong>: 5' transcriptome analysis is a prerequisite for VDJ analysis and must be completed first.
 </div>
 
 ### Required Files for VDJ Analysis
@@ -82,7 +102,7 @@ The analysis requires the following files:
 The analysis requires the `singlecell.csv` file from the 5' transcriptome analysis output directory. This file contains merged information from the `cell` and `barcode` columns, as well as an `is_cell_barcode` column (1 for a cell, 0 for a non-cell), which is used to identify valid cells.
 
 <div style="background-color: #fffbe6; border-left: 6px solid #ffc107; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
-⚠️ <strong>Note</strong>: Ensure the path to the <code>singlecell.csv</code> file is correct, as this file is crucial for linking the transcriptome and VDJ analyses.
+ <strong>Note</strong>: Ensure the path to the <code>singlecell.csv</code> file is correct, as this file is crucial for linking the transcriptome and VDJ analyses.
 </div>
 
 Example file content:
@@ -100,9 +120,18 @@ CELL726_N4,585934,4617,22660,1,ACCTACGGCGTTACTATGTG;CGACGCTCTCGACAGTTAGG;CGGCAGA
 CELL4010_N1,555308,4268,22554,1,AGAGAGTCGCAGCAAGCGAC
 ```
 
----
 
-## 🚀 Main Pipeline <a id="main-pipeline"></a>
+</div>
+
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
+
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
+
+## Main Pipeline <a id="main-pipeline"></a>
+
+</div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
 
 The main VDJ pipeline combines single-cell VDJ library data with the 5' transcriptome results from the same sample. It includes these key steps:
 
@@ -141,7 +170,6 @@ $dnbc4tools vdj run \
   --threads 10
 ```
 
-<br>
 
 ### BCR Analysis
 
@@ -172,7 +200,6 @@ $dnbc4tools vdj run \
   --threads 10
 ```
 
-<br>
 
 ### Execution Process
 
@@ -223,9 +250,18 @@ After auto-detecting the dark reaction, the software begins the analysis. Here i
 
 A successful run will end with `Analysis Finished`.
 
----
 
-## 📊 Results Interpretation <a id="results-interpretation"></a>
+</div>
+
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
+
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
+
+## Results Interpretation <a id="results-interpretation"></a>
+
+</div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
 
 Upon completion, `outs` (outputs) and `logs` directories will be generated. The `outs` directory includes:
 
@@ -246,42 +282,54 @@ Upon completion, `outs` (outputs) and `logs` directories will be generated. The 
 └── metrics_summary.xls
 ```
 
----
 
-<br>
+</div>
 
-## 📚 Related Documentation
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
 
-<br>
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
+
+## Related Documentation
+
+</div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
 
 | Resource | Description |
 | :--- | :--- |
-| [📊 Output File Usage](../io.md) | Understanding output file structure and formats |
-| [📋 Analysis Parameters](../parameter/scVDJ_en.md) | Complete parameter reference and descriptions |
-| [📝 Output Descriptions](../outs/scVDJ_en.md) | Detailed interpretation of analysis results |
+| [Output File Usage](../io.md) | Understanding output file structure and formats |
+| [Analysis Parameters](../parameter/scVDJ_en.md) | Complete parameter reference and descriptions |
+| [Output Descriptions](../outs/scVDJ_en.md) | Detailed interpretation of analysis results |
 
-<br>
 
----
+</div>
 
-<br>
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
 
-## ❓ Frequently Asked Questions
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
 
-> `Content to be added`
+## Frequently Asked Questions
 
-<br>
+</div>
 
----
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
 
-<br>
+This section is being updated.
+
+</div>
+
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
+
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
 
 <div align="center">
 
-> 💡 <strong>Feedback & Support</strong>
+> <strong>Feedback & Support</strong>
 >
-> This document is continuously updated. If you find any errors or have information to add, feedback is welcome.
+> This document is continuously updated. If you find any errors or need additional information, feedback is welcome.
 >
-> 📝 <strong>Document Version:</strong> 3.1 | <strong>Last Updated:</strong> April 2026
+> <strong>Document Version:</strong> 3.1 | <strong>Last Updated:</strong> April 2026
+
+</div>
 
 </div>

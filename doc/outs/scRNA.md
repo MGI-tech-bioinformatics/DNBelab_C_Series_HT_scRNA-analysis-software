@@ -1,38 +1,44 @@
-<div align="right">
+<div align="right" style="margin-bottom: 20px; max-width: 1200px; margin-left: auto; margin-right: auto;">
 
-[🏠 主页](../../README.md) • [English](scRNA_en.md)
-
-</div>
-
-# 🧬 DNBelab C Series HT scRNA 分析输出文档
-
-<div align="center">
-
-**单细胞RNA测序分析输出文件完整指南**
-
-[📁 目录结构](#输出目录结构) • [📋 文件详情](#详细文件说明) • [🧬 数据矩阵](#特征矩阵文件) • [📊 分析结果](#分析结果目录-analysis) • [📊 报告解读](#网页报告释义)
+<a href="../../README.md" style="color: #0071e3; text-decoration: none; font-size: 14px;">主页</a> <span style="color: rgba(0,0,0,0.3);">•</span> <a href="scRNA_en.md" style="color: #0071e3; text-decoration: none; font-size: 14px;">English</a>
 
 </div>
 
----
+<div align="center" style="padding: 40px 20px; background: linear-gradient(135deg, #f5f5f7 0%, #ffffff 100%); border-radius: 12px; margin-bottom: 30px; max-width: 1200px; margin-left: auto; margin-right: auto;">
 
-## 📖 概述 <a id="概述"></a>
+<h1 style="font-size: 48px; font-weight: 600; color: #1d1d1f; margin: 0 0 16px 0; letter-spacing: -0.02em;"> scRNA 分析输出</h1>
 
-<br>
+<p style="font-size: 21px; color: rgba(0,0,0,0.6); margin: 0 0 30px 0; font-weight: 400;">单细胞RNA测序分析输出文件完整指南</p>
+
+<div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+<a href="#输出目录结构" style="background: #0071e3; color: white; padding: 8px 16px; border-radius: 980px; text-decoration: none; font-size: 14px;">目录结构</a>
+<a href="#详细文件说明" style="background: transparent; color: #0071e3; padding: 8px 16px; border-radius: 980px; text-decoration: none; font-size: 14px; border: 1px solid #0071e3;">文件详情</a>
+<a href="#网页报告释义" style="background: transparent; color: #0071e3; padding: 8px 16px; border-radius: 980px; text-decoration: none; font-size: 14px; border: 1px solid #0071e3;">报告解读</a>
+</div>
+
+</div>
+
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
+
+##  概述 <a id="概述"></a>
 
 单细胞RNA分析完成后，会在指定的输出目录中生成标准化的文件和子目录结构，专门用于基因表达谱分析和细胞类型鉴定。本文档详细说明了每个输出文件的内容、格式和用途，帮助用户充分理解和高效利用单细胞RNA分析结果。
 
-<br>
+> **提示**
+> 
+> 所有输出文件均采用标准格式，兼容主流单细胞分析工具（如Scanpy、Seurat等），遵循国际通用的数据格式规范。
 
-> 💡 **提示**: 所有输出文件均采用标准格式，兼容主流单细胞分析工具（如Scanpy、Seurat等），遵循国际通用的数据格式规范。
+</div>
 
-<br>
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
 
----
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
 
-<br>
+##  输出目录结构 <a id="输出目录结构"></a>
 
-## 📁 输出目录结构 <a id="输出目录结构"></a>
+</div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 20px; margin: 20px auto; max-width: 1200px; overflow-x: auto; border: 1px solid #d2d2d7;">
 
 ```
 .
@@ -57,28 +63,33 @@
 └── *_scRNA_report.html            # HTML格式的分析报告
 ```
 
-<br>
+</div>
 
----
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
 
-<br>
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
 
-## 📋 详细文件说明 <a id="详细文件说明"></a>
-
-
-### 🧬 比对与注释文件 <a id="比对与注释文件"></a>
-
-
-<div align="center">
-
-**🎯 核心内容**: 原始测序数据比对到参考基因组的结果文件，包含完整的比对信息和细胞条形码标记
+##  详细文件说明 <a id="详细文件说明"></a>
 
 </div>
 
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
 
----
+###  比对与注释文件 <a id="比对与注释文件"></a>
 
-#### 📄 anno_decon_sorted.bam
+<div align="center">
+
+**核心内容**: 原始测序数据比对到参考基因组的结果文件，包含完整的比对信息和细胞条形码标记
+
+</div>
+
+</div>
+
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px; ">
+
+####  anno_decon_sorted.bam
 
 这是包含所有原始数据的 scRNA-seq 比对结果文件。
 
@@ -94,15 +105,15 @@
 *   **关键TAG字段说明**:
     *   BAM 文件通过丰富的 TAG 字段来存储单细胞特有的信息，主要分为细胞/分子标识和基因注释两大类。
 
-    **🧬 细胞和分子标识标签：**
+    **细胞和分子标识标签：**
 
-    <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
-    <thead>
+    <table style="width:100%; border-collapse: collapse; margin: 15px 0; border-radius: 8px; overflow: hidden;">
+    <thead style="background-color: #f5f5f7; border-bottom: 1px solid #d2d2d7;">
     <tr>
-    <th width="10%" align="left"><strong>标签</strong></th>
-    <th width="15%" align="left"><strong>类型</strong></th>
-    <th width="37%" align="left"><strong>描述</strong></th>
-    <th width="38%" align="left"><strong>生物学意义</strong></th>
+    <th width="10%" align="left" style="padding: 12px 16px; font-weight: 600; color: #1d1d1f;">标签</th>
+    <th width="15%" align="left" style="padding: 12px 16px; font-weight: 600; color: #1d1d1f;">类型</th>
+    <th width="37%" align="left" style="padding: 12px 16px; font-weight: 600; color: #1d1d1f;">描述</th>
+    <th width="38%" align="left" style="padding: 12px 16px; font-weight: 600; color: #1d1d1f;">生物学意义</th>
     </tr>
     </thead>
     <tbody>
@@ -151,15 +162,15 @@
     </tbody>
     </table>
 
-    **🧬 基因注释和功能标签：**
+    **基因注释和功能标签：**
 
-    <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
-    <thead>
+    <table style="width:100%; border-collapse: collapse; margin: 15px 0; border-radius: 8px; overflow: hidden;">
+    <thead style="background-color: #f5f5f7; border-bottom: 1px solid #d2d2d7;">
     <tr>
-    <th width="10%" align="left"><strong>标签</strong></th>
-    <th width="15%" align="left"><strong>类型</strong></th>
-    <th width="37%" align="left"><strong>描述</strong></th>
-    <th width="38%" align="left"><strong>功能用途</strong></th>
+    <th width="10%" align="left" style="padding: 12px 16px; font-weight: 600; color: #1d1d1f;">标签</th>
+    <th width="15%" align="left" style="padding: 12px 16px; font-weight: 600; color: #1d1d1f;">类型</th>
+    <th width="37%" align="left" style="padding: 12px 16px; font-weight: 600; color: #1d1d1f;">描述</th>
+    <th width="38%" align="left" style="padding: 12px 16px; font-weight: 600; color: #1d1d1f;">功能用途</th>
     </tr>
     </thead>
     <tbody>
@@ -196,9 +207,13 @@
     </tbody>
     </table>
 
----
+</div>
 
-#### 📄 anno_decon_sorted.bam.bai
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px; ">
+
+####  anno_decon_sorted.bam.bai
 
 `anno_decon_sorted.bam` 文件的索引。
 
@@ -208,11 +223,11 @@
 *   **格式与说明**:
     *   索引文件由 `samtools index` 命令生成。为了兼容不同大小的基因组，流程会自动选择合适的索引格式（BAI 或 CSI）。
 
-        <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
-        <thead>
+        <table style="width:100%; border-collapse: collapse; margin: 15px 0; border-radius: 8px; overflow: hidden;">
+        <thead style="background-color: #f5f5f7; border-bottom: 1px solid #d2d2d7;">
         <tr>
-        <th width="20%" align="left"><strong>格式类型</strong></th>
-        <th width="80%" align="left"><strong>使用说明</strong></th>
+        <th width="20%" align="left" style="padding: 12px 16px; font-weight: 600; color: #1d1d1f;">格式类型</th>
+        <th width="80%" align="left" style="padding: 12px 16px; font-weight: 600; color: #1d1d1f;">使用说明</th>
         </tr>
         </thead>
         <tbody>
@@ -227,17 +242,27 @@
         </tbody>
         </table>
 
----
+</div>
 
-### 📈 特征矩阵文件 <a id="特征矩阵文件"></a>
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
+
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
+
+###  特征矩阵文件 <a id="特征矩阵文件"></a>
 
 <div align="center">
 
-**🎯 核心内容**: 单细胞基因表达计数矩阵，分为原始数据和质控过滤后数据，采用标准稀疏矩阵或AnnData格式
+**核心内容**: 单细胞基因表达计数矩阵，分为原始数据和质控过滤后数据，采用标准稀疏矩阵或AnnData格式
 
 </div>
 
-#### 📁 过滤后的基因表达矩阵 (`filter_matrix/`)
+</div>
+
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px; ">
+
+####  过滤后的基因表达矩阵 (`filter_matrix/`)
 
 包含经过高质量细胞过滤后的基因表达计数矩阵，是进行下游定量分析的核心数据。
 
@@ -247,11 +272,11 @@
 
 *   **内容与格式**:
     *   采用标准的 **Market Matrix Exchange (MEX)** 格式（关于矩阵格式详见[Market Matrix格式说明](#market-matrix-format-mtxgz)），由以下三个压缩文件组成：
-        <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
-        <thead>
+        <table style="width:100%; border-collapse: collapse; margin: 15px 0; border-radius: 8px; overflow: hidden;">
+        <thead style="background-color: #f5f5f7; border-bottom: 1px solid #d2d2d7;">
         <tr>
-        <th width="25%" align="left"><strong>文件名</strong></th>
-        <th width="75%" align="left"><strong>内容描述</strong></th>
+        <th width="25%" align="left" style="padding: 12px 16px; font-weight: 600; color: #1d1d1f;">文件名</th>
+        <th width="75%" align="left" style="padding: 12px 16px; font-weight: 600; color: #1d1d1f;">内容描述</th>
         </tr>
         </thead>
         <tbody>
@@ -274,9 +299,13 @@
     *   **空间高效**: 稀疏矩阵格式（`.mtx`）仅存储非零元素，极大节省了存储空间。
     *   **高度兼容**: MEX 格式是单细胞社区的标准，兼容 Seurat, Scanpy 等几乎所有主流分析工具。
 
----
+</div>
 
-#### 📁 原始基因表达矩阵 (`raw_matrix/`)
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px; ">
+
+####  原始基因表达矩阵 (`raw_matrix/`)
 
 包含所有检测到的细胞条形码（未经过滤）的原始基因表达计数矩阵。
 
@@ -288,9 +317,13 @@
     *   采用标准的 **Market Matrix Exchange (MEX)** 格式，其文件组成与 `filter_matrix/` 目录完全相同。
     *   包含所有被检测到的条形码，包括高质量细胞、低质量细胞和背景液滴。
 
----
+</div>
 
-#### 📄 filter_feature.h5ad
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px; ">
+
+####  filter_feature.h5ad
 
 经过细胞鉴定和过滤后的特征矩阵，采用 AnnData (`.h5ad`) 格式存储，是 `filter_matrix/` 目录内容的替代和补充。
 
@@ -300,19 +333,27 @@
 *   **内容与格式**:
     *   基于 HDF5 的二进制格式，详细格式参考[AnnData格式说明](#anndata-format-h5ad)。
 
----
+</div>
 
-### 📊 分析结果目录 (`analysis/`) <a id="分析结果目录-analysis"></a>
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
+
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
+
+###  分析结果目录 (`analysis/`) <a id="分析结果目录-analysis"></a>
 
 <div align="center">
 
-**🎯 核心内容**: 下游生物信息学分析结果，包括细胞聚类、差异基因和质控后数据
+**核心内容**: 下游生物信息学分析结果，包括细胞聚类、差异基因和质控后数据
 
 </div>
 
----
+</div>
 
-#### 📄 cluster.csv
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px; ">
+
+####  cluster.csv
 
 细胞聚类分析结果文件，采用 CSV 格式。包含每个细胞的 ID、所属聚类、降维坐标以及关键质控指标。
 
@@ -326,9 +367,13 @@
         *   `UMAP_1`, `UMAP_2`: UMAP 降维的二维坐标
         *   `nGene`, `nUMI`: 每个细胞检测到的基因数和 UMI 数
 
----
+</div>
 
-#### 📄 cell_classification.csv（仅双物种分析）
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px; ">
+
+####  cell_classification.csv（仅双物种分析）
 
 双物种（如 `hg38 + mm10`）分析时生成的细胞物种归属结果文件，采用 CSV 格式。
 
@@ -341,38 +386,40 @@
         *   `hg38`: 归属于人参考（hg38）的计数
         *   `mm10`: 归属于鼠参考（mm10）的计数
         *   `call`: 物种归属结果（`hg38` / `mm10` / `Multiplet`）
+<p><strong>示例：</strong></p>
+<div style="background-color: #f5f5f7; border-radius: 12px; padding: 20px; margin: 16px auto; max-width: 1200px; overflow-x: auto; border: 1px solid #d2d2d7;">
+<pre><code>barcode,hg38,mm10,call
+CELL1_N2,17098,821,hg38
+CELL2_N8,56978,1939,hg38
+CELL5_N2,868,4216,mm10
+CELL8_N2,2371,71601,mm10
+CELL10_N2,1299,36697,mm10
+CELL11_N1,1633,44048,mm10
+CELL14_N3,110102,2919,hg38
+CELL19_N1,763,19995,mm10
+CELL21_N3,44712,1603,hg38
+CELL27_N3,64247,90800,Multiplet
+CELL31_N3,87308,2773,hg38
+CELL32_N2,1871,51359,mm10
+CELL36_N2,871,19635,mm10
+CELL38_N3,42964,1487,hg38
+CELL41_N3,360,6379,mm10
+CELL42_N3,2853,74058,mm10
+CELL43_N7,54863,1875,hg38
+CELL44_N2,14431,638,hg38
+CELL46_N3,4071,129035,mm10
+CELL47_N4,1865,51515,mm10
+CELL49_N2,49776,1521,hg38
+CELL51_N5,1362,40817,mm10</code></pre>
+</div>
 
-    *   **示例**：
+</div>
 
-        ```csv
-        barcode,hg38,mm10,call
-        CELL1_N2,17098,821,hg38
-        CELL2_N8,56978,1939,hg38
-        CELL5_N2,868,4216,mm10
-        CELL8_N2,2371,71601,mm10
-        CELL10_N2,1299,36697,mm10
-        CELL11_N1,1633,44048,mm10
-        CELL14_N3,110102,2919,hg38
-        CELL19_N1,763,19995,mm10
-        CELL21_N3,44712,1603,hg38
-        CELL27_N3,64247,90800,Multiplet
-        CELL31_N3,87308,2773,hg38
-        CELL32_N2,1871,51359,mm10
-        CELL36_N2,871,19635,mm10
-        CELL38_N3,42964,1487,hg38
-        CELL41_N3,360,6379,mm10
-        CELL42_N3,2853,74058,mm10
-        CELL43_N7,54863,1875,hg38
-        CELL44_N2,14431,638,hg38
-        CELL46_N3,4071,129035,mm10
-        CELL47_N4,1865,51515,mm10
-        CELL49_N2,49776,1521,hg38
-        CELL51_N5,1362,40817,mm10
-        ```
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
 
----
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
 
-#### 📄 marker.csv
+####  marker.csv
 
 各聚类的差异表达基因（标记基因）列表，采用 CSV 格式。记录了每个基因在特定聚类中的表达显著性、表达量变化等信息。
 
@@ -387,9 +434,13 @@
         *   `p_val_adj`: 调整后的p值，评估统计显著性
         *   `pct.1`, `pct.2`: 该基因在目标聚类和其他聚类中的表达细胞比例
 
----
+</div>
 
-#### 📄 QC_Cluster.h5ad
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+
+####  QC_Cluster.h5ad
 
 经过完整质控、降维和聚类分析的单细胞数据对象，采用 AnnData (`.h5ad`) 格式。它整合了上游的表达矩阵和下游的分析结果。
 
@@ -402,17 +453,27 @@
         *   `obsm`: 包含降维坐标 (`X_umap`)。
         *   `uns`: 包含标记基因 (`marker_genes`) 等非结构化结果。
 
----
+</div>
 
-### 📝 分析指标汇总 <a id="分析指标汇总"></a>
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
+
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
+
+###  分析指标汇总 <a id="分析指标汇总"></a>
 
 <div align="center">
 
-**🎯 核心内容**: 实验质量评估和统计指标汇总，提供完整的数据质量控制信息
+**核心内容**: 实验质量评估和统计指标汇总，提供完整的数据质量控制信息
 
 </div>
 
-#### 📄 metrics_summary.xls
+</div>
+
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px; ">
+
+####  metrics_summary.xls
 
 采用 Excel 格式的关键分析指标汇总表，提供了对实验整体质量的全面评估。
 
@@ -422,8 +483,8 @@
 
 *   **内容与格式**:
     *   包含三大类别的关键指标：
-        <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
-        <thead>
+        <table style="width:100%; border-collapse: collapse; margin: 15px 0; border-radius: 8px; overflow: hidden;">
+        <thead style="background-color: #f5f5f7; border-bottom: 1px solid #d2d2d7;">
         <tr>
         <th width="20%" align="left"><strong>指标类别</strong></th>
         <th width="80%" align="left"><strong>包含内容</strong></th>
@@ -445,20 +506,22 @@
         </tbody>
         </table>
     *   内置推荐的质量控制标准，方便用户判断：
-        <details open>
-        <summary><strong>推荐质量阈值：</strong></summary>
-        <ul>
-        <li>✅ <strong>有效条形码比例</strong>: >70%</li>
-        <li>✅ <strong>Q30 碱基质量</strong>: >75%（条形码和 UMI 区域）</li>
-        <li>✅ <strong>转录组置信比对率</strong>: >30%</li>
-        <li>✅ <strong>细胞内 reads 比例</strong>: >50% (核样本 >30%)</li>
-        <li>✅ <strong>每细胞平均 reads 数</strong>: >15,000</li>
-        </ul>
-        </details>
 
----
+> **推荐质量阈值**
+> 
+> - **有效条形码比例**: >70%
+> - **Q30 碱基质量**: >75%（条形码和 UMI 区域）
+> - **转录组置信比对率**: >30%
+> - **细胞内 reads 比例**: >50% (核样本 >30%)
+> - **每细胞平均 reads 数**: >15,000
 
-#### 📄 singlecell.csv
+</div>
+
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px; ">
+
+####  singlecell.csv
 
 采用 CSV 格式的单细胞级别质量控制信息表，记录了每个细胞条形码的详细统计数据。
 
@@ -470,9 +533,13 @@
     *   每一行代表一个细胞条形码。
     *   主要列包括：UMI 数量、基因数量、线粒体基因比例以及是否被判定为高质量细胞、磁珠合并信息等。
 
----
+</div>
 
-#### 📄 *_scRNA_report.html
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px; ">
+
+####  *_scRNA_report.html
 
 采用 HTML 网页格式的交互式综合分析报告。
 
@@ -485,15 +552,25 @@
     *   无需网络，可在任何现代浏览器中打开。
     *   报告的详细解读请参考本文档下方的 [网页报告释义](#网页报告释义) 部分。
 
----
+</div>
 
-<br>
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
 
-## 📄 文件格式说明 <a id="文件格式说明"></a>
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
 
-> **技术规范**: 输出文件采用的标准格式详细说明
+##  文件格式说明 <a id="文件格式说明"></a>
 
-#### 📊 Market Matrix格式 (`.mtx.gz`) <a id="market-matrix-format-mtxgz"></a>
+<div align="center">
+
+**技术规范**: 输出文件采用的标准格式详细说明
+
+</div>
+
+</div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px; ">
+
+####  Market Matrix格式 (`.mtx.gz`) <a id="market-matrix-format-mtxgz"></a>
 Market Exchange Format (MEX) 是单细胞分析中用于存储稀疏计数矩阵的标准格式，具有空间高效和高度兼容的优点。
 
 *   **核心优势**:
@@ -502,8 +579,8 @@ Market Exchange Format (MEX) 是单细胞分析中用于存储稀疏计数矩阵
 
 *   **文件组成**:
     *   一个完整的MEX格式数据由以下 **三个文件** 构成：
-        <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
-        <thead>
+        <table style="width:100%; border-collapse: collapse; margin: 15px 0; border-radius: 8px; overflow: hidden;">
+        <thead style="background-color: #f5f5f7; border-bottom: 1px solid #d2d2d7;">
         <tr>
         <th width="25%" align="left"><strong>文件名</strong></th>
         <th width="75%" align="left"><strong>描述</strong></th>
@@ -525,72 +602,116 @@ Market Exchange Format (MEX) 是单细胞分析中用于存储稀疏计数矩阵
         </tbody>
         </table>
 
----
+</div>
 
-### 🗃️ AnnData格式 (`.h5ad`) <a id="anndata-format-h5ad"></a>
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px; ">
+
+### AnnData格式 (`.h5ad`) <a id="anndata-format-h5ad"></a>
 
 **格式概述:** AnnData ("Annotated Data") 是专为矩阵型数据设计的数据结构，特别适用于单细胞 RNA 测序数据分析。基于 HDF5 格式，提供高效的数据存储和访问能力。
 
-#### 🏗️ 数据结构
+#### 数据结构
 
-<div align="center">
-<img src="../images/anndata.jpg" alt="AnnData格式结构图" width="400">
+<div align="center" style="margin: 24px auto; max-width: 1200px;">
+<img src="../images/anndata.jpg" alt="AnnData格式结构图" width="400" style="border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,0.1);">
 </div>
 
-| 📁 **组件** | 🎯 **功能** | 📏 **维度** |
-|-------------|-------------|-------------|
-| **X** | 主表达矩阵 | n_cells × n_genes |
-| **obs** | 细胞元数据 | n_cells × n_obs_features |
-| **var** | 基因元数据 | n_genes × n_var_features |
-| **obsm** | 细胞多维数据 | n_cells × n_components |
-| **varm** | 基因多维数据 | n_genes × n_components |
-| **layers** | 多层数据 | n_cells × n_genes |
-| **uns** | 非结构化数据 | 任意对象 |
+<table style="width:100%; border-collapse: collapse; margin: 15px 0; border-radius: 8px; overflow: hidden;">
+<thead style="background-color: #f5f5f7; border-bottom: 1px solid #d2d2d7;">
+<tr>
+<th width="20%" align="left" style="padding: 12px 16px; font-weight: 600; color: #1d1d1f;">组件</th>
+<th width="40%" align="left" style="padding: 12px 16px; font-weight: 600; color: #1d1d1f;">功能</th>
+<th width="40%" align="left" style="padding: 12px 16px; font-weight: 600; color: #1d1d1f;">维度</th>
+</tr>
+</thead>
+<tbody>
+<tr><td align="left"><strong>X</strong></td><td>主表达矩阵</td><td>n_cells × n_genes</td></tr>
+<tr><td align="left"><strong>obs</strong></td><td>细胞元数据</td><td>n_cells × n_obs_features</td></tr>
+<tr><td align="left"><strong>var</strong></td><td>基因元数据</td><td>n_genes × n_var_features</td></tr>
+<tr><td align="left"><strong>obsm</strong></td><td>细胞多维数据</td><td>n_cells × n_components</td></tr>
+<tr><td align="left"><strong>varm</strong></td><td>基因多维数据</td><td>n_genes × n_components</td></tr>
+<tr><td align="left"><strong>layers</strong></td><td>多层数据</td><td>n_cells × n_genes</td></tr>
+<tr><td align="left"><strong>uns</strong></td><td>非结构化数据</td><td>任意对象</td></tr>
+</tbody>
+</table>
 
----
+</div>
 
-<br>
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
 
-## 📊 网页报告释义 <a id="网页报告释义"></a>
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
+
+##  网页报告释义 <a id="网页报告释义"></a>
 
 <div align="center">
 
-**🎯 概述**: HTML 网页报告提供了单细胞 RNA 测序分析结果的全面可视化展示和详细解读，包含关键性能指标评估，帮助用户快速了解实验质量和分析结果
+**概述**: HTML 网页报告提供了单细胞 RNA 测序分析结果的全面可视化展示和详细解读，包含关键性能指标评估，帮助用户快速了解实验质量和分析结果
 
 </div>
+
+</div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px; ">
 
 HTML 网页报告是单细胞 RNA 测序分析的综合展示平台，整合了从数据质量控制到下游生物学分析的完整结果。该报告采用交互式可视化设计，帮助用户快速评估实验质量、理解分析结果并指导后续研究方向。
 
-> 💡 **使用建议**: 建议按照报告展示顺序依次查看各项指标。
+> **使用建议**
+> 
+> 建议按照报告展示顺序依次查看各项指标。
 
-> **注意**: 以下标准仅供参考，实际质量评估应考虑组织类型、细胞状态和实验目标等多种因素。不同样本间存在显著差异，建议结合具体实验背景进行判断。
-
-### 📊 报告主要内容与结构
-
-<div align="center">
-<img src="../images/html_scrna1.png" alt="scRNA网页报告" width="500">
-</div>
-
-### 🧬 核心分析指标详解
-
-#### 🧬 细胞指标 (Cell Metrics) <a id="细胞指标"></a>
-
-<div align="center">
-
-**🎯 核心功能**: 细胞识别、质量评估和基因表达统计，提供实验整体效果的关键指标
+> **注意**
+> 
+> 以下标准仅供参考，实际质量评估应考虑组织类型、细胞状态和实验目标等多种因素。不同样本间存在显著差异，建议结合具体实验背景进行判断。
 
 </div>
 
-**📊 质量控制标准：**
-> **注意**: 以下标准仅供参考，实际质量评估应考虑组织类型、细胞状态和实验目标等多种因素。不同样本间存在显著差异，建议结合具体实验背景进行判断。
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
 
-<table style="width:100%; border-collapse: collapse; margin: 15px 0;">
-<thead>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px; ">
+
+###  报告主要内容与结构
+
+<div align="center" style="margin: 24px auto; max-width: 1200px;">
+<img src="../images/html_scrna1.png" alt="scRNA网页报告" width="500" style="border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,0.1);">
+</div>
+
+</div>
+
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
+
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
+
+###  核心分析指标详解
+
+</div>
+
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px; ">
+
+####  细胞指标 (Cell Metrics) <a id="细胞指标"></a>
+
+<div align="center">
+
+**核心功能**: 细胞识别、质量评估和基因表达统计，提供实验整体效果的关键指标
+
+</div>
+
+**质量控制标准**
+
+> **注意**
+> 
+> 以下标准仅供参考，实际质量评估应考虑组织类型、细胞状态和实验目标等多种因素。不同样本间存在显著差异，建议结合具体实验背景进行判断。
+
+<table style="width:100%; border-collapse: collapse; margin: 15px 0; border-radius: 8px; overflow: hidden;">
+<thead style="background-color: #f5f5f7; border-bottom: 1px solid #d2d2d7;">
 <tr>
-<th width="25%" align="left"><strong>指标名称</strong></th>
-<th width="30%" align="left"><strong>推荐值</strong></th>
-<th width="30%" align="left"><strong>可接受</strong></th>
-<th width="15%" align="left"><strong>需优化</strong></th>
+<th width="25%" align="left" style="padding: 12px 16px; font-weight: 600; color: #1d1d1f;">指标名称</th>
+<th width="30%" align="left" style="padding: 12px 16px; font-weight: 600; color: #1d1d1f;">推荐值</th>
+<th width="30%" align="left" style="padding: 12px 16px; font-weight: 600; color: #1d1d1f;">可接受</th>
+<th width="15%" align="left" style="padding: 12px 16px; font-weight: 600; color: #1d1d1f;">需优化</th>
 </tr>
 </thead>
 <tbody>
@@ -621,13 +742,13 @@ HTML 网页报告是单细胞 RNA 测序分析的综合展示平台，整合了�
 </tbody>
 </table>
 
-**🔍 详细指标解释：**
+**详细指标解释：**
 
-<table style="width:100%; border-collapse: collapse; margin: 15px 0;">
-<thead>
+<table style="width:100%; border-collapse: collapse; margin: 15px 0; border-radius: 8px; overflow: hidden;">
+<thead style="background-color: #f5f5f7; border-bottom: 1px solid #d2d2d7;">
 <tr>
-<th width="30%" align="left"><strong>指标名称</strong></th>
-<th width="70%" align="left"><strong>详细解释与技术要求</strong></th>
+<th width="30%" align="left" style="padding: 12px 16px; font-weight: 600; color: #1d1d1f;">指标名称</th>
+<th width="70%" align="left" style="padding: 12px 16px; font-weight: 600; color: #1d1d1f;">详细解释与技术要求</th>
 </tr>
 </thead>
 <tbody>
@@ -745,21 +866,28 @@ HTML 网页报告是单细胞 RNA 测序分析的综合展示平台，整合了�
 </tbody>
 </table>
 
----
+</div>
 
-#### 🔬 测序指标 (Sequencing Metrics) <a id="测序指标"></a>
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px; ">
+
+####  测序指标 (Sequencing Metrics) <a id="测序指标"></a>
 
 <div align="center">
 
-**🎯 核心功能**: 测序数据的基础质量评估，包括条形码识别率、UMI质量和测序准确性
+**核心功能**: 测序数据的基础质量评估，包括条形码识别率、UMI质量和测序准确性
 
 </div>
 
-**📊 质量控制标准：**
-> **注意**: 以下标准仅供参考，实际质量评估应考虑组织类型、细胞状态和实验目标等多种因素。不同样本间存在显著差异，建议结合具体实验背景进行判断。
+**质量控制标准**
 
-<table style="width:100%; border-collapse: collapse; margin: 15px 0;">
-<thead>
+> **注意**
+> 
+> 以下标准仅供参考，实际质量评估应考虑组织类型、细胞状态和实验目标等多种因素。不同样本间存在显著差异，建议结合具体实验背景进行判断。
+
+<table style="width:100%; border-collapse: collapse; margin: 15px 0; border-radius: 8px; overflow: hidden;">
+<thead style="background-color: #f5f5f7; border-bottom: 1px solid #d2d2d7;">
 <tr>
 <th width="25%" align="left"><strong>指标类别</strong></th>
 <th width="25%" align="left"><strong>推荐值</strong></th>
@@ -789,13 +917,13 @@ HTML 网页报告是单细胞 RNA 测序分析的综合展示平台，整合了�
 </tbody>
 </table>
 
-**🔍 详细指标解释：**
+**详细指标解释：**
 
-<table style="width:100%; border-collapse: collapse; margin: 15px 0;">
-<thead>
+<table style="width:100%; border-collapse: collapse; margin: 15px 0; border-radius: 8px; overflow: hidden;">
+<thead style="background-color: #f5f5f7; border-bottom: 1px solid #d2d2d7;">
 <tr>
-<th width="30%" align="left"><strong>指标名称</strong></th>
-<th width="70%" align="left"><strong>详细解释与技术要求</strong></th>
+<th width="30%" align="left" style="padding: 12px 16px; font-weight: 600; color: #1d1d1f;">指标名称</th>
+<th width="70%" align="left" style="padding: 12px 16px; font-weight: 600; color: #1d1d1f;">详细解释与技术要求</th>
 </tr>
 </thead>
 <tbody>
@@ -851,28 +979,37 @@ HTML 网页报告是单细胞 RNA 测序分析的综合展示平台，整合了�
 </tbody>
 </table>
 
-> **注**: 以上所有比例的计算均以原始测序读段(Number of Reads)为准，确保了各项指标之间的可比性和一致性。
-
----
-
-#### 🗺️ 比对指标 (Mapping Metrics) <a id="比对指标"></a>
-
-<div align="center">
-
-**🎯 核心功能**: 评估 Reads 与参考基因组的比对质量，包括比对率、特异性和基因组区域分布
+> **注**
+> 
+> 以上所有比例的计算均以原始测序读段(Number of Reads)为准，确保了各项指标之间的可比性和一致性。
 
 </div>
 
-**📊 质量控制标准：**
-> **注意**: 以下标准仅供参考，实际质量评估应考虑组织类型、细胞状态和实验目标等多种因素。不同样本间存在显著差异，建议结合具体实验背景进行判断。
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
 
-<table style="width:100%; border-collapse: collapse; margin: 15px 0;">
-<thead>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px; ">
+
+####  比对指标 (Mapping Metrics) <a id="比对指标"></a>
+
+<div align="center">
+
+**核心功能**: 评估 Reads 与参考基因组的比对质量，包括比对率、特异性和基因组区域分布
+
+</div>
+
+**质量控制标准**
+
+> **注意**
+> 
+> 以下标准仅供参考，实际质量评估应考虑组织类型、细胞状态和实验目标等多种因素。不同样本间存在显著差异，建议结合具体实验背景进行判断。
+
+<table style="width:100%; border-collapse: collapse; margin: 15px 0; border-radius: 8px; overflow: hidden;">
+<thead style="background-color: #f5f5f7; border-bottom: 1px solid #d2d2d7;">
 <tr>
-<th width="25%" align="left"><strong>指标名称</strong></th>
-<th width="30%" align="left"><strong>推荐值</strong></th>
-<th width="30%" align="left"><strong>可接受</strong></th>
-<th width="15%" align="left"><strong>需优化</strong></th>
+<th width="25%" align="left" style="padding: 12px 16px; font-weight: 600; color: #1d1d1f;">指标名称</th>
+<th width="30%" align="left" style="padding: 12px 16px; font-weight: 600; color: #1d1d1f;">推荐值</th>
+<th width="30%" align="left" style="padding: 12px 16px; font-weight: 600; color: #1d1d1f;">可接受</th>
+<th width="15%" align="left" style="padding: 12px 16px; font-weight: 600; color: #1d1d1f;">需优化</th>
 </tr>
 </thead>
 <tbody>
@@ -897,13 +1034,13 @@ HTML 网页报告是单细胞 RNA 测序分析的综合展示平台，整合了�
 </tbody>
 </table>
 
-**🔍 详细指标解释：**
+**详细指标解释：**
 
-<table style="width:100%; border-collapse: collapse; margin: 15px 0;">
-<thead>
+<table style="width:100%; border-collapse: collapse; margin: 15px 0; border-radius: 8px; overflow: hidden;">
+<thead style="background-color: #f5f5f7; border-bottom: 1px solid #d2d2d7;">
 <tr>
-<th width="30%" align="left"><strong>指标名称</strong></th>
-<th width="70%" align="left"><strong>详细解释与技术要求</strong></th>
+<th width="30%" align="left" style="padding: 12px 16px; font-weight: 600; color: #1d1d1f;">指标名称</th>
+<th width="70%" align="left" style="padding: 12px 16px; font-weight: 600; color: #1d1d1f;">详细解释与技术要求</th>
 </tr>
 </thead>
 <tbody>
@@ -1012,32 +1149,50 @@ HTML 网页报告是单细胞 RNA 测序分析的综合展示平台，整合了�
 </tbody>
 </table>
 
-> **注**: 以上所有比例的计算均以原始测序读段(Number of Reads)为准，确保了各项指标之间的可比性和一致性。
-
----
-
-### 📈 交互式可视化图表解读 <a id="交互式可视化图表解读"></a>
-
-<div align="center">
-
-**🎯 核心功能**: 提供全面的数据可视化分析，从细胞质量控制到下游生物学分析的完整展示
+> **注**
+> 
+> 以上所有比例的计算均以原始测序读段(Number of Reads)为准，确保了各项指标之间的可比性和一致性。
 
 </div>
 
-#### 📊 可视化图表组一：细胞质量控制分析 <a id="可视化图表组一"></a>
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
 
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
 
-##### 📊 细胞鉴定曲线图 (Barcode Rank Plot)
+###  交互式可视化图表解读 <a id="交互式可视化图表解读"></a>
+
+<div align="center">
+
+**核心功能**: 提供全面的数据可视化分析，从细胞质量控制到下游生物学分析的完整展示
+
+</div>
+
+</div>
+
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px; ">
+
+####  可视化图表组一：细胞质量控制分析 <a id="可视化图表组一"></a>
+
+</div>
+
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px; ">
+
+#####  细胞鉴定曲线图 (Barcode Rank Plot)
 
 **图表功能**:
 该图通过将所有细胞按其包含的 UMI 数进行排序，来区分高质量的真实细胞与背景噪音。
 
-<div align="center">
-<img src="../images/html_scrna3.jpg" alt="scRNA网页报告" width="300">
+<div align="center" style="margin: 24px auto; max-width: 1200px;">
+<img src="../images/html_scrna3.jpg" alt="scRNA网页报告" width="300" style="border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,0.1);">
 </div>
 
-**如何解读**:
-*   **视觉编码**: 🔵 蓝线（有效细胞）| ⬜ 灰线（背景噪音）| 🔷 蓝色渐变区（混合区域）
+**如何解读**
+
+*   **视觉编码**: 蓝线（有效细胞）| 灰线（背景噪音）| 蓝色渐变区（混合区域）
 *   **图表轴系详解**: 
     - **X轴**: Barcode Rank（细胞排序）- 按 UMI 总数降序排列（对数刻度）
     - **Y轴**: UMI Counts（UMI 计数）- 每个细胞的总 UMI 数量（对数刻度）
@@ -1046,61 +1201,85 @@ HTML 网页报告是单细胞 RNA 测序分析的综合展示平台，整合了�
     - **理想模式**: 明显"拐点"区分真实细胞和背景，真实细胞区域陡峭下降，背景区域平缓分布
     - **异常模式**: 缺乏明显拐点（细胞浓度过低）、平缓下降（背景RNA过高）
 
----
+</div>
 
-##### 📊 液滴磁珠分布图 (Droplet Beads Distribution)
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px; ">
+
+#####  液滴磁珠分布图 (Droplet Beads Distribution)
 
 **图表功能**:
 展示在真实细胞液滴中，捕获到的细胞条形码（Beads）的数量分布情况。
 
-**如何解读**:
+**如何解读**
+
 *   **理论分布**: 液滴中磁珠的数量分布理论上符合**泊松分布**，这反映了微反应体系中随机捕获过程的统计特性。
 *   **实际影响**: 最终的分布会受到测序饱和度、液滴大小均一性、细胞浓度等实验因素的影响。
 
----
+</div>
 
-##### 📊 细胞数据分布图 (Cell Data Distribution)
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px; ">
+
+#####  细胞数据分布图 (Cell Data Distribution)
 
 **图表功能**:
 通过三个独立的小提琴图，分别展示高质量细胞在 **基因数 (nGenes)**、**UMI 数 (nUMI)** 和 **线粒体基因比例 (percent.mt)** 这三个关键质量指标上的分布情况。
 
-**如何解读**:
+**如何解读**
+
 *   **基因数和 UMI 数**: 分布的中心（最宽处）越高，表明细胞的转录组复杂度和捕获效率越高。
 *   **线粒体基因比例**: 分布应集中在较低的百分比（通常 < 10%–20%）。比例过高可能表示细胞凋亡或压力状态。
 
-<br>
-
----
-
-<div align="center">
-<img src="../images/html_scrna2.png" alt="scRNA网页报告" width="500">
 </div>
 
-#### 📊 可视化图表组二：下游生物学分析 <a id="可视化图表组二"></a>
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
+
+<div align="center" style="margin: 24px auto; max-width: 1200px;">
+<img src="../images/html_scrna2.png" alt="scRNA网页报告" width="500" style="border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,0.1);">
+</div>
+
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px; ">
+
+####  可视化图表组二：下游生物学分析 <a id="可视化图表组二"></a>
 
 <div align="center">
 
-**🎯 核心功能**: 细胞聚类分析、差异基因识别、细胞类型注释和测序深度评估的综合展示
+**核心功能**: 细胞聚类分析、差异基因识别、细胞类型注释和测序深度评估的综合展示
 
 </div>
 
-##### 🌀 细胞聚类分析图 (Cluster Analysis)
+</div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px; ">
+
+#####  细胞聚类分析图 (Cluster Analysis)
 
 **图表功能**:
 通过 UMAP 降维和 Louvain 聚类算法，将具有相似基因表达模式的细胞在二维空间中聚集在一起，从而识别潜在的细胞亚群。
 
-**如何解读**:
+**如何解读**
+
 *   **左图 (细胞类型聚类)**: 每个点代表一个细胞，不同颜色代表不同的细胞聚类。空间位置相近的细胞，其基因表达谱也更相似。
 *   **右图 (UMI 数分布)**: 在相同的 UMAP 空间上，用颜色梯度展示每个细胞的总 UMI 数。可用于辅助判断聚类结果的可靠性，例如某些 cluster 是否由低质量细胞组成。
 
----
+</div>
 
-##### 📈 标记基因分析 (Marker Genes)
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px; ">
+
+#####  标记基因分析 (Marker Genes)
 
 **图表功能**:
 展示每个细胞聚类的特征性差异表达基因，用于识别和注释不同的细胞类型。
 
-**如何解读**:
+**如何解读**
+
 *   **关键指标解释**: 
     - **P-val**: 差异表达的统计显著性p值，数值越小表示差异越显著（阈值: < 0.05显著，< 0.01高度显著）
     - **p_val_adj**: 经Bonferroni多重检验校正后的调整p值，控制假阳性率（推荐使用调整p值进行最终筛选）
@@ -1108,37 +1287,51 @@ HTML 网页报告是单细胞 RNA 测序分析的综合展示平台，整合了�
     - **pct.1 / pct.2**: 目标聚类/其他聚类中表达该基因的细胞比例
 *   **交互功能**: 聚类筛选（下拉菜单选择特定聚类）| 基因搜索（搜索框快速定位基因表达）
 
----
+</div>
 
-##### 🧬 细胞类型自动注释 (Cell Type Annotation)
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px; ">
+
+#####  细胞类型自动注释 (Cell Type Annotation)
 
 **图表功能**:
 在UMAP图上，使用从参考数据库（如scHCL, scMCA）推断的细胞类型对每个聚类进行标注。
 
-**如何解读**:
+**如何解读**
+
 *   **注释结果**: 为每个聚类提供一个可能的细胞类型标签。
 *   **物种支持**: Human (Homo sapiens) / Mouse (Mus musculus)；其他物种暂不提供细胞类型注释。
 *   **使用建议**: 自动注释结果仅供参考，其准确性依赖于参考数据库的质量和样本的相似性。建议结合标记基因进行手动验证和校正。
 
----
+</div>
 
-##### 📊 测序饱和度曲线 (Sequencing Saturation Curve)
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px; ">
+
+#####  测序饱和度曲线 (Sequencing Saturation Curve)
 
 **图表功能**:
 评估测序深度的充分性和数据复杂度，即继续增加测序量能否发现更多新的基因或 UMI。
 
-**如何解读**:
+**如何解读**
+
 *   **坐标轴**: X轴为平均每个细胞的测序读段数，Y轴为饱和度/平均每个细胞的中位基因数。
 *   **曲线趋势**: 曲线如果趋于平缓，表明测序已接近饱和，增加测序深度对发现新基因的贡献不大。如果曲线仍在快速上升，则表明增加测序可能仍有较大收益。
 
----
+</div>
 
-##### 🧪 双物种细胞归属页面（仅双物种分析）
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px; ">
+
+##### 双物种细胞归属页面（仅双物种分析）
 
 当输入为双物种参考（例如 `hg38 + mm10`）时，网页报告会新增“细胞物种归属”页面，用于展示双物种拆分与混合细胞识别结果。
 
-<div align="center">
-<img src="../images/html_scrna4.png" alt="scRNA双物种细胞归属页面" width="500">
+<div align="center" style="margin: 24px auto; max-width: 1200px;">
+<img src="../images/html_scrna4.png" alt="scRNA双物种细胞归属页面" width="500" style="border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,0.1);">
 </div>
 
 <br>
@@ -1146,7 +1339,8 @@ HTML 网页报告是单细胞 RNA 测序分析的综合展示平台，整合了�
 **图表功能**:
 该页面同时给出液滴层面的多细胞率、细胞层面的物种归属散点图，以及按物种拆分后的质量统计，便于快速判断双物种分离效果。
 
-**如何解读**:
+**如何解读**
+
 *   **Droplet 概览区（左上）**:
     - `Droplets with >0 Cell`: 至少含 1 个细胞的液滴数。
     - `Droplets with >1Cell (Observed / Inferred)`: 观测/推断的多细胞液滴数量。
@@ -1162,33 +1356,51 @@ HTML 网页报告是单细胞 RNA 测序分析的综合展示平台，整合了�
     - 建议将 `call=Multiplet` 细胞在下游聚类前单独标记或剔除。
     - 建议结合 `analysis/cell_classification.csv` 与该页面散点图共同判读，而非仅依赖单一阈值。
 
+</div>
 
----
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
 
-<br>
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
 
-## 📚 相关文档
+##  相关文档
 
-<br>
+</div>
 
-| 文档 | 说明 |
-| :--- | :--- |
-| [🔬 scRNA 流程](../pipeline/scRNA.md) | scRNA 分析流程详细说明 |
-| [⚙️ scRNA 参数](../parameter/scRNA.md) | 命令参数参考文档 |
-| [📁 输出文件](./outs.md) | 返回总输出文档索引 |
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
 
-<br>
+<table style="width:100%; border-collapse: collapse; margin: 0;">
+<thead style="background-color: #f5f5f7; border-bottom: 1px solid #d2d2d7;">
+<tr>
+<th width="30%" align="left" style="padding: 12px 16px; font-weight: 600; color: #1d1d1f;">文档</th>
+<th width="70%" align="left" style="padding: 12px 16px; font-weight: 600; color: #1d1d1f;">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" style="padding: 10px 16px;"><a href="../pipeline/scRNA.md">scRNA 流程</a></td>
+<td style="padding: 10px 16px;">scRNA 分析流程详细说明</td>
+</tr>
+<tr>
+<td align="left" style="padding: 10px 16px;"><a href="../parameter/scRNA.md">scRNA 参数</a></td>
+<td style="padding: 10px 16px;">命令参数参考文档</td>
+</tr>
+<tr>
+<td align="left" style="padding: 10px 16px;"><a href="./outs.md">输出文件</a></td>
+<td style="padding: 10px 16px;">返回总输出文档索引</td>
+</tr>
+</tbody>
+</table>
 
----
+</div>
 
-<br>
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
 
-<div align="center">
+<div align="center" style="background: #f5f5f7; border-radius: 12px; padding: 30px; margin: 40px auto; max-width: 1200px;">
 
-> 💡 <strong>反馈与支持</strong>
+> <strong>反馈与支持</strong>
 > 
 > 本文档持续更新中，如发现内容错误或需要补充的信息，欢迎反馈。
 > 
-> 📝 <strong>文档版本：</strong> 3.1 | <strong>最后更新：</strong> 2026年4月
+<strong>文档版本：</strong> 3.1 | <strong>最后更新：</strong> 2026年4月
 
 </div>

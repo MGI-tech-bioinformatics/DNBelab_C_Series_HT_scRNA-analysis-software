@@ -1,0 +1,3444 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentation site generated from README and doc markdown files">
+      
+      
+      
+      
+        <link rel="prev" href="scATAC.html">
+      
+      
+        <link rel="next" href="scVDJ.html">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>scATAC (EN) - DNBelab C Series™ HT Single-Cell Analysis Software</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#scatac-analysis-parameters" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../index.html" title="DNBelab C Series™ HT Single-Cell Analysis Software" class="md-header__button md-logo" aria-label="DNBelab C Series™ HT Single-Cell Analysis Software" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            DNBelab C Series™ HT Single-Cell Analysis Software
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              scATAC (EN)
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/MGI-tech-bioinformatics/DNBelab_C_Series_HT_scRNA-analysis-software" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    MGI-tech-bioinformatics/DNBelab_C_Series_HT_scRNA-analysis-software
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../index.html" title="DNBelab C Series™ HT Single-Cell Analysis Software" class="md-nav__button md-logo" aria-label="DNBelab C Series™ HT Single-Cell Analysis Software" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    DNBelab C Series™ HT Single-Cell Analysis Software
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/MGI-tech-bioinformatics/DNBelab_C_Series_HT_scRNA-analysis-software" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    MGI-tech-bioinformatics/DNBelab_C_Series_HT_scRNA-analysis-software
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../installation.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Installation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quickstart.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pipeline
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Pipeline
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pipeline/pipeline.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pipeline/scRNA.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    scRNA (ZH)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pipeline/scRNA_en.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    scRNA (EN)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pipeline/scATAC.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    scATAC (ZH)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pipeline/scATAC_en.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    scATAC (EN)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pipeline/scVDJ.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    scVDJ (ZH)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pipeline/scVDJ_en.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    scVDJ (EN)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pipeline/multi.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Multi (ZH)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pipeline/multi_en.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Multi (EN)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Parameter
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Parameter
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="parameter.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="scRNA.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    scRNA (ZH)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="scRNA_en.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    scRNA (EN)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="scATAC.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    scATAC (ZH)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    scATAC (EN)
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="scATAC_en.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    scATAC (EN)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#main-analysis-pipeline-run" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Main Analysis Pipeline (run)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Main Analysis Pipeline (run)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Usage
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameter-description" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Parameter Description
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Parameter Description">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#required-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Required Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-n-name-required" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        -n, --name (Required)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-g-genomedir-required" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        -g, --genomeDir (Required)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#input-file-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Input File Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-fastqs-method-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        --fastqs (Method 1)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-fastq1-method-2a" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        --fastq1 (Method 2A)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-fastq2-method-2b" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        --fastq2 (Method 2B)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#basic-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Basic Settings
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-o-outdir-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        -o, --outdir (Optional)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-t-threads-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        -t, --threads (Optional)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#library-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Library Settings
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-darkreaction-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        --darkreaction (Optional)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-customize-advanced" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        --customize (Advanced)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#filtering-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Filtering Settings
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-forcecells-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        --forcecells (Optional)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-frags_cutoff-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        --frags_cutoff (Optional)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-tss_cutoff-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        --tss_cutoff (Optional)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-jaccard_cutoff-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        --jaccard_cutoff (Optional)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-merge_cutoff-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        --merge_cutoff (Optional)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#analysis-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Analysis Settings
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-need_bam-flag" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        --need_bam (Flag)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-sample_read_pairs-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        --sample_read_pairs (Optional)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reference-database-construction-mkref" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reference Database Construction (mkref)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Reference Database Construction (mkref)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#usage_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Usage
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameter-description_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Parameter Description
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Parameter Description">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#required-parameters_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Required Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-fasta-required" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        --fasta (Required)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-ingtf-required" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        --ingtf (Required)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#output-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Output Settings
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-genomedir-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        --genomeDir (Optional)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-species-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        --species (Optional)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#genome-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Genome Settings
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-tag-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        --tag (Optional)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-chrm-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        --chrM (Optional)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-chloroplast-plant-specific" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        --chloroplast (Plant-specific)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-kmer-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        --kmer (Optional)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-window-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        --window (Optional)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-noindex-flag" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        --noindex (Flag)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#multi-sample-operations-multi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Multi-sample Operations (multi)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Multi-sample Operations (multi)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#usage_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Usage
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameter-description_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Parameter Description
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Parameter Description">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#required-parameters_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Required Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-list-required" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        --list (Required)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Related Documentation
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="scVDJ.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    scVDJ (ZH)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="scVDJ_en.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    scVDJ (EN)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="multi.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Multi (ZH)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="multi_en.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Multi (EN)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tools.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tools (ZH)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tools_en.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tools (EN)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Outputs
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Outputs
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../outs/outs.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../outs/scRNA.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    scRNA (ZH)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../outs/scRNA_en.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    scRNA (EN)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../outs/scATAC.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    scATAC (ZH)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../outs/scATAC_en.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    scATAC (EN)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../outs/scVDJ.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    scVDJ (ZH)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../outs/scVDJ_en.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    scVDJ (EN)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../outs/multi.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Multi (ZH)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../outs/multi_en.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Multi (EN)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../io.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    I/O Analysis
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../release.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Release Notes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dataset.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dataset
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Additional
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Additional
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../installation_previous.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Previous Installation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../json.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    JSON Spec
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../structure.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Structure
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#main-analysis-pipeline-run" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Main Analysis Pipeline (run)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Main Analysis Pipeline (run)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Usage
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameter-description" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Parameter Description
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Parameter Description">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#required-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Required Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-n-name-required" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        -n, --name (Required)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-g-genomedir-required" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        -g, --genomeDir (Required)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#input-file-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Input File Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-fastqs-method-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        --fastqs (Method 1)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-fastq1-method-2a" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        --fastq1 (Method 2A)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-fastq2-method-2b" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        --fastq2 (Method 2B)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#basic-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Basic Settings
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-o-outdir-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        -o, --outdir (Optional)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-t-threads-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        -t, --threads (Optional)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#library-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Library Settings
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-darkreaction-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        --darkreaction (Optional)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-customize-advanced" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        --customize (Advanced)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#filtering-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Filtering Settings
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-forcecells-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        --forcecells (Optional)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-frags_cutoff-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        --frags_cutoff (Optional)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-tss_cutoff-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        --tss_cutoff (Optional)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-jaccard_cutoff-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        --jaccard_cutoff (Optional)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-merge_cutoff-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        --merge_cutoff (Optional)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#analysis-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Analysis Settings
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-need_bam-flag" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        --need_bam (Flag)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-sample_read_pairs-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        --sample_read_pairs (Optional)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reference-database-construction-mkref" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reference Database Construction (mkref)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Reference Database Construction (mkref)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#usage_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Usage
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameter-description_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Parameter Description
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Parameter Description">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#required-parameters_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Required Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-fasta-required" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        --fasta (Required)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-ingtf-required" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        --ingtf (Required)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#output-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Output Settings
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-genomedir-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        --genomeDir (Optional)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-species-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        --species (Optional)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#genome-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Genome Settings
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-tag-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        --tag (Optional)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-chrm-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        --chrM (Optional)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-chloroplast-plant-specific" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        --chloroplast (Plant-specific)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-kmer-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        --kmer (Optional)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-window-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        --window (Optional)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-noindex-flag" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        --noindex (Flag)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#multi-sample-operations-multi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Multi-sample Operations (multi)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Multi-sample Operations (multi)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#usage_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Usage
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameter-description_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Parameter Description
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Parameter Description">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#required-parameters_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Required Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-list-required" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        --list (Required)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Related Documentation
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<div align="right" style="margin-bottom: 20px; max-width: 1200px; margin-left: auto; margin-right: auto;">
+<p><a href="../../index.html" style="color: #0071e3; text-decoration: none; font-size: 14px;">Home</a> <span style="color: rgba(0,0,0,0.3);">•</span> <a href="scATAC.html" style="color: #0071e3; text-decoration: none; font-size: 14px;">中文</a></p>
+</div>
+<div align="center" style="padding: 40px 20px; background: linear-gradient(135deg, #f5f5f7 0%, #ffffff 100%); border-radius: 12px; margin-bottom: 30px; max-width: 1200px; margin-left: auto; margin-right: auto;">
+<h1 id="scatac-analysis-parameters" style="font-size: 48px; font-weight: 600; color: #1d1d1f; margin: 0 0 16px 0; letter-spacing: -0.02em;">scATAC Analysis Parameters<a class="headerlink" href="#scatac-analysis-parameters" title="Permanent link">&para;</a></h1>
+<p style="font-size: 21px; color: rgba(0,0,0,0.6); margin: 0 0 30px 0; font-weight: 400;">DNBelab C Series HT scATAC Parameter Configuration Guide</p>
+<div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+<p><a href="#main-analysis-pipeline-run" style="background: #0071e3; color: white; padding: 8px 16px; border-radius: 980px; text-decoration: none; font-size: 14px;">Main Analysis (run)</a>
+<a href="#reference-database-construction-mkref" style="background: transparent; color: #0071e3; padding: 8px 16px; border-radius: 980px; text-decoration: none; font-size: 14px; border: 1px solid #0071e3;">Database Construction (mkref)</a>
+<a href="#multi-sample-operations-multi" style="background: transparent; color: #0071e3; padding: 8px 16px; border-radius: 980px; text-decoration: none; font-size: 14px; border: 1px solid #0071e3;">Multi-sample (multi)</a></p>
+</div>
+</div>
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
+<h2 id="overview">Overview <a id="overview"></a><a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
+<p>This document explains the parameter meanings, default behaviors, and common usage patterns for each subcommand of <code>dnbc4tools atac</code>, covering single-sample analysis (<code>run</code>), reference library construction (<code>mkref</code>), and multi-sample task generation (<code>multi</code>).</p>
+<blockquote>
+<p><strong>Tip</strong></p>
+<p>Parameter descriptions are based on the current command-line help information. Examples can be used directly as templates and adjusted as needed.</p>
+</blockquote>
+</div>
+<div style="max-width: 1200px; margin: 0 auto;">
+<hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;">
+</div>
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
+<h2 id="main-analysis-pipeline-run">Main Analysis Pipeline (run) <a id="main-analysis-pipeline-run"></a><a class="headerlink" href="#main-analysis-pipeline-run" title="Permanent link">&para;</a></h2>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #d2d2d7; overflow-x: auto;">
+<h3 id="usage">Usage <a id="usage"></a><a class="headerlink" href="#usage" title="Permanent link">&para;</a></h3>
+<pre><code class="language-shell">$ dnbc4tools atac run
+dnbc4tools 3.1
+
+Process a single-cell ATAC-seq sample.
+
+Usage: dnbc4tools atac run [OPTIONS]
+
+optional arguments:
+  -h, --help                 show this help message and exit
+
+Input Files:
+  Choose one input method: either `--fastqs` (directory input) or individual FASTQ files (`--fastq1` and `--fastq2`).
+
+  --fastqs &lt;DIR&gt;             Input directory containing paired-end FASTQ files.
+                             The pipeline automatically detects Read 1 and Read 2 files (e.g., `./fastq_dir`).
+  --fastq1 &lt;FILE&gt;            Read 1 FASTQ file(s) for the ATAC library. Wildcards and comma-separated lists are supported (e.g.,
+                             `sample1_L01_R1.fastq.gz,sample1_L02_R1.fastq.gz`).
+  --fastq2 &lt;FILE&gt;            Read 2 FASTQ file(s) for the ATAC library. Wildcards and comma-separated lists are supported.
+                             Must match the order provided to `--fastq1` (e.g., `sample1_L01_R2.fastq.gz,sample1_L02_R2.fastq.gz`).
+
+Basic Settings:
+  -n, --name &lt;STR&gt;           Unique identifier for the sample. Used for naming output files and reports (e.g., `sample1`).
+  -g, --genomeDir &lt;DIR&gt;      Path to reference genome directory. Must contain the required index and annotation resources.
+  -o, --outdir &lt;DIR&gt;         Output directory for results and reports [default: current directory] (e.g., `./output`).
+  -t, --threads &lt;INT&gt;        Number of CPU threads for parallel processing [default: 10].
+
+Library Settings:
+  --darkreaction &lt;STR&gt;       Dark cycle setting for ATAC library [default: auto].
+                             Supported values: `auto` (automatic detection), `R1R2` (both reads), `R1` (Read 1 only), `R2` (Read 2 only), and `unset` (no dark cycles).
+  --customize &lt;STR&gt;          Custom read structure for barcode or sequence extraction, in the format `&lt;type&gt;,&lt;read&gt;:&lt;start&gt;-&lt;end&gt;` separated by `;`.
+                             Types: `cb` (cell barcode), `R1` (sequence from Read1), `R2` (sequence from Read2) (e.g., `&quot;cb,R1:1-10;cb,R1:11-20;R1,R1:21-70;R2,R2:1-50&quot;`).
+
+Filtering Settings:
+  --forcecells &lt;INT&gt;         Force pipeline to use exactly this number of cells, overriding expected cell detection (e.g., `5000`).
+  --frags_cutoff &lt;INT&gt;       Minimum number of unique fragments to retain a cell [default: 1000].
+  --tss_cutoff &lt;FLOAT&gt;       Minimum TSS proportion threshold to retain a cell [default: 0.0] (e.g., `0.2`).
+  --jaccard_cutoff &lt;FLOAT&gt;   Jaccard similarity threshold for bead merging (e.g., `0.02`).
+  --merge_cutoff &lt;INT&gt;       Minimum number of fragments when merging beads [default: 500].
+
+Analysis Settings:
+  --need_bam                 Enable generation of BAM files containing aligned reads.
+                             Note: generating BAM files increases run time and disk-space usage.
+  --sample_read_pairs &lt;INT&gt;  Subsample the specified number of read pairs from the input FASTQ files (e.g., `1000000`).
+</code></pre>
+</div>
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
+<h3 id="parameter-description">Parameter Description<a class="headerlink" href="#parameter-description" title="Permanent link">&para;</a></h3>
+</div>
+<div style="max-width: 1200px; margin: 0 auto;">
+<h4 id="required-parameters">Required Parameters<a class="headerlink" href="#required-parameters" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p><strong>Essential parameters that must be specified for a successful analysis</strong></p>
+</blockquote>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
+<h4 id="-n-name-required"><code>-n, --name</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(Required)</span><a class="headerlink" href="#-n-name-required" title="Permanent link">&para;</a></h4>
+<p>Provide a unique name for this analysis run.</p>
+<ul>
+<li><strong>Function:</strong> This name will be used as a prefix for all output files and the HTML report.</li>
+<li><strong>Display:</strong> In the final web report, this name will be shown as the Sample ID.</li>
+</ul>
+<p><strong>Default:</strong> None</p>
+<p><strong>Example:</strong></p>
+<pre><code>--name sample_001</code></pre>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
+<h4 id="-g-genomedir-required"><code>-g, --genomeDir</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(Required)</span><a class="headerlink" href="#-g-genomedir-required" title="Permanent link">&para;</a></h4>
+<p>Specify the path to the reference genome directory.</p>
+<ul>
+<li><strong>Requirement:</strong> The directory must contain the index and annotation resources generated by the <code>mkref</code> command.</li>
+<li><strong>Content:</strong> Includes genome sequence, TSS file, alignment index, etc.</li>
+</ul>
+<p><strong>Default:</strong> None</p>
+<p><strong>Example:</strong></p>
+<pre><code>--genomeDir /path/to/genome/database</code></pre>
+</div>
+<div style="max-width: 1200px; margin: 0 auto;">
+<hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;">
+</div>
+<div style="max-width: 1200px; margin: 0 auto;">
+<h4 id="input-file-parameters">Input File Parameters<a class="headerlink" href="#input-file-parameters" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p><strong>Choose one input method: Directory-based OR specify individual files</strong></p>
+</blockquote>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
+<h4 id="-fastqs-method-1"><code>--fastqs</code> <span style="font-size: 0.8em; font-weight: normal; color: #3498db;">(Method 1)</span><a class="headerlink" href="#-fastqs-method-1" title="Permanent link">&para;</a></h4>
+<p>Specify the path to the directory containing all FASTQ files.</p>
+<ul>
+<li><strong>Function:</strong> The pipeline will automatically detect paired Read1 and Read2 files in the directory.</li>
+<li><strong>Note:</strong> This is a convenience option and cannot be used simultaneously with <code>--fastq1</code> / <code>--fastq2</code>.</li>
+</ul>
+<p><strong>Default:</strong> None</p>
+<p><strong>Example:</strong></p>
+<pre><code>--fastqs ./fastq_directory</code></pre>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
+<h4 id="-fastq1-method-2a"><code>--fastq1</code> <span style="font-size: 0.8em; font-weight: normal; color: #3498db;">(Method 2A)</span><a class="headerlink" href="#-fastq1-method-2a" title="Permanent link">&para;</a></h4>
+<p>Specify one or more Read1 FASTQ files individually.</p>
+<ul>
+<li><strong>Support:</strong> You can use wildcards (<code>*</code>) to match files or a comma-separated list for multiple files.</li>
+<li><strong>Requirement:</strong> Must be used in pairs with the <code>--fastq2</code> parameter, and the file order must match exactly.</li>
+</ul>
+<p><strong>Default:</strong> None</p>
+<p><strong>Example:</strong></p>
+<pre><code>--fastq1 sample1_L01_R1.fastq.gz,sample1_L02_R1.fastq.gz</code></pre>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
+<h4 id="-fastq2-method-2b"><code>--fastq2</code> <span style="font-size: 0.8em; font-weight: normal; color: #3498db;">(Method 2B)</span><a class="headerlink" href="#-fastq2-method-2b" title="Permanent link">&para;</a></h4>
+<p>Specify one or more Read2 FASTQ files individually.</p>
+<ul>
+<li><strong>Support:</strong> You can use wildcards (<code>*</code>) to match files or a comma-separated list for multiple files.</li>
+<li><strong>Requirement:</strong> Must be used in pairs with the <code>--fastq1</code> parameter, and the file order must match exactly.</li>
+</ul>
+<p><strong>Default:</strong> None</p>
+<p><strong>Example:</strong></p>
+<pre><code>--fastq2 sample1_L01_R2.fastq.gz,sample1_L02_R2.fastq.gz</code></pre>
+</div>
+<div style="background: #f5f5f7; border-radius: 12px; padding: 20px; margin: 20px auto; max-width: 1200px;">
+<blockquote>
+<p><strong>Input Method Selection:</strong>
+- <strong>Method 1:</strong> Use <code>--fastqs</code> to specify a directory containing paired FASTQ files.
+- <strong>Method 2:</strong> Use <code>--fastq1</code> and <code>--fastq2</code> to specify R1 and R2 files respectively.</p>
+<p><strong>Compatible aliases</strong>
+- Legacy short options <code>-1/-2</code> are still supported, but hidden in current help output. Long options are recommended for better script readability.</p>
+<p><strong>Important Note:</strong> All files under a parameter must come from the same library, with consistent sequencing mode and dark reaction settings. Data from different libraries cannot be merged for analysis.</p>
+</blockquote>
+</div>
+<div style="max-width: 1200px; margin: 0 auto;">
+<hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;">
+</div>
+<div style="background: #f5f5f7; border-radius: 12px; padding: 20px; margin: 24px auto; max-width: 1200px;">
+<div style="max-width: 1200px; margin: 0 auto;">
+<h4 id="basic-settings">Basic Settings<a class="headerlink" href="#basic-settings" title="Permanent link">&para;</a></h4>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
+<h4 id="-o-outdir-optional"><code>-o, --outdir</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(Optional)</span><a class="headerlink" href="#-o-outdir-optional" title="Permanent link">&para;</a></h4>
+<p>Specify the output directory for all analysis results and reports.</p>
+<ul>
+<li><strong>Function:</strong> All analysis results will be saved in this directory, and the pipeline will automatically create a structured subdirectory named after the sample.</li>
+</ul>
+<p><strong>Default:</strong> <code>./</code> (current directory)</p>
+<p><strong>Example:</strong></p>
+<pre><code>--outdir ./output_results</code></pre>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
+<h4 id="-t-threads-optional"><code>-t, --threads</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(Optional)</span><a class="headerlink" href="#-t-threads-optional" title="Permanent link">&para;</a></h4>
+<p>Set the number of CPU threads to be used during the analysis.</p>
+<ul>
+<li><strong>Function:</strong> Increasing the number of threads can significantly speed up the analysis.</li>
+<li><strong>Recommendation:</strong> Adjust based on the number of available CPU cores for optimal performance.</li>
+</ul>
+<p><strong>Default:</strong> <code>10</code></p>
+<p><strong>Example:</strong></p>
+<pre><code>--threads 16</code></pre>
+</div>
+</div>
+<div style="max-width: 1200px; margin: 0 auto;">
+<hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;">
+</div>
+<div style="max-width: 1200px; margin: 0 auto;">
+<h4 id="library-settings">Library Settings<a class="headerlink" href="#library-settings" title="Permanent link">&para;</a></h4>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
+<h4 id="-darkreaction-optional"><code>--darkreaction</code> <span style="font-size: 0.8em; font-weight: normal; color: #f39c12;">(Optional)</span><a class="headerlink" href="#-darkreaction-optional" title="Permanent link">&para;</a></h4>
+<p>Configure the dark cycle settings for the ATAC library to ensure accurate cell barcode identification.</p>
+<ul>
+<li><strong>Function:</strong> Guides the software to correctly parse dark reaction cycles generated by the sequencing chemistry (e.g., on MGI platforms).</li>
+<li><strong>Smart Detection:</strong> By default, the software automatically detects data characteristics to select the appropriate mode. <strong>Highly recommended for initial analysis.</strong></li>
+<details open="open">
+<summary><strong>Detailed Configuration Options</strong></summary>
+<table>
+<thead><tr><th>Option</th><th>Description</th><th>Use Case</th></tr></thead>
+<tbody>
+<tr><td><code>auto</code></td>
+    <td><strong>(Default)</strong> Automatically detects dark cycle configuration and applies the optimal setting based on library type.</td>
+    <td>Applicable to all standard ATAC sequencing data.</td>
+</tr>
+<tr><td><code>R1R2</code></td>
+    <td>Both Read1 and Read2 contain dark cycle bases.</td>
+    <td>Applicable for dual-end dark cycle sequencing designs.</td>
+</tr>
+<tr><td><code>R1</code></td>
+    <td>Only the Read1 end contains dark cycle bases.</td>
+    <td>Applicable for single-end dark cycle (Read1 direction) sequencing designs.</td>
+</tr>
+<tr><td><code>R2</code></td>
+    <td>Only the Read2 end contains dark cycle bases.</td>
+    <td>Applicable for single-end dark cycle (Read2 direction) sequencing designs.</td>
+</tr>
+<tr><td><code>unset</code></td>
+    <td>The library contains no dark cycle bases; no dark cycle correction is performed.</td>
+    <td>Applicable for non-MGI platforms or sequencing designs without dark cycles.</td>
+</tr>
+</tbody>
+</table>
+</details>
+</ul>
+<p><strong>Examples:</strong></p>
+<pre><code># Scenario 1: Initial analysis, using auto-detection
+dnbc4tools atac run --name sample1 --fastqs ./fq --genomeDir ./ref</code></pre>
+<pre><code># Scenario 2: Known library has dark cycles only on R1 and auto-analysis fails or identifies incorrectly
+dnbc4tools atac run --name sample2 --fastqs ./fq --genomeDir ./ref --darkreaction R1</code></pre>
+<p><strong>Important Note:</strong> Incorrect settings can lead to cell barcode identification failure or loss of sequence information. Specify manually only if you understand the library structure or if auto-detection fails.</p>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
+<h4 id="-customize-advanced"><code>--customize</code> <span style="font-size: 0.8em; font-weight: normal; color: #9b59b6;">(Advanced)</span><a class="headerlink" href="#-customize-advanced" title="Permanent link">&para;</a></h4>
+<p>Precisely define the extraction structure for barcodes and effective sequences (reads) for non-standard libraries.</p>
+<ul>
+<li><strong>Function:</strong> This parameter provides ultimate control when the preset modes of <code>--darkreaction</code> are not applicable. It will <strong>override</strong> any <code>--darkreaction</code> settings.</li>
+<li><strong>Syntax:</strong> <code>"&lt;type&gt;,&lt;read&gt;:&lt;start&gt;-&lt;end&gt;";...</code>, with multiple segments separated by semicolons (<code>;</code>), and coordinates are 1-based.</li>
+<details open="open">
+<summary><strong>Parameter Type Details</strong></summary>
+<table>
+<thead><tr><th>Type</th><th>Description</th><th>Example</th></tr></thead>
+<tbody>
+<tr><td><code>cb</code></td><td>Cell Barcode</td><td><code>cb,R1:1-10</code></td></tr>
+<tr><td><code>R1</code></td><td>Effective DNA sequence in Read1</td><td><code>R1,R1:21-70</code></td></tr>
+<tr><td><code>R2</code></td><td>Effective DNA sequence in Read2</td><td><code>R2,R2:1-50</code></td></tr>
+</tbody>
+</table>
+</details>
+</ul>
+<p><strong>Examples:</strong></p>
+<pre><code># Example 1: Assume R1 structure is: Barcode 1 (10bp) -&gt; Barcode 2 (10bp) -&gt; Insert (50bp). R2 structure is: Insert (50bp).
+--customize "cb,R1:1-10;cb,R1:11-20;R1,R1:21-70;R2,R2:1-50"</code></pre>
+<pre><code># Example 2: Assume R1 structure is: Fixed (6bp) -&gt; Barcode 1 (10bp) -&gt; Fixed (6bp) -&gt; Barcode 2 (10bp) -&gt; Fixed (33bp) -&gt; Insert (50bp). R2 structure is: Fixed (19bp) -&gt; Insert (50bp).
+--customize "cb,R1:7-16;cb,R1:23-32;R1,R1:66-115;R2,R2:20-69"</code></pre>
+<p><strong>Notes:</strong></p>
+<ul>
+<li><strong>Must use quotes:</strong> The entire string must be enclosed in double quotes due to special characters.</li>
+<li><strong>Accurate coordinates:</strong> The coordinate range cannot exceed the actual read length in the FASTQ file, or it will cause a parsing failure.</li>
+</ul>
+</div>
+<hr />
+<div style="max-width: 1200px; margin: 0 auto;">
+<h4 id="filtering-settings">Filtering Settings<a class="headerlink" href="#filtering-settings" title="Permanent link">&para;</a></h4>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
+<h4 id="-forcecells-optional"><code>--forcecells</code> <span style="font-size: 0.8em; font-weight: normal; color: #e67e22;">(Optional)</span><a class="headerlink" href="#-forcecells-optional" title="Permanent link">&para;</a></h4>
+<p>Force the pipeline to use an exact number of cells, overriding the software's automatic cell detection.</p>
+<ul>
+<li><strong>Function:</strong> Use when you want to analyze a cell population of a known quantity.</li>
+<li><strong>Priority:</strong> This is the highest-priority filtering parameter.</li>
+</ul>
+<p><strong>Default:</strong> None</p>
+<p><strong>Example:</strong></p>
+<pre><code># Force the output of 5000 cells for analysis
+dnbc4tools atac run --name sample1 --fastqs ./fq --genomeDir ./ref --forcecells 5000</code></pre>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
+<h4 id="-frags_cutoff-optional"><code>--frags_cutoff</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(Optional)</span><a class="headerlink" href="#-frags_cutoff-optional" title="Permanent link">&para;</a></h4>
+<p>Set the minimum number of unique fragments to retain a cell.</p>
+<ul>
+<li><strong>Function:</strong> This is a core cell quality control parameter. Cells below this threshold are considered to have poor data quality and will be excluded from subsequent analysis.</li>
+<li><strong>Recommendation:</strong> Use the default value for the initial analysis, then determine a more appropriate threshold based on the "Fragments Count Distribution" plot in the "TSS Targeting" section of the web report.</li>
+</ul>
+<p><strong>Default:</strong> <code>1000</code></p>
+<p><strong>Example:</strong></p>
+<pre><code># Lower the fragment threshold for cell filtering to 500
+dnbc4tools atac run --name sample1 --fastqs ./fq --genomeDir ./ref --frags_cutoff 500</code></pre>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
+<h4 id="-tss_cutoff-optional"><code>--tss_cutoff</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(Optional)</span><a class="headerlink" href="#-tss_cutoff-optional" title="Permanent link">&para;</a></h4>
+<p>Set the minimum proportion of fragments in TSS regions to retain a cell.</p>
+<ul>
+<li><strong>Function:</strong> TSS enrichment is a key quality metric for ATAC-seq data. Setting this threshold can effectively exclude low-quality cells caused by technical issues like cell damage or nuclear lysis.</li>
+</ul>
+<p><strong>Default:</strong> <code>0</code> (no filtering)</p>
+<p><strong>Example:</strong></p>
+<pre><code># Filter out cells with a TSS region fragment proportion below 0.1
+dnbc4tools atac run --name sample1 --fastqs ./fq --genomeDir ./ref --tss_cutoff 0.1</code></pre>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
+<h4 id="-jaccard_cutoff-optional"><code>--jaccard_cutoff</code> <span style="font-size: 0.8em; font-weight: normal; color: #9b59b6;">(Optional)</span><a class="headerlink" href="#-jaccard_cutoff-optional" title="Permanent link">&para;</a></h4>
+<p>The Jaccard similarity threshold for merging multiple barcodes (beads) that potentially belong to the same cell.</p>
+<ul>
+<li><strong>Function:</strong> Corrects for "duplicate" cell barcodes arising from loading or amplification biases, based on the similarity of chromatin accessibility patterns.</li>
+<li><strong>Mode:</strong> Supports manual threshold setting or using <code>auto</code> to let the software automatically determine the best threshold based on the OTSU algorithm.</li>
+</ul>
+<p><strong>Default:</strong> <code>auto</code></p>
+<p><strong>Example:</strong></p>
+<pre><code># Manually set the Jaccard similarity threshold to 0.02
+dnbc4tools atac run --name sample1 --fastqs ./fq --genomeDir ./ref --jaccard_cutoff 0.02</code></pre>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
+<h4 id="-merge_cutoff-optional"><code>--merge_cutoff</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(Optional)</span><a class="headerlink" href="#-merge_cutoff-optional" title="Permanent link">&para;</a></h4>
+<p>Set the minimum number of fragments required for a bead to be included in the Jaccard merging process.</p>
+<ul>
+<li><strong>Function:</strong> Only beads with fragment counts above this threshold will be included in the Jaccard similarity calculation and merging process. The merged valid cell fragments will be used for subsequent peak calling.</li>
+<li><strong>Effect:</strong> Filters out low-quality beads before merging, improving the accuracy and efficiency of the merge.</li>
+<li><strong>Recommendation:</strong> For samples with low total fragments, you can lower this value appropriately to include more beads for merging, thereby obtaining more valid fragments for subsequent analysis.</li>
+</ul>
+<p><strong>Default:</strong> <code>500</code></p>
+<p><strong>Example:</strong></p>
+<pre><code># For a low-fragment sample, lower the threshold to 200 to include more beads for merging
+dnbc4tools atac run --name sample1 --fastqs ./fq --genomeDir ./ref --merge_cutoff 200</code></pre>
+</div>
+<div style="max-width: 1200px; margin: 0 auto;">
+<hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;">
+</div>
+<div style="max-width: 1200px; margin: 0 auto;">
+<h4 id="analysis-settings">Analysis Settings<a class="headerlink" href="#analysis-settings" title="Permanent link">&para;</a></h4>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
+<h4 id="-need_bam-flag"><code>--need_bam</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(Flag)</span><a class="headerlink" href="#-need_bam-flag" title="Permanent link">&para;</a></h4>
+<p>Enable the generation of BAM format files.</p>
+<ul>
+<li><strong>Function:</strong> Generates a BAM file containing all aligned reads with valid barcodes, which can be used for visualization in tools like IGV or for other custom analyses.</li>
+<li><strong>Note:</strong> Enabling this option will significantly increase computation time and disk space usage, with an expected runtime increase of 30-50%. Additionally, due to differences in how the chromap aligner generates BAM files versus directly outputting BED files, the final results may vary slightly.</li>
+</ul>
+<p><strong>Default:</strong> If not set, BAM files are not generated.</p>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
+<h4 id="-sample_read_pairs-optional"><code>--sample_read_pairs</code> <span style="font-size: 0.8em; font-weight: normal; color: #9b59b6;">(Optional)</span><a class="headerlink" href="#-sample_read_pairs-optional" title="Permanent link">&para;</a></h4>
+<p>Extract a specified number of read pairs from the input FASTQ files for analysis.</p>
+<ul>
+<li><strong>Function:</strong> Used for quick testing of large datasets before a full analysis, or for down-sampling analysis when resources are limited.</li>
+</ul>
+<p><strong>Default:</strong> None (uses all data)</p>
+<p><strong>Example:</strong></p>
+<pre><code>--sample_read_pairs 100000000</code></pre>
+</div>
+<div style="max-width: 1200px; margin: 0 auto;">
+<hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;">
+</div>
+<div style="background: #f5f5f7; border-radius: 12px; padding: 20px; margin: 24px auto; max-width: 1200px;">
+<blockquote>
+<p><strong>Analysis Recommendation</strong></p>
+<blockquote>
+<p>For the initial analysis, it is recommended to use the default parameters and then adjust them as needed based on the results report.</p>
+</blockquote>
+</blockquote>
+</div>
+<div style="max-width: 1200px; margin: 0 auto;">
+<hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;">
+</div>
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
+<h2 id="reference-database-construction-mkref">Reference Database Construction (mkref) <a id="reference-database-construction-mkref"></a><a class="headerlink" href="#reference-database-construction-mkref" title="Permanent link">&para;</a></h2>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #d2d2d7; overflow-x: auto;">
+<h3 id="usage_1">Usage<a class="headerlink" href="#usage_1" title="Permanent link">&para;</a></h3>
+<pre><code class="language-shell">$ dnbc4tools atac mkref --help
+Usage: dnbc4tools atac mkref [OPTIONS]
+optional arguments:
+  -h, --help           show this help message and exit
+
+Input files:
+  Input genome FASTA and gene annotation GTF files. For mixed species analysis, use comma to separate multiple files.
+
+  --fasta &lt;FILE&gt;       Path to reference genome FASTA file. Multiple files separated by comma
+  --ingtf &lt;FILE&gt;       Path to gene annotation GTF file. Multiple files separated by comma
+
+Basic settings:
+  --genomeDir &lt;DIR&gt;    Output directory for reference files [default: current directory]
+  --species &lt;STR&gt;      Species identifier. For mixed species analysis, use comma separated [default: undefined]
+
+Advanced settings:
+  --tag &lt;TYPE&gt;         Select type to generate BED file [default: transcript]
+  --chrM &lt;STR&gt;         Mitochondrial chromosome identifier in reference genome [default: auto]
+  --chloroplast &lt;STR&gt;  Chloroplast chromosome name, particularly recommended for plants, e.g. &quot;Pt&quot;
+  --prefix &lt;STR&gt;       Filter chromosomes by prefix or full name. Not supported for mixed species
+  --kmer &lt;INT&gt;         k-mer length, this determines the size of the substrings being extracted [default: 17]
+  --window &lt;INT&gt;       Window size, this defines the number of consecutive k-mers within a window [default: 7]
+  --noindex            Only generate ref.json without building genome index
+</code></pre>
+</div>
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
+<h3 id="parameter-description_1">Parameter Description<a class="headerlink" href="#parameter-description_1" title="Permanent link">&para;</a></h3>
+</div>
+<div style="max-width: 1200px; margin: 0 auto;">
+<h4 id="required-parameters_1">Required Parameters<a class="headerlink" href="#required-parameters_1" title="Permanent link">&para;</a></h4>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
+<h4 id="-fasta-required"><code>--fasta</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(Required)</span><a class="headerlink" href="#-fasta-required" title="Permanent link">&para;</a></h4>
+<p>Provide the reference genome sequence file.</p>
+<ul>
+<li><strong>Requirement:</strong> Standard FASTA format, primary assembly version is recommended.</li>
+<li><strong>Dual-species:</strong> Supports providing two comma-separated FASTA files for mixed-species analysis.</li>
+</ul>
+<p><strong>Default:</strong> None</p>
+<p><strong>Example:</strong></p>
+<pre><code>--fasta Homo_sapiens.GRCh38.dna.primary_assembly.fa</code></pre>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
+<h4 id="-ingtf-required"><code>--ingtf</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(Required)</span><a class="headerlink" href="#-ingtf-required" title="Permanent link">&para;</a></h4>
+<p>Provide the gene structure annotation file.</p>
+<ul>
+<li><strong>Requirement:</strong> Standard GTF format, must contain <code>gene</code> and <code>transcript</code> type annotation entries.</li>
+<li><strong>Function:</strong> Used to define TSS (Transcription Start Sites) and promoter regions.</li>
+</ul>
+<p><strong>Default:</strong> None</p>
+<p><strong>Example:</strong></p>
+<pre><code>--ingtf Homo_sapiens.GRCh38.108.gtf</code></pre>
+</div>
+<hr />
+<h4 id="output-settings">Output Settings<a class="headerlink" href="#output-settings" title="Permanent link">&para;</a></h4>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
+<h4 id="-genomedir-optional"><code>--genomeDir</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(Optional)</span><a class="headerlink" href="#-genomedir-optional" title="Permanent link">&para;</a></h4>
+<p>Specify the output directory for the generated reference database.</p>
+<ul>
+<li><strong>Function:</strong> All generated reference files (index, annotations, etc.) will be stored in this directory.</li>
+<details open="open">
+<summary><strong>Example Output Directory Structure</strong></summary>
+<pre><code>&lt;genomeDir/species&gt;/
+  ├── fasta/
+  │   ├── genome.fa
+  │   └── genome.index
+  ├── genes/
+  │   └── genes.gtf
+  ├── regions/
+  │   ├── chrom.sizes
+  │   ├── promoter.bed
+  │   └── tss.bed
+  └── ref.json
+  </code></pre>
+</details>
+</ul>
+<p><strong>Default:</strong> <code>./</code> (current directory)</p>
+<p><strong>Example:</strong></p>
+<pre><code>dnbc4tools atac mkref --fasta genome.fa --ingtf genes.gtf --genomeDir /database/scATAC/GRCh38</code></pre>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
+<h4 id="-species-optional"><code>--species</code> <span style="font-size: 0.8em; font-weight: normal; color: #f39c12;">(Optional)</span><a class="headerlink" href="#-species-optional" title="Permanent link">&para;</a></h4>
+<p>Specify a species name for the reference database.</p>
+<ul>
+<li><strong>Function:</strong> This name is recorded in the configuration file for easy identification later.</li>
+<li><strong>Recommendation:</strong> Use a standard scientific name format, such as <code>Homo_sapiens</code>.</li>
+</ul>
+<p><strong>Default:</strong> <code>undefined</code></p>
+<p><strong>Example:</strong></p>
+<pre><code>dnbc4tools atac mkref --fasta genome.fa --ingtf genes.gtf --species Homo_sapiens</code></pre>
+</div>
+<div style="max-width: 1200px; margin: 0 auto;">
+<hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;">
+</div>
+<h4 id="genome-settings">Genome Settings<a class="headerlink" href="#genome-settings" title="Permanent link">&para;</a></h4>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
+<h4 id="-tag-optional"><code>--tag</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(Optional)</span><a class="headerlink" href="#-tag-optional" title="Permanent link">&para;</a></h4>
+<p>Select the source of information for generating the TSS (Transcription Start Site) file.</p>
+<ul>
+<li><strong>Options:</strong> <code>gene</code> (uses gene start sites) or <code>transcript</code> (uses transcript start sites).</li>
+<li><strong>Recommendation:</strong> Using <code>transcript</code> mode can yield more accurate TSS enrichment analysis results.</li>
+</ul>
+<p><strong>Default:</strong> <code>transcript</code></p>
+<p><strong>Example:</strong></p>
+<pre><code># Generate TSS file based on transcript start sites
+dnbc4tools atac mkref --fasta genome.fa --ingtf genes.gtf --tag transcript</code></pre>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
+<h4 id="-chrm-optional"><code>--chrM</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(Optional)</span><a class="headerlink" href="#-chrm-optional" title="Permanent link">&para;</a></h4>
+<p>Specify the name of the mitochondrial chromosome.</p>
+<ul>
+<li><strong>Function:</strong> Used for cell quality control. An excess of mitochondrial fragments usually indicates poor cell quality. Including mitochondrial fragments in the analysis will affect the statistical accuracy of TSS/peak region fragments.</li>
+<li><strong>Auto-detection:</strong> By default, it will automatically identify from common names (e.g., <code>chrM</code>, <code>MT</code>).</li>
+</ul>
+<p><strong>Default:</strong> <code>auto</code></p>
+<p><strong>Example:</strong></p>
+<pre><code># If the mitochondrial chromosome name is "mitochondrion"
+dnbc4tools atac mkref --fasta genome.fa --ingtf genes.gtf --chrM mitochondrion</code></pre>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
+<h4 id="-chloroplast-plant-specific"><code>--chloroplast</code> <span style="font-size: 0.8em; font-weight: normal; color: #f39c12;">(Plant-specific)</span><a class="headerlink" href="#-chloroplast-plant-specific" title="Permanent link">&para;</a></h4>
+<p>Specify the name of the chloroplast chromosome, recommended for plant samples.</p>
+<ul>
+<li><strong>Function:</strong> Used for specific quality control of plant samples. Including chloroplast fragments in the analysis will affect the statistical accuracy of TSS/peak region fragments.</li>
+</ul>
+<p><strong>Default:</strong> None</p>
+<p><strong>Example:</strong></p>
+<pre><code># Specify chloroplast chromosome name for Arabidopsis genome
+dnbc4tools atac mkref --fasta TAIR10.fa --ingtf Athaliana.gtf --chloroplast Pt</code></pre>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
+<h4 id="-kmer-optional"><code>--kmer</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(Optional)</span><a class="headerlink" href="#-kmer-optional" title="Permanent link">&para;</a></h4>
+<p>Set the k-mer length used during Chromap index construction.</p>
+<ul>
+<li><strong>Function:</strong> Affects the accuracy, speed, and memory usage of alignment.</li>
+<li><strong>Recommendation:</strong> For standard analysis, the default value is usually the best choice. If you encounter out-of-memory errors, you can try lowering this value.</li>
+</ul>
+<p><strong>Default:</strong> <code>17</code></p>
+<p><strong>Example:</strong></p>
+<pre><code># Lower k-mer length to reduce memory usage
+dnbc4tools atac mkref --fasta genome.fa --ingtf genes.gtf --kmer 15</code></pre>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
+<h4 id="-window-optional"><code>--window</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(Optional)</span><a class="headerlink" href="#-window-optional" title="Permanent link">&para;</a></h4>
+<p>Set the window size used during Chromap index construction.</p>
+<ul>
+<li><strong>Function:</strong> Defines the number of consecutive k-mers within a window, affecting the sensitivity and specificity of alignment.</li>
+<li><strong>Recommendation:</strong> Usually adjusted in conjunction with the <code>--kmer</code> parameter for optimal results.</li>
+</ul>
+<p><strong>Default:</strong> <code>7</code></p>
+<p><strong>Example:</strong></p>
+<pre><code># Adjust window size
+dnbc4tools atac mkref --fasta genome.fa --ingtf genes.gtf --window 5</code></pre>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
+<h4 id="-noindex-flag"><code>--noindex</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(Flag)</span><a class="headerlink" href="#-noindex-flag" title="Permanent link">&para;</a></h4>
+<p>If this parameter is set, it will only generate the configuration file without building the genome index.</p>
+<ul>
+<li><strong>Function:</strong> Use this parameter to skip the time-consuming index construction step when the index files already exist.</li>
+</ul>
+<p><strong>Default:</strong> Not set</p>
+<p><strong>Example:</strong></p>
+<pre><code># Generate only the configuration file, do not build the index
+dnbc4tools atac mkref --fasta genome.fa --ingtf genes.gtf --noindex</code></pre>
+</div>
+<div style="background: #f5f5f7; border-radius: 12px; padding: 20px; margin: 24px auto; max-width: 1200px;">
+<blockquote>
+<p><strong>Database Construction Notes</strong>:
+- Databases built with Chromap currently cannot handle extremely large genomes. Some species may not be suitable for scATAC analysis with this software, or you may need to adjust kmer and window parameters to fit the genome index construction.
+- After database construction is complete, a ref.json file will be generated in the database directory to record key information.</p>
+</blockquote>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #d2d2d7; overflow-x: auto;">
+<p><strong>ref.json File Example</strong>:</p>
+<pre><code class="language-json">{
+    &quot;species&quot;: &quot;Homo_sapiens&quot;,
+    &quot;input_fasta_files&quot;: [&quot;genome.fa&quot;],
+    &quot;input_gtf_files&quot;: [&quot;genes.gtf&quot;],
+    &quot;genome&quot;: &quot;/database/scATAC/Homo_sapiens/fasta/genome.fa&quot;,
+    &quot;index&quot;: &quot;/database/scATAC/Homo_sapiens/fasta/genome.index&quot;,
+    &quot;gtf&quot;: &quot;/database/scATAC/Homo_sapiens/genes/genes.gtf&quot;,
+    &quot;chrmt&quot;: &quot;chrM&quot;,
+    &quot;chloroplast&quot;: &quot;None&quot;,
+    &quot;chromeSize&quot;: &quot;/database/scATAC/Homo_sapiens/regions/chrom.sizes&quot;,
+    &quot;tss&quot;: &quot;/database/scATAC/Homo_sapiens/regions/tss.bed&quot;,
+    &quot;promoter&quot;: &quot;/database/scATAC/Homo_sapiens/regions/promoter.bed&quot;,
+    &quot;version&quot;: &quot;dnbc4tools 3.0&quot;,
+    &quot;blacklist&quot;: &quot;None&quot;,
+    &quot;genomesize&quot;: &quot;hs&quot;
+}
+</code></pre>
+</div>
+<div style="background: #f5f5f7; border-radius: 12px; padding: 20px; margin: 24px auto; max-width: 1200px;">
+<blockquote>
+<p><strong>Important Notes</strong>:
+- Chromosome names listed in the chromeSize file will be included in the fragments.tsv.gz file for analysis; unlisted chromosomes will be excluded.
+- As of version 2.1.2, the blacklist parameter has been removed, and a blacklist file is no longer needed. It can be added manually if required.
+- The number of fragments in blacklist regions will be recorded in the blacklist_region_fragments column of the metadata file output/singlecell.csv.
+- The genomesize value is used for MACS2 peak calling analysis. MACS2 has special identifiers for certain species, such as "hs" for humans.</p>
+</blockquote>
+</div>
+<div style="max-width: 1200px; margin: 0 auto;">
+<hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;">
+</div>
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
+<h2 id="multi-sample-operations-multi">Multi-sample Operations (multi) <a id="multi-sample-operations-multi"></a><a class="headerlink" href="#multi-sample-operations-multi" title="Permanent link">&para;</a></h2>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #d2d2d7; overflow-x: auto;">
+<h3 id="usage_2">Usage<a class="headerlink" href="#usage_2" title="Permanent link">&para;</a></h3>
+<pre><code class="language-shell">$ dnbc4tools atac multi
+dnbc4tools 3.1
+
+Process multiple ATAC-seq samples.
+
+Usage: dnbc4tools atac multi [OPTIONS]
+
+optional arguments:
+  -h, --help         show this help message and exit
+  --list &lt;STR&gt;       Path to the sample list file. Each line must contain the sample name and FASTQ paths.
+  --outdir &lt;DIR&gt;     Output directory for analysis results [default: current directory].
+  --threads &lt;INT&gt;    Number of CPU threads to use for analysis.
+  --genomeDir &lt;DIR&gt;  Path to the directory containing the reference genome files.
+</code></pre>
+</div>
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
+<h3 id="parameter-description_2">Parameter Description<a class="headerlink" href="#parameter-description_2" title="Permanent link">&para;</a></h3>
+</div>
+<div style="max-width: 1200px; margin: 0 auto;">
+<h4 id="required-parameters_2">Required Parameters<a class="headerlink" href="#required-parameters_2" title="Permanent link">&para;</a></h4>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
+<h4 id="-list-required"><code>--list</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(Required)</span><a class="headerlink" href="#-list-required" title="Permanent link">&para;</a></h4>
+<p>Specify the path to the list file containing information for multiple samples.</p>
+<ul>
+<li><strong>File Format:</strong> Tab-separated (<code>\t</code>) text file, UTF-8 encoding recommended.</li>
+<li><strong>Column Structure:</strong> The first column is the sample name, and the second column is the path to the corresponding FASTQ data for that sample.</li>
+<details open="open">
+<summary><strong>Path Format Rules</strong></summary>
+<ul>
+<li><strong>Multiple fastq files:</strong> Use commas (<code>,</code>) to separate.</li>
+<li><strong>R1 and R2 files:</strong> Use semicolons (<code>;</code>) to separate.</li>
+<li><strong>Path Type:</strong> Both absolute and relative paths are supported.</li>
+</ul>
+</details>
+</ul>
+<details open="open">
+<summary><strong>File Content Example</strong></summary>
+<pre><code># Scenario 1: Sample A, with one pair of R1/R2 files
+SampleA /path/to/SampleA_R1.fastq.gz;/path/to/SampleA_R2.fastq.gz</code></pre>
+<pre><code># Scenario 2: Sample B, with two pairs of R1/R2 files (files for the same Read are comma-separated)
+SampleB /path/to/B_L01_R1.fq.gz,/path/to/B_L02_R1.fq.gz;/path/to/B_L01_R2.fq.gz,/path/to/B_L02_R2.fq.gz</code></pre>
+</details>
+<p><strong>Default:</strong> None</p>
+</div>
+<div style="max-width: 1200px; margin: 0 auto;">
+<hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;">
+</div>
+<div style="background: #f5f5f7; border-radius: 12px; padding: 20px; margin: 24px auto; max-width: 1200px;">
+<blockquote>
+<p><strong>Parameter Inheritance Note</strong><br>
+For other analysis parameter settings, please refer to the corresponding parameters of the <code>dnbc4tools atac run</code> command.</p>
+<p><strong>Execution Behavior</strong></p>
+<p><code>dnbc4tools atac multi</code> generates per-sample execution scripts (for example, <code>sample1.sh</code>) for batch submission and reuse. By default, it does not automatically run all sample analyses serially.</p>
+</blockquote>
+</div>
+<div style="max-width: 1200px; margin: 0 auto;">
+<hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;">
+</div>
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
+<h2 id="related-documentation">Related Documentation<a class="headerlink" href="#related-documentation" title="Permanent link">&para;</a></h2>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #d2d2d7; overflow-x: auto;">
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Resource</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><a href="../pipeline/scATAC_en.html">scATAC Pipeline</a></td>
+<td style="text-align: left;">Single-cell ATAC analysis workflow guide</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="../outs/scATAC_en.html">scATAC Output</a></td>
+<td style="text-align: left;">Detailed output file interpretation</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="max-width: 1200px; margin: 0 auto;">
+<hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;">
+</div>
+<div style="background: #f5f5f7; border-radius: 12px; padding: 20px; margin: 24px auto; max-width: 1200px;">
+<blockquote>
+<p><strong>Feedback &amp; Support</strong></p>
+<p>This document is continuously updated. If you find any errors or have information to add, feedback is welcome.</p>
+<p><strong>Document Version:</strong> 3.1 | <strong>Last Updated:</strong> April 2026</p>
+</blockquote>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 MGI Tech Bioinformatics. All rights reserved.<br>
+Documentation Version 3.1 · Last updated April 2026
+
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["search.suggest", "search.highlight"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

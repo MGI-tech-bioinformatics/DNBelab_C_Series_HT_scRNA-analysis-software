@@ -1,22 +1,33 @@
-<div align="right">
+<div align="right" style="margin-bottom: 20px; max-width: 1200px; margin-left: auto; margin-right: auto;">
 
-[🏠 主页](../../README.md) • [English](multi_en.md)
-
-</div>
-
-# 🧩 DNBelab C Series HT Multi-omics 分析流程
-
-<div align="center">
-
-**单细胞多组学整合分析完整指南**
-
-[📋 概述](#概述) • [📁 输入配置](#输入配置) • [🚀 主流程分析](#主流程分析) • [📊 结果解析](#结果解析) 
+[主页](../../README.md) • [English](multi_en.md)
 
 </div>
 
----
+<div align="center" style="padding: 40px 20px; background: linear-gradient(135deg, #f5f5f7 0%, #ffffff 100%); border-radius: 12px; margin-bottom: 30px; max-width: 1200px; margin-left: auto; margin-right: auto;">
 
-## 📋 概述 <a id="概述"></a>
+<h1 style="font-size: 48px; font-weight: 600; color: #1d1d1f; margin: 0 0 16px 0; letter-spacing: -0.02em;">DNBelab C Series HT Multi-omics 分析流程</h1>
+
+<p style="font-size: 21px; color: #86868b; margin: 0 0 30px 0; font-weight: 400;">单细胞多组学整合分析完整指南</p>
+
+<div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+<a href="#概述" style="background: #0071e3; color: white; padding: 8px 16px; border-radius: 980px; text-decoration: none; font-size: 14px;">概述</a>
+<a href="#输入配置" style="background: transparent; color: #0071e3; padding: 8px 16px; border-radius: 980px; text-decoration: none; font-size: 14px; border: 1px solid #0071e3;">输入配置</a>
+<a href="#主流程分析" style="background: transparent; color: #0071e3; padding: 8px 16px; border-radius: 980px; text-decoration: none; font-size: 14px; border: 1px solid #0071e3;">主流程分析</a>
+<a href="#结果解析" style="background: transparent; color: #0071e3; padding: 8px 16px; border-radius: 980px; text-decoration: none; font-size: 14px; border: 1px solid #0071e3;">结果解析</a>
+</div>
+
+</div>
+
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
+
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
+
+## 概述 <a id="概述"></a>
+
+</div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
 
 Multi-omics 流程用于统一编排 RNA / ATAC / VDJ 子流程，通过一份配置文件完成多组学联合运行，并生成组合报告用于跨组学联看。
 
@@ -24,7 +35,7 @@ Multi-omics 流程用于统一编排 RNA / ATAC / VDJ 子流程，通过一份�
 
 
 <div style="background-color: #e7f3fe; border-left: 6px solid #2196F3; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
-💡 <strong>使用说明</strong>：<code>$dnbc4tools</code> 代表可执行程序路径，需替换为您的实际安装路径。本文示例使用换行符 <code>\</code> 分隔命令以提高可读性，实际分析时可写为单行。
+ <strong>使用说明</strong>：<code>$dnbc4tools</code> 代表可执行程序路径，需替换为您的实际安装路径。本文示例使用换行符 <code>\</code> 分隔命令以提高可读性，实际分析时可写为单行。
 </div>
 
 **核心特点**：
@@ -56,11 +67,18 @@ Multi-omics 流程用于统一编排 RNA / ATAC / VDJ 子流程，通过一份�
   </tbody>
 </table>
 
----
 
-<br>
+</div>
 
-## 📁 输入配置 <a id="输入配置"></a>
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
+
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
+
+## 输入配置 <a id="输入配置"></a>
+
+</div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
 
 ### 配置文件结构
 
@@ -104,17 +122,13 @@ Multi-omics 流程用于统一编排 RNA / ATAC / VDJ 子流程，通过一份�
 </table>
 
 <div style="background-color: #e7f3fe; border-left: 6px solid #2196F3; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
-📚 <strong>详细配置说明</strong>：请参考 <a href="../parameter/multi.md">Multi 参数文档</a> 了解完整的 CSV 配置规范和参数映射关系。
+ <strong>详细配置说明</strong>：请参考 <a href="../parameter/multi.md">Multi 参数文档</a> 了解完整的 CSV 配置规范和参数映射关系。
 </div>
-
----
-
-<br>
 
 ### 最小配置示例
 
 <details open>
-<summary>📄 配置示例</summary>
+<summary> 配置示例</summary>
 
 ```csv
 [rna]
@@ -130,10 +144,6 @@ fastqs,feature_types
 ```
 
 </details>
-
----
-
-<br>
 
 ### 运行命令
 
@@ -179,14 +189,10 @@ $dnbc4tools multi run \
   </tbody>
 </table>
 
----
-
-<br>
-
 ### 运行前检查清单
 
 <div style="background-color: #fffbe6; border-left: 6px solid #ffc107; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
-⚠️ <strong>建议运行前确认以下事项</strong>：
+ <strong>建议运行前确认以下事项</strong>：
 
 <ol style="margin: 10px 0;">
   <li><code>--csv</code> 与 <code>--name</code> 参数已正确提供</li>
@@ -196,11 +202,18 @@ $dnbc4tools multi run \
 </ol>
 </div>
 
----
 
-<br>
+</div>
 
-## 🚀 主流程分析 <a id="主流程分析"></a>
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
+
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
+
+## 主流程分析 <a id="主流程分析"></a>
+
+</div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
 
 ### 执行流程
 
@@ -235,10 +248,6 @@ $dnbc4tools multi run \
   </tbody>
 </table>
 
----
-
-<br>
-
 ### 执行要点
 
 <div style="background-color: #e7f3fe; border-left: 6px solid #2196F3; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
@@ -249,11 +258,6 @@ $dnbc4tools multi run \
 </ul>
 </div>
 
-<br>
-
----
-
-<br>
 
 ### 典型运行日志
 
@@ -262,10 +266,10 @@ Warning: ATAC joint analysis is currently unsupported. Libraries will be analyze
 
 
 ───────────────────────── Running checking libraries — 2026-04-08 13:39:42 ─────────────────────────
-✔ RNA Library check complete
-✔ VDJ-T Library check complete
-✔ VDJ-B Library check complete
-✔ ATAC Library check complete
+ RNA Library check complete
+ VDJ-T Library check complete
+ VDJ-B Library check complete
+ ATAC Library check complete
 
 
 ──────────────────────────── Running RNA pipeline — 2026-04-08 13:40:10 ────────────────────────────
@@ -306,11 +310,18 @@ Warning: ATAC joint analysis is currently unsupported. Libraries will be analyze
  ...                                        
 ```
 
----
 
-<br>
+</div>
 
-## 📊 结果解析 <a id="结果解析"></a>
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
+
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
+
+## 结果解析 <a id="结果解析"></a>
+
+</div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
 
 ### 输出目录结构
 
@@ -333,11 +344,6 @@ Warning: ATAC joint analysis is currently unsupported. Libraries will be analyze
 └── VDJ-B_ANALYSIS_WORKFLOW_PROCESSING/
 ```
 
-<br>
-
----
-
-<br>
 
 ### 重点输出文件
 
@@ -373,37 +379,59 @@ Warning: ATAC joint analysis is currently unsupported. Libraries will be analyze
 </table>
 
 <div style="background-color: #e7f3fe; border-left: 6px solid #2196F3; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
-📚 <strong>详细输出说明</strong>：请参考 <a href="../outs/multi.md">Multi 输出文档</a> 了解组合报告的详细解读方法。
+ <strong>详细输出说明</strong>：请参考 <a href="../outs/multi.md">Multi 输出文档</a> 了解组合报告的详细解读方法。
 </div>
 
----
 
-<br>
+</div>
 
-## 📚 相关文档
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
 
-<br>
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
+
+## 相关文档
+
+</div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
 
 | 资源 | 描述 |
 | :--- | :--- |
-| [📋 分析参数设置](../parameter/multi.md) | 查看完整参数选项和说明 |
-| [📝 输出文件解释](../outs/multi.md) | 详细解读分析结果文件 |
-| [🧬 scRNA 流程文档](./scRNA.md) | 单细胞 RNA 分析流程指南 |
-| [🧪 scATAC 流程文档](./scATAC.md) | 单细胞 ATAC 分析流程指南 |
-| [🦠 scVDJ 流程文档](./scVDJ.md) | 单细胞 VDJ 分析流程指南 |
+| [分析参数设置](../parameter/multi.md) | 查看完整参数选项和说明 |
+| [输出文件解释](../outs/multi.md) | 详细解读分析结果文件 |
+| [scRNA 流程文档](./scRNA.md) | 单细胞 RNA 分析流程指南 |
+| [scATAC 流程文档](./scATAC.md) | 单细胞 ATAC 分析流程指南 |
+| [scVDJ 流程文档](./scVDJ.md) | 单细胞 VDJ 分析流程指南 |
 
-<br>
 
----
+</div>
 
-<br>
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
+
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
+
+## 常见问题
+
+</div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+
+本节正在更新中，下一版将补充常见报错排查条目与处理建议。
+
+</div>
+
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
+
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
 
 <div align="center">
 
-> 💡 <strong>反馈与支持</strong>
+> <strong>反馈与支持</strong>
 >
-> 本文档持续更新中，如发现内容错误或需要补充的信息，欢迎反馈。
+> 本文档持续更新中。
 >
-> 📝 <strong>文档版本：</strong> 3.1 | <strong>最后更新：</strong> 2026年4月
+> <strong>文档版本：</strong> 3.1 | <strong>最后更新：</strong> 2026年4月
+
+</div>
 
 </div>

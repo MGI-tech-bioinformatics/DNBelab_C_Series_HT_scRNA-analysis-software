@@ -1,22 +1,32 @@
-<div align="right">
+<div align="right" style="margin-bottom: 20px; max-width: 1200px; margin-left: auto; margin-right: auto;">
 
-[🏠 主页](../../README.md) • [English](scVDJ_en.md)
-
-</div>
-
-# 🧬 DNBelab C Series HT scVDJ 分析参数
-
-<div align="center">
-
-[🔬 主分析流程 (run)](#主分析流程-run)
+<a href="../../README.md" style="color: #0071e3; text-decoration: none; font-size: 14px;">主页</a> <span style="color: rgba(0,0,0,0.3);">•</span> <a href="scVDJ_en.md" style="color: #0071e3; text-decoration: none; font-size: 14px;">English</a>
 
 </div>
 
----
+<div align="center" style="padding: 40px 20px; background: linear-gradient(135deg, #f5f5f7 0%, #ffffff 100%); border-radius: 12px; margin-bottom: 30px; max-width: 1200px; margin-left: auto; margin-right: auto;">
 
-## 🔬 主分析流程 (run) <a id="主分析流程-run"></a>
+<h1 style="font-size: 48px; font-weight: 600; color: #1d1d1f; margin: 0 0 16px 0; letter-spacing: -0.02em;">scVDJ 分析参数</h1>
 
-### 📊 用法 <a id="usage"></a>
+<p style="font-size: 21px; color: rgba(0,0,0,0.6); margin: 0 0 30px 0; font-weight: 400;">DNBelab C Series HT scVDJ 参数配置完整指南</p>
+
+<div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+<a href="#主分析流程-run" style="background: #0071e3; color: white; padding: 8px 16px; border-radius: 980px; text-decoration: none; font-size: 14px;">主分析 (run)</a>
+</div>
+
+</div>
+
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
+
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
+
+## 主分析流程 (run) <a id="主分析流程-run"></a>
+
+</div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #d2d2d7; overflow-x: auto;">
+
+### 用法 <a id="usage"></a>
 
 ```shell
 $ dnbc4tools vdj run
@@ -64,13 +74,23 @@ Analysis Settings:
   --sample_read_pairs <INT>    Subsample the specified number of read pairs from the input FASTQ files (e.g., `1000000`).
 ```
 
-### 📝 参数说明
+</div>
 
-#### 🔴 必需参数
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
 
-> ⚠️ **成功分析必须指定的基本参数**
+### 参数说明
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+</div>
+
+<div style="max-width: 1200px; margin: 0 auto;">
+
+#### 必需参数
+
+> **成功分析必须指定的基本参数**
+
+</div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>-n, --name</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(必需)</span></h4>
 <p>为本次分析提供一个唯一的样本名称。</p>
 <ul>
@@ -82,7 +102,7 @@ Analysis Settings:
 <pre><code>--name sample_VDJ_001</code></pre>
 </div>
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>-r, --ref</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(必需)</span></h4>
 <p>指定VDJ分析使用的参考数据库。</p>
 <ul>
@@ -99,7 +119,7 @@ Analysis Settings:
 --ref ./custom_vdj_ref</code></pre>
 </div>
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>-c, --chain</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(必需)</span></h4>
 <p>指定分析的免疫受体类型。</p>
 <ul>
@@ -116,13 +136,28 @@ Analysis Settings:
 --chain IG</code></pre>
 </div>
 
----
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
 
-#### 🟢 输入文件参数
+<div style="max-width: 1200px; margin: 0 auto;">
 
-> 📁 **选择一种输入方式：基于目录 OR 单独指定文件**
+#### 输入文件参数
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+</div>
+
+<div style="background: #f5f5f7; border-radius: 12px; padding: 20px; margin: 20px auto; max-width: 1200px;">
+
+> **输入方式选择：**
+> - **方式1：** 使用`--fastqs`指定包含配对文件的目录。
+> - **方式2：** 使用`--fastq1`和`--fastq2`分别指定R1和R2文件。
+
+> **兼容别名**
+> - 历史短参数 `-1/-2` 仍可使用，但在新版帮助信息中默认隐藏，建议优先使用长参数以便脚本可读性更好。
+
+> **重要提示：** 参数下所有文件必须来自同一文库，测序模式和暗反应设置保持一致，不同文库的数据不能合并分析。
+
+</div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>--fastqs</code> <span style="font-size: 0.8em; font-weight: normal; color: #3498db;">(方式1)</span></h4>
 <p>指定包含所有FASTQ文件的目录路径。</p>
 <ul>
@@ -134,7 +169,7 @@ Analysis Settings:
 <pre><code>--fastqs ./VDJ_fastq_dir</code></pre>
 </div>
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>--fastq1</code> <span style="font-size: 0.8em; font-weight: normal; color: #3498db;">(方式2A)</span></h4>
 <p>单独指定一个或多个VDJ文库的Read1 FASTQ文件。</p>
 <ul>
@@ -146,7 +181,7 @@ Analysis Settings:
 <pre><code>--fastq1 sample1_L01_R1.fastq.gz,sample1_L02_R1.fastq.gz</code></pre>
 </div>
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>--fastq2</code> <span style="font-size: 0.8em; font-weight: normal; color: #3498db;">(方式2B)</span></h4>
 <p>单独指定一个或多个VDJ文库的Read2 FASTQ文件。</p>
 <ul>
@@ -157,20 +192,11 @@ Analysis Settings:
 <p><strong>示例:</strong></p>
 <pre><code>--fastq2 sample1_L01_R2.fastq.gz,sample1_L02_R2.fastq.gz</code></pre>
 </div>
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
 
-> ⚠️ **输入方式选择：**
-> - **🔸 方式1：** 使用`--fastqs`指定包含配对文件的目录。
-> - **🔸 方式2：** 使用`--fastq1`和`--fastq2`分别指定R1和R2文件。
+#### 基本设置参数
 
-> ℹ️ **兼容别名**
-> - 历史短参数 `-1/-2` 仍可使用，但在新版帮助信息中默认隐藏，建议优先使用长参数以便脚本可读性更好。
-
-> ⚠️ **重要提示：** 参数下所有文件必须来自同一文库，测序模式和暗反应设置保持一致，不同文库的数据不能合并分析。
----
-
-#### 🟢 基本设置参数
-
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>-o, --outdir</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(可选)</span></h4>
 <p>指定所有分析结果和报告的输出目录。</p>
 <ul>
@@ -181,7 +207,7 @@ Analysis Settings:
 <pre><code>--outdir ./VDJ_analysis_output</code></pre>
 </div>
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>-t, --threads</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(可选)</span></h4>
 <p>设置分析过程中可使用的CPU线程数。</p>
 <ul>
@@ -193,7 +219,7 @@ Analysis Settings:
 <pre><code>--threads 16</code></pre>
 </div>
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>-s, --beadstrans</code> <span style="font-size: 0.8em; font-weight: normal; color: #9b59b6;">(可选)</span></h4>
 <p>提供来自scRNA分析的<code>singlecell.csv</code>文件，用于细胞过滤和信息整合。</p>
 <ul>
@@ -206,11 +232,11 @@ Analysis Settings:
 <pre><code>--beadstrans ./RNA_analysis_output/outs/singlecell.csv</code></pre>
 </div>
 
----
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
 
-#### 🟢 文库设置参数
+#### 文库设置参数
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>--darkreaction</code> <span style="font-size: 0.8em; font-weight: normal; color: #f39c12;">(可选)</span></h4>
 <p>配置VDJ文库的暗循环（dark cycle）设置。</p>
 <ul>
@@ -222,10 +248,10 @@ Analysis Settings:
 <p><strong>示例:</strong></p>
 <pre><code># Read1存在暗循环
 --darkreaction R1</code></pre>
-<p><strong>⚠️ 重要提示：</strong>不正确的设置可能导致细胞条形码识别失败。仅在了解文库结构或自动检测失败时手动指定。</p>
+<p><strong> 重要提示：</strong>不正确的设置可能导致细胞条形码识别失败。仅在了解文库结构或自动检测失败时手动指定。</p>
 </div>
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>--customize</code> <span style="font-size: 0.8em; font-weight: normal; color: #9b59b6;">(高级)</span></h4>
 <p>为非标准文库精确定义条形码（barcode）、UMI和有效序列（read）的提取结构。此参数为高级功能，会覆盖 <code>--darkreaction</code> 的设置。</p>
 <ul>
@@ -244,10 +270,10 @@ Analysis Settings:
 <p><strong>示例：</strong></p>
 <pre><code># 标准VDJ文库配置示例
 --customize "cb,R1:1-10;cb,R1:11-20;umi,R1:21-30;R1,R1:31-120;R2,R2:1-150"</code></pre>
-<p><strong>⚠️ 风险提示：</strong>错误的自定义配置可能导致数据丢失或分析失败，建议仅在标准配置无法满足需求时使用。</p>
+<p><strong> 风险提示：</strong>错误的自定义配置可能导致数据丢失或分析失败，建议仅在标准配置无法满足需求时使用。</p>
 </div>
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>--enrichment_primers</code> <span style="font-size: 0.8em; font-weight: normal; color: #e67e22;">(可选)</span></h4>
 <p>指定用于VDJ区域特异性扩增的内部富集引物文件。</p>
 <ul>
@@ -262,11 +288,15 @@ AGCACCTGGGGCCTCGGCCAC
 CCTGGACTCCTGGGCCCCAG</code></pre>
 </div>
 
----
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
 
-#### 🚩 分析设置参数
+<div style="max-width: 1200px; margin: 0 auto;">
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+#### 分析设置参数
+
+</div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>--keep_all_cells</code> <span style="font-size: 0.8em; font-weight: normal; color: #e67e22;">(标志)</span></h4>
 <p>启用此参数以保留所有检测到的细胞，不进行基于RNA数据的过滤。</p>
 <ul>
@@ -275,7 +305,7 @@ CCTGGACTCCTGGGCCCCAG</code></pre>
 <p><strong>默认值:</strong> 不设置此参数（但若无<code>--beadstrans</code>则自动启用）</p>
 </div>
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>--r2_only</code> <span style="font-size: 0.8em; font-weight: normal; color: #e67e22;">(标志)</span></h4>
 <p>启用此参数以仅使用Read2序列进行VDJ组装。</p>
 <ul>
@@ -285,7 +315,7 @@ CCTGGACTCCTGGGCCCCAG</code></pre>
 <p><strong>默认值:</strong> 不设置此参数</p>
 </div>
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>--sample_read_pairs</code> <span style="font-size: 0.8em; font-weight: normal; color: #9b59b6;">(可选)</span></h4>
 <p>从输入的FASTQ文件中提取指定数量的读段对进行分析。</p>
 <ul>
@@ -297,31 +327,31 @@ CCTGGACTCCTGGGCCCCAG</code></pre>
 <pre><code>--sample_read_pairs 10000000</code></pre>
 </div>
 
----
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
 
-<br>
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
 
-## 📚 相关文档
+## 相关文档
 
-<br>
+</div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
 
 | 资源 | 描述 |
 | :--- | :--- |
-| [🔬 scVDJ 流程文档](../pipeline/scVDJ.md) | 单细胞 VDJ 分析流程指南 |
-| [📁 scVDJ 输出文档](../outs/scVDJ.md) | 输出文件详细解读 |
+| [scVDJ 流程文档](../pipeline/scVDJ.md) | 单细胞 VDJ 分析流程指南 |
+| [scVDJ 输出文档](../outs/scVDJ.md) | 输出文件详细解读 |
 
-<br>
+</div>
 
----
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
 
-<br>
+<div align="center" style="background: #f5f5f7; border-radius: 12px; padding: 30px; margin: 40px auto; max-width: 1200px;">
 
-<div align="center">
-
-> 💡 <strong>反馈与支持</strong>
+> <strong>反馈与支持</strong>
 >
 > 本文档持续更新中，如发现内容错误或需要补充的信息，欢迎反馈。
 >
-> 📝 <strong>文档版本：</strong> 3.1 | <strong>最后更新：</strong> 2026年4月
+<strong>文档版本：</strong> 3.1 | <strong>最后更新：</strong> 2026年4月
 
 </div>

@@ -1,6 +1,6 @@
 <div align="right">
 
-[🏠 Home](../README.md)
+[Home](../README.md)
 
 </div>
 
@@ -10,7 +10,7 @@
 
 **How to analyze dnbc4tools output in R and Python**
 
-[◆ scRNA](#scrna-analysis) • [◆ scATAC](#scatac-analysis)
+[scRNA](#scrna-analysis) • [scATAC](#scatac-analysis)
 
 </div>
 

@@ -1,22 +1,32 @@
-<div align="right">
+<div align="right" style="margin-bottom: 20px; max-width: 1200px; margin-left: auto; margin-right: auto;">
 
-[🏠 Home](../../README.md) • [中文](scVDJ.md)
-
-</div>
-
-# 🧬 DNBelab C Series HT scVDJ Analysis Parameters
-
-<div align="center">
-
-[🔬 Main Analysis Pipeline (run)](#main-analysis-pipeline-run)
+<a href="../../README.md" style="color: #0071e3; text-decoration: none; font-size: 14px;">Home</a> <span style="color: rgba(0,0,0,0.3);">•</span> <a href="scVDJ.md" style="color: #0071e3; text-decoration: none; font-size: 14px;">中文</a>
 
 </div>
 
----
+<div align="center" style="padding: 40px 20px; background: linear-gradient(135deg, #f5f5f7 0%, #ffffff 100%); border-radius: 12px; margin-bottom: 30px; max-width: 1200px; margin-left: auto; margin-right: auto;">
 
-## 🔬 Main Analysis Pipeline (run) <a id="main-analysis-pipeline-run"></a>
+<h1 style="font-size: 48px; font-weight: 600; color: #1d1d1f; margin: 0 0 16px 0; letter-spacing: -0.02em;">scVDJ Analysis Parameters</h1>
 
-### 📊 Usage <a id="usage"></a>
+<p style="font-size: 21px; color: rgba(0,0,0,0.6); margin: 0 0 30px 0; font-weight: 400;">DNBelab C Series HT scVDJ Parameter Configuration Guide</p>
+
+<div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+<a href="#main-analysis-pipeline-run" style="background: #0071e3; color: white; padding: 8px 16px; border-radius: 980px; text-decoration: none; font-size: 14px;">Main Analysis (run)</a>
+</div>
+
+</div>
+
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
+
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
+
+## Main Analysis Pipeline (run) <a id="main-analysis-pipeline-run"></a>
+
+</div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #d2d2d7; overflow-x: auto;">
+
+### Usage <a id="usage"></a>
 
 ```shell
 $ dnbc4tools vdj run
@@ -64,13 +74,23 @@ Analysis Settings:
   --sample_read_pairs <INT>    Subsample the specified number of read pairs from the input FASTQ files (e.g., `1000000`).
 ```
 
-### 📝 Parameter Description
+</div>
 
-#### 🔴 Required Parameters
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
 
-> ⚠️ **Essential parameters that must be specified for a successful analysis**
+### Parameter Description
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+</div>
+
+<div style="max-width: 1200px; margin: 0 auto;">
+
+#### Required Parameters
+
+> **Essential parameters that must be specified for a successful analysis**
+
+</div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>-n, --name</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(Required)</span></h4>
 <p>Provide a unique name for this analysis run.</p>
 <ul>
@@ -82,7 +102,7 @@ Analysis Settings:
 <pre><code>--name sample_VDJ_001</code></pre>
 </div>
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>-r, --ref</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(Required)</span></h4>
 <p>Specify the reference database to be used for VDJ analysis.</p>
 <ul>
@@ -99,7 +119,7 @@ Analysis Settings:
 --ref ./custom_vdj_ref</code></pre>
 </div>
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>-c, --chain</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(Required)</span></h4>
 <p>Specify the type of immune receptor to be analyzed.</p>
 <ul>
@@ -116,13 +136,17 @@ Analysis Settings:
 --chain IG</code></pre>
 </div>
 
----
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
 
-#### 🟢 Input File Parameters
+<div style="max-width: 1200px; margin: 0 auto;">
 
-> 📁 **Choose one input method: Directory-based OR specify individual files**
+#### Input File Parameters
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+> **Choose one input method: Directory-based OR specify individual files**
+
+</div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>--fastqs</code> <span style="font-size: 0.8em; font-weight: normal; color: #3498db;">(Method 1)</span></h4>
 <p>Specify the path to the directory containing all FASTQ files.</p>
 <ul>
@@ -134,7 +158,7 @@ Analysis Settings:
 <pre><code>--fastqs ./VDJ_fastq_dir</code></pre>
 </div>
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>--fastq1</code> <span style="font-size: 0.8em; font-weight: normal; color: #3498db;">(Method 2A)</span></h4>
 <p>Specify one or more Read1 FASTQ files for the VDJ library individually.</p>
 <ul>
@@ -146,7 +170,7 @@ Analysis Settings:
 <pre><code>--fastq1 sample1_L01_R1.fastq.gz,sample1_L02_R1.fastq.gz</code></pre>
 </div>
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>--fastq2</code> <span style="font-size: 0.8em; font-weight: normal; color: #3498db;">(Method 2B)</span></h4>
 <p>Specify one or more Read2 FASTQ files for the VDJ library individually.</p>
 <ul>
@@ -158,19 +182,23 @@ Analysis Settings:
 <pre><code>--fastq2 sample1_L01_R2.fastq.gz,sample1_L02_R2.fastq.gz</code></pre>
 </div>
 
-> ⚠️ **Input Method Selection:**
-> - **🔸 Method 1:** Use `--fastqs` to specify a directory containing paired files.
-> - **🔸 Method 2:** Use `--fastq1` and `--fastq2` to specify R1 and R2 files respectively.
+> **Input Method Selection:**
+> - ** Method 1:** Use `--fastqs` to specify a directory containing paired files.
+> - ** Method 2:** Use `--fastq1` and `--fastq2` to specify R1 and R2 files respectively.
 
-> ℹ️ **Compatible aliases**
+> **Compatible aliases**
 > - Legacy short options `-1/-2` are still supported, but hidden in current help output. Long options are recommended for better script readability.
 
-> ⚠️ **Important Note:** All files under a parameter must come from the same library, with consistent sequencing mode and dark reaction settings. Data from different libraries cannot be merged for analysis.
+> **Important Note:** All files under a parameter must come from the same library, with consistent sequencing mode and dark reaction settings. Data from different libraries cannot be merged for analysis.
 ---
 
-#### 🟢 Basic Settings
+<div style="max-width: 1200px; margin: 0 auto;">
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+#### Basic Settings
+
+</div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>-o, --outdir</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(Optional)</span></h4>
 <p>Specify the output directory for all analysis results and reports.</p>
 <ul>
@@ -181,7 +209,7 @@ Analysis Settings:
 <pre><code>--outdir ./VDJ_analysis_output</code></pre>
 </div>
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>-t, --threads</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(Optional)</span></h4>
 <p>Set the number of CPU threads to be used during the analysis.</p>
 <ul>
@@ -193,7 +221,7 @@ Analysis Settings:
 <pre><code>--threads 16</code></pre>
 </div>
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>-s, --beadstrans</code> <span style="font-size: 0.8em; font-weight: normal; color: #9b59b6;">(Optional)</span></h4>
 <p>Provide the <code>singlecell.csv</code> file from a scRNA analysis for cell filtering and information integration.</p>
 <ul>
@@ -206,11 +234,15 @@ Analysis Settings:
 <pre><code>--beadstrans ./RNA_analysis_output/outs/singlecell.csv</code></pre>
 </div>
 
----
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
 
-#### 🟢 Library Settings
+<div style="max-width: 1200px; margin: 0 auto;">
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+#### Library Settings
+
+</div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>--darkreaction</code> <span style="font-size: 0.8em; font-weight: normal; color: #f39c12;">(Optional)</span></h4>
 <p>Configure the dark cycle settings for the VDJ library.</p>
 <ul>
@@ -222,10 +254,10 @@ Analysis Settings:
 <p><strong>Example:</strong></p>
 <pre><code># Dark cycle present in Read1
 --darkreaction R1</code></pre>
-<p><strong>⚠️ Important Note:</strong> Incorrect settings may lead to cell barcode identification failure. Specify manually only if you know the library structure or if auto-detection fails.</p>
+<p><strong>Important Note:</strong> Incorrect settings may lead to cell barcode identification failure. Specify manually only if you know the library structure or if auto-detection fails.</p>
 </div>
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>--customize</code> <span style="font-size: 0.8em; font-weight: normal; color: #9b59b6;">(Advanced)</span></h4>
 <p>Precisely define the extraction structure for barcodes, UMIs, and effective sequences (reads) for non-standard libraries. This is an advanced feature that overrides <code>--darkreaction</code> settings.</p>
 <ul>
@@ -244,10 +276,10 @@ Analysis Settings:
 <p><strong>Example:</strong></p>
 <pre><code># Example of a standard VDJ library configuration
 --customize "cb,R1:1-10;cb,R1:11-20;umi,R1:21-30;R1,R1:31-120;R2,R2:1-150"</code></pre>
-<p><strong>⚠️ Risk Warning:</strong> Incorrect custom configurations can lead to data loss or analysis failure. Use only when standard configurations do not meet your needs.</p>
+<p><strong>Risk Warning:</strong> Incorrect custom configurations can lead to data loss or analysis failure. Use only when standard configurations do not meet your needs.</p>
 </div>
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>--enrichment_primers</code> <span style="font-size: 0.8em; font-weight: normal; color: #e67e22;">(Optional)</span></h4>
 <p>Specify a file containing internal enrichment primers for VDJ region-specific amplification.</p>
 <ul>
@@ -262,11 +294,15 @@ AGCACCTGGGGCCTCGGCCAC
 CCTGGACTCCTGGGCCCCAG</code></pre>
 </div>
 
----
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
 
-#### 🚩 Analysis Settings
+<div style="max-width: 1200px; margin: 0 auto;">
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+#### Analysis Settings
+
+</div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>--keep_all_cells</code> <span style="font-size: 0.8em; font-weight: normal; color: #e67e22;">(Flag)</span></h4>
 <p>Enable this parameter to retain all detected cells without filtering based on RNA data.</p>
 <ul>
@@ -275,7 +311,7 @@ CCTGGACTCCTGGGCCCCAG</code></pre>
 <p><strong>Default:</strong> Not set (but enabled by default if <code>--beadstrans</code> is absent)</p>
 </div>
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>--r2_only</code> <span style="font-size: 0.8em; font-weight: normal; color: #e67e22;">(Flag)</span></h4>
 <p>Enable this parameter to use only Read2 sequences for VDJ assembly.</p>
 <ul>
@@ -285,7 +321,7 @@ CCTGGACTCCTGGGCCCCAG</code></pre>
 <p><strong>Default:</strong> Not set</p>
 </div>
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>--sample_read_pairs</code> <span style="font-size: 0.8em; font-weight: normal; color: #9b59b6;">(Optional)</span></h4>
 <p>Extract a specified number of read pairs from the input FASTQ files for analysis.</p>
 <ul>
@@ -297,31 +333,31 @@ CCTGGACTCCTGGGCCCCAG</code></pre>
 <pre><code>--sample_read_pairs 10000000</code></pre>
 </div>
 
----
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
 
-<br>
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
 
-## 📚 Related Documentation
+## Related Documentation
 
-<br>
+</div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #d2d2d7; overflow-x: auto;">
 
 | Resource | Description |
 | :--- | :--- |
-| [🔬 scVDJ Pipeline](../pipeline/scVDJ_en.md) | Single-cell VDJ analysis workflow guide |
-| [📁 scVDJ Output](../outs/scVDJ_en.md) | Detailed output file interpretation |
+| [scVDJ Pipeline](../pipeline/scVDJ_en.md) | Single-cell VDJ analysis workflow guide |
+| [scVDJ Output](../outs/scVDJ_en.md) | Detailed output file interpretation |
 
-<br>
+</div>
 
----
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
 
-<br>
+<div style="background: #f5f5f7; border-radius: 12px; padding: 20px; margin: 24px auto; max-width: 1200px;">
 
-<div align="center">
-
-> 💡 <strong>Feedback & Support</strong>
+> **Feedback & Support**
 >
 > This document is continuously updated. If you find any errors or have information to add, feedback is welcome.
 >
-> 📝 <strong>Document Version:</strong> 3.1 | <strong>Last Updated:</strong> April 2026
+> **Document Version:** 3.1 | **Last Updated:** April 2026
 
 </div>

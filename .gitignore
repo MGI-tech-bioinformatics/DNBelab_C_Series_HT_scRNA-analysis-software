@@ -1,1 +1,5 @@
 .DS_Store
+DESIGN.md
+/Document/docs
+/Document/build_mkdocs.sh
+/Document/mkdocs.yml

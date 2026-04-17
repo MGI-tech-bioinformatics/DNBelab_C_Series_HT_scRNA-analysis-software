@@ -1,6 +1,6 @@
 <div align="right">
 
-[🏠 Home](../README.md)
+[Home](../README.md)
 
 </div>
 
@@ -42,11 +42,11 @@ Demo datasets are hosted on CNGB (China National GeneBank). Only mouse samples d
 ## Notes on Data Usage
 
 <div style="background-color: #e7f3fe; border-left: 6px solid #2196F3; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
-💡 <strong>scVDJ-seq Tip</strong>: If you don't need to analyze the 5' RNA data, you can directly download the `singlecell.csv` file from the 5' RNA data directory on the FTP server to use as input for the VDJ pipeline.
+<strong>scVDJ-seq Tip</strong>: If you don't need to analyze the 5' RNA data, you can directly download the `singlecell.csv` file from the 5' RNA data directory on the FTP server to use as input for the VDJ pipeline.
 </div>
 
 <div style="background-color: #e7f3fe; border-left: 6px solid #2196F3; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
-💡 <strong>General Tip</strong>: For all datasets, you can click the project link, navigate to the "Sample" or "Experiment" tabs, and find the FTP link to download the raw data for analysis.
+<strong>General Tip</strong>: For all datasets, you can click the project link, navigate to the "Sample" or "Experiment" tabs, and find the FTP link to download the raw data for analysis.
 </div>
 
 <div align="center">

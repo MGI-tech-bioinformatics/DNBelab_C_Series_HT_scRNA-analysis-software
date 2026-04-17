@@ -1,23 +1,46 @@
-<div align="right">
+<div align="right" style="margin-bottom: 20px; max-width: 1200px; margin-left: auto; margin-right: auto;">
 
-[🏠 主页](../../README.md) • [English](scATAC_en.md)
-
-</div>
-
-# 🧬 DNBelab C Series HT scATAC 分析参数
-
-<div align="center">
-
-[🔬 主分析流程 (run)](#主分析流程-run) • [📊 参考数据库构建 (mkref)](#参考数据库构建-mkref) • [📋 多样本操作 (multi)](#多样本操作-multi)
+<a href="../../README.md" style="color: #0071e3; text-decoration: none; font-size: 14px;">主页</a> <span style="color: rgba(0,0,0,0.3);">•</span> <a href="scATAC_en.md" style="color: #0071e3; text-decoration: none; font-size: 14px;">English</a>
 
 </div>
 
----
+<div align="center" style="padding: 40px 20px; background: linear-gradient(135deg, #f5f5f7 0%, #ffffff 100%); border-radius: 12px; margin-bottom: 30px; max-width: 1200px; margin-left: auto; margin-right: auto;">
 
-## 🔬 主分析流程 (run) <a id="主分析流程-run"></a>
+<h1 style="font-size: 48px; font-weight: 600; color: #1d1d1f; margin: 0 0 16px 0; letter-spacing: -0.02em;">scATAC 分析参数</h1>
 
-### 📊 用法 <a id="usage"></a>
+<p style="font-size: 21px; color: rgba(0,0,0,0.6); margin: 0 0 30px 0; font-weight: 400;">DNBelab C Series HT scATAC 参数配置完整指南</p>
 
+<div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+<a href="#主分析流程-run" style="background: #0071e3; color: white; padding: 8px 16px; border-radius: 980px; text-decoration: none; font-size: 14px;">主分析 (run)</a>
+<a href="#参考数据库构建-mkref" style="background: transparent; color: #0071e3; padding: 8px 16px; border-radius: 980px; text-decoration: none; font-size: 14px; border: 1px solid #0071e3;">数据库构建 (mkref)</a>
+<a href="#多样本操作-multi" style="background: transparent; color: #0071e3; padding: 8px 16px; border-radius: 980px; text-decoration: none; font-size: 14px; border: 1px solid #0071e3;">多样本 (multi)</a>
+</div>
+
+</div>
+
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
+
+## 概述 <a id="概述"></a>
+
+本文档说明 `dnbc4tools atac` 各子命令的参数含义、默认行为和常见使用方式，覆盖单样本分析 (`run`)、参考库构建 (`mkref`) 与多样本任务生成 (`multi`)。
+
+> **提示**
+>
+> 参数说明以当前命令行帮助信息为基础，示例可直接作为模板调整后使用。
+
+</div>
+
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
+
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
+
+## 主分析流程 (run) <a id="主分析流程-run"></a>
+
+</div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #d2d2d7; overflow-x: auto;">
+
+### 用法 <a id="usage"></a>
 
 ```shell
 $ dnbc4tools atac run
@@ -65,13 +88,23 @@ Analysis Settings:
   --sample_read_pairs <INT>  Subsample the specified number of read pairs from the input FASTQ files (e.g., `1000000`).
 ```
 
-### 📝 参数说明
+</div>
 
-#### 🔴 必需参数
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
 
-> ⚠️ **成功分析必须指定的基本参数**
+### 参数说明
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+</div>
+
+<div style="max-width: 1200px; margin: 0 auto;">
+
+#### 必需参数
+
+> **成功分析必须指定的基本参数**
+
+</div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>-n, --name</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(必需)</span></h4>
 <p>为本次分析提供一个唯一的样本名称。</p>
 <ul>
@@ -83,7 +116,7 @@ Analysis Settings:
 <pre><code>--name sample_001</code></pre>
 </div>
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>-g, --genomeDir</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(必需)</span></h4>
 <p>指定参考基因组目录的路径。</p>
 <ul>
@@ -95,13 +128,17 @@ Analysis Settings:
 <pre><code>--genomeDir /path/to/genome/database</code></pre>
 </div>
 
----
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
 
-#### 🟢 输入文件参数
+<div style="max-width: 1200px; margin: 0 auto;">
 
-> 📁 **选择一种输入方式：基于目录 OR 单独指定文件**
+#### 输入文件参数
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+> **选择一种输入方式：基于目录 OR 单独指定文件**
+
+</div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>--fastqs</code> <span style="font-size: 0.8em; font-weight: normal; color: #3498db;">(方式1)</span></h4>
 <p>指定包含所有FASTQ文件的目录路径。</p>
 <ul>
@@ -113,7 +150,7 @@ Analysis Settings:
 <pre><code>--fastqs ./fastq_directory</code></pre>
 </div>
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>--fastq1</code> <span style="font-size: 0.8em; font-weight: normal; color: #3498db;">(方式2A)</span></h4>
 <p>单独指定一个或多个Read1 FASTQ文件。</p>
 <ul>
@@ -125,7 +162,7 @@ Analysis Settings:
 <pre><code>--fastq1 sample1_L01_R1.fastq.gz,sample1_L02_R1.fastq.gz</code></pre>
 </div>
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>--fastq2</code> <span style="font-size: 0.8em; font-weight: normal; color: #3498db;">(方式2B)</span></h4>
 <p>单独指定一个或多个Read2 FASTQ文件。</p>
 <ul>
@@ -137,19 +174,23 @@ Analysis Settings:
 <pre><code>--fastq2 sample1_L01_R2.fastq.gz,sample1_L02_R2.fastq.gz</code></pre>
 </div>
 
-> ⚠️ **输入方式选择：**
-> - **🔸 方式1：** 使用`--fastqs`指定包含配对FASTQ文件的目录
-> - **🔸 方式2：** 使用`--fastq1`和`--fastq2`分别指定R1和R2文件
+<div style="background: #f5f5f7; border-radius: 12px; padding: 20px; margin: 20px auto; max-width: 1200px;">
 
-> ℹ️ **兼容别名**
+> **输入方式选择：**
+> - **方式1：** 使用`--fastqs`指定包含配对FASTQ文件的目录
+> - **方式2：** 使用`--fastq1`和`--fastq2`分别指定R1和R2文件
+
+> **兼容别名**
 > - 历史短参数 `-1/-2` 仍可使用，但在新版帮助信息中默认隐藏，建议优先使用长参数以便脚本可读性更好。
 
-> ⚠️ **重要提示：** 参数下所有文件必须来自同一文库，测序模式和暗反应设置保持一致，不同文库的数据不能合并分析。
----
+> **重要提示：** 参数下所有文件必须来自同一文库，测序模式和暗反应设置保持一致，不同文库的数据不能合并分析。
 
-#### 🟢 基本设置参数
+</div>
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+#### 基本设置参数
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>-o, --outdir</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(可选)</span></h4>
 <p>指定所有分析结果和报告的输出目录。</p>
 <ul>
@@ -160,7 +201,7 @@ Analysis Settings:
 <pre><code>--outdir ./output_results</code></pre>
 </div>
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>-t, --threads</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(可选)</span></h4>
 <p>设置分析过程中可使用的CPU线程数。</p>
 <ul>
@@ -172,11 +213,11 @@ Analysis Settings:
 <pre><code>--threads 16</code></pre>
 </div>
 
----
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
 
-#### 🟢 文库设置参数
+#### 文库设置参数
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>--darkreaction</code> <span style="font-size: 0.8em; font-weight: normal; color: #f39c12;">(可选)</span></h4>
 <p>配置ATAC文库的暗循环（dark cycle）设置，以确保细胞条形码的精确识别。</p>
 <ul>
@@ -218,10 +259,10 @@ dnbc4tools atac run --name sample1 --fastqs ./fq --genomeDir ./ref</code></pre>
 
 <pre><code># 场景2: 已知文库仅在R1端有暗循环且自动分析无法识别或者识别错误
 dnbc4tools atac run --name sample2 --fastqs ./fq --genomeDir ./ref --darkreaction R1</code></pre>
-<p><strong>⚠️ 重要提示：</strong>不正确的设置可能导致细胞条形码识别失败或序列信息丢失。仅在了解文库结构或自动检测失败时手动指定。</p>
+<p><strong> 重要提示：</strong>不正确的设置可能导致细胞条形码识别失败或序列信息丢失。仅在了解文库结构或自动检测失败时手动指定。</p>
 </div>
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>--customize</code> <span style="font-size: 0.8em; font-weight: normal; color: #9b59b6;">(高级)</span></h4>
 <p>为非标准文库精确定义条形码（barcode）和有效序列（read）的提取结构。</p>
 <ul>
@@ -244,18 +285,18 @@ dnbc4tools atac run --name sample2 --fastqs ./fq --genomeDir ./ref --darkreactio
 --customize "cb,R1:1-10;cb,R1:11-20;R1,R1:21-70;R2,R2:1-50"</code></pre>
 <pre><code># 示例2：假设其R1结构为：固定序列(6bp) -> Barcode 1 (10bp) -> 固定序列(6bp) -> Barcode 2 (10bp) -> 固定序列(33bp) -> 插入序列 (50bp)。R2结构为：固定序列(19bp) -> 插入序列(50bp)。
 --customize "cb,R1:7-16;cb,R1:23-32;R1,R1:66-115;R2,R2:20-69"</code></pre>
-<p><strong>⚠️ 注意事项：</strong></p>
+<p><strong> 注意事项：</strong></p>
 <ul>
 <li><strong>必须使用引号：</strong>由于包含特殊字符，整个字符串必须用双引号包裹。</li>
 <li><strong>坐标精确：</strong>坐标范围不能超过FASTQ文件中的实际读长，否则会导致解析失败。</li>
 </ul>
 </div>
 
----
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
 
-#### 🟢 过滤设置参数
+#### 过滤设置参数
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>--forcecells</code> <span style="font-size: 0.8em; font-weight: normal; color: #e67e22;">(可选)</span></h4>
 <p>强制流程使用确切的细胞数量，此参数会覆盖软件的自动细胞检测结果。</p>
 <ul>
@@ -268,7 +309,7 @@ dnbc4tools atac run --name sample2 --fastqs ./fq --genomeDir ./ref --darkreactio
 dnbc4tools atac run --name sample1 --fastqs ./fq --genomeDir ./ref --forcecells 5000</code></pre>
 </div>
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>--frags_cutoff</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(可选)</span></h4>
 <p>设定用于保留细胞的最低唯一fragments数量。</p>
 <ul>
@@ -281,7 +322,7 @@ dnbc4tools atac run --name sample1 --fastqs ./fq --genomeDir ./ref --forcecells 
 dnbc4tools atac run --name sample1 --fastqs ./fq --genomeDir ./ref --frags_cutoff 500</code></pre>
 </div>
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>--tss_cutoff</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(可选)</span></h4>
 <p>设定用于保留细胞的最低TSS区域片段比例。</p>
 <ul>
@@ -293,7 +334,7 @@ dnbc4tools atac run --name sample1 --fastqs ./fq --genomeDir ./ref --frags_cutof
 dnbc4tools atac run --name sample1 --fastqs ./fq --genomeDir ./ref --tss_cutoff 0.1</code></pre>
 </div>
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>--jaccard_cutoff</code> <span style="font-size: 0.8em; font-weight: normal; color: #9b59b6;">(可选)</span></h4>
 <p>用于合并潜在属于同一个细胞的多个条形码（beads）的Jaccard相似度阈值。</p>
 <ul>
@@ -306,7 +347,7 @@ dnbc4tools atac run --name sample1 --fastqs ./fq --genomeDir ./ref --tss_cutoff 
 dnbc4tools atac run --name sample1 --fastqs ./fq --genomeDir ./ref --jaccard_cutoff 0.02</code></pre>
 </div>
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>--merge_cutoff</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(可选)</span></h4>
 <p>设定参与Jaccard合并的磁珠（beads）所需的最低fragments数量。</p>
 <ul>
@@ -320,11 +361,15 @@ dnbc4tools atac run --name sample1 --fastqs ./fq --genomeDir ./ref --jaccard_cut
 dnbc4tools atac run --name sample1 --fastqs ./fq --genomeDir ./ref --merge_cutoff 200</code></pre>
 </div>
 
----
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
 
-#### 🚩 分析设置参数
+<div style="max-width: 1200px; margin: 0 auto;">
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+#### 分析设置参数
+
+</div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>--need_bam</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(标志)</span></h4>
 <p>启用BAM格式文件的生成。</p>
 <ul>
@@ -334,7 +379,7 @@ dnbc4tools atac run --name sample1 --fastqs ./fq --genomeDir ./ref --merge_cutof
 <p><strong>默认值:</strong> 不设置此参数则不生成BAM文件</p>
 </div>
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>--sample_read_pairs</code> <span style="font-size: 0.8em; font-weight: normal; color: #9b59b6;">(可选)</span></h4>
 <p>从输入的FASTQ文件中提取指定数量的读段对进行分析。</p>
 <ul>
@@ -345,20 +390,29 @@ dnbc4tools atac run --name sample1 --fastqs ./fq --genomeDir ./ref --merge_cutof
 <pre><code>--sample_read_pairs 100000000</code></pre>
 </div>
 
----
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
+
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
 <div align="center">
 
-> 💡 **分析建议**
+> **分析建议**
 > 
 > 首次分析时建议使用默认参数，获得结果报告后再根据需要调整参数。
 
 </div>
+</div>
 
----
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
 
-## 📊 参考数据库构建 (mkref) <a id="参考数据库构建-mkref"></a>
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
 
-### 📊 用法
+## 参考数据库构建 (mkref) <a id="参考数据库构建-mkref"></a>
+
+</div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #d2d2d7; overflow-x: auto;">
+
+### 用法
 
 ```shell
 $ dnbc4tools atac mkref
@@ -391,11 +445,21 @@ Advanced Settings:
   --noindex            Generate only ref.json without building the genome index.
 ```
 
-### 📝 参数说明
+</div>
 
-#### 🔴 必需参数
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+### 参数说明
+
+</div>
+
+<div style="max-width: 1200px; margin: 0 auto;">
+
+#### 必需参数
+
+</div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>--fasta</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(必需)</span></h4>
 <p>提供参考基因组序列文件。</p>
 <ul>
@@ -407,7 +471,7 @@ Advanced Settings:
 <pre><code>--fasta Homo_sapiens.GRCh38.dna.primary_assembly.fa</code></pre>
 </div>
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>--ingtf</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(必需)</span></h4>
 <p>提供基因结构注释文件。</p>
 <ul>
@@ -419,11 +483,11 @@ Advanced Settings:
 <pre><code>--ingtf Homo_sapiens.GRCh38.108.gtf</code></pre>
 </div>
 
----
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
 
-#### 🟢 输出设置参数
+#### 输出设置参数
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>--genomeDir</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(可选)</span></h4>
 <p>指定生成的参考数据库的输出目录。</p>
 <ul>
@@ -450,7 +514,7 @@ Advanced Settings:
 <pre><code>dnbc4tools atac mkref --fasta genome.fa --ingtf genes.gtf --genomeDir /database/scATAC/GRCh38</code></pre>
 </div>
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>--species</code> <span style="font-size: 0.8em; font-weight: normal; color: #f39c12;">(可选)</span></h4>
 <p>为参考数据库指定一个物种名称。</p>
 <ul>
@@ -462,11 +526,11 @@ Advanced Settings:
 <pre><code>dnbc4tools atac mkref --fasta genome.fa --ingtf genes.gtf --species Homo_sapiens</code></pre>
 </div>
 
----
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
 
-#### 🟢 基因组设置参数
+#### 基因组设置参数
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>--tag</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(可选)</span></h4>
 <p>选择生成TSS（转录起始位点）文件的信息来源。</p>
 <ul>
@@ -479,7 +543,7 @@ Advanced Settings:
 dnbc4tools atac mkref --fasta genome.fa --ingtf genes.gtf --tag transcript</code></pre>
 </div>
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>--chrM</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(可选)</span></h4>
 <p>指定线粒体染色体的名称。</p>
 <ul>
@@ -492,7 +556,7 @@ dnbc4tools atac mkref --fasta genome.fa --ingtf genes.gtf --tag transcript</code
 dnbc4tools atac mkref --fasta genome.fa --ingtf genes.gtf --chrM mitochondrion</code></pre>
 </div>
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>--chloroplast</code> <span style="font-size: 0.8em; font-weight: normal; color: #f39c12;">(植物专用)</span></h4>
 <p>指定叶绿体染色体的名称，推荐植物样本使用。</p>
 <ul>
@@ -504,7 +568,7 @@ dnbc4tools atac mkref --fasta genome.fa --ingtf genes.gtf --chrM mitochondrion</
 dnbc4tools atac mkref --fasta TAIR10.fa --ingtf Athaliana.gtf --chloroplast Pt</code></pre>
 </div>
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>--kmer</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(可选)</span></h4>
 <p>设置Chromap索引构建时使用的k-mer长度。</p>
 <ul>
@@ -517,7 +581,7 @@ dnbc4tools atac mkref --fasta TAIR10.fa --ingtf Athaliana.gtf --chloroplast Pt</
 dnbc4tools atac mkref --fasta genome.fa --ingtf genes.gtf --kmer 15</code></pre>
 </div>
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>--window</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(可选)</span></h4>
 <p>设置Chromap索引构建时使用的窗口大小。</p>
 <ul>
@@ -530,7 +594,7 @@ dnbc4tools atac mkref --fasta genome.fa --ingtf genes.gtf --kmer 15</code></pre>
 dnbc4tools atac mkref --fasta genome.fa --ingtf genes.gtf --window 5</code></pre>
 </div>
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>--noindex</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(标志)</span></h4>
 <p>如果设置此参数，将只生成配置文件而不构建基因组索引。</p>
 <ul>
@@ -542,13 +606,15 @@ dnbc4tools atac mkref --fasta genome.fa --ingtf genes.gtf --window 5</code></pre
 dnbc4tools atac mkref --fasta genome.fa --ingtf genes.gtf --noindex</code></pre>
 </div>
 
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
+
 > [!TIP]
 > 
-> 📋 **数据库构建说明**：
+> **数据库构建说明**：
 > - 使用Chromap构建的数据库目前无法处理极大的基因组，某些物种可能无法使用此软件进行scATAC分析，或者调整kmer和window参数来适配基因组索引构建。
 > - 数据库构建完成后，将在数据库目录中生成ref.json文件，记录关键信息
 > 
-> 📋 **ref.json文件示例**：
+> **ref.json文件示例**：
 > ```json
 > {
 >     "species": "Homo_sapiens",
@@ -572,17 +638,25 @@ dnbc4tools atac mkref --fasta genome.fa --ingtf genes.gtf --noindex</code></pre>
 > }
 > ```
 > 
-> 📋 **重要说明**：
+> **重要说明**：
 > - chromeSize文件中列出的染色体名称将包含在fragments.tsv.gz文件中进行分析，未列出的染色体将被排除
 > - 自2.1.2版本起，blacklist参数已被移除，不再需要blacklist文件。如需要，可手动添加
 > - 黑名单区域的片段数量将记录在metadata文件output/singlecell.csv的blacklist_region_fragments列中
 > - genomesize值用于MACS2 peak calling分析，MACS2对某些物种有特殊标识符，如人类为"hs"
 
----
+</div>
 
-## 📋 多样本操作 (multi) <a id="多样本操作-multi"></a>
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
 
-### 📊 用法
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
+
+## 多样本操作 (multi) <a id="多样本操作-multi"></a>
+
+</div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #d2d2d7; overflow-x: auto;">
+
+### 用法
 
 ```shell
 $ dnbc4tools atac multi
@@ -600,11 +674,21 @@ optional arguments:
   --genomeDir <DIR>  Path to the directory containing the reference genome files.
 ```
 
-### 📝 参数说明
+</div>
 
-#### 🔴 必需参数
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+### 参数说明
+
+</div>
+
+<div style="max-width: 1200px; margin: 0 auto;">
+
+#### 必需参数
+
+</div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>--list</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(必需)</span></h4>
 <p>指定包含多个样本信息的列表文件路径。</p>
 <ul>
@@ -631,44 +715,46 @@ SampleB /path/to/B_L01_R1.fq.gz,/path/to/B_L02_R1.fq.gz;/path/to/B_L01_R2.fq.gz,
 <p><strong>默认值:</strong> 无</p>
 </div>
 
----
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
 
-
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
 
 <blockquote>
-📝 <strong>参数继承说明</strong><br>
+<strong>参数继承说明</strong><br>
 对于其他分析参数设置，请参考<code>dnbc4tools atac run</code>命令的相应参数。
 </blockquote>
 
-> 📌 **执行行为说明**
+> **执行行为说明**
 >
 > `dnbc4tools atac multi` 会为每个样本生成对应的执行脚本（如 `sample1.sh`），便于批量提交与复用；默认不会自动串行执行所有样本分析。
 
----
+</div>
 
-<br>
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
 
-## 📚 相关文档
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
 
-<br>
+## 相关文档
+
+</div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
 
 | 资源 | 描述 |
 | :--- | :--- |
-| [🔬 scATAC 流程文档](../pipeline/scATAC.md) | 单细胞 ATAC 分析流程指南 |
-| [📁 scATAC 输出文档](../outs/scATAC.md) | 输出文件详细解读 |
+| [scATAC 流程文档](../pipeline/scATAC.md) | 单细胞 ATAC 分析流程指南 |
+| [scATAC 输出文档](../outs/scATAC.md) | 输出文件详细解读 |
 
-<br>
+</div>
 
----
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
 
-<br>
+<div align="center" style="background: #f5f5f7; border-radius: 12px; padding: 30px; margin: 40px auto; max-width: 1200px;">
 
-<div align="center">
-
-> 💡 <strong>反馈与支持</strong>
+> <strong>反馈与支持</strong>
 >
 > 本文档持续更新中，如发现内容错误或需要补充的信息，欢迎反馈。
 >
-> 📝 <strong>文档版本：</strong> 3.1 | <strong>最后更新：</strong> 2026年4月
+<strong>文档版本：</strong> 3.1 | <strong>最后更新：</strong> 2026年4月
 
 </div>

@@ -1,22 +1,34 @@
-<div align="right">
+<div align="right" style="margin-bottom: 20px; max-width: 1200px; margin-left: auto; margin-right: auto;">
 
-[🏠 Home](../../README.md) • [中文](scRNA.md)
-
-</div>
-
-# 🧬 DNBelab C Series HT scRNA Analysis Pipeline
-
-<div align="center">
-
-**A Complete Guide to Single-Cell RNA Sequencing Data Analysis**
-
-[📋 Overview](#overview) • [📁 File Preparation](#file-preparation) • [📊 Reference Data](#reference-data) • [🚀 Main Pipeline](#main-pipeline) • [📊 Results Interpretation](#results-interpretation)
+[Home](../../README.md) • [中文](scRNA.md)
 
 </div>
 
----
+<div align="center" style="padding: 40px 20px; background: linear-gradient(135deg, #f5f5f7 0%, #ffffff 100%); border-radius: 12px; margin-bottom: 30px; max-width: 1200px; margin-left: auto; margin-right: auto;">
 
-## 📋 Overview <a id="overview"></a>
+<h1 style="font-size: 48px; font-weight: 600; color: #1d1d1f; margin: 0 0 16px 0; letter-spacing: -0.02em;">DNBelab C Series HT scRNA Analysis Pipeline</h1>
+
+<p style="font-size: 21px; color: #86868b; margin: 0 0 30px 0; font-weight: 400;">A Complete Guide to Single-Cell RNA Sequencing Data Analysis</p>
+
+<div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+<a href="#overview" style="background: #0071e3; color: white; padding: 8px 16px; border-radius: 980px; text-decoration: none; font-size: 14px;">Overview</a>
+<a href="#file-preparation" style="background: transparent; color: #0071e3; padding: 8px 16px; border-radius: 980px; text-decoration: none; font-size: 14px; border: 1px solid #0071e3;">File Preparation</a>
+<a href="#reference-data" style="background: transparent; color: #0071e3; padding: 8px 16px; border-radius: 980px; text-decoration: none; font-size: 14px; border: 1px solid #0071e3;">Reference Data</a>
+<a href="#main-pipeline" style="background: transparent; color: #0071e3; padding: 8px 16px; border-radius: 980px; text-decoration: none; font-size: 14px; border: 1px solid #0071e3;">Main Pipeline</a>
+<a href="#results-interpretation" style="background: transparent; color: #0071e3; padding: 8px 16px; border-radius: 980px; text-decoration: none; font-size: 14px; border: 1px solid #0071e3;">Results Interpretation</a>
+</div>
+
+</div>
+
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
+
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
+
+## Overview <a id="overview"></a>
+
+</div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
 
 This document provides a complete guide on how to use dnbc4tools for single-cell RNA sequencing data analysis.
 
@@ -27,12 +39,21 @@ This document provides a complete guide on how to use dnbc4tools for single-cell
 </div>
 
 <div style="background-color: #e7f3fe; border-left: 6px solid #2196F3; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
-💡 <strong>Usage Note</strong>: <code>$dnbc4tools</code> represents the executable path and must be replaced with the actual installation path. The backslash `\` is used to split a command across multiple lines for readability.
+ <strong>Usage Note</strong>: <code>$dnbc4tools</code> represents the executable path and must be replaced with the actual installation path. The backslash `\` is used to split a command across multiple lines for readability.
 </div>
 
----
 
-## 📁 File Preparation <a id="file-preparation"></a>
+</div>
+
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
+
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
+
+## File Preparation <a id="file-preparation"></a>
+
+</div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
 
 Two types of FASTQ files are required for the analysis:
 
@@ -56,12 +77,21 @@ Two types of FASTQ files are required for the analysis:
 </table>
 
 <div style="background-color: #fffbe6; border-left: 6px solid #ffc107; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
-⚠️ <strong>Note</strong>: Ensure that the FASTQ files are of good quality and record their paths for subsequent analysis.
+ <strong>Note</strong>: Ensure that the FASTQ files are of good quality and record their paths for subsequent analysis.
 </div>
 
----
 
-## 📊 Reference Data <a id="reference-data"></a>
+</div>
+
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
+
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
+
+## Reference Data <a id="reference-data"></a>
+
+</div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
 
 ### File Requirements
 
@@ -88,7 +118,7 @@ Two types of FASTQ files are required for the analysis:
 </table>
 
 <div style="background-color: #e7f3fe; border-left: 6px solid #2196F3; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
-💡 <strong>Recommended Data Source</strong>: It is recommended to use files from the <a href="https://www.ensembl.org/index.html">Ensembl database</a>. Ensembl's GTF files contain optional tags that facilitate filtering with <code>dnbc4tools tools mkgtf</code>.
+ <strong>Recommended Data Source</strong>: It is recommended to use files from the <a href="https://www.ensembl.org/index.html">Ensembl database</a>. Ensembl's GTF files contain optional tags that facilitate filtering with <code>dnbc4tools tools mkgtf</code>.
 </div>
 
 **GTF File Requirements**:
@@ -138,7 +168,7 @@ $dnbc4tools tools mkgtf \
 ```
 
 <div style="background-color: #fffbe6; border-left: 6px solid #ffc107; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
-⚠️ <strong>Note</strong>: You need to check the tags in the GTF file to determine the <code>type</code>.
+ <strong>Note</strong>: You need to check the tags in the GTF file to determine the <code>type</code>.
 </div>
 
 <div align="center">
@@ -290,7 +320,7 @@ The `ref.json` file records the main information of the database.
 ```
 
 <div style="background-color: #fffbe6; border-left: 6px solid #ffc107; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
-⚠️ <code>Note</code>: Building the reference database can be time-consuming, depending on the genome size and computational resources. The main analysis pipeline is compatible with older database versions.
+ <code>Note</code>: Building the reference database can be time-consuming, depending on the genome size and computational resources. The main analysis pipeline is compatible with older database versions.
 </div>
 
 The following information will be printed during runtime:
@@ -316,9 +346,18 @@ The following information will be printed during runtime:
 Analysis Complete
 ```
 
----
 
-## 🚀 Main Pipeline <a id="main-pipeline"></a>
+</div>
+
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
+
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
+
+## Main Pipeline <a id="main-pipeline"></a>
+
+</div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
 
 ### Multi-Sample Batch Processing (Optional)
 
@@ -357,7 +396,7 @@ The `sample.tsv` file is tab-separated (`\t`) and contains three columns:
 </table>
 
 <div style="background-color: #fffbe6; border-left: 6px solid #ffc107; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
-⚠️ <code>Note</code>: Multiple FASTQ files should be separated by commas, and R1/R2 files by semicolons.
+ <code>Note</code>: Multiple FASTQ files should be separated by commas, and R1/R2 files by semicolons.
 </div>
 
 ```tsv
@@ -498,9 +537,18 @@ After auto-detecting the reagent version and dark reaction, the software begins 
 
 When the message `Analysis Finished` appears, the analysis is successfully completed.
 
----
 
-## 📊 Results Interpretation <a id="results-interpretation"></a>
+</div>
+
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
+
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
+
+## Results Interpretation <a id="results-interpretation"></a>
+
+</div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
 
 Upon completion, `outs` (outputs) and `logs` directories will be generated. The `outs` directory is structured as follows:
 
@@ -526,42 +574,54 @@ Upon completion, `outs` (outputs) and `logs` directories will be generated. The 
 └── singlecell.csv
 ```
 
----
 
-<br>
+</div>
 
-## 📚 Related Documentation
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
 
-<br>
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
+
+## Related Documentation
+
+</div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
 
 | Resource | Description |
 | :--- | :--- |
-| [📊 Output File Usage](../io.md) | Understanding output file structure and formats |
-| [📋 Analysis Parameters](../parameter/scRNA_en.md) | Complete parameter reference and descriptions |
-| [📝 Output Descriptions](../outs/scRNA_en.md) | Detailed interpretation of analysis results |
+| [Output File Usage](../io.md) | Understanding output file structure and formats |
+| [Analysis Parameters](../parameter/scRNA_en.md) | Complete parameter reference and descriptions |
+| [Output Descriptions](../outs/scRNA_en.md) | Detailed interpretation of analysis results |
 
-<br>
 
----
+</div>
 
-<br>
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
 
-## ❓ Frequently Asked Questions
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
 
-> <em>Content coming soon...</em>
+## Frequently Asked Questions
 
-<br>
+</div>
 
----
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
 
-<br>
+This section is being updated.
+
+</div>
+
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
+
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
 
 <div align="center">
 
-> 💡 <strong>Feedback & Support</strong>
+> <strong>Feedback & Support</strong>
 >
-> This document is continuously updated. If you find any errors or need additional information, please provide feedback.
+> This document is continuously updated. If you find any errors or need additional information, feedback is welcome.
 >
-> 📝 <strong>Document Version:</strong> 3.1 | <strong>Last Updated:</strong> April 2026
+> <strong>Document Version:</strong> 3.1 | <strong>Last Updated:</strong> April 2026
+
+</div>
 
 </div>

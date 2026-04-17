@@ -1,22 +1,46 @@
-<div align="right">
+<div align="right" style="margin-bottom: 20px; max-width: 1200px; margin-left: auto; margin-right: auto;">
 
-[🏠 Home](../../README.md) • [中文](scATAC.md)
-
-</div>
-
-# 🧬 DNBelab C Series HT scATAC Analysis Parameters
-
-<div align="center">
-
-[🔬 Main Analysis Pipeline (run)](#main-analysis-pipeline-run) • [📊 Reference Database Construction (mkref)](#reference-database-construction-mkref) • [📋 Multi-sample Operations (multi)](#multi-sample-operations-multi)
+<a href="../../README.md" style="color: #0071e3; text-decoration: none; font-size: 14px;">Home</a> <span style="color: rgba(0,0,0,0.3);">•</span> <a href="scATAC.md" style="color: #0071e3; text-decoration: none; font-size: 14px;">中文</a>
 
 </div>
 
----
+<div align="center" style="padding: 40px 20px; background: linear-gradient(135deg, #f5f5f7 0%, #ffffff 100%); border-radius: 12px; margin-bottom: 30px; max-width: 1200px; margin-left: auto; margin-right: auto;">
 
-## 🔬 Main Analysis Pipeline (run) <a id="main-analysis-pipeline-run"></a>
+<h1 style="font-size: 48px; font-weight: 600; color: #1d1d1f; margin: 0 0 16px 0; letter-spacing: -0.02em;">scATAC Analysis Parameters</h1>
 
-### 📊 Usage <a id="usage"></a>
+<p style="font-size: 21px; color: rgba(0,0,0,0.6); margin: 0 0 30px 0; font-weight: 400;">DNBelab C Series HT scATAC Parameter Configuration Guide</p>
+
+<div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+<a href="#main-analysis-pipeline-run" style="background: #0071e3; color: white; padding: 8px 16px; border-radius: 980px; text-decoration: none; font-size: 14px;">Main Analysis (run)</a>
+<a href="#reference-database-construction-mkref" style="background: transparent; color: #0071e3; padding: 8px 16px; border-radius: 980px; text-decoration: none; font-size: 14px; border: 1px solid #0071e3;">Database Construction (mkref)</a>
+<a href="#multi-sample-operations-multi" style="background: transparent; color: #0071e3; padding: 8px 16px; border-radius: 980px; text-decoration: none; font-size: 14px; border: 1px solid #0071e3;">Multi-sample (multi)</a>
+</div>
+
+</div>
+
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
+
+## Overview <a id="overview"></a>
+
+This document explains the parameter meanings, default behaviors, and common usage patterns for each subcommand of `dnbc4tools atac`, covering single-sample analysis (`run`), reference library construction (`mkref`), and multi-sample task generation (`multi`).
+
+> **Tip**
+>
+> Parameter descriptions are based on the current command-line help information. Examples can be used directly as templates and adjusted as needed.
+
+</div>
+
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
+
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
+
+## Main Analysis Pipeline (run) <a id="main-analysis-pipeline-run"></a>
+
+</div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #d2d2d7; overflow-x: auto;">
+
+### Usage <a id="usage"></a>
 
 
 ```shell
@@ -65,13 +89,23 @@ Analysis Settings:
   --sample_read_pairs <INT>  Subsample the specified number of read pairs from the input FASTQ files (e.g., `1000000`).
 ```
 
-### 📝 Parameter Description
+</div>
 
-#### 🔴 Required Parameters
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
 
-> ⚠️ **Essential parameters that must be specified for a successful analysis**
+### Parameter Description
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+</div>
+
+<div style="max-width: 1200px; margin: 0 auto;">
+
+#### Required Parameters
+
+> **Essential parameters that must be specified for a successful analysis**
+
+</div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>-n, --name</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(Required)</span></h4>
 <p>Provide a unique name for this analysis run.</p>
 <ul>
@@ -83,7 +117,7 @@ Analysis Settings:
 <pre><code>--name sample_001</code></pre>
 </div>
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>-g, --genomeDir</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(Required)</span></h4>
 <p>Specify the path to the reference genome directory.</p>
 <ul>
@@ -95,13 +129,17 @@ Analysis Settings:
 <pre><code>--genomeDir /path/to/genome/database</code></pre>
 </div>
 
----
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
 
-#### 🟢 Input File Parameters
+<div style="max-width: 1200px; margin: 0 auto;">
 
-> 📁 **Choose one input method: Directory-based OR specify individual files**
+#### Input File Parameters
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+> **Choose one input method: Directory-based OR specify individual files**
+
+</div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>--fastqs</code> <span style="font-size: 0.8em; font-weight: normal; color: #3498db;">(Method 1)</span></h4>
 <p>Specify the path to the directory containing all FASTQ files.</p>
 <ul>
@@ -113,7 +151,7 @@ Analysis Settings:
 <pre><code>--fastqs ./fastq_directory</code></pre>
 </div>
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>--fastq1</code> <span style="font-size: 0.8em; font-weight: normal; color: #3498db;">(Method 2A)</span></h4>
 <p>Specify one or more Read1 FASTQ files individually.</p>
 <ul>
@@ -125,7 +163,7 @@ Analysis Settings:
 <pre><code>--fastq1 sample1_L01_R1.fastq.gz,sample1_L02_R1.fastq.gz</code></pre>
 </div>
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>--fastq2</code> <span style="font-size: 0.8em; font-weight: normal; color: #3498db;">(Method 2B)</span></h4>
 <p>Specify one or more Read2 FASTQ files individually.</p>
 <ul>
@@ -137,19 +175,30 @@ Analysis Settings:
 <pre><code>--fastq2 sample1_L01_R2.fastq.gz,sample1_L02_R2.fastq.gz</code></pre>
 </div>
 
-> ⚠️ **Input Method Selection:**
-> - **🔸 Method 1:** Use `--fastqs` to specify a directory containing paired FASTQ files.
-> - **🔸 Method 2:** Use `--fastq1` and `--fastq2` to specify R1 and R2 files respectively.
+<div style="background: #f5f5f7; border-radius: 12px; padding: 20px; margin: 20px auto; max-width: 1200px;">
 
-> ℹ️ **Compatible aliases**
+> **Input Method Selection:**
+> - **Method 1:** Use `--fastqs` to specify a directory containing paired FASTQ files.
+> - **Method 2:** Use `--fastq1` and `--fastq2` to specify R1 and R2 files respectively.
+
+> **Compatible aliases**
 > - Legacy short options `-1/-2` are still supported, but hidden in current help output. Long options are recommended for better script readability.
 
-> ⚠️ **Important Note:** All files under a parameter must come from the same library, with consistent sequencing mode and dark reaction settings. Data from different libraries cannot be merged for analysis.
----
+> **Important Note:** All files under a parameter must come from the same library, with consistent sequencing mode and dark reaction settings. Data from different libraries cannot be merged for analysis.
 
-#### 🟢 Basic Settings
+</div>
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
+
+<div style="background: #f5f5f7; border-radius: 12px; padding: 20px; margin: 24px auto; max-width: 1200px;">
+
+<div style="max-width: 1200px; margin: 0 auto;">
+
+#### Basic Settings
+
+</div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>-o, --outdir</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(Optional)</span></h4>
 <p>Specify the output directory for all analysis results and reports.</p>
 <ul>
@@ -160,7 +209,7 @@ Analysis Settings:
 <pre><code>--outdir ./output_results</code></pre>
 </div>
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>-t, --threads</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(Optional)</span></h4>
 <p>Set the number of CPU threads to be used during the analysis.</p>
 <ul>
@@ -172,11 +221,17 @@ Analysis Settings:
 <pre><code>--threads 16</code></pre>
 </div>
 
----
+</div>
 
-#### 🟢 Library Settings
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<div style="max-width: 1200px; margin: 0 auto;">
+
+#### Library Settings
+
+</div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>--darkreaction</code> <span style="font-size: 0.8em; font-weight: normal; color: #f39c12;">(Optional)</span></h4>
 <p>Configure the dark cycle settings for the ATAC library to ensure accurate cell barcode identification.</p>
 <ul>
@@ -218,10 +273,10 @@ dnbc4tools atac run --name sample1 --fastqs ./fq --genomeDir ./ref</code></pre>
 
 <pre><code># Scenario 2: Known library has dark cycles only on R1 and auto-analysis fails or identifies incorrectly
 dnbc4tools atac run --name sample2 --fastqs ./fq --genomeDir ./ref --darkreaction R1</code></pre>
-<p><strong>⚠️ Important Note:</strong> Incorrect settings can lead to cell barcode identification failure or loss of sequence information. Specify manually only if you understand the library structure or if auto-detection fails.</p>
+<p><strong>Important Note:</strong> Incorrect settings can lead to cell barcode identification failure or loss of sequence information. Specify manually only if you understand the library structure or if auto-detection fails.</p>
 </div>
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>--customize</code> <span style="font-size: 0.8em; font-weight: normal; color: #9b59b6;">(Advanced)</span></h4>
 <p>Precisely define the extraction structure for barcodes and effective sequences (reads) for non-standard libraries.</p>
 <ul>
@@ -244,7 +299,7 @@ dnbc4tools atac run --name sample2 --fastqs ./fq --genomeDir ./ref --darkreactio
 --customize "cb,R1:1-10;cb,R1:11-20;R1,R1:21-70;R2,R2:1-50"</code></pre>
 <pre><code># Example 2: Assume R1 structure is: Fixed (6bp) -> Barcode 1 (10bp) -> Fixed (6bp) -> Barcode 2 (10bp) -> Fixed (33bp) -> Insert (50bp). R2 structure is: Fixed (19bp) -> Insert (50bp).
 --customize "cb,R1:7-16;cb,R1:23-32;R1,R1:66-115;R2,R2:20-69"</code></pre>
-<p><strong>⚠️ Notes:</strong></p>
+<p><strong>Notes:</strong></p>
 <ul>
 <li><strong>Must use quotes:</strong> The entire string must be enclosed in double quotes due to special characters.</li>
 <li><strong>Accurate coordinates:</strong> The coordinate range cannot exceed the actual read length in the FASTQ file, or it will cause a parsing failure.</li>
@@ -253,9 +308,13 @@ dnbc4tools atac run --name sample2 --fastqs ./fq --genomeDir ./ref --darkreactio
 
 ---
 
-#### 🟢 Filtering Settings
+<div style="max-width: 1200px; margin: 0 auto;">
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+#### Filtering Settings
+
+</div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>--forcecells</code> <span style="font-size: 0.8em; font-weight: normal; color: #e67e22;">(Optional)</span></h4>
 <p>Force the pipeline to use an exact number of cells, overriding the software's automatic cell detection.</p>
 <ul>
@@ -268,7 +327,7 @@ dnbc4tools atac run --name sample2 --fastqs ./fq --genomeDir ./ref --darkreactio
 dnbc4tools atac run --name sample1 --fastqs ./fq --genomeDir ./ref --forcecells 5000</code></pre>
 </div>
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>--frags_cutoff</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(Optional)</span></h4>
 <p>Set the minimum number of unique fragments to retain a cell.</p>
 <ul>
@@ -281,7 +340,7 @@ dnbc4tools atac run --name sample1 --fastqs ./fq --genomeDir ./ref --forcecells 
 dnbc4tools atac run --name sample1 --fastqs ./fq --genomeDir ./ref --frags_cutoff 500</code></pre>
 </div>
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>--tss_cutoff</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(Optional)</span></h4>
 <p>Set the minimum proportion of fragments in TSS regions to retain a cell.</p>
 <ul>
@@ -293,7 +352,7 @@ dnbc4tools atac run --name sample1 --fastqs ./fq --genomeDir ./ref --frags_cutof
 dnbc4tools atac run --name sample1 --fastqs ./fq --genomeDir ./ref --tss_cutoff 0.1</code></pre>
 </div>
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>--jaccard_cutoff</code> <span style="font-size: 0.8em; font-weight: normal; color: #9b59b6;">(Optional)</span></h4>
 <p>The Jaccard similarity threshold for merging multiple barcodes (beads) that potentially belong to the same cell.</p>
 <ul>
@@ -306,7 +365,7 @@ dnbc4tools atac run --name sample1 --fastqs ./fq --genomeDir ./ref --tss_cutoff 
 dnbc4tools atac run --name sample1 --fastqs ./fq --genomeDir ./ref --jaccard_cutoff 0.02</code></pre>
 </div>
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>--merge_cutoff</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(Optional)</span></h4>
 <p>Set the minimum number of fragments required for a bead to be included in the Jaccard merging process.</p>
 <ul>
@@ -320,11 +379,15 @@ dnbc4tools atac run --name sample1 --fastqs ./fq --genomeDir ./ref --jaccard_cut
 dnbc4tools atac run --name sample1 --fastqs ./fq --genomeDir ./ref --merge_cutoff 200</code></pre>
 </div>
 
----
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
 
-#### 🚩 Analysis Settings
+<div style="max-width: 1200px; margin: 0 auto;">
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+#### Analysis Settings
+
+</div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>--need_bam</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(Flag)</span></h4>
 <p>Enable the generation of BAM format files.</p>
 <ul>
@@ -334,7 +397,7 @@ dnbc4tools atac run --name sample1 --fastqs ./fq --genomeDir ./ref --merge_cutof
 <p><strong>Default:</strong> If not set, BAM files are not generated.</p>
 </div>
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>--sample_read_pairs</code> <span style="font-size: 0.8em; font-weight: normal; color: #9b59b6;">(Optional)</span></h4>
 <p>Extract a specified number of read pairs from the input FASTQ files for analysis.</p>
 <ul>
@@ -345,20 +408,26 @@ dnbc4tools atac run --name sample1 --fastqs ./fq --genomeDir ./ref --merge_cutof
 <pre><code>--sample_read_pairs 100000000</code></pre>
 </div>
 
----
-<div align="center">
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
 
-> 💡 **Analysis Recommendation**
-> 
-> For the initial analysis, it is recommended to use the default parameters and then adjust them as needed based on the results report.
+<div style="background: #f5f5f7; border-radius: 12px; padding: 20px; margin: 24px auto; max-width: 1200px;">
+
+> **Analysis Recommendation**
+> > For the initial analysis, it is recommended to use the default parameters and then adjust them as needed based on the results report.
 
 </div>
 
----
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
 
-## 📊 Reference Database Construction (mkref) <a id="reference-database-construction-mkref"></a>
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
 
-### 📊 Usage
+## Reference Database Construction (mkref) <a id="reference-database-construction-mkref"></a>
+
+</div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #d2d2d7; overflow-x: auto;">
+
+### Usage
 
 ```shell
 $ dnbc4tools atac mkref --help
@@ -386,11 +455,21 @@ Advanced settings:
   --noindex            Only generate ref.json without building genome index
 ```
 
-### 📝 Parameter Description
+</div>
 
-#### 🔴 Required Parameters
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+### Parameter Description
+
+</div>
+
+<div style="max-width: 1200px; margin: 0 auto;">
+
+#### Required Parameters
+
+</div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>--fasta</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(Required)</span></h4>
 <p>Provide the reference genome sequence file.</p>
 <ul>
@@ -402,7 +481,7 @@ Advanced settings:
 <pre><code>--fasta Homo_sapiens.GRCh38.dna.primary_assembly.fa</code></pre>
 </div>
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>--ingtf</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(Required)</span></h4>
 <p>Provide the gene structure annotation file.</p>
 <ul>
@@ -416,9 +495,9 @@ Advanced settings:
 
 ---
 
-#### 🟢 Output Settings
+#### Output Settings
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>--genomeDir</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(Optional)</span></h4>
 <p>Specify the output directory for the generated reference database.</p>
 <ul>
@@ -445,7 +524,7 @@ Advanced settings:
 <pre><code>dnbc4tools atac mkref --fasta genome.fa --ingtf genes.gtf --genomeDir /database/scATAC/GRCh38</code></pre>
 </div>
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>--species</code> <span style="font-size: 0.8em; font-weight: normal; color: #f39c12;">(Optional)</span></h4>
 <p>Specify a species name for the reference database.</p>
 <ul>
@@ -457,11 +536,11 @@ Advanced settings:
 <pre><code>dnbc4tools atac mkref --fasta genome.fa --ingtf genes.gtf --species Homo_sapiens</code></pre>
 </div>
 
----
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
 
-#### 🟢 Genome Settings
+#### Genome Settings
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>--tag</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(Optional)</span></h4>
 <p>Select the source of information for generating the TSS (Transcription Start Site) file.</p>
 <ul>
@@ -474,7 +553,7 @@ Advanced settings:
 dnbc4tools atac mkref --fasta genome.fa --ingtf genes.gtf --tag transcript</code></pre>
 </div>
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>--chrM</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(Optional)</span></h4>
 <p>Specify the name of the mitochondrial chromosome.</p>
 <ul>
@@ -487,7 +566,7 @@ dnbc4tools atac mkref --fasta genome.fa --ingtf genes.gtf --tag transcript</code
 dnbc4tools atac mkref --fasta genome.fa --ingtf genes.gtf --chrM mitochondrion</code></pre>
 </div>
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>--chloroplast</code> <span style="font-size: 0.8em; font-weight: normal; color: #f39c12;">(Plant-specific)</span></h4>
 <p>Specify the name of the chloroplast chromosome, recommended for plant samples.</p>
 <ul>
@@ -499,7 +578,7 @@ dnbc4tools atac mkref --fasta genome.fa --ingtf genes.gtf --chrM mitochondrion</
 dnbc4tools atac mkref --fasta TAIR10.fa --ingtf Athaliana.gtf --chloroplast Pt</code></pre>
 </div>
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>--kmer</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(Optional)</span></h4>
 <p>Set the k-mer length used during Chromap index construction.</p>
 <ul>
@@ -512,7 +591,7 @@ dnbc4tools atac mkref --fasta TAIR10.fa --ingtf Athaliana.gtf --chloroplast Pt</
 dnbc4tools atac mkref --fasta genome.fa --ingtf genes.gtf --kmer 15</code></pre>
 </div>
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>--window</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(Optional)</span></h4>
 <p>Set the window size used during Chromap index construction.</p>
 <ul>
@@ -525,7 +604,7 @@ dnbc4tools atac mkref --fasta genome.fa --ingtf genes.gtf --kmer 15</code></pre>
 dnbc4tools atac mkref --fasta genome.fa --ingtf genes.gtf --window 5</code></pre>
 </div>
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>--noindex</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(Flag)</span></h4>
 <p>If this parameter is set, it will only generate the configuration file without building the genome index.</p>
 <ul>
@@ -537,47 +616,59 @@ dnbc4tools atac mkref --fasta genome.fa --ingtf genes.gtf --window 5</code></pre
 dnbc4tools atac mkref --fasta genome.fa --ingtf genes.gtf --noindex</code></pre>
 </div>
 
-> [!TIP]
-> 
-> 📋 **Database Construction Notes**:
+<div style="background: #f5f5f7; border-radius: 12px; padding: 20px; margin: 24px auto; max-width: 1200px;">
+
+> **Database Construction Notes**:
 > - Databases built with Chromap currently cannot handle extremely large genomes. Some species may not be suitable for scATAC analysis with this software, or you may need to adjust kmer and window parameters to fit the genome index construction.
 > - After database construction is complete, a ref.json file will be generated in the database directory to record key information.
-> 
-> 📋 **ref.json File Example**:
-> ```json
-> {
->     "species": "Homo_sapiens",
->     "input_fasta_files": [
->         "genome.fa"
->     ],
->     "input_gtf_files": [
->         "genes.gtf"
->     ],
->     "genome": "/database/scATAC/Homo_sapiens/fasta/genome.fa",
->     "index": "/database/scATAC/Homo_sapiens/fasta/genome.index",
->     "gtf": "/database/scATAC/Homo_sapiens/genes/genes.gtf",
->     "chrmt": "chrM",
->     "chloroplast": "None",
->     "chromeSize": "/database/scATAC/Homo_sapiens/regions/chrom.sizes",
->     "tss": "/database/scATAC/Homo_sapiens/regions/tss.bed",
->     "promoter": "/database/scATAC/Homo_sapiens/regions/promoter.bed",
->     "version": "dnbc4tools 3.0",
->     "blacklist": "None",
->     "genomesize": "hs"
-> }
-> ```
-> 
-> 📋 **Important Notes**:
+
+</div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #d2d2d7; overflow-x: auto;">
+
+**ref.json File Example**:
+```json
+{
+    "species": "Homo_sapiens",
+    "input_fasta_files": ["genome.fa"],
+    "input_gtf_files": ["genes.gtf"],
+    "genome": "/database/scATAC/Homo_sapiens/fasta/genome.fa",
+    "index": "/database/scATAC/Homo_sapiens/fasta/genome.index",
+    "gtf": "/database/scATAC/Homo_sapiens/genes/genes.gtf",
+    "chrmt": "chrM",
+    "chloroplast": "None",
+    "chromeSize": "/database/scATAC/Homo_sapiens/regions/chrom.sizes",
+    "tss": "/database/scATAC/Homo_sapiens/regions/tss.bed",
+    "promoter": "/database/scATAC/Homo_sapiens/regions/promoter.bed",
+    "version": "dnbc4tools 3.0",
+    "blacklist": "None",
+    "genomesize": "hs"
+}
+```
+
+</div>
+
+<div style="background: #f5f5f7; border-radius: 12px; padding: 20px; margin: 24px auto; max-width: 1200px;">
+
+> **Important Notes**:
 > - Chromosome names listed in the chromeSize file will be included in the fragments.tsv.gz file for analysis; unlisted chromosomes will be excluded.
 > - As of version 2.1.2, the blacklist parameter has been removed, and a blacklist file is no longer needed. It can be added manually if required.
 > - The number of fragments in blacklist regions will be recorded in the blacklist_region_fragments column of the metadata file output/singlecell.csv.
 > - The genomesize value is used for MACS2 peak calling analysis. MACS2 has special identifiers for certain species, such as "hs" for humans.
 
----
+</div>
 
-## 📋 Multi-sample Operations (multi) <a id="multi-sample-operations-multi"></a>
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
 
-### 📊 Usage
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
+
+## Multi-sample Operations (multi) <a id="multi-sample-operations-multi"></a>
+
+</div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #d2d2d7; overflow-x: auto;">
+
+### Usage
 
 ```shell
 $ dnbc4tools atac multi
@@ -595,11 +686,21 @@ optional arguments:
   --genomeDir <DIR>  Path to the directory containing the reference genome files.
 ```
 
-### 📝 Parameter Description
+</div>
 
-#### 🔴 Required Parameters
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+### Parameter Description
+
+</div>
+
+<div style="max-width: 1200px; margin: 0 auto;">
+
+#### Required Parameters
+
+</div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>--list</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(Required)</span></h4>
 <p>Specify the path to the list file containing information for multiple samples.</p>
 <ul>
@@ -626,42 +727,44 @@ SampleB	/path/to/B_L01_R1.fq.gz,/path/to/B_L02_R1.fq.gz;/path/to/B_L01_R2.fq.gz,
 <p><strong>Default:</strong> None</p>
 </div>
 
----
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
 
+<div style="background: #f5f5f7; border-radius: 12px; padding: 20px; margin: 24px auto; max-width: 1200px;">
 
-
-> 📝 **Parameter Inheritance Note**<br>
+> **Parameter Inheritance Note**<br>
 > For other analysis parameter settings, please refer to the corresponding parameters of the <code>dnbc4tools atac run</code> command.
 
-> 📌 **Execution Behavior**
+> **Execution Behavior**
 >
 > `dnbc4tools atac multi` generates per-sample execution scripts (for example, `sample1.sh`) for batch submission and reuse. By default, it does not automatically run all sample analyses serially.
 
----
+</div>
 
-<br>
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
 
-## 📚 Related Documentation
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
 
-<br>
+## Related Documentation
+
+</div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #d2d2d7; overflow-x: auto;">
 
 | Resource | Description |
 | :--- | :--- |
-| [🔬 scATAC Pipeline](../pipeline/scATAC_en.md) | Single-cell ATAC analysis workflow guide |
-| [📁 scATAC Output](../outs/scATAC_en.md) | Detailed output file interpretation |
+| [scATAC Pipeline](../pipeline/scATAC_en.md) | Single-cell ATAC analysis workflow guide |
+| [scATAC Output](../outs/scATAC_en.md) | Detailed output file interpretation |
 
-<br>
+</div>
 
----
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
 
-<br>
+<div style="background: #f5f5f7; border-radius: 12px; padding: 20px; margin: 24px auto; max-width: 1200px;">
 
-<div align="center">
-
-> 💡 <strong>Feedback & Support</strong>
+> **Feedback & Support**
 >
 > This document is continuously updated. If you find any errors or have information to add, feedback is welcome.
 >
-> 📝 <strong>Document Version:</strong> 3.1 | <strong>Last Updated:</strong> April 2026
+> **Document Version:** 3.1 | **Last Updated:** April 2026
 
 </div>

@@ -1,29 +1,40 @@
-<div align="right">
+<div align="right" style="margin-bottom: 20px; max-width: 1200px; margin-left: auto; margin-right: auto;">
 
-[🏠 Home](../../README.md) • [中文](multi.md)
-
-</div>
-
-# 🧩 DNBelab C Series HT Multi-omics Analysis Pipeline
-
-<div align="center">
-
-**Complete Guide for Single-Cell Multi-omics Integrated Analysis**
-
-[📋 Overview](#overview) • [📁 Input Configuration](#input-configuration) • [🚀 Main Pipeline](#main-pipeline) • [📊 Results](#results) • [❓ FAQ](#faq)
+[Home](../../README.md) • [中文](multi.md)
 
 </div>
 
----
+<div align="center" style="padding: 40px 20px; background: linear-gradient(135deg, #f5f5f7 0%, #ffffff 100%); border-radius: 12px; margin-bottom: 30px; max-width: 1200px; margin-left: auto; margin-right: auto;">
 
-## 📋 Overview <a id="overview"></a>
+<h1 style="font-size: 48px; font-weight: 600; color: #1d1d1f; margin: 0 0 16px 0; letter-spacing: -0.02em;">DNBelab C Series HT Multi-omics Analysis Pipeline</h1>
+
+<p style="font-size: 21px; color: #86868b; margin: 0 0 30px 0; font-weight: 400;">Complete Guide for Single-Cell Multi-omics Integrated Analysis</p>
+
+<div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+<a href="#overview" style="background: #0071e3; color: white; padding: 8px 16px; border-radius: 980px; text-decoration: none; font-size: 14px;">Overview</a>
+<a href="#input-configuration" style="background: transparent; color: #0071e3; padding: 8px 16px; border-radius: 980px; text-decoration: none; font-size: 14px; border: 1px solid #0071e3;">Input Configuration</a>
+<a href="#main-pipeline" style="background: transparent; color: #0071e3; padding: 8px 16px; border-radius: 980px; text-decoration: none; font-size: 14px; border: 1px solid #0071e3;">Main Pipeline</a>
+<a href="#results" style="background: transparent; color: #0071e3; padding: 8px 16px; border-radius: 980px; text-decoration: none; font-size: 14px; border: 1px solid #0071e3;">Results</a>
+</div>
+
+</div>
+
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
+
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
+
+## Overview <a id="overview"></a>
+
+</div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
 
 The Multi-omics workflow orchestrates RNA / ATAC / VDJ sub-pipelines, enabling multi-omics joint analysis through a single configuration file and generating integrated reports for cross-omics inspection.
 
 **Workflow**: Configuration → Module Dispatch → Parallel Analysis → Status Aggregation → Integrated Report
 
 <div style="background-color: #e7f3fe; border-left: 6px solid #2196F3; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
-💡 <strong>Usage Notes</strong>: <code>$dnbc4tools</code> represents the executable path and should be replaced with your actual installation path. Examples use line continuation characters <code>\</code> for readability; commands can also be written on a single line.
+ <strong>Usage Notes</strong>: <code>$dnbc4tools</code> represents the executable path and should be replaced with your actual installation path. Examples use line continuation characters <code>\</code> for readability; commands can also be written on a single line.
 </div>
 
 **Key Features**:
@@ -55,11 +66,18 @@ The Multi-omics workflow orchestrates RNA / ATAC / VDJ sub-pipelines, enabling m
   </tbody>
 </table>
 
----
 
-<br>
+</div>
 
-## 📁 Input Configuration <a id="input-configuration"></a>
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
+
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
+
+## Input Configuration <a id="input-configuration"></a>
+
+</div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
 
 ### Configuration File Structure
 
@@ -103,15 +121,13 @@ The Multi-omics workflow orchestrates RNA / ATAC / VDJ sub-pipelines, enabling m
 </table>
 
 <div style="background-color: #e7f3fe; border-left: 6px solid #2196F3; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
-📚 <strong>Detailed Configuration</strong>: Please refer to the <a href="../parameter/multi_en.md">Multi Parameter Documentation</a> for complete CSV configuration specifications and parameter mappings.
+ <strong>Detailed Configuration</strong>: Please refer to the <a href="../parameter/multi_en.md">Multi Parameter Documentation</a> for complete CSV configuration specifications and parameter mappings.
 </div>
-
----
 
 ### Minimal Configuration Example
 
 <details open>
-<summary>📄 Configuration Example</summary>
+<summary> Configuration Example</summary>
 
 ```csv
 [rna]
@@ -127,8 +143,6 @@ fastqs,feature_types
 ```
 
 </details>
-
----
 
 ### Running Command
 
@@ -174,14 +188,10 @@ $dnbc4tools multi run \
   </tbody>
 </table>
 
----
-
-<br>
-
 ### Pre-Run Checklist
 
 <div style="background-color: #fffbe6; border-left: 6px solid #ffc107; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
-⚠️ <strong>Please verify the following before running</strong>:
+ <strong>Please verify the following before running</strong>:
 
 <ol style="margin: 10px 0;">
   <li><code>--csv</code> and <code>--name</code> parameters are properly provided</li>
@@ -191,11 +201,18 @@ $dnbc4tools multi run \
 </ol>
 </div>
 
----
 
-<br>
+</div>
 
-## 🚀 Main Pipeline <a id="main-pipeline"></a>
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
+
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
+
+## Main Pipeline <a id="main-pipeline"></a>
+
+</div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
 
 ### Execution Flow
 
@@ -230,8 +247,6 @@ $dnbc4tools multi run \
   </tbody>
 </table>
 
----
-
 ### Execution Highlights
 
 <div style="background-color: #e7f3fe; border-left: 6px solid #2196F3; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
@@ -242,8 +257,6 @@ $dnbc4tools multi run \
 </ul>
 </div>
 
----
-
 ### Typical Runtime Log
 
 ```shell
@@ -251,10 +264,10 @@ Warning: ATAC joint analysis is currently unsupported. Libraries will be analyze
 
 
 ───────────────────────── Running checking libraries — 2026-04-08 13:39:42 ─────────────────────────
-✔ RNA Library check complete
-✔ VDJ-T Library check complete
-✔ VDJ-B Library check complete
-✔ ATAC Library check complete
+ RNA Library check complete
+ VDJ-T Library check complete
+ VDJ-B Library check complete
+ ATAC Library check complete
 
 
 ──────────────────────────── Running RNA pipeline — 2026-04-08 13:40:10 ────────────────────────────
@@ -295,11 +308,18 @@ Warning: ATAC joint analysis is currently unsupported. Libraries will be analyze
  ...                                        
 ```
 
----
 
-<br>
+</div>
 
-## 📊 Results <a id="results"></a>
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
+
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
+
+## Results <a id="results"></a>
+
+</div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
 
 ### Output Directory Structure
 
@@ -321,8 +341,6 @@ After completion, results are organized under `<outdir>/<name>/`:
 ├── VDJ-T_ANALYSIS_WORKFLOW_PROCESSING/
 └── VDJ-B_ANALYSIS_WORKFLOW_PROCESSING/
 ```
-
----
 
 ### Key Output Files
 
@@ -358,37 +376,59 @@ After completion, results are organized under `<outdir>/<name>/`:
 </table>
 
 <div style="background-color: #e7f3fe; border-left: 6px solid #2196F3; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
-📚 <strong>Detailed Output Description</strong>: Please refer to the <a href="../outs/multi_en.md">Multi Output Documentation</a> for detailed interpretation of the integrated report.
+ <strong>Detailed Output Description</strong>: Please refer to the <a href="../outs/multi_en.md">Multi Output Documentation</a> for detailed interpretation of the integrated report.
 </div>
 
----
 
-<br>
+</div>
 
-## 📚 Related Documentation
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
 
-<br>
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
+
+## Related Documentation
+
+</div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
 
 | Resource | Description |
 | :--- | :--- |
-| [📋 Parameter Settings](../parameter/multi_en.md) | Complete parameter reference and descriptions |
-| [📝 Output Descriptions](../outs/multi_en.md) | Detailed interpretation of analysis results |
-| [🧬 scRNA Pipeline](./scRNA_en.md) | Single-cell RNA analysis workflow guide |
-| [🧪 scATAC Pipeline](./scATAC_en.md) | Single-cell ATAC analysis workflow guide |
-| [🦠 scVDJ Pipeline](./scVDJ_en.md) | Single-cell VDJ analysis workflow guide |
+| [Parameter Settings](../parameter/multi_en.md) | Complete parameter reference and descriptions |
+| [Output Descriptions](../outs/multi_en.md) | Detailed interpretation of analysis results |
+| [scRNA Pipeline](./scRNA_en.md) | Single-cell RNA analysis workflow guide |
+| [scATAC Pipeline](./scATAC_en.md) | Single-cell ATAC analysis workflow guide |
+| [scVDJ Pipeline](./scVDJ_en.md) | Single-cell VDJ analysis workflow guide |
 
-<br>
 
----
+</div>
 
-<br>
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
+
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
+
+## Frequently Asked Questions
+
+</div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+
+This section is being updated.
+
+</div>
+
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
+
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
 
 <div align="center">
 
-> 💡 <strong>Feedback & Support</strong>
+> <strong>Feedback & Support</strong>
 >
-> This document is continuously updated. If you find any errors or have information to add, feedback is welcome.
+> This document is continuously updated. If you find any errors or need additional information, feedback is welcome.
 >
-> 📝 <strong>Document Version:</strong> 3.1 | <strong>Last Updated:</strong> April 2026
+> <strong>Document Version:</strong> 3.1 | <strong>Last Updated:</strong> April 2026
+
+</div>
 
 </div>

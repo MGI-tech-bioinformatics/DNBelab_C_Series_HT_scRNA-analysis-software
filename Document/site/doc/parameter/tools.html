@@ -1,0 +1,3342 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentation site generated from README and doc markdown files">
+      
+      
+      
+      
+        <link rel="prev" href="multi_en.html">
+      
+      
+        <link rel="next" href="tools_en.html">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Tools (ZH) - DNBelab C Series™ HT Single-Cell Analysis Software</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../index.html" title="DNBelab C Series™ HT Single-Cell Analysis Software" class="md-header__button md-logo" aria-label="DNBelab C Series™ HT Single-Cell Analysis Software" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            DNBelab C Series™ HT Single-Cell Analysis Software
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Tools (ZH)
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/MGI-tech-bioinformatics/DNBelab_C_Series_HT_scRNA-analysis-software" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    MGI-tech-bioinformatics/DNBelab_C_Series_HT_scRNA-analysis-software
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../index.html" title="DNBelab C Series™ HT Single-Cell Analysis Software" class="md-nav__button md-logo" aria-label="DNBelab C Series™ HT Single-Cell Analysis Software" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    DNBelab C Series™ HT Single-Cell Analysis Software
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/MGI-tech-bioinformatics/DNBelab_C_Series_HT_scRNA-analysis-software" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    MGI-tech-bioinformatics/DNBelab_C_Series_HT_scRNA-analysis-software
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../installation.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Installation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quickstart.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pipeline
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Pipeline
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pipeline/pipeline.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pipeline/scRNA.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    scRNA (ZH)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pipeline/scRNA_en.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    scRNA (EN)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pipeline/scATAC.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    scATAC (ZH)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pipeline/scATAC_en.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    scATAC (EN)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pipeline/scVDJ.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    scVDJ (ZH)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pipeline/scVDJ_en.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    scVDJ (EN)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pipeline/multi.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Multi (ZH)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pipeline/multi_en.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Multi (EN)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Parameter
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Parameter
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="parameter.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="scRNA.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    scRNA (ZH)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="scRNA_en.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    scRNA (EN)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="scATAC.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    scATAC (ZH)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="scATAC_en.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    scATAC (EN)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="scVDJ.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    scVDJ (ZH)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="scVDJ_en.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    scVDJ (EN)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="multi.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Multi (ZH)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="multi_en.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Multi (EN)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tools (ZH)
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="tools.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tools (ZH)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#gtf-mkgtf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GTF 文件操作 (mkgtf)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="GTF 文件操作 (mkgtf)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        用法
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        参数说明
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="参数说明">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        必需参数
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-ingtf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        --ingtf (必需)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-output" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        --output (必需)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        可选参数
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-action" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        --action (可选)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-include" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        --include (可选)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-type" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        --type (可选)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-feature" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        --feature (可选)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用示例
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bam-fastq-bam2fastq" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BAM 转 FASTQ (bam2fastq)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="BAM 转 FASTQ (bam2fastq)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        用法
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        参数说明
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="参数说明">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        必需参数
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bam" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        &lt;BAM&gt; (必需)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#output" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        &lt;OUTPUT&gt; (必需)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        可选参数
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-t-threads" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        -t, --threads (可选)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-r-locus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        -r, --locus (可选)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-n-reads-per-fastq" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        -n, --reads-per-fastq (可选)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-max-memory-memory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        --max-memory &lt;MEMORY&gt; (可选)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-no-compress" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        --no-compress (标志)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用示例
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chromsplit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        染色体分割 (chromsplit)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="染色体分割 (chromsplit)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        用法
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        参数说明
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="参数说明">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        必需参数
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-f-fasta-fa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        -f, --fasta &lt;FA&gt; (必需)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-o-prefix-prefix" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        -o, --prefix &lt;PREFIX&gt; (必需)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        可选参数
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-g-gtf-gtf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        -g, --gtf &lt;GTF&gt; (可选)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-min_length-min_length" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        --min_length &lt;MIN_LENGTH&gt; (可选)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-max_length-max_length" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        --max_length &lt;MAX_LENGTH&gt; (可选)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-cut_site-cut_site" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        --cut_site &lt;CUT_SITE&gt; (可选)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用示例
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fastq-fqsubc4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FASTQ 切割 (fqsubC4)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="FASTQ 切割 (fqsubC4)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        用法
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        参数说明
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="参数说明">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        必需参数
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-i-input-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        -i, --input &lt;FILE&gt; (必需)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-o-output-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        -o, --output &lt;FILE&gt; (必需)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-r-regions-regions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        -r, --regions &lt;REGIONS&gt; (必需)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        可选参数
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-t-threads-threads" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        -t, --threads &lt;THREADS&gt; (可选)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用示例
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        相关文档
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tools_en.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tools (EN)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Outputs
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Outputs
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../outs/outs.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../outs/scRNA.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    scRNA (ZH)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../outs/scRNA_en.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    scRNA (EN)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../outs/scATAC.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    scATAC (ZH)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../outs/scATAC_en.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    scATAC (EN)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../outs/scVDJ.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    scVDJ (ZH)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../outs/scVDJ_en.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    scVDJ (EN)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../outs/multi.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Multi (ZH)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../outs/multi_en.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Multi (EN)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../io.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    I/O Analysis
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../release.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Release Notes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dataset.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dataset
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Additional
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Additional
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../installation_previous.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Previous Installation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../json.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    JSON Spec
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../structure.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Structure
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#gtf-mkgtf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GTF 文件操作 (mkgtf)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="GTF 文件操作 (mkgtf)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        用法
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        参数说明
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="参数说明">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        必需参数
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-ingtf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        --ingtf (必需)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-output" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        --output (必需)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        可选参数
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-action" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        --action (可选)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-include" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        --include (可选)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-type" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        --type (可选)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-feature" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        --feature (可选)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用示例
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bam-fastq-bam2fastq" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BAM 转 FASTQ (bam2fastq)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="BAM 转 FASTQ (bam2fastq)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        用法
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        参数说明
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="参数说明">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        必需参数
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bam" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        &lt;BAM&gt; (必需)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#output" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        &lt;OUTPUT&gt; (必需)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        可选参数
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-t-threads" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        -t, --threads (可选)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-r-locus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        -r, --locus (可选)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-n-reads-per-fastq" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        -n, --reads-per-fastq (可选)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-max-memory-memory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        --max-memory &lt;MEMORY&gt; (可选)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-no-compress" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        --no-compress (标志)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用示例
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chromsplit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        染色体分割 (chromsplit)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="染色体分割 (chromsplit)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        用法
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        参数说明
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="参数说明">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        必需参数
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-f-fasta-fa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        -f, --fasta &lt;FA&gt; (必需)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-o-prefix-prefix" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        -o, --prefix &lt;PREFIX&gt; (必需)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        可选参数
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-g-gtf-gtf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        -g, --gtf &lt;GTF&gt; (可选)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-min_length-min_length" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        --min_length &lt;MIN_LENGTH&gt; (可选)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-max_length-max_length" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        --max_length &lt;MAX_LENGTH&gt; (可选)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-cut_site-cut_site" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        --cut_site &lt;CUT_SITE&gt; (可选)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用示例
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fastq-fqsubc4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FASTQ 切割 (fqsubC4)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="FASTQ 切割 (fqsubC4)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        用法
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        参数说明
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="参数说明">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        必需参数
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-i-input-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        -i, --input &lt;FILE&gt; (必需)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-o-output-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        -o, --output &lt;FILE&gt; (必需)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-r-regions-regions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        -r, --regions &lt;REGIONS&gt; (必需)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        可选参数
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-t-threads-threads" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        -t, --threads &lt;THREADS&gt; (可选)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用示例
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        相关文档
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<div align="right" style="margin-bottom: 20px; max-width: 1200px; margin-left: auto; margin-right: auto;">
+<p><a href="../../index.html" style="color: #0071e3; text-decoration: none; font-size: 14px;">主页</a> <span style="color: rgba(0,0,0,0.3);">•</span> <a href="tools_en.html" style="color: #0071e3; text-decoration: none; font-size: 14px;">English</a></p>
+</div>
+<div align="center" style="padding: 40px 20px; background: linear-gradient(135deg, #f5f5f7 0%, #ffffff 100%); border-radius: 12px; margin-bottom: 30px; max-width: 1200px; margin-left: auto; margin-right: auto;">
+<h1 id="_1" style="font-size: 48px; font-weight: 600; color: #1d1d1f; margin: 0 0 16px 0; letter-spacing: -0.02em;">工具类分析参数<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<p style="font-size: 21px; color: rgba(0,0,0,0.6); margin: 0 0 30px 0; font-weight: 400;">DNBelab C Series HT 工具类参数配置完整指南</p>
+<div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+<p><a href="#gtf-文件操作-mkgtf" style="background: #0071e3; color: white; padding: 8px 16px; border-radius: 980px; text-decoration: none; font-size: 14px;">GTF 文件操作 (mkgtf)</a>
+<a href="#bam-转-fastq-bam2fastq" style="background: transparent; color: #0071e3; padding: 8px 16px; border-radius: 980px; text-decoration: none; font-size: 14px; border: 1px solid #0071e3;">BAM 转 FASTQ</a>
+<a href="#染色体分割-chromsplit" style="background: transparent; color: #0071e3; padding: 8px 16px; border-radius: 980px; text-decoration: none; font-size: 14px; border: 1px solid #0071e3;">染色体分割</a>
+<a href="#fastq-切割-fqsubc4" style="background: transparent; color: #0071e3; padding: 8px 16px; border-radius: 980px; text-decoration: none; font-size: 14px; border: 1px solid #0071e3;">FASTQ 切割</a></p>
+</div>
+</div>
+<div style="max-width: 1200px; margin: 0 auto;">
+<hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;">
+</div>
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
+<h2 id="gtf-mkgtf">GTF 文件操作 (mkgtf) <a id="gtf-文件操作-mkgtf"></a><a class="headerlink" href="#gtf-mkgtf" title="Permanent link">&para;</a></h2>
+</div>
+<blockquote>
+<p><strong>核心功能</strong></p>
+<p>GTF 文件全面操作工具，支持基因类型统计、智能过滤和文件格式校验。为单细胞分析提供高质量、标准化的基因注释数据。</p>
+</blockquote>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #d2d2d7; overflow-x: auto;">
+<h3 id="_2">用法 <a id="usage-mkgtf"></a><a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<pre><code class="language-shell">$ dnbc4tools tools mkgtf
+dnbc4tools 3.1
+
+Filter and process GTF annotation files.
+
+Usage: dnbc4tools tools mkgtf [OPTIONS]
+
+optional arguments:
+  -h, --help       show this help message and exit
+
+Basic Settings:
+  --action &lt;STR&gt;   Operation type: 'mkgtf' (filter by gene types), 'stats' (count statistics), 'check' (validate format) [default: mkgtf] (e.g., `stats`).
+  --ingtf &lt;FILE&gt;   Path to input GTF annotation file (required) (e.g., `genes.gtf`).
+  --output &lt;FILE&gt;  Path to output file. Required for &quot;mkgtf&quot; and &quot;check&quot; actions. If not provided for &quot;stats&quot; action, statistics will be printed to stdout.
+
+Analysis Settings:
+  --include &lt;STR&gt;  Comma-separated list of gene types to include. Supports wildcards (e.g., 'IG_*' will match 'IG_V_gene', 'IG_C_gene'). [default:
+                   protein_coding,lncRNA,lincRNA,antisense,IG_*,TR_*].
+  --type &lt;STR&gt;     Attribute name for gene type classification (e.g., gene_biotype, gene_type). Use 'auto' to automatically detect. [default: auto].
+  --feature &lt;STR&gt;  Feature type to process from GTF. Use 'transcript' if no 'gene' entries exist [default: gene].
+
+Usage Examples:
+  Statistics:   dnbc4tools tools mkgtf --action stats --ingtf genes.gtf
+  Filtering:    dnbc4tools tools mkgtf --ingtf genes.gtf --output filtered.gtf --include 'protein_coding,lncRNA'
+  Validation:   dnbc4tools tools mkgtf --action check --ingtf genes.gtf --output corrected.gtf
+</code></pre>
+</div>
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
+<h3 id="_3">参数说明<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+</div>
+<div style="max-width: 1200px; margin: 0 auto;">
+<h4 id="_4">必需参数<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h4>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
+<h4 id="-ingtf"><code>--ingtf</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(必需)</span><a class="headerlink" href="#-ingtf" title="Permanent link">&para;</a></h4>
+<p>指定输入的GTF基因注释文件路径。</p>
+<ul>
+<li><strong>格式要求:</strong> 标准GTF格式，不支持GFF或GFF3格式。</li>
+</ul>
+<p><strong>默认值:</strong> 无</p>
+<p><strong>示例:</strong></p>
+<pre><code>--ingtf Homo_sapiens.GRCh38.108.gtf</code></pre>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
+<h4 id="-output"><code>--output</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(必需)</span><a class="headerlink" href="#-output" title="Permanent link">&para;</a></h4>
+<p>指定处理结果的输出文件。</p>
+<ul>
+<li><strong>功能:</strong> 根据操作模式生成不同类型的输出文件。</li>
+<li><strong>条件要求:</strong> 当 <code>--action mkgtf</code> 或 <code>--action check</code> 时必须提供；当 <code>--action stats</code> 时可省略，统计结果会输出到标准输出。</li>
+<li><strong>自动创建:</strong> 如果指定的输出目录不存在，将会被自动创建。</li>
+</ul>
+<p><strong>默认值:</strong> 无</p>
+<p><strong>示例:</strong></p>
+<pre><code># 当 action 为 'mkgtf' (过滤)
+--output ./filtered_genes.gtf</code></pre>
+<pre><code># 当 action 为 'stats' (统计)
+--output ./gene_statistics.txt</code></pre>
+<pre><code># 当 action 为 'check' (校验)
+--output ./corrected.gtf</code></pre>
+</div>
+<div style="max-width: 1200px; margin: 0 auto;">
+<hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;">
+</div>
+<div style="max-width: 1200px; margin: 0 auto;">
+<h4 id="_5">可选参数<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h4>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
+<h4 id="-action"><code>--action</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(可选)</span><a class="headerlink" href="#-action" title="Permanent link">&para;</a></h4>
+<p>选择要执行的操作类型。</p>
+<ul>
+<li><strong><code>mkgtf</code>:</strong> (默认) 根据基因类型过滤GTF文件。</li>
+<li><strong><code>stats</code>:</strong> 统计GTF文件中的基因类型。</li>
+<li><strong><code>check</code>:</strong> 校验并修复GTF文件格式。</li>
+</ul>
+<p><strong>默认值:</strong> <code>mkgtf</code></p>
+<p><strong>示例:</strong></p>
+<pre><code>--action stats</code></pre>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
+<h4 id="-include"><code>--include</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(可选)</span><a class="headerlink" href="#-include" title="Permanent link">&para;</a></h4>
+<p>在 <code>mkgtf</code> 模式下，指定要保留的基因类型，多个类型以逗号分隔。</p>
+<ul>
+<li><strong>功能:</strong> 用于精确筛选您感兴趣的基因集合。</li>
+<li><strong>通配符:</strong> 支持通配符匹配（例如 <code>IG_*</code> 可匹配 <code>IG_V_gene</code>、<code>IG_C_gene</code>）。</li>
+</ul>
+<p><strong>默认值:</strong> <code>protein_coding,lncRNA,lincRNA,antisense,IG_*,TR_*</code></p>
+<p><strong>示例:</strong></p>
+<pre><code>--include protein_coding,lncRNA</code></pre>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
+<h4 id="-type"><code>--type</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(可选)</span><a class="headerlink" href="#-type" title="Permanent link">&para;</a></h4>
+<p>指定GTF属性中用于标识基因类型的标签。</p>
+<ul>
+<li><strong>功能:</strong> 适配不同来源GTF文件的注释风格。</li>
+<li><strong>自动识别:</strong> 使用 <code>auto</code> 时，程序会自动检测常见标签（如 <code>gene_biotype</code>、<code>gene_type</code>）。</li>
+</ul>
+<p><strong>默认值:</strong> <code>auto</code></p>
+<p><strong>示例:</strong></p>
+<pre><code>--type gene_type</code></pre>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
+<h4 id="-feature"><code>--feature</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(可选)</span><a class="headerlink" href="#-feature" title="Permanent link">&para;</a></h4>
+<p>指定从GTF文件的哪一列（feature）提取信息。</p>
+<ul>
+<li><strong>功能:</strong> 通常用于指定操作对象是基因级别还是转录本级别。</li>
+<li><strong>备选:</strong> 如果GTF文件中没有 `gene` 行，建议选择 `transcript`。</li>
+</ul>
+<p><strong>默认值:</strong> <code>gene</code></p>
+<p><strong>示例:</strong></p>
+<pre><code>--feature transcript</code></pre>
+</div>
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
+<blockquote>
+<p>[!NOTE]</p>
+<h4 id="_6">使用示例<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>统计基因类型</strong>:
+  <code>shell
+  dnbc4tools tools mkgtf --action stats --ingtf genes.gtf</code></li>
+<li><strong>过滤基因类型</strong>:
+  <code>shell
+  dnbc4tools tools mkgtf --action mkgtf --ingtf genes.gtf --output genes.filter.gtf</code></li>
+<li><strong>校验并修复 GTF 文件</strong>:
+  <code>shell
+  dnbc4tools tools mkgtf --action check --ingtf genes.gtf --output corrected.gtf</code></li>
+</ul>
+</blockquote>
+</div>
+<div style="max-width: 1200px; margin: 0 auto;">
+<hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;">
+</div>
+<p><br></p>
+<h2 id="bam-fastq-bam2fastq">BAM 转 FASTQ (bam2fastq) <a id="bam-转-fastq-bam2fastq"></a><a class="headerlink" href="#bam-fastq-bam2fastq" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><strong>专业转换工具</strong></p>
+<p>高效的 BAM 文件操作工具，专用于将 C4 RNA BAM 文件转换成 FASTQ 文件。支持多线程并行处理和灵活的输出配置。</p>
+</blockquote>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #d2d2d7; overflow-x: auto;">
+<h3 id="_7">用法 <a id="usage-bam2fastq"></a><a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<pre><code class="language-shell">$ bam2fastq -h
+BAM to FASTQ Converter for C4 Single Cell RNA seq Data
+
+Usage: bam2fastq [OPTIONS] &lt;BAM&gt; &lt;OUTPUT&gt;
+
+Arguments:
+  &lt;BAM&gt;     Path to the input BAM file
+  &lt;OUTPUT&gt;  Directory where FASTQ files will be written
+
+Options:
+  -t, --threads &lt;THREADS&gt;        Number of CPU threads for parallel processing (default: all available cores) [default: 8]
+  -r, --locus &lt;REGION&gt;           Process reads from a specific genomic region (format: chr1:1000-2000)
+  -n, --reads-per-fastq &lt;READS&gt;  Maximum number of reads per FASTQ file. All reads go to a single file if not specified.
+      --max-memory &lt;MEMORY&gt;      Maximum memory to use in MB. Auto-determined if not specified.
+      --no-compress              Disable gzip compression for output FASTQ files
+  -h, --help                     Print help
+  -V, --version                  Print version
+</code></pre>
+</div>
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
+<h3 id="_8">参数说明<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+</div>
+<div style="max-width: 1200px; margin: 0 auto;">
+<h4 id="_9">必需参数<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h4>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
+<h4 id="bam"><code>&lt;BAM&gt;</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(必需)</span><a class="headerlink" href="#bam" title="Permanent link">&para;</a></h4>
+<p>指定输入的BAM文件路径。</p>
+<ul>
+<li><strong>格式要求:</strong> 必须是有效的C4 RNA BAM文件，支持单端和双端数据。</li>
+<li><strong>索引要求:</strong> BAM文件必须已经索引（即旁边存在对应的.bai文件）。</li>
+<li><strong>双端数据注意:</strong> 如果是双端数据，需要先使用 <code>samtools sort -n</code> 根据序列名排序后再进行处理。</li>
+</ul>
+<p><strong>默认值:</strong> 无</p>
+<p><strong>示例:</strong></p>
+<pre><code>/path/outs/anno_decon_sorted.bam</code></pre>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
+<h4 id="output"><code>&lt;OUTPUT&gt;</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(必需)</span><a class="headerlink" href="#output" title="Permanent link">&para;</a></h4>
+<p>指定输出FASTQ文件的目录。</p>
+<ul>
+<li><strong>功能:</strong> 所有转换后的FASTQ文件将保存在此目录。</li>
+<li><strong>自动创建:</strong> 如果目录不存在，将会被自动创建。</li>
+</ul>
+<p><strong>默认值:</strong> 无</p>
+<p><strong>示例:</strong></p>
+<pre><code>/path/to/output_dir</code></pre>
+</div>
+<div style="max-width: 1200px; margin: 0 auto;">
+<hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;">
+</div>
+<div style="max-width: 1200px; margin: 0 auto;">
+<h4 id="_10">可选参数<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h4>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
+<h4 id="-t-threads"><code>-t, --threads</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(可选)</span><a class="headerlink" href="#-t-threads" title="Permanent link">&para;</a></h4>
+<p>设置用于并行处理的CPU线程数。</p>
+<ul>
+<li><strong>性能说明:</strong> 增加线程数通常可提升BAM解码与写出效率，但受磁盘I/O带宽限制。</li>
+<li><strong>建议:</strong> 默认值为 <code>所有可用的核心数量</code>；I/O性能较强时可增大该值，机械硬盘环境建议保守设置。</li>
+</ul>
+<p><strong>默认值:</strong> <code>所有可用的核心数量</code></p>
+<p><strong>示例:</strong></p>
+<pre><code>-t 8</code></pre>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
+<h4 id="-r-locus"><code>-r, --locus</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(可选)</span><a class="headerlink" href="#-r-locus" title="Permanent link">&para;</a></h4>
+<p>仅处理来自特定基因组区域的读段。</p>
+<ul>
+<li><strong>格式:</strong> 标准基因组坐标格式 (<code>染色体:起始-结束</code>)。</li>
+<li><strong>应用:</strong> 用于靶向分析特定基因或染色体区域。</li>
+</ul>
+<p><strong>默认值:</strong> 无</p>
+<p><strong>示例:</strong></p>
+<pre><code>-r chr1:1000-2000</code></pre>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
+<h4 id="-n-reads-per-fastq"><code>-n, --reads-per-fastq</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(可选)</span><a class="headerlink" href="#-n-reads-per-fastq" title="Permanent link">&para;</a></h4>
+<p>设置每个输出FASTQ文件的最大读段数量。</p>
+<ul>
+<li><strong>分割策略:</strong> 自动将大文件分割为多个小文件，便于下游处理。</li>
+<li><strong>默认行为:</strong> 如果不指定，所有读段将写入单个文件。</li>
+</ul>
+<p><strong>默认值:</strong> 无</p>
+<p><strong>示例:</strong></p>
+<pre><code>-n 10000000</code></pre>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
+<h4 id="-max-memory-memory"><code>--max-memory &lt;MEMORY&gt;</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(可选)</span><a class="headerlink" href="#-max-memory-memory" title="Permanent link">&para;</a></h4>
+<p>设定工具可使用的最大内存（单位：MB）。</p>
+<ul>
+<li><strong>功能:</strong> 控制工具的内存消耗，防止因内存不足导致程序失败。</li>
+<li><strong>自动确定:</strong> 如果不指定，工具将根据系统可用资源自动分配。</li>
+</ul>
+<p><strong>默认值:</strong> 自动确定</p>
+<p><strong>示例:</strong></p>
+<pre><code>--max-memory 8192</code></pre>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
+<h4 id="-no-compress"><code>--no-compress</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(标志)</span><a class="headerlink" href="#-no-compress" title="Permanent link">&para;</a></h4>
+<p>禁用对输出FASTQ文件的gzip压缩，以显著提高分析速度。</p>
+<ul>
+<li><strong>性能瓶颈:</strong> 程序的主要速度瓶颈在于写入压缩文件。</li>
+<li><strong>注意:</strong> 得益于软件的并行加速压缩，目前的默认压缩写入速度已获得大幅提升，基本消除分析瓶颈。</li>
+</ul>
+<p><strong>默认值:</strong> 不设置</p>
+</div>
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
+<blockquote>
+<p>[!NOTE]</p>
+<h3 id="_11">使用示例<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>基本转换</strong>:
+  <code>shell
+  bam2fastq input.bam ./output_dir</code></li>
+<li><strong>多线程高速转换</strong>:
+  ```shell
+  bam2fastq -t 8 input.bam ./output_dir</li>
+<li><strong>区域特异性转换</strong>:
+  <code>shell
+  bam2fastq -r chr1:1000000-2000000 -t 4 input.bam ./output_dir</code></li>
+<li><strong>大文件分割转换</strong>:
+  <code>shell
+  bam2fastq -n 5000000 -t 4 input.bam ./output_dir</code></li>
+</ul>
+</blockquote>
+</div>
+<div style="max-width: 1200px; margin: 0 auto;">
+<hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;">
+</div>
+<p><br></p>
+<h2 id="chromsplit">染色体分割 (chromsplit) <a id="染色体分割-chromsplit"></a><a class="headerlink" href="#chromsplit" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><strong>核心功能</strong></p>
+<p>专业的基因组序列分割工具，智能识别分割位点以维护基因注释完整性。主要用于 ATAC 建库时控制染色体长度不超过 2^29-1 的限制要求。</p>
+</blockquote>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #d2d2d7; overflow-x: auto;">
+<h3 id="_12">用法<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h3>
+<pre><code class="language-shell">$ chromsplit  -h
+Split large genome sequences into smaller fragments at N-stretches or intergenic regions
+
+Usage: chromsplit [OPTIONS] --fasta &lt;FA&gt; --prefix &lt;PREFIX&gt;
+
+Options:
+  -f, --fasta &lt;FA&gt;               Input genome sequence file in FASTA format
+  -g, --gtf &lt;GTF&gt;                Optional GTF/GFF annotation file for the genome
+  -o, --prefix &lt;PREFIX&gt;          Prefix for output files (.fa and .cutsite.tsv will be appended)
+      --min_length &lt;MIN_LENGTH&gt;  Minimum length of output scaffold fragments (in base pairs) [default: 300000000]
+      --max_length &lt;MAX_LENGTH&gt;  Maximum length of output scaffold fragments (in base pairs) [default: 500000000]
+      --cut_site &lt;CUT_SITE&gt;      Optional cut site file containing predefined split positions
+  -h, --help                     Print help (see more with '--help')
+  -V, --version                  Print version
+</code></pre>
+</div>
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
+<h3 id="_13">参数说明<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h3>
+</div>
+<div style="max-width: 1200px; margin: 0 auto;">
+<h4 id="_14">必需参数<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h4>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
+<h4 id="-f-fasta-fa"><code>-f, --fasta &lt;FA&gt;</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(必需)</span><a class="headerlink" href="#-f-fasta-fa" title="Permanent link">&para;</a></h4>
+<p>指定输入的基因组序列文件。</p>
+<ul>
+<li><strong>格式要求:</strong> 标准FASTA格式 (.fa, .fasta, .fna)。</li>
+<li><strong>内容:</strong> 包含完整的染色体或scaffold序列。</li>
+</ul>
+<p><strong>默认值:</strong> 无</p>
+<p><strong>示例:</strong></p>
+<pre><code>--fasta genome.fasta</code></pre>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
+<h4 id="-o-prefix-prefix"><code>-o, --prefix &lt;PREFIX&gt;</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(必需)</span><a class="headerlink" href="#-o-prefix-prefix" title="Permanent link">&para;</a></h4>
+<p>指定输出文件的前缀。</p>
+<ul>
+<li><strong>输出文件:</strong> 工具会自动生成 <code>&lt;prefix&gt;.fa</code>, <code>&lt;prefix&gt;.cutsite.tsv</code> 等文件。</li>
+<li><strong>文件管理:</strong> 便于批量处理和结果追踪。</li>
+</ul>
+<p><strong>默认值:</strong> 无</p>
+<p><strong>示例:</strong></p>
+<pre><code>--prefix split_genome</code></pre>
+</div>
+<div style="max-width: 1200px; margin: 0 auto;">
+<hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;">
+</div>
+<div style="max-width: 1200px; margin: 0 auto;">
+<h4 id="_15">可选参数<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h4>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
+<h4 id="-g-gtf-gtf"><code>-g, --gtf &lt;GTF&gt;</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(可选)</span><a class="headerlink" href="#-g-gtf-gtf" title="Permanent link">&para;</a></h4>
+<p>指定基因注释文件（GTF/GFF格式）。</p>
+<ul>
+<li><strong>智能分割:</strong> 提供注释文件可确保分割点位于基因间区域，保护基因完整性。</li>
+<li><strong>注释同步:</strong> 工具会自动调整并输出坐标同步后的新注释文件。</li>
+</ul>
+<p><strong>默认值:</strong> 无</p>
+<p><strong>示例:</strong></p>
+<pre><code>--gtf annotation.gtf</code></pre>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
+<h4 id="-min_length-min_length"><code>--min_length &lt;MIN_LENGTH&gt;</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(可选)</span><a class="headerlink" href="#-min_length-min_length" title="Permanent link">&para;</a></h4>
+<p>设置输出片段的最小长度（单位：bp）。</p>
+<ul>
+<li><strong>功能:</strong> 确保分割后的片段不会过小，以影响后续分析。</li>
+</ul>
+<p><strong>默认值:</strong> <code>300000000</code></p>
+<p><strong>示例:</strong></p>
+<pre><code>--min_length 300000000</code></pre>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
+<h4 id="-max_length-max_length"><code>--max_length &lt;MAX_LENGTH&gt;</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(可选)</span><a class="headerlink" href="#-max_length-max_length" title="Permanent link">&para;</a></h4>
+<p>设置输出片段的最大长度（单位：bp）。</p>
+<ul>
+<li><strong>技术限制:</strong> 主要用于确保片段长度符合ATAC建库等下游分析的要求 (通常 &lt; 2^29-1 bp)。</li>
+</ul>
+<p><strong>默认值:</strong> <code>500000000</code></p>
+<p><strong>示例:</strong></p>
+<pre><code>--max_length 500000000</code></pre>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
+<h4 id="-cut_site-cut_site"><code>--cut_site &lt;CUT_SITE&gt;</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(可选)</span><a class="headerlink" href="#-cut_site-cut_site" title="Permanent link">&para;</a></h4>
+<p>提供一个包含预定义分割位置的文本文件。</p>
+<ul>
+<li><strong>精确控制:</strong> 优先使用文件中指定的位点进行分割，实现对分割位置的精确控制。</li>
+</ul>
+<p><strong>默认值:</strong> 无</p>
+<p><strong>示例:</strong></p>
+<pre><code>--cut_site predefined_cuts.txt</code></pre>
+</div>
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
+<blockquote>
+<p>[!NOTE]</p>
+<h3 id="_16">使用示例<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>基本分割</strong>:
+  <code>shell
+  chromsplit --fasta genome.fasta --prefix split_result</code></li>
+<li><strong>带注释文件的智能分割</strong>:
+  <code>shell
+  chromsplit --fasta genome.fasta --gtf annotation.gtf --prefix split_genome</code></li>
+<li><strong>自定义长度分割</strong>:
+  <code>shell
+  chromsplit --fasta genome.fasta --prefix custom_split --min_length 300000000 --max_length 500000000</code></li>
+<li><strong>使用预定义分割位点</strong>:
+  <code>shell
+  chromsplit --fasta genome.fasta --gtf annotation.gtf --prefix precise_split --cut_site custom_cuts.txt</code></li>
+</ul>
+</blockquote>
+</div>
+<div style="max-width: 1200px; margin: 0 auto;">
+<hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;">
+</div>
+<p><br></p>
+<h2 id="fastq-fqsubc4">FASTQ 切割 (fqsubC4) <a id="fastq-切割-fqsubc4"></a><a class="headerlink" href="#fastq-fqsubc4" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><strong>核心功能</strong></p>
+<p>专业的 FASTQ 序列区域提取工具，支持精确的序列位置截取。主要用于解决多次加测数据格式不一致问题，确保 C4 测序数据的标准化处理。</p>
+</blockquote>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #d2d2d7; overflow-x: auto;">
+<h3 id="_17">用法<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h3>
+<pre><code class="language-shell">$ fqsubC4 -h
+Extracts regions from FASTQ sequences
+
+Usage: fqsubC4 [OPTIONS] --input &lt;FILE&gt; --output &lt;FILE&gt; --regions &lt;REGIONS&gt;
+
+Options:
+  -i, --input &lt;FILE&gt;       Path to input FASTQ file (supports both uncompressed and gzipped formats)
+  -o, --output &lt;FILE&gt;      Path to output FASTQ file （output will be automatically compressed if filename ends with .gz）
+  -r, --regions &lt;REGIONS&gt;  Comma-separated regions in format start:end (e.g., 7:16,23:32,38:47)
+  -t, --threads &lt;THREADS&gt;  Number of threads to use for parallel processing [default: 8]
+  -h, --help               Print help (see more with '--help')
+  -V, --version            Print version
+</code></pre>
+</div>
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
+<h3 id="_18">参数说明<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h3>
+</div>
+<div style="max-width: 1200px; margin: 0 auto;">
+<h4 id="_19">必需参数<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h4>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
+<h4 id="-i-input-file"><code>-i, --input &lt;FILE&gt;</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(必需)</span><a class="headerlink" href="#-i-input-file" title="Permanent link">&para;</a></h4>
+<p>指定输入的FASTQ文件路径。</p>
+<ul>
+<li><strong>格式支持:</strong> 支持未压缩 (.fq, .fastq) 和 gzip 压缩 (.fq.gz, .fastq.gz) 格式。</li>
+<li><strong>自动识别:</strong> 工具会根据文件扩展名自动判断压缩格式。</li>
+</ul>
+<p><strong>默认值:</strong> 无</p>
+<p><strong>示例:</strong></p>
+<pre><code>--input sample_R1.fastq.gz</code></pre>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
+<h4 id="-o-output-file"><code>-o, --output &lt;FILE&gt;</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(必需)</span><a class="headerlink" href="#-o-output-file" title="Permanent link">&para;</a></h4>
+<p>指定输出的FASTQ文件路径。</p>
+<ul>
+<li><strong>自动压缩:</strong> 如果输出文件名以 <code>.gz</code> 结尾，输出文件将被自动压缩。推荐使用压缩格式，可以有效减少磁盘I/O和存储空间。</li>
+</ul>
+<p><strong>默认值:</strong> 无</p>
+<p><strong>示例:</strong></p>
+<pre><code>--output extracted_R1.fastq.gz</code></pre>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
+<h4 id="-r-regions-regions"><code>-r, --regions &lt;REGIONS&gt;</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(必需)</span><a class="headerlink" href="#-r-regions-regions" title="Permanent link">&para;</a></h4>
+<p>指定要从序列中提取的区域。</p>
+<ul>
+<li><strong>格式规范:</strong> 使用 <code>start:end</code> 格式，多个区域用逗号分隔。</li>
+<li><strong>坐标系统:</strong> 坐标为1-based（序列的第一个碱基位置为1）。</li>
+<li><strong>应用:</strong> 用于提取Barcode、UMI，或对序列进行修剪。</li>
+</ul>
+<p><strong>默认值:</strong> 无</p>
+<p><strong>示例:</strong></p>
+<pre><code>--regions 7:16,23:32,38:47</code></pre>
+</div>
+<div style="max-width: 1200px; margin: 0 auto;">
+<hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;">
+</div>
+<div style="max-width: 1200px; margin: 0 auto;">
+<h4 id="_20">可选参数<a class="headerlink" href="#_20" title="Permanent link">&para;</a></h4>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
+<h4 id="-t-threads-threads"><code>-t, --threads &lt;THREADS&gt;</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(可选)</span><a class="headerlink" href="#-t-threads-threads" title="Permanent link">&para;</a></h4>
+<p>设置并行处理线程数。</p>
+<ul>
+<li><strong>功能:</strong> 提升读取、截取和写出阶段的并行能力，适用于大文件加速处理。</li>
+<li><strong>建议:</strong> 默认值为 <code>所有可用的核心数量</code>；建议根据CPU核心数和磁盘I/O性能进行调整。</li>
+</ul>
+<p><strong>默认值:</strong> <code>所有可用的核心数量</code></p>
+<p><strong>示例:</strong></p>
+<pre><code>--threads 8</code></pre>
+</div>
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
+<blockquote>
+<p>[!NOTE]</p>
+<h3 id="_21">使用示例<a class="headerlink" href="#_21" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>基本区域提取</strong>:
+  <code>shell
+  fqsubC4 --input sample.fastq.gz --output extracted.fastq.gz --regions "7:16,23:32"</code></li>
+</ul>
+</blockquote>
+</div>
+<div style="max-width: 1200px; margin: 0 auto;">
+<hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;">
+</div>
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
+<h2 id="_22">相关文档<a class="headerlink" href="#_22" title="Permanent link">&para;</a></h2>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">资源</th>
+<th style="text-align: left;">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><a href="parameter.html">工具参数总览</a></td>
+<td style="text-align: left;">所有工具参数概览</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="../outs/outs.html">输出文件总览</a></td>
+<td style="text-align: left;">输出文件详细解读</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="../pipeline/pipeline.html">流程文档总览</a></td>
+<td style="text-align: left;">分析流程指南</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="max-width: 1200px; margin: 0 auto;">
+<hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;">
+</div>
+<div align="center" style="background: #f5f5f7; border-radius: 12px; padding: 30px; margin: 40px auto; max-width: 1200px;">
+<blockquote>
+<p><strong>反馈与支持</strong></p>
+<p>本文档持续更新中，如发现内容错误或需要补充的信息，欢迎反馈。</p>
+<p><strong>文档版本：</strong> 3.1 | <strong>最后更新：</strong> 2026年4月</p>
+</blockquote>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 MGI Tech Bioinformatics. All rights reserved.<br>
+Documentation Version 3.1 · Last updated April 2026
+
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["search.suggest", "search.highlight"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

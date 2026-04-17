@@ -1,22 +1,48 @@
-<div align="right">
+<div align="right" style="margin-bottom: 20px; max-width: 1200px; margin-left: auto; margin-right: auto;">
 
-[🏠 Home](../../README.md) • [中文](scRNA.md)
-
-</div>
-
-# 🧬 DNBelab C Series HT scRNA Analysis Parameters
-
-<div align="center">
-
-[🔬 Main Analysis Pipeline (run)](#main-analysis-pipeline-run) • [📊 Reference Database Construction (mkref)](#reference-database-construction-mkref) • [📋 Multi-sample Operations (multi)](#multi-sample-operations-multi)
+<a href="../../README.md" style="color: #0071e3; text-decoration: none; font-size: 14px;">Home</a> <span style="color: rgba(0,0,0,0.3);">•</span> <a href="scRNA.md" style="color: #0071e3; text-decoration: none; font-size: 14px;">中文</a>
 
 </div>
 
----
+<div align="center" style="padding: 40px 20px; background: linear-gradient(135deg, #f5f5f7 0%, #ffffff 100%); border-radius: 12px; margin-bottom: 30px; max-width: 1200px; margin-left: auto; margin-right: auto;">
 
-## 🔬 Main Analysis Pipeline (run) <a id="main-analysis-pipeline-run"></a>
+<h1 style="font-size: 48px; font-weight: 600; color: #1d1d1f; margin: 0 0 16px 0; letter-spacing: -0.02em;">scRNA Analysis Parameters</h1>
 
-### 📊 Usage <a id="usage"></a>
+<p style="font-size: 21px; color: rgba(0,0,0,0.6); margin: 0 0 30px 0; font-weight: 400;">DNBelab C Series HT scRNA Parameter Configuration Guide</p>
+
+<div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+<a href="#main-analysis-pipeline-run" style="background: #0071e3; color: white; padding: 8px 16px; border-radius: 980px; text-decoration: none; font-size: 14px;">Main Analysis (run)</a>
+<a href="#reference-database-construction-mkref" style="background: transparent; color: #0071e3; padding: 8px 16px; border-radius: 980px; text-decoration: none; font-size: 14px; border: 1px solid #0071e3;">Database Construction (mkref)</a>
+<a href="#multi-sample-operations-multi" style="background: transparent; color: #0071e3; padding: 8px 16px; border-radius: 980px; text-decoration: none; font-size: 14px; border: 1px solid #0071e3;">Multi-sample (multi)</a>
+</div>
+
+</div>
+
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
+
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
+
+## Overview <a id="overview"></a>
+
+This document explains the parameter meanings, default behaviors, and common usage patterns for each subcommand of `dnbc4tools rna`, covering single-sample analysis (`run`), reference library construction (`mkref`), and multi-sample task generation (`multi`).
+
+> **Tip**
+>
+> Parameter descriptions are based on the current command-line help information. Examples can be used directly as templates and adjusted as needed.
+
+</div>
+
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
+
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
+
+## Main Analysis Pipeline (run) <a id="main-analysis-pipeline-run"></a>
+
+</div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #d2d2d7; overflow-x: auto;">
+
+### Usage <a id="usage"></a>
 
 ```shell
 $ dnbc4tools rna run
@@ -72,13 +98,23 @@ Analysis Settings:
   --sample_read_pairs <INT>  Subsample this number of cDNA read pairs for analysis (e.g., `1000000`).
 ```
 
-### 📝 Parameter Description
+</div>
 
-#### 🔴 Required Parameters
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
 
-> ⚠️ **Essential parameters that must be specified for a successful analysis**
+### Parameter Description
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+</div>
+
+<div style="max-width: 1200px; margin: 0 auto;">
+
+#### Required Parameters
+
+> **Essential parameters that must be specified for a successful analysis**
+
+</div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>-n, --name</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(Required)</span></h4>
 <p>Provide a unique name for this analysis run.</p>
 <ul>
@@ -90,7 +126,7 @@ Analysis Settings:
 <pre><code>--name sample_001</code></pre>
 </div>
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>-g, --genomeDir</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(Required)</span></h4>
 <p>Specify the path to the reference genome directory.</p>
 <ul>
@@ -102,13 +138,17 @@ Analysis Settings:
 <pre><code>--genomeDir /path/to/genome/database</code></pre>
 </div>
 
----
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
 
-#### 🟢 Input File Parameters
+<div style="max-width: 1200px; margin: 0 auto;">
 
-> 📁 **Choose one input method: Directory-based OR specify individual files**
+#### Input File Parameters
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+> **Choose one input method: Directory-based OR specify individual files**
+
+</div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>--fastqs</code> <span style="font-size: 0.8em; font-weight: normal; color: #3498db;">(Method 1)</span></h4>
 <p>Specify the path to the directory containing all FASTQ files.</p>
 <ul>
@@ -120,7 +160,7 @@ Analysis Settings:
 <pre><code>--fastqs ./fastq_directory</code></pre>
 </div>
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>--cDNAfastq1</code> <span style="font-size: 0.8em; font-weight: normal; color: #3498db;">(Method 2A)</span></h4>
 <p>Specify one or more cDNA Read1 FASTQ files individually.</p>
 <ul>
@@ -132,7 +172,7 @@ Analysis Settings:
 <pre><code>--cDNAfastq1 sample_cDNA_L01_R1.fastq.gz,sample_cDNA_L02_R1.fastq.gz</code></pre>
 </div>
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>--cDNAfastq2</code> <span style="font-size: 0.8em; font-weight: normal; color: #3498db;">(Method 2B)</span></h4>
 <p>Specify one or more cDNA Read2 FASTQ files individually.</p>
 <ul>
@@ -144,7 +184,7 @@ Analysis Settings:
 <pre><code>--cDNAfastq2 sample_cDNA_L01_R2.fastq.gz,sample_cDNA_L02_R2.fastq.gz</code></pre>
 </div>
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>--oligofastq1</code> <span style="font-size: 0.8em; font-weight: normal; color: #3498db;">(Method 2C)</span></h4>
 <p>Specify one or more oligo Read1 FASTQ files individually.</p>
 <ul>
@@ -156,7 +196,7 @@ Analysis Settings:
 <pre><code>--oligofastq1 sample_oligo_R1.fastq.gz</code></pre>
 </div>
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>--oligofastq2</code> <span style="font-size: 0.8em; font-weight: normal; color: #3498db;">(Method 2D)</span></h4>
 <p>Specify one or more oligo Read2 FASTQ files individually.</p>
 <ul>
@@ -168,20 +208,28 @@ Analysis Settings:
 <pre><code>--oligofastq2 sample_oligo_R2.fastq.gz</code></pre>
 </div>
 
-> ⚠️ **Input Method Selection:**
-> - **🔸 Method 1:** Use `--fastqs` to specify a directory containing cDNA and oligo subfolders.
-> - **🔸 Method 2:** Use `--cDNAfastq1`, `--cDNAfastq2`, `--oligofastq1`, `--oligofastq2` to specify R1 and R2 files respectively.
+<div style="background: #f5f5f7; border-radius: 12px; padding: 20px; margin: 20px auto; max-width: 1200px;">
 
-> ℹ️ **Compatible aliases**
+> **Input Method Selection:**
+> - **Method 1:** Use `--fastqs` to specify a directory containing cDNA and oligo subfolders.
+> - **Method 2:** Use `--cDNAfastq1`, `--cDNAfastq2`, `--oligofastq1`, `--oligofastq2` to specify R1 and R2 files respectively.
+
+> **Compatible aliases**
 > - Legacy short options `-c1/-c2/-i1/-i2` are still supported, but hidden in current help output. Long options are recommended for better script readability.
 
-> ⚠️ **Important Note:** All files under a parameter must come from the same library, with consistent sequencing mode and dark reaction settings. Data from different libraries cannot be merged for analysis.
+> **Important Note:** All files under a parameter must come from the same library, with consistent sequencing mode and dark reaction settings. Data from different libraries cannot be merged for analysis.
 
----
+</div>
 
-#### 🟢 Basic Settings
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<div style="max-width: 1200px; margin: 0 auto;">
+
+#### Basic Settings
+
+</div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>-o, --outdir</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(Optional)</span></h4>
 <p>Specify the output directory for all analysis results and reports.</p>
 <ul>
@@ -192,7 +240,7 @@ Analysis Settings:
 <pre><code>--outdir ./output_results</code></pre>
 </div>
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>-t, --threads</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(Optional)</span></h4>
 <p>Set the number of CPU threads to be used during the analysis.</p>
 <ul>
@@ -204,14 +252,17 @@ Analysis Settings:
 <pre><code>--threads 16</code></pre>
 </div>
 
----
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
 
-#### 🟢 Filtering Settings
+<div style="max-width: 1200px; margin: 0 auto;">
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+#### Filtering Settings
+
+</div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>--calling_method</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(Optional)</span></h4>
 <p>Set the cell identification method to distinguish real cells from empty droplets.</p>
-<ul>
 <details open>
   <summary><strong>Method Comparison</strong></summary>
   <div style="margin-top: 10px;">
@@ -229,14 +280,13 @@ Analysis Settings:
     </ul>
   </div>
 </details>
-</ul>
 <p><strong>Default:</strong> <code>emptydrops</code></p>
 <p><strong>Example:</strong></p>
 <pre><code># Switch to barcoderanks for cell identification
 dnbc4tools rna run --name sample1 --fastqs ./fq --genomeDir ./ref --calling_method barcoderanks</code></pre>
 </div>
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>--expectcells</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(Optional)</span></h4>
 <p>Set the expected number of recovered cells.</p>
 <ul>
@@ -249,7 +299,7 @@ dnbc4tools rna run --name sample1 --fastqs ./fq --genomeDir ./ref --calling_meth
 dnbc4tools rna run --name sample1 --fastqs ./fq --genomeDir ./ref --expectcells 3000</code></pre>
 </div>
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>--forcecells</code> <span style="font-size: 0.8em; font-weight: normal; color: #e67e22;">(Optional)</span></h4>
 <p>Force the pipeline to use an exact number of cells, overriding the software's automatic cell detection.</p>
 <ul>
@@ -262,7 +312,7 @@ dnbc4tools rna run --name sample1 --fastqs ./fq --genomeDir ./ref --expectcells 
 dnbc4tools rna run --name sample1 --fastqs ./fq --genomeDir ./ref --forcecells 5000</code></pre>
 </div>
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>--minumi</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(Optional)</span></h4>
 <p>Set the minimum UMI count to retain a cell.</p>
 <ul>
@@ -275,19 +325,12 @@ dnbc4tools rna run --name sample1 --fastqs ./fq --genomeDir ./ref --forcecells 5
 dnbc4tools rna run --name sample1 --fastqs ./fq --genomeDir ./ref --minumi 500</code></pre>
 </div>
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>--consistent_cells</code> <span style="font-size: 0.8em; font-weight: normal; color: #9b59b6;">(Optional)</span></h4>
 <p>Provide a CSV file (with header) for cell-merge/cell-calling constraints.</p>
 <ul>
   <li><strong>Function:</strong> Adds external constraints during barcode merging and final cell calling to improve consistency across data batches.</li>
-  <li><strong>Supported header schemas:</strong>
-    <ul style="margin-top: 5px;">
-      <li><code>cell</code></li>
-      <li><code>cell,barcode</code></li>
-      <li><code>cell,is_cell_barcode</code></li>
-      <li><code>cell,barcode,is_cell_barcode</code></li>
-    </ul>
-  </li>
+  <li><strong>Supported header schemas:</strong> <code>cell</code>, <code>cell,barcode</code>, <code>cell,is_cell_barcode</code>, <code>cell,barcode,is_cell_barcode</code>.</li>
   <li><strong>Note:</strong> Any additional columns are ignored and do not affect pipeline execution.</li>
   <li><strong>Caution:</strong> If both <code>cell</code> and <code>barcode</code> are present, the oligo data analysis results will not contribute to the final merging. Any other oligo data not from this sample can be used without affecting the analysis results.</li>
 </ul>
@@ -296,91 +339,51 @@ dnbc4tools rna run --name sample1 --fastqs ./fq --genomeDir ./ref --minumi 500</
 <pre><code>--consistent_cells ./constraints/consistent_cells.csv</code></pre>
 </div>
 
-> [!NOTE]
-> #### 💡 Cell Identification Analysis Recommendations
->
-> Cell identification is a critical step in single-cell analysis. Correct parameter settings and result interpretation directly impact the quality and reliability of subsequent analyses.
->
-> <details>
-> <summary><strong>Click to view Diagnostics & Strategies</strong></summary>
->
-> <div style="margin-top:10px;">
->
-> **1. Abnormal Cell Count**
-> <div style="padding-left: 15px;">
-> <p><strong>Cell count too low</strong><br>
->   <small><strong>Symptom:</strong> Detected cells < 50% of expected.<br>
->   <strong>Cause:</strong> UMI threshold too high, severe empty droplet contamination, poor library quality.<br>
->   <strong>Solution:</strong> Lower <code>--minumi</code>, adjust <code>--expectcells</code>, check raw data quality.</small></p>
-> <p><strong>Cell count too high</strong><br>
->   <small><strong>Symptom:</strong> Detected cells > 200% of expected.<br>
->   <strong>Cause:</strong> Inaccurate cell counting, UMI threshold too low, high background noise.<br>
->   <strong>Solution:</strong> Increase <code>--minumi</code>, use <code>--forcecells</code> to limit the count.</small></p>
-> <p><strong>Abnormal UMI distribution</strong><br>
->   <small><strong>Symptom:</strong> UMI rank plot shows no clear "knee point".<br>
->   <strong>Cause:</strong> Insufficient sequencing depth, poor library diversity, technical failure.<br>
->   <strong>Solution:</strong> Increase sequencing depth, rebuild the library.</small></p>
-> </div>
->
-> **2. Abnormal Cell Identification Curve**
-> <div style="padding-left: 15px;">
-> <p><strong>Gradual decline with no knee point</strong><br>
->   <small><strong>Meaning:</strong> Difficult to distinguish between real cells and background empty droplets.<br>
->   <strong>Solution:</strong> Use <code>--forcecells</code> to set a conservative cell count and combine with downstream QC.</small></p>
-> <p><strong>Multiple knee points</strong><br>
->   <small><strong>Meaning:</strong> Presence of different cell populations or doublet contamination.<br>
->   <strong>Solution:</strong> Choose the cell count corresponding to the main knee point and perform doublet detection and removal later.</small></p>
-> <p><strong>Steep decline</strong><br>
->   <small><strong>Meaning:</strong> High-quality cells are clearly distinguished from the background, which is the ideal case.<br>
->   <strong>Solution:</strong> Use the default emptydrops algorithm; you can consider lowering <code>--minumi</code> slightly.</small></p>
-> <p><strong>Severe noise fluctuation</strong><br>
->   <small><strong>Meaning:</strong> High technical noise, poor data quality.<br>
->   <strong>Solution:</strong> Increase the <code>--minumi</code> threshold, consider re-sequencing or optimizing experimental conditions.</small></p>
-> </div>
->
-> <hr>
->
-> > **Best Practice Tip**
-> > 
-> > For the initial analysis, it is recommended to use the default parameters to get a preliminary result, then make targeted parameter adjustments based on the statistics and visualizations in the HTML report.
->
-> </div>
-> </details>
+<p><strong>Cell Identification Analysis Recommendations</strong></p>
+<p>Cell identification is critical for downstream reliability. Start with defaults, then tune based on QC plots.</p>
+<details open>
+<summary><strong>Click to view diagnostics and strategy</strong></summary>
+<div style="margin-top:10px;">
+<ul>
+  <li><strong>Too few cells:</strong> Usually <code>--minumi</code> is too strict or ambient RNA is high. Lower <code>--minumi</code> and re-check UMI rank.</li>
+  <li><strong>Too many cells:</strong> Usually threshold is too loose. Increase <code>--minumi</code> or constrain with <code>--forcecells</code>.</li>
+  <li><strong>No clear knee point:</strong> Check library/sequencing quality first, then tune parameters.</li>
+  <li><strong>Multiple knee points:</strong> May indicate mixed populations or doublets; follow with doublet filtering.</li>
+</ul>
+</div>
+</details>
 
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
 
----
+<div style="max-width: 1200px; margin: 0 auto;">
 
-#### 🟢 Library Settings
+#### Library Settings
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+</div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>--chemistry</code> <span style="font-size: 0.8em; font-weight: normal; color: #f39c12;">(Optional)</span></h4>
 <p>Configure the chemistry version of the scRNA kit, which determines the sequence structure of barcodes and UMIs.</p>
 <ul>
-  <li><strong>Function:</strong> Guides the software to correctly parse the barcode and UMI sequence structures.
-    <ul style="margin-top: 5px;">
-      <li><strong>Supported Versions:</strong> <code>scRNAv1HT</code>, <code>scRNAv2HT</code>, <code>scRNAv3HT</code>, <code>scRNA5Pv1</code></li>
-    </ul>
-  </li>
-  <li><strong>Smart Detection (auto):</strong> Default setting. The software automatically identifies the kit version by analyzing the sequence structure of the first 200,000 reads based on the position patterns of barcodes and UMIs. If it cannot be identified, the pipeline will prompt for manual specification. <strong>Highly recommended for initial analysis.</strong></li>
+  <li><strong>Function:</strong> Guides parsing of barcode and UMI sequence structure.</li>
+  <li><strong>Supported Versions:</strong> <code>scRNAv1HT</code>, <code>scRNAv2HT</code>, <code>scRNAv3HT</code>, <code>scRNA5Pv1</code>.</li>
+  <li><strong>Smart Detection (auto):</strong> Recommended for first-pass analysis; manual override only when auto-detection fails.</li>
 </ul>
 <p><strong>Default:</strong> <code>auto</code></p>
 <p><strong>Example:</strong></p>
 <pre><code># Scenario: Known library is scRNAv3HT with no dark reaction and auto-analysis failed
 dnbc4tools rna run --name sample2 --fastqs ./fq --genomeDir ./ref --chemistry scRNAv3HT --darkreaction unset,unset</code></pre>
-<p><strong>⚠️ Important Note:</strong> Incorrect settings may lead to cell barcode identification failure. Specify manually only if you know the library structure or if auto-detection fails. When manually specified, it is recommended to set <code>--darkreaction</code> together.</p>
+<p><strong>Important Note:</strong> Incorrect settings may lead to cell barcode identification failure. Specify manually only if you know the library structure or if auto-detection fails. When manually specified, it is recommended to set <code>--darkreaction</code> together.</p>
 </div>
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>--darkreaction</code> <span style="font-size: 0.8em; font-weight: normal; color: #f39c12;">(Optional)</span></h4>
 <p>Configure the dark cycle settings for the cDNA and oligo libraries.</p>
 <ul>
-  <li><strong>Function:</strong> Guides the software to correctly parse dark reaction cycles generated by the sequencing chemistry (e.g., on MGI platforms).
-    <ul style="margin-top: 5px;">
-      <li><strong>Configuration Format:</strong> <code>&lt;cDNA_setting&gt;,&lt;oligo_setting&gt;</code> (comma-separated).</li>
-      <li><strong>Supported Options:</strong> <code>auto</code> (auto-detection), <code>R1R2</code> (both ends), <code>R1</code> (R1 only), <code>unset</code> (none).</li>
-    </ul>
-  </li>
-  <li><strong>Smart Detection (auto):</strong> Default setting. The software automatically identifies the kit version by analyzing the sequence structure of the first 200,000 reads based on sequence length and fixed sequence positions. If it cannot be identified, the pipeline will prompt for manual specification. <strong>Highly recommended for initial analysis.</strong></li>
+  <li><strong>Function:</strong> Guides parsing of dark-cycle patterns from sequencing chemistry.</li>
+  <li><strong>Format:</strong> <code>&lt;cDNA_setting&gt;,&lt;oligo_setting&gt;</code>.</li>
+  <li><strong>Options:</strong> <code>auto</code>, <code>R1R2</code>, <code>R1</code>, <code>unset</code>.</li>
+  <li><strong>Smart Detection (auto):</strong> Recommended default; manually set only when auto-detection fails.</li>
 </ul>
 <p><strong>Default:</strong> <code>auto</code></p>
 <p><strong>Examples:</strong></p>
@@ -392,32 +395,17 @@ dnbc4tools rna run --name sample2 --fastqs ./fq --genomeDir ./ref --chemistry sc
 
 <pre><code># Example 3: Neither library has dark cycles
 --darkreaction unset,unset</code></pre>
-<p><strong>⚠️ Important Note:</strong> Incorrect settings may lead to cell barcode identification failure. Specify manually only if you know the library structure or if auto-detection fails. When manually specified, it is recommended to set <code>--chemistry</code> together.</p>
+<p><strong>Important Note:</strong> Incorrect settings may lead to cell barcode identification failure. Specify manually only if you know the library structure or if auto-detection fails. When manually specified, it is recommended to set <code>--chemistry</code> together.</p>
 </div>
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>--customize</code> <span style="font-size: 0.8em; font-weight: normal; color: #9b59b6;">(Advanced)</span></h4>
 <p>Precisely define the extraction structure for barcodes, UMIs, and effective sequences (reads) for non-standard libraries. This is an advanced feature that overrides <code>--chemistry</code> and <code>--darkreaction</code> settings.</p>
 <ul>
-  <li><strong>Syntax:</strong> <code>"&lt;type&gt;,&lt;read&gt;:&lt;start&gt;-&lt;end&gt;"</code>, with multiple segments separated by semicolons (<code>;</code>).
-    <ul style="margin-top: 5px;">
-      <li><strong>Parameter Types (type):</strong>
-          <ul>
-            <li><code>cb</code>: Cell Barcode</li>
-            <li><code>umi</code>: UMI (Unique Molecular Identifier)</li>
-            <li><code>R1</code>: Effective DNA sequence in Read1</li>
-            <li><code>R2</code>: Effective DNA sequence in Read2 (for paired-end sequencing only)</li>
-          </ul>
-      </li>
-    </ul>
-  </li>
-  <li><strong>Dual Configuration:</strong> You must specify the <code>--customize</code> parameter twice, once for the cDNA library and once for the oligo library.</li>
-  <li><strong>Notes:</strong>
-      <ul>
-        <li>The entire parameter string must be enclosed in quotes.</li>
-        <li>Coordinates are 1-based and cannot exceed the read length.</li>
-      </ul>
-  </li>
+  <li><strong>Syntax:</strong> <code>"&lt;type&gt;,&lt;read&gt;:&lt;start&gt;-&lt;end&gt;"</code>, with multiple segments separated by semicolons (<code>;</code>).</li>
+  <li><strong>Parameter Types (type):</strong> <code>cb</code> (cell barcode), <code>umi</code> (UMI), <code>R1</code> (effective sequence in Read1), <code>R2</code> (effective sequence in Read2, paired-end only).</li>
+  <li><strong>Dual Configuration:</strong> Specify <code>--customize</code> twice when both cDNA and oligo libraries are customized.</li>
+  <li><strong>Notes:</strong> Enclose the full string in quotes; coordinates are 1-based and must not exceed read length.</li>
 </ul>
 <p><strong>Examples:</strong></p>
 <pre><code># For a cDNA library with structure: Barcode 1(1-10bp) + Barcode 2(11-20bp) + UMI(21-30bp) in R1; sequence(1-100bp) in R2
@@ -428,14 +416,18 @@ dnbc4tools rna run --name sample2 --fastqs ./fq --genomeDir ./ref --chemistry sc
 --customize "cb,R1:1-10;cb,R1:11-20;umi,R1:21-30;R1,R1:31-120;R2,R2:1-150"</code></pre>
 <pre><code># Example: Custom sequence structures for cDNA and oligo libraries respectively
 --customize "cb,R1:1-10;cb,R1:11-20;umi,R1:21-30;R1,R2:1-100" --customize "cb,R1:1-10;cb,R1:11-20;R1,R2:1-30"</code></pre>
-<p><strong>⚠️ Risk Warning:</strong> Incorrect custom configurations can lead to data loss or analysis failure. Use only when standard configurations do not meet your needs.</p>
+<p><strong>Risk Warning:</strong> Incorrect custom configurations can lead to data loss or analysis failure. Use only when standard configurations do not meet your needs.</p>
 </div>
 
----
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
 
-#### 🚩 Analysis Settings
+<div style="max-width: 1200px; margin: 0 auto;">
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+#### Analysis Settings
+
+</div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>--no_introns</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(Flag)</span></h4>
 <p>Enable this parameter to filter out reads from intronic regions during analysis.</p>
 <ul>
@@ -444,7 +436,7 @@ dnbc4tools rna run --name sample2 --fastqs ./fq --genomeDir ./ref --chemistry sc
 <p><strong>Default:</strong> If not set, reads from intronic regions are included.</p>
 </div>
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>--end5</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(Flag)</span></h4>
 <p>Enable 5'-end single-cell transcriptome data analysis mode.</p>
 <ul>
@@ -454,7 +446,7 @@ dnbc4tools rna run --name sample2 --fastqs ./fq --genomeDir ./ref --chemistry sc
 <p><strong>Default:</strong> Not set.</p>
 </div>
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>--no_bam</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(Flag)</span></h4>
 <p>Enable this parameter to skip the generation of BAM files.</p>
 <ul>
@@ -464,7 +456,7 @@ dnbc4tools rna run --name sample2 --fastqs ./fq --genomeDir ./ref --chemistry sc
 <p><strong>Default:</strong> If not set, BAM files are generated.</p>
 </div>
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>--sample_read_pairs</code> <span style="font-size: 0.8em; font-weight: normal; color: #9b59b6;">(Optional)</span></h4>
 <p>Extract a specified number of read pairs from the input cDNA FASTQ files for analysis.</p>
 <ul>
@@ -475,20 +467,26 @@ dnbc4tools rna run --name sample2 --fastqs ./fq --genomeDir ./ref --chemistry sc
 <pre><code>--sample_read_pairs 100000000</code></pre>
 </div>
 
----
-<div align="center">
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
 
-> 💡 **Analysis Recommendation**
-> 
-> For the initial analysis, it is recommended to use the default parameters and then adjust them as needed based on the results report.
+<div align="center" style="background: #f5f5f7; border-radius: 12px; padding: 30px; margin: 40px auto; max-width: 1200px;">
+
+> **Analysis Recommendation**
+> > For the initial analysis, it is recommended to use the default parameters and then adjust them as needed based on the results report.
 
 </div>
 
----
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
 
-## 📊 Reference Database Construction (mkref) <a id="reference-database-construction-mkref"></a>
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
 
-### 📊 Usage
+## Reference Database Construction (mkref) <a id="reference-database-construction-mkref"></a>
+
+</div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #d2d2d7; overflow-x: auto;">
+
+### Usage
 
 ```shell
 $ dnbc4tools rna mkref
@@ -519,11 +517,21 @@ Advanced Settings:
   --noindex           Skip the STAR index-generation step.
 ```
 
-### 📝 Parameter Description
+</div>
 
-#### 🔴 Required Parameters
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+### Parameter Description
+
+</div>
+
+<div style="max-width: 1200px; margin: 0 auto;">
+
+#### Required Parameters
+
+</div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>--fasta</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(Required)</span></h4>
 <p>Provide the reference genome sequence file.</p>
 <ul>
@@ -534,46 +542,42 @@ Advanced Settings:
 <pre><code>--fasta Homo_sapiens.GRCh38.dna.primary_assembly.fa</code></pre>
 </div>
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>--ingtf</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(Required)</span></h4>
 <p>Provide the gene structure annotation file.</p>
 <ul>
   <li><strong>Function:</strong> Used for gene expression quantification and annotation.</li>
-  <li><strong>Requirement:</strong> Standard GTF format.
-      <ul style="margin-top: 5px;">
-        <li><strong>Required Features:</strong> Must contain <code>gene</code>/<code>transcript</code>, <code>exon</code> type annotation entries.</li>
-        <li><strong>Required Attributes:</strong> Must contain <code>gene_id</code>/<code>gene_name</code>, <code>transcript_id</code>/<code>transcript_name</code> attributes.</li>
-        <li><strong>Chromosome Names:</strong> Must match the chromosome names in the FASTA genome file.</li>
-        <li><strong>Coordinates:</strong> Start and end coordinates must be valid.</li>
-      </ul>
-  </li>
+  <li><strong>Requirement:</strong> Standard GTF format.</li>
+  <li><strong>Required Features:</strong> Must include <code>gene</code>/<code>transcript</code> and <code>exon</code> entries.</li>
+  <li><strong>Required Attributes:</strong> Must include <code>gene_id</code>/<code>gene_name</code> and <code>transcript_id</code>/<code>transcript_name</code>.</li>
+  <li><strong>Chromosome Names:</strong> Must match chromosome names in the FASTA genome.</li>
+  <li><strong>Coordinates:</strong> Start and end coordinates must be valid.</li>
 </ul>
 <p><strong>Default:</strong> None</p>
 <p><strong>Example:</strong></p>
 <pre><code>--ingtf Homo_sapiens.GRCh38.108.gtf</code></pre>
 </div>
 
-> [!NOTE]
-> **Dual-Species Analysis Configuration**
->
-> For dual-species analysis, both `--fasta` and `--ingtf` parameters support providing file paths for two species, separated by commas.
->
-> - **Example:** `--fasta human.fa,mouse.fa --ingtf human.gtf,mouse.gtf`
-> - **Important Note:** Please ensure that the order of FASTA files, GTF files, and the `--species` parameter is strictly consistent, meaning each FASTA file corresponds to its respective GTF file and species parameter in the list.
+<p><strong>Dual-Species Analysis Configuration</strong></p>
+<p>For dual-species analysis, provide two file paths separated by commas in both <code>--fasta</code> and <code>--ingtf</code>.</p>
+<ul>
+  <li><strong>Example:</strong> <code>--fasta human.fa,mouse.fa --ingtf human.gtf,mouse.gtf</code></li>
+  <li><strong>Important:</strong> File order must exactly match the <code>--species</code> order.</li>
+</ul>
 
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
 
----
+#### Settings
 
-#### 🟢 Settings
-
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>--genomeDir</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(Optional)</span></h4>
 <p>Specify the output directory for the generated reference database.</p>
 <ul>
   <li><strong>Function:</strong> All generated reference files (index, annotations, etc.) will be stored in this directory.</li>
-  <details style="margin-top: 10px;" open>
+</ul>
+<details style="margin-top: 10px;" open>
   <summary><strong>Directory Structure Preview</strong></summary>
-  <pre style=padding: 10px; border-radius: 5px; margin-top: 5px;>
+  <pre style="padding: 10px; border-radius: 5px; margin-top: 5px;">
   genomeDir/
   ├── fasta/
   │   └── genome.fa          # Processed genome sequence file
@@ -596,19 +600,19 @@ Advanced Settings:
   └── ref.json               # Database configuration and metadata file
   </pre>
   </details>
-</ul>
 
 <p><strong>Default:</strong> <code>./</code> (current directory)</p>
 <p><strong>Example:</strong></p>
 <pre><code>dnbc4tools rna mkref --fasta genome.fa --ingtf genes.gtf --genomeDir /database/scRNA/GRCh38</code></pre>
 </div>
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>--species</code> <span style="font-size: 0.8em; font-weight: normal; color: #f39c12;">(Optional)</span></h4>
 <p>Specify one or more species names for the reference database.</p>
 <ul>
   <li><strong>Function:</strong> This name is recorded in the configuration file and used for species identification, gene annotation, and cell annotation in subsequent analyses.</li>
-  <details style="margin-top: 10px;" open>
+</ul>
+<details style="margin-top: 10px;" open>
   <summary><strong>Dual-Species Analysis Configuration</strong></summary>
   <ul style="margin-top: 5px; padding-left: 20px;">
     <li><strong>Naming Format:</strong> Use commas to separate multiple species names (e.g., <code>hg38,mm10</code>).</li>
@@ -617,7 +621,7 @@ Advanced Settings:
   </ul>
   </details>
 
-  <details style="margin-top: 10px;" open>
+<details style="margin-top: 10px;" open>
   <summary><strong>Cell Annotation Support</strong></summary>
   <p style="margin-top: 5px;">Providing this parameter for specific species enables automatic downstream cell type annotation.</p>
   <ul style="padding-left: 20px;">
@@ -625,7 +629,6 @@ Advanced Settings:
     <li><strong>Not Supported:</strong> Other species do not support cell annotation.</li>
   </ul>
   </details>
-</ul>
 <p style="margin-top: 15px;"><strong>Default:</strong> <code>undefined</code></p>
 <p><strong>Examples:</strong></p>
 <pre><code># Single species
@@ -634,7 +637,7 @@ Advanced Settings:
 --species hg38,mm10</code></pre>
 </div>
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>--threads</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(Optional)</span></h4>
 <p>Set the number of CPU threads to be used during STAR index construction.</p>
 <ul>
@@ -646,11 +649,11 @@ Advanced Settings:
 <pre><code>--threads 16</code></pre>
 </div>
 
----
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
 
-#### 🟢 Advanced Settings
+#### Advanced Settings
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>--chrM</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(Optional)</span></h4>
 <p>Specify the name of the mitochondrial chromosome.</p>
 <ul>
@@ -663,18 +666,20 @@ Advanced Settings:
 dnbc4tools rna mkref --fasta genome.fa --ingtf genes.gtf --chrM mitochondrion</code></pre>
 </div>
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>--limitram</code> <span style="font-size: 0.8em; font-weight: normal; color: #e67e22;">(Optional)</span></h4>
-<p>Set the maximum available memory (in GB) for the STAR genome index generation process.</p>
+<p>Limit the maximum memory usage (in GB) during STAR genome index generation.</p>
 <ul>
-  <li><strong>Function:</strong> A reasonable memory limit can prevent system memory exhaustion and increase the success rate of index construction.</li>
+  <li><strong>Function:</strong> This parameter controls the memory consumption during STAR index construction. The memory configuration of the index directly affects the memory usage and runtime speed of subsequent <code>rna run</code> analysis.</li>
+  <li><strong>Impact:</strong> A higher memory limit enables the generation of higher-performance indexes, thereby speeding up RNA analysis, but increases memory consumption; a lower memory limit reduces index performance and may slow down analysis speed.</li>
+  <li><strong>Recommendation:</strong> Set according to available system memory to avoid index construction failures due to insufficient memory.</li>
 </ul>
 <p><strong>Default:</strong> None</p>
 <p><strong>Example:</strong></p>
 <pre><code>--limitram 64</code></pre>
 </div>
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>--extra-args</code> <span style="font-size: 0.8em; font-weight: normal; color: #9b59b6;">(Advanced)</span></h4>
 <p>Pass additional command-line arguments directly to STAR index generation.</p>
 <ul>
@@ -686,7 +691,7 @@ dnbc4tools rna mkref --fasta genome.fa --ingtf genes.gtf --chrM mitochondrion</c
 <pre><code>--extra-args "--sjdbOverhang 99 --runThreadN 20"</code></pre>
 </div>
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>--noindex</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(Flag)</span></h4>
 <p>If this parameter is set, it will only generate the configuration file without building the genome index.</p>
 <ul>
@@ -698,64 +703,61 @@ dnbc4tools rna mkref --fasta genome.fa --ingtf genes.gtf --chrM mitochondrion</c
 dnbc4tools rna mkref --fasta genome.fa --ingtf genes.gtf --noindex</code></pre>
 </div>
 
-> [!TIP]
-> 
-> 📋 **Database Construction Technical Notes**:
+> > **Database Construction Technical Notes**:
 > - For genomes with numerous and variably sized chromosomes, the database construction is adjusted to automatically determine optimal values for `genomeSAindexNbases` and `genomeChrBinNbits`.
 > - Upon completion of database construction, a `ref.json` file will be generated in the database directory to record all key configuration information.
 > - Dual-species analysis automatically adds a species prefix to each gene (e.g., hg38_GENE1, mm10_GENE2) to differentiate genes from different species.
 > - All build parameters and version information are recorded in ref.json to ensure the reproducibility of the analysis.
-> 
-> 📋 **Single-Species ref.json File Example**:
+> > **Single-Species ref.json File Example**:
 > ```json
 > {
->     "chrmt": "chrM",
->     "genome": "/database/scRNA/Homo_sapiens/fasta/genome.fa",
->     "genomeDir": "/database/scRNA/Homo_sapiens/star",
->     "gtf": "/database/scRNA/Homo_sapiens/genes/genes.gtf",
->     "input_fasta_files": [
->         "genome.fa"
->     ],
->     "input_gtf_files": [
->         "genes.gtf"
->     ],
->     "mtgenes": "/database/scRNA/Homo_sapiens/star/mtgene.list",
->     "species": "Homo_sapiens",
->     "version": "3.1"
+> "chrmt": "chrM",
+> "genome": "/database/scRNA/Homo_sapiens/fasta/genome.fa",
+> "genomeDir": "/database/scRNA/Homo_sapiens/star",
+> "gtf": "/database/scRNA/Homo_sapiens/genes/genes.gtf",
+> "input_fasta_files": [> "genome.fa"
+>],
+> "input_gtf_files": [> "genes.gtf"
+>],
+> "mtgenes": "/database/scRNA/Homo_sapiens/star/mtgene.list",
+> "species": "Homo_sapiens",
+> "version": "3.1"
 > }
 > ```
-> 
-> 📋 **Dual-Species ref.json File Example**:
+> > **Dual-Species ref.json File Example**:
 > ```json
 > {
->     "chrmt": "hg38_chrM,mm10_chrM",
->     "genome": "/database/scRNA/hg38_and_mm10/fasta/genome.fa",
->     "genomeDir": "/database/scRNA/hg38_and_mm10/star",
->     "gtf": "/database/scRNA/hg38_and_mm10/genes/genes.gtf",
->     "input_fasta_files": [
->         "hg38_genome.fa",
->         "mm10_genome.fa"
->     ],
->     "input_gtf_files": [
->         "hg38_genes.gtf",
->         "mm10_genes.gtf"
->     ],
->     "mtgenes": "/database/scRNA/hg38_and_mm10/star/mtgene.list",
->     "species": "hg38_and_mm10",
->     "version": "3.1"
+> "chrmt": "hg38_chrM,mm10_chrM",
+> "genome": "/database/scRNA/hg38_and_mm10/fasta/genome.fa",
+> "genomeDir": "/database/scRNA/hg38_and_mm10/star",
+> "gtf": "/database/scRNA/hg38_and_mm10/genes/genes.gtf",
+> "input_fasta_files": [> "hg38_genome.fa",
+> "mm10_genome.fa"
+>],
+> "input_gtf_files": [> "hg38_genes.gtf",
+> "mm10_genes.gtf"
+>],
+> "mtgenes": "/database/scRNA/hg38_and_mm10/star/mtgene.list",
+> "species": "hg38_and_mm10",
+> "version": "3.1"
 > }
 > ```
-> 
-> 📋 **Performance Optimization Recommendations**:
+> > **Performance Optimization Recommendations**:
 > - For commonly used genomes (e.g., human, mouse), it is recommended to pre-build the index and reuse it across multiple projects.
 > - Dual-species analysis index construction takes longer and is recommended to be performed when computational resources are ample.
 > - Regularly check for updates from databases like Ensembl to keep reference genomes and annotation files current.
 
----
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
 
-## 📋 Multi-sample Operations (multi) <a id="multi-sample-operations-multi"></a>
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
 
-### 📊 Usage
+## Multi-sample Operations (multi) <a id="multi-sample-operations-multi"></a>
+
+</div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #d2d2d7; overflow-x: auto;">
+
+### Usage
 
 ```shell
 $ dnbc4tools rna multi
@@ -774,11 +776,21 @@ optional arguments:
   --end5             Enable 5'-end single-cell transcriptome analysis.
 ```
 
-### 📝 Parameter Description
+</div>
 
-#### 🔴 Required Parameters
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+### Parameter Description
+
+</div>
+
+<div style="max-width: 1200px; margin: 0 auto;">
+
+#### Required Parameters
+
+</div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>--list</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(Required)</span></h4>
 <p>Specify the path to the list file containing information for multiple samples.</p>
 <ul>
@@ -809,39 +821,38 @@ SampleB	/path/to/B_cDNA_L01_R1.fq.gz,/path/to/B_cDNA_L02_R1.fq.gz;/path/to/B_cDN
 </details>
 </div>
 
-> 📝 **Parameter Inheritance Note**
-> 
-> For other analysis parameter settings, please refer to the corresponding parameters of the [`dnbc4tools rna run`](#main-analysis-pipeline-run) command. All samples should use the same reference database.
+> **Parameter Inheritance Note**
+> > For other analysis parameter settings, please refer to the corresponding parameters of the [`dnbc4tools rna run`](#main-analysis-pipeline-run) command. All samples should use the same reference database.
 
-> 📌 **Execution Behavior**
+> **Execution Behavior**
 >
 > `dnbc4tools rna multi` generates per-sample execution scripts (for example, `sample1.sh`) for batch submission and reuse. By default, it does not automatically run all sample analyses serially.
 
----
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
 
-<br>
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
 
-## 📚 Related Documentation
+## Related Documentation
 
-<br>
+</div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
 
 | Resource | Description |
 | :--- | :--- |
-| [🔬 scRNA Pipeline](../pipeline/scRNA_en.md) | Single-cell RNA analysis workflow guide |
-| [📁 scRNA Output](../outs/scRNA_en.md) | Detailed output file interpretation |
+| [scRNA Pipeline](../pipeline/scRNA_en.md) | Single-cell RNA analysis workflow guide |
+| [scRNA Output](../outs/scRNA_en.md) | Detailed output file interpretation |
 
-<br>
+</div>
 
----
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
 
-<br>
+<div align="center" style="background: #f5f5f7; border-radius: 12px; padding: 30px; margin: 40px auto; max-width: 1200px;">
 
-<div align="center">
-
-> 💡 <strong>Feedback & Support</strong>
+> **Feedback & Support**
 >
 > This document is continuously updated. If you find any errors or have information to add, feedback is welcome.
 >
-> 📝 <strong>Document Version:</strong> 3.1 | <strong>Last Updated:</strong> April 2026
+<strong>Document Version:</strong> 3.1 | <strong>Last Updated:</strong> April 2026
 
 </div>
