@@ -292,7 +292,7 @@ $dnbc4tools vdj run \
 
 ### 第一步： 准备配置文件
 
-> Recommended: in `[libraries]`, `fastqs` should be the FASTQ directory path for each omics library; the pipeline will auto-detect R1/R2 files in each directory.
+> 推荐：在 `[libraries]` 中，`fastqs` 应填写各组学文库对应的 FASTQ 目录路径；流程会在每个目录中自动识别 R1/R2 文件。
 
 ```ini
 [libraries]

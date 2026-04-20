@@ -2,29 +2,16 @@
 
 # DNBelab C Series™ HT Single-Cell Analysis Software
 
-[![Github Release](https://img.shields.io/github/v/release/MGI-tech-bioinformatics/DNBelab_C_Series_HT_scRNA-analysis-software?style=for-the-badge&color=28a745)](https://github.com/MGI-tech-bioinformatics/DNBelab_C_Series_HT_scRNA-analysis-software/releases)
-[![License](https://img.shields.io/badge/license-MIT-blue.svg?style=for-the-badge)](LICENSE)
-[![Documentation](https://img.shields.io/badge/docs-latest-brightgreen.svg?style=for-the-badge)](https://lishuangshuang0616.github.io/DNBelab_C_Series_HT_scRNA-analysis-software/Document/site/index.html)
-[![Platform](https://img.shields.io/badge/platform-Linux-lightgrey.svg?style=for-the-badge)](./doc/installation.md#system-requirements)
+[![Github Release](https://img.shields.io/github/v/release/MGI-tech-bioinformatics/DNBelab_C_Series_HT_scRNA-analysis-software)](https://github.com/MGI-tech-bioinformatics/DNBelab_C_Series_HT_scRNA-analysis-software/releases)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/MGI-tech-bioinformatics/DNBelab_C_Series_HT_scRNA-analysis-software/blob/main/LICENSE)
+[![Documentation](https://img.shields.io/badge/docs-latest-brightgreen.svg)](https://lishuangshuang0616.github.io/DNBelab_C_Series_HT_scRNA-analysis-software/Document/site/index.html)
+[![Platform](https://img.shields.io/badge/platform-Linux-lightgrey.svg)](./doc/installation.md#system-requirements)
 
-A flexible, high-performance pipeline for DNBelab C Series™ single-cell sequencing data.
-<br>
-The command-line tool is named **`dnbc4tools`**.
+A high-performance single-cell analysis toolkit for DNBelab C Series™ data. CLI tool: **`dnbc4tools`**.
 
+**scRNA-seq** | **scATAC-seq** | **scVDJ-seq** | **Multi-omics**
 </div>
-
 <br>
-
-<div align="center">
-<table>
-<tr>
-<td align="center" width="120"><b>🧬 scRNA-seq</b></td>
-<td align="center" width="120"><b>🔬 scATAC-seq</b></td>
-<td align="center" width="120"><b>🧪 scVDJ-seq</b></td>
-<td align="center" width="130"><b>🔗 Multi-omics</b></td>
-</tr>
-</table>
-</div>
 
 ---
 
