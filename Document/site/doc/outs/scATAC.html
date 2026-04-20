@@ -1277,6 +1277,34 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="其他核心指标 (Additional Key Metrics)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#percent-duplicates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Percent duplicates（重复序列百分比）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#jaccard-thresholdjaccard" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Jaccard threshold（Jaccard 相似度阈值）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -1305,7 +1333,7 @@
   <a href="#tss-tss-enrichment-profile" class="md-nav__link">
     <span class="md-ellipsis">
       
-        转录起始位点(TSS)富集图 (TSS Enrichment Profile)
+        转录起始位点（TSS）富集图 (TSS Enrichment Profile)
       
     </span>
   </a>
@@ -2015,6 +2043,34 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="其他核心指标 (Additional Key Metrics)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#percent-duplicates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Percent duplicates（重复序列百分比）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#jaccard-thresholdjaccard" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Jaccard threshold（Jaccard 相似度阈值）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -2043,7 +2099,7 @@
   <a href="#tss-tss-enrichment-profile" class="md-nav__link">
     <span class="md-ellipsis">
       
-        转录起始位点(TSS)富集图 (TSS Enrichment Profile)
+        转录起始位点（TSS）富集图 (TSS Enrichment Profile)
       
     </span>
   </a>
@@ -3033,16 +3089,20 @@
 <div align="center">
 <p><img src="../images/html_scatac2.png" alt="scATAC网页报告" width="500"></p>
 </div>
-<p><strong>Percent duplicates</strong> (重复序列百分比)
-*   <strong>定义</strong>: 被认定为PCR重复的片段所占的比例。
-*   <strong>生物学意义</strong>: 这是衡量文库复杂度和测序饱和度的关键指标。
-*   <strong>质量判读</strong>: 
-    *   高重复率（如 &gt; 20-30%）通常表示测序深度已接近饱和。
-    *   极低的重复率（如 &lt; 10%）可能表示测序深度不足，建议增加测序以发现更多独特的片段。</p>
-<p><strong>Jaccard threshold</strong> (Jaccard相似度阈值)
-*   <strong>定义</strong>: 用于判断任意两个磁珠（Beads）是否来自同一个细胞液滴的相似度阈值。
-*   <strong>技术背景</strong>: C4 ATAC技术中，一个液滴可能包含多个磁珠，需要通过计算它们捕获片段的相似度（Jaccard Index）来进行合并。
-*   <strong>算法</strong>: 该阈值通过 Otsu 算法自动确定，以达到最佳区分效果。为保证分析质量，当计算值低于0.02时，系统会自动设为0.02。</p>
+<h5 id="percent-duplicates">Percent duplicates（重复序列百分比）<a class="headerlink" href="#percent-duplicates" title="Permanent link">&para;</a></h5>
+<ul>
+<li><strong>定义</strong>: 被认定为 PCR 重复的片段所占比例。  </li>
+<li><strong>生物学意义</strong>: 衡量文库复杂度和测序饱和度的关键指标。  </li>
+<li><strong>质量判读</strong>:</li>
+<li><strong>高重复率</strong>（如 &gt;20-30%）通常表示测序深度已接近饱和。</li>
+<li><strong>极低重复率</strong>（如 &lt;10%）可能表示测序深度不足，建议增加测序以发现更多独特片段。</li>
+</ul>
+<h5 id="jaccard-thresholdjaccard">Jaccard threshold（Jaccard 相似度阈值）<a class="headerlink" href="#jaccard-thresholdjaccard" title="Permanent link">&para;</a></h5>
+<ul>
+<li><strong>定义</strong>: 用于判断任意两个磁珠（Beads）是否来自同一个细胞液滴的相似度阈值。  </li>
+<li><strong>技术背景</strong>: 在 C4 ATAC 技术中，一个液滴可能包含多个磁珠，需要通过它们捕获片段的 Jaccard Index 进行合并判断。  </li>
+<li><strong>算法说明</strong>: 该阈值由 Otsu 算法自动确定，以获得较优区分效果。为保证分析质量，当计算值低于 <code>0.02</code> 时，系统会自动设为 <code>0.02</code>。</li>
+</ul>
 </div>
 <div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
 <h4 id="2">可视化图表2 <a id="可视化图表2"></a><a class="headerlink" href="#2" title="Permanent link">&para;</a></h4>
@@ -3052,69 +3112,80 @@
 </div>
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
 <h4 id="cluster-analysis">细胞聚类分析图 (Cluster Analysis)<a class="headerlink" href="#cluster-analysis" title="Permanent link">&para;</a></h4>
-<p><strong>图表功能</strong>:
-通过 UMAP 降维和 Louvain 聚类算法，将具有相似染色质可及性模式的细胞在二维空间中聚集在一起，从而识别潜在的细胞亚群。</p>
-<p><strong>如何解读</strong>:
-*   <strong>左图 (细胞类型聚类)</strong>:
-    *   每个点代表一个细胞。
-    *   不同颜色代表不同的细胞聚类（Cluster），可能对应不同的细胞类型或状态。
-    *   空间位置相近的细胞，其染色质开放模式也更相似。
-*   <strong>右图 (片段数分布)</strong>:
-    *   在与左图相同的 UMAP 空间上，用颜色梯度展示每个细胞的总片段数。
-    *   颜色越深，代表该细胞的片段数越多，数据质量越高。可用于辅助判断聚类结果的可靠性。</p>
+<p><strong>图表功能</strong>:<br />
+通过 UMAP 降维和 Louvain 聚类算法，将具有相似染色质可及性模式的细胞投影到二维空间，以识别潜在细胞亚群。</p>
+<p><strong>如何解读</strong>:</p>
+<ol>
+<li><strong>左图（细胞类型聚类）</strong></li>
+<li>每个点代表一个细胞。</li>
+<li>不同颜色代表不同细胞聚类（Cluster），可能对应不同细胞类型或状态。</li>
+<li>空间位置越接近，细胞染色质开放模式通常越相似。</li>
+<li><strong>右图（片段数分布）</strong></li>
+<li>在相同 UMAP 空间上，用颜色梯度展示每个细胞总片段数。</li>
+<li>颜色越深，片段数越多，通常表示该细胞数据质量更高，可辅助判断聚类可靠性。</li>
+</ol>
 </div>
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
-<h4 id="tss-tss-enrichment-profile">转录起始位点(TSS)富集图 (TSS Enrichment Profile)<a class="headerlink" href="#tss-tss-enrichment-profile" title="Permanent link">&para;</a></h4>
-<p><strong>图表功能</strong>:
-展示在所有基因的转录起始位点（TSS）周围，ATAC-seq片段切割位点的富集情况，是衡量ATAC-seq信噪比和数据质量的核心指标。</p>
-<p><strong>如何解读</strong>:
-*   <strong>坐标轴</strong>:
-    *   <strong>X轴</strong>: 相对TSS的位置（0点为TSS）。
-    *   <strong>Y轴</strong>: 归一化后的信号强度（切割频率）。
-*   <strong>关键特征</strong>:
-    *   一个高质量的ATAC-seq实验，会在TSS中心点（0点）显示出非常明显的信号富集尖峰。
-    *   TSS两侧的信号强度会迅速下降。
-*   <strong>质量评估</strong>:
-    *   <strong>TSS富集分数 (TSS Enrichment Score)</strong> 是该图的量化指标。分数越高（如 &gt; 4-6），代表信噪比越好，数据质量越高。
-    *   若曲线平坦，无明显尖峰，则提示样本质量差或实验失败。</p>
+<h4 id="tss-tss-enrichment-profile">转录起始位点（TSS）富集图 (TSS Enrichment Profile)<a class="headerlink" href="#tss-tss-enrichment-profile" title="Permanent link">&para;</a></h4>
+<p><strong>图表功能</strong>:<br />
+展示所有基因转录起始位点（TSS）附近的 ATAC-seq 片段切割位点富集情况，是衡量 ATAC-seq 信噪比和数据质量的核心指标之一。</p>
+<p><strong>如何解读</strong>:</p>
+<ol>
+<li><strong>坐标轴</strong></li>
+<li><strong>X 轴</strong>: 相对 TSS 的位置（0 点为 TSS）。</li>
+<li><strong>Y 轴</strong>: 归一化后的信号强度（切割频率）。</li>
+<li><strong>关键特征</strong></li>
+<li>高质量 ATAC-seq 数据通常在 TSS 中心（0 点）出现明显富集尖峰。</li>
+<li>TSS 两侧信号会快速下降。</li>
+<li><strong>质量评估</strong></li>
+<li><strong>TSS Enrichment Score</strong> 为该图的量化指标，分数越高（如 &gt;4-6）通常表示信噪比越好、数据质量越高。</li>
+<li>若曲线较平坦、无明显尖峰，通常提示样本质量较差或实验流程存在问题。</li>
+</ol>
 </div>
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
 <h4 id="single-cell-targeting-plot">单细胞靶向图 (Single Cell Targeting Plot)<a class="headerlink" href="#single-cell-targeting-plot" title="Permanent link">&para;</a></h4>
-<p><strong>图表功能</strong>:
-通过散点图展示每个细胞的两个关键质量指标，用于评估细胞识别（Cell Calling）算法的效果。</p>
-<p><strong>如何解读</strong>:
-*   <strong>坐标轴</strong>:
-    *   <strong>X轴 (Fragment Counts)</strong>: 每个细胞的总片段数（对数刻度）。
-    *   <strong>Y轴 (TSS Enrichment)</strong>: 每个细胞的TSS富集分数。
-*   <strong>质量评估</strong>:
-    *   <strong>右上角</strong>: 高片段数 + 高TSS富集分数。这些点被认为是高质量的真实细胞。
-    *   <strong>左下角</strong>: 低片段数 + 低TSS富集分数。这些点被认为是背景噪音或空液滴，在分析中会被过滤掉。
-    *   理想情况下，真实细胞和背景噪音之间应该有清晰的分界。</p>
+<p><strong>图表功能</strong>:<br />
+通过散点图展示每个细胞的两个关键质量指标，用于评估细胞识别（Cell Calling）算法效果。</p>
+<p><strong>如何解读</strong>:</p>
+<ol>
+<li><strong>坐标轴</strong></li>
+<li><strong>X 轴（Fragment Counts）</strong>: 每个细胞总片段数（对数刻度）。</li>
+<li><strong>Y 轴（TSS Enrichment）</strong>: 每个细胞的 TSS 富集分数。</li>
+<li><strong>质量评估</strong></li>
+<li><strong>右上角</strong>: 高片段数 + 高 TSS 富集分数，通常为高质量真实细胞。</li>
+<li><strong>左下角</strong>: 低片段数 + 低 TSS 富集分数，通常为背景噪音或空液滴，分析中会被过滤。</li>
+<li>理想情况下，真实细胞与背景噪音之间应存在清晰分界。</li>
+</ol>
 </div>
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
 <h4 id="saturation-curve">饱和度曲线图 (Saturation Curve)<a class="headerlink" href="#saturation-curve" title="Permanent link">&para;</a></h4>
-<p><strong>图表功能</strong>:
-评估测序深度的充分性和数据复杂度，即继续增加测序量能否发现更多新的（Unique）片段。</p>
-<p><strong>如何解读</strong>:
-*   <strong>坐标轴</strong>:
-    *   <strong>X轴</strong>: 平均每个细胞的测序读段对数（测序深度）。
-    *   <strong>Y轴</strong>: 平均每个细胞的中位唯一片段数。
-*   <strong>曲线趋势</strong>:
-    *   <strong>线性上升阶段</strong>: 曲线陡峭，表明增加测序深度能有效发现更多新片段，投入产出比高。
-    *   <strong>平台期/饱和阶段</strong>: 曲线逐渐平缓，表明文库的复杂度已基本被完全测序，继续增加测序深度，新发现的片段数量收益递减。
-*   <strong>质量评估</strong>: 饱和度（重复率）是该曲线的量化指标。建议饱和度在20%-50%之间，以在成本和数据完整性之间取得平衡。</p>
+<p><strong>图表功能</strong>:<br />
+评估测序深度是否充分及文库复杂度，即继续增加测序量是否还能发现更多新的（Unique）片段。</p>
+<p><strong>如何解读</strong>:</p>
+<ol>
+<li><strong>坐标轴</strong></li>
+<li><strong>X 轴</strong>: 平均每个细胞测序读段对数（测序深度）。</li>
+<li><strong>Y 轴</strong>: 平均每个细胞中位唯一片段数。</li>
+<li><strong>曲线趋势</strong></li>
+<li><strong>线性上升阶段</strong>: 曲线较陡，增加测序深度可有效发现更多新片段，投入产出比较高。</li>
+<li><strong>平台期/饱和阶段</strong>: 曲线逐渐平缓，表示文库复杂度基本被充分测序，继续加深测序的新增收益递减。</li>
+<li><strong>质量评估</strong></li>
+<li>饱和度（重复率）是该图的量化指标。实践中可将 20%-50% 作为成本与数据完整性之间的常用平衡区间。</li>
+</ol>
 </div>
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
 <h4 id="bead-similarity-ranking">磁珠相似性排序图 (Bead Similarity Ranking)<a class="headerlink" href="#bead-similarity-ranking" title="Permanent link">&para;</a></h4>
-<p><strong>图表功能</strong>:
-该图用于C4 ATAC技术中，通过计算Jaccard相似度来合并来自同一细胞液滴的多个磁珠（Beads）。</p>
-<p><strong>如何解读</strong>:
-*   <strong>坐标轴</strong>:
-    *   <strong>X轴</strong>: 所有磁珠对按Jaccard相似度降序排列。
-    *   <strong>Y轴</strong>: Jaccard相似度指数（对数刻度）。
-*   <strong>关键特征</strong>:
-    *   <strong>蓝色区域</strong>: Jaccard相似度高于Otsu算法自动计算的阈值。这些磁珠对被认为是来自同一个细胞，其片段将在分析中被合并。
-    *   <strong>灰色区域</strong>: Jaccard相似度低于阈值，被认为是来自不同细胞的磁珠。</p>
+<p><strong>图表功能</strong>:<br />
+用于 C4 ATAC 技术场景下，通过 Jaccard 相似度合并来自同一细胞液滴的多个磁珠（Beads）。</p>
+<p><strong>如何解读</strong>:</p>
+<ol>
+<li><strong>坐标轴</strong></li>
+<li><strong>X 轴</strong>: 所有磁珠对按 Jaccard 相似度降序排列。</li>
+<li><strong>Y 轴</strong>: Jaccard 相似度指数（对数刻度）。</li>
+<li><strong>关键区域</strong></li>
+<li><strong>蓝色区域</strong>: Jaccard 相似度高于 Otsu 算法自动计算阈值，通常判定为同一细胞来源，片段会在分析中合并。</li>
+<li><strong>灰色区域</strong>: Jaccard 相似度低于阈值，通常判定为不同细胞来源，不进行合并。</li>
+</ol>
 </div>
 <div style="max-width: 1200px; margin: 0 auto;">
 <hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;">

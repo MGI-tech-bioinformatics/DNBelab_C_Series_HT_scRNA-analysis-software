@@ -224,7 +224,7 @@ A contig sequence is identified as a **productive sequence** (i.e., functionally
 
 </div>
 
-**📉 Basis for Determining Low-Confidence Sequences:**
+** Basis for Determining Low-Confidence Sequences:**
 
 <div style="padding: 15px; border-left: 4px solid #ef4444; margin: 15px 0;">
 

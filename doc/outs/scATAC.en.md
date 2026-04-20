@@ -1002,13 +1002,14 @@ Shows fragment insertion enrichment around transcription start sites (TSS), a co
 A scatter plot of two key QC metrics per cell, used to evaluate cell-calling performance.
 
 **How to Interpret**:
-*   **Axes**:
-    *   **X-axis (Fragment Counts)**: Total fragments per cell (log scale).
-    *   **Y-axis (TSS Enrichment)**: TSS enrichment score per cell.
-*   **Quality assessment**:
-    *   **Top-right**: High fragment count + high TSS enrichment (high-quality cells).
-    *   **Bottom-left**: Low fragment count + low TSS enrichment (background/noise, usually filtered out).
-    *   Ideally, high-quality cells and background are clearly separable.
+
+1. **Axes**
+   - **X-axis (Fragment Counts)**: Total fragments per cell (log scale).
+   - **Y-axis (TSS Enrichment)**: TSS enrichment score per cell.
+2. **Quality assessment**
+   - **Top-right**: High fragment count + high TSS enrichment, usually high-quality real cells.
+   - **Bottom-left**: Low fragment count + low TSS enrichment, usually background/noise and filtered out.
+   - Ideally, high-quality cells and background should be clearly separable.
 
 </div>
 
@@ -1020,13 +1021,15 @@ A scatter plot of two key QC metrics per cell, used to evaluate cell-calling per
 Evaluates sequencing depth sufficiency and library complexity, i.e., whether additional sequencing can still identify substantial numbers of new unique fragments.
 
 **How to Interpret**:
-*   **Axes**:
-    *   **X-axis**: Mean read pairs per cell (sequencing depth).
-    *   **Y-axis**: Median unique fragments per cell.
-*   **Curve behavior**:
-    *   **Linear/rising phase**: Additional sequencing yields many new unique fragments.
-    *   **Plateau/saturation phase**: Library complexity is mostly exhausted; extra sequencing has diminishing returns.
-*   **Quality guidance**: A saturation (duplication-related) level around 20%-50% is often a practical balance between cost and completeness.
+
+1. **Axes**
+   - **X-axis**: Mean read pairs per cell (sequencing depth).
+   - **Y-axis**: Median unique fragments per cell.
+2. **Curve behavior**
+   - **Linear/rising phase**: Additional sequencing yields many new unique fragments.
+   - **Plateau/saturation phase**: Library complexity is mostly exhausted; additional sequencing gives diminishing returns.
+3. **Quality guidance**
+   - A saturation (duplication-related) level around 20%-50% is often a practical balance between cost and completeness.
 
 </div>
 
@@ -1038,12 +1041,13 @@ Evaluates sequencing depth sufficiency and library complexity, i.e., whether add
 In C4 ATAC, this plot is used to merge multiple beads from the same droplet by ranking bead pairs using Jaccard similarity.
 
 **How to Interpret**:
-*   **Axes**:
-    *   **X-axis**: All bead pairs ranked by Jaccard similarity (descending).
-    *   **Y-axis**: Jaccard similarity index (log scale).
-*   **Key regions**:
-    *   **Blue region**: Similarity above the Otsu threshold; bead pairs are considered from the same cell and merged.
-    *   **Gray region**: Similarity below threshold; bead pairs are treated as from different cells.
+
+1. **Axes**
+   - **X-axis**: All bead pairs ranked by Jaccard similarity (descending).
+   - **Y-axis**: Jaccard similarity index (log scale).
+2. **Key regions**
+   - **Blue region**: Similarity above the Otsu-derived threshold; bead pairs are considered from the same cell and merged.
+   - **Gray region**: Similarity below threshold; bead pairs are treated as from different cells.
 
 </div>
 

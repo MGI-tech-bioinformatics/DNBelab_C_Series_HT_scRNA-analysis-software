@@ -3064,39 +3064,46 @@ Shows fragment insertion enrichment around transcription start sites (TSS), a co
 <h4 id="single-cell-targeting-plot">Single Cell Targeting Plot<a class="headerlink" href="#single-cell-targeting-plot" title="Permanent link">&para;</a></h4>
 <p><strong>Chart Function</strong>:<br />
 A scatter plot of two key QC metrics per cell, used to evaluate cell-calling performance.</p>
-<p><strong>How to Interpret</strong>:
-*   <strong>Axes</strong>:
-    *   <strong>X-axis (Fragment Counts)</strong>: Total fragments per cell (log scale).
-    *   <strong>Y-axis (TSS Enrichment)</strong>: TSS enrichment score per cell.
-*   <strong>Quality assessment</strong>:
-    *   <strong>Top-right</strong>: High fragment count + high TSS enrichment (high-quality cells).
-    *   <strong>Bottom-left</strong>: Low fragment count + low TSS enrichment (background/noise, usually filtered out).
-    *   Ideally, high-quality cells and background are clearly separable.</p>
+<p><strong>How to Interpret</strong>:</p>
+<ol>
+<li><strong>Axes</strong></li>
+<li><strong>X-axis (Fragment Counts)</strong>: Total fragments per cell (log scale).</li>
+<li><strong>Y-axis (TSS Enrichment)</strong>: TSS enrichment score per cell.</li>
+<li><strong>Quality assessment</strong></li>
+<li><strong>Top-right</strong>: High fragment count + high TSS enrichment, usually high-quality real cells.</li>
+<li><strong>Bottom-left</strong>: Low fragment count + low TSS enrichment, usually background/noise and filtered out.</li>
+<li>Ideally, high-quality cells and background should be clearly separable.</li>
+</ol>
 </div>
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px; ">
 <h4 id="saturation-curve">Saturation Curve<a class="headerlink" href="#saturation-curve" title="Permanent link">&para;</a></h4>
 <p><strong>Chart Function</strong>:<br />
 Evaluates sequencing depth sufficiency and library complexity, i.e., whether additional sequencing can still identify substantial numbers of new unique fragments.</p>
-<p><strong>How to Interpret</strong>:
-*   <strong>Axes</strong>:
-    *   <strong>X-axis</strong>: Mean read pairs per cell (sequencing depth).
-    *   <strong>Y-axis</strong>: Median unique fragments per cell.
-*   <strong>Curve behavior</strong>:
-    *   <strong>Linear/rising phase</strong>: Additional sequencing yields many new unique fragments.
-    *   <strong>Plateau/saturation phase</strong>: Library complexity is mostly exhausted; extra sequencing has diminishing returns.
-*   <strong>Quality guidance</strong>: A saturation (duplication-related) level around 20%-50% is often a practical balance between cost and completeness.</p>
+<p><strong>How to Interpret</strong>:</p>
+<ol>
+<li><strong>Axes</strong></li>
+<li><strong>X-axis</strong>: Mean read pairs per cell (sequencing depth).</li>
+<li><strong>Y-axis</strong>: Median unique fragments per cell.</li>
+<li><strong>Curve behavior</strong></li>
+<li><strong>Linear/rising phase</strong>: Additional sequencing yields many new unique fragments.</li>
+<li><strong>Plateau/saturation phase</strong>: Library complexity is mostly exhausted; additional sequencing gives diminishing returns.</li>
+<li><strong>Quality guidance</strong></li>
+<li>A saturation (duplication-related) level around 20%-50% is often a practical balance between cost and completeness.</li>
+</ol>
 </div>
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px; ">
 <h4 id="bead-similarity-ranking">Bead Similarity Ranking<a class="headerlink" href="#bead-similarity-ranking" title="Permanent link">&para;</a></h4>
 <p><strong>Chart Function</strong>:<br />
 In C4 ATAC, this plot is used to merge multiple beads from the same droplet by ranking bead pairs using Jaccard similarity.</p>
-<p><strong>How to Interpret</strong>:
-*   <strong>Axes</strong>:
-    *   <strong>X-axis</strong>: All bead pairs ranked by Jaccard similarity (descending).
-    *   <strong>Y-axis</strong>: Jaccard similarity index (log scale).
-*   <strong>Key regions</strong>:
-    *   <strong>Blue region</strong>: Similarity above the Otsu threshold; bead pairs are considered from the same cell and merged.
-    *   <strong>Gray region</strong>: Similarity below threshold; bead pairs are treated as from different cells.</p>
+<p><strong>How to Interpret</strong>:</p>
+<ol>
+<li><strong>Axes</strong></li>
+<li><strong>X-axis</strong>: All bead pairs ranked by Jaccard similarity (descending).</li>
+<li><strong>Y-axis</strong>: Jaccard similarity index (log scale).</li>
+<li><strong>Key regions</strong></li>
+<li><strong>Blue region</strong>: Similarity above the Otsu-derived threshold; bead pairs are considered from the same cell and merged.</li>
+<li><strong>Gray region</strong>: Similarity below threshold; bead pairs are treated as from different cells.</li>
+</ol>
 </div>
 <div style="max-width: 1200px; margin: 0 auto;">
 <hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;">

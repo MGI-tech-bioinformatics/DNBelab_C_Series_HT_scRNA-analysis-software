@@ -205,3 +205,8 @@
   background: #edf2ff;
 }
 
+/* Keep monospace text in tables aligned with body readability */
+.md-typeset table code {
+  font-size: 1em;
+}
+

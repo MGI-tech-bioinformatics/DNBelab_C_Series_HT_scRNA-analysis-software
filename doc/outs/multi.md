@@ -94,7 +94,7 @@ Multi-omics 流程会将 RNA / ATAC / VDJ 的关键结果统一整理到一个�
 
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 
-### 🧭 Summary 与导航
+###  Summary 与导航
 
 <div align="center" style="margin: 24px auto; max-width: 1200px;">
 <img src="../images/html_multi_summary.png" alt="multi summary 页面" width="760" style="border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,0.1);">

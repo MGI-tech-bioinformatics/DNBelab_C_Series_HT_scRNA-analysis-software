@@ -23,7 +23,7 @@
 
 <div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
 
-## 📖 Overview <a id="overview"></a>
+##  Overview <a id="overview"></a>
 
 After the single-cell RNA analysis is complete, a standardized file and subdirectory structure is generated in the specified output directory, specifically for gene expression profile analysis and cell type identification. This document details the content, format, and purpose of each output file to help users fully understand and efficiently utilize the single-cell RNA analysis results.
 
@@ -93,7 +93,7 @@ After the single-cell RNA analysis is complete, a standardized file and subdirec
 
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
 
-#### 📄 anno_decon_sorted.bam
+####  anno_decon_sorted.bam
 
 This is the scRNA-seq alignment result file containing all raw data.
 
@@ -217,7 +217,7 @@ This is the scRNA-seq alignment result file containing all raw data.
 
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
 
-#### 📄 anno_decon_sorted.bam.bai
+####  anno_decon_sorted.bam.bai
 
 The index file for `anno_decon_sorted.bam`.
 
@@ -325,7 +325,7 @@ Contains the raw gene expression count matrix for all detected cell barcodes (un
 
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
 
-#### 📄 filter_feature.h5ad
+####  filter_feature.h5ad
 
 The feature matrix after cell identification and filtering, stored in AnnData (`.h5ad`) format. It is an alternative and supplement to the contents of the `filter_matrix/` directory.
 
@@ -355,7 +355,7 @@ The feature matrix after cell identification and filtering, stored in AnnData (`
 
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
 
-#### 📄 cluster.csv
+####  cluster.csv
 
 The cell clustering analysis result file in CSV format. It contains each cell's ID, its assigned cluster, dimensionality reduction coordinates, and key QC metrics.
 
@@ -375,7 +375,7 @@ The cell clustering analysis result file in CSV format. It contains each cell's 
 
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
 
-#### 📄 cell_classification.csv (Dual-species analysis only)
+####  cell_classification.csv (Dual-species analysis only)
 
 A cell-level species assignment file generated for dual-species analyses (e.g., `hg38 + mm10`), in CSV format.
 
@@ -422,7 +422,7 @@ CELL51_N5,1362,40817,mm10</code></pre>
 
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
 
-#### 📄 marker.csv
+####  marker.csv
 
 A list of differentially expressed genes (marker genes) for each cluster, in CSV format. It records information such as the significance of each gene's expression in a specific cluster and changes in expression levels.
 
@@ -443,7 +443,7 @@ A list of differentially expressed genes (marker genes) for each cluster, in CSV
 
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
 
-#### 📄 QC_Cluster.h5ad
+####  QC_Cluster.h5ad
 
 A single-cell data object that has undergone complete quality control, dimensionality reduction, and clustering analysis, in AnnData (`.h5ad`) format. It integrates the upstream expression matrix with downstream analysis results.
 
@@ -474,7 +474,7 @@ A single-cell data object that has undergone complete quality control, dimension
 
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
 
-#### 📄 metrics_summary.xls
+####  metrics_summary.xls
 
 A summary table of key analysis metrics in Excel format, providing a comprehensive assessment of the overall quality of the experiment.
 
@@ -524,7 +524,7 @@ A summary table of key analysis metrics in Excel format, providing a comprehensi
 
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
 
-#### 📄 singlecell.csv
+####  singlecell.csv
 
 A single-cell level quality control information table in CSV format, recording detailed statistical data for each cell barcode.
 
@@ -542,7 +542,7 @@ A single-cell level quality control information table in CSV format, recording d
 
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
 
-#### 📄 *_scRNA_report.html
+####  *_scRNA_report.html
 
 An interactive comprehensive analysis report in HTML web format.
 
@@ -561,7 +561,7 @@ An interactive comprehensive analysis report in HTML web format.
 
 <div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
 
-## 📄 File Format Description <a id="file-format-description"></a>
+##  File Format Description <a id="file-format-description"></a>
 
 > **Technical Specifications**: Detailed descriptions of the standard formats used for output files.
 
@@ -611,7 +611,7 @@ The Market Exchange Format (MEX) is a standard format used in single-cell analys
 
 **Format Overview:** AnnData ("Annotated Data") is a data structure designed for matrix-like data, particularly suitable for single-cell RNA sequencing data analysis. Based on the HDF5 format, it provides efficient data storage and access capabilities.
 
-#### 🏗️ Data Structure
+#### ️ Data Structure
 
 <div align="center">
 <img src="../images/anndata.jpg" alt="AnnData Format Structure Diagram" width="400">
@@ -1132,7 +1132,7 @@ This plot distinguishes high-quality real cells from background noise by ranking
 </div>
 
 **How to Interpret**:
-*   **Visual Encoding**: 🔵 Blue line (valid cells) | ⬜ Gray line (background noise) | 🔷 Blue gradient area (mixed region)
+*   **Visual Encoding**:  Blue line (valid cells) | ⬜ Gray line (background noise) |  Blue gradient area (mixed region)
 *   **Chart Axes Explained**: 
     - **X-axis**: Barcode Rank - Sorted by total UMI count in descending order (log scale)
     - **Y-axis**: UMI Counts - Total UMI count for each cell (log scale)
@@ -1183,7 +1183,7 @@ Through three separate violin plots, it shows the distribution of high-quality c
 
 </div>
 
-##### 🌀 Cluster Analysis
+#####  Cluster Analysis
 
 **Chart Function**:
 Using UMAP dimensionality reduction and the Louvain clustering algorithm, cells with similar gene expression patterns are grouped together in a 2D space, thereby identifying potential cell subpopulations.
