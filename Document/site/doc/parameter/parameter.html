@@ -11,21 +11,25 @@
       
       
       
-        <link rel="prev" href="../pipeline/multi_en.html">
+        <link rel="prev" href="../pipeline/multi.html">
       
       
         <link rel="next" href="scRNA.html">
       
       
         
+          <link rel="alternate" href="parameter.html" hreflang="zh">
+        
+          <link rel="alternate" href="../../en/doc/parameter/parameter.html" hreflang="en">
+        
       
       
-      <link rel="icon" href="../../assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.svg">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
-        <title>Overview - DNBelab C Series™ HT Single-Cell Analysis Software</title>
+        <title>总览 - DNBelab C Series™ HT 单细胞分析软件</title>
       
     
     
@@ -68,7 +72,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#dnbc4tools-parameter-reference" class="md-skip">
+        <a href="#dnbc4tools" class="md-skip">
           跳转至
         </a>
       
@@ -84,10 +88,10 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="页眉">
-    <a href="../../index.html" title="DNBelab C Series™ HT Single-Cell Analysis Software" class="md-header__button md-logo" aria-label="DNBelab C Series™ HT Single-Cell Analysis Software" data-md-component="logo">
+    <a href="../../index.html" title="DNBelab C Series™ HT 单细胞分析软件" class="md-header__button md-logo" aria-label="DNBelab C Series™ HT 单细胞分析软件" data-md-component="logo">
       
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 2h2v2c0 1.44.68 2.61 1.88 3.78.86.83 2.01 1.63 3.21 2.42l-1.83 1.19C8.27 10.72 7.31 10 6.5 9.21 5.07 7.82 4 6.1 4 4zm14 0h2v2c0 2.1-1.07 3.82-2.5 5.21-1.41 1.38-3.21 2.52-4.96 3.63-1.75 1.12-3.45 2.21-4.66 3.38C6.68 17.39 6 18.56 6 20v2H4v-2c0-2.1 1.07-3.82 2.5-5.21 1.41-1.38 3.21-2.52 4.96-3.63 1.75-1.12 3.45-2.21 4.66-3.38C17.32 6.61 18 5.44 18 4zm-3.26 10.61c.99.67 1.95 1.39 2.76 2.18C18.93 16.18 20 17.9 20 20v2h-2v-2c0-1.44-.68-2.61-1.88-3.78-.86-.83-2.01-1.63-3.21-2.42zM7 3h10v1l-.06.5H7.06L7 4zm.68 3h8.64c-.24.34-.52.69-.9 1.06l-.51.44H9.07l-.49-.44c-.38-.37-.66-.72-.9-1.06m1.41 10.5h5.84l.49.44c.38.37.66.72.9 1.06H7.68c.24-.34.52-.69.9-1.06zm-2.03 3h9.88l.06.5v1H7v-1z"/></svg>
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -98,13 +102,13 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            DNBelab C Series™ HT Single-Cell Analysis Software
+            DNBelab C Series™ HT 单细胞分析软件
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Overview
+              总览
             
           </span>
         </div>
@@ -114,6 +118,32 @@
     
       <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
     
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="选择当前语言">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="parameter.html" hreflang="zh" class="md-select__link">
+              中文
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../en/doc/parameter/parameter.html" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
     
     
       
@@ -196,13 +226,13 @@
 
 <nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../index.html" title="DNBelab C Series™ HT Single-Cell Analysis Software" class="md-nav__button md-logo" aria-label="DNBelab C Series™ HT Single-Cell Analysis Software" data-md-component="logo">
+    <a href="../../index.html" title="DNBelab C Series™ HT 单细胞分析软件" class="md-nav__button md-logo" aria-label="DNBelab C Series™ HT 单细胞分析软件" data-md-component="logo">
       
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 2h2v2c0 1.44.68 2.61 1.88 3.78.86.83 2.01 1.63 3.21 2.42l-1.83 1.19C8.27 10.72 7.31 10 6.5 9.21 5.07 7.82 4 6.1 4 4zm14 0h2v2c0 2.1-1.07 3.82-2.5 5.21-1.41 1.38-3.21 2.52-4.96 3.63-1.75 1.12-3.45 2.21-4.66 3.38C6.68 17.39 6 18.56 6 20v2H4v-2c0-2.1 1.07-3.82 2.5-5.21 1.41-1.38 3.21-2.52 4.96-3.63 1.75-1.12 3.45-2.21 4.66-3.38C17.32 6.61 18 5.44 18 4zm-3.26 10.61c.99.67 1.95 1.39 2.76 2.18C18.93 16.18 20 17.9 20 20v2h-2v-2c0-1.44-.68-2.61-1.88-3.78-.86-.83-2.01-1.63-3.21-2.42zM7 3h10v1l-.06.5H7.06L7 4zm.68 3h8.64c-.24.34-.52.69-.9 1.06l-.51.44H9.07l-.49-.44c-.38-.37-.66-.72-.9-1.06m1.41 10.5h5.84l.49.44c.38.37.66.72.9 1.06H7.68c.24-.34.52-.69.9-1.06zm-2.03 3h9.88l.06.5v1H7v-1z"/></svg>
 
     </a>
-    DNBelab C Series™ HT Single-Cell Analysis Software
+    DNBelab C Series™ HT 单细胞分析软件
   </label>
   
     <div class="md-nav__source">
@@ -233,7 +263,7 @@
   <span class="md-ellipsis">
     
   
-    Home
+    首页
   
 
     
@@ -260,7 +290,7 @@
   <span class="md-ellipsis">
     
   
-    Installation
+    安装
   
 
     
@@ -287,7 +317,7 @@
   <span class="md-ellipsis">
     
   
-    Quick Start
+    快速开始
   
 
     
@@ -325,7 +355,7 @@
   <span class="md-ellipsis">
     
   
-    Pipeline
+    流程
   
 
     
@@ -341,7 +371,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Pipeline
+    流程
   
 
           </label>
@@ -361,7 +391,7 @@
   <span class="md-ellipsis">
     
   
-    Overview
+    总览
   
 
     
@@ -389,35 +419,7 @@
   <span class="md-ellipsis">
     
   
-    scRNA (ZH)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../pipeline/scRNA_en.html" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    scRNA (EN)
+    scRNA
   
 
     
@@ -445,35 +447,7 @@
   <span class="md-ellipsis">
     
   
-    scATAC (ZH)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../pipeline/scATAC_en.html" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    scATAC (EN)
+    scATAC
   
 
     
@@ -501,35 +475,7 @@
   <span class="md-ellipsis">
     
   
-    scVDJ (ZH)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../pipeline/scVDJ_en.html" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    scVDJ (EN)
+    scVDJ
   
 
     
@@ -557,35 +503,7 @@
   <span class="md-ellipsis">
     
   
-    Multi (ZH)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../pipeline/multi_en.html" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Multi (EN)
+    多组学
   
 
     
@@ -633,7 +551,7 @@
   <span class="md-ellipsis">
     
   
-    Parameter
+    参数
   
 
     
@@ -649,7 +567,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Parameter
+    参数
   
 
           </label>
@@ -678,7 +596,7 @@
   <span class="md-ellipsis">
     
   
-    Overview
+    总览
   
 
     
@@ -696,7 +614,7 @@
   <span class="md-ellipsis">
     
   
-    Overview
+    总览
   
 
     
@@ -722,10 +640,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#analysis-pipelines" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Analysis Pipelines
+        分析模块
       
     </span>
   </a>
@@ -733,10 +651,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#related-documentation" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Related Documentation
+        相关文档
       
     </span>
   </a>
@@ -766,35 +684,7 @@
   <span class="md-ellipsis">
     
   
-    scRNA (ZH)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="scRNA_en.html" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    scRNA (EN)
+    scRNA
   
 
     
@@ -822,35 +712,7 @@
   <span class="md-ellipsis">
     
   
-    scATAC (ZH)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="scATAC_en.html" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    scATAC (EN)
+    scATAC
   
 
     
@@ -878,35 +740,7 @@
   <span class="md-ellipsis">
     
   
-    scVDJ (ZH)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="scVDJ_en.html" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    scVDJ (EN)
+    scVDJ
   
 
     
@@ -934,35 +768,7 @@
   <span class="md-ellipsis">
     
   
-    Multi (ZH)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="multi_en.html" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Multi (EN)
+    多组学
   
 
     
@@ -990,35 +796,7 @@
   <span class="md-ellipsis">
     
   
-    Tools (ZH)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="tools_en.html" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Tools (EN)
+    工具
   
 
     
@@ -1064,7 +842,7 @@
   <span class="md-ellipsis">
     
   
-    Outputs
+    输出
   
 
     
@@ -1080,7 +858,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Outputs
+    输出
   
 
           </label>
@@ -1100,7 +878,7 @@
   <span class="md-ellipsis">
     
   
-    Overview
+    总览
   
 
     
@@ -1128,35 +906,7 @@
   <span class="md-ellipsis">
     
   
-    scRNA (ZH)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../outs/scRNA_en.html" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    scRNA (EN)
+    scRNA
   
 
     
@@ -1184,35 +934,7 @@
   <span class="md-ellipsis">
     
   
-    scATAC (ZH)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../outs/scATAC_en.html" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    scATAC (EN)
+    scATAC
   
 
     
@@ -1240,35 +962,7 @@
   <span class="md-ellipsis">
     
   
-    scVDJ (ZH)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../outs/scVDJ_en.html" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    scVDJ (EN)
+    scVDJ
   
 
     
@@ -1296,35 +990,7 @@
   <span class="md-ellipsis">
     
   
-    Multi (ZH)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../outs/multi_en.html" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Multi (EN)
+    多组学
   
 
     
@@ -1359,7 +1025,7 @@
   <span class="md-ellipsis">
     
   
-    I/O Analysis
+    结果分析
   
 
     
@@ -1386,7 +1052,7 @@
   <span class="md-ellipsis">
     
   
-    Release Notes
+    版本说明
   
 
     
@@ -1413,7 +1079,7 @@
   <span class="md-ellipsis">
     
   
-    Dataset
+    数据集
   
 
     
@@ -1451,7 +1117,7 @@
   <span class="md-ellipsis">
     
   
-    Additional
+    附加
   
 
     
@@ -1467,7 +1133,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Additional
+    附加
   
 
           </label>
@@ -1487,7 +1153,7 @@
   <span class="md-ellipsis">
     
   
-    Previous Installation
+    旧版安装
   
 
     
@@ -1515,35 +1181,7 @@
   <span class="md-ellipsis">
     
   
-    JSON Spec
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../structure.html" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Structure
+    JSON 规范
   
 
     
@@ -1591,10 +1229,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#analysis-pipelines" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Analysis Pipelines
+        分析模块
       
     </span>
   </a>
@@ -1602,10 +1240,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#related-documentation" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Related Documentation
+        相关文档
       
     </span>
   </a>
@@ -1630,61 +1268,61 @@
 
 
 <div align="right" style="margin-bottom: 20px; max-width: 1200px; margin-left: auto; margin-right: auto;">
-<p><a href="../../index.html" style="color: #0071e3; text-decoration: none; font-size: 14px;">Home</a></p>
+<p><a href="../../index.html">首页</a></p>
 </div>
 <div align="center" style="padding: 40px 20px; background: linear-gradient(135deg, #f5f5f7 0%, #ffffff 100%); border-radius: 12px; margin-bottom: 30px; max-width: 1200px; margin-left: auto; margin-right: auto;">
-<h1 id="dnbc4tools-parameter-reference" style="font-size: 48px; font-weight: 600; color: #1d1d1f; margin: 0 0 16px 0; letter-spacing: -0.02em;">dnbc4tools Parameter Reference<a class="headerlink" href="#dnbc4tools-parameter-reference" title="Permanent link">&para;</a></h1>
-<p style="font-size: 21px; color: #86868b; margin: 0; font-weight: 400;">Complete command and parameter documentation</p>
+<h1 id="dnbc4tools" style="font-size: 48px; font-weight: 600; color: #1d1d1f; margin: 0 0 16px 0; letter-spacing: -0.02em;">dnbc4tools 参数总览<a class="headerlink" href="#dnbc4tools" title="Permanent link">&para;</a></h1>
+<p style="font-size: 21px; color: #86868b; margin: 0; font-weight: 400;">命令与参数完整说明</p>
 </div>
 <div style="max-width: 1200px; margin: 0 auto;">
 <hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;">
 </div>
 <div style="background: #f5f5f7; border-radius: 12px; padding: 16px; margin: 24px auto; max-width: 1200px;">
-<p><strong>Documentation Guide</strong>: Each parameter guide includes detailed descriptions, default values, and usage examples for all available options.</p>
+<p><strong>使用说明</strong>：每个参数文档均包含参数定义、默认值和典型用法示例。</p>
 </div>
 <div style="max-width: 1200px; margin: 0 auto;">
 <hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;">
 </div>
 <div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
-<h2 id="analysis-pipelines">Analysis Pipelines<a class="headerlink" href="#analysis-pipelines" title="Permanent link">&para;</a></h2>
+<h2 id="_1">分析模块<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <div align="center">
-<p><strong>Quick Tip</strong>: Select your analysis type below to view detailed parameter descriptions and usage examples.</p>
+<p><strong>快速提示</strong>：按分析类型进入对应参数文档，查看每个命令的详细参数说明。</p>
 </div>
 </div>
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
 <table>
 <thead>
 <tr>
-<th style="text-align: left;">Analysis Type</th>
-<th style="text-align: left;">Description &amp; Key Commands</th>
-<th style="text-align: left;">Documentation</th>
+<th style="text-align: left;">分析类型</th>
+<th style="text-align: left;">说明与关键命令</th>
+<th style="text-align: left;">文档</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;"><strong>Single-Cell RNA</strong></td>
-<td style="text-align: left;"><strong>Parameters for gene expression analysis.</strong> <br> <ul><li><code>run</code>: Main analysis pipeline</li><li><code>mkref</code>: Reference building</li><li><code>multi</code>: Multi-sample aggregation</li></ul></td>
-<td style="text-align: left;"><a href="scRNA_en.html"><strong>English Guide</strong></a> <br> <a href="scRNA.html"><strong>中文指南</strong></a></td>
+<td style="text-align: left;"><strong>单细胞 RNA</strong></td>
+<td style="text-align: left;"><strong>基因表达分析参数。</strong> <br> <ul><li><code>run</code>: 主分析流程</li><li><code>mkref</code>: 构建参考数据库</li><li><code>multi</code>: 多样本汇总分析</li></ul></td>
+<td style="text-align: left;"><a href="scRNA.html">查看文档</a></td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong>Single-Cell ATAC</strong></td>
-<td style="text-align: left;"><strong>Parameters for chromatin accessibility analysis.</strong> <br> <ul><li><code>run</code>: Main analysis pipeline</li><li><code>mkref</code>: Reference building</li><li><code>multi</code>: Multi-sample aggregation</li></ul></td>
-<td style="text-align: left;"><a href="scATAC_en.html"><strong>English Guide</strong></a> <br> <a href="scATAC.html"><strong>中文指南</strong></a></td>
+<td style="text-align: left;"><strong>单细胞 ATAC</strong></td>
+<td style="text-align: left;"><strong>染色质开放性分析参数。</strong> <br> <ul><li><code>run</code>: 主分析流程</li><li><code>mkref</code>: 构建参考数据库</li><li><code>multi</code>: 多样本汇总分析</li></ul></td>
+<td style="text-align: left;"><a href="scATAC.html">查看文档</a></td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong>Single-Cell VDJ</strong></td>
-<td style="text-align: left;"><strong>Parameters for immune repertoire analysis.</strong> <br> <ul><li><code>run</code>: Main analysis pipeline</li></ul></td>
-<td style="text-align: left;"><a href="scVDJ_en.html"><strong>English Guide</strong></a> <br> <a href="scVDJ.html"><strong>中文指南</strong></a></td>
+<td style="text-align: left;"><strong>单细胞 VDJ</strong></td>
+<td style="text-align: left;"><strong>免疫受体分析参数。</strong> <br> <ul><li><code>run</code>: 主分析流程</li></ul></td>
+<td style="text-align: left;"><a href="scVDJ.html">查看文档</a></td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong>Multi-omics</strong></td>
-<td style="text-align: left;"><strong>Parameters for integrated multi-omics analysis.</strong> <br> <ul><li><code>run</code>: Integrated RNA/ATAC/VDJ workflow</li></ul></td>
-<td style="text-align: left;"><a href="multi_en.html"><strong>English Guide</strong></a> <br> <a href="multi.html"><strong>中文指南</strong></a></td>
+<td style="text-align: left;"><strong>多组学</strong></td>
+<td style="text-align: left;"><strong>一体化多组学分析参数。</strong> <br> <ul><li><code>run</code>: RNA/ATAC/VDJ 联合流程</li></ul></td>
+<td style="text-align: left;"><a href="multi.html">查看文档</a></td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong>Utility Tools</strong></td>
-<td style="text-align: left;"><strong>Parameters for helper and utility scripts.</strong> <br> <ul><li><code>mkgtf</code>: GTF file manipulation</li><li><code>bam2fastq</code>: BAM to FASTQ conversion</li><li><code>chromsplit</code>: Genome splitting</li><li><code>fqsubC4</code>: FASTQ subsequence extraction</li></ul></td>
-<td style="text-align: left;"><a href="tools_en.html"><strong>English Guide</strong></a> <br> <a href="tools.html"><strong>中文指南</strong></a></td>
+<td style="text-align: left;"><strong>工具命令</strong></td>
+<td style="text-align: left;"><strong>辅助工具参数。</strong> <br> <ul><li><code>mkgtf</code>: GTF 文件处理</li><li><code>bam2fastq</code>: BAM 转 FASTQ</li><li><code>chromsplit</code>: 染色体切分</li><li><code>fqsubC4</code>: FASTQ 子序列提取</li></ul></td>
+<td style="text-align: left;"><a href="tools.html">查看文档</a></td>
 </tr>
 </tbody>
 </table>
@@ -1693,41 +1331,41 @@
 <hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;">
 </div>
 <div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
-<h2 id="related-documentation">Related Documentation<a class="headerlink" href="#related-documentation" title="Permanent link">&para;</a></h2>
+<h2 id="_2">相关文档<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 </div>
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
 <table>
 <thead>
 <tr>
-<th style="text-align: left;">Resource</th>
-<th style="text-align: left;">Description</th>
+<th style="text-align: left;">文档</th>
+<th style="text-align: left;">说明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;"><a href="../pipeline/pipeline.html">Workflows</a></td>
-<td style="text-align: left;">Analysis pipeline guides</td>
+<td style="text-align: left;"><a href="../pipeline/pipeline.html">流程说明</a></td>
+<td style="text-align: left;">各分析流程使用说明</td>
 </tr>
 <tr>
-<td style="text-align: left;"><a href="../outs/outs.html">Outputs</a></td>
-<td style="text-align: left;">Understanding result files</td>
+<td style="text-align: left;"><a href="../outs/outs.html">输出说明</a></td>
+<td style="text-align: left;">输出文件解读</td>
 </tr>
 <tr>
-<td style="text-align: left;"><a href="../quickstart.html">Quick Start</a></td>
-<td style="text-align: left;">Get started in 5 minutes</td>
+<td style="text-align: left;"><a href="../quickstart.html">快速开始</a></td>
+<td style="text-align: left;">5 分钟快速上手</td>
 </tr>
 <tr>
-<td style="text-align: left;"><a href="../installation.html">Installation</a></td>
-<td style="text-align: left;">Software setup and requirements</td>
+<td style="text-align: left;"><a href="../installation.html">安装指南</a></td>
+<td style="text-align: left;">软件安装与环境要求</td>
 </tr>
 </tbody>
 </table>
 </div>
 <div align="center" style="background: #f5f5f7; border-radius: 12px; padding: 30px; margin: 40px auto; max-width: 1200px;">
 <blockquote>
-<p><strong>Feedback &amp; Support</strong></p>
-<p>For detailed parameter descriptions, click on any analysis type above.</p>
-<p><strong>Document Version:</strong> 3.1 | <strong>Last Updated:</strong> April 2026</p>
+<p><strong>反馈与支持</strong></p>
+<p>如需详细参数说明，请进入上方各模块文档。</p>
+<p><strong>文档版本：</strong> 3.1 | <strong>最后更新：</strong> 2026 年 4 月</p>
 </blockquote>
 </div>
 
@@ -1784,6 +1422,8 @@ Documentation Version 3.1 · Last updated April 2026
     
     
       <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../javascripts/lang-toggle.js"></script>
       
     
   </body>

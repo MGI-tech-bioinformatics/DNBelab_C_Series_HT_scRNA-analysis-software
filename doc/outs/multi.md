@@ -1,6 +1,6 @@
 <div align="right" style="margin-bottom: 20px; max-width: 1200px; margin-left: auto; margin-right: auto;">
 
-<a href="../../README.md" style="color: #0071e3; text-decoration: none; font-size: 14px;">主页</a> <span style="color: rgba(0,0,0,0.3);">•</span> <a href="multi_en.md" style="color: #0071e3; text-decoration: none; font-size: 14px;">English</a>
+[首页](../../README.md)
 
 </div>
 

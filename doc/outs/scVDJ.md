@@ -1,6 +1,6 @@
 <div align="right" style="margin-bottom: 20px; max-width: 1200px; margin-left: auto; margin-right: auto;">
 
-[主页](../../README.md) • [English](scVDJ_en.md)
+[首页](../../README.md)
 
 </div>
 

@@ -1,6 +1,6 @@
 <div align="right" style="margin-bottom: 20px; max-width: 1200px; margin-left: auto; margin-right: auto;">
 
-[主页](../../README.md) • [English](multi_en.md)
+[首页](../../README.md)
 
 </div>
 
@@ -416,7 +416,7 @@ Warning: ATAC joint analysis is currently unsupported. Libraries will be analyze
 
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
 
-本节正在更新中，下一版将补充常见报错排查条目与处理建议。
+本节正在更新中。
 
 </div>
 
@@ -428,7 +428,7 @@ Warning: ATAC joint analysis is currently unsupported. Libraries will be analyze
 
 > <strong>反馈与支持</strong>
 >
-> 本文档持续更新中。
+> 本文档持续更新中，如发现内容错误或需要补充的信息，欢迎反馈。
 >
 > <strong>文档版本：</strong> 3.1 | <strong>最后更新：</strong> 2026年4月
 

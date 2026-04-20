@@ -1,0 +1,2061 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentation site generated from README and doc markdown files">
+      
+      
+      
+      
+        <link rel="prev" href="installation.html">
+      
+      
+        <link rel="next" href="pipeline/pipeline.html">
+      
+      
+        
+          <link rel="alternate" href="../../doc/quickstart.html" hreflang="zh">
+        
+          <link rel="alternate" href="quickstart.html" hreflang="en">
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.svg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Quick Start - DNBelab C Series™ HT Single-Cell Analysis Software</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#quick-start-guide" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../index.html" title="DNBelab C Series™ HT Single-Cell Analysis Software" class="md-header__button md-logo" aria-label="DNBelab C Series™ HT Single-Cell Analysis Software" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 2h2v2c0 1.44.68 2.61 1.88 3.78.86.83 2.01 1.63 3.21 2.42l-1.83 1.19C8.27 10.72 7.31 10 6.5 9.21 5.07 7.82 4 6.1 4 4zm14 0h2v2c0 2.1-1.07 3.82-2.5 5.21-1.41 1.38-3.21 2.52-4.96 3.63-1.75 1.12-3.45 2.21-4.66 3.38C6.68 17.39 6 18.56 6 20v2H4v-2c0-2.1 1.07-3.82 2.5-5.21 1.41-1.38 3.21-2.52 4.96-3.63 1.75-1.12 3.45-2.21 4.66-3.38C17.32 6.61 18 5.44 18 4zm-3.26 10.61c.99.67 1.95 1.39 2.76 2.18C18.93 16.18 20 17.9 20 20v2h-2v-2c0-1.44-.68-2.61-1.88-3.78-.86-.83-2.01-1.63-3.21-2.42zM7 3h10v1l-.06.5H7.06L7 4zm.68 3h8.64c-.24.34-.52.69-.9 1.06l-.51.44H9.07l-.49-.44c-.38-.37-.66-.72-.9-1.06m1.41 10.5h5.84l.49.44c.38.37.66.72.9 1.06H7.68c.24-.34.52-.69.9-1.06zm-2.03 3h9.88l.06.5v1H7v-1z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            DNBelab C Series™ HT Single-Cell Analysis Software
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Quick Start
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="Select language">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="../../doc/quickstart.html" hreflang="zh" class="md-select__link">
+              中文
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="quickstart.html" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/MGI-tech-bioinformatics/DNBelab_C_Series_HT_scRNA-analysis-software" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    MGI-tech-bioinformatics/DNBelab_C_Series_HT_scRNA-analysis-software
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../index.html" title="DNBelab C Series™ HT Single-Cell Analysis Software" class="md-nav__button md-logo" aria-label="DNBelab C Series™ HT Single-Cell Analysis Software" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 2h2v2c0 1.44.68 2.61 1.88 3.78.86.83 2.01 1.63 3.21 2.42l-1.83 1.19C8.27 10.72 7.31 10 6.5 9.21 5.07 7.82 4 6.1 4 4zm14 0h2v2c0 2.1-1.07 3.82-2.5 5.21-1.41 1.38-3.21 2.52-4.96 3.63-1.75 1.12-3.45 2.21-4.66 3.38C6.68 17.39 6 18.56 6 20v2H4v-2c0-2.1 1.07-3.82 2.5-5.21 1.41-1.38 3.21-2.52 4.96-3.63 1.75-1.12 3.45-2.21 4.66-3.38C17.32 6.61 18 5.44 18 4zm-3.26 10.61c.99.67 1.95 1.39 2.76 2.18C18.93 16.18 20 17.9 20 20v2h-2v-2c0-1.44-.68-2.61-1.88-3.78-.86-.83-2.01-1.63-3.21-2.42zM7 3h10v1l-.06.5H7.06L7 4zm.68 3h8.64c-.24.34-.52.69-.9 1.06l-.51.44H9.07l-.49-.44c-.38-.37-.66-.72-.9-1.06m1.41 10.5h5.84l.49.44c.38.37.66.72.9 1.06H7.68c.24-.34.52-.69.9-1.06zm-2.03 3h9.88l.06.5v1H7v-1z"/></svg>
+
+    </a>
+    DNBelab C Series™ HT Single-Cell Analysis Software
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/MGI-tech-bioinformatics/DNBelab_C_Series_HT_scRNA-analysis-software" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    MGI-tech-bioinformatics/DNBelab_C_Series_HT_scRNA-analysis-software
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="installation.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Installation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Start
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="quickstart.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#file-naming-conventions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        File Naming Conventions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#single-cell-rna-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Single-Cell RNA Analysis
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Single-Cell RNA Analysis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-build-reference-genome" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1: Build Reference Genome
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-run-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: Run Analysis
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#single-cell-atac-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Single-Cell ATAC Analysis
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Single-Cell ATAC Analysis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-build-reference-genome_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1: Build Reference Genome
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-run-analysis_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: Run Analysis
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#single-cell-vdj-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Single-Cell VDJ Analysis
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Single-Cell VDJ Analysis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-5-rna-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1: 5' RNA Analysis
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-vdj-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: VDJ Analysis
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#multi-omics-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Multi-omics Analysis
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Multi-omics Analysis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-prepare-config-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1: Prepare Config File
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-run-multi-omics-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: Run Multi-omics Pipeline
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#command-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Command Reference
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Command Reference">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#essential-commands-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Essential Commands Summary
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Related Documentation
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pipeline
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Pipeline
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="pipeline/pipeline.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="pipeline/scRNA.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    scRNA
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="pipeline/scATAC.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    scATAC
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="pipeline/scVDJ.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    scVDJ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="pipeline/multi.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Multi
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Parameter
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Parameter
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="parameter/parameter.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="parameter/scRNA.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    scRNA
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="parameter/scATAC.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    scATAC
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="parameter/scVDJ.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    scVDJ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="parameter/multi.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Multi
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="parameter/tools.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tools
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Outputs
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Outputs
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="outs/outs.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="outs/scRNA.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    scRNA
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="outs/scATAC.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    scATAC
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="outs/scVDJ.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    scVDJ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="outs/multi.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Multi
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="io.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    I/O Analysis
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="release.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Release Notes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="dataset.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dataset
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Additional
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Additional
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="installation_previous.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Previous Installation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="json.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    JSON Spec
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#file-naming-conventions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        File Naming Conventions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#single-cell-rna-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Single-Cell RNA Analysis
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Single-Cell RNA Analysis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-build-reference-genome" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1: Build Reference Genome
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-run-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: Run Analysis
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#single-cell-atac-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Single-Cell ATAC Analysis
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Single-Cell ATAC Analysis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-build-reference-genome_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1: Build Reference Genome
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-run-analysis_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: Run Analysis
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#single-cell-vdj-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Single-Cell VDJ Analysis
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Single-Cell VDJ Analysis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-5-rna-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1: 5' RNA Analysis
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-vdj-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: VDJ Analysis
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#multi-omics-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Multi-omics Analysis
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Multi-omics Analysis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-prepare-config-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1: Prepare Config File
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-run-multi-omics-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: Run Multi-omics Pipeline
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#command-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Command Reference
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Command Reference">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#essential-commands-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Essential Commands Summary
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Related Documentation
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<div align="right">
+<p><a href="../index.html">Home</a></p>
+</div>
+<h1 id="quick-start-guide">Quick Start Guide<a class="headerlink" href="#quick-start-guide" title="Permanent link">&para;</a></h1>
+<div align="center">
+<p><strong>Get started with dnbc4tools</strong></p>
+<p><a href="#single-cell-rna-analysis">RNA-seq</a> • <a href="#single-cell-atac-analysis">ATAC-seq</a> • <a href="#single-cell-vdj-analysis">VDJ-seq</a> • <a href="#integrated-multi-omics-analysis">Multi-omics</a></p>
+</div>
+<hr />
+<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
+<div style="background-color: #e7f3fe; border-left: 6px solid #2196F3; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
+<p><strong>Before you begin:</strong></p>
+<ul>
+<li>Ensure dnbc4tools is installed. See the <a href="./installation.html">Installation Guide</a>.</li>
+<li>In all commands, replace <code>$dnbc4tools</code> with your actual installation path (e.g., <code>/opt/software/dnbc4tools3.1/dnbc4tools</code>).</li>
+<li>The backslash <code>\</code> is used to split a single command across multiple lines for readability. It is optional.</li>
+</ul>
+</div>
+<hr />
+<h2 id="file-naming-conventions">File Naming Conventions<a class="headerlink" href="#file-naming-conventions" title="Permanent link">&para;</a></h2>
+<div style="background-color: #e7f3fe; border-left: 6px solid #2196F3; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
+<p>The pipeline automatically detects paired-end files based on naming patterns. The following conventions are supported:</p>
+<ul>
+<li><strong>Supported extensions:</strong> <code>.fastq.gz</code>, <code>.fq.gz</code>, <code>.fastq</code>, <code>.fq</code></li>
+<li><strong>R1 patterns:</strong> <code>_R1_</code>, <code>_R1</code>, <code>_1</code>, <code>_read1</code></li>
+<li><strong>R2 patterns:</strong> <code>_R2_</code>, <code>_R2</code>, <code>_2</code>, <code>_read2</code></li>
+</ul>
+<p>Examples: <code>sample_R1.fastq.gz</code>, <code>sample_1.fastq.gz</code>, <code>sample_R1_001.fastq.gz</code> are all recognized as R1 files.</p>
+</div>
+<hr />
+<h2 id="single-cell-rna-analysis">Single-Cell RNA Analysis <a id="single-cell-rna-analysis"></a><a class="headerlink" href="#single-cell-rna-analysis" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>Gene expression profiling at single-cell resolution</p>
+</blockquote>
+<h3 id="step-1-build-reference-genome">Step 1: Build Reference Genome<a class="headerlink" href="#step-1-build-reference-genome" title="Permanent link">&para;</a></h3>
+<p><strong>Human (GRCh38)</strong></p>
+<pre><code class="language-bash"># Download reference files
+wget http://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_32/GRCh38.primary_assembly.genome.fa.gz
+wget http://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_32/gencode.v32.primary_assembly.annotation.gtf.gz
+
+# Extract files
+gzip -d GRCh38.primary_assembly.genome.fa.gz
+gzip -d gencode.v32.primary_assembly.annotation.gtf.gz
+
+# Build reference
+$dnbc4tools tools mkgtf --ingtf gencode.v32.primary_assembly.annotation.gtf --output genes.filtered.gtf
+$dnbc4tools rna mkref --ingtf genes.filtered.gtf --fasta GRCh38.primary_assembly.genome.fa --threads 10 --species Homo_sapiens
+</code></pre>
+<p><strong>Mouse (GRCm38)</strong></p>
+<pre><code class="language-bash"># Download reference files
+wget http://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_mouse/release_M23/GRCm38.primary_assembly.genome.fa.gz
+wget http://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_mouse/release_M23/gencode.vM23.primary_assembly.annotation.gtf.gz
+
+# Extract files
+gzip -d GRCm38.primary_assembly.genome.fa.gz
+gzip -d gencode.vM23.primary_assembly.annotation.gtf.gz
+
+# Build reference
+$dnbc4tools tools mkgtf --ingtf gencode.vM23.primary_assembly.annotation.gtf --output genes.filtered.gtf
+$dnbc4tools rna mkref --ingtf genes.filtered.gtf --fasta GRCm38.primary_assembly.genome.fa --threads 10 --species Mus_musculus
+</code></pre>
+<p><strong>Human-Mouse Mixed Reference</strong></p>
+<pre><code class="language-bash"># Prepare both references as above, then:
+$dnbc4tools rna mkref \
+    --fasta GRCh38.primary_assembly.genome.fa,GRCm38.primary_assembly.genome.fa \
+    --ingtf hg38/genes.filtered.gtf,mm10/genes.filtered.gtf \
+    --species hg38,mm10 \
+    --threads 10
+</code></pre>
+<h3 id="step-2-run-analysis">Step 2: Run Analysis<a class="headerlink" href="#step-2-run-analysis" title="Permanent link">&para;</a></h3>
+<p><strong>Quick Input (<code>--fastqs</code>)</strong></p>
+<pre><code class="language-bash">$dnbc4tools rna run \
+    --fastqs /test/data/rna_fastqs \
+    --genomeDir /database/scRNA/Mus_musculus/mm10 \
+    --name test \
+    --threads 30
+</code></pre>
+<p>Directory structure recommendation:</p>
+<ul>
+  <li><code>/test/data/rna_fastqs/cDNA/*_R1*.fastq.gz</code>, <code>*_R2*.fastq.gz</code></li>
+  <li><code>/test/data/rna_fastqs/oligo/*_R1*.fastq.gz</code>, <code>*_R2*.fastq.gz</code></li>
+</ul>
+
+<p>See <a href="#file-naming-conventions">File Naming Conventions</a> for supported patterns.</p>
+<p><strong>Detailed Input (--cDNAfastq1/2 --oligofastq1/2)</strong></p>
+<pre><code class="language-bash">$dnbc4tools rna run \
+    --cDNAfastq1 /test/data/rna_fastqs/cDNA/test_R1.fastq.gz \
+    --cDNAfastq2 /test/data/rna_fastqs/cDNA/test_R2.fastq.gz \
+    --oligofastq1 /test/data/rna_fastqs/oligo/test_1_1.fq.gz,/test/data/rna_fastqs/oligo/test_2_1.fq.gz \
+    --oligofastq2 /test/data/rna_fastqs/oligo/test_1_2.fq.gz,/test/data/rna_fastqs/oligo/test_2_2.fq.gz \
+    --genomeDir /database/scRNA/Mus_musculus/mm10 \
+    --name test \
+    --threads 30
+</code></pre>
+<hr />
+<h2 id="single-cell-atac-analysis">Single-Cell ATAC Analysis <a id="single-cell-atac-analysis"></a><a class="headerlink" href="#single-cell-atac-analysis" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>Chromatin accessibility profiling at single-cell resolution</p>
+</blockquote>
+<h3 id="step-1-build-reference-genome_1">Step 1: Build Reference Genome<a class="headerlink" href="#step-1-build-reference-genome_1" title="Permanent link">&para;</a></h3>
+<p><strong>Human (GRCh38)</strong></p>
+<pre><code class="language-bash"># Download reference files
+wget http://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_32/GRCh38.primary_assembly.genome.fa.gz
+wget http://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_32/gencode.v32.primary_assembly.annotation.gtf.gz
+
+# Extract files
+gzip -d GRCh38.primary_assembly.genome.fa.gz
+gzip -d gencode.v32.primary_assembly.annotation.gtf.gz
+
+# Build reference
+$dnbc4tools tools mkgtf --ingtf gencode.v32.primary_assembly.annotation.gtf --output genes.filtered.gtf
+$dnbc4tools atac mkref --fasta GRCh38.primary_assembly.genome.fa --ingtf genes.filtered.gtf --species Homo_sapiens --prefix chr
+</code></pre>
+<p><strong>Mouse (GRCm38)</strong></p>
+<pre><code class="language-bash"># Download reference files
+wget http://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_mouse/release_M23/GRCm38.primary_assembly.genome.fa.gz
+wget http://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_mouse/release_M23/gencode.vM23.primary_assembly.annotation.gtf.gz
+
+# Extract files
+gzip -d GRCm38.primary_assembly.genome.fa.gz
+gzip -d gencode.vM23.primary_assembly.annotation.gtf.gz
+
+# Build reference
+$dnbc4tools tools mkgtf --ingtf gencode.vM23.primary_assembly.annotation.gtf --output genes.filtered.gtf
+$dnbc4tools atac mkref --fasta GRCm38.primary_assembly.genome.fa --ingtf genes.filtered.gtf --species Mus_musculus --prefix chr
+</code></pre>
+<h3 id="step-2-run-analysis_1">Step 2: Run Analysis<a class="headerlink" href="#step-2-run-analysis_1" title="Permanent link">&para;</a></h3>
+<p><strong>Quick Input (<code>--fastqs</code>)</strong></p>
+<pre><code class="language-bash">$dnbc4tools atac run \
+    --fastqs /test/data \
+    --genomeDir /database/scATAC/Mus_musculus/mm10 \
+    --name test \
+    --threads 10
+</code></pre>
+<p>Directory structure recommendation:</p>
+<ul>
+  <li><code>/test/data/*_R1*.fastq.gz</code>, <code>*_R2*.fastq.gz</code></li>
+</ul>
+
+<p>See <a href="#file-naming-conventions">File Naming Conventions</a> for supported patterns.</p>
+<p><strong>Detailed Input (--fastq1/2)</strong></p>
+<pre><code class="language-bash">$dnbc4tools atac run \
+    --fastq1 /test/data/test1_R1.fastq.gz,/test/data/test2_R1.fastq.gz \
+    --fastq2 /test/data/test1_R2.fastq.gz,/test/data/test2_R2.fastq.gz \
+    --genomeDir /database/scATAC/Mus_musculus/mm10 \
+    --name test \
+    --threads 10
+</code></pre>
+<hr />
+<h2 id="single-cell-vdj-analysis">Single-Cell VDJ Analysis <a id="single-cell-vdj-analysis"></a><a class="headerlink" href="#single-cell-vdj-analysis" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>Immune receptor repertoire profiling (requires 5' RNA-seq data)</p>
+</blockquote>
+<div style="background-color: #fffbe6; border-left: 6px solid #ffc107; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
+<p><strong>Prerequisite</strong>: Complete 5' scRNA analysis first to establish cell-bead correspondence.</p>
+</div>
+<h3 id="step-1-5-rna-analysis">Step 1: 5' RNA Analysis<a class="headerlink" href="#step-1-5-rna-analysis" title="Permanent link">&para;</a></h3>
+<p><strong>5' scRNA-seq Analysis</strong></p>
+<div style="background-color: #e7f3fe; border-left: 6px solid #2196F3; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
+<p><strong>Note:</strong> For 5' scRNA-seq data, you must add the <code>--end5</code> parameter to specify the library chemistry.</p>
+</div>
+<pre><code class="language-bash">$dnbc4tools rna run \
+    --fastqs /test/rna/data \
+    --genomeDir /database/scRNA/Homo_sapiens \
+    --name test \
+    --threads 30 \
+    --end5
+</code></pre>
+<h3 id="step-2-vdj-analysis">Step 2: VDJ Analysis<a class="headerlink" href="#step-2-vdj-analysis" title="Permanent link">&para;</a></h3>
+<p><strong>Quick Input (<code>--fastqs</code>)</strong></p>
+<pre><code class="language-bash">$dnbc4tools vdj run \
+    --fastqs /test/data \
+    --beadstrans /scRNA/test1/outs/singlecell.csv \
+    --ref human \
+    --name test_human_tcr \
+    --threads 20 \
+    --chain TR
+</code></pre>
+<p>Directory structure recommendation:</p>
+<ul>
+  <li><code>/test/data/*_R1*.fastq.gz</code>, <code>*_R2*.fastq.gz</code></li>
+</ul>
+
+<p>See <a href="#file-naming-conventions">File Naming Conventions</a> for supported patterns.</p>
+<p><strong>Detailed Input (--fastq1/2)</strong></p>
+<p><strong>TCR Analysis (Human)</strong></p>
+<pre><code class="language-bash">$dnbc4tools vdj run \
+    --fastq1 /test/data/test1_R1.fastq.gz,/test/data/test2_R1.fastq.gz \
+    --fastq2 /test/data/test1_R2.fastq.gz,/test/data/test2_R2.fastq.gz \
+    --beadstrans /scRNA/test1/outs/singlecell.csv \
+    --ref human \
+    --name test_human_tcr \
+    --threads 20 \
+    --chain TR
+</code></pre>
+<p><strong>TCR Analysis (Mouse)</strong></p>
+<pre><code class="language-bash">$dnbc4tools vdj run \
+    --fastq1 /test/data_tcrmouse/test3_R1.fastq.gz,/test/data_tcrmouse/test4_R1.fastq.gz \
+    --fastq2 /test/data_tcrmouse/test3_R2.fastq.gz,/test/data_tcrmouse/test4_R2.fastq.gz \
+    --beadstrans /scRNA/test2/outs/singlecell.csv \
+    --ref mouse \
+    --name test_mouse_tcr \
+    --threads 20 \
+    --chain TR
+</code></pre>
+<p><strong>BCR Analysis (Human)</strong></p>
+<pre><code class="language-bash">$dnbc4tools vdj run \
+    --fastq1 /test/data_bcrhuman/test5_R1.fastq.gz,/test/data_bcrhuman/test6_R1.fastq.gz \
+    --fastq2 /test/data_bcrhuman/test5_R2.fastq.gz,/test/data_bcrhuman/test6_R2.fastq.gz \
+    --beadstrans /scRNA/test1/outs/singlecell.csv \
+    --ref human \
+    --name test_human_bcr \
+    --threads 20 \
+    --chain IG
+</code></pre>
+<p><strong>BCR Analysis (Mouse)</strong></p>
+<pre><code class="language-bash">$dnbc4tools vdj run \
+    --fastq1 /test/data_bcrmouse/test7_R1.fastq.gz,/test/data_bcrmouse/test8_R1.fastq.gz \
+    --fastq2 /test/data_bcrmouse/test7_R2.fastq.gz,/test/data_bcrmouse/test8_R2.fastq.gz \
+    --beadstrans /scRNA/test2/outs/singlecell.csv \
+    --ref mouse \
+    --name test_mouse_bcr \
+    --threads 20 \
+    --chain IG
+</code></pre>
+<hr />
+<h2 id="multi-omics-analysis">Multi-omics Analysis <a id="integrated-multi-omics-analysis"></a><a class="headerlink" href="#multi-omics-analysis" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>Run RNA/ATAC/VDJ pipelines in one integrated workflow and generate a unified report</p>
+</blockquote>
+<h3 id="step-1-prepare-config-file">Step 1: Prepare Config File<a class="headerlink" href="#step-1-prepare-config-file" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>Recommended: in <code>[libraries]</code>, <code>fastqs</code> should be the FASTQ directory path for each omics library; the pipeline will auto-detect R1/R2 files in each directory.</p>
+</blockquote>
+<pre><code class="language-ini">[libraries]
+fastqs,feature_types
+/test/data/rna,rna
+/test/data/vdj-t,vdj-t
+/test/data/vdj-b,vdj-b
+
+[rna]
+genomeDir,/database/scRNA/Homo_sapiens
+end5,true
+
+[atac]
+
+[vdj-t]
+ref,human
+
+[vdj-b]
+ref,human
+</code></pre>
+<p>Directory structure:</p>
+<ul>
+  <li>RNA: <code>/test/data/rna/cDNA/</code> and <code>/test/data/rna/oligo/</code></li>
+  <li>ATAC: paired FASTQ files under <code>/test/data/atac/</code></li>
+  <li>VDJ-T: paired FASTQ files under <code>/test/data/vdj-t/</code></li>
+  <li>VDJ-B: paired FASTQ files under <code>/test/data/vdj-b/</code></li>
+</ul>
+
+<h3 id="step-2-run-multi-omics-pipeline">Step 2: Run Multi-omics Pipeline<a class="headerlink" href="#step-2-run-multi-omics-pipeline" title="Permanent link">&para;</a></h3>
+<pre><code class="language-bash">$dnbc4tools multi run \
+    --name test_multi \
+    --csv ./multi_config.csv \
+    --outdir ./multi_output \
+    --threads 20
+</code></pre>
+<hr />
+<h2 id="command-reference">Command Reference <a id="command-reference"></a><a class="headerlink" href="#command-reference" title="Permanent link">&para;</a></h2>
+<h3 id="essential-commands-summary">Essential Commands Summary<a class="headerlink" href="#essential-commands-summary" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Workflow</th>
+<th style="text-align: left;">Command</th>
+<th style="text-align: left;">Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>RNA Analysis</strong></td>
+<td style="text-align: left;"><code>dnbc4tools rna run</code></td>
+<td style="text-align: left;">Complete RNA-seq pipeline</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>ATAC Analysis</strong></td>
+<td style="text-align: left;"><code>dnbc4tools atac run</code></td>
+<td style="text-align: left;">Complete ATAC-seq pipeline</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>VDJ Analysis</strong></td>
+<td style="text-align: left;"><code>dnbc4tools vdj run</code></td>
+<td style="text-align: left;">TCR/BCR repertoire analysis</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Reference Building</strong></td>
+<td style="text-align: left;"><code>dnbc4tools rna mkref</code></td>
+<td style="text-align: left;">Build RNA reference database</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Reference Building</strong></td>
+<td style="text-align: left;"><code>dnbc4tools atac mkref</code></td>
+<td style="text-align: left;">Build ATAC reference database</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Multi-omics</strong></td>
+<td style="text-align: left;"><code>dnbc4tools multi run</code></td>
+<td style="text-align: left;">Integrated RNA/ATAC/VDJ analysis and unified report</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>GTF Processing</strong></td>
+<td style="text-align: left;"><code>dnbc4tools tools mkgtf</code></td>
+<td style="text-align: left;">Filter and process GTF files</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="related-documentation">Related Documentation<a class="headerlink" href="#related-documentation" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Resource</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><a href="pipeline/pipeline.html">Pipelines</a></td>
+<td style="text-align: left;">Analysis workflow guides</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="parameter/parameter.html">Parameters</a></td>
+<td style="text-align: left;">Command reference and configuration options</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="outs/outs.html">Outputs</a></td>
+<td style="text-align: left;">Understanding result files and reports</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="https://github.com/MGI-tech-bioinformatics/DNBelab_C_Series_HT_scRNA-analysis-software/issues">GitHub Issues</a></td>
+<td style="text-align: left;">Report bugs or request features</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 MGI Tech Bioinformatics. All rights reserved.<br>
+Documentation Version 3.1 · Last updated April 2026
+
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["search.suggest", "search.highlight"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../javascripts/lang-toggle.js"></script>
+      
+    
+  </body>
+</html>

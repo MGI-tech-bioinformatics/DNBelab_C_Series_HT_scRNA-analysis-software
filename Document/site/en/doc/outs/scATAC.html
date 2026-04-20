@@ -1,0 +1,3200 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentation site generated from README and doc markdown files">
+      
+      
+      
+      
+        <link rel="prev" href="scRNA.html">
+      
+      
+        <link rel="next" href="scVDJ.html">
+      
+      
+        
+          <link rel="alternate" href="../../../doc/outs/scATAC.html" hreflang="zh">
+        
+          <link rel="alternate" href="scATAC.html" hreflang="en">
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.svg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>scATAC - DNBelab C Series™ HT Single-Cell Analysis Software</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#scatac-analysis-output" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../index.html" title="DNBelab C Series™ HT Single-Cell Analysis Software" class="md-header__button md-logo" aria-label="DNBelab C Series™ HT Single-Cell Analysis Software" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 2h2v2c0 1.44.68 2.61 1.88 3.78.86.83 2.01 1.63 3.21 2.42l-1.83 1.19C8.27 10.72 7.31 10 6.5 9.21 5.07 7.82 4 6.1 4 4zm14 0h2v2c0 2.1-1.07 3.82-2.5 5.21-1.41 1.38-3.21 2.52-4.96 3.63-1.75 1.12-3.45 2.21-4.66 3.38C6.68 17.39 6 18.56 6 20v2H4v-2c0-2.1 1.07-3.82 2.5-5.21 1.41-1.38 3.21-2.52 4.96-3.63 1.75-1.12 3.45-2.21 4.66-3.38C17.32 6.61 18 5.44 18 4zm-3.26 10.61c.99.67 1.95 1.39 2.76 2.18C18.93 16.18 20 17.9 20 20v2h-2v-2c0-1.44-.68-2.61-1.88-3.78-.86-.83-2.01-1.63-3.21-2.42zM7 3h10v1l-.06.5H7.06L7 4zm.68 3h8.64c-.24.34-.52.69-.9 1.06l-.51.44H9.07l-.49-.44c-.38-.37-.66-.72-.9-1.06m1.41 10.5h5.84l.49.44c.38.37.66.72.9 1.06H7.68c.24-.34.52-.69.9-1.06zm-2.03 3h9.88l.06.5v1H7v-1z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            DNBelab C Series™ HT Single-Cell Analysis Software
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              scATAC
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="Select language">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="../../../doc/outs/scATAC.html" hreflang="zh" class="md-select__link">
+              中文
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="scATAC.html" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/MGI-tech-bioinformatics/DNBelab_C_Series_HT_scRNA-analysis-software" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    MGI-tech-bioinformatics/DNBelab_C_Series_HT_scRNA-analysis-software
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../index.html" title="DNBelab C Series™ HT Single-Cell Analysis Software" class="md-nav__button md-logo" aria-label="DNBelab C Series™ HT Single-Cell Analysis Software" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 2h2v2c0 1.44.68 2.61 1.88 3.78.86.83 2.01 1.63 3.21 2.42l-1.83 1.19C8.27 10.72 7.31 10 6.5 9.21 5.07 7.82 4 6.1 4 4zm14 0h2v2c0 2.1-1.07 3.82-2.5 5.21-1.41 1.38-3.21 2.52-4.96 3.63-1.75 1.12-3.45 2.21-4.66 3.38C6.68 17.39 6 18.56 6 20v2H4v-2c0-2.1 1.07-3.82 2.5-5.21 1.41-1.38 3.21-2.52 4.96-3.63 1.75-1.12 3.45-2.21 4.66-3.38C17.32 6.61 18 5.44 18 4zm-3.26 10.61c.99.67 1.95 1.39 2.76 2.18C18.93 16.18 20 17.9 20 20v2h-2v-2c0-1.44-.68-2.61-1.88-3.78-.86-.83-2.01-1.63-3.21-2.42zM7 3h10v1l-.06.5H7.06L7 4zm.68 3h8.64c-.24.34-.52.69-.9 1.06l-.51.44H9.07l-.49-.44c-.38-.37-.66-.72-.9-1.06m1.41 10.5h5.84l.49.44c.38.37.66.72.9 1.06H7.68c.24-.34.52-.69.9-1.06zm-2.03 3h9.88l.06.5v1H7v-1z"/></svg>
+
+    </a>
+    DNBelab C Series™ HT Single-Cell Analysis Software
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/MGI-tech-bioinformatics/DNBelab_C_Series_HT_scRNA-analysis-software" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    MGI-tech-bioinformatics/DNBelab_C_Series_HT_scRNA-analysis-software
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../installation.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Installation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quickstart.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pipeline
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Pipeline
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pipeline/pipeline.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pipeline/scRNA.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    scRNA
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pipeline/scATAC.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    scATAC
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pipeline/scVDJ.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    scVDJ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pipeline/multi.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Multi
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Parameter
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Parameter
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../parameter/parameter.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../parameter/scRNA.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    scRNA
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../parameter/scATAC.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    scATAC
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../parameter/scVDJ.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    scVDJ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../parameter/multi.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Multi
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../parameter/tools.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tools
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Outputs
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Outputs
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="outs.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="scRNA.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    scRNA
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    scATAC
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="scATAC.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    scATAC
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#directory-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Directory Structure
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#file-details" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        File Details
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="File Details">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#atac-fragment-and-peak-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ATAC Fragment and Peak Files
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ATAC Fragment and Peak Files">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fragmentstsvgz" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        fragments.tsv.gz
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fragmentstsvgztbi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        fragments.tsv.gz.tbi
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#filteredfragmentstsvgz" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        filtered.fragments.tsv.gz
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#filteredfragmentstsvgztbi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        filtered.fragments.tsv.gz.tbi
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alignmentfragmentssortedtaggedbam" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        alignment.fragments.sorted.tagged.bam
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alignmentfragmentssortedtaggedbambai" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        alignment.fragments.sorted.tagged.bam.bai
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#peak-matrix-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Peak Matrix Files
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Peak Matrix Files">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#filtered-peak-matrix-filter_peak_matrix" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Filtered Peak Matrix (filter_peak_matrix/)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#raw-peak-matrix-raw_peak_matrix" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Raw Peak Matrix (raw_peak_matrix/)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#analysis-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Analysis Summary
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Analysis Summary">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#metrics_summaryxls" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        metrics_summary.xls
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#singlecellcsv" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        singlecell.csv
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_scatac_reporthtml" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        *_scATAC_report.html
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#file-format-description" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        File Format Description
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="File Format Description">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#market-matrix-format-mtxgz" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Market Matrix Format (.mtx.gz)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#web-report-interpretation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Web Report Interpretation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Web Report Interpretation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#main-report-content-and-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Main Report Content and Structure
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#core-analysis-metrics-explained" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Core Analysis Metrics Explained
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Core Analysis Metrics Explained">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cell-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cell Metrics
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sequencing-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sequencing Metrics
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#visualization-chart-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Visualization Chart 1
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#barcode-rank-plot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Barcode Rank Plot
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#droplet-beads-distribution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Droplet Beads Distribution
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cell-data-distribution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cell Data Distribution
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fragment-length-distribution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fragment Length Distribution
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-key-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Other Key Metrics
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#visualization-chart-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Visualization Chart 2
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cluster-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cluster Analysis
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tss-enrichment-profile" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TSS Enrichment Profile
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#single-cell-targeting-plot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Single Cell Targeting Plot
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#saturation-curve" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Saturation Curve
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bead-similarity-ranking" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bead Similarity Ranking
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Related Documentation
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="scVDJ.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    scVDJ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="multi.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Multi
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../io.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    I/O Analysis
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../release.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Release Notes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dataset.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dataset
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Additional
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Additional
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../installation_previous.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Previous Installation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../json.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    JSON Spec
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#directory-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Directory Structure
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#file-details" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        File Details
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="File Details">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#atac-fragment-and-peak-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ATAC Fragment and Peak Files
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ATAC Fragment and Peak Files">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fragmentstsvgz" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        fragments.tsv.gz
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fragmentstsvgztbi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        fragments.tsv.gz.tbi
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#filteredfragmentstsvgz" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        filtered.fragments.tsv.gz
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#filteredfragmentstsvgztbi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        filtered.fragments.tsv.gz.tbi
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alignmentfragmentssortedtaggedbam" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        alignment.fragments.sorted.tagged.bam
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alignmentfragmentssortedtaggedbambai" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        alignment.fragments.sorted.tagged.bam.bai
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#peak-matrix-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Peak Matrix Files
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Peak Matrix Files">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#filtered-peak-matrix-filter_peak_matrix" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Filtered Peak Matrix (filter_peak_matrix/)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#raw-peak-matrix-raw_peak_matrix" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Raw Peak Matrix (raw_peak_matrix/)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#analysis-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Analysis Summary
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Analysis Summary">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#metrics_summaryxls" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        metrics_summary.xls
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#singlecellcsv" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        singlecell.csv
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_scatac_reporthtml" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        *_scATAC_report.html
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#file-format-description" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        File Format Description
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="File Format Description">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#market-matrix-format-mtxgz" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Market Matrix Format (.mtx.gz)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#web-report-interpretation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Web Report Interpretation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Web Report Interpretation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#main-report-content-and-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Main Report Content and Structure
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#core-analysis-metrics-explained" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Core Analysis Metrics Explained
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Core Analysis Metrics Explained">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cell-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cell Metrics
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sequencing-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sequencing Metrics
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#visualization-chart-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Visualization Chart 1
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#barcode-rank-plot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Barcode Rank Plot
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#droplet-beads-distribution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Droplet Beads Distribution
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cell-data-distribution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cell Data Distribution
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fragment-length-distribution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fragment Length Distribution
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-key-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Other Key Metrics
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#visualization-chart-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Visualization Chart 2
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cluster-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cluster Analysis
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tss-enrichment-profile" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TSS Enrichment Profile
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#single-cell-targeting-plot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Single Cell Targeting Plot
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#saturation-curve" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Saturation Curve
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bead-similarity-ranking" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bead Similarity Ranking
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Related Documentation
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<div align="right" style="margin-bottom: 20px; max-width: 1200px; margin-left: auto; margin-right: auto;">
+<p><a href="../../index.html">Home</a></p>
+</div>
+<div align="center" style="padding: 40px 20px; background: linear-gradient(135deg, #f5f5f7 0%, #ffffff 100%); border-radius: 12px; margin-bottom: 30px; max-width: 1200px; margin-left: auto; margin-right: auto;">
+<h1 id="scatac-analysis-output" style="font-size: 48px; font-weight: 600; color: #1d1d1f; margin: 0 0 16px 0; letter-spacing: -0.02em;"> scATAC Analysis Output<a class="headerlink" href="#scatac-analysis-output" title="Permanent link">&para;</a></h1>
+<p style="font-size: 21px; color: rgba(0,0,0,0.6); margin: 0 0 30px 0; font-weight: 400;">Complete Guide to Single-Cell ATAC Sequencing Analysis Output Files</p>
+<div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+<p><a href="#directory-structure" style="background: #0071e3; color: white; padding: 8px 16px; border-radius: 980px; text-decoration: none; font-size: 14px;">Directory Structure</a>
+<a href="#file-details" style="background: transparent; color: #0071e3; padding: 8px 16px; border-radius: 980px; text-decoration: none; font-size: 14px; border: 1px solid #0071e3;">File Details</a>
+<a href="#peak-matrix-files" style="background: transparent; color: #0071e3; padding: 8px 16px; border-radius: 980px; text-decoration: none; font-size: 14px; border: 1px solid #0071e3;">Peak Matrix</a>
+<a href="#web-report-interpretation" style="background: transparent; color: #0071e3; padding: 8px 16px; border-radius: 980px; text-decoration: none; font-size: 14px; border: 1px solid #0071e3;">Report Interpretation</a></p>
+</div>
+</div>
+<div style="max-width: 1200px; margin: 0 auto;">
+<hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;">
+</div>
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
+<h2 id="overview">Overview <a id="overview"></a><a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
+<div align="center">
+<p>After single-cell ATAC sequencing analysis is complete, a standardized structure of files and subdirectories is generated in the specified output directory for chromatin accessibility analysis and epigenomic research.</p>
+</div>
+<blockquote>
+<p><strong>Tip</strong>: All output files use standard formats compatible with mainstream single-cell epigenomic analysis tools (e.g., Signac, ArchR), adhering to internationally accepted data format standards.</p>
+</blockquote>
+</div>
+<div style="max-width: 1200px; margin: 0 auto;">
+<hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;">
+</div>
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
+<h2 id="directory-structure">Directory Structure <a id="directory-structure"></a><a class="headerlink" href="#directory-structure" title="Permanent link">&para;</a></h2>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 20px; margin: 20px auto; max-width: 1200px; overflow-x: auto; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+<pre><code>.
+├── alignment.fragments.sorted.tagged.bam       # QC-filtered alignment results (requires 'need_bam' parameter for analysis)
+├── alignment.fragments.sorted.tagged.bam.bai   # Index file for the alignment results
+├── filter_peak_matrix/                         # Directory for the filtered peak matrix in MEX format
+│   ├── barcodes.tsv.gz                         # Barcode information for filtered cells
+│   ├── matrix.mtx.gz                           # Peak signal data in sparse matrix format for filtered data
+│   └── peaks.bed.gz                            # Peak position information for filtered data
+├── fragments.tsv.gz                            # Contains all fragments aligned to the genome
+├── fragments.tsv.gz.tbi                        # Index file for fragments, for fast random access
+├── filtered.fragments.tsv.gz                   # QC-filtered ATAC fragment file, containing only fragments from filtered cells
+├── filtered.fragments.tsv.gz.tbi               # Tabix index for the filtered fragments file, for fast querying of genomic intervals
+├── metrics_summary.xls                         # Summary table of analysis quality metrics
+├── raw_peak_matrix/                            # Directory for the raw peak matrix in MEX format
+│   ├── barcodes.tsv.gz                         # Raw cell barcode information
+│   ├── matrix.mtx.gz                           # Raw peak signal data in sparse matrix format
+│   └── peaks.bed.gz                            # Raw peak position information
+├── singlecell.csv                              # Summary table of cell information
+└── *_scATAC_report.html                        # Analysis report in HTML format
+</code></pre>
+</div>
+<div style="max-width: 1200px; margin: 0 auto;">
+<hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;">
+</div>
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
+<h2 id="file-details">File Details <a id="file-details"></a><a class="headerlink" href="#file-details" title="Permanent link">&para;</a></h2>
+<h3 id="atac-fragment-and-peak-files">ATAC Fragment and Peak Files <a id="atac-fragment-and-peak-files"></a><a class="headerlink" href="#atac-fragment-and-peak-files" title="Permanent link">&para;</a></h3>
+<div align="center">
+<p><strong>Core Content</strong>: ATAC-seq fragment information and peak identification results, containing complete chromatin accessibility data and cell barcode tags.</p>
+</div>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px; ">
+<h4 id="fragmentstsvgz">fragments.tsv.gz<a class="headerlink" href="#fragmentstsvgz" title="Permanent link">&para;</a></h4>
+<p><code>fragments.tsv.gz</code> is a compressed TSV file containing ATAC-seq fragment information, which is one of the core data for downstream analysis. Its main features and contents are as follows:</p>
+<ul>
+<li>
+<p><strong>Purpose</strong>:</p>
+<ul>
+<li><strong>Chromatin Accessibility Analysis</strong>: Precisely locate the genomic coordinates of each open chromatin region.</li>
+<li><strong>Data Visualization</strong>: Can be directly loaded as a BED file in genome browsers like IGV and UCSC for visualization.</li>
+<li><strong>Downstream Tool Input</strong>: Compatible with mainstream single-cell analysis tools such as ArchR and Signac.</li>
+</ul>
+</li>
+<li>
+<p><strong>Content &amp; Format</strong>:</p>
+<ul>
+<li>The file is in <strong>BED-like</strong> format, with each row representing a unique ATAC-seq fragment.</li>
+<li>
+<p>The file contains the <strong>5 columns of information</strong> as shown in the table below:</p>
+<p><table style="width:100%; border-collapse: collapse; margin: 15px 0; border-radius: 8px; overflow: hidden;">
+<thead style="background-color: #f5f5f7; border-bottom: 1px solid #d2d2d7;">
+<tr>
+<th width="20%" align="left" style="padding: 12px 16px; font-weight: 600; color: #1d1d1f;">Field Name</th>
+<th width="80%" align="left" style="padding: 12px 16px; font-weight: 600; color: #1d1d1f;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" style="padding: 12px 16px; border-bottom: 1px solid #f0f0f0;"><code>chrom</code></td>
+<td style="padding: 12px 16px; border-bottom: 1px solid #f0f0f0;">The name of the reference genome chromosome, identifying the chromosomal location of the fragment.</td>
+</tr>
+<tr>
+<td align="left" style="padding: 12px 16px; border-bottom: 1px solid #f0f0f0;"><code>chromStart</code></td>
+<td style="padding: 12px 16px; border-bottom: 1px solid #f0f0f0;">The adjusted start position of the fragment on the chromosome (0-based), corrected for the transposase cleavage site.</td>
+</tr>
+<tr>
+<td align="left" style="padding: 12px 16px; border-bottom: 1px solid #f0f0f0;"><code>chromEnd</code></td>
+<td style="padding: 12px 16px; border-bottom: 1px solid #f0f0f0;">The adjusted end position of the fragment on the chromosome (exclusive), corrected for the transposase cleavage site.</td>
+</tr>
+<tr>
+<td align="left" style="padding: 12px 16px; border-bottom: 1px solid #f0f0f0;"><code>barcode</code></td>
+<td style="padding: 12px 16px; border-bottom: 1px solid #f0f0f0;">The cell ID identifier, corresponding to the <code>CB</code> tag in the BAM file, used to assign the fragment to a specific cell.</td>
+</tr>
+<tr>
+<td align="left" style="padding: 12px 16px;"><code>readSupport</code></td>
+<td style="padding: 12px 16px;">The total number of read pairs associated with this fragment (including unique and duplicate reads).</td>
+</tr>
+</tbody>
+</table></p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Coordinate Adjustment</strong>:</p>
+<ul>
+<li>To accurately locate the transposase cleavage site, the fragment intervals in the file are adjusted: the start position is shifted 4bp forward from the leftmost alignment position, and the end position is shifted 5bp backward from the rightmost alignment position.</li>
+</ul>
+</li>
+</ul>
+</div>
+<div style="max-width: 1200px; margin: 0 auto;">
+<hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;">
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px; ">
+<h4 id="fragmentstsvgztbi">fragments.tsv.gz.tbi<a class="headerlink" href="#fragmentstsvgztbi" title="Permanent link">&para;</a></h4>
+<p>The Tabix index file for <code>fragments.tsv.gz</code>.</p>
+<ul>
+<li><strong>Core Purpose</strong>:<ul>
+<li><strong>Fast Data Access</strong>: Allows for rapid, genome-interval-based querying of large <code>fragments.tsv.gz</code> files without reading the entire file.</li>
+<li><strong>Tool Performance Optimization</strong>: Used by tools like ArchR, Signac, and IGV to efficiently load and process data from specific regions.</li>
+</ul>
+</li>
+<li><strong>Format</strong>:<ul>
+<li>A standard binary index file generated by the <code>tabix</code> tool.</li>
+</ul>
+</li>
+</ul>
+</div>
+<div style="max-width: 1200px; margin: 0 auto;">
+<hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;">
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px; ">
+<h4 id="filteredfragmentstsvgz">filtered.fragments.tsv.gz<a class="headerlink" href="#filteredfragmentstsvgz" title="Permanent link">&para;</a></h4>
+<p>This is the ATAC-seq fragment file after cell quality control and filtering. It is a subset of <code>fragments.tsv.gz</code>, containing only fragments from high-quality cells.</p>
+<ul>
+<li><strong>Core Purpose</strong>:<ul>
+<li><strong>Core Downstream Analysis</strong>: This is the <strong>recommended input file</strong> for core downstream steps such as cell clustering and differential accessibility analysis.</li>
+<li><strong>Improved Signal-to-Noise Ratio</strong>: Using this file improves the accuracy and signal-to-noise ratio of the analysis results by removing low-quality cells and background noise.</li>
+</ul>
+</li>
+<li><strong>Content &amp; Format</strong>:<ul>
+<li>The file format is identical to <code>fragments.tsv.gz</code> (compressed BED-like TSV) and contains the same 5 columns.</li>
+<li>It includes only fragments from barcodes identified as "real cells" by the cell filtering algorithm (e.g., based on TSS enrichment and number of fragments in peaks).</li>
+</ul>
+</li>
+</ul>
+</div>
+<div style="max-width: 1200px; margin: 0 auto;">
+<hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;">
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px; ">
+<h4 id="filteredfragmentstsvgztbi">filtered.fragments.tsv.gz.tbi<a class="headerlink" href="#filteredfragmentstsvgztbi" title="Permanent link">&para;</a></h4>
+<p>The Tabix index file for <code>filtered.fragments.tsv.gz</code>.</p>
+<ul>
+<li><strong>Core Purpose</strong>:<ul>
+<li><strong>Efficient Downstream Analysis</strong>: Ensures that downstream tools (like ArchR, Signac) can quickly and efficiently access data from specific genomic regions when using the filtered fragment file.</li>
+</ul>
+</li>
+<li><strong>Format</strong>:<ul>
+<li>A standard binary index file generated by the <code>tabix</code> tool.</li>
+</ul>
+</li>
+</ul>
+</div>
+<div style="max-width: 1200px; margin: 0 auto;">
+<hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;">
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px; ">
+<h4 id="alignmentfragmentssortedtaggedbam">alignment.fragments.sorted.tagged.bam<a class="headerlink" href="#alignmentfragmentssortedtaggedbam" title="Permanent link">&para;</a></h4>
+<p>This is the ATAC-seq alignment result file containing all fragments that have a valid barcode and were successfully aligned.</p>
+<ul>
+<li>
+<p><strong>Core Purpose</strong>:</p>
+<ul>
+<li><strong>In-depth Analysis &amp; Visualization</strong>: Can be used in genome browsers like IGV for deep visualization to inspect alignments at specific loci.</li>
+<li><strong>Custom Analysis</strong>: Provides the raw input for advanced users who need to directly manipulate alignment-level data.</li>
+</ul>
+</li>
+<li>
+<p><strong>Content &amp; Format</strong>:</p>
+<ul>
+<li>Uses the international standard <strong>BAM (Binary Alignment Map)</strong> format.</li>
+<li>The file is <strong>sorted by genomic coordinates</strong> and indexed (with a <code>.bai</code> file) for fast random access.</li>
+<li>Each read is tagged with cell origin information via TAG fields.</li>
+</ul>
+</li>
+<li>
+<p><strong>Key TAG Field Descriptions</strong>:</p>
+<ul>
+<li>
+<p>Cell and molecular barcode information is stored in the following TAG fields:</p>
+<p><table style="width:100%; border-collapse: collapse; margin: 15px 0; border-radius: 8px; overflow: hidden;">
+<thead style="background-color: #f5f5f7; border-bottom: 1px solid #d2d2d7;">
+<tr>
+<th width="15%" align="left" style="padding: 12px 16px; font-weight: 600; color: #1d1d1f;">Tag</th>
+<th width="15%" align="left" style="padding: 12px 16px; font-weight: 600; color: #1d1d1f;">Type</th>
+<th width="70%" align="left" style="padding: 12px 16px; font-weight: 600; color: #1d1d1f;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" style="padding: 12px 16px; border-bottom: 1px solid #f0f0f0;"><code>CB</code></td>
+<td align="left" style="padding: 12px 16px; border-bottom: 1px solid #f0f0f0;">Z</td>
+<td style="padding: 12px 16px; border-bottom: 1px solid #f0f0f0;">Cell barcode identifier after error correction and cell merging.</td>
+</tr>
+<tr>
+<td align="left" style="padding: 12px 16px; border-bottom: 1px solid #f0f0f0;"><code>CC</code></td>
+<td align="left" style="padding: 12px 16px; border-bottom: 1px solid #f0f0f0;">Z</td>
+<td style="padding: 12px 16px; border-bottom: 1px solid #f0f0f0;">Error-corrected cell barcode sequence.</td>
+</tr>
+<tr>
+<td align="left" style="padding: 12px 16px;"><code>CR</code></td>
+<td align="left" style="padding: 12px 16px;">Z</td>
+<td style="padding: 12px 16px;">Cell barcode sequence as reported by the sequencer.</td>
+</tr>
+</tbody>
+</table></p>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div style="max-width: 1200px; margin: 0 auto;">
+<hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;">
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px; ">
+<h4 id="alignmentfragmentssortedtaggedbambai">alignment.fragments.sorted.tagged.bam.bai<a class="headerlink" href="#alignmentfragmentssortedtaggedbambai" title="Permanent link">&para;</a></h4>
+<p>The index file for <code>alignment.fragments.sorted.tagged.bam</code>.</p>
+<ul>
+<li><strong>Core Purpose</strong>:<ul>
+<li><strong>Fast Data Access</strong>: Allows tools like IGV and Samtools to quickly jump to and read alignment data from any genomic region without loading the entire BAM file.</li>
+<li><strong>Performance Guarantee</strong>: Essential for the performance of any tool that performs random access operations on the BAM file.</li>
+</ul>
+</li>
+<li><strong>Format</strong>:<ul>
+<li>Standard <strong>BAI (BAM Index)</strong> format generated by the <code>samtools index</code> command.</li>
+</ul>
+</li>
+</ul>
+</div>
+<div style="max-width: 1200px; margin: 0 auto;">
+<hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;">
+</div>
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
+<h3 id="peak-matrix-files">Peak Matrix Files <a id="peak-matrix-files"></a><a class="headerlink" href="#peak-matrix-files" title="Permanent link">&para;</a></h3>
+<div align="center">
+<p><strong>Core Content</strong>: The single-cell peak signal count matrix, divided into raw and quality-controlled filtered data, using the standard sparse matrix format.</p>
+</div>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px; ">
+<h4 id="filtered-peak-matrix-filter_peak_matrix">Filtered Peak Matrix (<code>filter_peak_matrix/</code>)<a class="headerlink" href="#filtered-peak-matrix-filter_peak_matrix" title="Permanent link">&para;</a></h4>
+<p>Contains the peak count matrix after high-quality cell filtering, serving as the core data for downstream quantitative analysis.</p>
+<ul>
+<li>
+<p><strong>Core Purpose</strong>:</p>
+<ul>
+<li><strong>Downstream Quantitative Analysis</strong>: The <strong>primary input</strong> for analyses such as cell clustering, differential accessibility analysis, and trajectory inference.</li>
+<li><strong>High-Quality Data</strong>: Contains only barcodes identified as real cells, ensuring the accuracy of the analysis results.</li>
+</ul>
+</li>
+<li>
+<p><strong>Content &amp; Format</strong>:</p>
+<ul>
+<li>Uses the standard <strong>Market Matrix Exchange (MEX)</strong> format, consisting of the following three compressed files:
+    <table style="width:100%; border-collapse: collapse; margin: 15px 0; border-radius: 8px; overflow: hidden;">
+    <thead style="background-color: #f5f5f7; border-bottom: 1px solid #d2d2d7;">
+    <tr>
+    <th width="25%" align="left" style="padding: 12px 16px; font-weight: 600; color: #1d1d1f;">Filename</th>
+    <th width="75%" align="left" style="padding: 12px 16px; font-weight: 600; color: #1d1d1f;">Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <td align="left" style="padding: 12px 16px; border-bottom: 1px solid #f0f0f0;"><code>barcodes.tsv.gz</code></td>
+    <td style="padding: 12px 16px; border-bottom: 1px solid #f0f0f0;">A list of cell IDs, identifying high-quality cells that passed QC. Each line contains one cell ID, corresponding to a column in the matrix.</td>
+    </tr>
+    <tr>
+    <td align="left" style="padding: 12px 16px; border-bottom: 1px solid #f0f0f0;"><code>peaks.bed.gz</code></td>
+    <td style="padding: 12px 16px; border-bottom: 1px solid #f0f0f0;">A file with peak region coordinates in BED format. Contains chromosome, start, and end positions, corresponding to a row in the matrix.</td>
+    </tr>
+    <tr>
+    <td align="left" style="padding: 12px 16px;"><code>matrix.mtx.gz</code></td>
+    <td style="padding: 12px 16px;">The peak region count matrix in Market Matrix format. Contains matrix dimensions and the row, column, and value for non-zero elements.</td>
+    </tr>
+    </tbody>
+    </table></li>
+</ul>
+</li>
+<li>
+<p><strong>Format Advantages</strong>:</p>
+<ul>
+<li><strong>Space-Efficient</strong>: The sparse matrix format (<code>.mtx</code>) saves significant storage space by only storing non-zero elements.</li>
+<li><strong>Highly Compatible</strong>: The MEX format is a standard in the single-cell community, compatible with almost all mainstream analysis tools like Seurat, Signac, Scanpy, etc.</li>
+</ul>
+</li>
+</ul>
+</div>
+<div style="max-width: 1200px; margin: 0 auto;">
+<hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;">
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px; ">
+<h4 id="raw-peak-matrix-raw_peak_matrix">Raw Peak Matrix (<code>raw_peak_matrix/</code>)<a class="headerlink" href="#raw-peak-matrix-raw_peak_matrix" title="Permanent link">&para;</a></h4>
+<p>Contains the raw peak count matrix for all detected cell barcodes (without filtering).</p>
+<ul>
+<li>
+<p><strong>Core Purpose</strong>:</p>
+<ul>
+<li><strong>Quality Control Assessment</strong>: Can be used to evaluate the effectiveness of cell filtering or to perform manual filtering based on custom criteria.</li>
+<li><strong>Data Integrity</strong>: Preserves all original data, which can be used for deep mining or re-analysis if needed.</li>
+</ul>
+</li>
+<li>
+<p><strong>Content &amp; Format</strong>:</p>
+<ul>
+<li>Uses the standard <strong>Market Matrix Exchange (MEX)</strong> format, with the same file composition as the <code>filter_peak_matrix/</code> directory.</li>
+<li>Includes all detected barcodes, including high-quality cells, low-quality cells, and background droplets.</li>
+</ul>
+</li>
+</ul>
+</div>
+<div style="max-width: 1200px; margin: 0 auto;">
+<hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;">
+</div>
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
+<h3 id="analysis-summary">Analysis Summary <a id="analysis-summary"></a><a class="headerlink" href="#analysis-summary" title="Permanent link">&para;</a></h3>
+<div align="center">
+<p><strong>Core Content</strong>: A summary of experimental quality assessment and statistical metrics, providing complete data quality control information.</p>
+</div>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px; ">
+<h4 id="metrics_summaryxls">metrics_summary.xls<a class="headerlink" href="#metrics_summaryxls" title="Permanent link">&para;</a></h4>
+<p>An Excel-formatted summary table of key analysis metrics, providing a comprehensive assessment of the overall experiment quality.</p>
+<ul>
+<li>
+<p><strong>Core Purpose</strong>:</p>
+<ul>
+<li><strong>Quality Assessment</strong>: Quickly evaluate key metrics such as sequencing data quality, alignment efficiency, and cell identification results.</li>
+<li><strong>Results Overview</strong>: Get a comprehensive understanding of the analysis results without having to inspect all files.</li>
+</ul>
+</li>
+<li>
+<p><strong>Content &amp; Format</strong>:</p>
+<ul>
+<li>Contains key metrics from three main categories:
+    <table style="width:100%; border-collapse: collapse; margin: 15px 0; border-radius: 8px; overflow: hidden;">
+    <thead style="background-color: #f5f5f7; border-bottom: 1px solid #d2d2d7;">
+    <tr>
+    <th width="20%" align="left" style="padding: 12px 16px; font-weight: 600; color: #1d1d1f;">Metric Category</th>
+    <th width="80%" align="left" style="padding: 12px 16px; font-weight: 600; color: #1d1d1f;">Includes</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <td align="left" style="padding: 12px 16px; border-bottom: 1px solid #f0f0f0;"><strong>Basic Stats</strong></td>
+    <td style="padding: 12px 16px; border-bottom: 1px solid #f0f0f0;">Basic sequencing metrics like total read pairs, valid barcode ratio, Q30 base quality, etc.</td>
+    </tr>
+    <tr>
+    <td align="left" style="padding: 12px 16px; border-bottom: 1px solid #f0f0f0;"><strong>Cell Calling</strong></td>
+    <td style="padding: 12px 16px; border-bottom: 1px solid #f0f0f0;">Cell calling results like estimated number of cells, fraction of fragments in peaks, fraction of fragments in TSS, number of peaks detected, TSS enrichment, etc.</td>
+    </tr>
+    <tr>
+    <td align="left" style="padding: 12px 16px;"><strong>Alignment</strong></td>
+    <td style="padding: 12px 16px;">Alignment statistics like genome alignment rate, mitochondrial DNA ratio, etc.</td>
+    </tr>
+    </tbody>
+    </table></li>
+<li>Includes built-in recommended quality control thresholds for user convenience:
+    <details open style="margin-top: 15px;">
+    <summary><strong>Recommended Quality Thresholds:</strong></summary>
+    <ul style="margin-top: 10px;">
+    <li><strong>Valid Barcode Ratio</strong>: &gt;70%</li>
+    <li><strong>Q30 Base Quality</strong>: &gt;75% (Barcode and UMI regions)</li>
+    <li><strong>Genome Alignment Rate</strong>: &gt;50%</li>
+    <li><strong>TSS Enrichment Score (Human/Mouse)</strong>: &gt;4</li>
+    <li><strong>Fraction of Fragments in Peaks</strong>: &gt;15%</li>
+    <li><strong>Fraction of Fragments in TSS</strong>: &gt;10%</li>
+    <li><strong>Percentage of Duplicate Reads</strong>: &gt;10%</li>
+    </ul>
+    </details></li>
+</ul>
+</li>
+</ul>
+</div>
+<div style="max-width: 1200px; margin: 0 auto;">
+<hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;">
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px; ">
+<h4 id="singlecellcsv">singlecell.csv<a class="headerlink" href="#singlecellcsv" title="Permanent link">&para;</a></h4>
+<p>A CSV-formatted table of cell-level quality control information, recording detailed statistics for each cell barcode.</p>
+<ul>
+<li>
+<p><strong>Core Purpose</strong>:</p>
+<ul>
+<li><strong>Fine-grained QC</strong>: Allows users to perform more detailed cell filtering and analysis based on custom criteria.</li>
+<li><strong>Downstream Analysis Input</strong>: Can be used as cell metadata input for analysis tools like Signac and Scanpy.</li>
+</ul>
+</li>
+<li>
+<p><strong>Content &amp; Format</strong>:</p>
+<ul>
+<li>Each row represents one cell barcode.</li>
+<li>Key columns include: number of fragments, number of peaks, number of fragments in TSS/peak regions, whether it is identified as a high-quality cell, bead merging information, etc.</li>
+</ul>
+</li>
+</ul>
+</div>
+<div style="max-width: 1200px; margin: 0 auto;">
+<hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;">
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px; ">
+<h4 id="_scatac_reporthtml">*_scATAC_report.html<a class="headerlink" href="#_scatac_reporthtml" title="Permanent link">&para;</a></h4>
+<p>An interactive, comprehensive analysis report in HTML web format.</p>
+<ul>
+<li>
+<p><strong>Core Purpose</strong>:</p>
+<ul>
+<li><strong>Results Visualization</strong>: Intuitively displays key analysis results such as QC metrics, cell clustering, and TSS enrichment in the form of interactive charts.</li>
+<li><strong>Results Interpretation</strong>: Provides the biological significance and technical explanation of various metrics to help users interpret the data deeply.</li>
+<li><strong>Easy Sharing</strong>: A single HTML file that is easy to circulate and share.</li>
+</ul>
+</li>
+<li>
+<p><strong>Content &amp; Format</strong>:</p>
+<ul>
+<li>Can be opened in any modern browser without an internet connection.</li>
+<li>For a detailed interpretation of the report, please refer to the <a href="#web-report-interpretation">Web Report Interpretation</a> section below.</li>
+<li>Key content modules included are as follows:
+    <table style="width:100%; border-collapse: collapse; margin: 15px 0; border-radius: 8px; overflow: hidden;">
+    <thead style="background-color: #f5f5f7; border-bottom: 1px solid #d2d2d7;">
+    <tr>
+    <th width="25%" align="left" style="padding: 12px 16px; font-weight: 600; color: #1d1d1f;">Report Feature</th>
+    <th width="75%" align="left" style="padding: 12px 16px; font-weight: 600; color: #1d1d1f;">Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <td align="left" style="padding: 12px 16px; border-bottom: 1px solid #f0f0f0;"><strong>Interactive Charts</strong></td>
+    <td style="padding: 12px 16px; border-bottom: 1px solid #f0f0f0;">Interactive visualizations for QC metrics, cell clustering, peak analysis, etc.</td>
+    </tr>
+    <tr>
+    <td align="left" style="padding: 12px 16px; border-bottom: 1px solid #f0f0f0;"><strong>Statistical Summary</strong></td>
+    <td style="padding: 12px 16px; border-bottom: 1px solid #f0f0f0;">A numerical summary and trend analysis of key performance indicators.</td>
+    </tr>
+    <tr>
+    <td align="left" style="padding: 12px 16px;"><strong>Detailed Interpretation</strong></td>
+    <td style="padding: 12px 16px;">The biological significance and technical explanation of various metrics.</td>
+    </tr>
+    </tbody>
+    </table></li>
+</ul>
+</li>
+</ul>
+</div>
+<div style="max-width: 1200px; margin: 0 auto;">
+<hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;">
+</div>
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
+<h2 id="file-format-description">File Format Description <a id="file-format-description"></a><a class="headerlink" href="#file-format-description" title="Permanent link">&para;</a></h2>
+<div align="center">
+<p><strong>Technical Specification</strong>: A detailed description of the standard formats used for the output files.</p>
+</div>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+<h4 id="market-matrix-format-mtxgz">Market Matrix Format (<code>.mtx.gz</code>) <a id="market-matrix-format-mtxgz"></a><a class="headerlink" href="#market-matrix-format-mtxgz" title="Permanent link">&para;</a></h4>
+<p>Market Exchange Format (MEX) is a standard format for storing sparse count matrices in single-cell analysis, known for its space efficiency and high compatibility.</p>
+<ul>
+<li>
+<p><strong>Core Advantages</strong>:</p>
+<ul>
+<li><strong>Space-Efficient</strong>: The sparse matrix format only stores non-zero elements, which significantly saves storage space for single-cell data where over 95% of values are typically zero.</li>
+<li><strong>Highly Compatible</strong>: As an international standard, it can be directly read by almost all mainstream analysis tools, including Seurat, Scanpy, and Signac.</li>
+</ul>
+</li>
+<li>
+<p><strong>File Composition</strong>:</p>
+<ul>
+<li>A complete MEX format dataset consists of the following <strong>three files</strong>:
+    <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
+    <thead>
+    <tr>
+    <th width="25%" align="left"><strong>Filename</strong></th>
+    <th width="75%" align="left"><strong>Description</strong></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <td align="left"><code>matrix.mtx.gz</code></td>
+    <td>A compressed sparse matrix file. The header contains matrix dimensions, and each subsequent line records the position (row/column index) and value of a non-zero element.</td>
+    </tr>
+    <tr>
+    <td align="left"><code>barcodes.tsv.gz</code></td>
+    <td>A compressed cell barcode file. Each line is a cell ID, and the line number corresponds to the matrix <strong>column</strong>.</td>
+    </tr>
+    <tr>
+    <td align="left"><code>peaks.bed.gz</code></td>
+    <td>A compressed feature (peak) file. Each line is a peak's coordinates in BED format, and the line number corresponds to the matrix <strong>row</strong>.</td>
+    </tr>
+    </tbody>
+    </table></li>
+</ul>
+</li>
+</ul>
+</div>
+<div style="max-width: 1200px; margin: 0 auto;">
+<hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;">
+</div>
+<p><br></p>
+<h2 id="web-report-interpretation">Web Report Interpretation <a id="web-report-interpretation"></a><a class="headerlink" href="#web-report-interpretation" title="Permanent link">&para;</a></h2>
+<div align="center">
+<p><strong>Overview</strong>: The HTML web report provides a comprehensive visualization and detailed interpretation of the single-cell ATAC sequencing analysis results, including an evaluation of key performance indicators to help users quickly understand the experiment's quality and results.</p>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+<p>The HTML web report is a comprehensive display platform for single-cell ATAC sequencing analysis, integrating complete results from data quality control to downstream epigenomic analysis. The report uses an interactive visualization design to help users quickly evaluate experimental quality, understand analysis results, and guide subsequent research directions.</p>
+<blockquote>
+<p><strong>Usage Suggestion</strong>: It is recommended to review the metrics in the order they are presented in the report.</p>
+<p><strong>Note</strong>: The following standards are for reference only. Actual quality assessment should consider factors such as sample type, cell state, and experimental goals. Since significant differences can exist between samples, we recommend interpreting the results in the context of your specific experimental background.</p>
+</blockquote>
+</div>
+<h3 id="main-report-content-and-structure">Main Report Content and Structure<a class="headerlink" href="#main-report-content-and-structure" title="Permanent link">&para;</a></h3>
+<div align="center">
+<p><img src="../images/html_scatac1.png" alt="scATAC Web Report" width="500"></p>
+</div>
+<h3 id="core-analysis-metrics-explained">Core Analysis Metrics Explained<a class="headerlink" href="#core-analysis-metrics-explained" title="Permanent link">&para;</a></h3>
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
+<h4 id="cell-metrics">Cell Metrics <a id="cell-metrics"></a><a class="headerlink" href="#cell-metrics" title="Permanent link">&para;</a></h4>
+<div align="center">
+<p><strong>Core Function</strong>: Cell identification, quality assessment, and chromatin accessibility statistics, providing key indicators for the overall effectiveness of the experiment.</p>
+</div>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px; ">
+<p><strong>Quality Control Standards:</strong></p>
+<table style="width:100%; border-collapse: collapse; margin: 15px 0; border-radius: 8px; overflow: hidden;">
+<thead style="background-color: #f5f5f7; border-bottom: 1px solid #d2d2d7;">
+<tr>
+<th align="left" style="padding: 12px 16px; font-weight: 600; color: #1d1d1f;" width="25%">Metric Name</th>
+<th align="left" style="padding: 12px 16px; font-weight: 600; color: #1d1d1f;" width="30%">Recommended</th>
+<th align="left" style="padding: 12px 16px; font-weight: 600; color: #1d1d1f;" width="30%">Acceptable</th>
+<th align="left" style="padding: 12px 16px; font-weight: 600; color: #1d1d1f;" width="15%">Needs Improvement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" style="padding: 12px 16px; border-bottom: 1px solid #f0f0f0;"><strong>Median fragments per cell</strong></td>
+<td align="left" style="padding: 12px 16px; border-bottom: 1px solid #f0f0f0;">≥ 10,000</td>
+<td align="left" style="padding: 12px 16px; border-bottom: 1px solid #f0f0f0;">2,000–10,000</td>
+<td align="left" style="padding: 12px 16px; border-bottom: 1px solid #f0f0f0;">&lt; 2,000</td>
+</tr>
+<tr>
+<td align="left" style="padding: 12px 16px; border-bottom: 1px solid #f0f0f0;"><strong>Median fraction of fragments overlapping peaks</strong></td>
+<td align="left" style="padding: 12px 16px; border-bottom: 1px solid #f0f0f0;">≥ 30%</td>
+<td align="left" style="padding: 12px 16px; border-bottom: 1px solid #f0f0f0;">15–30%</td>
+<td align="left" style="padding: 12px 16px; border-bottom: 1px solid #f0f0f0;">&lt; 15%</td>
+</tr>
+<tr>
+<td align="left" style="padding: 12px 16px; border-bottom: 1px solid #f0f0f0;"><strong>Median fraction of fragments overlapping TSS</strong></td>
+<td align="left" style="padding: 12px 16px; border-bottom: 1px solid #f0f0f0;">≥ 20%</td>
+<td align="left" style="padding: 12px 16px; border-bottom: 1px solid #f0f0f0;">10–20%</td>
+<td align="left" style="padding: 12px 16px; border-bottom: 1px solid #f0f0f0;">&lt; 10%</td>
+</tr>
+<tr>
+<td align="left" style="padding: 12px 16px;"><strong>Fraction fragments in cells</strong></td>
+<td align="left" style="padding: 12px 16px;">≥ 50%</td>
+<td align="left" style="padding: 12px 16px;">20–50%</td>
+<td align="left" style="padding: 12px 16px;">&lt; 20%</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px; ">
+<p><strong>Detailed Metric Explanations:</strong></p>
+<table style="width:100%; border-collapse: collapse; margin: 15px 0; border-radius: 8px; overflow: hidden;">
+<thead style="background-color: #f5f5f7; border-bottom: 1px solid #d2d2d7;">
+<tr>
+<th align="left" style="padding: 12px 16px; font-weight: 600; color: #1d1d1f;" width="30%">Metric Name</th>
+<th align="left" style="padding: 12px 16px; font-weight: 600; color: #1d1d1f;" width="70%">Detailed Explanation &amp; Technical Requirements</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" style="padding: 12px 16px; border-bottom: 1px solid #f0f0f0;"><strong>Estimated number of cells</strong></td>
+<td style="padding: 12px 16px; border-bottom: 1px solid #f0f0f0;">
+<ul>
+<li><strong>Definition</strong>: The total number of valid cells identified from the sequencing data (as distinct from background noise or empty droplets).</li>
+<li><strong>Calculation Process</strong>: After merging barcodes from the same droplet, cells are filtered based on parameters like the number of fragments in peak regions and TSS proportion.</li>
+<li><strong>Quality Interpretation</strong>: 
+<ul><li><strong>Abnormal Causes</strong>: Inaccurate cell counting, poor cell lysis, poor sample or library quality, low sequencing depth.</ul>
+</li>
+</ul>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td align="left" style="padding: 12px 16px; border-bottom: 1px solid #f0f0f0;"><strong>Species</strong></td>
+<td style="padding: 12px 16px; border-bottom: 1px solid #f0f0f0;">
+<ul>
+<li><strong>Definition</strong>: The species or reference genome version used for the analysis.</li>
+<li><strong>Note</strong>: This information is derived from the reference genome provided during library preparation and is used to ensure the accuracy of alignment and annotation.</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td align="left" style="padding: 12px 16px; border-bottom: 1px solid #f0f0f0;"><strong>Median fragments per cell</strong></td>
+<td style="padding: 12px 16px; border-bottom: 1px solid #f0f0f0;">
+<ul>
+<li><strong>Definition</strong>: The median number of valid ATAC-seq fragments contained within a single cell.</li>
+<li><strong>Biological Significance</strong>: This metric directly reflects the capture efficiency of open chromatin regions within a single nucleus and the sequencing depth. A higher value indicates better single-cell data quality.</li>
+<li><strong>Quality Interpretation</strong>:
+<ul>
+<li><strong>High-Quality Standard</strong>: ≥ 10,000</li>
+<li><strong>Recommended Minimum</strong>: ≥ 2,000</li>
+</ul>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td align="left" style="padding: 12px 16px; border-bottom: 1px solid #f0f0f0;"><strong>Mean raw read pairs per cell</strong></td>
+<td style="padding: 12px 16px; border-bottom: 1px solid #f0f0f0;">
+<ul>
+<li><strong>Definition</strong>: The average number of raw sequencing read pairs assigned to each cell.</li>
+<li><strong>Calculation</strong>: `Total Raw Read Pairs / Estimated Number of Cells`</li>
+<li><strong>Quality Interpretation</strong>: A value of ≥ 25,000 is recommended to ensure adequate chromatin coverage.</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td align="left" style="padding: 12px 16px; border-bottom: 1px solid #f0f0f0;"><strong>Fraction overlapping peaks</strong></td>
+<td style="padding: 12px 16px; border-bottom: 1px solid #f0f0f0;">
+<ul>
+<li><strong>Definition</strong>: The proportion of a single cell's fragments that fall into identified open chromatin regions (Peaks).</li>
+<li><strong>Biological Significance</strong>: This is a key signal-to-noise ratio metric. A high proportion indicates that transposase activity was more concentrated in open chromatin, resulting in a high signal-to-noise ratio.</li>
+<li><strong>Quality Interpretation</strong>:
+<ul><li><strong>Quality Warning</strong>: &lt; 15% may indicate sample quality issues.</ul>
+</li>
+</ul>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td align="left" style="padding: 12px 16px; border-bottom: 1px solid #f0f0f0;"><strong>Fraction overlapping TSS</strong></td>
+<td style="padding: 12px 16px; border-bottom: 1px solid #f0f0f0;">
+<ul>
+<li><strong>Definition</strong>: The proportion of a single cell's fragments that fall within the ±2kb region of a Transcription Start Site (TSS).</li>
+<li><strong>Biological Significance</strong>: A key metric for assessing chromatin activity in promoter regions and sequencing specificity.</li>
+<li><strong>Quality Interpretation</strong>:
+<ul><li><strong>Quality Warning</strong>: &lt; 10% may indicate sample quality issues.</ul>
+</li>
+</ul>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td align="left" style="padding: 12px 16px; border-bottom: 1px solid #f0f0f0;"><strong>Fraction of fragments in cells</strong></td>
+<td style="padding: 12px 16px; border-bottom: 1px solid #f0f0f0;">
+<ul>
+<li><strong>Definition</strong>: The proportion of all valid fragments that are successfully assigned to a high-quality cell ID.</li>
+<li><strong>Biological Significance</strong>: Reflects the efficiency of cell capture and the signal-to-noise ratio.</li>
+<li><strong>Quality Interpretation</strong>:
+<ul><li><strong>Quality Issue</strong>: A low ratio may indicate poor sample quality or library construction anomalies.</ul>
+</li>
+</ul>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td align="left" style="padding: 12px 16px;"><strong>Number of peaks</strong></td>
+<td style="padding: 12px 16px;">
+<ul>
+<li><strong>Definition</strong>: The total number of open chromatin regions (peaks) identified across the genome after aggregating the signal from all cells.</li>
+<li><strong>Biological Significance</strong>: Reflects the overall complexity of the sample and the number of detectable regulatory elements.</li>
+<li><strong>Typical Range</strong>: 50,000 – 150,000 peaks.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="max-width: 1200px; margin: 0 auto;">
+<hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;">
+</div>
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
+<h4 id="sequencing-metrics">Sequencing Metrics <a id="sequencing-metrics"></a><a class="headerlink" href="#sequencing-metrics" title="Permanent link">&para;</a></h4>
+<div align="center">
+<p><strong>Core Function</strong>: Basic quality assessment of sequencing data, including barcode identification rate, alignment quality, and sequencing accuracy.</p>
+</div>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px; ">
+<p><strong>Quality Control Standards:</strong></p>
+<table style="width:100%; border-collapse: collapse; margin: 15px 0; border-radius: 8px; overflow: hidden;">
+<thead style="background-color: #f5f5f7; border-bottom: 1px solid #d2d2d7;">
+<tr>
+<th align="left" style="padding: 12px 16px; font-weight: 600; color: #1d1d1f;" width="25%">Metric Category</th>
+<th align="left" style="padding: 12px 16px; font-weight: 600; color: #1d1d1f;" width="25%">Recommended</th>
+<th align="left" style="padding: 12px 16px; font-weight: 600; color: #1d1d1f;" width="25%">Acceptable</th>
+<th align="left" style="padding: 12px 16px; font-weight: 600; color: #1d1d1f;" width="25%">Needs Improvement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" style="padding: 12px 16px; border-bottom: 1px solid #f0f0f0;"><strong>Valid barcodes</strong></td>
+<td align="left" style="padding: 12px 16px; border-bottom: 1px solid #f0f0f0;">≥ 80%</td>
+<td align="left" style="padding: 12px 16px; border-bottom: 1px solid #f0f0f0;">70–80%</td>
+<td align="left" style="padding: 12px 16px; border-bottom: 1px solid #f0f0f0;">&lt; 70%</td>
+</tr>
+<tr>
+<td align="left" style="padding: 12px 16px; border-bottom: 1px solid #f0f0f0;"><strong>Q30 bases in barcode</strong></td>
+<td align="left" style="padding: 12px 16px; border-bottom: 1px solid #f0f0f0;">&gt; 85%</td>
+<td align="left" style="padding: 12px 16px; border-bottom: 1px solid #f0f0f0;">75–85%</td>
+<td align="left" style="padding: 12px 16px; border-bottom: 1px solid #f0f0f0;">&lt; 75%</td>
+</tr>
+<tr>
+<td align="left" style="padding: 12px 16px; border-bottom: 1px solid #f0f0f0;"><strong>Q30 bases in read</strong></td>
+<td align="left" style="padding: 12px 16px; border-bottom: 1px solid #f0f0f0;">&gt; 85%</td>
+<td align="left" style="padding: 12px 16px; border-bottom: 1px solid #f0f0f0;">75–85%</td>
+<td align="left" style="padding: 12px 16px; border-bottom: 1px solid #f0f0f0;">&lt; 75%</td>
+</tr>
+<tr>
+<td align="left" style="padding: 12px 16px;"><strong>Confidently mapped read pairs</strong></td>
+<td align="left" style="padding: 12px 16px;">&gt; 80%</td>
+<td align="left" style="padding: 12px 16px;">50–80%</td>
+<td align="left" style="padding: 12px 16px;">&lt; 50%</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px; ">
+<p><strong>Detailed Metric Explanations:</strong></p>
+<table style="width:100%; border-collapse: collapse; margin: 15px 0; border-radius: 8px; overflow: hidden;">
+<thead style="background-color: #f5f5f7; border-bottom: 1px solid #d2d2d7;">
+<tr>
+<th align="left" style="padding: 12px 16px; font-weight: 600; color: #1d1d1f;" width="30%">Metric Name</th>
+<th align="left" style="padding: 12px 16px; font-weight: 600; color: #1d1d1f;" width="70%">Detailed Explanation &amp; Technical Requirements</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" style="padding: 12px 16px; border-bottom: 1px solid #f0f0f0;"><strong>Total number of read pairs</strong></td>
+<td style="padding: 12px 16px; border-bottom: 1px solid #f0f0f0;">
+<ul>
+<li><strong>Definition</strong>: The total number of raw sequencing read pairs allocated to the sample.</li>
+<li><strong>Significance</strong>: Represents the overall volume of sequencing data.</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td align="left" style="padding: 12px 16px; border-bottom: 1px solid #f0f0f0;"><strong>Valid barcodes</strong></td>
+<td style="padding: 12px 16px; border-bottom: 1px solid #f0f0f0;">
+<ul>
+<li><strong>Definition</strong>: The proportion of reads whose cell barcode sequence can be successfully matched to the predefined whitelist (with error correction).</li>
+<li><strong>Biological Significance</strong>: Reflects the effectiveness of cell labeling.</li>
+<li><strong>Quality Interpretation</strong>: A low proportion usually suggests issues in library construction or a high sequencing error rate.</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td align="left" style="padding: 12px 16px; border-bottom: 1px solid #f0f0f0;"><strong>Confidently mapped read pairs</strong></td>
+<td style="padding: 12px 16px; border-bottom: 1px solid #f0f0f0;">
+<ul>
+<li><strong>Definition</strong>: The proportion of all reads that successfully align to any location on the reference genome.</li>
+<li><strong>Quality Interpretation</strong>:
+<ul><li><strong>Needs Attention</strong>: &lt; 50% may indicate sample contamination or species mismatch.</ul>
+</li>
+</ul>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td align="left" style="padding: 12px 16px; border-bottom: 1px solid #f0f0f0;"><strong>Mitochondrial reads ratio</strong></td>
+<td style="padding: 12px 16px; border-bottom: 1px solid #f0f0f0;">
+<ul>
+<li><strong>Definition</strong>: The proportion of all aligned reads that map to the mitochondrial genome.</li>
+<li><strong>Biological Significance</strong>: This is an important indicator of cell health.</li>
+<li><strong>Quality Interpretation</strong>: An excessively high ratio (e.g., &gt; 10%) often suggests cell death or excessive lysis.</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td align="left" style="padding: 12px 16px; border-bottom: 1px solid #f0f0f0;"><strong>Nucleosome-free regions</strong></td>
+<td style="padding: 12px 16px; border-bottom: 1px solid #f0f0f0;">
+<ul>
+<li><strong>Definition</strong>: The proportion of fragments originating from open chromatin regions (i.e., nucleosome-free regions).</li>
+<li><strong>Biological Significance</strong>: Reflects the strength of the valid ATAC-seq signal.</li>
+<li><strong>Quality Interpretation</strong>: A high proportion (e.g., &gt; 40%) indicates good chromatin accessibility.</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td align="left" style="padding: 12px 16px; border-bottom: 1px solid #f0f0f0;"><strong>Mono-nucleosome regions</strong></td>
+<td style="padding: 12px 16px; border-bottom: 1px solid #f0f0f0;">
+<ul>
+<li><strong>Definition</strong>: The proportion of fragment regions containing a single nucleosome.</li>
+<li><strong>Biological Significance</strong>: Reflects the integrity of the chromatin structure.</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td align="left" style="padding: 12px 16px; border-bottom: 1px solid #f0f0f0;"><strong>Q30 bases in barcode</strong></td>
+<td style="padding: 12px 16px; border-bottom: 1px solid #f0f0f0;">
+<ul>
+<li><strong>Definition</strong>: The proportion of bases with a sequencing quality score of Q30 or higher in the cell barcode sequence.</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td align="left" style="padding: 12px 16px;"><strong>Q30 bases in read</strong></td>
+<td style="padding: 12px 16px;">
+<ul>
+<li><strong>Definition</strong>: The proportion of bases with a sequencing quality score of Q30 or higher in the sequencing read.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="max-width: 1200px; margin: 0 auto;">
+<hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;">
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px; ">
+<h4 id="visualization-chart-1">Visualization Chart 1 <a id="visualization-chart-1"></a><a class="headerlink" href="#visualization-chart-1" title="Permanent link">&para;</a></h4>
+<div align="center">
+<p><strong>Core Function</strong>: Multi-dimensional visualization for cell quality control, fragment analysis, and chromatin accessibility assessment.</p>
+</div>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px; ">
+<h4 id="barcode-rank-plot">Barcode Rank Plot<a class="headerlink" href="#barcode-rank-plot" title="Permanent link">&para;</a></h4>
+<p><strong>Chart Function</strong>:<br />
+This plot ranks all cell barcodes by fragment count to distinguish high-quality true cells from background noise.</p>
+<p><strong>How to Interpret</strong>:
+*   <strong>Axes</strong>:
+    *   <strong>X-axis (Barcode Rank)</strong>: All barcodes ranked in descending order by fragment count. Left = high-fragment barcodes; right = low-fragment barcodes.
+    *   <strong>Y-axis (Fragment Counts)</strong>: Total peak-overlapping fragment counts per barcode (log scale).
+*   <strong>Key Feature (Knee Point)</strong>:
+    *   The curve usually has a clear "knee point".
+    *   The <strong>blue region</strong> to the left of the knee indicates barcodes identified as high-quality real cells.
+    *   The <strong>gray region</strong> to the right indicates background noise.
+*   <strong>Interactivity</strong>:
+    *   Hover to inspect barcode rank and fragment count details.
+    *   Blue color intensity reflects the local density of real cells.</p>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px; ">
+<h4 id="droplet-beads-distribution">Droplet Beads Distribution<a class="headerlink" href="#droplet-beads-distribution" title="Permanent link">&para;</a></h4>
+<p><strong>Chart Function</strong>:<br />
+Shows the distribution of captured cell barcodes (beads) within droplets identified as real cells.</p>
+<p><strong>How to Interpret</strong>:
+*   <strong>Theoretical distribution</strong>: Bead count per droplet is expected to approximately follow a <strong>Poisson distribution</strong>, reflecting random capture in microfluidics.
+*   <strong>Practical factors</strong>: The observed distribution is affected by sequencing saturation, droplet size uniformity, and cell concentration.</p>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px; ">
+<h4 id="cell-data-distribution">Cell Data Distribution<a class="headerlink" href="#cell-data-distribution" title="Permanent link">&para;</a></h4>
+<p><strong>Chart Function</strong>:<br />
+Three violin plots show the distributions of key QC metrics in high-quality cells: <strong>Fragments</strong>, <strong>TSS Proportion</strong>, and <strong>Peak Proportion</strong>.</p>
+<p><strong>How to Interpret</strong>:
+*   <strong>Violin plot basics</strong>:
+    *   Plot <strong>width</strong> indicates cell density at that value. Wider sections represent more cells.
+    *   The internal boxplot summarizes median and quartiles.
+*   <strong>Metric interpretation</strong>:
+    *   <strong>Fragments</strong>: Distribution of total fragments per cell. Better libraries usually have a higher central density.
+    *   <strong>TSS Proportion</strong>: Distribution of fragment fractions around TSS. A higher center indicates stronger transcription-associated accessibility.
+    *   <strong>Peak Proportion</strong>: Distribution of fragment fractions in called peaks. A higher center indicates better signal-to-noise.</p>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px; ">
+<h4 id="fragment-length-distribution">Fragment Length Distribution<a class="headerlink" href="#fragment-length-distribution" title="Permanent link">&para;</a></h4>
+<p><strong>Chart Function</strong>:<br />
+Shows the insert length distribution of deduplicated ATAC-seq fragments, a key plot for assessing sample quality and chromatin structure integrity.</p>
+<p><strong>How to Interpret</strong>:
+*   <strong>Periodic peaks</strong>:
+    *   <strong>&lt; ~100 bp</strong>: First peak, corresponding to <strong>nucleosome-free regions (NFRs)</strong>, i.e., open chromatin.
+    *   <strong>~200 bp</strong>: Second peak, corresponding to <strong>mono-nucleosome</strong> fragments.
+    *   <strong>~400 bp, ~600 bp</strong>: Subsequent peaks corresponding to <strong>di-nucleosome</strong> and <strong>tri-nucleosome</strong> fragments.
+*   <strong>Quality assessment</strong>:
+    *   <strong>High-quality sample</strong>: Clear ~200 bp periodic peaks with a prominent NFR peak, indicating intact nuclei and clear chromatin structure.
+    *   <strong>Low-quality sample</strong>: Flat curve without periodicity, often indicating over-lysis or disrupted chromatin architecture.</p>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px; ">
+<h4 id="other-key-metrics">Other Key Metrics <a id="other-key-metrics"></a><a class="headerlink" href="#other-key-metrics" title="Permanent link">&para;</a></h4>
+<div align="center">
+<p><img src="../images/html_scatac2.png" alt="scATAC Web Report" width="500"></p>
+</div>
+<p><strong>Percent duplicates</strong>
+*   <strong>Definition</strong>: The proportion of fragments identified as PCR duplicates.
+*   <strong>Biological significance</strong>: A key metric for library complexity and sequencing saturation.
+*   <strong>Quality interpretation</strong>:
+    *   High duplication (e.g., &gt; 20-30%) usually indicates sequencing has approached saturation.
+    *   Very low duplication (e.g., &lt; 10%) may suggest insufficient depth; deeper sequencing may recover more unique fragments.</p>
+<p><strong>Jaccard threshold</strong>
+*   <strong>Definition</strong>: Similarity cutoff used to determine whether two beads came from the same droplet/cell.
+*   <strong>Technical background</strong>: In C4 ATAC, one droplet may contain multiple beads; bead-level fragment overlap (Jaccard index) is used for merging.
+*   <strong>Algorithm</strong>: Automatically determined by Otsu's method. To ensure stability, if the computed threshold is &lt; 0.02, it is set to 0.02.</p>
+</div>
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
+<h4 id="visualization-chart-2">Visualization Chart 2 <a id="visualization-chart-2"></a><a class="headerlink" href="#visualization-chart-2" title="Permanent link">&para;</a></h4>
+<div align="center">
+<p><strong>Core Function</strong>: Advanced visualizations for cell clustering, TSS enrichment patterns, saturation assessment, and bead similarity.</p>
+</div>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px; ">
+<h4 id="cluster-analysis">Cluster Analysis<a class="headerlink" href="#cluster-analysis" title="Permanent link">&para;</a></h4>
+<p><strong>Chart Function</strong>:<br />
+Cells with similar chromatin accessibility patterns are grouped in 2D space using UMAP + Louvain clustering to identify potential cell subpopulations.</p>
+<p><strong>How to Interpret</strong>:
+*   <strong>Left plot (cell clusters)</strong>:
+    *   Each point is one cell.
+    *   Different colors indicate different clusters, potentially representing distinct cell types or states.
+    *   Nearby points have more similar accessibility profiles.
+*   <strong>Right plot (fragment count overlay)</strong>:
+    *   Uses the same UMAP layout with a color gradient for per-cell fragment count.
+    *   Darker colors indicate higher fragment counts and usually better data quality.</p>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px; ">
+<h4 id="tss-enrichment-profile">TSS Enrichment Profile<a class="headerlink" href="#tss-enrichment-profile" title="Permanent link">&para;</a></h4>
+<p><strong>Chart Function</strong>:<br />
+Shows fragment insertion enrichment around transcription start sites (TSS), a core indicator of ATAC-seq signal specificity and quality.</p>
+<p><strong>How to Interpret</strong>:
+*   <strong>Axes</strong>:
+    *   <strong>X-axis</strong>: Position relative to TSS (0 = TSS).
+    *   <strong>Y-axis</strong>: Normalized signal intensity (insertion frequency).
+*   <strong>Key pattern</strong>:
+    *   High-quality data shows a sharp enrichment peak at TSS center (0).
+    *   Signal should drop quickly away from the center.
+*   <strong>Quality assessment</strong>:
+    *   <strong>TSS Enrichment Score</strong> quantifies this pattern; higher scores (e.g., &gt; 4-6) indicate better signal-to-noise.
+    *   Flat curves without a clear peak suggest poor sample quality or failed library prep.</p>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px; ">
+<h4 id="single-cell-targeting-plot">Single Cell Targeting Plot<a class="headerlink" href="#single-cell-targeting-plot" title="Permanent link">&para;</a></h4>
+<p><strong>Chart Function</strong>:<br />
+A scatter plot of two key QC metrics per cell, used to evaluate cell-calling performance.</p>
+<p><strong>How to Interpret</strong>:
+*   <strong>Axes</strong>:
+    *   <strong>X-axis (Fragment Counts)</strong>: Total fragments per cell (log scale).
+    *   <strong>Y-axis (TSS Enrichment)</strong>: TSS enrichment score per cell.
+*   <strong>Quality assessment</strong>:
+    *   <strong>Top-right</strong>: High fragment count + high TSS enrichment (high-quality cells).
+    *   <strong>Bottom-left</strong>: Low fragment count + low TSS enrichment (background/noise, usually filtered out).
+    *   Ideally, high-quality cells and background are clearly separable.</p>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px; ">
+<h4 id="saturation-curve">Saturation Curve<a class="headerlink" href="#saturation-curve" title="Permanent link">&para;</a></h4>
+<p><strong>Chart Function</strong>:<br />
+Evaluates sequencing depth sufficiency and library complexity, i.e., whether additional sequencing can still identify substantial numbers of new unique fragments.</p>
+<p><strong>How to Interpret</strong>:
+*   <strong>Axes</strong>:
+    *   <strong>X-axis</strong>: Mean read pairs per cell (sequencing depth).
+    *   <strong>Y-axis</strong>: Median unique fragments per cell.
+*   <strong>Curve behavior</strong>:
+    *   <strong>Linear/rising phase</strong>: Additional sequencing yields many new unique fragments.
+    *   <strong>Plateau/saturation phase</strong>: Library complexity is mostly exhausted; extra sequencing has diminishing returns.
+*   <strong>Quality guidance</strong>: A saturation (duplication-related) level around 20%-50% is often a practical balance between cost and completeness.</p>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px; ">
+<h4 id="bead-similarity-ranking">Bead Similarity Ranking<a class="headerlink" href="#bead-similarity-ranking" title="Permanent link">&para;</a></h4>
+<p><strong>Chart Function</strong>:<br />
+In C4 ATAC, this plot is used to merge multiple beads from the same droplet by ranking bead pairs using Jaccard similarity.</p>
+<p><strong>How to Interpret</strong>:
+*   <strong>Axes</strong>:
+    *   <strong>X-axis</strong>: All bead pairs ranked by Jaccard similarity (descending).
+    *   <strong>Y-axis</strong>: Jaccard similarity index (log scale).
+*   <strong>Key regions</strong>:
+    *   <strong>Blue region</strong>: Similarity above the Otsu threshold; bead pairs are considered from the same cell and merged.
+    *   <strong>Gray region</strong>: Similarity below threshold; bead pairs are treated as from different cells.</p>
+</div>
+<div style="max-width: 1200px; margin: 0 auto;">
+<hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;">
+</div>
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
+<h2 id="related-documentation">Related Documentation<a class="headerlink" href="#related-documentation" title="Permanent link">&para;</a></h2>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Document</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><a href="../pipeline/scATAC.html">scATAC Pipeline</a></td>
+<td style="text-align: left;">Detailed scATAC analysis workflow</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="../parameter/scATAC.html">scATAC Parameters</a></td>
+<td style="text-align: left;">Command parameter reference</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="outs.html">Output Files</a></td>
+<td style="text-align: left;">Return to output documentation index</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="max-width: 1200px; margin: 0 auto;">
+<hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;">
+</div>
+<div align="center" style="background: #f5f5f7; border-radius: 12px; padding: 30px; margin: 40px auto; max-width: 1200px;">
+<blockquote>
+<p><strong>Feedback &amp; Support</strong></p>
+<p>This document is continuously updated. If you find any errors or have information to add, feedback is welcome.</p>
+<p><strong>Document Version:</strong> 3.1 | <strong>Last Updated:</strong> April 2026</p>
+</blockquote>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 MGI Tech Bioinformatics. All rights reserved.<br>
+Documentation Version 3.1 · Last updated April 2026
+
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["search.suggest", "search.highlight"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../../javascripts/lang-toggle.js"></script>
+      
+    
+  </body>
+</html>

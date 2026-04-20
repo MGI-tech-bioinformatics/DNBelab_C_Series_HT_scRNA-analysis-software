@@ -1,13 +1,61 @@
+/* Wider main content container */
+.md-grid {
+  max-width: 1500px;
+}
+
 /* Keep side navigation scrollable on long nav trees */
 .md-sidebar__scrollwrap {
   overflow-y: auto !important;
   overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
 }
 
-/* Avoid occasional scroll lock on desktop */
-.md-sidebar--primary,
+/* Robust desktop sidebar scrolling (especially right TOC) */
+@media screen and (min-width: 76.25em) {
+  .md-sidebar--primary,
+  .md-sidebar--secondary {
+    top: 2.4rem;
+    bottom: 0;
+    height: auto !important;
+  }
+
+  .md-sidebar--primary .md-sidebar__scrollwrap,
+  .md-sidebar--secondary .md-sidebar__scrollwrap {
+    height: calc(100vh - 2.4rem) !important;
+    max-height: calc(100vh - 2.4rem) !important;
+    overflow-y: scroll !important;
+    padding-bottom: 1rem;
+    scrollbar-gutter: stable both-edges;
+  }
+
+  .md-sidebar--secondary .md-sidebar__inner {
+    height: calc(100vh - 2.4rem) !important;
+    overflow-y: auto !important;
+  }
+
+  /* Hide right TOC scrollbar track while keeping scroll functionality */
+  .md-sidebar--secondary .md-sidebar__scrollwrap,
+  .md-sidebar--secondary .md-sidebar__inner {
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* Legacy Edge */
+  }
+
+  .md-sidebar--secondary .md-sidebar__scrollwrap::-webkit-scrollbar,
+  .md-sidebar--secondary .md-sidebar__inner::-webkit-scrollbar {
+    width: 0 !important;
+    height: 0 !important;
+    display: none;
+  }
+}
+
+/* Keep right TOC clean (no separator line) */
 .md-sidebar--secondary {
-  height: calc(100vh - 2.4rem);
+  border-left: none !important;
+  box-shadow: none !important;
+}
+
+.md-nav--secondary {
+  border-left: none !important;
 }
 
 /* Hide non-clickable site title block above left nav items */
@@ -26,4 +74,133 @@
 .md-footer a,
 .md-footer-meta a {
   color: #ffffff !important;
+}
+
+/* Make language switcher in header much more visible */
+.md-header .md-header__option .md-select__inner {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+  min-width: auto !important;
+  cursor: pointer;
+}
+
+.md-header .md-header__option .md-select::before {
+  content: "切换语言 / Language";
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  margin-right: 10px;
+  opacity: 1;
+}
+
+.md-header .md-header__option .md-select__icon,
+.md-header .md-header__option .md-select__link .md-icon {
+  display: none !important;
+}
+
+.md-header .md-header__option .md-select__link {
+  display: none !important;
+}
+
+.md-header .md-header__option .md-select__list {
+  display: none !important;
+}
+
+/* Larger, easier-to-click language dropdown menu items */
+.md-header .md-select__list {
+  min-width: 160px;
+}
+
+.md-header .md-select__list .md-select__link {
+  font-size: 14px !important;
+  line-height: 1.45;
+  padding: 10px 14px !important;
+}
+
+/* Home page tables: improve readability and click targets */
+.home-nav-table table {
+  font-size: 1.06rem;
+}
+
+.home-nav-table table th,
+.home-nav-table table td {
+  padding-top: 14px;
+  padding-bottom: 14px;
+}
+
+.home-nav-table table td a {
+  display: inline-block;
+  padding: 3px 6px;
+}
+
+/* Home quick links bar */
+.home-quick-links {
+  border: 1px solid #d9dce4;
+  border-radius: 10px;
+  background: #f7f8fb;
+  padding: 12px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 10px;
+}
+
+.home-quick-links a {
+  display: inline-block;
+  padding: 8px 12px;
+  border-radius: 8px;
+  text-decoration: none;
+  background: #ffffff;
+  border: 1px solid #d7dce9;
+  font-weight: 600;
+}
+
+.home-quick-links a:hover {
+  background: #edf2ff;
+  border-color: #b8c6f5;
+}
+
+/* Home module table (reference-like 3-column cards) */
+.home-module-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  border: 1px solid #d9dce4;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.home-module-table thead th {
+  background: #f3f5f9;
+  font-size: 1.02rem;
+  text-align: left;
+  padding: 12px 14px;
+  border-bottom: 1px solid #d9dce4;
+}
+
+.home-module-table tbody td {
+  vertical-align: top;
+  padding: 12px 14px;
+  border-right: 1px solid #eceff5;
+}
+
+.home-module-table tbody td:last-child {
+  border-right: none;
+}
+
+.home-module-table tbody td p {
+  margin: 8px 0;
+}
+
+.home-module-table tbody td a {
+  display: inline-block;
+  padding: 6px 8px;
+  border-radius: 7px;
+  text-decoration: none;
+}
+
+.home-module-table tbody td a:hover {
+  background: #edf2ff;
 }

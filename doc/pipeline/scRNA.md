@@ -1,6 +1,6 @@
 <div align="right" style="margin-bottom: 20px; max-width: 1200px; margin-left: auto; margin-right: auto;">
 
-[主页](../../README.md) • [English](scRNA_en.md)
+[首页](../../README.md)
 
 </div>
 
@@ -121,14 +121,16 @@
  <strong>推荐数据来源</strong>：优先使用 <a href="https://www.ensembl.org/index.html">Ensembl 数据库</a> 提供的文件。Ensembl 的 GTF 文件包含可选标签，便于通过 <code>dnbc4tools tools mkgtf</code> 进行过滤。
 </div>
 
-**GTF 文件要求**：
-- 必须包含 <code>gene</code> 或 <code>transcript</code> 类型以及 <code>exon</code> 类型的注释。
-- 属性中必须包含 <code>gene_id</code> 或 <code>gene_name</code> 以及 <code>transcript_id</code> 或 <code>transcript_name</code>。
-- 不支持 GFF 文件格式。
-- 基因组文件与注释文件需版本对应。
+**GTF 文件要求：**
+<ul>
+  <li>必须包含 <code>gene</code> 或 <code>transcript</code> 类型以及 <code>exon</code> 类型的注释。</li>
+  <li>属性中必须包含 <code>gene_id</code> 或 <code>gene_name</code> 以及 <code>transcript_id</code> 或 <code>transcript_name</code>。</li>
+  <li>不支持 GFF 文件格式。</li>
+  <li>基因组文件与注释文件需版本对应。</li>
+</ul>
 
 
-### GTF 文件处理（可选）
+### GTF 文件处理（可选） <a id="gtf-file-processing-optional-zh"></a>
 
 从 ENSEMBL 和 UCSC 等网站下载的 GTF 文件通常包含多种类型的基因。根据您的研究兴趣选择特定的基因类型进行分析，可以有效减少基因注释的重叠，从而提高比对的唯一性。与多个基因非唯一比对的 reads 会被过滤。
 
@@ -430,11 +432,13 @@ $cat sample1.sh
 ### 单样本分析
 
 RNA 主分析流程处理单个样本的 cDNA 和 Oligo 文库测序数据。该流程的核心步骤包括：
-1.  **数据处理**：执行质量控制、比对和功能区域注释。
-2.  **细胞识别**：合并磁珠，识别有效细胞。
-3.  **矩阵生成**：生成原始及过滤后的基因表达矩阵。
-4.  **高级分析**：对过滤后矩阵进行细胞筛选、降维、聚类和注释。
-5.  **报告生成**：输出 HTML 格式的分析报告及其他结果文件。
+<ol>
+  <li><strong>数据处理</strong>：执行质量控制、比对和功能区域注释。</li>
+  <li><strong>细胞识别</strong>：合并磁珠，识别有效细胞。</li>
+  <li><strong>矩阵生成</strong>：生成原始及过滤后的基因表达矩阵。</li>
+  <li><strong>高级分析</strong>：对过滤后矩阵进行细胞筛选、降维、聚类和注释。</li>
+  <li><strong>报告生成</strong>：输出 HTML 格式的分析报告及其他结果文件。</li>
+</ol>
 
 支持两种输入方式：
 

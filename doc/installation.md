@@ -1,107 +1,107 @@
 <div align="right">
 
-[Home](../README.md)
+[首页](../README.md)
 
 </div>
 
-# DNBelab C Series™ Software Installation
+# DNBelab C Series™ 软件安装指南
 
 <div align="center">
 
-**Complete installation guide for the DNBelab C Series™ HT Single-Cell Analysis Software package**
+**DNBelab C Series™ HT 单细胞分析软件完整安装指南**
 
-[Requirements](#system-requirements) • [Download](#software-download) • [Installation](#installation-process) • [Verification](#verification--testing)
+[环境要求](#system-requirements) • [软件下载](#software-download) • [安装流程](#installation-process) • [安装验证](#verification--testing)
 
 </div>
 
 ---
 
-## System Requirements <a id="system-requirements"></a>
+## 环境要求 <a id="system-requirements"></a>
 
-| Category | Requirement |
+| 类别 | 要求 |
 | :--- | :--- |
-| **Processor** | x86-64 compatible processors |
-| **Memory** | 50GB RAM or higher (128GB+ recommended) |
-| **CPU** | Minimum 8 cores (16+ cores recommended) |
-| **Storage** | Sufficient disk space for data processing (SSD recommended) |
-| **OS** | Linux 64-bit (CentOS 7.x, Ubuntu 20.04+) |
+| **处理器** | x86-64 架构处理器 |
+| **内存** | 至少 50GB RAM（推荐 128GB 及以上） |
+| **CPU** | 至少 8 核（推荐 16 核及以上） |
+| **存储** | 保证数据处理所需磁盘空间（推荐 SSD） |
+| **操作系统** | 64 位 Linux（CentOS 7.x、Ubuntu 20.04+） |
 
 <div style="background-color: #e7f3fe; border-left: 6px solid #2196F3; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
-Compatible with higher software and hardware configurations.
+更高硬件和软件配置同样适用。
 </div>
 
 ---
 
-## Software Download <a id="software-download"></a>
+## 软件下载 <a id="software-download"></a>
 
-### dnbc4tools 3.1 (Released: Apr 3, 2026)
+### dnbc4tools 3.1（发布日期：2026-04-03）
 
-| Package Details | Information |
+| 包信息 | 内容 |
 | :--- | :--- |
-| **File Name** | dnbc4tools-3.1.tar.gz |
-| **File Size** | 518M |
-| **MD5 Checksum** | *To be updated upon release* |
+| **文件名** | dnbc4tools-3.1.tar.gz |
+| **文件大小** | 518M |
+| **MD5 校验值** | 发布后更新 |
 
-**Download Options:**
-- **CNGB link**: [dnbc4tools-3.1.tar.gz](https://ftp2.cngb.org/pub/CNSA/data7/CNP0008672/Single_Cell/CSE0000574/dnbc4tools-3.1.tar.gz)
+**下载方式：**
+- **CNGB 链接**: [dnbc4tools-3.1.tar.gz](https://ftp2.cngb.org/pub/CNSA/data7/CNP0008672/Single_Cell/CSE0000574/dnbc4tools-3.1.tar.gz)
 
 ```bash
-#### Download using `wget`
+#### 使用 `wget` 下载
 wget -O dnbc4tools-3.1.tar.gz "ftp://ftp2.cngb.org/pub/CNSA/data7/CNP0008672/Single_Cell/CSE0000574/dnbc4tools-3.1.tar.gz"
-#### Download using `curl`
+#### 使用 `curl` 下载
 curl -o dnbc4tools-3.1.tar.gz "ftp://ftp2.cngb.org/pub/CNSA/data7/CNP0008672/Single_Cell/CSE0000574/dnbc4tools-3.1.tar.gz"
 ```
 
 <div style="margin-top: 15px;">
-  <strong>Looking for older versions?</strong><br>
-  For previous version downloads and installation instructions, please visit the <a href="./installation_previous.md">Previous Installation Guide</a>.
+  <strong>需要历史版本？</strong><br>
+  旧版本下载和安装说明请参考 <a href="./installation_previous.md">历史版本安装指南</a>。
 </div>
 
 ---
 
-## Installation Process <a id="installation-process"></a>
+## 安装流程 <a id="installation-process"></a>
 
 <div style="background-color: #e7f3fe; border-left: 6px solid #2196F3; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
-<em>dnbc4tools</em> is distributed as a self-contained <em>tar.gz</em> package that includes all precompiled dependencies. This allows it to run on most Linux environments without requiring additional setup.
+<em>dnbc4tools</em> 以自包含 <em>tar.gz</em> 包发布，内置预编译依赖，通常无需额外配置即可在 Linux 环境运行。
 </div>
 
-### Step 1: Extract the Package
+### 第一步：解压安装包
 
-Extract the dnbc4tools package to your preferred directory (example uses `/opt/software`):
+将 dnbc4tools 安装包解压到目标目录（示例为 `/opt/software`）：
 
 ```bash
-# Navigate to target directory
+# 进入目标目录
 cd /opt/software
 
-# Extract the package
+# 解压安装包
 tar -xzvf dnbc4tools-3.1.tar.gz
 ```
 
-### Step 2: Verify Directory Structure 
+### 第二步：确认目录结构
 
-After extraction, you should see the following directory structure:
+解压后目录结构如下：
 
-| Component | Description |
+| 组件 | 说明 |
 | :--- | :--- |
-| `dnbc4tools3.1/dnbc4tools` | Main executable |
-| `dnbc4tools3.1/external` | External dependencies |
-| `dnbc4tools3.1/lib` | Library files |
-| `dnbc4tools3.1/misc` | Miscellaneous files |
-| `dnbc4tools3.1/sourceC4.bash` | Environment configuration script |
+| `dnbc4tools3.1/dnbc4tools` | 主程序 |
+| `dnbc4tools3.1/external` | 第三方依赖 |
+| `dnbc4tools3.1/lib` | 库文件 |
+| `dnbc4tools3.1/misc` | 其他文件 |
+| `dnbc4tools3.1/sourceC4.bash` | 环境配置脚本 |
 
 ---
 
-## Verification & Testing <a id="verification--testing"></a>
+## 安装验证 <a id="verification--testing"></a>
 
-### Basic Functionality Test
+### 基础功能测试
 
-Confirm that the installation was successful by running these commands:
+执行以下命令确认安装是否成功：
 
 ```bash
-# Navigate to installation directory
+# 进入安装目录
 cd /opt/software/dnbc4tools3.1
 
-# Test
+# 测试命令
 ./dnbc4tools
 
 dnbc4tools 3.1
@@ -125,12 +125,12 @@ Options:
 
 ---
 
-## Related Documentation
+## 相关文档
 
-| Resource | Description |
+| 文档 | 说明 |
 | :--- | :--- |
-| [Quick Start](./quickstart.md) | Step-by-step tutorial for your first analysis |
-| [Pipeline Guides](./pipeline/pipeline.md) | Workflow documentation for all analysis types |
-| [Parameters](./parameter/parameter.md) | Command reference and configuration options |
-| [Outputs](./outs/outs.md) | Understanding result files and reports |
-| [Sample Data](./dataset.md) | Download sample datasets for testing |
+| [快速开始](./quickstart.md) | 首个分析任务的分步教程 |
+| [流程文档](./pipeline/pipeline.md) | 覆盖全部分析类型的流程说明 |
+| [参数说明](./parameter/parameter.md) | 命令与配置项参考 |
+| [输出说明](./outs/outs.md) | 结果文件与报告解读 |
+| [示例数据](./dataset.md) | 用于测试的示例数据下载 |

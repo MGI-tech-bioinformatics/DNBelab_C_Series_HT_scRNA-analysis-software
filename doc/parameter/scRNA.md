@@ -1,6 +1,6 @@
 <div align="right" style="margin-bottom: 20px; max-width: 1200px; margin-left: auto; margin-right: auto;">
 
-<a href="../../README.md" style="color: #0071e3; text-decoration: none; font-size: 14px;">主页</a> <span style="color: rgba(0,0,0,0.3);">•</span> <a href="scRNA_en.md" style="color: #0071e3; text-decoration: none; font-size: 14px;">English</a>
+[首页](../../README.md)
 
 </div>
 
@@ -48,43 +48,35 @@ Process a single-cell RNA-seq sample.
 Usage: dnbc4tools rna run [OPTIONS]
 
 optional arguments:
-  -h, --help                 show this help message and exit
+  --help                     show this help message and exit
 
 Input Files:
   Choose one input method: either `--fastqs` (directory input) or all four individual FASTQ files.
 
-  --fastqs <DIR>             Directory containing cDNA and oligo FASTQ subfolders (e.g., `cDNA/sample_cdna_R1.fastq.gz`, `oligo/sample_oligo_R1.fastq.gz`).
-                             The pipeline automatically detects paired-end files.
+  --fastqs <DIR>             Directory containing cDNA and oligo FASTQ subfolders (e.g., `cDNA/sample_cdna_R1.fastq.gz`, `oligo/sample_oligo_R1.fastq.gz`). The pipeline automatically detects paired-end files.
   --cDNAfastq1 <FILE>        cDNA Read1 FASTQ list. Supports wildcard and comma-separated inputs (e.g., `sample1_R1.fastq.gz,sample2_R1.fastq.gz`).
   --cDNAfastq2 <FILE>        cDNA Read2 FASTQ list. Order must match `--cDNAfastq1` (e.g., `sample1_R2.fastq.gz,sample2_R2.fastq.gz`).
   --oligofastq1 <FILE>       Oligo Read1 FASTQ list for barcode merging. Supports wildcard and comma-separated inputs.
   --oligofastq2 <FILE>       Oligo Read2 FASTQ list. Order must match `--oligofastq1` (e.g., `sample1_oligo_R2.fastq.gz`).
 
 Basic Settings:
-  -n, --name <STR>           Unique identifier for the sample. Used for naming output files and reports (e.g., `sample1`).
-  -g, --genomeDir <DIR>      Path to reference genome directory containing STAR index files (e.g., `./genome_index`).
-  -o, --outdir <DIR>         Output directory for results and reports [default: current directory] (e.g., `./output`).
-  -t, --threads <INT>        Number of CPU threads for parallel processing [default: all available cores] (e.g., `16`).
+  --name <STR>               Unique identifier for the sample. Used for naming output files and reports (e.g., `sample1`).
+  --genomeDir <DIR>          Reference genome directory path containing STAR index files (e.g., `./genome_index`).
+  --outdir <DIR>             Output directory path for results and reports [default: current directory] (e.g., `./output`).
+  --threads <INT>            Number of CPU threads for parallel processing [default: all available cores] (e.g., `16`).
 
 Filtering Settings:
   --calling_method <STR>     Cell detection method [default: emptydrops]. Supported values: `barcoderanks`, `emptydrops`.
   --expectcells <INT>        Expected number of cells to guide detection [default: auto] (e.g., `3000`).
   --forcecells <INT>         Force pipeline to use exactly this number of cells, overriding expected cell detection (e.g., `5000`).
   --minumi <INT>             Minimum UMI count per cell to retain [default: 1000].
-  --consistent_cells <FILE>  Headered CSV for merge/cell-calling constraints.
-                             Supported schemas: `cell`; `cell,barcode`; `cell,is_cell_barcode`; `cell,barcode,is_cell_barcode`. Other columns are ignored.
+  --consistent_cells <FILE>  Headered CSV for merge/cell-calling constraints. Supported schemas: `cell`; `cell,barcode`; `cell,is_cell_barcode`; `cell,barcode,is_cell_barcode`. Other columns are ignored.
 
 Library Settings:
-  --chemistry <STR>          Library chemistry version [default: auto].
-                             Options: `scRNAv1HT`, `scRNAv2HT`, `scRNAv3HT`, `scRNA5Pv1`, `auto` (automatic detection).
-  --darkreaction <STR>       Dark cycle setting for cDNA and oligo libraries [default: auto].
-                             Provide two comma-separated values in the form `<cDNA>,<oligo>`.
-                             Each field may be one of the following: `auto` (automatic detection), `R1R2` (both reads), `R1` (Read 1 only), or `unset` (no dark cycles) (e.g.,
-                             `R1,R1R2`; `R1,R1`; `unset,unset`).
-  --customize <STR>          Custom read structure for barcode, UMI, or sequence extraction, in the format `<type>,<read>:<start>-<end>` separated by `;`.
-                             Types: `cb` (cell barcode), `umi` (UMI), and `R1`/`R2` (sequence).
-                             Provide this option twice when both cDNA and oligo are customized: first cDNA, then oligo (e.g.,
-                             `"cb,R1:1-10;cb,R1:11-20;umi,R1:21-30;R1,R2:1-100"`).
+  --chemistry <STR>          Library chemistry version [default: auto]. Options: `scRNAv1HT`, `scRNAv2HT`, `scRNAv3HT`, `scRNA5Pv1`, `auto` (automatic detection).
+  --darkreaction <STR>       Dark cycle setting for cDNA and oligo libraries [default: auto]. Provide two comma-separated values in the form `<cDNA>,<oligo>`. Each field may be one of: `auto`, `R1R2`, `R1`, `unset`.
+  --customize <STR>          Custom read structure string. Format: `<type>,<read>:<start>-<end>` joined by `;`. cDNA (e.g., `cb,R1:1-10;cb,R1:11-20;umi,R1:21-30;R2,R2:1-100`). Oligo (e.g., `cb,R1:1-10;cb,R1:11-20;R1,R1:21-45`). For
+                             RNA, provide `--customize` twice when both cDNA and oligo are customized: first cDNA, then oligo.
 
 Analysis Settings:
   --no_introns               Exclude intronic reads from the expression matrix to increase specificity.
@@ -507,22 +499,22 @@ Build an RNA reference database.
 Usage: dnbc4tools rna mkref [OPTIONS]
 
 optional arguments:
-  -h, --help          show this help message and exit
+  --help              show this help message and exit
 
 Input Files:
   Input genome FASTA files and gene-annotation GTF files. For mixed-species analysis, separate multiple files with commas.
 
-  --fasta <FILE>      Path(s) to reference-genome FASTA files. Separate multiple files with commas (e.g., `genome1.fa,genome2.fa`).
-  --ingtf <FILE>      Path(s) to gene-annotation GTF files. Separate multiple files with commas (e.g., `anno1.gtf,anno2.gtf`).
+  --fasta <FILE>      Reference-genome FASTA file path(s). Separate multiple files with commas (e.g., `genome1.fa,genome2.fa`).
+  --ingtf <FILE>      Gene-annotation GTF file path(s). Separate multiple files with commas (e.g., `anno1.gtf,anno2.gtf`).
 
 Basic Settings:
-  --genomeDir <DIR>   Output directory for generated reference files [default: current directory] (e.g., `./ref`).
+  --genomeDir <DIR>   Output directory path for generated reference files [default: current directory] (e.g., `./ref`).
   --species <STR>     Species identifier(s). Use commas for mixed-species analysis [default: undefined] (e.g., `human,mouse`).
   --threads <INT>     Number of CPU threads for parallel processing [default: 10] (e.g., `16`).
 
 Advanced Settings:
   --chrM <STR>        Mitochondrial chromosome identifier in the reference genome [default: auto] (e.g., `MT`).
-  --limitram <INT>    Maximum RAM, in GB, allowed for index generation (e.g., `64`).
+  --limitram <INT>    Maximum RAM, in GB, allowed for index generation (e.g., `64`). Also affects memory usage and alignment speed during mapping.
   --extra-args <STR>  Additional STAR parameters to pass directly to STAR index generation (e.g., `"--sjdbOverhang 100"`).
   --noindex           Skip the STAR index-generation step.
 ```
@@ -725,14 +717,16 @@ dnbc4tools rna mkref --fasta genome.fa --ingtf genes.gtf --noindex</code></pre>
 <div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
 <p><strong>数据库构建技术说明：</strong></p>
 <ul>
-  <li>针对具有众多且不同染色体大小的基因组，数据库构建已调整为自动确定 <code>genomeSAindexNbases</code> 和 <code>genomeChrBinNbits</code> 的优化值。</li>
-  <li>数据库构建完成后，将在数据库目录中生成 <code>ref.json</code> 文件以记录所有关键配置信息。</li>
-  <li>双物种分析会自动为每个基因添加物种前缀（如 <code>hg38_GENE1</code>, <code>mm10_GENE2</code>），以区分不同物种的基因。</li>
-  <li>所有构建参数和版本信息都会记录在 <code>ref.json</code> 中，确保分析的可重现性。</li>
+  <li>针对具有众多且不同染色体大小的基因组，数据库构建会自动确定 <code>genomeSAindexNbases</code> 和 <code>genomeChrBinNbits</code> 的优化值。</li>
+  <li>数据库构建完成后，会在数据库目录中生成 <code>ref.json</code> 文件记录关键配置信息。</li>
+  <li>双物种分析会自动为每个基因添加物种前缀（如 <code>hg38_GENE1</code>、<code>mm10_GENE2</code>），以区分不同物种基因。</li>
+  <li>构建参数和版本信息会记录在 <code>ref.json</code> 中，确保分析可重现。</li>
 </ul>
+</div>
 
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #d2d2d7; overflow-x: auto;">
 <p><strong>单物种 ref.json 文件示例：</strong></p>
-<pre><code>{
+<pre><code class="language-json">{
   "chrmt": "chrM",
   "genome": "/database/scRNA/Homo_sapiens/fasta/genome.fa",
   "genomeDir": "/database/scRNA/Homo_sapiens/star",
@@ -747,9 +741,11 @@ dnbc4tools rna mkref --fasta genome.fa --ingtf genes.gtf --noindex</code></pre>
   "species": "Homo_sapiens",
   "version": "3.1"
 }</code></pre>
+</div>
 
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #d2d2d7; overflow-x: auto;">
 <p><strong>双物种 ref.json 文件示例：</strong></p>
-<pre><code>{
+<pre><code class="language-json">{
   "chrmt": "hg38_chrM,mm10_chrM",
   "genome": "/database/scRNA/hg38_and_mm10/fasta/genome.fa",
   "genomeDir": "/database/scRNA/hg38_and_mm10/star",
@@ -766,14 +762,15 @@ dnbc4tools rna mkref --fasta genome.fa --ingtf genes.gtf --noindex</code></pre>
   "species": "hg38_and_mm10",
   "version": "3.1"
 }</code></pre>
+</div>
 
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
 <p><strong>性能优化建议：</strong></p>
 <ul>
-  <li>对于常用的基因组（如人类、小鼠），建议预先构建索引并在多个项目中重复使用。</li>
-  <li>双物种分析索引构建时间较长，建议在计算资源充足时进行。</li>
-  <li>定期检查 Ensembl 等数据库更新，及时更新参考基因组和注释文件。</li>
+  <li>常用基因组（如人类、小鼠）建议预先构建索引并在多个项目中复用。</li>
+  <li>双物种索引构建耗时较长，建议在计算资源充足时执行。</li>
+  <li>建议定期检查 Ensembl 等数据库更新，及时同步参考基因组与注释文件。</li>
 </ul>
-
 </div>
 
 <div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
@@ -797,11 +794,17 @@ Process multiple RNA-seq samples.
 Usage: dnbc4tools rna multi [OPTIONS]
 
 optional arguments:
-  -h, --help         show this help message and exit
-  --list <STR>       Path to the sample list file. Each line must contain the sample name, cDNA FASTQ paths, and oligo FASTQ paths.
-  --genomeDir <DIR>  Path to the directory containing the reference genome files.
-  --outdir <DIR>     Output directory for analysis results [default: current directory].
-  --threads <INT>    Number of CPU threads to use for analysis.
+  --help             show this help message and exit
+
+Input Files:
+  --list <FILE>      Sample list file path. Each line must contain sample name, cDNA FASTQ file path(s), and oligo FASTQ file path(s).
+
+Basic Settings:
+  --genomeDir <DIR>  Reference genome directory path containing required reference files.
+  --outdir <DIR>     Output directory path for analysis results [default: current directory] (e.g., `./output`).
+  --threads <INT>    Number of CPU threads for parallel processing.
+
+Analysis Settings:
   --end5             Enable 5'-end single-cell transcriptome analysis.
 ```
 

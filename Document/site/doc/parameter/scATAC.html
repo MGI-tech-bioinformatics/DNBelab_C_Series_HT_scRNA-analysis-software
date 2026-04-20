@@ -11,21 +11,25 @@
       
       
       
-        <link rel="prev" href="scRNA_en.html">
+        <link rel="prev" href="scRNA.html">
       
       
-        <link rel="next" href="scATAC_en.html">
+        <link rel="next" href="scVDJ.html">
       
       
         
+          <link rel="alternate" href="scATAC.html" hreflang="zh">
+        
+          <link rel="alternate" href="../../en/doc/parameter/scATAC.html" hreflang="en">
+        
       
       
-      <link rel="icon" href="../../assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.svg">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
-        <title>scATAC (ZH) - DNBelab C Series™ HT Single-Cell Analysis Software</title>
+        <title>scATAC - DNBelab C Series™ HT 单细胞分析软件</title>
       
     
     
@@ -84,10 +88,10 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="页眉">
-    <a href="../../index.html" title="DNBelab C Series™ HT Single-Cell Analysis Software" class="md-header__button md-logo" aria-label="DNBelab C Series™ HT Single-Cell Analysis Software" data-md-component="logo">
+    <a href="../../index.html" title="DNBelab C Series™ HT 单细胞分析软件" class="md-header__button md-logo" aria-label="DNBelab C Series™ HT 单细胞分析软件" data-md-component="logo">
       
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 2h2v2c0 1.44.68 2.61 1.88 3.78.86.83 2.01 1.63 3.21 2.42l-1.83 1.19C8.27 10.72 7.31 10 6.5 9.21 5.07 7.82 4 6.1 4 4zm14 0h2v2c0 2.1-1.07 3.82-2.5 5.21-1.41 1.38-3.21 2.52-4.96 3.63-1.75 1.12-3.45 2.21-4.66 3.38C6.68 17.39 6 18.56 6 20v2H4v-2c0-2.1 1.07-3.82 2.5-5.21 1.41-1.38 3.21-2.52 4.96-3.63 1.75-1.12 3.45-2.21 4.66-3.38C17.32 6.61 18 5.44 18 4zm-3.26 10.61c.99.67 1.95 1.39 2.76 2.18C18.93 16.18 20 17.9 20 20v2h-2v-2c0-1.44-.68-2.61-1.88-3.78-.86-.83-2.01-1.63-3.21-2.42zM7 3h10v1l-.06.5H7.06L7 4zm.68 3h8.64c-.24.34-.52.69-.9 1.06l-.51.44H9.07l-.49-.44c-.38-.37-.66-.72-.9-1.06m1.41 10.5h5.84l.49.44c.38.37.66.72.9 1.06H7.68c.24-.34.52-.69.9-1.06zm-2.03 3h9.88l.06.5v1H7v-1z"/></svg>
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -98,13 +102,13 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            DNBelab C Series™ HT Single-Cell Analysis Software
+            DNBelab C Series™ HT 单细胞分析软件
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              scATAC (ZH)
+              scATAC
             
           </span>
         </div>
@@ -114,6 +118,32 @@
     
       <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
     
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="选择当前语言">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="scATAC.html" hreflang="zh" class="md-select__link">
+              中文
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../en/doc/parameter/scATAC.html" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
     
     
       
@@ -196,13 +226,13 @@
 
 <nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../index.html" title="DNBelab C Series™ HT Single-Cell Analysis Software" class="md-nav__button md-logo" aria-label="DNBelab C Series™ HT Single-Cell Analysis Software" data-md-component="logo">
+    <a href="../../index.html" title="DNBelab C Series™ HT 单细胞分析软件" class="md-nav__button md-logo" aria-label="DNBelab C Series™ HT 单细胞分析软件" data-md-component="logo">
       
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 2h2v2c0 1.44.68 2.61 1.88 3.78.86.83 2.01 1.63 3.21 2.42l-1.83 1.19C8.27 10.72 7.31 10 6.5 9.21 5.07 7.82 4 6.1 4 4zm14 0h2v2c0 2.1-1.07 3.82-2.5 5.21-1.41 1.38-3.21 2.52-4.96 3.63-1.75 1.12-3.45 2.21-4.66 3.38C6.68 17.39 6 18.56 6 20v2H4v-2c0-2.1 1.07-3.82 2.5-5.21 1.41-1.38 3.21-2.52 4.96-3.63 1.75-1.12 3.45-2.21 4.66-3.38C17.32 6.61 18 5.44 18 4zm-3.26 10.61c.99.67 1.95 1.39 2.76 2.18C18.93 16.18 20 17.9 20 20v2h-2v-2c0-1.44-.68-2.61-1.88-3.78-.86-.83-2.01-1.63-3.21-2.42zM7 3h10v1l-.06.5H7.06L7 4zm.68 3h8.64c-.24.34-.52.69-.9 1.06l-.51.44H9.07l-.49-.44c-.38-.37-.66-.72-.9-1.06m1.41 10.5h5.84l.49.44c.38.37.66.72.9 1.06H7.68c.24-.34.52-.69.9-1.06zm-2.03 3h9.88l.06.5v1H7v-1z"/></svg>
 
     </a>
-    DNBelab C Series™ HT Single-Cell Analysis Software
+    DNBelab C Series™ HT 单细胞分析软件
   </label>
   
     <div class="md-nav__source">
@@ -233,7 +263,7 @@
   <span class="md-ellipsis">
     
   
-    Home
+    首页
   
 
     
@@ -260,7 +290,7 @@
   <span class="md-ellipsis">
     
   
-    Installation
+    安装
   
 
     
@@ -287,7 +317,7 @@
   <span class="md-ellipsis">
     
   
-    Quick Start
+    快速开始
   
 
     
@@ -325,7 +355,7 @@
   <span class="md-ellipsis">
     
   
-    Pipeline
+    流程
   
 
     
@@ -341,7 +371,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Pipeline
+    流程
   
 
           </label>
@@ -361,7 +391,7 @@
   <span class="md-ellipsis">
     
   
-    Overview
+    总览
   
 
     
@@ -389,35 +419,7 @@
   <span class="md-ellipsis">
     
   
-    scRNA (ZH)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../pipeline/scRNA_en.html" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    scRNA (EN)
+    scRNA
   
 
     
@@ -445,35 +447,7 @@
   <span class="md-ellipsis">
     
   
-    scATAC (ZH)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../pipeline/scATAC_en.html" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    scATAC (EN)
+    scATAC
   
 
     
@@ -501,35 +475,7 @@
   <span class="md-ellipsis">
     
   
-    scVDJ (ZH)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../pipeline/scVDJ_en.html" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    scVDJ (EN)
+    scVDJ
   
 
     
@@ -557,35 +503,7 @@
   <span class="md-ellipsis">
     
   
-    Multi (ZH)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../pipeline/multi_en.html" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Multi (EN)
+    多组学
   
 
     
@@ -633,7 +551,7 @@
   <span class="md-ellipsis">
     
   
-    Parameter
+    参数
   
 
     
@@ -649,7 +567,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Parameter
+    参数
   
 
           </label>
@@ -669,7 +587,7 @@
   <span class="md-ellipsis">
     
   
-    Overview
+    总览
   
 
     
@@ -697,35 +615,7 @@
   <span class="md-ellipsis">
     
   
-    scRNA (ZH)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="scRNA_en.html" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    scRNA (EN)
+    scRNA
   
 
     
@@ -762,7 +652,7 @@
   <span class="md-ellipsis">
     
   
-    scATAC (ZH)
+    scATAC
   
 
     
@@ -780,7 +670,7 @@
   <span class="md-ellipsis">
     
   
-    scATAC (ZH)
+    scATAC
   
 
     
@@ -1385,34 +1275,6 @@
   
   
     <li class="md-nav__item">
-      <a href="scATAC_en.html" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    scATAC (EN)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="scVDJ.html" class="md-nav__link">
         
   
@@ -1420,35 +1282,7 @@
   <span class="md-ellipsis">
     
   
-    scVDJ (ZH)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="scVDJ_en.html" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    scVDJ (EN)
+    scVDJ
   
 
     
@@ -1476,35 +1310,7 @@
   <span class="md-ellipsis">
     
   
-    Multi (ZH)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="multi_en.html" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Multi (EN)
+    多组学
   
 
     
@@ -1532,35 +1338,7 @@
   <span class="md-ellipsis">
     
   
-    Tools (ZH)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="tools_en.html" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Tools (EN)
+    工具
   
 
     
@@ -1606,7 +1384,7 @@
   <span class="md-ellipsis">
     
   
-    Outputs
+    输出
   
 
     
@@ -1622,7 +1400,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Outputs
+    输出
   
 
           </label>
@@ -1642,7 +1420,7 @@
   <span class="md-ellipsis">
     
   
-    Overview
+    总览
   
 
     
@@ -1670,35 +1448,7 @@
   <span class="md-ellipsis">
     
   
-    scRNA (ZH)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../outs/scRNA_en.html" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    scRNA (EN)
+    scRNA
   
 
     
@@ -1726,35 +1476,7 @@
   <span class="md-ellipsis">
     
   
-    scATAC (ZH)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../outs/scATAC_en.html" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    scATAC (EN)
+    scATAC
   
 
     
@@ -1782,35 +1504,7 @@
   <span class="md-ellipsis">
     
   
-    scVDJ (ZH)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../outs/scVDJ_en.html" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    scVDJ (EN)
+    scVDJ
   
 
     
@@ -1838,35 +1532,7 @@
   <span class="md-ellipsis">
     
   
-    Multi (ZH)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../outs/multi_en.html" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Multi (EN)
+    多组学
   
 
     
@@ -1901,7 +1567,7 @@
   <span class="md-ellipsis">
     
   
-    I/O Analysis
+    结果分析
   
 
     
@@ -1928,7 +1594,7 @@
   <span class="md-ellipsis">
     
   
-    Release Notes
+    版本说明
   
 
     
@@ -1955,7 +1621,7 @@
   <span class="md-ellipsis">
     
   
-    Dataset
+    数据集
   
 
     
@@ -1993,7 +1659,7 @@
   <span class="md-ellipsis">
     
   
-    Additional
+    附加
   
 
     
@@ -2009,7 +1675,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Additional
+    附加
   
 
           </label>
@@ -2029,7 +1695,7 @@
   <span class="md-ellipsis">
     
   
-    Previous Installation
+    旧版安装
   
 
     
@@ -2057,35 +1723,7 @@
   <span class="md-ellipsis">
     
   
-    JSON Spec
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../structure.html" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Structure
+    JSON 规范
   
 
     
@@ -2714,7 +2352,7 @@
 
 
 <div align="right" style="margin-bottom: 20px; max-width: 1200px; margin-left: auto; margin-right: auto;">
-<p><a href="../../index.html" style="color: #0071e3; text-decoration: none; font-size: 14px;">主页</a> <span style="color: rgba(0,0,0,0.3);">•</span> <a href="scATAC_en.html" style="color: #0071e3; text-decoration: none; font-size: 14px;">English</a></p>
+<p><a href="../../index.html">首页</a></p>
 </div>
 <div align="center" style="padding: 40px 20px; background: linear-gradient(135deg, #f5f5f7 0%, #ffffff 100%); border-radius: 12px; margin-bottom: 30px; max-width: 1200px; margin-left: auto; margin-right: auto;">
 <h1 id="scatac" style="font-size: 48px; font-weight: 600; color: #1d1d1f; margin: 0 0 16px 0; letter-spacing: -0.02em;">scATAC 分析参数<a class="headerlink" href="#scatac" title="Permanent link">&para;</a></h1>
@@ -2749,41 +2387,35 @@ Process a single-cell ATAC-seq sample.
 Usage: dnbc4tools atac run [OPTIONS]
 
 optional arguments:
-  -h, --help                 show this help message and exit
+  --help                     show this help message and exit
 
 Input Files:
   Choose one input method: either `--fastqs` (directory input) or individual FASTQ files (`--fastq1` and `--fastq2`).
 
-  --fastqs &lt;DIR&gt;             Input directory containing paired-end FASTQ files.
-                             The pipeline automatically detects Read 1 and Read 2 files (e.g., `./fastq_dir`).
-  --fastq1 &lt;FILE&gt;            Read 1 FASTQ file(s) for the ATAC library. Wildcards and comma-separated lists are supported (e.g.,
-                             `sample1_L01_R1.fastq.gz,sample1_L02_R1.fastq.gz`).
-  --fastq2 &lt;FILE&gt;            Read 2 FASTQ file(s) for the ATAC library. Wildcards and comma-separated lists are supported.
-                             Must match the order provided to `--fastq1` (e.g., `sample1_L01_R2.fastq.gz,sample1_L02_R2.fastq.gz`).
+  --fastqs &lt;DIR&gt;             Input directory path containing paired-end FASTQ files. The pipeline automatically detects Read 1 and Read 2 files (e.g., `./fastq_dir`).
+  --fastq1 &lt;FILE&gt;            Read 1 FASTQ file path(s) for the ATAC library. Wildcards and comma-separated lists are supported (e.g., `sample1_L01_R1.fastq.gz,sample1_L02_R1.fastq.gz`).
+  --fastq2 &lt;FILE&gt;            Read 2 FASTQ file path(s) for the ATAC library. Must match the order provided to `--fastq1` (e.g., `sample1_L01_R2.fastq.gz,sample1_L02_R2.fastq.gz`).
 
 Basic Settings:
-  -n, --name &lt;STR&gt;           Unique identifier for the sample. Used for naming output files and reports (e.g., `sample1`).
-  -g, --genomeDir &lt;DIR&gt;      Path to reference genome directory. Must contain the required index and annotation resources.
-  -o, --outdir &lt;DIR&gt;         Output directory for results and reports [default: current directory] (e.g., `./output`).
-  -t, --threads &lt;INT&gt;        Number of CPU threads for parallel processing [default: 10].
+  --name &lt;STR&gt;               Unique identifier for the sample. Used for naming output files and reports (e.g., `sample1`).
+  --genomeDir &lt;DIR&gt;          Reference genome directory path. Must contain required index and annotation resources (e.g., `./genome_index`).
+  --outdir &lt;DIR&gt;             Output directory path for results and reports [default: current directory] (e.g., `./output`).
+  --threads &lt;INT&gt;            Number of CPU threads for parallel processing [default: 10].
 
 Library Settings:
-  --darkreaction &lt;STR&gt;       Dark cycle setting for ATAC library [default: auto].
-                             Supported values: `auto` (automatic detection), `R1R2` (both reads), `R1` (Read 1 only), `R2` (Read 2 only), and `unset` (no dark cycles).
-  --customize &lt;STR&gt;          Custom read structure for barcode or sequence extraction, in the format `&lt;type&gt;,&lt;read&gt;:&lt;start&gt;-&lt;end&gt;` separated by `;`.
-                             Types: `cb` (cell barcode), `R1` (sequence from Read1), `R2` (sequence from Read2) (e.g., `&quot;cb,R1:1-10;cb,R1:11-20;R1,R1:21-70;R2,R2:1-50&quot;`).
+  --darkreaction &lt;STR&gt;       Dark cycle setting for ATAC library [default: auto]. Supported values: `auto`, `R1R2`, `R1`, `R2`, `unset` (e.g., `R1R2`).
+  --customize &lt;STR&gt;          Custom read structure string. Format: `&lt;type&gt;,&lt;read&gt;:&lt;start&gt;-&lt;end&gt;` joined by `;`. (e.g., `cb,R1:1-10;cb,R1:11-20;R1,R1:21-70;R2,R2:1-50`).
 
 Filtering Settings:
-  --forcecells &lt;INT&gt;         Force pipeline to use exactly this number of cells, overriding expected cell detection (e.g., `5000`).
-  --frags_cutoff &lt;INT&gt;       Minimum number of unique fragments to retain a cell [default: 1000].
+  --forcecells &lt;INT&gt;         Force pipeline to use exactly this number of cells (e.g., `5000`).
+  --frags_cutoff &lt;INT&gt;       Minimum number of unique fragments to retain a cell [default: 1000] (e.g., `1000`).
   --tss_cutoff &lt;FLOAT&gt;       Minimum TSS proportion threshold to retain a cell [default: 0.0] (e.g., `0.2`).
   --jaccard_cutoff &lt;FLOAT&gt;   Jaccard similarity threshold for bead merging (e.g., `0.02`).
-  --merge_cutoff &lt;INT&gt;       Minimum number of fragments when merging beads [default: 500].
+  --merge_cutoff &lt;INT&gt;       Minimum number of fragments when merging beads [default: 500] (e.g., `500`).
 
 Analysis Settings:
   --need_bam                 Enable generation of BAM files containing aligned reads.
-                             Note: generating BAM files increases run time and disk-space usage.
-  --sample_read_pairs &lt;INT&gt;  Subsample the specified number of read pairs from the input FASTQ files (e.g., `1000000`).
+  --sample_read_pairs &lt;INT&gt;  Subsample the specified number of read pairs from input FASTQ file(s) (e.g., `1000000`).
 </code></pre>
 </div>
 <div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
@@ -2860,14 +2492,16 @@ Analysis Settings:
 <pre><code>--fastq2 sample1_L01_R2.fastq.gz,sample1_L02_R2.fastq.gz</code></pre>
 </div>
 <div style="background: #f5f5f7; border-radius: 12px; padding: 20px; margin: 20px auto; max-width: 1200px;">
-<blockquote>
-<p><strong>输入方式选择：</strong>
-- <strong>方式1：</strong> 使用<code>--fastqs</code>指定包含配对FASTQ文件的目录
-- <strong>方式2：</strong> 使用<code>--fastq1</code>和<code>--fastq2</code>分别指定R1和R2文件</p>
-<p><strong>兼容别名</strong>
-- 历史短参数 <code>-1/-2</code> 仍可使用，但在新版帮助信息中默认隐藏，建议优先使用长参数以便脚本可读性更好。</p>
-<p><strong>重要提示：</strong> 参数下所有文件必须来自同一文库，测序模式和暗反应设置保持一致，不同文库的数据不能合并分析。</p>
-</blockquote>
+<p><strong>输入方式选择：</strong></p>
+<ul>
+<li><strong>方式1：</strong>使用 <code>--fastqs</code> 指定包含配对 FASTQ 文件的目录。</li>
+<li><strong>方式2：</strong>使用 <code>--fastq1</code> 和 <code>--fastq2</code> 分别指定 R1 和 R2 文件。</li>
+</ul>
+<p><strong>兼容别名</strong></p>
+<ul>
+<li>历史短参数 <code>-1/-2</code> 仍可使用，但在新版帮助信息中默认隐藏，建议优先使用长参数以便脚本可读性更好。</li>
+</ul>
+<p><strong>重要提示：</strong>参数下所有文件必须来自同一文库，测序模式和暗反应设置保持一致，不同文库的数据不能合并分析。</p>
 </div>
 <div style="max-width: 1200px; margin: 0 auto;">
 <hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;">
@@ -3085,16 +2719,16 @@ Build an ATAC reference database.
 Usage: dnbc4tools atac mkref [OPTIONS]
 
 optional arguments:
-  -h, --help           show this help message and exit
+  --help               show this help message and exit
 
 Input Files:
   Input genome FASTA files and gene-annotation GTF files. For mixed-species analysis, separate multiple files with commas.
 
-  --fasta &lt;FILE&gt;       Path(s) to reference-genome FASTA files. Separate multiple files with commas (e.g., `genome.fa`).
-  --ingtf &lt;FILE&gt;       Path(s) to gene-annotation GTF files. Separate multiple files with commas (e.g., `anno.gtf`).
+  --fasta &lt;FILE&gt;       Reference-genome FASTA file path(s). Separate multiple files with commas (e.g., `genome.fa`).
+  --ingtf &lt;FILE&gt;       Gene-annotation GTF file path(s). Separate multiple files with commas (e.g., `anno.gtf`).
 
 Basic Settings:
-  --genomeDir &lt;DIR&gt;    Output directory for reference files [default: current directory] (e.g., `./ref`).
+  --genomeDir &lt;DIR&gt;    Output directory path for generated reference files [default: current directory] (e.g., `./ref`).
   --species &lt;STR&gt;      Species identifier(s). Use commas for mixed-species analysis [default: undefined] (e.g., `Homo_sapiens`).
 
 Advanced Settings:
@@ -3250,14 +2884,15 @@ dnbc4tools atac mkref --fasta genome.fa --ingtf genes.gtf --window 5</code></pre
 dnbc4tools atac mkref --fasta genome.fa --ingtf genes.gtf --noindex</code></pre>
 </div>
 <div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
-<blockquote>
-<p>[!TIP]</p>
-<p><strong>数据库构建说明</strong>：
-- 使用Chromap构建的数据库目前无法处理极大的基因组，某些物种可能无法使用此软件进行scATAC分析，或者调整kmer和window参数来适配基因组索引构建。
-- 数据库构建完成后，将在数据库目录中生成ref.json文件，记录关键信息</p>
-<p><strong>ref.json文件示例</strong>：
-<code>json
-{
+<p><strong>数据库构建说明：</strong></p>
+<ul>
+<li>使用 Chromap 构建的数据库目前无法处理极大的基因组，某些物种可能无法使用本软件进行 scATAC 分析；也可尝试调整 <code>kmer</code> 和 <code>window</code> 参数以适配基因组索引构建。</li>
+<li>数据库构建完成后，将在数据库目录中生成 <code>ref.json</code> 文件，记录关键信息。</li>
+</ul>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #d2d2d7; overflow-x: auto;">
+<p><strong>ref.json 文件示例：</strong></p>
+<pre><code class="language-json">{
     "species": "Homo_sapiens",
     "input_fasta_files": [
         "genome.fa"
@@ -3276,13 +2911,16 @@ dnbc4tools atac mkref --fasta genome.fa --ingtf genes.gtf --noindex</code></pre>
     "version": "dnbc4tools 3.0",
     "blacklist": "None",
     "genomesize": "hs"
-}</code></p>
-<p><strong>重要说明</strong>：
-- chromeSize文件中列出的染色体名称将包含在fragments.tsv.gz文件中进行分析，未列出的染色体将被排除
-- 自2.1.2版本起，blacklist参数已被移除，不再需要blacklist文件。如需要，可手动添加
-- 黑名单区域的片段数量将记录在metadata文件output/singlecell.csv的blacklist_region_fragments列中
-- genomesize值用于MACS2 peak calling分析，MACS2对某些物种有特殊标识符，如人类为"hs"</p>
-</blockquote>
+}</code></pre>
+</div>
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
+<p><strong>重要说明：</strong></p>
+<ul>
+<li><code>chromeSize</code> 文件中列出的染色体名称将包含在 <code>fragments.tsv.gz</code> 文件中进行分析，未列出的染色体将被排除。</li>
+<li>自 2.1.2 版本起，<code>blacklist</code> 参数已被移除，不再需要 blacklist 文件；如需要可手动添加。</li>
+<li>黑名单区域的片段数量将记录在元数据文件 <code>output/singlecell.csv</code> 的 <code>blacklist_region_fragments</code> 列中。</li>
+<li><code>genomesize</code> 值用于 MACS2 peak calling 分析，MACS2 对某些物种有特殊标识符，如人类为 <code>hs</code>。</li>
+</ul>
 </div>
 <div style="max-width: 1200px; margin: 0 auto;">
 <hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;">
@@ -3300,11 +2938,15 @@ Process multiple ATAC-seq samples.
 Usage: dnbc4tools atac multi [OPTIONS]
 
 optional arguments:
-  -h, --help         show this help message and exit
-  --list &lt;STR&gt;       Path to the sample list file. Each line must contain the sample name and FASTQ paths.
-  --outdir &lt;DIR&gt;     Output directory for analysis results [default: current directory].
-  --threads &lt;INT&gt;    Number of CPU threads to use for analysis.
-  --genomeDir &lt;DIR&gt;  Path to the directory containing the reference genome files.
+  --help             show this help message and exit
+
+Input Files:
+  --list &lt;FILE&gt;      Sample list file path. Each line must contain sample name and FASTQ file path(s).
+
+Basic Settings:
+  --genomeDir &lt;DIR&gt;  Reference genome directory path containing required reference files.
+  --outdir &lt;DIR&gt;     Output directory path for analysis results [default: current directory] (e.g., `./output`).
+  --threads &lt;INT&gt;    Number of CPU threads for parallel processing.
 </code></pre>
 </div>
 <div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
@@ -3440,6 +3082,8 @@ Documentation Version 3.1 · Last updated April 2026
     
     
       <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../javascripts/lang-toggle.js"></script>
       
     
   </body>

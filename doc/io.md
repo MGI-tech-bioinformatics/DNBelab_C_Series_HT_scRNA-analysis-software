@@ -1,14 +1,14 @@
 <div align="right">
 
-[Home](../README.md)
+[首页](../README.md)
 
 </div>
 
-# Output Analysis Guide
+# 输出结果分析指南
 
 <div align="center">
 
-**How to analyze dnbc4tools output in R and Python**
+**在 R 与 Python 中读取 dnbc4tools 输出数据**
 
 [scRNA](#scrna-analysis) • [scATAC](#scatac-analysis)
 
@@ -16,13 +16,13 @@
 
 ---
 
-## scRNA Analysis <a id="scrna-analysis"></a>
+## scRNA 分析 <a id="scrna-analysis"></a>
 
 <div style="background-color: #e7f3fe; border-left: 6px solid #2196F3; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
 
 **R (Seurat)**
 
-Load the filtered gene expression matrix using the `Read10X` function.
+使用 `Read10X` 加载过滤后的基因表达矩阵。
 
 ```r
 library(Seurat)
@@ -35,15 +35,15 @@ counts.data <- Read10X(data.dir = "/outs/filter_matrix")
 
 **Python (Scanpy)**
 
-You can load the data using either the `h5ad` file or the MEX matrix directory.
+可使用 `h5ad` 文件或 MEX 矩阵目录读取数据。
 
-**1. Read h5ad format (recommended):**
+**1. 读取 h5ad 格式（推荐）：**
 ```python
 import scanpy as sc
 adata = sc.read_h5ad('/outs/filter_feature.h5ad')
 ```
 
-**2. Read matrix format:**
+**2. 读取矩阵格式：**
 ```python
 import scanpy as sc
 adata = sc.read_10x_mtx('/outs/filter_matrix')
@@ -53,13 +53,13 @@ adata = sc.read_10x_mtx('/outs/filter_matrix')
 
 ---
 
-## scATAC Analysis <a id="scatac-analysis"></a>
+## scATAC 分析 <a id="scatac-analysis"></a>
 
 <div style="background-color: #e7f3fe; border-left: 6px solid #2196F3; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
 
 **R (Signac)**
 
-Load the filtered peak matrix and create a Seurat object.
+加载过滤后的 peak 矩阵并创建 Seurat 对象。
 
 ```r
 require(magrittr)
@@ -112,11 +112,11 @@ read_signac_C4 <- function(mex_dir_path, fragments, singlecellmetadata){
 
 **R (ArchR)**
 
-Create Arrow files from either `fragments.tsv.gz` (raw fragments) or `filtered.fragments.tsv.gz` (cell-filtered fragments).
+使用 `fragments.tsv.gz`（原始片段）或 `filtered.fragments.tsv.gz`（细胞过滤后片段）创建 Arrow 文件。
 
-**Note:**
-- ArchR-only filtering: point to the raw `fragments.tsv.gz` and rely on `filterTSS`/`filterFrags` thresholds.
-- Combined filtering: point to `filtered.fragments.tsv.gz` generated after dnbc4tools cell filtering, then apply ArchR thresholds as an additional filter.
+**说明：**
+- 仅使用 ArchR 过滤： 指向原始 `fragments.tsv.gz`，并使用 `filterTSS`/`filterFrags` 阈值控制过滤。
+- 联合过滤： 指向 dnbc4tools 细胞过滤后的 `filtered.fragments.tsv.gz`，再叠加 ArchR 阈值过滤。
 
 ```r
 # Option A: ArchR-only filtering (raw fragments)
@@ -150,7 +150,7 @@ ArrowFiles <- createArrowFiles(
 
 **Python (AnnData)**
 
-Load the filtered peak matrix into an AnnData object.
+将过滤后的 peak 矩阵加载为 AnnData 对象。
 
 ```python
 import os
@@ -184,16 +184,16 @@ def read_atac_C4(path):
 
 ---
 
-## Common Output Files <a id="common-output-files"></a>
+## 常见输出文件 <a id="common-output-files"></a>
 
-| File / Directory | Description | Analysis Type |
+| 文件 / 目录 | 说明 | 分析类型 |
 | :--- | :--- | :--- |
-| `filter_matrix/` | Filtered gene expression matrix (MEX format). | scRNA-seq |
-| `filter_peak_matrix/` | Filtered peak accessibility matrix (MEX format). | scATAC-seq |
-| `filter_feature.h5ad` | Filtered matrix in AnnData format (Python-ready). | scRNA-seq |
-| `fragments.tsv.gz` | Fragment file for ATAC analysis. | scATAC-seq |
-| `singlecell.csv` | Cell metadata and QC metrics. | All |
+| `filter_matrix/` | 过滤后的基因表达矩阵（MEX 格式）。 | scRNA-seq |
+| `filter_peak_matrix/` | 过滤后的 peak 可及性矩阵（MEX 格式）。 | scATAC-seq |
+| `filter_feature.h5ad` | AnnData 格式过滤矩阵（适用于 Python）。 | scRNA-seq |
+| `fragments.tsv.gz` | ATAC 分析片段文件。 | scATAC-seq |
+| `singlecell.csv` | 细胞元信息与质控指标。 | 全部 |
 
 ---
 
-*For detailed output descriptions, see the [Output Files Guide](./outs/outs.md)*
+*详细输出说明见 [输出文件文档](./outs/outs.md)*

@@ -11,21 +11,25 @@
       
       
       
-        <link rel="prev" href="outs/multi_en.html">
+        <link rel="prev" href="outs/multi.html">
       
       
         <link rel="next" href="release.html">
       
       
         
+          <link rel="alternate" href="io.html" hreflang="zh">
+        
+          <link rel="alternate" href="../en/doc/io.html" hreflang="en">
+        
       
       
-      <link rel="icon" href="../assets/images/favicon.png">
+      <link rel="icon" href="../assets/images/favicon.svg">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
-        <title>I/O Analysis - DNBelab C Series™ HT Single-Cell Analysis Software</title>
+        <title>结果分析 - DNBelab C Series™ HT 单细胞分析软件</title>
       
     
     
@@ -68,7 +72,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#output-analysis-guide" class="md-skip">
+        <a href="#_1" class="md-skip">
           跳转至
         </a>
       
@@ -84,10 +88,10 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="页眉">
-    <a href="../index.html" title="DNBelab C Series™ HT Single-Cell Analysis Software" class="md-header__button md-logo" aria-label="DNBelab C Series™ HT Single-Cell Analysis Software" data-md-component="logo">
+    <a href="../index.html" title="DNBelab C Series™ HT 单细胞分析软件" class="md-header__button md-logo" aria-label="DNBelab C Series™ HT 单细胞分析软件" data-md-component="logo">
       
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 2h2v2c0 1.44.68 2.61 1.88 3.78.86.83 2.01 1.63 3.21 2.42l-1.83 1.19C8.27 10.72 7.31 10 6.5 9.21 5.07 7.82 4 6.1 4 4zm14 0h2v2c0 2.1-1.07 3.82-2.5 5.21-1.41 1.38-3.21 2.52-4.96 3.63-1.75 1.12-3.45 2.21-4.66 3.38C6.68 17.39 6 18.56 6 20v2H4v-2c0-2.1 1.07-3.82 2.5-5.21 1.41-1.38 3.21-2.52 4.96-3.63 1.75-1.12 3.45-2.21 4.66-3.38C17.32 6.61 18 5.44 18 4zm-3.26 10.61c.99.67 1.95 1.39 2.76 2.18C18.93 16.18 20 17.9 20 20v2h-2v-2c0-1.44-.68-2.61-1.88-3.78-.86-.83-2.01-1.63-3.21-2.42zM7 3h10v1l-.06.5H7.06L7 4zm.68 3h8.64c-.24.34-.52.69-.9 1.06l-.51.44H9.07l-.49-.44c-.38-.37-.66-.72-.9-1.06m1.41 10.5h5.84l.49.44c.38.37.66.72.9 1.06H7.68c.24-.34.52-.69.9-1.06zm-2.03 3h9.88l.06.5v1H7v-1z"/></svg>
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -98,13 +102,13 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            DNBelab C Series™ HT Single-Cell Analysis Software
+            DNBelab C Series™ HT 单细胞分析软件
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              I/O Analysis
+              结果分析
             
           </span>
         </div>
@@ -114,6 +118,32 @@
     
       <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
     
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="选择当前语言">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="io.html" hreflang="zh" class="md-select__link">
+              中文
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../en/doc/io.html" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
     
     
       
@@ -196,13 +226,13 @@
 
 <nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../index.html" title="DNBelab C Series™ HT Single-Cell Analysis Software" class="md-nav__button md-logo" aria-label="DNBelab C Series™ HT Single-Cell Analysis Software" data-md-component="logo">
+    <a href="../index.html" title="DNBelab C Series™ HT 单细胞分析软件" class="md-nav__button md-logo" aria-label="DNBelab C Series™ HT 单细胞分析软件" data-md-component="logo">
       
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 2h2v2c0 1.44.68 2.61 1.88 3.78.86.83 2.01 1.63 3.21 2.42l-1.83 1.19C8.27 10.72 7.31 10 6.5 9.21 5.07 7.82 4 6.1 4 4zm14 0h2v2c0 2.1-1.07 3.82-2.5 5.21-1.41 1.38-3.21 2.52-4.96 3.63-1.75 1.12-3.45 2.21-4.66 3.38C6.68 17.39 6 18.56 6 20v2H4v-2c0-2.1 1.07-3.82 2.5-5.21 1.41-1.38 3.21-2.52 4.96-3.63 1.75-1.12 3.45-2.21 4.66-3.38C17.32 6.61 18 5.44 18 4zm-3.26 10.61c.99.67 1.95 1.39 2.76 2.18C18.93 16.18 20 17.9 20 20v2h-2v-2c0-1.44-.68-2.61-1.88-3.78-.86-.83-2.01-1.63-3.21-2.42zM7 3h10v1l-.06.5H7.06L7 4zm.68 3h8.64c-.24.34-.52.69-.9 1.06l-.51.44H9.07l-.49-.44c-.38-.37-.66-.72-.9-1.06m1.41 10.5h5.84l.49.44c.38.37.66.72.9 1.06H7.68c.24-.34.52-.69.9-1.06zm-2.03 3h9.88l.06.5v1H7v-1z"/></svg>
 
     </a>
-    DNBelab C Series™ HT Single-Cell Analysis Software
+    DNBelab C Series™ HT 单细胞分析软件
   </label>
   
     <div class="md-nav__source">
@@ -233,7 +263,7 @@
   <span class="md-ellipsis">
     
   
-    Home
+    首页
   
 
     
@@ -260,7 +290,7 @@
   <span class="md-ellipsis">
     
   
-    Installation
+    安装
   
 
     
@@ -287,7 +317,7 @@
   <span class="md-ellipsis">
     
   
-    Quick Start
+    快速开始
   
 
     
@@ -325,7 +355,7 @@
   <span class="md-ellipsis">
     
   
-    Pipeline
+    流程
   
 
     
@@ -341,7 +371,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Pipeline
+    流程
   
 
           </label>
@@ -361,7 +391,7 @@
   <span class="md-ellipsis">
     
   
-    Overview
+    总览
   
 
     
@@ -389,35 +419,7 @@
   <span class="md-ellipsis">
     
   
-    scRNA (ZH)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="pipeline/scRNA_en.html" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    scRNA (EN)
+    scRNA
   
 
     
@@ -445,35 +447,7 @@
   <span class="md-ellipsis">
     
   
-    scATAC (ZH)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="pipeline/scATAC_en.html" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    scATAC (EN)
+    scATAC
   
 
     
@@ -501,35 +475,7 @@
   <span class="md-ellipsis">
     
   
-    scVDJ (ZH)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="pipeline/scVDJ_en.html" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    scVDJ (EN)
+    scVDJ
   
 
     
@@ -557,35 +503,7 @@
   <span class="md-ellipsis">
     
   
-    Multi (ZH)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="pipeline/multi_en.html" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Multi (EN)
+    多组学
   
 
     
@@ -631,7 +549,7 @@
   <span class="md-ellipsis">
     
   
-    Parameter
+    参数
   
 
     
@@ -647,7 +565,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Parameter
+    参数
   
 
           </label>
@@ -667,7 +585,7 @@
   <span class="md-ellipsis">
     
   
-    Overview
+    总览
   
 
     
@@ -695,35 +613,7 @@
   <span class="md-ellipsis">
     
   
-    scRNA (ZH)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="parameter/scRNA_en.html" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    scRNA (EN)
+    scRNA
   
 
     
@@ -751,35 +641,7 @@
   <span class="md-ellipsis">
     
   
-    scATAC (ZH)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="parameter/scATAC_en.html" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    scATAC (EN)
+    scATAC
   
 
     
@@ -807,35 +669,7 @@
   <span class="md-ellipsis">
     
   
-    scVDJ (ZH)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="parameter/scVDJ_en.html" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    scVDJ (EN)
+    scVDJ
   
 
     
@@ -863,35 +697,7 @@
   <span class="md-ellipsis">
     
   
-    Multi (ZH)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="parameter/multi_en.html" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Multi (EN)
+    多组学
   
 
     
@@ -919,35 +725,7 @@
   <span class="md-ellipsis">
     
   
-    Tools (ZH)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="parameter/tools_en.html" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Tools (EN)
+    工具
   
 
     
@@ -993,7 +771,7 @@
   <span class="md-ellipsis">
     
   
-    Outputs
+    输出
   
 
     
@@ -1009,7 +787,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Outputs
+    输出
   
 
           </label>
@@ -1029,7 +807,7 @@
   <span class="md-ellipsis">
     
   
-    Overview
+    总览
   
 
     
@@ -1057,35 +835,7 @@
   <span class="md-ellipsis">
     
   
-    scRNA (ZH)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="outs/scRNA_en.html" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    scRNA (EN)
+    scRNA
   
 
     
@@ -1113,35 +863,7 @@
   <span class="md-ellipsis">
     
   
-    scATAC (ZH)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="outs/scATAC_en.html" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    scATAC (EN)
+    scATAC
   
 
     
@@ -1169,35 +891,7 @@
   <span class="md-ellipsis">
     
   
-    scVDJ (ZH)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="outs/scVDJ_en.html" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    scVDJ (EN)
+    scVDJ
   
 
     
@@ -1225,35 +919,7 @@
   <span class="md-ellipsis">
     
   
-    Multi (ZH)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="outs/multi_en.html" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Multi (EN)
+    多组学
   
 
     
@@ -1297,7 +963,7 @@
   <span class="md-ellipsis">
     
   
-    I/O Analysis
+    结果分析
   
 
     
@@ -1315,7 +981,7 @@
   <span class="md-ellipsis">
     
   
-    I/O Analysis
+    结果分析
   
 
     
@@ -1341,10 +1007,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#scrna-analysis" class="md-nav__link">
+  <a href="#scrna" class="md-nav__link">
     <span class="md-ellipsis">
       
-        scRNA Analysis
+        scRNA 分析
       
     </span>
   </a>
@@ -1352,10 +1018,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#scatac-analysis" class="md-nav__link">
+  <a href="#scatac" class="md-nav__link">
     <span class="md-ellipsis">
       
-        scATAC Analysis
+        scATAC 分析
       
     </span>
   </a>
@@ -1363,10 +1029,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#common-output-files" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Common Output Files
+        常见输出文件
       
     </span>
   </a>
@@ -1395,7 +1061,7 @@
   <span class="md-ellipsis">
     
   
-    Release Notes
+    版本说明
   
 
     
@@ -1422,7 +1088,7 @@
   <span class="md-ellipsis">
     
   
-    Dataset
+    数据集
   
 
     
@@ -1460,7 +1126,7 @@
   <span class="md-ellipsis">
     
   
-    Additional
+    附加
   
 
     
@@ -1476,7 +1142,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Additional
+    附加
   
 
           </label>
@@ -1496,7 +1162,7 @@
   <span class="md-ellipsis">
     
   
-    Previous Installation
+    旧版安装
   
 
     
@@ -1524,35 +1190,7 @@
   <span class="md-ellipsis">
     
   
-    JSON Spec
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="structure.html" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Structure
+    JSON 规范
   
 
     
@@ -1600,10 +1238,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#scrna-analysis" class="md-nav__link">
+  <a href="#scrna" class="md-nav__link">
     <span class="md-ellipsis">
       
-        scRNA Analysis
+        scRNA 分析
       
     </span>
   </a>
@@ -1611,10 +1249,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#scatac-analysis" class="md-nav__link">
+  <a href="#scatac" class="md-nav__link">
     <span class="md-ellipsis">
       
-        scATAC Analysis
+        scATAC 分析
       
     </span>
   </a>
@@ -1622,10 +1260,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#common-output-files" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Common Output Files
+        常见输出文件
       
     </span>
   </a>
@@ -1650,39 +1288,39 @@
 
 
 <div align="right">
-<p><a href="../index.html">Home</a></p>
+<p><a href="../index.html">首页</a></p>
 </div>
-<h1 id="output-analysis-guide">Output Analysis Guide<a class="headerlink" href="#output-analysis-guide" title="Permanent link">&para;</a></h1>
+<h1 id="_1">输出结果分析指南<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
 <div align="center">
-<p><strong>How to analyze dnbc4tools output in R and Python</strong></p>
+<p><strong>在 R 与 Python 中读取 dnbc4tools 输出数据</strong></p>
 <p><a href="#scrna-analysis">scRNA</a> • <a href="#scatac-analysis">scATAC</a></p>
 </div>
 <hr />
-<h2 id="scrna-analysis">scRNA Analysis <a id="scrna-analysis"></a><a class="headerlink" href="#scrna-analysis" title="Permanent link">&para;</a></h2>
+<h2 id="scrna">scRNA 分析 <a id="scrna-analysis"></a><a class="headerlink" href="#scrna" title="Permanent link">&para;</a></h2>
 <div style="background-color: #e7f3fe; border-left: 6px solid #2196F3; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
 <p><strong>R (Seurat)</strong></p>
-<p>Load the filtered gene expression matrix using the <code>Read10X</code> function.</p>
+<p>使用 <code>Read10X</code> 加载过滤后的基因表达矩阵。</p>
 <pre><code class="language-r">library(Seurat)
 counts.data &lt;- Read10X(data.dir = &quot;/outs/filter_matrix&quot;)
 </code></pre>
 </div>
 <div style="background-color: #e7f3fe; border-left: 6px solid #2196F3; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
 <p><strong>Python (Scanpy)</strong></p>
-<p>You can load the data using either the <code>h5ad</code> file or the MEX matrix directory.</p>
-<p><strong>1. Read h5ad format (recommended):</strong></p>
+<p>可使用 <code>h5ad</code> 文件或 MEX 矩阵目录读取数据。</p>
+<p><strong>1. 读取 h5ad 格式（推荐）：</strong></p>
 <pre><code class="language-python">import scanpy as sc
 adata = sc.read_h5ad('/outs/filter_feature.h5ad')
 </code></pre>
-<p><strong>2. Read matrix format:</strong></p>
+<p><strong>2. 读取矩阵格式：</strong></p>
 <pre><code class="language-python">import scanpy as sc
 adata = sc.read_10x_mtx('/outs/filter_matrix')
 </code></pre>
 </div>
 <hr />
-<h2 id="scatac-analysis">scATAC Analysis <a id="scatac-analysis"></a><a class="headerlink" href="#scatac-analysis" title="Permanent link">&para;</a></h2>
+<h2 id="scatac">scATAC 分析 <a id="scatac-analysis"></a><a class="headerlink" href="#scatac" title="Permanent link">&para;</a></h2>
 <div style="background-color: #e7f3fe; border-left: 6px solid #2196F3; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
 <p><strong>R (Signac)</strong></p>
-<p>Load the filtered peak matrix and create a Seurat object.</p>
+<p>加载过滤后的 peak 矩阵并创建 Seurat 对象。</p>
 <pre><code class="language-r">require(magrittr)
 require(readr)
 require(Matrix)
@@ -1729,10 +1367,10 @@ read_signac_C4 &lt;- function(mex_dir_path, fragments, singlecellmetadata){
 </div>
 <div style="background-color: #e7f3fe; border-left: 6px solid #2196F3; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
 <p><strong>R (ArchR)</strong></p>
-<p>Create Arrow files from either <code>fragments.tsv.gz</code> (raw fragments) or <code>filtered.fragments.tsv.gz</code> (cell-filtered fragments).</p>
-<p><strong>Note:</strong>
-- ArchR-only filtering: point to the raw <code>fragments.tsv.gz</code> and rely on <code>filterTSS</code>/<code>filterFrags</code> thresholds.
-- Combined filtering: point to <code>filtered.fragments.tsv.gz</code> generated after dnbc4tools cell filtering, then apply ArchR thresholds as an additional filter.</p>
+<p>使用 <code>fragments.tsv.gz</code>（原始片段）或 <code>filtered.fragments.tsv.gz</code>（细胞过滤后片段）创建 Arrow 文件。</p>
+<p><strong>说明：</strong>
+- 仅使用 ArchR 过滤： 指向原始 <code>fragments.tsv.gz</code>，并使用 <code>filterTSS</code>/<code>filterFrags</code> 阈值控制过滤。
+- 联合过滤： 指向 dnbc4tools 细胞过滤后的 <code>filtered.fragments.tsv.gz</code>，再叠加 ArchR 阈值过滤。</p>
 <pre><code class="language-r"># Option A: ArchR-only filtering (raw fragments)
 library(ArchR)
 ArrowFiles &lt;- createArrowFiles(
@@ -1758,7 +1396,7 @@ ArrowFiles &lt;- createArrowFiles(
 </div>
 <div style="background-color: #e7f3fe; border-left: 6px solid #2196F3; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
 <p><strong>Python (AnnData)</strong></p>
-<p>Load the filtered peak matrix into an AnnData object.</p>
+<p>将过滤后的 peak 矩阵加载为 AnnData 对象。</p>
 <pre><code class="language-python">import os
 from scipy.sparse import csr_matrix
 import anndata
@@ -1787,45 +1425,45 @@ def read_atac_C4(path):
 </code></pre>
 </div>
 <hr />
-<h2 id="common-output-files">Common Output Files <a id="common-output-files"></a><a class="headerlink" href="#common-output-files" title="Permanent link">&para;</a></h2>
+<h2 id="_2">常见输出文件 <a id="common-output-files"></a><a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
-<th style="text-align: left;">File / Directory</th>
-<th style="text-align: left;">Description</th>
-<th style="text-align: left;">Analysis Type</th>
+<th style="text-align: left;">文件 / 目录</th>
+<th style="text-align: left;">说明</th>
+<th style="text-align: left;">分析类型</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td style="text-align: left;"><code>filter_matrix/</code></td>
-<td style="text-align: left;">Filtered gene expression matrix (MEX format).</td>
+<td style="text-align: left;">过滤后的基因表达矩阵（MEX 格式）。</td>
 <td style="text-align: left;">scRNA-seq</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>filter_peak_matrix/</code></td>
-<td style="text-align: left;">Filtered peak accessibility matrix (MEX format).</td>
+<td style="text-align: left;">过滤后的 peak 可及性矩阵（MEX 格式）。</td>
 <td style="text-align: left;">scATAC-seq</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>filter_feature.h5ad</code></td>
-<td style="text-align: left;">Filtered matrix in AnnData format (Python-ready).</td>
+<td style="text-align: left;">AnnData 格式过滤矩阵（适用于 Python）。</td>
 <td style="text-align: left;">scRNA-seq</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>fragments.tsv.gz</code></td>
-<td style="text-align: left;">Fragment file for ATAC analysis.</td>
+<td style="text-align: left;">ATAC 分析片段文件。</td>
 <td style="text-align: left;">scATAC-seq</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>singlecell.csv</code></td>
-<td style="text-align: left;">Cell metadata and QC metrics.</td>
-<td style="text-align: left;">All</td>
+<td style="text-align: left;">细胞元信息与质控指标。</td>
+<td style="text-align: left;">全部</td>
 </tr>
 </tbody>
 </table>
 <hr />
-<p><em>For detailed output descriptions, see the <a href="outs/outs.html">Output Files Guide</a></em></p>
+<p><em>详细输出说明见 <a href="outs/outs.html">输出文件文档</a></em></p>
 
 
 
@@ -1880,6 +1518,8 @@ Documentation Version 3.1 · Last updated April 2026
     
     
       <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../javascripts/lang-toggle.js"></script>
       
     
   </body>

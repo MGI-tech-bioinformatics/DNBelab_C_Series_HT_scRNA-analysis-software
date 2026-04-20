@@ -1,6 +1,6 @@
 <div align="right" style="margin-bottom: 20px; max-width: 1200px; margin-left: auto; margin-right: auto;">
 
-<a href="../../README.md" style="color: #0071e3; text-decoration: none; font-size: 14px;">主页</a> <span style="color: rgba(0,0,0,0.3);">•</span> <a href="tools_en.md" style="color: #0071e3; text-decoration: none; font-size: 14px;">English</a>
+[首页](../../README.md)
 
 </div>
 
@@ -44,7 +44,7 @@ Filter and process GTF annotation files.
 Usage: dnbc4tools tools mkgtf [OPTIONS]
 
 optional arguments:
-  -h, --help       show this help message and exit
+  --help           show this help message and exit
 
 Basic Settings:
   --action <STR>   Operation type: 'mkgtf' (filter by gene types), 'stats' (count statistics), 'check' (validate format) [default: mkgtf] (e.g., `stats`).
@@ -52,8 +52,7 @@ Basic Settings:
   --output <FILE>  Path to output file. Required for "mkgtf" and "check" actions. If not provided for "stats" action, statistics will be printed to stdout.
 
 Analysis Settings:
-  --include <STR>  Comma-separated list of gene types to include. Supports wildcards (e.g., 'IG_*' will match 'IG_V_gene', 'IG_C_gene'). [default:
-                   protein_coding,lncRNA,lincRNA,antisense,IG_*,TR_*].
+  --include <STR>  Comma-separated list of gene types to include. Supports wildcards (e.g., 'IG_*' will match 'IG_V_gene', 'IG_C_gene'). [default: protein_coding,lncRNA,lincRNA,antisense,IG_*,TR_*].
   --type <STR>     Attribute name for gene type classification (e.g., gene_biotype, gene_type). Use 'auto' to automatically detect. [default: auto].
   --feature <STR>  Feature type to process from GTF. Use 'transcript' if no 'gene' entries exist [default: gene].
 
@@ -167,21 +166,19 @@ Usage Examples:
 
 <div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
 
-> [!NOTE]
-> #### 使用示例
->
-> - <strong>统计基因类型</strong>:
->   ```shell
->   dnbc4tools tools mkgtf --action stats --ingtf genes.gtf
->   ```
-> - <strong>过滤基因类型</strong>:
->   ```shell
->   dnbc4tools tools mkgtf --action mkgtf --ingtf genes.gtf --output genes.filter.gtf
->   ```
-> - <strong>校验并修复 GTF 文件</strong>:
->   ```shell
->   dnbc4tools tools mkgtf --action check --ingtf genes.gtf --output corrected.gtf
->   ```
+<p><strong>使用示例</strong></p>
+<ul>
+  <li><strong>统计基因类型</strong></li>
+</ul>
+<pre><code class="language-shell">dnbc4tools tools mkgtf --action stats --ingtf genes.gtf</code></pre>
+<ul>
+  <li><strong>过滤基因类型</strong></li>
+</ul>
+<pre><code class="language-shell">dnbc4tools tools mkgtf --action mkgtf --ingtf genes.gtf --output genes.filter.gtf</code></pre>
+<ul>
+  <li><strong>校验并修复 GTF 文件</strong></li>
+</ul>
+<pre><code class="language-shell">dnbc4tools tools mkgtf --action check --ingtf genes.gtf --output corrected.gtf</code></pre>
 
 </div>
 
@@ -326,24 +323,23 @@ Options:
 
 <div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
 
-> [!NOTE]
-> ### 使用示例
->
-> - <strong>基本转换</strong>:
->   ```shell
->   bam2fastq input.bam ./output_dir
->   ```
-> - <strong>多线程高速转换</strong>:
->   ```shell
->   bam2fastq -t 8 input.bam ./output_dir
-> - <strong>区域特异性转换</strong>:
->   ```shell
->   bam2fastq -r chr1:1000000-2000000 -t 4 input.bam ./output_dir
->   ```
-> - <strong>大文件分割转换</strong>:
->   ```shell
->   bam2fastq -n 5000000 -t 4 input.bam ./output_dir
->   ```
+<p><strong>使用示例</strong></p>
+<ul>
+  <li><strong>基本转换</strong></li>
+</ul>
+<pre><code class="language-shell">bam2fastq input.bam ./output_dir</code></pre>
+<ul>
+  <li><strong>多线程高速转换</strong></li>
+</ul>
+<pre><code class="language-shell">bam2fastq -t 8 input.bam ./output_dir</code></pre>
+<ul>
+  <li><strong>区域特异性转换</strong></li>
+</ul>
+<pre><code class="language-shell">bam2fastq -r chr1:1000000-2000000 -t 4 input.bam ./output_dir</code></pre>
+<ul>
+  <li><strong>大文件分割转换</strong></li>
+</ul>
+<pre><code class="language-shell">bam2fastq -n 5000000 -t 4 input.bam ./output_dir</code></pre>
 
 </div>
 
@@ -471,25 +467,23 @@ Options:
 
 <div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
 
-> [!NOTE]
-> ### 使用示例
->
-> - <strong>基本分割</strong>:
->   ```shell
->   chromsplit --fasta genome.fasta --prefix split_result
->   ```
-> - <strong>带注释文件的智能分割</strong>:
->   ```shell
->   chromsplit --fasta genome.fasta --gtf annotation.gtf --prefix split_genome
->   ```
-> - <strong>自定义长度分割</strong>:
->   ```shell
->   chromsplit --fasta genome.fasta --prefix custom_split --min_length 300000000 --max_length 500000000
->   ```
-> - <strong>使用预定义分割位点</strong>:
->   ```shell
->   chromsplit --fasta genome.fasta --gtf annotation.gtf --prefix precise_split --cut_site custom_cuts.txt
->   ```
+<p><strong>使用示例</strong></p>
+<ul>
+  <li><strong>基本分割</strong></li>
+</ul>
+<pre><code class="language-shell">chromsplit --fasta genome.fasta --prefix split_result</code></pre>
+<ul>
+  <li><strong>带注释文件的智能分割</strong></li>
+</ul>
+<pre><code class="language-shell">chromsplit --fasta genome.fasta --gtf annotation.gtf --prefix split_genome</code></pre>
+<ul>
+  <li><strong>自定义长度分割</strong></li>
+</ul>
+<pre><code class="language-shell">chromsplit --fasta genome.fasta --prefix custom_split --min_length 300000000 --max_length 500000000</code></pre>
+<ul>
+  <li><strong>使用预定义分割位点</strong></li>
+</ul>
+<pre><code class="language-shell">chromsplit --fasta genome.fasta --gtf annotation.gtf --prefix precise_split --cut_site custom_cuts.txt</code></pre>
 
 </div>
 
@@ -594,13 +588,11 @@ Options:
 
 <div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
 
-> [!NOTE]
-> ### 使用示例
->
-> - <strong>基本区域提取</strong>:
->   ```shell
->   fqsubC4 --input sample.fastq.gz --output extracted.fastq.gz --regions "7:16,23:32"
->   ```
+<p><strong>使用示例</strong></p>
+<ul>
+  <li><strong>基本区域提取</strong></li>
+</ul>
+<pre><code class="language-shell">fqsubC4 --input sample.fastq.gz --output extracted.fastq.gz --regions "7:16,23:32"</code></pre>
 
 </div>
 

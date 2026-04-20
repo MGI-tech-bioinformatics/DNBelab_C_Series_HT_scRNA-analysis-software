@@ -1,53 +1,55 @@
 <div align="right">
 
-[Home](../README.md)
+[首页](../README.md)
 
 </div>
 
-# Quick Start Guide
+# 快速开始指南
 
 <div align="center">
 
-**Get started with dnbc4tools**
+**快速开始使用 dnbc4tools**
 
-[RNA-seq](#single-cell-rna-analysis) • [ATAC-seq](#single-cell-atac-analysis) • [VDJ-seq](#single-cell-vdj-analysis) • [Multi-omics](#integrated-multi-omics-analysis)
-
-</div>
-
----
-
-## Prerequisites
-
-<div style="background-color: #e7f3fe; border-left: 6px solid #2196F3; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
-
-**Before you begin:**
-- Ensure dnbc4tools is installed. See the [Installation Guide](./installation.md).
-- In all commands, replace `$dnbc4tools` with your actual installation path (e.g., `/opt/software/dnbc4tools3.1/dnbc4tools`).
-- The backslash `\` is used to split a single command across multiple lines for readability. It is optional.
+[RNA-seq](#single-cell-rna-analysis) • [ATAC-seq](#single-cell-atac-analysis) • [VDJ-seq](#single-cell-vdj-analysis) • [多组学](#integrated-multi-omics-analysis)
 
 </div>
 
 ---
 
-## File Naming Conventions
+## 使用前准备
 
 <div style="background-color: #e7f3fe; border-left: 6px solid #2196F3; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
-The pipeline automatically detects paired-end files based on naming patterns. The following conventions are supported:
+
+**开始前请确认：**
 <ul>
-  <li><strong>Supported extensions:</strong> <code>.fastq.gz</code>, <code>.fq.gz</code>, <code>.fastq</code>, <code>.fq</code></li>
-  <li><strong>R1 patterns:</strong> <code>_R1_</code>, <code>_R1</code>, <code>_1</code>, <code>_read1</code></li>
-  <li><strong>R2 patterns:</strong> <code>_R2_</code>, <code>_R2</code>, <code>_2</code>, <code>_read2</code></li>
+  <li>已完成 dnbc4tools 安装，参见<a href="./installation.md">安装指南</a>。</li>
+  <li>命令中的 <code>$dnbc4tools</code> 需替换为实际安装路径（如 <code>/opt/software/dnbc4tools3.1/dnbc4tools</code>）。</li>
+  <li>反斜杠 <code>\</code> 仅用于换行展示，非必需。</li>
 </ul>
-Examples: <code>sample_R1.fastq.gz</code>, <code>sample_1.fastq.gz</code>, <code>sample_R1_001.fastq.gz</code> are all recognized as R1 files.
+
 </div>
 
 ---
 
-## Single-Cell RNA Analysis <a id="single-cell-rna-analysis"></a>
+## 文件命名规则 <a id="file-naming-conventions"></a>
 
-> Gene expression profiling at single-cell resolution
+<div style="background-color: #e7f3fe; border-left: 6px solid #2196F3; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
+流程会根据命名规则自动识别双端文件，支持以下模式：
+<ul>
+  <li><strong>支持扩展名:</strong> <code>.fastq.gz</code>, <code>.fq.gz</code>, <code>.fastq</code>, <code>.fq</code></li>
+  <li><strong>R1 模式:</strong> <code>_R1_</code>, <code>_R1</code>, <code>_1</code>, <code>_read1</code></li>
+  <li><strong>R2 模式:</strong> <code>_R2_</code>, <code>_R2</code>, <code>_2</code>, <code>_read2</code></li>
+</ul>
+示例： <code>sample_R1.fastq.gz</code>, <code>sample_1.fastq.gz</code>, <code>sample_R1_001.fastq.gz</code> 均会被识别为 R1 文件。
+</div>
 
-### Step 1: Build Reference Genome
+---
+
+## 单细胞 RNA 分析 <a id="single-cell-rna-analysis"></a>
+
+> 单细胞分辨率的基因表达分析
+
+### 第一步： 构建参考数据库
 
 **Human (GRCh38)**
 ```bash
@@ -89,9 +91,9 @@ $dnbc4tools rna mkref \
     --threads 10
 ```
 
-### Step 2: Run Analysis
+### 第二步： 运行分析
 
-**Quick Input (`--fastqs`)**
+**快速输入 (`--fastqs`)**
 ```bash
 $dnbc4tools rna run \
     --fastqs /test/data/rna_fastqs \
@@ -100,13 +102,15 @@ $dnbc4tools rna run \
     --threads 30
 ```
 
-> Directory structure recommendation:
-> - `/test/data/rna_fastqs/cDNA/*_R1*.fastq.gz`, `*_R2*.fastq.gz`
-> - `/test/data/rna_fastqs/oligo/*_R1*.fastq.gz`, `*_R2*.fastq.gz`
->
-> See [File Naming Conventions](#file-naming-conventions) for supported patterns.
+推荐目录结构：
+<ul>
+  <li><code>/test/data/rna_fastqs/cDNA/*_R1*.fastq.gz</code>, <code>*_R2*.fastq.gz</code></li>
+  <li><code>/test/data/rna_fastqs/oligo/*_R1*.fastq.gz</code>, <code>*_R2*.fastq.gz</code></li>
+</ul>
 
-**Detailed Input (--cDNAfastq1/2 --oligofastq1/2)**
+支持的文件命名见[文件命名规则](#file-naming-conventions)。
+
+**详细输入 (--cDNAfastq1/2 --oligofastq1/2)**
 ```bash
 $dnbc4tools rna run \
     --cDNAfastq1 /test/data/rna_fastqs/cDNA/test_R1.fastq.gz \
@@ -120,11 +124,11 @@ $dnbc4tools rna run \
 
 ---
 
-## Single-Cell ATAC Analysis <a id="single-cell-atac-analysis"></a>
+## 单细胞 ATAC 分析 <a id="single-cell-atac-analysis"></a>
 
-> Chromatin accessibility profiling at single-cell resolution
+> 单细胞分辨率的染色质开放性分析
 
-### Step 1: Build Reference Genome
+### 第一步： 构建参考数据库
 
 **Human (GRCh38)**
 ```bash
@@ -156,9 +160,9 @@ $dnbc4tools tools mkgtf --ingtf gencode.vM23.primary_assembly.annotation.gtf --o
 $dnbc4tools atac mkref --fasta GRCm38.primary_assembly.genome.fa --ingtf genes.filtered.gtf --species Mus_musculus --prefix chr
 ```
 
-### Step 2: Run Analysis
+### 第二步： 运行分析
 
-**Quick Input (`--fastqs`)**
+**快速输入 (`--fastqs`)**
 ```bash
 $dnbc4tools atac run \
     --fastqs /test/data \
@@ -166,12 +170,14 @@ $dnbc4tools atac run \
     --name test \
     --threads 10
 ```
-> Directory structure recommendation:
-> - `/test/data/*_R1*.fastq.gz`, `*_R2*.fastq.gz`
->
-> See [File Naming Conventions](#file-naming-conventions) for supported patterns.
+推荐目录结构：
+<ul>
+  <li><code>/test/data/*_R1*.fastq.gz</code>, <code>*_R2*.fastq.gz</code></li>
+</ul>
 
-**Detailed Input (--fastq1/2)**
+支持的文件命名见[文件命名规则](#file-naming-conventions)。
+
+**详细输入 (--fastq1/2)**
 ```bash
 $dnbc4tools atac run \
     --fastq1 /test/data/test1_R1.fastq.gz,/test/data/test2_R1.fastq.gz \
@@ -183,21 +189,21 @@ $dnbc4tools atac run \
 
 ---
 
-## Single-Cell VDJ Analysis <a id="single-cell-vdj-analysis"></a>
+## 单细胞 VDJ 分析 <a id="single-cell-vdj-analysis"></a>
 
-> Immune receptor repertoire profiling (requires 5' RNA-seq data)
+> 免疫受体组库分析（需先完成 5' RNA 分析）
 
 <div style="background-color: #fffbe6; border-left: 6px solid #ffc107; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
-<strong>Prerequisite</strong>: Complete 5' scRNA analysis first to establish cell-bead correspondence.
+<strong>前置条件</strong>: 先完成 5' scRNA 分析以建立细胞与微珠对应关系。
 </div>
 
-### Step 1: 5' RNA Analysis
+### 第一步： 5' RNA 分析
 
 
-**5' scRNA-seq Analysis**
+**5' scRNA-seq 分析**
 
 <div style="background-color: #e7f3fe; border-left: 6px solid #2196F3; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
-<strong>Note:</strong> For 5' scRNA-seq data, you must add the <code>--end5</code> parameter to specify the library chemistry.
+<strong>说明：</strong> 5' scRNA-seq 数据需增加 <code>--end5</code> 参数以指定文库类型。
 </div>
 
 ```bash
@@ -209,9 +215,9 @@ $dnbc4tools rna run \
     --end5
 ```
 
-### Step 2: VDJ Analysis
+### 第二步： VDJ 分析
 
-**Quick Input (`--fastqs`)**
+**快速输入 (`--fastqs`)**
 ```bash
 $dnbc4tools vdj run \
     --fastqs /test/data \
@@ -221,12 +227,14 @@ $dnbc4tools vdj run \
     --threads 20 \
     --chain TR
 ```
-> Directory structure recommendation:
-> - `/test/data/*_R1*.fastq.gz, *_R2*.fastq.gz`
->
-> See [File Naming Conventions](#file-naming-conventions) for supported patterns.
+推荐目录结构：
+<ul>
+  <li><code>/test/data/*_R1*.fastq.gz</code>, <code>*_R2*.fastq.gz</code></li>
+</ul>
 
-**Detailed Input (--fastq1/2)**
+支持的文件命名见[文件命名规则](#file-naming-conventions)。
+
+**详细输入 (--fastq1/2)**
 
 **TCR Analysis (Human)**
 ```bash
@@ -278,11 +286,11 @@ $dnbc4tools vdj run \
 
 ---
 
-## Multi-omics Analysis <a id="integrated-multi-omics-analysis"></a>
+## 多组学分析 <a id="integrated-multi-omics-analysis"></a>
 
-> Run RNA/ATAC/VDJ pipelines in one integrated workflow and generate a unified report
+> 在同一流程中运行 RNA/ATAC/VDJ，并输出统一报告
 
-### Step 1: Prepare Config File
+### 第一步： 准备配置文件
 
 > Recommended: in `[libraries]`, `fastqs` should be the FASTQ directory path for each omics library; the pipeline will auto-detect R1/R2 files in each directory.
 
@@ -306,13 +314,15 @@ ref,human
 ref,human
 ```
 
-> Directory structure:
-> - RNA: `/test/data/rna/cDNA/` and `/test/data/rna/oligo/`
-> - ATAC: paired FASTQ files under `/test/data/atac/`
-> - VDJ-T: paired FASTQ files under `/test/data/vdj-t/`
-> - VDJ-B: paired FASTQ files under `/test/data/vdj-b/`
+目录结构：
+<ul>
+  <li>RNA: <code>/test/data/rna/cDNA/</code> 和 <code>/test/data/rna/oligo/</code></li>
+  <li>ATAC: 成对 FASTQ 文件放在 <code>/test/data/atac/</code></li>
+  <li>VDJ-T: 成对 FASTQ 文件放在 <code>/test/data/vdj-t/</code></li>
+  <li>VDJ-B: 成对 FASTQ 文件放在 <code>/test/data/vdj-b/</code></li>
+</ul>
   
-### Step 2: Run Multi-omics Pipeline
+### 第二步： 运行多组学流程
 
 ```bash
 $dnbc4tools multi run \
@@ -324,28 +334,28 @@ $dnbc4tools multi run \
 
 ---
 
-## Command Reference <a id="command-reference"></a>
+## 命令速查 <a id="command-reference"></a>
 
-### Essential Commands Summary
+### 核心命令汇总
 
-| Workflow | Command | Purpose |
+| 流程 | 命令 | 用途 |
 | :--- | :--- | :--- |
-| **RNA Analysis** | `dnbc4tools rna run` | Complete RNA-seq pipeline |
-| **ATAC Analysis** | `dnbc4tools atac run` | Complete ATAC-seq pipeline |
-| **VDJ Analysis** | `dnbc4tools vdj run` | TCR/BCR repertoire analysis |
-| **Reference Building** | `dnbc4tools rna mkref` | Build RNA reference database |
-| **Reference Building** | `dnbc4tools atac mkref` | Build ATAC reference database |
-| **Multi-omics** | `dnbc4tools multi run` | Integrated RNA/ATAC/VDJ analysis and unified report |
-| **GTF Processing** | `dnbc4tools tools mkgtf` | Filter and process GTF files |
+| **RNA 分析** | `dnbc4tools rna run` | RNA 全流程分析 |
+| **ATAC 分析** | `dnbc4tools atac run` | ATAC 全流程分析 |
+| **VDJ 分析** | `dnbc4tools vdj run` | TCR/BCR 组库分析 |
+| **参考库构建** | `dnbc4tools rna mkref` | 构建 RNA 参考库 |
+| **参考库构建** | `dnbc4tools atac mkref` | 构建 ATAC 参考库 |
+| **多组学** | `dnbc4tools multi run` | RNA/ATAC/VDJ 联合分析与统一报告 |
+| **GTF 处理** | `dnbc4tools tools mkgtf` | 过滤并处理 GTF 文件 |
 
 
 ---
 
-## Related Documentation
+## 相关文档
 
-| Resource | Description |
+| 文档 | 说明 |
 | :--- | :--- |
-| [Pipelines](./pipeline/pipeline.md) | Analysis workflow guides |
-| [Parameters](./parameter/parameter.md) | Command reference and configuration options |
-| [Outputs](./outs/outs.md) | Understanding result files and reports |
-| [GitHub Issues](https://github.com/MGI-tech-bioinformatics/DNBelab_C_Series_HT_scRNA-analysis-software/issues) | Report bugs or request features |
+| [流程文档](./pipeline/pipeline.md) | 各分析流程说明 |
+| [参数说明](./parameter/parameter.md) | 命令与配置项参考 |
+| [输出说明](./outs/outs.md) | 结果文件与报告解读 |
+| [GitHub Issues](https://github.com/MGI-tech-bioinformatics/DNBelab_C_Series_HT_scRNA-analysis-software/issues) | 提交问题或功能建议 |

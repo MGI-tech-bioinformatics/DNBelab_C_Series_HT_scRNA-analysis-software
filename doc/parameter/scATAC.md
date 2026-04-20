@@ -1,6 +1,6 @@
 <div align="right" style="margin-bottom: 20px; max-width: 1200px; margin-left: auto; margin-right: auto;">
 
-<a href="../../README.md" style="color: #0071e3; text-decoration: none; font-size: 14px;">主页</a> <span style="color: rgba(0,0,0,0.3);">•</span> <a href="scATAC_en.md" style="color: #0071e3; text-decoration: none; font-size: 14px;">English</a>
+[首页](../../README.md)
 
 </div>
 
@@ -51,41 +51,35 @@ Process a single-cell ATAC-seq sample.
 Usage: dnbc4tools atac run [OPTIONS]
 
 optional arguments:
-  -h, --help                 show this help message and exit
+  --help                     show this help message and exit
 
 Input Files:
   Choose one input method: either `--fastqs` (directory input) or individual FASTQ files (`--fastq1` and `--fastq2`).
 
-  --fastqs <DIR>             Input directory containing paired-end FASTQ files.
-                             The pipeline automatically detects Read 1 and Read 2 files (e.g., `./fastq_dir`).
-  --fastq1 <FILE>            Read 1 FASTQ file(s) for the ATAC library. Wildcards and comma-separated lists are supported (e.g.,
-                             `sample1_L01_R1.fastq.gz,sample1_L02_R1.fastq.gz`).
-  --fastq2 <FILE>            Read 2 FASTQ file(s) for the ATAC library. Wildcards and comma-separated lists are supported.
-                             Must match the order provided to `--fastq1` (e.g., `sample1_L01_R2.fastq.gz,sample1_L02_R2.fastq.gz`).
+  --fastqs <DIR>             Input directory path containing paired-end FASTQ files. The pipeline automatically detects Read 1 and Read 2 files (e.g., `./fastq_dir`).
+  --fastq1 <FILE>            Read 1 FASTQ file path(s) for the ATAC library. Wildcards and comma-separated lists are supported (e.g., `sample1_L01_R1.fastq.gz,sample1_L02_R1.fastq.gz`).
+  --fastq2 <FILE>            Read 2 FASTQ file path(s) for the ATAC library. Must match the order provided to `--fastq1` (e.g., `sample1_L01_R2.fastq.gz,sample1_L02_R2.fastq.gz`).
 
 Basic Settings:
-  -n, --name <STR>           Unique identifier for the sample. Used for naming output files and reports (e.g., `sample1`).
-  -g, --genomeDir <DIR>      Path to reference genome directory. Must contain the required index and annotation resources.
-  -o, --outdir <DIR>         Output directory for results and reports [default: current directory] (e.g., `./output`).
-  -t, --threads <INT>        Number of CPU threads for parallel processing [default: 10].
+  --name <STR>               Unique identifier for the sample. Used for naming output files and reports (e.g., `sample1`).
+  --genomeDir <DIR>          Reference genome directory path. Must contain required index and annotation resources (e.g., `./genome_index`).
+  --outdir <DIR>             Output directory path for results and reports [default: current directory] (e.g., `./output`).
+  --threads <INT>            Number of CPU threads for parallel processing [default: 10].
 
 Library Settings:
-  --darkreaction <STR>       Dark cycle setting for ATAC library [default: auto].
-                             Supported values: `auto` (automatic detection), `R1R2` (both reads), `R1` (Read 1 only), `R2` (Read 2 only), and `unset` (no dark cycles).
-  --customize <STR>          Custom read structure for barcode or sequence extraction, in the format `<type>,<read>:<start>-<end>` separated by `;`.
-                             Types: `cb` (cell barcode), `R1` (sequence from Read1), `R2` (sequence from Read2) (e.g., `"cb,R1:1-10;cb,R1:11-20;R1,R1:21-70;R2,R2:1-50"`).
+  --darkreaction <STR>       Dark cycle setting for ATAC library [default: auto]. Supported values: `auto`, `R1R2`, `R1`, `R2`, `unset` (e.g., `R1R2`).
+  --customize <STR>          Custom read structure string. Format: `<type>,<read>:<start>-<end>` joined by `;`. (e.g., `cb,R1:1-10;cb,R1:11-20;R1,R1:21-70;R2,R2:1-50`).
 
 Filtering Settings:
-  --forcecells <INT>         Force pipeline to use exactly this number of cells, overriding expected cell detection (e.g., `5000`).
-  --frags_cutoff <INT>       Minimum number of unique fragments to retain a cell [default: 1000].
+  --forcecells <INT>         Force pipeline to use exactly this number of cells (e.g., `5000`).
+  --frags_cutoff <INT>       Minimum number of unique fragments to retain a cell [default: 1000] (e.g., `1000`).
   --tss_cutoff <FLOAT>       Minimum TSS proportion threshold to retain a cell [default: 0.0] (e.g., `0.2`).
   --jaccard_cutoff <FLOAT>   Jaccard similarity threshold for bead merging (e.g., `0.02`).
-  --merge_cutoff <INT>       Minimum number of fragments when merging beads [default: 500].
+  --merge_cutoff <INT>       Minimum number of fragments when merging beads [default: 500] (e.g., `500`).
 
 Analysis Settings:
   --need_bam                 Enable generation of BAM files containing aligned reads.
-                             Note: generating BAM files increases run time and disk-space usage.
-  --sample_read_pairs <INT>  Subsample the specified number of read pairs from the input FASTQ files (e.g., `1000000`).
+  --sample_read_pairs <INT>  Subsample the specified number of read pairs from input FASTQ file(s) (e.g., `1000000`).
 ```
 
 </div>
@@ -176,14 +170,18 @@ Analysis Settings:
 
 <div style="background: #f5f5f7; border-radius: 12px; padding: 20px; margin: 20px auto; max-width: 1200px;">
 
-> **输入方式选择：**
-> - **方式1：** 使用`--fastqs`指定包含配对FASTQ文件的目录
-> - **方式2：** 使用`--fastq1`和`--fastq2`分别指定R1和R2文件
+<p><strong>输入方式选择：</strong></p>
+<ul>
+  <li><strong>方式1：</strong>使用 <code>--fastqs</code> 指定包含配对 FASTQ 文件的目录。</li>
+  <li><strong>方式2：</strong>使用 <code>--fastq1</code> 和 <code>--fastq2</code> 分别指定 R1 和 R2 文件。</li>
+</ul>
 
-> **兼容别名**
-> - 历史短参数 `-1/-2` 仍可使用，但在新版帮助信息中默认隐藏，建议优先使用长参数以便脚本可读性更好。
+<p><strong>兼容别名</strong></p>
+<ul>
+  <li>历史短参数 <code>-1/-2</code> 仍可使用，但在新版帮助信息中默认隐藏，建议优先使用长参数以便脚本可读性更好。</li>
+</ul>
 
-> **重要提示：** 参数下所有文件必须来自同一文库，测序模式和暗反应设置保持一致，不同文库的数据不能合并分析。
+<p><strong>重要提示：</strong>参数下所有文件必须来自同一文库，测序模式和暗反应设置保持一致，不同文库的数据不能合并分析。</p>
 
 </div>
 <div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
@@ -423,16 +421,16 @@ Build an ATAC reference database.
 Usage: dnbc4tools atac mkref [OPTIONS]
 
 optional arguments:
-  -h, --help           show this help message and exit
+  --help               show this help message and exit
 
 Input Files:
   Input genome FASTA files and gene-annotation GTF files. For mixed-species analysis, separate multiple files with commas.
 
-  --fasta <FILE>       Path(s) to reference-genome FASTA files. Separate multiple files with commas (e.g., `genome.fa`).
-  --ingtf <FILE>       Path(s) to gene-annotation GTF files. Separate multiple files with commas (e.g., `anno.gtf`).
+  --fasta <FILE>       Reference-genome FASTA file path(s). Separate multiple files with commas (e.g., `genome.fa`).
+  --ingtf <FILE>       Gene-annotation GTF file path(s). Separate multiple files with commas (e.g., `anno.gtf`).
 
 Basic Settings:
-  --genomeDir <DIR>    Output directory for reference files [default: current directory] (e.g., `./ref`).
+  --genomeDir <DIR>    Output directory path for generated reference files [default: current directory] (e.g., `./ref`).
   --species <STR>      Species identifier(s). Use commas for mixed-species analysis [default: undefined] (e.g., `Homo_sapiens`).
 
 Advanced Settings:
@@ -608,42 +606,45 @@ dnbc4tools atac mkref --fasta genome.fa --ingtf genes.gtf --noindex</code></pre>
 
 <div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
 
-> [!TIP]
-> 
-> **数据库构建说明**：
-> - 使用Chromap构建的数据库目前无法处理极大的基因组，某些物种可能无法使用此软件进行scATAC分析，或者调整kmer和window参数来适配基因组索引构建。
-> - 数据库构建完成后，将在数据库目录中生成ref.json文件，记录关键信息
-> 
-> **ref.json文件示例**：
-> ```json
-> {
->     "species": "Homo_sapiens",
->     "input_fasta_files": [
->         "genome.fa"
->     ],
->     "input_gtf_files": [
->         "genes.gtf"
->     ],
->     "genome": "/database/scATAC/Homo_sapiens/fasta/genome.fa",
->     "index": "/database/scATAC/Homo_sapiens/fasta/genome.index",
->     "gtf": "/database/scATAC/Homo_sapiens/genes/genes.gtf",
->     "chrmt": "chrM",
->     "chloroplast": "None",
->     "chromeSize": "/database/scATAC/Homo_sapiens/regions/chrom.sizes",
->     "tss": "/database/scATAC/Homo_sapiens/regions/tss.bed",
->     "promoter": "/database/scATAC/Homo_sapiens/regions/promoter.bed",
->     "version": "dnbc4tools 3.0",
->     "blacklist": "None",
->     "genomesize": "hs"
-> }
-> ```
-> 
-> **重要说明**：
-> - chromeSize文件中列出的染色体名称将包含在fragments.tsv.gz文件中进行分析，未列出的染色体将被排除
-> - 自2.1.2版本起，blacklist参数已被移除，不再需要blacklist文件。如需要，可手动添加
-> - 黑名单区域的片段数量将记录在metadata文件output/singlecell.csv的blacklist_region_fragments列中
-> - genomesize值用于MACS2 peak calling分析，MACS2对某些物种有特殊标识符，如人类为"hs"
+<p><strong>数据库构建说明：</strong></p>
+<ul>
+  <li>使用 Chromap 构建的数据库目前无法处理极大的基因组，某些物种可能无法使用本软件进行 scATAC 分析；也可尝试调整 <code>kmer</code> 和 <code>window</code> 参数以适配基因组索引构建。</li>
+  <li>数据库构建完成后，将在数据库目录中生成 <code>ref.json</code> 文件，记录关键信息。</li>
+</ul>
+</div>
 
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #d2d2d7; overflow-x: auto;">
+<p><strong>ref.json 文件示例：</strong></p>
+<pre><code class="language-json">{
+    "species": "Homo_sapiens",
+    "input_fasta_files": [
+        "genome.fa"
+    ],
+    "input_gtf_files": [
+        "genes.gtf"
+    ],
+    "genome": "/database/scATAC/Homo_sapiens/fasta/genome.fa",
+    "index": "/database/scATAC/Homo_sapiens/fasta/genome.index",
+    "gtf": "/database/scATAC/Homo_sapiens/genes/genes.gtf",
+    "chrmt": "chrM",
+    "chloroplast": "None",
+    "chromeSize": "/database/scATAC/Homo_sapiens/regions/chrom.sizes",
+    "tss": "/database/scATAC/Homo_sapiens/regions/tss.bed",
+    "promoter": "/database/scATAC/Homo_sapiens/regions/promoter.bed",
+    "version": "dnbc4tools 3.0",
+    "blacklist": "None",
+    "genomesize": "hs"
+}</code></pre>
+</div>
+
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
+<p><strong>重要说明：</strong></p>
+<ul>
+  <li><code>chromeSize</code> 文件中列出的染色体名称将包含在 <code>fragments.tsv.gz</code> 文件中进行分析，未列出的染色体将被排除。</li>
+  <li>自 2.1.2 版本起，<code>blacklist</code> 参数已被移除，不再需要 blacklist 文件；如需要可手动添加。</li>
+  <li>黑名单区域的片段数量将记录在元数据文件 <code>output/singlecell.csv</code> 的 <code>blacklist_region_fragments</code> 列中。</li>
+  <li><code>genomesize</code> 值用于 MACS2 peak calling 分析，MACS2 对某些物种有特殊标识符，如人类为 <code>hs</code>。</li>
+</ul>
 </div>
 
 <div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
@@ -667,11 +668,15 @@ Process multiple ATAC-seq samples.
 Usage: dnbc4tools atac multi [OPTIONS]
 
 optional arguments:
-  -h, --help         show this help message and exit
-  --list <STR>       Path to the sample list file. Each line must contain the sample name and FASTQ paths.
-  --outdir <DIR>     Output directory for analysis results [default: current directory].
-  --threads <INT>    Number of CPU threads to use for analysis.
-  --genomeDir <DIR>  Path to the directory containing the reference genome files.
+  --help             show this help message and exit
+
+Input Files:
+  --list <FILE>      Sample list file path. Each line must contain sample name and FASTQ file path(s).
+
+Basic Settings:
+  --genomeDir <DIR>  Reference genome directory path containing required reference files.
+  --outdir <DIR>     Output directory path for analysis results [default: current directory] (e.g., `./output`).
+  --threads <INT>    Number of CPU threads for parallel processing.
 ```
 
 </div>

@@ -1,14 +1,14 @@
 <div align="right" style="margin-bottom: 20px; max-width: 1200px; margin-left: auto; margin-right: auto;">
 
-<a href="../../README.md" style="color: #0071e3; text-decoration: none; font-size: 14px;">Home</a>
+[首页](../../README.md)
 
 </div>
 
 <div align="center" style="padding: 40px 20px; background: linear-gradient(135deg, #f5f5f7 0%, #ffffff 100%); border-radius: 12px; margin-bottom: 30px; max-width: 1200px; margin-left: auto; margin-right: auto;">
 
-<h1 style="font-size: 48px; font-weight: 600; color: #1d1d1f; margin: 0 0 16px 0; letter-spacing: -0.02em;">dnbc4tools Parameter Reference</h1>
+<h1 style="font-size: 48px; font-weight: 600; color: #1d1d1f; margin: 0 0 16px 0; letter-spacing: -0.02em;">dnbc4tools 参数总览</h1>
 
-<p style="font-size: 21px; color: #86868b; margin: 0; font-weight: 400;">Complete command and parameter documentation</p>
+<p style="font-size: 21px; color: #86868b; margin: 0; font-weight: 400;">命令与参数完整说明</p>
 
 </div>
 
@@ -16,7 +16,7 @@
 
 <div style="background: #f5f5f7; border-radius: 12px; padding: 16px; margin: 24px auto; max-width: 1200px;">
 
-<strong>Documentation Guide</strong>: Each parameter guide includes detailed descriptions, default values, and usage examples for all available options.
+<strong>使用说明</strong>：每个参数文档均包含参数定义、默认值和典型用法示例。
 
 </div>
 
@@ -24,11 +24,11 @@
 
 <div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
 
-## Analysis Pipelines
+## 分析模块
 
 <div align="center">
 
-**Quick Tip**: Select your analysis type below to view detailed parameter descriptions and usage examples.
+**快速提示**：按分析类型进入对应参数文档，查看每个命令的详细参数说明。
 
 </div>
 
@@ -36,13 +36,13 @@
 
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
 
-| Analysis Type | Description & Key Commands | Documentation |
+| 分析类型 | 说明与关键命令 | 文档 |
 | :--- | :--- | :--- |
-| **Single-Cell RNA** | **Parameters for gene expression analysis.** <br> <ul><li>`run`: Main analysis pipeline</li><li>`mkref`: Reference building</li><li>`multi`: Multi-sample aggregation</li></ul> | [**English Guide**](./scRNA_en.md) <br> [**中文指南**](./scRNA.md) |
-| **Single-Cell ATAC** | **Parameters for chromatin accessibility analysis.** <br> <ul><li>`run`: Main analysis pipeline</li><li>`mkref`: Reference building</li><li>`multi`: Multi-sample aggregation</li></ul> | [**English Guide**](./scATAC_en.md) <br> [**中文指南**](./scATAC.md) |
-| **Single-Cell VDJ** | **Parameters for immune repertoire analysis.** <br> <ul><li>`run`: Main analysis pipeline</li></ul> | [**English Guide**](./scVDJ_en.md) <br> [**中文指南**](./scVDJ.md) |
-| **Multi-omics** | **Parameters for integrated multi-omics analysis.** <br> <ul><li>`run`: Integrated RNA/ATAC/VDJ workflow</li></ul> | [**English Guide**](./multi_en.md) <br> [**中文指南**](./multi.md) |
-| **Utility Tools** | **Parameters for helper and utility scripts.** <br> <ul><li>`mkgtf`: GTF file manipulation</li><li>`bam2fastq`: BAM to FASTQ conversion</li><li>`chromsplit`: Genome splitting</li><li>`fqsubC4`: FASTQ subsequence extraction</li></ul> | [**English Guide**](./tools_en.md) <br> [**中文指南**](./tools.md) |
+| **单细胞 RNA** | **基因表达分析参数。** <br> <ul><li>`run`: 主分析流程</li><li>`mkref`: 构建参考数据库</li><li>`multi`: 多样本汇总分析</li></ul> | [查看文档](./scRNA.md) |
+| **单细胞 ATAC** | **染色质开放性分析参数。** <br> <ul><li>`run`: 主分析流程</li><li>`mkref`: 构建参考数据库</li><li>`multi`: 多样本汇总分析</li></ul> | [查看文档](./scATAC.md) |
+| **单细胞 VDJ** | **免疫受体分析参数。** <br> <ul><li>`run`: 主分析流程</li></ul> | [查看文档](./scVDJ.md) |
+| **多组学** | **一体化多组学分析参数。** <br> <ul><li>`run`: RNA/ATAC/VDJ 联合流程</li></ul> | [查看文档](./multi.md) |
+| **工具命令** | **辅助工具参数。** <br> <ul><li>`mkgtf`: GTF 文件处理</li><li>`bam2fastq`: BAM 转 FASTQ</li><li>`chromsplit`: 染色体切分</li><li>`fqsubC4`: FASTQ 子序列提取</li></ul> | [查看文档](./tools.md) |
 
 </div>
 
@@ -50,27 +50,27 @@
 
 <div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
 
-## Related Documentation
+## 相关文档
 
 </div>
 
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
 
-| Resource | Description |
+| 文档 | 说明 |
 | :--- | :--- |
-| [Workflows](../pipeline/pipeline.md) | Analysis pipeline guides |
-| [Outputs](../outs/outs.md) | Understanding result files |
-| [Quick Start](../quickstart.md) | Get started in 5 minutes |
-| [Installation](../installation.md) | Software setup and requirements |
+| [流程说明](../pipeline/pipeline.md) | 各分析流程使用说明 |
+| [输出说明](../outs/outs.md) | 输出文件解读 |
+| [快速开始](../quickstart.md) | 5 分钟快速上手 |
+| [安装指南](../installation.md) | 软件安装与环境要求 |
 
 </div>
 
 <div align="center" style="background: #f5f5f7; border-radius: 12px; padding: 30px; margin: 40px auto; max-width: 1200px;">
 
-> <strong>Feedback & Support</strong>
+> <strong>反馈与支持</strong>
 > 
-> For detailed parameter descriptions, click on any analysis type above.
+> 如需详细参数说明，请进入上方各模块文档。
 > 
-<strong>Document Version:</strong> 3.1 | <strong>Last Updated:</strong> April 2026
+<strong>文档版本：</strong> 3.1 | <strong>最后更新：</strong> 2026 年 4 月
 
 </div>

@@ -1,65 +1,87 @@
-<div align="center">
+<div align="center" markdown="1">
 
-# DNBelab C Series™ HT Single-Cell Analysis Software
+# DNBelab C Series™ HT 单细胞分析软件
 
-[![Github Release](https://img.shields.io/github/v/release/MGI-tech-bioinformatics/DNBelab_C_Series_HT_scRNA-analysis-software)](https://github.com/MGI-tech-bioinformatics/DNBelab_C_Series_HT_scRNA-analysis-software/releases) [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE) [![Documentation](https://img.shields.io/badge/docs-latest-brightgreen.svg)](https://lishuangshuang0616.github.io/DNBelab_C_Series_HT_scRNA-analysis-software/Document/README.html) [![Platform](https://img.shields.io/badge/platform-Linux-lightgrey.svg)](#system-requirements)
+[![Github Release](https://img.shields.io/github/v/release/MGI-tech-bioinformatics/DNBelab_C_Series_HT_scRNA-analysis-software)](https://github.com/MGI-tech-bioinformatics/DNBelab_C_Series_HT_scRNA-analysis-software/releases)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![Documentation](https://img.shields.io/badge/docs-latest-brightgreen.svg)](https://lishuangshuang0616.github.io/DNBelab_C_Series_HT_scRNA-analysis-software/Document/site/index.html)
+[![Platform](https://img.shields.io/badge/platform-Linux-lightgrey.svg)](./doc/installation.md#system-requirements)
 
-**The official pipeline for flexible and high-performance analysis of DNBelab C Series™ single-cell data.**
+面向 DNBelab C Series™ 数据的高性能单细胞分析流程，命令行工具为 **`dnbc4tools`**。
 
-The command-line tool for this pipeline is named **`dnbc4tools`**.
-
-🧬 **scRNA-seq** | 🧪 **scATAC-seq** | 🦠 **scVDJ-seq** | 🧩 **Multi-omics**
-
-📚 **Documentation**: [**User Guide**](https://mgi-tech-bioinformatics.github.io/DNBelab_C_Series_HT_scRNA-analysis-software/Document/README.html)
+支持模块：**scRNA-seq** | **scATAC-seq** | **scVDJ-seq** | **Multi-omics**
 
 </div>
 
 ---
 
-## ✨ What's New in v3.1
+## v3.1 更新内容
 
-- 🧩 **Multi-omics Analysis**: Single-sample multi-omics workflow supporting RNA + VDJ combined analysis
+- 新增多组学分析：支持单样本 RNA + VDJ 联合分析
+- 支持 `--consistent_cells`，提升下游分析一致性
+- 修复 RNA 细胞指标与双物种边界场景问题
+- 优化 `bam2fastq` 与 `fqsubC4` 性能
 
-📋 **[Full Release Notes](./doc/release.md)**
-
----
-
-## 📚 Documentation
-
-### Core Guides
-
-| Guide | Purpose |
-| :--- | :--- |
-| **[Installation](./doc/installation.md)** | Set up dnbc4tools on your system. |
-| **[Quick Start](./doc/quickstart.md)** | Run your first analysis with sample data. |
-| **[Analysis](./doc/io.md)** | Analyze results in R and Python. |
-| **[Demo Datasets](./doc/dataset.md)** | Access sample datasets for testing. |
-
-### Pipeline-Specific Guides
-
-| Topic | Links |
-| :--- | :--- |
-| **[Pipeline Guides](./doc/pipeline/pipeline.md)** | In-depth workflow documentation for: <br> [scRNA-seq](./doc/pipeline/scRNA_en.md) \| [scATAC-seq](./doc/pipeline/scATAC_en.md) \| [scVDJ-seq](./doc/pipeline/scVDJ_en.md) \| [Multi-omics](./doc/pipeline/multi_en.md) |
-| **[Parameters](./doc/parameter/parameter.md)** | Command reference and parameter settings for: <br> [scRNA-seq](./doc/parameter/scRNA_en.md) \| [scATAC-seq](./doc/parameter/scATAC_en.md) \| [scVDJ-seq](./doc/parameter/scVDJ_en.md) \| [Multi-omics](./doc/parameter/multi_en.md) |
-| **[Outputs](./doc/outs/outs.md)** | Guides to understanding your results for: <br> [scRNA-seq](./doc/outs/scRNA_en.md) \| [scATAC-seq](./doc/outs/scATAC_en.md) \| [scVDJ-seq](./doc/outs/scVDJ_en.md) \| [Multi-omics](./doc/outs/multi_en.md) |
+查看详情：[版本说明](./doc/release.md)
 
 ---
 
-## 🤝 Support and Community
+## 文档导航
 
-### Get Help & Report Issues
+### 快速上手
 
-- **Questions, bug reports, feature requests**: [GitHub Issues](https://github.com/MGI-tech-bioinformatics/DNBelab_C_Series_HT_scRNA-analysis-software/issues)
+<div class="home-quick-links" markdown="1">
 
-### Contact Information
+[安装指南](./doc/installation.md)
+[快速开始](./doc/quickstart.md)
+[结果读取（I/O）](./doc/io.md)
+[示例数据](./doc/dataset.md)
 
-- **Website**: [www.mgitech.cn](https://www.mgitech.cn)
+</div>
 
 ---
 
-## 🧾 Version Note
+### 模块导航
 
-This is the stable release version (**v3.1**).  
-Users on beta or RC versions are recommended to update.
+<table class="home-module-table">
+  <thead>
+    <tr>
+      <th>分析流程</th>
+      <th>命令参数</th>
+      <th>结果输出</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <p><a href="./doc/pipeline/pipeline.md">总览</a></p>
+        <p><a href="./doc/pipeline/scRNA.md">scRNA</a></p>
+        <p><a href="./doc/pipeline/scATAC.md">scATAC</a></p>
+        <p><a href="./doc/pipeline/scVDJ.md">scVDJ</a></p>
+        <p><a href="./doc/pipeline/multi.md">多组学</a></p>
+      </td>
+      <td>
+        <p><a href="./doc/parameter/parameter.md">总览</a></p>
+        <p><a href="./doc/parameter/scRNA.md">scRNA</a></p>
+        <p><a href="./doc/parameter/scATAC.md">scATAC</a></p>
+        <p><a href="./doc/parameter/scVDJ.md">scVDJ</a></p>
+        <p><a href="./doc/parameter/multi.md">多组学</a></p>
+        <p><a href="./doc/parameter/tools.md">工具箱</a></p>
+      </td>
+      <td>
+        <p><a href="./doc/outs/outs.md">总览</a></p>
+        <p><a href="./doc/outs/scRNA.md">scRNA</a></p>
+        <p><a href="./doc/outs/scATAC.md">scATAC</a></p>
+        <p><a href="./doc/outs/scVDJ.md">scVDJ</a></p>
+        <p><a href="./doc/outs/multi.md">多组学</a></p>
+      </td>
+    </tr>
+  </tbody>
+</table>
 
-For version **2.1.3**, switch to the [`version2.0`](https://github.com/MGI-tech-bioinformatics/DNBelab_C_Series_HT_scRNA-analysis-software/tree/version2.0) branch.
+---
+
+## 支持与反馈
+
+- 问题反馈与需求建议：[GitHub Issues](https://github.com/MGI-tech-bioinformatics/DNBelab_C_Series_HT_scRNA-analysis-software/issues)
+- 官方网站：[www.mgitech.com](https://www.mgitech.com)

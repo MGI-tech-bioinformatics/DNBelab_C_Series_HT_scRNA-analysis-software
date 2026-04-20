@@ -14,18 +14,20 @@
         <link rel="prev" href="installation_previous.html">
       
       
-        <link rel="next" href="structure.html">
       
-      
+        
+          <link rel="alternate" href="json.html" hreflang="zh">
+        
+          <link rel="alternate" href="../en/doc/json.html" hreflang="en">
         
       
       
-      <link rel="icon" href="../assets/images/favicon.png">
+      <link rel="icon" href="../assets/images/favicon.svg">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
-        <title>JSON Spec - DNBelab C Series™ HT Single-Cell Analysis Software</title>
+        <title>JSON 规范 - DNBelab C Series™ HT 单细胞分析软件</title>
       
     
     
@@ -68,7 +70,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#json-configuration-guide" class="md-skip">
+        <a href="#json" class="md-skip">
           跳转至
         </a>
       
@@ -84,10 +86,10 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="页眉">
-    <a href="../index.html" title="DNBelab C Series™ HT Single-Cell Analysis Software" class="md-header__button md-logo" aria-label="DNBelab C Series™ HT Single-Cell Analysis Software" data-md-component="logo">
+    <a href="../index.html" title="DNBelab C Series™ HT 单细胞分析软件" class="md-header__button md-logo" aria-label="DNBelab C Series™ HT 单细胞分析软件" data-md-component="logo">
       
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 2h2v2c0 1.44.68 2.61 1.88 3.78.86.83 2.01 1.63 3.21 2.42l-1.83 1.19C8.27 10.72 7.31 10 6.5 9.21 5.07 7.82 4 6.1 4 4zm14 0h2v2c0 2.1-1.07 3.82-2.5 5.21-1.41 1.38-3.21 2.52-4.96 3.63-1.75 1.12-3.45 2.21-4.66 3.38C6.68 17.39 6 18.56 6 20v2H4v-2c0-2.1 1.07-3.82 2.5-5.21 1.41-1.38 3.21-2.52 4.96-3.63 1.75-1.12 3.45-2.21 4.66-3.38C17.32 6.61 18 5.44 18 4zm-3.26 10.61c.99.67 1.95 1.39 2.76 2.18C18.93 16.18 20 17.9 20 20v2h-2v-2c0-1.44-.68-2.61-1.88-3.78-.86-.83-2.01-1.63-3.21-2.42zM7 3h10v1l-.06.5H7.06L7 4zm.68 3h8.64c-.24.34-.52.69-.9 1.06l-.51.44H9.07l-.49-.44c-.38-.37-.66-.72-.9-1.06m1.41 10.5h5.84l.49.44c.38.37.66.72.9 1.06H7.68c.24-.34.52-.69.9-1.06zm-2.03 3h9.88l.06.5v1H7v-1z"/></svg>
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -98,13 +100,13 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            DNBelab C Series™ HT Single-Cell Analysis Software
+            DNBelab C Series™ HT 单细胞分析软件
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              JSON Spec
+              JSON 规范
             
           </span>
         </div>
@@ -114,6 +116,32 @@
     
       <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
     
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="选择当前语言">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="json.html" hreflang="zh" class="md-select__link">
+              中文
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../en/doc/json.html" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
     
     
       
@@ -196,13 +224,13 @@
 
 <nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../index.html" title="DNBelab C Series™ HT Single-Cell Analysis Software" class="md-nav__button md-logo" aria-label="DNBelab C Series™ HT Single-Cell Analysis Software" data-md-component="logo">
+    <a href="../index.html" title="DNBelab C Series™ HT 单细胞分析软件" class="md-nav__button md-logo" aria-label="DNBelab C Series™ HT 单细胞分析软件" data-md-component="logo">
       
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 2h2v2c0 1.44.68 2.61 1.88 3.78.86.83 2.01 1.63 3.21 2.42l-1.83 1.19C8.27 10.72 7.31 10 6.5 9.21 5.07 7.82 4 6.1 4 4zm14 0h2v2c0 2.1-1.07 3.82-2.5 5.21-1.41 1.38-3.21 2.52-4.96 3.63-1.75 1.12-3.45 2.21-4.66 3.38C6.68 17.39 6 18.56 6 20v2H4v-2c0-2.1 1.07-3.82 2.5-5.21 1.41-1.38 3.21-2.52 4.96-3.63 1.75-1.12 3.45-2.21 4.66-3.38C17.32 6.61 18 5.44 18 4zm-3.26 10.61c.99.67 1.95 1.39 2.76 2.18C18.93 16.18 20 17.9 20 20v2h-2v-2c0-1.44-.68-2.61-1.88-3.78-.86-.83-2.01-1.63-3.21-2.42zM7 3h10v1l-.06.5H7.06L7 4zm.68 3h8.64c-.24.34-.52.69-.9 1.06l-.51.44H9.07l-.49-.44c-.38-.37-.66-.72-.9-1.06m1.41 10.5h5.84l.49.44c.38.37.66.72.9 1.06H7.68c.24-.34.52-.69.9-1.06zm-2.03 3h9.88l.06.5v1H7v-1z"/></svg>
 
     </a>
-    DNBelab C Series™ HT Single-Cell Analysis Software
+    DNBelab C Series™ HT 单细胞分析软件
   </label>
   
     <div class="md-nav__source">
@@ -233,7 +261,7 @@
   <span class="md-ellipsis">
     
   
-    Home
+    首页
   
 
     
@@ -260,7 +288,7 @@
   <span class="md-ellipsis">
     
   
-    Installation
+    安装
   
 
     
@@ -287,7 +315,7 @@
   <span class="md-ellipsis">
     
   
-    Quick Start
+    快速开始
   
 
     
@@ -325,7 +353,7 @@
   <span class="md-ellipsis">
     
   
-    Pipeline
+    流程
   
 
     
@@ -341,7 +369,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Pipeline
+    流程
   
 
           </label>
@@ -361,7 +389,7 @@
   <span class="md-ellipsis">
     
   
-    Overview
+    总览
   
 
     
@@ -389,35 +417,7 @@
   <span class="md-ellipsis">
     
   
-    scRNA (ZH)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="pipeline/scRNA_en.html" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    scRNA (EN)
+    scRNA
   
 
     
@@ -445,35 +445,7 @@
   <span class="md-ellipsis">
     
   
-    scATAC (ZH)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="pipeline/scATAC_en.html" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    scATAC (EN)
+    scATAC
   
 
     
@@ -501,35 +473,7 @@
   <span class="md-ellipsis">
     
   
-    scVDJ (ZH)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="pipeline/scVDJ_en.html" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    scVDJ (EN)
+    scVDJ
   
 
     
@@ -557,35 +501,7 @@
   <span class="md-ellipsis">
     
   
-    Multi (ZH)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="pipeline/multi_en.html" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Multi (EN)
+    多组学
   
 
     
@@ -631,7 +547,7 @@
   <span class="md-ellipsis">
     
   
-    Parameter
+    参数
   
 
     
@@ -647,7 +563,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Parameter
+    参数
   
 
           </label>
@@ -667,7 +583,7 @@
   <span class="md-ellipsis">
     
   
-    Overview
+    总览
   
 
     
@@ -695,35 +611,7 @@
   <span class="md-ellipsis">
     
   
-    scRNA (ZH)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="parameter/scRNA_en.html" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    scRNA (EN)
+    scRNA
   
 
     
@@ -751,35 +639,7 @@
   <span class="md-ellipsis">
     
   
-    scATAC (ZH)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="parameter/scATAC_en.html" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    scATAC (EN)
+    scATAC
   
 
     
@@ -807,35 +667,7 @@
   <span class="md-ellipsis">
     
   
-    scVDJ (ZH)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="parameter/scVDJ_en.html" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    scVDJ (EN)
+    scVDJ
   
 
     
@@ -863,35 +695,7 @@
   <span class="md-ellipsis">
     
   
-    Multi (ZH)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="parameter/multi_en.html" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Multi (EN)
+    多组学
   
 
     
@@ -919,35 +723,7 @@
   <span class="md-ellipsis">
     
   
-    Tools (ZH)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="parameter/tools_en.html" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Tools (EN)
+    工具
   
 
     
@@ -993,7 +769,7 @@
   <span class="md-ellipsis">
     
   
-    Outputs
+    输出
   
 
     
@@ -1009,7 +785,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Outputs
+    输出
   
 
           </label>
@@ -1029,7 +805,7 @@
   <span class="md-ellipsis">
     
   
-    Overview
+    总览
   
 
     
@@ -1057,35 +833,7 @@
   <span class="md-ellipsis">
     
   
-    scRNA (ZH)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="outs/scRNA_en.html" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    scRNA (EN)
+    scRNA
   
 
     
@@ -1113,35 +861,7 @@
   <span class="md-ellipsis">
     
   
-    scATAC (ZH)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="outs/scATAC_en.html" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    scATAC (EN)
+    scATAC
   
 
     
@@ -1169,35 +889,7 @@
   <span class="md-ellipsis">
     
   
-    scVDJ (ZH)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="outs/scVDJ_en.html" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    scVDJ (EN)
+    scVDJ
   
 
     
@@ -1225,35 +917,7 @@
   <span class="md-ellipsis">
     
   
-    Multi (ZH)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="outs/multi_en.html" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Multi (EN)
+    多组学
   
 
     
@@ -1288,7 +952,7 @@
   <span class="md-ellipsis">
     
   
-    I/O Analysis
+    结果分析
   
 
     
@@ -1315,7 +979,7 @@
   <span class="md-ellipsis">
     
   
-    Release Notes
+    版本说明
   
 
     
@@ -1342,7 +1006,7 @@
   <span class="md-ellipsis">
     
   
-    Dataset
+    数据集
   
 
     
@@ -1382,7 +1046,7 @@
   <span class="md-ellipsis">
     
   
-    Additional
+    附加
   
 
     
@@ -1398,7 +1062,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Additional
+    附加
   
 
           </label>
@@ -1418,7 +1082,7 @@
   <span class="md-ellipsis">
     
   
-    Previous Installation
+    旧版安装
   
 
     
@@ -1455,7 +1119,7 @@
   <span class="md-ellipsis">
     
   
-    JSON Spec
+    JSON 规范
   
 
     
@@ -1473,7 +1137,7 @@
   <span class="md-ellipsis">
     
   
-    JSON Spec
+    JSON 规范
   
 
     
@@ -1499,22 +1163,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#library-structures" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Library Structures
+        文库结构
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Library Structures">
+    <nav class="md-nav" aria-label="文库结构">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#cdna-library-structure" class="md-nav__link">
+  <a href="#cdna" class="md-nav__link">
     <span class="md-ellipsis">
       
-        cDNA Library Structure
+        cDNA 文库结构
       
     </span>
   </a>
@@ -1522,10 +1186,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#oligo-library-structure" class="md-nav__link">
+  <a href="#oligo" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Oligo Library Structure
+        Oligo 文库结构
       
     </span>
   </a>
@@ -1538,22 +1202,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#json-configuration-explained" class="md-nav__link">
+  <a href="#json_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        JSON Configuration Explained
+        JSON 字段解释
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="JSON Configuration Explained">
+    <nav class="md-nav" aria-label="JSON 字段解释">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#example-json-configuration" class="md-nav__link">
+  <a href="#json_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Example JSON Configuration
+        JSON 示例
       
     </span>
   </a>
@@ -1566,10 +1230,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#supported-keys" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Supported Keys
+        支持字段列表
       
     </span>
   </a>
@@ -1577,22 +1241,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#positional-information-examples" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Positional Information Examples
+        位置配置示例
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Positional Information Examples">
+    <nav class="md-nav" aria-label="位置配置示例">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#scenario-1-dark-reaction-on-cdna-r1-and-oligo-r1r2" class="md-nav__link">
+  <a href="#1cdna-r1-oligo-r1r2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Scenario 1: Dark reaction on cDNA R1 and Oligo R1/R2
+        场景 1：cDNA R1 与 Oligo R1/R2 均存在暗反应
       
     </span>
   </a>
@@ -1600,10 +1264,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#scenario-2-dark-reaction-on-cdna-r1-and-oligo-r1-oligo-r2-is-normal" class="md-nav__link">
+  <a href="#2cdna-r1-oligo-r1-oligo-r2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Scenario 2: Dark reaction on cDNA R1 and Oligo R1 (Oligo R2 is normal)
+        场景 2：cDNA R1 与 Oligo R1 存在暗反应（Oligo R2 正常）
       
     </span>
   </a>
@@ -1619,34 +1283,6 @@
   
 </nav>
       
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="structure.html" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Structure
-  
-
-    
-  </span>
-  
-  
-
-      </a>
     </li>
   
 
@@ -1686,22 +1322,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#library-structures" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Library Structures
+        文库结构
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Library Structures">
+    <nav class="md-nav" aria-label="文库结构">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#cdna-library-structure" class="md-nav__link">
+  <a href="#cdna" class="md-nav__link">
     <span class="md-ellipsis">
       
-        cDNA Library Structure
+        cDNA 文库结构
       
     </span>
   </a>
@@ -1709,10 +1345,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#oligo-library-structure" class="md-nav__link">
+  <a href="#oligo" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Oligo Library Structure
+        Oligo 文库结构
       
     </span>
   </a>
@@ -1725,22 +1361,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#json-configuration-explained" class="md-nav__link">
+  <a href="#json_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        JSON Configuration Explained
+        JSON 字段解释
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="JSON Configuration Explained">
+    <nav class="md-nav" aria-label="JSON 字段解释">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#example-json-configuration" class="md-nav__link">
+  <a href="#json_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Example JSON Configuration
+        JSON 示例
       
     </span>
   </a>
@@ -1753,10 +1389,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#supported-keys" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Supported Keys
+        支持字段列表
       
     </span>
   </a>
@@ -1764,22 +1400,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#positional-information-examples" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Positional Information Examples
+        位置配置示例
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Positional Information Examples">
+    <nav class="md-nav" aria-label="位置配置示例">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#scenario-1-dark-reaction-on-cdna-r1-and-oligo-r1r2" class="md-nav__link">
+  <a href="#1cdna-r1-oligo-r1r2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Scenario 1: Dark reaction on cDNA R1 and Oligo R1/R2
+        场景 1：cDNA R1 与 Oligo R1/R2 均存在暗反应
       
     </span>
   </a>
@@ -1787,10 +1423,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#scenario-2-dark-reaction-on-cdna-r1-and-oligo-r1-oligo-r2-is-normal" class="md-nav__link">
+  <a href="#2cdna-r1-oligo-r1-oligo-r2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Scenario 2: Dark reaction on cDNA R1 and Oligo R1 (Oligo R2 is normal)
+        场景 2：cDNA R1 与 Oligo R1 存在暗反应（Oligo R2 正常）
       
     </span>
   </a>
@@ -1820,37 +1456,37 @@
 
 
 <div align="right">
-<p><a href="../index.html">Home</a></p>
+<p><a href="../index.html">首页</a></p>
 </div>
-<h1 id="json-configuration-guide">JSON Configuration Guide<a class="headerlink" href="#json-configuration-guide" title="Permanent link">&para;</a></h1>
-<p>This document explains the JSON configuration used to define the library structure for <code>dnbc4tools</code>.</p>
+<h1 id="json">JSON 配置说明<a class="headerlink" href="#json" title="Permanent link">&para;</a></h1>
+<p>本文档用于说明 <code>dnbc4tools</code> 中用于定义文库结构的 JSON 配置格式。</p>
 <hr />
-<h2 id="library-structures">Library Structures<a class="headerlink" href="#library-structures" title="Permanent link">&para;</a></h2>
-<p>The configuration accommodates the specific structures of the <code>scRNAv2HT</code> reagent libraries.</p>
+<h2 id="_1">文库结构<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>该配置用于描述 <code>scRNAv2HT</code> 试剂盒文库结构。</p>
 <div style="display: flex; justify-content: space-around; align-items: center; flex-wrap: wrap; margin: 1.5em 0;">
 <div style="text-align: center; margin: 1em;">
-<h4 id="cdna-library-structure">cDNA Library Structure<a class="headerlink" href="#cdna-library-structure" title="Permanent link">&para;</a></h4>
+<h4 id="cdna">cDNA 文库结构<a class="headerlink" href="#cdna" title="Permanent link">&para;</a></h4>
 <p><img src="./images/cDNA_library.jpg" alt="cDNA Library Structure" style="width: 500px; max-width: 100%;">
   </p>
 </div>
 <div style="text-align: center; margin: 1em;">
-<h4 id="oligo-library-structure">Oligo Library Structure<a class="headerlink" href="#oligo-library-structure" title="Permanent link">&para;</a></h4>
+<h4 id="oligo">Oligo 文库结构<a class="headerlink" href="#oligo" title="Permanent link">&para;</a></h4>
 <p><img src="./images/oligo_library.jpg" alt="Oligo Library Structure" style="width: 500px; max-width: 100%;">
   </p>
 </div>
 </div>
 <hr />
-<h2 id="json-configuration-explained">JSON Configuration Explained<a class="headerlink" href="#json-configuration-explained" title="Permanent link">&para;</a></h2>
-<p>The JSON configuration file defines how to parse barcodes, UMIs, and reads from your FASTQ files. Here are the key concepts:</p>
+<h2 id="json_1">JSON 字段解释<a class="headerlink" href="#json_1" title="Permanent link">&para;</a></h2>
+<p>JSON 配置用于定义如何从 FASTQ 中解析 barcode、UMI 和 read。核心说明如下：</p>
 <ul>
-<li><strong>Required Fields</strong>: The <code>"cell barcode tag"</code>, <code>"cell barcode"</code>, and <code>"read 1"</code> fields are mandatory.</li>
-<li><strong>Tags</strong>: In the <code>value</code> field, <code>CB</code> is the suggested tag name for the corrected cell barcode, and <code>UR</code> is for the UMI.</li>
-<li><strong>Location</strong>: The <code>location</code> field specifies the read (<code>R1</code> or <code>R2</code>) and the base pair coordinates. For example, <code>"R1:1-10"</code> refers to bases 1-10 of read 1.</li>
-<li><strong>Barcode Segments</strong>: A cell barcode can be composed of multiple segments from different locations (e.g., <code>"R1:1-10"</code> and <code>"R1:17-26"</code>).</li>
-<li><strong>Output</strong>: The program will export the parsed barcodes and UMIs into the name field of the output FASTQ. The sequence specified by <code>"read 1"</code> (e.g., <code>"R2:1-100"</code>) will be kept in the sequence field.</li>
-<li><strong>Whitelist Correction</strong>: A predefined <code>"white list"</code> can be provided to correct barcode sequences. Barcodes not found in the whitelist are compared against it, and if the hamming <code>"distance"</code> is within the specified cutoff, the barcode is corrected.</li>
+<li><strong>必填字段</strong>：<code>"cell barcode tag"</code>、<code>"cell barcode"</code>、<code>"read 1"</code> 为必填。</li>
+<li><strong>Tag 含义</strong>：<code>value</code> 中通常用 <code>CB</code> 表示纠错后的细胞 barcode，用 <code>UR</code> 表示 UMI。</li>
+<li><strong>位置定义</strong>：<code>location</code> 使用 <code>R1</code>/<code>R2</code> 加区间坐标，例如 <code>"R1:1-10"</code> 表示 read1 的 1-10 bp。</li>
+<li><strong>Barcode 片段</strong>：一个细胞 barcode 可以由多个片段拼接而成（例如 <code>"R1:1-10"</code> + <code>"R1:17-26"</code>）。</li>
+<li><strong>输出行为</strong>：程序会把解析出的 barcode/UMI 写入输出 FASTQ 的 name 字段；<code>"read 1"</code> 指定的序列（如 <code>"R2:1-100"</code>）保留在 sequence 字段。</li>
+<li><strong>白名单纠错</strong>：可通过 <code>"white list"</code> 指定合法 barcode；若不在白名单中，则按 <code>"distance"</code>（汉明距离阈值）尝试纠错。</li>
 </ul>
-<h3 id="example-json-configuration">Example JSON Configuration<a class="headerlink" href="#example-json-configuration" title="Permanent link">&para;</a></h3>
+<h3 id="json_2">JSON 示例<a class="headerlink" href="#json_2" title="Permanent link">&para;</a></h3>
 <pre><code class="language-json">{
     &quot;cell barcode tag&quot;:&quot;CB&quot;,
     &quot;cell barcode&quot;:[
@@ -1883,37 +1519,36 @@
 }
 </code></pre>
 <hr />
-<h2 id="supported-keys">Supported Keys<a class="headerlink" href="#supported-keys" title="Permanent link">&para;</a></h2>
-<p>Here is a list of all supported keys in the configuration file.</p>
+<h2 id="_2">支持字段列表<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <table style="width:100%; border-collapse: collapse; margin: 1.5em 0; box-shadow: 0 2px 3px rgba(0,0,0,0.1);">
   <thead style="background-color: #f2f2f2; border-bottom: 2px solid #ddd;">
     <tr>
-      <th style="padding: 12px 15px; border: 1px solid #ddd; text-align: left;">Key</th>
-      <th style="padding: 12px 15px; border: 1px solid #ddd; text-align: left;">Comment</th>
+      <th style="padding: 12px 15px; border: 1px solid #ddd; text-align: left;">字段</th>
+      <th style="padding: 12px 15px; border: 1px solid #ddd; text-align: left;">说明</th>
     </tr>
   </thead>
   <tbody>
-    <tr><td style="padding: 12px 15px; border: 1px solid #ddd;"><code>cell barcode tag</code></td><td style="padding: 12px 15px; border: 1px solid #ddd;">SAM tag for the corrected cell barcode. "CB" is suggested.</td></tr>
-    <tr><td style="padding: 12px 15px; border: 1px solid #ddd;"><code>cell barcode</code></td><td style="padding: 12px 15px; border: 1px solid #ddd;">A JSON array defining the segments of the cell barcode.</td></tr>
-    <tr><td style="padding: 12px 15px; border: 1px solid #ddd;"><code>cell barcode raw tag</code></td><td style="padding: 12px 15px; border: 1px solid #ddd;">SAM tag for the raw cell barcode sequence. "CR" is suggested.</td></tr>
-    <tr><td style="padding: 12px 15px; border: 1px solid #ddd;"><code>cell barcode raw qual tag</code></td><td style="padding: 12px 15px; border: 1px solid #ddd;">SAM tag for the quality score of the raw cell barcode. "CY" is suggested.</td></tr>
-    <tr><td style="padding: 12px 15px; border: 1px solid #ddd;"><code>distance</code></td><td style="padding: 12px 15px; border: 1px solid #ddd;">The minimum Hamming distance for barcode correction.</td></tr>
-    <tr><td style="padding: 12px 15px; border: 1px solid #ddd;"><code>white list</code></td><td style="padding: 12px 15px; border: 1px solid #ddd;">A list of valid barcode sequences for correction.</td></tr>
-    <tr><td style="padding: 12px 15px; border: 1px solid #ddd;"><code>location</code></td><td style="padding: 12px 15px; border: 1px solid #ddd;">The sequence location in read 1 or read 2 (e.g., "R1:1-10").</td></tr>
-    <tr><td style="padding: 12px 15px; border: 1px solid #ddd;"><code>sample barcode tag</code></td><td style="padding: 12px 15px; border: 1px solid #ddd;">SAM tag for the sample barcode.</td></tr>
-    <tr><td style="padding: 12px 15px; border: 1px solid #ddd;"><code>sample barcode</code></td><td style="padding: 12px 15px; border: 1px solid #ddd;">Defines the sample barcode segments.</td></tr>
-    <tr><td style="padding: 12px 15px; border: 1px solid #ddd;"><code>UMI tag</code></td><td style="padding: 12px 15px; border: 1px solid #ddd;">SAM tag for the UMI. "UR" is suggested for raw UMI, "UB" for corrected.</td></tr>
-    <tr><td style="padding: 12px 15px; border: 1px solid #ddd;"><code>UMI qual tag</code></td><td style="padding: 12px 15px; border: 1px solid #ddd;">SAM tag for the UMI sequence quality.</td></tr>
-    <tr><td style="padding: 12px 15px; border: 1px solid #ddd;"><code>UMI</code></td><td style="padding: 12px 15px; border: 1px solid #ddd;">Defines the location of the UMI.</td></tr>
-    <tr><td style="padding: 12px 15px; border: 1px solid #ddd;"><code>read 1</code></td><td style="padding: 12px 15px; border: 1px solid #ddd;">Defines the location of read 1 sequence to keep.</td></tr>
-    <tr><td style="padding: 12px 15px; border: 1px solid #ddd;"><code>read 2</code></td><td style="padding: 12px 15px; border: 1px solid #ddd;">Defines the location of read 2 sequence to keep.</td></tr>
+    <tr><td style="padding: 12px 15px; border: 1px solid #ddd;"><code>cell barcode tag</code></td><td style="padding: 12px 15px; border: 1px solid #ddd;">纠错后细胞 barcode 的 SAM tag，建议使用 `CB`。</td></tr>
+    <tr><td style="padding: 12px 15px; border: 1px solid #ddd;"><code>cell barcode</code></td><td style="padding: 12px 15px; border: 1px solid #ddd;">定义细胞 barcode 片段的 JSON 数组。</td></tr>
+    <tr><td style="padding: 12px 15px; border: 1px solid #ddd;"><code>cell barcode raw tag</code></td><td style="padding: 12px 15px; border: 1px solid #ddd;">原始细胞 barcode 的 SAM tag，建议使用 `CR`。</td></tr>
+    <tr><td style="padding: 12px 15px; border: 1px solid #ddd;"><code>cell barcode raw qual tag</code></td><td style="padding: 12px 15px; border: 1px solid #ddd;">原始细胞 barcode 质量值的 SAM tag，建议使用 `CY`。</td></tr>
+    <tr><td style="padding: 12px 15px; border: 1px solid #ddd;"><code>distance</code></td><td style="padding: 12px 15px; border: 1px solid #ddd;">barcode 纠错使用的最小汉明距离阈值。</td></tr>
+    <tr><td style="padding: 12px 15px; border: 1px solid #ddd;"><code>white list</code></td><td style="padding: 12px 15px; border: 1px solid #ddd;">用于纠错的合法 barcode 列表。</td></tr>
+    <tr><td style="padding: 12px 15px; border: 1px solid #ddd;"><code>location</code></td><td style="padding: 12px 15px; border: 1px solid #ddd;">序列位置（例如 `R1:1-10`）。</td></tr>
+    <tr><td style="padding: 12px 15px; border: 1px solid #ddd;"><code>sample barcode tag</code></td><td style="padding: 12px 15px; border: 1px solid #ddd;">样本 barcode 的 SAM tag。</td></tr>
+    <tr><td style="padding: 12px 15px; border: 1px solid #ddd;"><code>sample barcode</code></td><td style="padding: 12px 15px; border: 1px solid #ddd;">定义样本 barcode 片段。</td></tr>
+    <tr><td style="padding: 12px 15px; border: 1px solid #ddd;"><code>UMI tag</code></td><td style="padding: 12px 15px; border: 1px solid #ddd;">UMI 的 SAM tag。原始 UMI 建议使用 `UR`，纠错后可使用 `UB`。</td></tr>
+    <tr><td style="padding: 12px 15px; border: 1px solid #ddd;"><code>UMI qual tag</code></td><td style="padding: 12px 15px; border: 1px solid #ddd;">UMI 质量值对应的 SAM tag。</td></tr>
+    <tr><td style="padding: 12px 15px; border: 1px solid #ddd;"><code>UMI</code></td><td style="padding: 12px 15px; border: 1px solid #ddd;">定义 UMI 的位置。</td></tr>
+    <tr><td style="padding: 12px 15px; border: 1px solid #ddd;"><code>read 1</code></td><td style="padding: 12px 15px; border: 1px solid #ddd;">定义保留的 read1 序列区域。</td></tr>
+    <tr><td style="padding: 12px 15px; border: 1px solid #ddd;"><code>read 2</code></td><td style="padding: 12px 15px; border: 1px solid #ddd;">定义保留的 read2 序列区域。</td></tr>
   </tbody>
 </table>
 
 <hr />
-<h2 id="positional-information-examples">Positional Information Examples<a class="headerlink" href="#positional-information-examples" title="Permanent link">&para;</a></h2>
+<h2 id="_3">位置配置示例<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <div style="background-color: #f8f9fa; border: 1px solid #dee2e6; padding: 1px 20px; margin: 20px 0; border-radius: 8px;">
-<h4 id="scenario-1-dark-reaction-on-cdna-r1-and-oligo-r1r2">Scenario 1: Dark reaction on cDNA R1 and Oligo R1/R2<a class="headerlink" href="#scenario-1-dark-reaction-on-cdna-r1-and-oligo-r1r2" title="Permanent link">&para;</a></h4>
+<h4 id="1cdna-r1-oligo-r1r2">场景 1：cDNA R1 与 Oligo R1/R2 均存在暗反应<a class="headerlink" href="#1cdna-r1-oligo-r1r2" title="Permanent link">&para;</a></h4>
 <ul>
 <li><b>cDNA - Cell Barcode:</b> <code>R1:1-10,R1:11-20</code></li>
 <li><b>cDNA - UMI:</b> <code>R1:21-30</code></li>
@@ -1923,7 +1558,7 @@
 </ul>
 </div>
 <div style="background-color: #f8f9fa; border: 1px solid #dee2e6; padding: 1px 20px; margin: 20px 0; border-radius: 8px;">
-<h4 id="scenario-2-dark-reaction-on-cdna-r1-and-oligo-r1-oligo-r2-is-normal">Scenario 2: Dark reaction on cDNA R1 and Oligo R1 (Oligo R2 is normal)<a class="headerlink" href="#scenario-2-dark-reaction-on-cdna-r1-and-oligo-r1-oligo-r2-is-normal" title="Permanent link">&para;</a></h4>
+<h4 id="2cdna-r1-oligo-r1-oligo-r2">场景 2：cDNA R1 与 Oligo R1 存在暗反应（Oligo R2 正常）<a class="headerlink" href="#2cdna-r1-oligo-r1-oligo-r2" title="Permanent link">&para;</a></h4>
 <ul>
 <li><b>cDNA - Cell Barcode:</b> <code>R1:1-10,R1:11-20</code></li>
 <li><b>cDNA - UMI:</b> <code>R1:21-30</code></li>
@@ -1986,6 +1621,8 @@ Documentation Version 3.1 · Last updated April 2026
     
     
       <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../javascripts/lang-toggle.js"></script>
       
     
   </body>

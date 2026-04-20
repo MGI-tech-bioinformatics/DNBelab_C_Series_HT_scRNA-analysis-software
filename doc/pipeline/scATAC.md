@@ -1,6 +1,6 @@
 <div align="right" style="margin-bottom: 20px; max-width: 1200px; margin-left: auto; margin-right: auto;">
 
-[主页](../../README.md) • [English](scATAC_en.md)
+[首页](../../README.md)
 
 </div>
 
@@ -117,14 +117,17 @@
  <strong>推荐数据来源</strong>：优先使用 <a href="https://www.ensembl.org/index.html">Ensembl 数据库</a> 提供的文件。Ensembl 的 GTF 文件包含可选标签，便于通过 <code>dnbc4tools tools mkgtf</code> 进行过滤。
 </div>
 
-**GTF文件要求**：
-- 必须包含<code>gene</code>或<code>transcript</code>类型的注释
-- 不支持GFF文件格式
-- 基因组文件与注释文件需对应
+**GTF文件要求：**
+<ul>
+  <li>必须包含 <code>gene</code> 或 <code>transcript</code> 类型以及 <code>exon</code> 类型的注释。</li>
+  <li>属性中必须包含 <code>gene_id</code> 或 <code>gene_name</code> 以及 <code>transcript_id</code> 或 <code>transcript_name</code>。</li>
+  <li>不支持 GFF 文件格式。</li>
+  <li>基因组文件与注释文件需版本对应。</li>
+</ul>
 
 ### GTF文件处理（可选）
 
-有关GTF文件过滤的详细信息，请[参考scRNA分析流程](./scRNA.md#22-使用dnbc4tools-tools-mkgtf过滤gtf文件可选)。
+有关GTF文件过滤的详细信息，请[参考scRNA分析流程](./scRNA.md#gtf-file-processing-optional-zh)。
 
 
 ### 构建参考数据库
@@ -291,7 +294,14 @@ $cat sample1.sh
 
 ### 单样本分析
 
-ATAC 主分析流程使用单个样本单细胞 ATAC 文库测序数据，经过过滤和比对生成所有磁珠的 fragments 文件。合并磁珠并执行 peak 调用分析，利用 peaks 区域的片段信息进行细胞识别。随后进行细胞过滤、降维和聚类，最终整合各步骤结果生成 HTML 网页报告并输出分析结果。
+ATAC 主分析流程使用单个样本单细胞 ATAC 文库测序数据。该流程的核心步骤包括：
+<ol>
+  <li><strong>数据处理</strong>：执行质控与比对，生成所有磁珠的 <code>fragments</code> 文件。</li>
+  <li><strong>Peak 调用</strong>：基于聚合数据进行 peak calling，识别开放染色质区域。</li>
+  <li><strong>细胞识别</strong>：利用 peaks 区域的片段信息识别有效细胞。</li>
+  <li><strong>高级分析</strong>：对细胞进行过滤、降维与聚类。</li>
+  <li><strong>报告生成</strong>：整合各步骤结果，输出 HTML 网页报告和其他分析结果文件。</li>
+</ol>
 
 支持两种输入方式：
 
