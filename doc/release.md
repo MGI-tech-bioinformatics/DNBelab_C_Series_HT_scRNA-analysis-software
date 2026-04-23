@@ -10,7 +10,7 @@
 
 **DNBelab C Series™ HT 单细胞分析软件官方版本更新记录**
 
-[最新版本](#latest-release) • [历史版本](#release-history) • [版本选择指南](#version-selection-guide)
+[最新版本](#latest-release) • [当前版本详情](#release-history) • [版本选择指南](#version-selection-guide)
 
 </div>
 
@@ -27,7 +27,7 @@
 
 ---
 
-## 历史版本 <a id="release-history"></a>
+## 当前版本详情 <a id="release-history"></a>
 
 ### 3.1（2026-04-03） <a id="31-2026-04-03"></a>
 
@@ -63,9 +63,9 @@
 
 ---
 
-## 过往版本说明 <a id="legacy-version-notes"></a>
+## 过往版本说明（3.0 及更早） <a id="legacy-version-notes"></a>
 
-以下为历史版本更新记录（按时间倒序）：
+以下为过往版本更新记录（按时间倒序）：
 
 ---
 

@@ -10,7 +10,7 @@
 
 **Official release history of DNBelab C Series™ HT Single-Cell Analysis Software**
 
-[Latest Release](#latest-release) • [All Versions](#release-history) • [Version Guide](#version-selection-guide)
+[Latest Release](#latest-release) • [Current Version Details](#release-history) • [Version Guide](#version-selection-guide)
 
 </div>
 
@@ -27,7 +27,7 @@
 
 ---
 
-## Release History <a id="release-history"></a>
+## Current Version Details <a id="release-history"></a>
 
 ### 3.1 (Apr 3, 2026) <a id="31-apr-3-2026"></a>
 
@@ -63,9 +63,9 @@
 
 ---
 
-## Legacy Version Notes <a id="legacy-version-notes"></a>
+## Previous Version Notes (3.0 and Earlier) <a id="legacy-version-notes"></a>
 
-Historical release records are listed below in reverse chronological order:
+The previous release records are listed below in reverse chronological order:
 
 ---
 
@@ -283,7 +283,7 @@ Historical release records are listed below in reverse chronological order:
 
 ### Historical Versions
 
-Detailed download links and installation instructions for older versions are available in the [Previous Installation Guide](./installation_previous.md). Additional information can be found at [GitHub Releases](https://github.com/MGI-tech-bioinformatics/DNBelab_C_Series_HT_scRNA-analysis-software/releases).
+Detailed download links and installation instructions for older versions are available in the [Previous Installation Guide](installation_previous.en.md). Additional information can be found at [GitHub Releases](https://github.com/MGI-tech-bioinformatics/DNBelab_C_Series_HT_scRNA-analysis-software/releases).
 
 <div style="background-color: #fffbe6; border-left: 6px solid #ffc107; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
 <strong>Release Guidance</strong>:
@@ -297,4 +297,4 @@ Detailed download links and installation instructions for older versions are ava
 
 ---
 
-*For detailed installation and usage instructions, see the [Installation Guide](./installation.md) and [Quick Start](./quickstart.md).*
+*For detailed installation and usage instructions, see the [Installation Guide](installation.en.md) and [Quick Start](quickstart.en.md).*

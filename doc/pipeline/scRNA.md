@@ -165,7 +165,7 @@
 ```shell
 # 统计基因类型数量
 $dnbc4tools tools mkgtf \
-  --action stat \
+  --action stats \
   --ingtf genes.gtf
 ```
 
@@ -174,7 +174,7 @@ $dnbc4tools tools mkgtf \
 </div>
 
 <div align="center">
-  <img src="https://s2.loli.net/2024/10/09/afGqtQocTE9h3uR.png" alt="GTF文件类型示例" width="800">
+  <img src="https://s2.loli.net/2024/10/09/afGqtQocTE9h3uR.png" alt="GTF 文件类型示例" width="800">
 </div>
 
 输出示例：
@@ -205,7 +205,7 @@ IG_V_gene       145
 当 GTF 文件内容不完整时，主分析流程可能会因无法完全注释而中断。此功能能够自动填补基因（gene）与转录本（transcript）条目中的缺失信息，确保流程顺利进行。
 
 ```shell
-# 校正GTF文件
+# 校正GTF 文件
 $dnbc4tools tools mkgtf \
   --action check \
   --ingtf genes.gtf \
@@ -594,7 +594,7 @@ $dnbc4tools rna run \
 
 </div>
 
-<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);" markdown="1">
 
 | 资源 | 描述 |
 | :--- | :--- |

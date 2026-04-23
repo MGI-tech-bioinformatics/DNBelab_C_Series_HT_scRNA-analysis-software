@@ -26,14 +26,14 @@
 
 </div>
 
-<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);" markdown="1">
 
 | Analysis Type | Description & Key Features | Documentation |
 | :--- | :--- | :--- |
-| **Single-Cell RNA** | **Pipeline**: Gene expression profiling outputs. <br> <ul><li>Gene-barcode matrices in multiple formats</li><li>Comprehensive quality control metrics</li><li>Cell identification and filtering results</li><li>Interactive visualization reports</li></ul> | [View Guide](./scRNA.md) |
-| **Single-Cell ATAC** | **Pipeline**: Chromatin accessibility analysis outputs. <br> <ul><li>Peak-by-cell accessibility matrices</li><li>Fragment file for downstream analysis</li><li>TSS enrichment profiles</li><li>Cell filtering and quality metrics</li></ul> | [View Guide](./scATAC.md) |
-| **Single-Cell VDJ** | **Pipeline**: V(D)J repertoire analysis outputs. <br> <ul><li>Full-length V(D)J sequence reconstruction</li><li>Clonotype identification and grouping</li><li>Cell-level receptor annotations</li><li>Comprehensive assembly metrics</li></ul> | [View Guide](./scVDJ.md) |
-| **Multi-omics** | **Pipeline**: Integrated multi-omics outputs. <br> <ul><li>Unified multi-omics HTML report</li><li>Per-module status summary</li><li>Organized RNA/ATAC/VDJ outputs in one run directory</li><li>Run manifest and diagnostics logs</li></ul> | [View Guide](./multi.md) |
+| **Single-Cell RNA** | **Pipeline**: Gene expression profiling outputs. <br> <ul><li>Gene-barcode matrices in multiple formats</li><li>Comprehensive quality control metrics</li><li>Cell identification and filtering results</li><li>Interactive visualization reports</li></ul> | [View Guide](scRNA.en.md) |
+| **Single-Cell ATAC** | **Pipeline**: Chromatin accessibility analysis outputs. <br> <ul><li>Peak-by-cell accessibility matrices</li><li>Fragment file for downstream analysis</li><li>TSS enrichment profiles</li><li>Cell filtering and quality metrics</li></ul> | [View Guide](scATAC.en.md) |
+| **Single-Cell VDJ** | **Pipeline**: V(D)J repertoire analysis outputs. <br> <ul><li>Full-length V(D)J sequence reconstruction</li><li>Clonotype identification and grouping</li><li>Cell-level receptor annotations</li><li>Comprehensive assembly metrics</li></ul> | [View Guide](scVDJ.en.md) |
+| **Multi-omics** | **Pipeline**: Integrated multi-omics outputs. <br> <ul><li>Unified multi-omics HTML report</li><li>Per-module status summary</li><li>Organized RNA/ATAC/VDJ outputs in one run directory</li><li>Run manifest and diagnostics logs</li></ul> | [View Guide](multi.en.md) |
 
 </div>
 
@@ -41,18 +41,18 @@
 
 <div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
 
-##  Related Documentation
+## Related Documentation
 
 </div>
 
-<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);" markdown="1">
 
 | Resource | Description |
 | :--- | :--- |
-| [Workflows](../pipeline/pipeline.md) | Analysis pipeline guides |
-| [Parameters](../parameter/parameter.md) | Command reference and options |
-| [Quick Start](../quickstart.md) | Get started in 5 minutes |
-| [Installation](../installation.md) | Software setup and requirements |
+| [Workflows](../pipeline/pipeline.en.md) | Analysis pipeline guides |
+| [Parameters](../parameter/parameter.en.md) | Command reference and options |
+| [Quick Start](../quickstart.en.md) | Get started in 5 minutes |
+| [Installation](../installation.en.md) | Software setup and requirements |
 
 </div>
 

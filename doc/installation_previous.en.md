@@ -6,7 +6,7 @@
 
 <br>
 
-# DNBelab C Series™ Software Previous Installation
+# DNBelab C Series™ Previous Installation Guide
 
 <br>
 
@@ -87,7 +87,7 @@ Legacy versions from the v1.x series are archived. Please refer to the GitHub re
     <tr>
       <td style="padding: 12px 15px; border: 1px solid #ddd;"><b>1.x</b></td>
       <td style="padding: 12px 15px; border: 1px solid #ddd;">Early releases (Legacy)</td>
-      <td style="padding: 12px 15px; border: 1px solid #ddd;"><a href="https://github.com/MGI-tech-bioinformatics/DNBelab_C_Series_HT_scRNA-analysis-software/blob/version1.0/doc/installation.md">View GitHub Releases</a></td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;"><a href="https://github.com/MGI-tech-bioinformatics/DNBelab_C_Series_HT_scRNA-analysis-software/blob/version1.0/doc/installation.md">View GitHub Version Notes</a></td>
     </tr>
   </tbody>
 </table>

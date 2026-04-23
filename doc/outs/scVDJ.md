@@ -22,7 +22,7 @@
 
 <div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
 
-##  概述 <a id="概述"></a>
+## 概述 <a id="概述"></a>
 
 <div align="center">
 
@@ -40,7 +40,7 @@
 
 <div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
 
-##  输出目录结构 <a id="输出目录结构"></a>
+## 输出目录结构 <a id="输出目录结构"></a>
 
 </div>
 
@@ -69,13 +69,13 @@
 
 <div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
 
-##  文件详细说明 <a id="详细文件说明"></a>
+## 文件详细说明 <a id="详细文件说明"></a>
 
 </div>
 
 <div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
 
-###  V(D)J 组装和注释文件 <a id="vdj组装和注释文件"></a>
+### V(D)J 组装和注释文件 <a id="vdj组装和注释文件"></a>
 
 <div align="center">
 
@@ -85,9 +85,9 @@
 
 </div>
 
-<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);" markdown="1">
 
-####  V(D)J 转录本结构与组成
+#### V(D)J 转录本结构与组成
 
 **典型 V(D)J 转录本结构示意：**
 
@@ -130,16 +130,16 @@
 
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
 
-####  重要注释标准说明
+#### 重要注释标准说明
 
-#####  全长序列判定标准 (Full Length)
+##### 全长序列判定标准 (Full Length)
 
 重叠群序列被认定为 **全长序列** 须同时满足以下严格条件：
 
 - 重叠群序列完全匹配已注释 V 基因的 5' 起始区域
 - 重叠群序列完整延伸至 J 基因的 3' 末端区域
 
-#####  生产性序列判定标准 (Productive)
+##### 生产性序列判定标准 (Productive)
 
 重叠群序列被认定为 **生产性序列**（具有功能活性）须同时满足以下所有条件：
 
@@ -150,7 +150,7 @@
 - 成功识别出完整的 CDR3 可变区域
 - V-J 跨越区域长度符合相应基因的生物学合理范围
 
-#####  高置信度序列判定 (High Confidence)
+##### 高置信度序列判定 (High Confidence)
 
 **不同细胞类型的预期受体配置：**
 
@@ -213,7 +213,7 @@
 
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
 
-####  airr_annotations.tsv
+#### airr_annotations.tsv
 
 包含V(D)J重排的注释序列和共识序列，采用AIRR标准格式。
 
@@ -368,7 +368,7 @@
 
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
 
-####  all_contig_annotations.csv
+#### all_contig_annotations.csv
 
 包含所有重叠群序列（来自细胞和背景条形码）的详细注释信息。
 
@@ -519,7 +519,7 @@
 
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
 
-####  all_contig.fasta
+#### all_contig.fasta
 
 包含所有组装重叠群的核苷酸序列。
 
@@ -533,7 +533,7 @@
 
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
 
-####  filtered_contig_annotations.csv
+#### filtered_contig_annotations.csv
 
 `all_contig_annotations.csv` 的高质量子集，仅包含通过质量过滤的高置信度、且来源于细胞的重叠群注释结果。
 
@@ -547,7 +547,7 @@
 
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
 
-####  filtered_contig.fasta
+#### filtered_contig.fasta
 
 `all_contig.fasta` 的高质量子集，仅包含通过质量过滤和细胞调用的高质量重叠群序列。
 
@@ -560,7 +560,7 @@
 
 <div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
 
-###  克隆型谱系分析文件 <a id="克隆型分析文件"></a>
+### 克隆型谱系分析文件 <a id="克隆型分析文件"></a>
 
 <div align="center">
 
@@ -572,7 +572,7 @@
 
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
 
-####  clonotypes.csv
+#### clonotypes.csv
 
 克隆型统计分析文件，提供每个独特克隆型的详细描述信息。
 
@@ -620,7 +620,7 @@
 
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
 
-####  consensus_annotations.csv
+#### consensus_annotations.csv
 
 提供每个克隆型共识序列的详细注释信息。
 
@@ -707,7 +707,7 @@
 
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
 
-####  consensus.fasta
+#### consensus.fasta
 
 包含每个克隆型共识序列的FASTA文件。
 
@@ -721,7 +721,7 @@
 
 <div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
 
-###  分析指标汇总 <a id="分析指标汇总"></a>
+### 分析指标汇总 <a id="分析指标汇总"></a>
 
 <div align="center">
 
@@ -733,7 +733,7 @@
 
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
 
-####  metrics_summary.xls
+#### metrics_summary.xls
 
 采用 Excel 格式的关键分析指标汇总表，提供了对实验整体质量的全面评估。
 
@@ -791,7 +791,7 @@
 
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
 
-####  *_scVDJ_TR(IG)_report.html
+#### *_scVDJ_TR(IG)_report.html
 
 采用 HTML 网页格式的交互式综合分析报告。
 
@@ -810,7 +810,7 @@
 
 <div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
 
-##  网页报告释义 <a id="网页报告释义"></a>
+## 网页报告释义 <a id="网页报告释义"></a>
 
 <div align="center">
 
@@ -832,7 +832,7 @@ HTML 网页报告是单细胞 V(D)J 测序分析的综合展示平台，整合�
 
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
 
-###  报告主要内容与结构
+### 报告主要内容与结构
 
 <div align="center">
 <img src="../images/html_scvdj1.png" alt="scVDJ网页报告" width="500">
@@ -842,13 +842,13 @@ HTML 网页报告是单细胞 V(D)J 测序分析的综合展示平台，整合�
 
 <div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
 
-###  核心分析指标详解
+### 核心分析指标详解
 
 </div>
 
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
 
-####  V(D)J 分析指标 (V(D)J Analysis Metrics) <a id="vdj分析指标"></a>
+#### V(D)J 分析指标 (V(D)J Analysis Metrics) <a id="vdj分析指标"></a>
 
 <div align="center">
 
@@ -1015,7 +1015,7 @@ HTML 网页报告是单细胞 V(D)J 测序分析的综合展示平台，整合�
 
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
 
-####  测序指标 (Sequencing Metrics) <a id="测序指标"></a>
+#### 测序指标 (Sequencing Metrics) <a id="测序指标"></a>
 
 <div align="center">
 
@@ -1112,7 +1112,7 @@ HTML 网页报告是单细胞 V(D)J 测序分析的综合展示平台，整合�
 
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
 
-####  基因富集性能指标 (Enrichment Metrics) <a id="基因富集性能指标"></a>
+#### 基因富集性能指标 (Enrichment Metrics) <a id="基因富集性能指标"></a>
 
 <div align="center">
 
@@ -1192,7 +1192,7 @@ HTML 网页报告是单细胞 V(D)J 测序分析的综合展示平台，整合�
 
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
 
-####  V(D)J 注释分析 (V(D)J Annotation) <a id="vdj注释分析"></a>
+#### V(D)J 注释分析 (V(D)J Annotation) <a id="vdj注释分析"></a>
 
 <div align="center">
 
@@ -1324,7 +1324,7 @@ HTML 网页报告是单细胞 V(D)J 测序分析的综合展示平台，整合�
 
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
 
-####  可视化图表1 <a id="可视化图表1"></a>
+#### 可视化图表1 <a id="可视化图表1"></a>
 
 <div align="center">
 
@@ -1332,7 +1332,7 @@ HTML 网页报告是单细胞 V(D)J 测序分析的综合展示平台，整合�
 
 </div>
 
-#####  V(D)J 细胞排序分析图 (V(D)J Barcode Rank Plot)
+##### V(D)J 细胞排序分析图 (V(D)J Barcode Rank Plot)
 
 **图表功能：** 可视化展示每个细胞的 UMI 数量分布（仅统计生产性重叠群的 UMI），直观展示细胞质量控制结果和背景噪音水平。
 
@@ -1341,6 +1341,7 @@ HTML 网页报告是单细胞 V(D)J 测序分析的综合展示平台，整合�
 </div>
 
 **如何解读**:
+
 *   **坐标轴**:
     *   **X轴 (Barcode Rank)**: 所有细胞条形码按UMI总数降序排列（对数刻度）。
     *   **Y轴 (UMI Counts)**: 每个细胞对应的总UMI数量（对数刻度）。
@@ -1356,7 +1357,7 @@ HTML 网页报告是单细胞 V(D)J 测序分析的综合展示平台，整合�
 
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
 
-####  可视化图表2 <a id="可视化图表2"></a>
+#### 可视化图表2 <a id="可视化图表2"></a>
 
 <div align="center">
 
@@ -1364,7 +1365,7 @@ HTML 网页报告是单细胞 V(D)J 测序分析的综合展示平台，整合�
 
 </div>
 
-#####  克隆型丰度统计分析
+##### 克隆型丰度统计分析
 
 **图表功能：** 展示样本中克隆型的相对丰度分布和免疫应答的集中程度。
 
@@ -1373,6 +1374,7 @@ HTML 网页报告是单细胞 V(D)J 测序分析的综合展示平台，整合�
 </div>
 
 **如何解读**:
+
 *   **上图 (Top 10 Clonotypes)**: 柱状图显示样本中 10 个最丰富克隆型所占细胞的百分比，直观反映克隆型的相对丰度分布和免疫应答的集中程度。
 *   **下表 (详细信息表格)**: 提供丰度最高的前 10 种克隆型的完整描述信息，包括克隆型 ID、CDR3 氨基酸/核苷酸序列、绝对频率以及相对比例。
 
@@ -1382,11 +1384,11 @@ HTML 网页报告是单细胞 V(D)J 测序分析的综合展示平台，整合�
 
 <div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
 
-##  相关文档
+## 相关文档
 
 </div>
 
-<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);" markdown="1">
 
 | 文档 | 说明 |
 | :--- | :--- |

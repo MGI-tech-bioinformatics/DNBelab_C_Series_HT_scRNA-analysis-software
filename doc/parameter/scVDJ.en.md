@@ -332,12 +332,12 @@ CCTGGACTCCTGGGCCCCAG</code></pre>
 
 </div>
 
-<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #d2d2d7; overflow-x: auto;">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #d2d2d7; overflow-x: auto;" markdown="1">
 
 | Resource | Description |
 | :--- | :--- |
-| [scVDJ Pipeline](../pipeline/scVDJ.md) | Single-cell VDJ analysis workflow guide |
-| [scVDJ Output](../outs/scVDJ.md) | Detailed output file interpretation |
+| [scVDJ Pipeline](../pipeline/scVDJ.en.md) | Single-cell VDJ analysis workflow guide |
+| [scVDJ Output](../outs/scVDJ.en.md) | Detailed output file interpretation |
 
 </div>
 

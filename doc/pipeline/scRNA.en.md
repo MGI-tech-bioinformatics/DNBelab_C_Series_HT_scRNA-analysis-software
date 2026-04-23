@@ -122,6 +122,7 @@ Two types of FASTQ files are required for the analysis:
 </div>
 
 **GTF File Requirements**:
+
 - Must contain annotations of type <code>gene</code> or <code>transcript</code> as well as <code>exon</code>.
 - Attributes must include <code>gene_id</code> or <code>gene_name</code> and <code>transcript_id</code> or <code>transcript_name</code>.
 - The GFF file format is not supported.
@@ -161,7 +162,7 @@ We provide three functions for GTF file processing:
 ```shell
 # Count gene type quantities
 $dnbc4tools tools mkgtf \
-  --action stat \
+  --action stats \
   --ingtf genes.gtf \
   --output gtfstat.txt \
   --type gene_biotype
@@ -585,13 +586,13 @@ Upon completion, `outs` (outputs) and `logs` directories will be generated. The 
 
 </div>
 
-<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);" markdown="1">
 
 | Resource | Description |
 | :--- | :--- |
-| [Output File Usage](../io.md) | Understanding output file structure and formats |
-| [Analysis Parameters](../parameter/scRNA.md) | Complete parameter reference and descriptions |
-| [Output Descriptions](../outs/scRNA.md) | Detailed interpretation of analysis results |
+| [Output File Usage](../io.en.md) | Understanding output file structure and formats |
+| [Analysis Parameters](../parameter/scRNA.en.md) | Complete parameter reference and descriptions |
+| [Output Descriptions](../outs/scRNA.en.md) | Detailed interpretation of analysis results |
 
 
 </div>
@@ -606,7 +607,7 @@ Upon completion, `outs` (outputs) and `logs` directories will be generated. The 
 
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
 
-This section is being updated.
+This section is being updated. Common troubleshooting entries will be added in the next revision.
 
 </div>
 

@@ -43,18 +43,21 @@ Compatible with higher software and hardware configurations.
 | **MD5 Checksum** | *To be updated upon release* |
 
 **Download Options:**
-- **CNGB link**: [dnbc4tools-3.1.tar.gz](https://ftp2.cngb.org/pub/CNSA/data7/CNP0008672/Single_Cell/CSE0000574/dnbc4tools-3.1.tar.gz)
+
+<ul>
+  <li><strong>CNGB link</strong>: <a href="https://ftp2.cngb.org/pub/CNSA/data7/CNP0008672/Single_Cell/CSE0000574/dnbc4tools-3.1.tar.gz">dnbc4tools-3.1.tar.gz</a></li>
+</ul>
 
 ```bash
-#### Download using `wget`
+# Download using `wget`
 wget -O dnbc4tools-3.1.tar.gz "ftp://ftp2.cngb.org/pub/CNSA/data7/CNP0008672/Single_Cell/CSE0000574/dnbc4tools-3.1.tar.gz"
-#### Download using `curl`
+# Download using `curl`
 curl -o dnbc4tools-3.1.tar.gz "ftp://ftp2.cngb.org/pub/CNSA/data7/CNP0008672/Single_Cell/CSE0000574/dnbc4tools-3.1.tar.gz"
 ```
 
 <div style="margin-top: 15px;">
   <strong>Looking for older versions?</strong><br>
-  For previous version downloads and installation instructions, please visit the <a href="./installation_previous.md">Previous Installation Guide</a>.
+  For previous version downloads and installation instructions, please visit the <a href="./installation_previous.en.md">Previous Installation Guide</a>.
 </div>
 
 ---
@@ -129,8 +132,8 @@ Options:
 
 | Resource | Description |
 | :--- | :--- |
-| [Quick Start](./quickstart.md) | Step-by-step tutorial for your first analysis |
-| [Pipeline Guides](./pipeline/pipeline.md) | Workflow documentation for all analysis types |
-| [Parameters](./parameter/parameter.md) | Command reference and configuration options |
-| [Outputs](./outs/outs.md) | Understanding result files and reports |
-| [Sample Data](./dataset.md) | Download sample datasets for testing |
+| [Quick Start](quickstart.en.md) | Step-by-step tutorial for your first analysis |
+| [Pipeline Guides](pipeline/pipeline.en.md) | Workflow documentation for all analysis types |
+| [Parameters](parameter/parameter.en.md) | Command reference and configuration options |
+| [Outputs](outs/outs.en.md) | Understanding result files and reports |
+| [Sample Data](dataset.en.md) | Download sample datasets for testing |

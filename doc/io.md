@@ -70,7 +70,7 @@ require(dplyr)
 library(Signac)
 library(Seurat)
 
-# Function to read dnbc4tools ATAC output
+# 读取 dnbc4tools ATAC 输出的函数
 read_signac_C4 <- function(mex_dir_path, fragments, singlecellmetadata){
     mtx_path <- paste(mex_dir_path, "matrix.mtx.gz", sep = '/')
     feature_path <- paste(mex_dir_path, "peaks.bed.gz", sep = '/')
@@ -119,7 +119,7 @@ read_signac_C4 <- function(mex_dir_path, fragments, singlecellmetadata){
 - 联合过滤： 指向 dnbc4tools 细胞过滤后的 `filtered.fragments.tsv.gz`，再叠加 ArchR 阈值过滤。
 
 ```r
-# Option A: ArchR-only filtering (raw fragments)
+# 方案 A：仅使用 ArchR 过滤（原始 fragments）
 library(ArchR)
 ArrowFiles <- createArrowFiles(
   inputFiles = "/outs/fragments.tsv.gz",
@@ -132,7 +132,7 @@ ArrowFiles <- createArrowFiles(
 ```
 
 ```r
-# Option B: Use dnbc4tools cell-filtered fragments then ArchR filters
+# 方案 B：先用 dnbc4tools 细胞过滤 fragments，再用 ArchR 过滤
 library(ArchR)
 ArrowFiles <- createArrowFiles(
   inputFiles = "/outs/filtered.fragments.tsv.gz",

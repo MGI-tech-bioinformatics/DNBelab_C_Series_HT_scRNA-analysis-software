@@ -22,7 +22,7 @@
 
 **Before you begin:**
 <ul>
-  <li>Ensure dnbc4tools is installed. See the <a href="./installation.md">Installation Guide</a>.</li>
+  <li>Ensure dnbc4tools is installed. See the <a href="./installation.en.md">Installation Guide</a>.</li>
   <li>In all commands, replace <code>$dnbc4tools</code> with your actual installation path (e.g., <code>/opt/software/dnbc4tools3.1/dnbc4tools</code>).</li>
   <li>The backslash <code>\</code> is used to split a single command across multiple lines for readability. It is optional.</li>
 </ul>
@@ -355,7 +355,7 @@ $dnbc4tools multi run \
 
 | Resource | Description |
 | :--- | :--- |
-| [Pipelines](./pipeline/pipeline.md) | Analysis workflow guides |
-| [Parameters](./parameter/parameter.md) | Command reference and configuration options |
-| [Outputs](./outs/outs.md) | Understanding result files and reports |
+| [Pipelines](pipeline/pipeline.en.md) | Analysis workflow guides |
+| [Parameters](parameter/parameter.en.md) | Command reference and configuration options |
+| [Outputs](outs/outs.en.md) | Understanding result files and reports |
 | [GitHub Issues](https://github.com/MGI-tech-bioinformatics/DNBelab_C_Series_HT_scRNA-analysis-software/issues) | Report bugs or request features |

@@ -1851,9 +1851,9 @@ Analysis Settings:
 </div>
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4 id="-r-ref"><code>-r, --ref</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(必需)</span><a class="headerlink" href="#-r-ref" title="Permanent link">&para;</a></h4>
-<p>指定VDJ分析使用的参考数据库。</p>
+<p>指定VDJ 分析使用的参考数据库。</p>
 <ul>
-    <li><strong>功能:</strong> 指定VDJ分析使用的参考数据库。</li>
+    <li><strong>功能:</strong> 指定VDJ 分析使用的参考数据库。</li>
     <li><strong>内置支持:</strong> 软件自带人类(<code>human</code>)和小鼠(<code>mouse</code>)的参考数据库。</li>
     <li><strong>自定义支持:</strong> 可提供包含<code>reference.json</code>的自定义参考目录路径。</li>
 </ul>
@@ -1897,7 +1897,7 @@ Analysis Settings:
 </div>
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4 id="-fastqs-1"><code>--fastqs</code> <span style="font-size: 0.8em; font-weight: normal; color: #3498db;">(方式1)</span><a class="headerlink" href="#-fastqs-1" title="Permanent link">&para;</a></h4>
-<p>指定包含所有FASTQ文件的目录路径。</p>
+<p>指定包含所有FASTQ 文件的目录路径。</p>
 <ul>
 <li><strong>功能:</strong> 流程会自动检测此目录下的配对文件（R1/R2）。</li>
 <li><strong>注意:</strong> 这是一个便捷选项，不能与 <code>--fastq1</code> / <code>--fastq2</code> 同时使用。</li>
@@ -1908,7 +1908,7 @@ Analysis Settings:
 </div>
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4 id="-fastq1-2a"><code>--fastq1</code> <span style="font-size: 0.8em; font-weight: normal; color: #3498db;">(方式2A)</span><a class="headerlink" href="#-fastq1-2a" title="Permanent link">&para;</a></h4>
-<p>单独指定一个或多个VDJ文库的Read1 FASTQ文件。</p>
+<p>单独指定一个或多个VDJ文库的Read1 FASTQ 文件。</p>
 <ul>
 <li><strong>支持:</strong> 可以使用通配符 (<code>*</code>) 匹配文件，使用逗号分隔来指定多个文件。</li>
 <li><strong>要求:</strong> 必须与 <code>--fastq2</code> 参数配对使用，且文件顺序必须完全匹配。</li>
@@ -1919,7 +1919,7 @@ Analysis Settings:
 </div>
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4 id="-fastq2-2b"><code>--fastq2</code> <span style="font-size: 0.8em; font-weight: normal; color: #3498db;">(方式2B)</span><a class="headerlink" href="#-fastq2-2b" title="Permanent link">&para;</a></h4>
-<p>单独指定一个或多个VDJ文库的Read2 FASTQ文件。</p>
+<p>单独指定一个或多个VDJ文库的Read2 FASTQ 文件。</p>
 <ul>
 <li><strong>支持:</strong> 可以使用通配符 (<code>*</code>) 匹配文件，使用逗号分隔来指定多个文件。</li>
 <li><strong>要求:</strong> 必须与 <code>--fastq1</code> 参数配对使用，且文件顺序必须完全匹配。</li>
@@ -2030,7 +2030,7 @@ CCTGGACTCCTGGGCCCCAG</code></pre>
 <h4 id="-keep_all_cells"><code>--keep_all_cells</code> <span style="font-size: 0.8em; font-weight: normal; color: #e67e22;">(标志)</span><a class="headerlink" href="#-keep_all_cells" title="Permanent link">&para;</a></h4>
 <p>启用此参数以保留所有检测到的细胞，不进行基于RNA数据的过滤。</p>
 <ul>
-<li><strong>功能:</strong> 当不提供<code>--beadstrans</code>参数时，此行为被自动启用。适用于独立的VDJ分析或需要最大化细胞回收的场景。</li>
+<li><strong>功能:</strong> 当不提供<code>--beadstrans</code>参数时，此行为被自动启用。适用于独立的VDJ 分析或需要最大化细胞回收的场景。</li>
 </ul>
 <p><strong>默认值:</strong> 不设置此参数（但若无<code>--beadstrans</code>则自动启用）</p>
 </div>
@@ -2045,7 +2045,7 @@ CCTGGACTCCTGGGCCCCAG</code></pre>
 </div>
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4 id="-sample_read_pairs"><code>--sample_read_pairs</code> <span style="font-size: 0.8em; font-weight: normal; color: #9b59b6;">(可选)</span><a class="headerlink" href="#-sample_read_pairs" title="Permanent link">&para;</a></h4>
-<p>从输入的FASTQ文件中提取指定数量的读段对进行分析。</p>
+<p>从输入的FASTQ 文件中提取指定数量的读段对进行分析。</p>
 <ul>
 <li><strong>功能:</strong> 用于在完整分析前对大数据集进行快速测试，或在资源有限时进行降采样分析。</li>
 <li><strong>注意:</strong> 子采样可能影响低频克隆型的检测，正式分析建议使用全部数据。</li>

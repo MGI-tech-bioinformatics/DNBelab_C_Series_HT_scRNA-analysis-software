@@ -849,12 +849,12 @@ SampleB	/path/to/B_cDNA_L01_R1.fq.gz,/path/to/B_cDNA_L02_R1.fq.gz;/path/to/B_cDN
 
 </div>
 
-<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);" markdown="1">
 
 | Resource | Description |
 | :--- | :--- |
-| [scRNA Pipeline](../pipeline/scRNA.md) | Single-cell RNA analysis workflow guide |
-| [scRNA Output](../outs/scRNA.md) | Detailed output file interpretation |
+| [scRNA Pipeline](../pipeline/scRNA.en.md) | Single-cell RNA analysis workflow guide |
+| [scRNA Output](../outs/scRNA.en.md) | Detailed output file interpretation |
 
 </div>
 

@@ -293,13 +293,13 @@ Upon completion, `outs` (outputs) and `logs` directories will be generated. The 
 
 </div>
 
-<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);" markdown="1">
 
 | Resource | Description |
 | :--- | :--- |
-| [Output File Usage](../io.md) | Understanding output file structure and formats |
-| [Analysis Parameters](../parameter/scVDJ.md) | Complete parameter reference and descriptions |
-| [Output Descriptions](../outs/scVDJ.md) | Detailed interpretation of analysis results |
+| [Output File Usage](../io.en.md) | Understanding output file structure and formats |
+| [Analysis Parameters](../parameter/scVDJ.en.md) | Complete parameter reference and descriptions |
+| [Output Descriptions](../outs/scVDJ.en.md) | Detailed interpretation of analysis results |
 
 
 </div>
@@ -314,7 +314,7 @@ Upon completion, `outs` (outputs) and `logs` directories will be generated. The 
 
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
 
-This section is being updated.
+This section is being updated. Common troubleshooting entries will be added in the next revision.
 
 </div>
 

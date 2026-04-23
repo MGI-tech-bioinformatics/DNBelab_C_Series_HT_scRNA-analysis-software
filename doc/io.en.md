@@ -196,4 +196,4 @@ def read_atac_C4(path):
 
 ---
 
-*For detailed output descriptions, see the [Output Files Guide](./outs/outs.md)*
+*For detailed output descriptions, see the [Output Files Guide](outs/outs.en.md)*

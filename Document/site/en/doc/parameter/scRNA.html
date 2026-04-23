@@ -2731,7 +2731,7 @@ dnbc4tools rna run --name sample1 --fastqs ./fq --genomeDir ./ref --minumi 500</
 <p>Cell identification is critical for downstream reliability. Start with defaults, then tune based on QC plots.</p>
 <details open>
 <summary><strong>Click to view diagnostics and strategy</strong></summary>
-<div style="margin-top:10px;" markdown="1">
+<div style="margin-top:10px;" markdown="block">
 <ul>
   <li><strong>Too few cells:</strong> Usually <code>--minumi</code> is too strict or ambient RNA is high. Lower <code>--minumi</code> and re-check UMI rank.</li>
   <li><strong>Too many cells:</strong> Usually threshold is too loose. Increase <code>--minumi</code> or constrain with <code>--forcecells</code>.</li>

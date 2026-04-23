@@ -20,7 +20,7 @@
 
 <div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
 
-##  Overview <a id="overview"></a>
+## Overview <a id="overview"></a>
 
 The multi-omics workflow organizes key RNA / ATAC / VDJ results into one sample-level directory, enabling cross-omics browsing and comparison within a single report.
 
@@ -34,7 +34,7 @@ The multi-omics workflow organizes key RNA / ATAC / VDJ results into one sample-
 
 <div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
 
-##  Output Directory Structure <a id="output-directory-structure"></a>
+## Output Directory Structure <a id="output-directory-structure"></a>
 
 </div>
 
@@ -56,13 +56,13 @@ The multi-omics workflow organizes key RNA / ATAC / VDJ results into one sample-
 
 <div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
 
-##  Detailed File Description <a id="detailed-file-description"></a>
+## Detailed File Description <a id="detailed-file-description"></a>
 
 </div>
 
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 
-###  `outs/<sample>_multi_report.html`
+### `outs/<sample>_multi_report.html`
 
 - **Content**: Integrated QC and analysis charts across RNA / ATAC / VDJ.
 - **Purpose**: Cross-omics quality check and result overview on one page.
@@ -71,7 +71,7 @@ The multi-omics workflow organizes key RNA / ATAC / VDJ results into one sample-
 
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 
-###  `outs/rna`, `outs/atac`, `outs/vdj-t`, `outs/vdj-b`
+### `outs/rna`, `outs/atac`, `outs/vdj-t`, `outs/vdj-b`
 
 - **Content**: Standard module outputs (matrices, metrics tables, module reports, etc.).
 - **Purpose**: Module-specific downstream analysis or single-omics reuse.
@@ -82,7 +82,7 @@ The multi-omics workflow organizes key RNA / ATAC / VDJ results into one sample-
 
 <div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
 
-##  Web Report Interpretation <a id="web-report-interpretation"></a>
+## Web Report Interpretation <a id="web-report-interpretation"></a>
 
 <div align="center">
 
@@ -136,7 +136,7 @@ Page content includes:
 
 <div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
 
-###  RNA Pages
+### RNA Pages
 
 </div>
 
@@ -174,7 +174,7 @@ Page content includes:
 
 Reference:
 
-- [scRNA output documentation](./scRNA.md)
+- [scRNA output documentation](scRNA.en.md)
 
 </div>
 
@@ -182,7 +182,7 @@ Reference:
 
 <div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
 
-###  ATAC Pages
+### ATAC Pages
 
 </div>
 
@@ -218,7 +218,7 @@ Page content includes:
 
 Reference:
 
-- [scATAC output documentation](./scATAC.md)
+- [scATAC output documentation](scATAC.en.md)
 
 </div>
 
@@ -226,7 +226,7 @@ Reference:
 
 <div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
 
-###  VDJ Pages
+### VDJ Pages
 
 </div>
 
@@ -262,7 +262,7 @@ Page content includes:
 
 Reference:
 
-- [scVDJ output documentation](./scVDJ.md)
+- [scVDJ output documentation](scVDJ.en.md)
 
 </div>
 
@@ -270,20 +270,20 @@ Reference:
 
 <div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
 
-##  Related Documentation
+## Related Documentation
 
 </div>
 
-<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);" markdown="1">
 
 | Document | Description |
 | :--- | :--- |
-| [Multi Pipeline](../pipeline/multi.md) | Detailed multi-omics analysis workflow |
-| [Multi Parameters](../parameter/multi.md) | Command parameter reference |
-| [scRNA Outputs](./scRNA.md) | scRNA module output documentation |
-| [scATAC Outputs](./scATAC.md) | scATAC module output documentation |
-| [scVDJ Outputs](./scVDJ.md) | scVDJ module output documentation |
-| [Output Files](./outs.md) | Return to output documentation index |
+| [Multi Pipeline](../pipeline/multi.en.md) | Detailed multi-omics analysis workflow |
+| [Multi Parameters](../parameter/multi.en.md) | Command parameter reference |
+| [scRNA Outputs](scRNA.en.md) | scRNA module output documentation |
+| [scATAC Outputs](scATAC.en.md) | scATAC module output documentation |
+| [scVDJ Outputs](scVDJ.en.md) | scVDJ module output documentation |
+| [Output Files](./outs.en.md) | Return to output documentation index |
 
 </div>
 

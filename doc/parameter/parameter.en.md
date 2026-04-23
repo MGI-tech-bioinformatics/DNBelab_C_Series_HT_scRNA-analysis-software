@@ -34,15 +34,15 @@
 
 </div>
 
-<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);" markdown="1">
 
 | Analysis Type | Description & Key Commands | Documentation |
 | :--- | :--- | :--- |
-| **Single-Cell RNA** | **Parameters for gene expression analysis.** <br> <ul><li>`run`: Main analysis pipeline</li><li>`mkref`: Reference building</li><li>`multi`: Multi-sample aggregation</li></ul> | [View Guide](./scRNA.md) |
-| **Single-Cell ATAC** | **Parameters for chromatin accessibility analysis.** <br> <ul><li>`run`: Main analysis pipeline</li><li>`mkref`: Reference building</li><li>`multi`: Multi-sample aggregation</li></ul> | [View Guide](./scATAC.md) |
-| **Single-Cell VDJ** | **Parameters for immune repertoire analysis.** <br> <ul><li>`run`: Main analysis pipeline</li></ul> | [View Guide](./scVDJ.md) |
-| **Multi-omics** | **Parameters for integrated multi-omics analysis.** <br> <ul><li>`run`: Integrated RNA/ATAC/VDJ workflow</li></ul> | [View Guide](./multi.md) |
-| **Utility Tools** | **Parameters for helper and utility scripts.** <br> <ul><li>`mkgtf`: GTF file manipulation</li><li>`bam2fastq`: BAM to FASTQ conversion</li><li>`chromsplit`: Genome splitting</li><li>`fqsubC4`: FASTQ subsequence extraction</li></ul> | [View Guide](./tools.md) |
+| **Single-Cell RNA** | **Parameters for gene expression analysis.** <br> <ul><li>`run`: Main analysis pipeline</li><li>`mkref`: Reference building</li><li>`multi`: Multi-sample aggregation</li></ul> | [View Guide](scRNA.en.md) |
+| **Single-Cell ATAC** | **Parameters for chromatin accessibility analysis.** <br> <ul><li>`run`: Main analysis pipeline</li><li>`mkref`: Reference building</li><li>`multi`: Multi-sample aggregation</li></ul> | [View Guide](scATAC.en.md) |
+| **Single-Cell VDJ** | **Parameters for immune repertoire analysis.** <br> <ul><li>`run`: Main analysis pipeline</li></ul> | [View Guide](scVDJ.en.md) |
+| **Multi-omics** | **Parameters for integrated multi-omics analysis.** <br> <ul><li>`run`: Integrated RNA/ATAC/VDJ workflow</li></ul> | [View Guide](multi.en.md) |
+| **Utility Tools** | **Parameters for helper and utility scripts.** <br> <ul><li>`mkgtf`: GTF file manipulation</li><li>`bam2fastq`: BAM to FASTQ conversion</li><li>`chromsplit`: Genome splitting</li><li>`fqsubC4`: FASTQ subsequence extraction</li></ul> | [View Guide](tools.en.md) |
 
 </div>
 
@@ -54,14 +54,14 @@
 
 </div>
 
-<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);" markdown="1">
 
 | Resource | Description |
 | :--- | :--- |
-| [Workflows](../pipeline/pipeline.md) | Analysis pipeline guides |
-| [Outputs](../outs/outs.md) | Understanding result files |
-| [Quick Start](../quickstart.md) | Get started in 5 minutes |
-| [Installation](../installation.md) | Software setup and requirements |
+| [Workflows](../pipeline/pipeline.en.md) | Analysis pipeline guides |
+| [Outputs](../outs/outs.en.md) | Understanding result files |
+| [Quick Start](../quickstart.en.md) | Get started in 5 minutes |
+| [Installation](../installation.en.md) | Software setup and requirements |
 
 </div>
 

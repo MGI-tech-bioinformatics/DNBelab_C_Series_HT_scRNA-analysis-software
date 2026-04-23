@@ -22,7 +22,7 @@
 
 <div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
 
-##  概述 <a id="概述"></a>
+## 概述 <a id="概述"></a>
 
 <div align="center">
 
@@ -38,7 +38,7 @@
 
 <div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
 
-##  输出目录结构 <a id="输出目录结构"></a>
+## 输出目录结构 <a id="输出目录结构"></a>
 
 </div>
 
@@ -71,13 +71,13 @@
 
 <div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
 
-##  文件详细说明 <a id="详细文件说明"></a>
+## 文件详细说明 <a id="详细文件说明"></a>
 
 </div>
 
 <div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
 
-###  ATAC片段和峰文件 <a id="atac片段和峰文件"></a>
+### ATAC片段和峰文件 <a id="atac片段和峰文件"></a>
 
 <div align="center">
 
@@ -87,9 +87,9 @@
 
 </div>
 
-<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);" markdown="1">
 
-####  fragments.tsv.gz
+#### fragments.tsv.gz
 
 `fragments.tsv.gz` 是一个包含 ATAC-seq 片段信息的压缩 TSV 文件，是进行下游分析的核心数据之一。
 
@@ -140,7 +140,7 @@
 
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
 
-####  fragments.tsv.gz.tbi
+#### fragments.tsv.gz.tbi
 
 `fragments.tsv.gz` 文件的 Tabix 索引。
 
@@ -154,7 +154,7 @@
 
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
 
-####  filtered.fragments.tsv.gz
+#### filtered.fragments.tsv.gz
 
 这是经过细胞质量控制和过滤后的 ATAC-seq 片段文件，是 `fragments.tsv.gz` 的子集，仅包含高质量细胞的片段。
 
@@ -169,7 +169,7 @@
 
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
 
-####  filtered.fragments.tsv.gz.tbi
+#### filtered.fragments.tsv.gz.tbi
 
 `filtered.fragments.tsv.gz` 文件的 Tabix 索引。
 
@@ -182,7 +182,7 @@
 
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
 
-####  alignment.fragments.sorted.tagged.bam
+#### alignment.fragments.sorted.tagged.bam
 
 这是包含所有具有有效条形码（valid barcode）并且成功比对的片段的 ATAC-seq 比对结果文件。
 
@@ -229,7 +229,7 @@
 
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
 
-####  alignment.fragments.sorted.tagged.bam.bai
+#### alignment.fragments.sorted.tagged.bam.bai
 
 `alignment.fragments.sorted.tagged.bam` 文件的索引。
 
@@ -243,7 +243,7 @@
 
 <div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
 
-###  峰矩阵文件 <a id="峰矩阵文件"></a>
+### 峰矩阵文件 <a id="峰矩阵文件"></a>
 
 <div align="center">
 
@@ -255,7 +255,7 @@
 
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
 
-####  过滤后的峰矩阵 (`filter_peak_matrix/`)
+#### 过滤后的峰矩阵 (`filter_peak_matrix/`)
 
 包含经过高质量细胞过滤后的峰计数矩阵，是进行下游定量分析的核心数据。
 
@@ -264,7 +264,7 @@
     *   **高质量数据**: 只包含被鉴定为真实细胞的条形码，确保分析结果的准确性。
 
 *   **内容与格式**:
-    *   采用标准的 **Market Matrix Exchange (MEX)** 格式，由以下三个压缩文件组成：
+    *   采用标准的 **Matrix Market Exchange (MEX)** 格式，由以下三个压缩文件组成：
         <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
         <thead>
         <tr>
@@ -283,20 +283,20 @@
         </tr>
         <tr>
         <td align="left"><code>matrix.mtx.gz</code></td>
-        <td>峰区域计数矩阵，采用 Market Matrix 格式。包含矩阵维度信息和非零元素的行、列索引及数值</td>
+        <td>峰区域计数矩阵，采用 Matrix Market 格式。包含矩阵维度信息和非零元素的行、列索引及数值</td>
         </tr>
         </tbody>
         </table>
 
 *   **格式优势**:
     *   **空间高效**: 稀疏矩阵格式（`.mtx`）仅存储非零元素，极大节省了存储空间。
-    *   **高度兼容**: MEX 格式是单细胞社区的标准（关于矩阵格式详见[Market Matrix格式说明](#market-matrix-format-mtxgz)），兼容 Seurat, Signac, Scanpy 等几乎所有主流分析工具。
+    *   **高度兼容**: MEX 格式是单细胞社区的标准（关于矩阵格式详见[Matrix Market 格式说明](#market-matrix-format-mtxgz)），兼容 Seurat, Signac, Scanpy 等几乎所有主流分析工具。
 
 </div>
 
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
 
-####  原始峰矩阵 (`raw_peak_matrix/`)
+#### 原始峰矩阵 (`raw_peak_matrix/`)
 
 包含所有检测到的细胞条形码（未经过滤）的原始峰计数矩阵。
 
@@ -305,14 +305,14 @@
     *   **数据完整性**: 保留了所有原始数据，可用于深度挖掘或在需要时重新分析。
 
 *   **内容与格式**:
-    *   采用标准的 **Market Matrix Exchange (MEX)** 格式，其文件组成与 `filter_peak_matrix/` 目录完全相同。
+    *   采用标准的 **Matrix Market Exchange (MEX)** 格式，其文件组成与 `filter_peak_matrix/` 目录完全相同。
     *   包含所有被检测到的条形码，包括高质量细胞、低质量细胞和背景液滴。
 
 </div>
 
 <div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
 
-###  分析指标汇总 <a id="分析指标汇总"></a>
+### 分析指标汇总 <a id="分析指标汇总"></a>
 
 <div align="center">
 
@@ -324,7 +324,7 @@
 
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
 
-####  metrics_summary.xls
+#### metrics_summary.xls
 
 采用 Excel 格式的关键分析指标汇总表，提供了对实验整体质量的全面评估。
 
@@ -374,7 +374,7 @@
 
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
 
-####  singlecell.csv
+#### singlecell.csv
 
 采用 CSV 格式的单细胞级别质量控制信息表，记录了每个细胞条形码的详细统计数据。
 
@@ -390,7 +390,7 @@
 
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
 
-####  *_scATAC_report.html
+#### *_scATAC_report.html
 
 采用 HTML 网页格式的交互式综合分析报告。
 
@@ -432,7 +432,7 @@
 
 <div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
 
-##  文件格式说明 <a id="文件格式说明"></a>
+## 文件格式说明 <a id="文件格式说明"></a>
 
 <div align="center">
 
@@ -444,7 +444,7 @@
 
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
 
-####  Market Matrix格式 (`.mtx.gz`) <a id="market-matrix-format-mtxgz"></a>
+#### Matrix Market 格式 (`.mtx.gz`) <a id="market-matrix-format-mtxgz"></a>
 
 Market Exchange Format (MEX) 是单细胞分析中用于存储稀疏计数矩阵的标准格式，具有空间高效和高度兼容的优点。
 
@@ -483,7 +483,7 @@ Market Exchange Format (MEX) 是单细胞分析中用于存储稀疏计数矩阵
 
 <div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
 
-##  网页报告释义 <a id="网页报告释义"></a>
+## 网页报告释义 <a id="网页报告释义"></a>
 
 <div align="center">
 
@@ -505,7 +505,7 @@ HTML 网页报告是单细胞 ATAC 测序分析的综合展示平台，整合了
 
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
 
-###  报告主要内容与结构
+### 报告主要内容与结构
 
 <div align="center">
 <img src="../images/html_scatac1.png" alt="scATAC网页报告" width="500">
@@ -515,13 +515,13 @@ HTML 网页报告是单细胞 ATAC 测序分析的综合展示平台，整合了
 
 <div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
 
-###  核心分析指标详解
+### 核心分析指标详解
 
 </div>
 
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
 
-####  细胞指标 (Cell Metrics) <a id="细胞指标"></a>
+#### 细胞指标 (Cell Metrics) <a id="细胞指标"></a>
 
 <div align="center">
 
@@ -705,7 +705,7 @@ HTML 网页报告是单细胞 ATAC 测序分析的综合展示平台，整合了
 
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
 
-####  测序指标 (Sequencing Metrics) <a id="测序指标"></a>
+#### 测序指标 (Sequencing Metrics) <a id="测序指标"></a>
 
 <div align="center">
 
@@ -871,7 +871,7 @@ HTML 网页报告是单细胞 ATAC 测序分析的综合展示平台，整合了
 
 <div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
 
-####  可视化图表1 <a id="可视化图表1"></a>
+#### 可视化图表1 <a id="可视化图表1"></a>
 
 <div align="center">
 
@@ -889,6 +889,7 @@ HTML 网页报告是单细胞 ATAC 测序分析的综合展示平台，整合了
 该图通过将所有细胞条形码按其包含的片段数进行排序，来区分高质量的真实细胞与背景噪音。
 
 **如何解读**:
+
 *   **坐标轴**:
     *   **X轴 (Barcode Rank)**: 所有细胞条形码按片段数降序排列。左侧为高片段数细胞，右侧为低片段数细胞。
     *   **Y轴 (Fragment Counts)**: 每个细胞对应的峰区域片段总数（对数刻度）。
@@ -910,6 +911,7 @@ HTML 网页报告是单细胞 ATAC 测序分析的综合展示平台，整合了
 展示在真实细胞液滴中，捕获到的细胞条形码（Beads）的数量分布情况。
 
 **如何解读**:
+
 *   **理论分布**: 液滴中磁珠的数量分布理论上符合**泊松分布**，这反映了微反应体系中随机捕获过程的统计特性。
 *   **实际影响**: 最终的分布会受到测序饱和度、液滴大小均一性、细胞浓度等实验因素的影响。
 
@@ -923,6 +925,7 @@ HTML 网页报告是单细胞 ATAC 测序分析的综合展示平台，整合了
 通过三个独立的小提琴图（Violin Plots），分别展示高质量细胞在 **片段数 (Fragments)**、**TSS富集比例 (TSS Proportion)** 和 **Peak区域片段比例 (Peak Proportion)** 这三个关键质量指标上的分布情况。
 
 **如何解读**:
+
 *   **小提琴图简介**:
     *   图的**宽度**表示在该数值位置的细胞密度。越宽的地方，代表有越多的细胞聚集在该数值附近。
     *   内部的箱线图（Box Plot）展示了中位数、四分位数等统计信息。
@@ -941,6 +944,7 @@ HTML 网页报告是单细胞 ATAC 测序分析的综合展示平台，整合了
 展示去重后ATAC-seq片段的插入长度分布，是评估样本质量和染色质结构完整性的关键图表。
 
 **如何解读**:
+
 *   **周期性峰 (Periodic Peaks)**:
     *   **~100bp 以下**: 第一个高峰，代表**无核小体区域 (Nucleosome-free regions, NFR)** 的片段，即开放的染色质。
     *   **~200bp 左右**: 第二个高峰，代表包含**单核小体**的片段。
@@ -953,7 +957,7 @@ HTML 网页报告是单细胞 ATAC 测序分析的综合展示平台，整合了
 
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
 
-####  其他核心指标 (Additional Key Metrics) <a id="其他核心指标"></a>
+#### 其他核心指标 (Additional Key Metrics) <a id="其他核心指标"></a>
 
 <div align="center">
 <img src="../images/html_scatac2.png" alt="scATAC网页报告" width="500">
@@ -977,7 +981,7 @@ HTML 网页报告是单细胞 ATAC 测序分析的综合展示平台，整合了
 
 <div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
 
-####  可视化图表2 <a id="可视化图表2"></a>
+#### 可视化图表2 <a id="可视化图表2"></a>
 
 <div align="center">
 
@@ -997,12 +1001,12 @@ HTML 网页报告是单细胞 ATAC 测序分析的综合展示平台，整合了
 **如何解读**:
 
 1. **左图（细胞类型聚类）**
-   - 每个点代表一个细胞。
-   - 不同颜色代表不同细胞聚类（Cluster），可能对应不同细胞类型或状态。
-   - 空间位置越接近，细胞染色质开放模式通常越相似。
+    - 每个点代表一个细胞。
+    - 不同颜色代表不同细胞聚类（Cluster），可能对应不同细胞类型或状态。
+    - 空间位置越接近，细胞染色质开放模式通常越相似。
 2. **右图（片段数分布）**
-   - 在相同 UMAP 空间上，用颜色梯度展示每个细胞总片段数。
-   - 颜色越深，片段数越多，通常表示该细胞数据质量更高，可辅助判断聚类可靠性。
+    - 在相同 UMAP 空间上，用颜色梯度展示每个细胞总片段数。
+    - 颜色越深，片段数越多，通常表示该细胞数据质量更高，可辅助判断聚类可靠性。
 
 </div>
 
@@ -1016,14 +1020,14 @@ HTML 网页报告是单细胞 ATAC 测序分析的综合展示平台，整合了
 **如何解读**:
 
 1. **坐标轴**
-   - **X 轴**: 相对 TSS 的位置（0 点为 TSS）。
-   - **Y 轴**: 归一化后的信号强度（切割频率）。
+    - **X 轴**: 相对 TSS 的位置（0 点为 TSS）。
+    - **Y 轴**: 归一化后的信号强度（切割频率）。
 2. **关键特征**
-   - 高质量 ATAC-seq 数据通常在 TSS 中心（0 点）出现明显富集尖峰。
-   - TSS 两侧信号会快速下降。
+    - 高质量 ATAC-seq 数据通常在 TSS 中心（0 点）出现明显富集尖峰。
+    - TSS 两侧信号会快速下降。
 3. **质量评估**
-   - **TSS Enrichment Score** 为该图的量化指标，分数越高（如 >4-6）通常表示信噪比越好、数据质量越高。
-   - 若曲线较平坦、无明显尖峰，通常提示样本质量较差或实验流程存在问题。
+    - **TSS Enrichment Score** 为该图的量化指标，分数越高（如 >4-6）通常表示信噪比越好、数据质量越高。
+    - 若曲线较平坦、无明显尖峰，通常提示样本质量较差或实验流程存在问题。
 
 </div>
 
@@ -1037,12 +1041,12 @@ HTML 网页报告是单细胞 ATAC 测序分析的综合展示平台，整合了
 **如何解读**:
 
 1. **坐标轴**
-   - **X 轴（Fragment Counts）**: 每个细胞总片段数（对数刻度）。
-   - **Y 轴（TSS Enrichment）**: 每个细胞的 TSS 富集分数。
+    - **X 轴（Fragment Counts）**: 每个细胞总片段数（对数刻度）。
+    - **Y 轴（TSS Enrichment）**: 每个细胞的 TSS 富集分数。
 2. **质量评估**
-   - **右上角**: 高片段数 + 高 TSS 富集分数，通常为高质量真实细胞。
-   - **左下角**: 低片段数 + 低 TSS 富集分数，通常为背景噪音或空液滴，分析中会被过滤。
-   - 理想情况下，真实细胞与背景噪音之间应存在清晰分界。
+    - **右上角**: 高片段数 + 高 TSS 富集分数，通常为高质量真实细胞。
+    - **左下角**: 低片段数 + 低 TSS 富集分数，通常为背景噪音或空液滴，分析中会被过滤。
+    - 理想情况下，真实细胞与背景噪音之间应存在清晰分界。
 
 </div>
 
@@ -1056,13 +1060,13 @@ HTML 网页报告是单细胞 ATAC 测序分析的综合展示平台，整合了
 **如何解读**:
 
 1. **坐标轴**
-   - **X 轴**: 平均每个细胞测序读段对数（测序深度）。
-   - **Y 轴**: 平均每个细胞中位唯一片段数。
+    - **X 轴**: 平均每个细胞测序读段对数（测序深度）。
+    - **Y 轴**: 平均每个细胞中位唯一片段数。
 2. **曲线趋势**
-   - **线性上升阶段**: 曲线较陡，增加测序深度可有效发现更多新片段，投入产出比较高。
-   - **平台期/饱和阶段**: 曲线逐渐平缓，表示文库复杂度基本被充分测序，继续加深测序的新增收益递减。
+    - **线性上升阶段**: 曲线较陡，增加测序深度可有效发现更多新片段，投入产出比较高。
+    - **平台期/饱和阶段**: 曲线逐渐平缓，表示文库复杂度基本被充分测序，继续加深测序的新增收益递减。
 3. **质量评估**
-   - 饱和度（重复率）是该图的量化指标。实践中可将 20%-50% 作为成本与数据完整性之间的常用平衡区间。
+    - 饱和度（重复率）是该图的量化指标。实践中可将 20%-50% 作为成本与数据完整性之间的常用平衡区间。
 
 </div>
 
@@ -1076,11 +1080,11 @@ HTML 网页报告是单细胞 ATAC 测序分析的综合展示平台，整合了
 **如何解读**:
 
 1. **坐标轴**
-   - **X 轴**: 所有磁珠对按 Jaccard 相似度降序排列。
-   - **Y 轴**: Jaccard 相似度指数（对数刻度）。
+    - **X 轴**: 所有磁珠对按 Jaccard 相似度降序排列。
+    - **Y 轴**: Jaccard 相似度指数（对数刻度）。
 2. **关键区域**
-   - **蓝色区域**: Jaccard 相似度高于 Otsu 算法自动计算阈值，通常判定为同一细胞来源，片段会在分析中合并。
-   - **灰色区域**: Jaccard 相似度低于阈值，通常判定为不同细胞来源，不进行合并。
+    - **蓝色区域**: Jaccard 相似度高于 Otsu 算法自动计算阈值，通常判定为同一细胞来源，片段会在分析中合并。
+    - **灰色区域**: Jaccard 相似度低于阈值，通常判定为不同细胞来源，不进行合并。
 
 </div>
 
@@ -1088,11 +1092,11 @@ HTML 网页报告是单细胞 ATAC 测序分析的综合展示平台，整合了
 
 <div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
 
-##  相关文档
+## 相关文档
 
 </div>
 
-<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);" markdown="1">
 
 | 文档 | 说明 |
 | :--- | :--- |

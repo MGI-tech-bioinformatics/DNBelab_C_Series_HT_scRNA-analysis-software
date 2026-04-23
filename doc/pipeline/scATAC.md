@@ -55,7 +55,7 @@
 
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
 
-分析需要FASTQ文件：
+分析需要 FASTQ 文件：
 
 <table style="width:100%; border-collapse: collapse; margin: 1.5em 0; box-shadow: 0 2px 3px rgba(0,0,0,0.1);">
   <thead style="background-color: #f2f2f2; border-bottom: 2px solid #ddd;">
@@ -66,14 +66,14 @@
   </thead>
   <tbody>
     <tr>
-      <td style="padding: 12px 15px; border: 1px solid #ddd;"><b>ATAC文库</b></td>
-      <td style="padding: 12px 15px; border: 1px solid #ddd;">包含cell barcode和染色质开放区域信息的测序数据</td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;"><b>ATAC 文库</b></td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;">包含 Cell Barcode 和染色质开放区域信息的测序数据</td>
     </tr>
   </tbody>
 </table>
 
 <div style="background-color: #fffbe6; border-left: 6px solid #ffc107; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
- <strong>注意</strong>：确保FASTQ文件质量良好，并记录好文件路径，用于后续分析。
+ <strong>注意</strong>：确保 FASTQ 文件质量良好，并记录好文件路径用于后续分析。
 </div>
 
 
@@ -117,7 +117,7 @@
  <strong>推荐数据来源</strong>：优先使用 <a href="https://www.ensembl.org/index.html">Ensembl 数据库</a> 提供的文件。Ensembl 的 GTF 文件包含可选标签，便于通过 <code>dnbc4tools tools mkgtf</code> 进行过滤。
 </div>
 
-**GTF文件要求：**
+**GTF 文件要求：**
 <ul>
   <li>必须包含 <code>gene</code> 或 <code>transcript</code> 类型以及 <code>exon</code> 类型的注释。</li>
   <li>属性中必须包含 <code>gene_id</code> 或 <code>gene_name</code> 以及 <code>transcript_id</code> 或 <code>transcript_name</code>。</li>
@@ -125,14 +125,14 @@
   <li>基因组文件与注释文件需版本对应。</li>
 </ul>
 
-### GTF文件处理（可选）
+### GTF 文件处理（可选）
 
-有关GTF文件过滤的详细信息，请[参考scRNA分析流程](./scRNA.md#gtf-file-processing-optional-zh)。
+有关 GTF 文件过滤的详细信息，请[参考 scRNA 分析流程](./scRNA.md#gtf-file-processing-optional-zh)。
 
 
 ### 构建参考数据库
 
-在运行dnbc4tools atac run分析之前，我们需要优先构建参考数据库。此步骤需要注释文件(GTF)和参考基因组(FASTA)来构建索引文件，用于测序reads的比对和统计分析。
+在运行 `dnbc4tools atac run` 分析之前，需要先构建参考数据库。此步骤使用注释文件（GTF）和参考基因组（FASTA）构建索引文件，用于测序 reads 的比对和统计分析。
 
 ```shell
 $dnbc4tools atac mkref \
@@ -161,7 +161,7 @@ $dnbc4tools atac mkref \
     └── tss.bed
 ```
 
-其中ref.json文件中记录数据库的主要信息：
+其中 `ref.json` 文件记录数据库的主要信息：
 
 ```json
 {
@@ -424,7 +424,7 @@ $dnbc4tools atac run \
 
 </div>
 
-<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);" markdown="1">
 
 | 资源 | 描述 |
 | :--- | :--- |

@@ -1141,10 +1141,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#market-matrix-mtxgz" class="md-nav__link">
+  <a href="#matrix-market-mtxgz" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Market Matrix格式 (.mtx.gz)
+        Matrix Market 格式 (.mtx.gz)
       
     </span>
   </a>
@@ -1981,10 +1981,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#market-matrix-mtxgz" class="md-nav__link">
+  <a href="#matrix-market-mtxgz" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Market Matrix格式 (.mtx.gz)
+        Matrix Market 格式 (.mtx.gz)
       
     </span>
   </a>
@@ -2308,7 +2308,7 @@
 ├── filter_matrix/                 # 过滤后的基因表达矩阵目录
 │   ├── barcodes.tsv.gz            # 细胞条形码文件
 │   ├── features.tsv.gz            # 基因/特征信息文件
-│   └── matrix.mtx.gz              # 稀疏矩阵文件（Market Matrix格式）
+│   └── matrix.mtx.gz              # 稀疏矩阵文件（Matrix Market 格式）
 ├── metrics_summary.xls            # 分析指标汇总表
 ├── raw_matrix/                    # 原始基因表达矩阵目录
 │   ├── barcodes.tsv.gz            # 原始细胞条形码文件
@@ -2522,7 +2522,7 @@
 <li>
 <p><strong>内容与格式</strong>:</p>
 <ul>
-<li>采用标准的 <strong>Market Matrix Exchange (MEX)</strong> 格式（关于矩阵格式详见<a href="#market-matrix-format-mtxgz">Market Matrix格式说明</a>），由以下三个压缩文件组成：
+<li>采用标准的 <strong>Matrix Market Exchange (MEX)</strong> 格式（关于矩阵格式详见<a href="#market-matrix-format-mtxgz">Matrix Market 格式说明</a>），由以下三个压缩文件组成：
     <table style="width:100%; border-collapse: collapse; margin: 15px 0; border-radius: 8px; overflow: hidden;">
     <thead style="background-color: #f5f5f7; border-bottom: 1px solid #d2d2d7;">
     <tr>
@@ -2541,7 +2541,7 @@
     </tr>
     <tr>
     <td align="left"><code>matrix.mtx.gz</code></td>
-    <td>基因表达计数矩阵，采用 Market Matrix 格式。包含矩阵维度信息和非零元素的行、列索引及数值</td>
+    <td>基因表达计数矩阵，采用 Matrix Market 格式。包含矩阵维度信息和非零元素的行、列索引及数值</td>
     </tr>
     </tbody>
     </table></li>
@@ -2573,7 +2573,7 @@
 <li>
 <p><strong>内容与格式</strong>:</p>
 <ul>
-<li>采用标准的 <strong>Market Matrix Exchange (MEX)</strong> 格式，其文件组成与 <code>filter_matrix/</code> 目录完全相同。</li>
+<li>采用标准的 <strong>Matrix Market Exchange (MEX)</strong> 格式，其文件组成与 <code>filter_matrix/</code> 目录完全相同。</li>
 <li>包含所有被检测到的条形码，包括高质量细胞、低质量细胞和背景液滴。</li>
 </ul>
 </li>
@@ -2849,7 +2849,7 @@ CELL51_N5,1362,40817,mm10</code></pre>
 </div>
 </div>
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px; ">
-<h4 id="market-matrix-mtxgz">Market Matrix格式 (<code>.mtx.gz</code>) <a id="market-matrix-format-mtxgz"></a><a class="headerlink" href="#market-matrix-mtxgz" title="Permanent link">&para;</a></h4>
+<h4 id="matrix-market-mtxgz">Matrix Market 格式 (<code>.mtx.gz</code>) <a id="market-matrix-format-mtxgz"></a><a class="headerlink" href="#matrix-market-mtxgz" title="Permanent link">&para;</a></h4>
 <p>Market Exchange Format (MEX) 是单细胞分析中用于存储稀疏计数矩阵的标准格式，具有空间高效和高度兼容的优点。</p>
 <ul>
 <li>

@@ -23,7 +23,7 @@
 
 <div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
 
-##  Overview <a id="overview"></a>
+## Overview <a id="overview"></a>
 
 After the single-cell RNA analysis is complete, a standardized file and subdirectory structure is generated in the specified output directory, specifically for gene expression profile analysis and cell type identification. This document details the content, format, and purpose of each output file to help users fully understand and efficiently utilize the single-cell RNA analysis results.
 
@@ -56,7 +56,7 @@ After the single-cell RNA analysis is complete, a standardized file and subdirec
 ├── filter_matrix/                 # Filtered gene expression matrix directory
 │   ├── barcodes.tsv.gz            # Cell barcode file
 │   ├── features.tsv.gz            # Gene/feature information file
-│   └── matrix.mtx.gz              # Sparse matrix file (Market Matrix format)
+│   └── matrix.mtx.gz              # Sparse matrix file (Matrix Market format)
 ├── metrics_summary.xls            # Analysis metrics summary table
 ├── raw_matrix/                    # Raw gene expression matrix directory
 │   ├── barcodes.tsv.gz            # Raw cell barcode file
@@ -91,9 +91,9 @@ After the single-cell RNA analysis is complete, a standardized file and subdirec
 
 <div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
 
-<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);" markdown="1">
 
-####  anno_decon_sorted.bam
+#### anno_decon_sorted.bam
 
 This is the scRNA-seq alignment result file containing all raw data.
 
@@ -215,9 +215,9 @@ This is the scRNA-seq alignment result file containing all raw data.
 
 <div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
 
-<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);" markdown="1">
 
-####  anno_decon_sorted.bam.bai
+#### anno_decon_sorted.bam.bai
 
 The index file for `anno_decon_sorted.bam`.
 
@@ -262,7 +262,7 @@ The index file for `anno_decon_sorted.bam`.
 
 </div>
 
-<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);" markdown="1">
 
 #### Filtered Gene Expression Matrix (`filter_matrix/`)
 
@@ -273,7 +273,7 @@ Contains the gene expression count matrix after filtering for high-quality cells
     *   **High-Quality Data**: Includes only barcodes identified as real cells, ensuring the accuracy of the analysis results.
 
 *   **Content and Format**:
-    *   Uses the standard **Market Matrix Exchange (MEX)** format (for more on matrix formats, see [Market Matrix Format Description](#market-matrix-format-mtxgz)), consisting of the following three compressed files:
+    *   Uses the standard **Matrix Market Exchange (MEX)** format (for more on matrix formats, see [Matrix Market Format Description](#market-matrix-format-mtxgz)), consisting of the following three compressed files:
         <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
         <thead>
         <tr>
@@ -292,7 +292,7 @@ Contains the gene expression count matrix after filtering for high-quality cells
         </tr>
         <tr>
         <td align="left"><code>matrix.mtx.gz</code></td>
-        <td>The gene expression count matrix in Market Matrix format. Contains matrix dimension information and the row, column indices, and values of non-zero elements.</td>
+        <td>The gene expression count matrix in Matrix Market format. Contains matrix dimension information and the row, column indices, and values of non-zero elements.</td>
         </tr>
         </tbody>
         </table>
@@ -316,7 +316,7 @@ Contains the raw gene expression count matrix for all detected cell barcodes (un
     *   **Data Integrity**: Retains all original data, which can be used for deep mining or re-analysis if needed.
 
 *   **Content and Format**:
-    *   Uses the standard **Market Matrix Exchange (MEX)** format, with a file composition identical to the `filter_matrix/` directory.
+    *   Uses the standard **Matrix Market Exchange (MEX)** format, with a file composition identical to the `filter_matrix/` directory.
     *   Includes all detected barcodes, including high-quality cells, low-quality cells, and background droplets.
 
 </div>
@@ -325,7 +325,7 @@ Contains the raw gene expression count matrix for all detected cell barcodes (un
 
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
 
-####  filter_feature.h5ad
+#### filter_feature.h5ad
 
 The feature matrix after cell identification and filtering, stored in AnnData (`.h5ad`) format. It is an alternative and supplement to the contents of the `filter_matrix/` directory.
 
@@ -355,7 +355,7 @@ The feature matrix after cell identification and filtering, stored in AnnData (`
 
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
 
-####  cluster.csv
+#### cluster.csv
 
 The cell clustering analysis result file in CSV format. It contains each cell's ID, its assigned cluster, dimensionality reduction coordinates, and key QC metrics.
 
@@ -375,7 +375,7 @@ The cell clustering analysis result file in CSV format. It contains each cell's 
 
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
 
-####  cell_classification.csv (Dual-species analysis only)
+#### cell_classification.csv (Dual-species analysis only)
 
 A cell-level species assignment file generated for dual-species analyses (e.g., `hg38 + mm10`), in CSV format.
 
@@ -422,7 +422,7 @@ CELL51_N5,1362,40817,mm10</code></pre>
 
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
 
-####  marker.csv
+#### marker.csv
 
 A list of differentially expressed genes (marker genes) for each cluster, in CSV format. It records information such as the significance of each gene's expression in a specific cluster and changes in expression levels.
 
@@ -443,7 +443,7 @@ A list of differentially expressed genes (marker genes) for each cluster, in CSV
 
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
 
-####  QC_Cluster.h5ad
+#### QC_Cluster.h5ad
 
 A single-cell data object that has undergone complete quality control, dimensionality reduction, and clustering analysis, in AnnData (`.h5ad`) format. It integrates the upstream expression matrix with downstream analysis results.
 
@@ -474,7 +474,7 @@ A single-cell data object that has undergone complete quality control, dimension
 
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
 
-####  metrics_summary.xls
+#### metrics_summary.xls
 
 A summary table of key analysis metrics in Excel format, providing a comprehensive assessment of the overall quality of the experiment.
 
@@ -524,7 +524,7 @@ A summary table of key analysis metrics in Excel format, providing a comprehensi
 
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
 
-####  singlecell.csv
+#### singlecell.csv
 
 A single-cell level quality control information table in CSV format, recording detailed statistical data for each cell barcode.
 
@@ -542,7 +542,7 @@ A single-cell level quality control information table in CSV format, recording d
 
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
 
-####  *_scRNA_report.html
+#### *_scRNA_report.html
 
 An interactive comprehensive analysis report in HTML web format.
 
@@ -561,7 +561,7 @@ An interactive comprehensive analysis report in HTML web format.
 
 <div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
 
-##  File Format Description <a id="file-format-description"></a>
+## File Format Description <a id="file-format-description"></a>
 
 > **Technical Specifications**: Detailed descriptions of the standard formats used for output files.
 
@@ -569,7 +569,7 @@ An interactive comprehensive analysis report in HTML web format.
 
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
 
-#### Market Matrix Format (`.mtx.gz`) <a id="market-matrix-format-mtxgz"></a>
+#### Matrix Market Format (`.mtx.gz`) <a id="market-matrix-format-mtxgz"></a>
 The Market Exchange Format (MEX) is a standard format used in single-cell analysis for storing sparse count matrices, offering advantages of space efficiency and high compatibility.
 
 *   **Core Advantages**:
@@ -605,13 +605,13 @@ The Market Exchange Format (MEX) is a standard format used in single-cell analys
 
 <div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
 
-<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);" markdown="1">
 
 ### AnnData Format (`.h5ad`) <a id="anndata-format-h5ad"></a>
 
 **Format Overview:** AnnData ("Annotated Data") is a data structure designed for matrix-like data, particularly suitable for single-cell RNA sequencing data analysis. Based on the HDF5 format, it provides efficient data storage and access capabilities.
 
-#### ️ Data Structure
+#### Data Structure
 
 <div align="center">
 <img src="../images/anndata.jpg" alt="AnnData Format Structure Diagram" width="400">
@@ -1132,7 +1132,8 @@ This plot distinguishes high-quality real cells from background noise by ranking
 </div>
 
 **How to Interpret**:
-*   **Visual Encoding**:  Blue line (valid cells) | ⬜ Gray line (background noise) |  Blue gradient area (mixed region)
+
+*   **Visual Encoding**: Blue line (valid cells) | Gray line (background noise) | Blue gradient area (mixed region)
 *   **Chart Axes Explained**: 
     - **X-axis**: Barcode Rank - Sorted by total UMI count in descending order (log scale)
     - **Y-axis**: UMI Counts - Total UMI count for each cell (log scale)
@@ -1149,6 +1150,7 @@ This plot distinguishes high-quality real cells from background noise by ranking
 Displays the distribution of the number of captured cell barcodes (Beads) in real cell droplets.
 
 **How to Interpret**:
+
 *   **Theoretical Distribution**: The distribution of beads in droplets theoretically follows a **Poisson distribution**, reflecting the statistical properties of the random capture process in the micro-reaction system.
 *   **Actual Influences**: The final distribution is affected by experimental factors such as sequencing saturation, droplet size uniformity, and cell concentration.
 
@@ -1160,6 +1162,7 @@ Displays the distribution of the number of captured cell barcodes (Beads) in rea
 Through three separate violin plots, it shows the distribution of high-quality cells across three key quality metrics: **number of genes (nGenes)**, **number of UMIs (nUMI)**, and **mitochondrial gene percentage (percent.mt)**.
 
 **How to Interpret**:
+
 *   **Number of Genes and UMIs**: The higher the center of the distribution (the widest part), the higher the transcriptome complexity and capture efficiency of the cells.
 *   **Mitochondrial Gene Percentage**: The distribution should be concentrated at a low percentage (usually < 10-20%). A high percentage may indicate cell apoptosis or stress.
 
@@ -1183,12 +1186,13 @@ Through three separate violin plots, it shows the distribution of high-quality c
 
 </div>
 
-#####  Cluster Analysis
+##### Cluster Analysis
 
 **Chart Function**:
 Using UMAP dimensionality reduction and the Louvain clustering algorithm, cells with similar gene expression patterns are grouped together in a 2D space, thereby identifying potential cell subpopulations.
 
 **How to Interpret**:
+
 *   **Left Plot (Cell Type Clustering)**: Each point represents a cell, and different colors represent different cell clusters. Cells that are close in space have more similar gene expression profiles.
 *   **Right Plot (UMI Count Distribution)**: On the same UMAP space, a color gradient shows the total UMI count for each cell. This can be used to help assess the reliability of the clustering results, for example, whether certain clusters are composed of low-quality cells.
 
@@ -1200,6 +1204,7 @@ Using UMAP dimensionality reduction and the Louvain clustering algorithm, cells 
 Displays the characteristic differentially expressed genes for each cell cluster, used to identify and annotate different cell types.
 
 **How to Interpret**:
+
 *   **Key Metrics Explained**: 
     - **P-val**: The statistical significance p-value of differential expression. The smaller the value, the more significant the difference (Threshold: < 0.05 is significant, < 0.01 is highly significant).
     - **p_val_adj**: The adjusted p-value after Bonferroni multiple testing correction, which controls the false positive rate (it is recommended to use the adjusted p-value for final screening).
@@ -1215,6 +1220,7 @@ Displays the characteristic differentially expressed genes for each cell cluster
 On the UMAP plot, each cluster is labeled with a cell type inferred from a reference database (e.g., scHCL, scMCA).
 
 **How to Interpret**:
+
 *   **Annotation Result**: Provides a possible cell type label for each cluster.
 *   **Species Support**: Human (Homo sapiens) / Mouse (Mus musculus). Cell type annotation is not provided for other species.
 *   **Usage Suggestion**: The automatic annotation results are for reference only. Their accuracy depends on the quality of the reference database and the similarity of the sample. It is recommended to manually verify and correct them in conjunction with marker genes.
@@ -1227,6 +1233,7 @@ On the UMAP plot, each cluster is labeled with a cell type inferred from a refer
 Assesses the adequacy of sequencing depth and data complexity, i.e., whether further increasing the sequencing volume can lead to the discovery of more new genes or UMIs.
 
 **How to Interpret**:
+
 *   **Axes**: The X-axis is the average number of sequencing reads per cell, and the Y-axis is the saturation / median number of genes per cell.
 *   **Curve Trend**: If the curve tends to flatten, it indicates that sequencing is approaching saturation, and increasing sequencing depth will not contribute much to the discovery of new genes. If the curve is still rising rapidly, it indicates that increasing sequencing may still yield significant benefits.
 
@@ -1244,6 +1251,7 @@ When a dual-species reference is used (e.g., `hg38 + mm10`), the HTML report add
 This page combines droplet-level multiplet statistics, cell-level species scatter plots, and per-species summary metrics, allowing quick assessment of species separation quality.
 
 **How to Interpret**:
+
 *   **Droplet overview (top-left)**:
     - `Droplets with >0 Cell`: Number of droplets containing at least one cell.
     - `Droplets with >1Cell (Observed / Inferred)`: Observed/inferred number of multi-cell droplets.
@@ -1269,13 +1277,13 @@ This page combines droplet-level multiplet statistics, cell-level species scatte
 
 </div>
 
-<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);" markdown="1">
 
 | Document | Description |
 | :--- | :--- |
-| [scRNA Pipeline](../pipeline/scRNA.md) | Detailed scRNA analysis workflow |
-| [scRNA Parameters](../parameter/scRNA.md) | Command parameter reference |
-| [Output Files](./outs.md) | Return to output documentation index |
+| [scRNA Pipeline](../pipeline/scRNA.en.md) | Detailed scRNA analysis workflow |
+| [scRNA Parameters](../parameter/scRNA.en.md) | Command parameter reference |
+| [Output Files](./outs.en.md) | Return to output documentation index |
 
 </div>
 

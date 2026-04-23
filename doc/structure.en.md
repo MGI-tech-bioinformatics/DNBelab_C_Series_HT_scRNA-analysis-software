@@ -20,18 +20,18 @@
 
 </div>
 
-<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);" markdown="1">
 
 | File | Description |
 | :--- | :--- |
 | [README.md](../README.md) | Project overview and entry point |
-| [doc/installation.md](./installation.md) | Installation guide for current release |
-| [doc/installation_previous.md](./installation_previous.md) | Historical installation instructions |
-| [doc/quickstart.md](./quickstart.md) | End-to-end quick start examples |
-| [doc/dataset.md](./dataset.md) | Demo datasets and download references |
-| [doc/json.md](./json.md) | JSON configuration specification |
-| [doc/io.md](./io.md) | Output import and downstream usage in R/Python |
-| [doc/release.md](./release.md) | Release notes and version guidance |
+| [doc/installation.md](installation.en.md) | Installation guide for current release |
+| [doc/installation_previous.md](installation_previous.en.md) | Historical installation instructions |
+| [doc/quickstart.md](quickstart.en.md) | End-to-end quick start examples |
+| [doc/dataset.md](dataset.en.md) | Demo datasets and download references |
+| [doc/json.md](json.en.md) | JSON configuration specification |
+| [doc/io.md](io.en.md) | Output import and downstream usage in R/Python |
+| [doc/release.md](release.en.md) | Release notes and version guidance |
 
 </div>
 
@@ -43,13 +43,13 @@
 
 </div>
 
-<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);" markdown="1">
 
 | Directory | Description |
 | :--- | :--- |
-| [doc/pipeline/](./pipeline/pipeline.md) | Workflow guides for scRNA, scATAC, scVDJ, and multi |
-| [doc/parameter/](./parameter/parameter.md) | Command parameters and option references |
-| [doc/outs/](./outs/outs.md) | Output files and report interpretation |
+| [doc/pipeline/](pipeline/pipeline.en.md) | Workflow guides for scRNA, scATAC, scVDJ, and multi |
+| [doc/parameter/](parameter/parameter.en.md) | Command parameters and option references |
+| [doc/outs/](outs/outs.en.md) | Output files and report interpretation |
 
 </div>
 

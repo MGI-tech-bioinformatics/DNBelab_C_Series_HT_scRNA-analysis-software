@@ -6,7 +6,7 @@
 
 <div align="center" style="padding: 40px 20px; background: linear-gradient(135deg, #f5f5f7 0%, #ffffff 100%); border-radius: 12px; margin-bottom: 30px; max-width: 1200px; margin-left: auto; margin-right: auto;">
 
-<h1 style="font-size: 48px; font-weight: 600; color: #1d1d1f; margin: 0 0 16px 0; letter-spacing: -0.02em;">Multi-omics 分析参数</h1>
+<h1 style="font-size: 48px; font-weight: 600; color: #1d1d1f; margin: 0 0 16px 0; letter-spacing: -0.02em;">多组学分析参数</h1>
 
 <p style="font-size: 21px; color: rgba(0,0,0,0.6); margin: 0 0 30px 0; font-weight: 400;">DNBelab C Series HT 多组学整合流程参数与配置说明</p>
 
@@ -182,7 +182,7 @@ fastqs,feature_types
 
 </div>
 
-<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);" markdown="1">
 
 | 序号 | 规则 | 正确示例 | 错误示例 |
 | :--- | :--- | :--- | :--- |
@@ -209,11 +209,11 @@ fastqs,feature_types
 
 </div>
 
-<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);" markdown="1">
 
 | 模式 | 行为描述 | 适用场景 |
 | :--- | :--- | :--- |
-|  **默认** | 使用 RNA 分析的细胞信息进行 VDJ 过滤 | 常规多组学分析 |
+| **默认** | 使用 RNA 分析的细胞信息进行 VDJ 过滤 | 常规多组学分析 |
 | **自定义** | 显式填写 `beadstrans` 参数，使用自定义细胞文件 | 需要独立定义 VDJ 细胞时 |
 
 </div>
@@ -232,14 +232,14 @@ fastqs,feature_types
 
 </div>
 
-<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);" markdown="1">
 
 | 配置分段 | 对应子流程 | 详细参数文档 |
 | :--- | :--- | :--- |
-|  `[rna]` | `dnbc4tools rna run` | [scRNA 参数 ](./scRNA.md) |
-|  `[atac]` | `dnbc4tools atac run` | [scATAC 参数 ](./scATAC.md) |
-| `[vdj-t]` / `[vdj-b]` | `dnbc4tools vdj run` | [scVDJ 参数 ](./scVDJ.md) |
-|  `[libraries]` | multi 输入映射 | [见 CSV 配置规范 ](#csv-配置规范) |
+| `[rna]` | `dnbc4tools rna run` | [scRNA 参数](./scRNA.md) |
+| `[atac]` | `dnbc4tools atac run` | [scATAC 参数](./scATAC.md) |
+| `[vdj-t]` / `[vdj-b]` | `dnbc4tools vdj run` | [scVDJ 参数](./scVDJ.md) |
+| `[libraries]` | multi 输入映射 | [见 CSV 配置规范](#csv-配置规范) |
 
 </div>
 
@@ -257,7 +257,7 @@ fastqs,feature_types
 
 </div>
 
-<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);" markdown="1">
 
 | 类别 | 参数名 |
 | :--- | :--- |
@@ -277,7 +277,7 @@ fastqs,feature_types
 
 </div>
 
-<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);" markdown="1">
 
 | 类别 | 参数名 |
 | :--- | :--- |
@@ -297,7 +297,7 @@ fastqs,feature_types
 
 </div>
 
-<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);" markdown="1">
 
 | 类别 | 参数名 |
 | :--- | :--- |
@@ -313,7 +313,7 @@ fastqs,feature_types
 
 #### `[libraries]` 分段（必填）
 
-<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);" markdown="1">
 
 | 列名 | 说明 |
 | :--- | :--- |
@@ -404,12 +404,12 @@ fastqs,feature_types
 
 </div>
 
-<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);" markdown="1">
 
 | 资源 | 描述 |
 | :--- | :--- |
-| [Multi 流程文档](../pipeline/multi.md) | 多组学整合分析流程指南 |
-| [Multi 输出文档](../outs/multi.md) | 输出文件详细解读 |
+| [多组学流程文档](../pipeline/multi.md) | 多组学整合分析流程指南 |
+| [多组学输出文档](../outs/multi.md) | 输出文件详细解读 |
 | [scRNA 参数文档](./scRNA.md) | 单细胞 RNA 分析参数 |
 | [scATAC 参数文档](./scATAC.md) | 单细胞 ATAC 分析参数 |
 | [scVDJ 参数文档](./scVDJ.md) | 单细胞 VDJ 分析参数 |

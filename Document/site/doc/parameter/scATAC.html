@@ -2460,7 +2460,7 @@ Analysis Settings:
 </div>
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4 id="-fastqs-1"><code>--fastqs</code> <span style="font-size: 0.8em; font-weight: normal; color: #3498db;">(方式1)</span><a class="headerlink" href="#-fastqs-1" title="Permanent link">&para;</a></h4>
-<p>指定包含所有FASTQ文件的目录路径。</p>
+<p>指定包含所有FASTQ 文件的目录路径。</p>
 <ul>
 <li><strong>功能:</strong> 流程会自动检测目录中的Read1和Read2配对文件。</li>
 <li><strong>注意:</strong> 这是一个便捷选项，不能与 <code>--fastq1</code> / <code>--fastq2</code> 同时使用。</li>
@@ -2471,7 +2471,7 @@ Analysis Settings:
 </div>
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4 id="-fastq1-2a"><code>--fastq1</code> <span style="font-size: 0.8em; font-weight: normal; color: #3498db;">(方式2A)</span><a class="headerlink" href="#-fastq1-2a" title="Permanent link">&para;</a></h4>
-<p>单独指定一个或多个Read1 FASTQ文件。</p>
+<p>单独指定一个或多个Read1 FASTQ 文件。</p>
 <ul>
 <li><strong>支持:</strong> 可以使用通配符 (<code>*</code>) 匹配文件，使用逗号分隔来指定多个文件。</li>
 <li><strong>要求:</strong> 必须与 <code>--fastq2</code> 参数配对使用，且文件顺序必须完全匹配。</li>
@@ -2482,7 +2482,7 @@ Analysis Settings:
 </div>
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4 id="-fastq2-2b"><code>--fastq2</code> <span style="font-size: 0.8em; font-weight: normal; color: #3498db;">(方式2B)</span><a class="headerlink" href="#-fastq2-2b" title="Permanent link">&para;</a></h4>
-<p>单独指定一个或多个Read2 FASTQ文件。</p>
+<p>单独指定一个或多个Read2 FASTQ 文件。</p>
 <ul>
 <li><strong>支持:</strong> 可以使用通配符 (<code>*</code>) 匹配文件，使用逗号分隔来指定多个文件。</li>
 <li><strong>要求:</strong> 必须与 <code>--fastq1</code> 参数配对使用，且文件顺序必须完全匹配。</li>
@@ -2534,7 +2534,7 @@ Analysis Settings:
 <h4 id="_7">文库设置参数<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h4>
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4 id="-darkreaction"><code>--darkreaction</code> <span style="font-size: 0.8em; font-weight: normal; color: #f39c12;">(可选)</span><a class="headerlink" href="#-darkreaction" title="Permanent link">&para;</a></h4>
-<p>配置ATAC文库的暗循环（dark cycle）设置，以确保细胞条形码的精确识别。</p>
+<p>配置ATAC 文库的暗循环（dark cycle）设置，以确保细胞条形码的精确识别。</p>
 <ul>
 <li><strong>功能:</strong> 指导软件正确解析因测序化学（如MGI平台）产生的暗反应周期。</li>
 <li><strong>智能检测:</strong> 默认情况下，软件会自动检测数据特征以选择合适的模式。<strong>强烈推荐初次分析时使用。</strong></li>
@@ -2600,7 +2600,7 @@ dnbc4tools atac run --name sample2 --fastqs ./fq --genomeDir ./ref --darkreactio
 <p><strong> 注意事项：</strong></p>
 <ul>
 <li><strong>必须使用引号：</strong>由于包含特殊字符，整个字符串必须用双引号包裹。</li>
-<li><strong>坐标精确：</strong>坐标范围不能超过FASTQ文件中的实际读长，否则会导致解析失败。</li>
+<li><strong>坐标精确：</strong>坐标范围不能超过FASTQ 文件中的实际读长，否则会导致解析失败。</li>
 </ul>
 </div>
 <div style="max-width: 1200px; margin: 0 auto;">
@@ -2677,14 +2677,14 @@ dnbc4tools atac run --name sample1 --fastqs ./fq --genomeDir ./ref --merge_cutof
 <h4 id="-need_bam"><code>--need_bam</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(标志)</span><a class="headerlink" href="#-need_bam" title="Permanent link">&para;</a></h4>
 <p>启用BAM格式文件的生成。</p>
 <ul>
-<li><strong>功能:</strong> 生成包含所有具有有效条形码且已比对的读段的BAM文件，可用于IGV等可视化工具或进行其他自定义分析。</li>
-<li><strong>注意:</strong> 启用此选项会显著增加计算时间和磁盘空间占用，预计运行时间会增加30-50%。此外，由于比对软件chromap在生成BAM文件和直接输出BED文件时存在差异，最终结果可能略有不同。</li>
+<li><strong>功能:</strong> 生成包含所有具有有效条形码且已比对的读段的BAM 文件，可用于IGV等可视化工具或进行其他自定义分析。</li>
+<li><strong>注意:</strong> 启用此选项会显著增加计算时间和磁盘空间占用，预计运行时间会增加30-50%。此外，由于比对软件chromap在生成BAM 文件和直接输出BED文件时存在差异，最终结果可能略有不同。</li>
 </ul>
-<p><strong>默认值:</strong> 不设置此参数则不生成BAM文件</p>
+<p><strong>默认值:</strong> 不设置此参数则不生成BAM 文件</p>
 </div>
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4 id="-sample_read_pairs"><code>--sample_read_pairs</code> <span style="font-size: 0.8em; font-weight: normal; color: #9b59b6;">(可选)</span><a class="headerlink" href="#-sample_read_pairs" title="Permanent link">&para;</a></h4>
-<p>从输入的FASTQ文件中提取指定数量的读段对进行分析。</p>
+<p>从输入的FASTQ 文件中提取指定数量的读段对进行分析。</p>
 <ul>
 <li><strong>功能:</strong> 用于在完整分析前对大数据集进行快速测试，或在资源有限时进行降采样分析。</li>
 </ul>

@@ -1690,34 +1690,34 @@
 <p>单细胞分辨率的基因表达分析</p>
 </blockquote>
 <h3 id="_4">第一步： 构建参考数据库<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
-<p><strong>Human (GRCh38)</strong></p>
-<pre><code class="language-bash"># Download reference files
+<p><strong>人（Human, GRCh38）</strong></p>
+<pre><code class="language-bash"># 下载参考文件
 wget http://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_32/GRCh38.primary_assembly.genome.fa.gz
 wget http://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_32/gencode.v32.primary_assembly.annotation.gtf.gz
 
-# Extract files
+# 解压文件
 gzip -d GRCh38.primary_assembly.genome.fa.gz
 gzip -d gencode.v32.primary_assembly.annotation.gtf.gz
 
-# Build reference
+# 构建参考库
 $dnbc4tools tools mkgtf --ingtf gencode.v32.primary_assembly.annotation.gtf --output genes.filtered.gtf
 $dnbc4tools rna mkref --ingtf genes.filtered.gtf --fasta GRCh38.primary_assembly.genome.fa --threads 10 --species Homo_sapiens
 </code></pre>
-<p><strong>Mouse (GRCm38)</strong></p>
-<pre><code class="language-bash"># Download reference files
+<p><strong>小鼠（Mouse, GRCm38）</strong></p>
+<pre><code class="language-bash"># 下载参考文件
 wget http://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_mouse/release_M23/GRCm38.primary_assembly.genome.fa.gz
 wget http://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_mouse/release_M23/gencode.vM23.primary_assembly.annotation.gtf.gz
 
-# Extract files
+# 解压文件
 gzip -d GRCm38.primary_assembly.genome.fa.gz
 gzip -d gencode.vM23.primary_assembly.annotation.gtf.gz
 
-# Build reference
+# 构建参考库
 $dnbc4tools tools mkgtf --ingtf gencode.vM23.primary_assembly.annotation.gtf --output genes.filtered.gtf
 $dnbc4tools rna mkref --ingtf genes.filtered.gtf --fasta GRCm38.primary_assembly.genome.fa --threads 10 --species Mus_musculus
 </code></pre>
-<p><strong>Human-Mouse Mixed Reference</strong></p>
-<pre><code class="language-bash"># Prepare both references as above, then:
+<p><strong>人-鼠双物种参考库</strong></p>
+<pre><code class="language-bash"># 按以上步骤准备两个参考库后，继续执行：
 $dnbc4tools rna mkref \
     --fasta GRCh38.primary_assembly.genome.fa,GRCm38.primary_assembly.genome.fa \
     --ingtf hg38/genes.filtered.gtf,mm10/genes.filtered.gtf \
@@ -1755,29 +1755,29 @@ $dnbc4tools rna mkref \
 <p>单细胞分辨率的染色质开放性分析</p>
 </blockquote>
 <h3 id="_6">第一步： 构建参考数据库<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
-<p><strong>Human (GRCh38)</strong></p>
-<pre><code class="language-bash"># Download reference files
+<p><strong>人（Human, GRCh38）</strong></p>
+<pre><code class="language-bash"># 下载参考文件
 wget http://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_32/GRCh38.primary_assembly.genome.fa.gz
 wget http://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_32/gencode.v32.primary_assembly.annotation.gtf.gz
 
-# Extract files
+# 解压文件
 gzip -d GRCh38.primary_assembly.genome.fa.gz
 gzip -d gencode.v32.primary_assembly.annotation.gtf.gz
 
-# Build reference
+# 构建参考库
 $dnbc4tools tools mkgtf --ingtf gencode.v32.primary_assembly.annotation.gtf --output genes.filtered.gtf
 $dnbc4tools atac mkref --fasta GRCh38.primary_assembly.genome.fa --ingtf genes.filtered.gtf --species Homo_sapiens --prefix chr
 </code></pre>
-<p><strong>Mouse (GRCm38)</strong></p>
-<pre><code class="language-bash"># Download reference files
+<p><strong>小鼠（Mouse, GRCm38）</strong></p>
+<pre><code class="language-bash"># 下载参考文件
 wget http://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_mouse/release_M23/GRCm38.primary_assembly.genome.fa.gz
 wget http://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_mouse/release_M23/gencode.vM23.primary_assembly.annotation.gtf.gz
 
-# Extract files
+# 解压文件
 gzip -d GRCm38.primary_assembly.genome.fa.gz
 gzip -d gencode.vM23.primary_assembly.annotation.gtf.gz
 
-# Build reference
+# 构建参考库
 $dnbc4tools tools mkgtf --ingtf gencode.vM23.primary_assembly.annotation.gtf --output genes.filtered.gtf
 $dnbc4tools atac mkref --fasta GRCm38.primary_assembly.genome.fa --ingtf genes.filtered.gtf --species Mus_musculus --prefix chr
 </code></pre>
@@ -1840,7 +1840,7 @@ $dnbc4tools atac mkref --fasta GRCm38.primary_assembly.genome.fa --ingtf genes.f
 
 <p>支持的文件命名见<a href="#file-naming-conventions">文件命名规则</a>。</p>
 <p><strong>详细输入 (--fastq1/2)</strong></p>
-<p><strong>TCR Analysis (Human)</strong></p>
+<p><strong>TCR 分析（人）</strong></p>
 <pre><code class="language-bash">$dnbc4tools vdj run \
     --fastq1 /test/data/test1_R1.fastq.gz,/test/data/test2_R1.fastq.gz \
     --fastq2 /test/data/test1_R2.fastq.gz,/test/data/test2_R2.fastq.gz \
@@ -1850,7 +1850,7 @@ $dnbc4tools atac mkref --fasta GRCm38.primary_assembly.genome.fa --ingtf genes.f
     --threads 20 \
     --chain TR
 </code></pre>
-<p><strong>TCR Analysis (Mouse)</strong></p>
+<p><strong>TCR 分析（小鼠）</strong></p>
 <pre><code class="language-bash">$dnbc4tools vdj run \
     --fastq1 /test/data_tcrmouse/test3_R1.fastq.gz,/test/data_tcrmouse/test4_R1.fastq.gz \
     --fastq2 /test/data_tcrmouse/test3_R2.fastq.gz,/test/data_tcrmouse/test4_R2.fastq.gz \
@@ -1860,7 +1860,7 @@ $dnbc4tools atac mkref --fasta GRCm38.primary_assembly.genome.fa --ingtf genes.f
     --threads 20 \
     --chain TR
 </code></pre>
-<p><strong>BCR Analysis (Human)</strong></p>
+<p><strong>BCR 分析（人）</strong></p>
 <pre><code class="language-bash">$dnbc4tools vdj run \
     --fastq1 /test/data_bcrhuman/test5_R1.fastq.gz,/test/data_bcrhuman/test6_R1.fastq.gz \
     --fastq2 /test/data_bcrhuman/test5_R2.fastq.gz,/test/data_bcrhuman/test6_R2.fastq.gz \
@@ -1870,7 +1870,7 @@ $dnbc4tools atac mkref --fasta GRCm38.primary_assembly.genome.fa --ingtf genes.f
     --threads 20 \
     --chain IG
 </code></pre>
-<p><strong>BCR Analysis (Mouse)</strong></p>
+<p><strong>BCR 分析（小鼠）</strong></p>
 <pre><code class="language-bash">$dnbc4tools vdj run \
     --fastq1 /test/data_bcrmouse/test7_R1.fastq.gz,/test/data_bcrmouse/test8_R1.fastq.gz \
     --fastq2 /test/data_bcrmouse/test7_R2.fastq.gz,/test/data_bcrmouse/test8_R2.fastq.gz \

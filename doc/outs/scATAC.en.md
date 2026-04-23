@@ -23,7 +23,7 @@
 
 <div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
 
-##  Overview <a id="overview"></a>
+## Overview <a id="overview"></a>
 
 <div align="center">
 
@@ -39,7 +39,7 @@ After single-cell ATAC sequencing analysis is complete, a standardized structure
 
 <div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
 
-##  Directory Structure <a id="directory-structure"></a>
+## Directory Structure <a id="directory-structure"></a>
 
 </div>
 
@@ -273,7 +273,7 @@ Contains the peak count matrix after high-quality cell filtering, serving as the
     *   **High-Quality Data**: Contains only barcodes identified as real cells, ensuring the accuracy of the analysis results.
 
 *   **Content & Format**:
-    *   Uses the standard **Market Matrix Exchange (MEX)** format, consisting of the following three compressed files:
+    *   Uses the standard **Matrix Market Exchange (MEX)** format, consisting of the following three compressed files:
         <table style="width:100%; border-collapse: collapse; margin: 15px 0; border-radius: 8px; overflow: hidden;">
         <thead style="background-color: #f5f5f7; border-bottom: 1px solid #d2d2d7;">
         <tr>
@@ -292,7 +292,7 @@ Contains the peak count matrix after high-quality cell filtering, serving as the
         </tr>
         <tr>
         <td align="left" style="padding: 12px 16px;"><code>matrix.mtx.gz</code></td>
-        <td style="padding: 12px 16px;">The peak region count matrix in Market Matrix format. Contains matrix dimensions and the row, column, and value for non-zero elements.</td>
+        <td style="padding: 12px 16px;">The peak region count matrix in Matrix Market format. Contains matrix dimensions and the row, column, and value for non-zero elements.</td>
         </tr>
         </tbody>
         </table>
@@ -316,7 +316,7 @@ Contains the raw peak count matrix for all detected cell barcodes (without filte
     *   **Data Integrity**: Preserves all original data, which can be used for deep mining or re-analysis if needed.
 
 *   **Content & Format**:
-    *   Uses the standard **Market Matrix Exchange (MEX)** format, with the same file composition as the `filter_peak_matrix/` directory.
+    *   Uses the standard **Matrix Market Exchange (MEX)** format, with the same file composition as the `filter_peak_matrix/` directory.
     *   Includes all detected barcodes, including high-quality cells, low-quality cells, and background droplets.
 
 </div>
@@ -459,9 +459,9 @@ An interactive, comprehensive analysis report in HTML web format.
 
 </div>
 
-<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);" markdown="1">
 
-#### Market Matrix Format (`.mtx.gz`) <a id="market-matrix-format-mtxgz"></a>
+#### Matrix Market Format (`.mtx.gz`) <a id="market-matrix-format-mtxgz"></a>
 Market Exchange Format (MEX) is a standard format for storing sparse count matrices in single-cell analysis, known for its space efficiency and high compatibility.
 
 *   **Core Advantages**:
@@ -860,6 +860,7 @@ The HTML web report is a comprehensive display platform for single-cell ATAC seq
 This plot ranks all cell barcodes by fragment count to distinguish high-quality true cells from background noise.
 
 **How to Interpret**:
+
 *   **Axes**:
     *   **X-axis (Barcode Rank)**: All barcodes ranked in descending order by fragment count. Left = high-fragment barcodes; right = low-fragment barcodes.
     *   **Y-axis (Fragment Counts)**: Total peak-overlapping fragment counts per barcode (log scale).
@@ -881,6 +882,7 @@ This plot ranks all cell barcodes by fragment count to distinguish high-quality 
 Shows the distribution of captured cell barcodes (beads) within droplets identified as real cells.
 
 **How to Interpret**:
+
 *   **Theoretical distribution**: Bead count per droplet is expected to approximately follow a **Poisson distribution**, reflecting random capture in microfluidics.
 *   **Practical factors**: The observed distribution is affected by sequencing saturation, droplet size uniformity, and cell concentration.
 
@@ -894,6 +896,7 @@ Shows the distribution of captured cell barcodes (beads) within droplets identif
 Three violin plots show the distributions of key QC metrics in high-quality cells: **Fragments**, **TSS Proportion**, and **Peak Proportion**.
 
 **How to Interpret**:
+
 *   **Violin plot basics**:
     *   Plot **width** indicates cell density at that value. Wider sections represent more cells.
     *   The internal boxplot summarizes median and quartiles.
@@ -912,6 +915,7 @@ Three violin plots show the distributions of key QC metrics in high-quality cell
 Shows the insert length distribution of deduplicated ATAC-seq fragments, a key plot for assessing sample quality and chromatin structure integrity.
 
 **How to Interpret**:
+
 *   **Periodic peaks**:
     *   **< ~100 bp**: First peak, corresponding to **nucleosome-free regions (NFRs)**, i.e., open chromatin.
     *   **~200 bp**: Second peak, corresponding to **mono-nucleosome** fragments.
@@ -930,17 +934,19 @@ Shows the insert length distribution of deduplicated ATAC-seq fragments, a key p
 <img src="../images/html_scatac2.png" alt="scATAC Web Report" width="500">
 </div>
 
-**Percent duplicates**
-*   **Definition**: The proportion of fragments identified as PCR duplicates.
-*   **Biological significance**: A key metric for library complexity and sequencing saturation.
-*   **Quality interpretation**:
-    *   High duplication (e.g., > 20-30%) usually indicates sequencing has approached saturation.
-    *   Very low duplication (e.g., < 10%) may suggest insufficient depth; deeper sequencing may recover more unique fragments.
+##### Percent duplicates
 
-**Jaccard threshold**
-*   **Definition**: Similarity cutoff used to determine whether two beads came from the same droplet/cell.
-*   **Technical background**: In C4 ATAC, one droplet may contain multiple beads; bead-level fragment overlap (Jaccard index) is used for merging.
-*   **Algorithm**: Automatically determined by Otsu's method. To ensure stability, if the computed threshold is < 0.02, it is set to 0.02.
+- **Definition**: The proportion of fragments identified as PCR duplicates.
+- **Biological significance**: A key metric for library complexity and sequencing saturation.
+- **Quality interpretation**:
+  - High duplication (e.g., >20-30%) usually indicates sequencing has approached saturation.
+  - Very low duplication (e.g., <10%) may suggest insufficient depth; deeper sequencing may recover more unique fragments.
+
+##### Jaccard threshold
+
+- **Definition**: Similarity cutoff used to determine whether two beads came from the same droplet/cell.
+- **Technical background**: In C4 ATAC, one droplet may contain multiple beads; bead-level fragment overlap (Jaccard index) is used for merging.
+- **Algorithm**: Automatically determined by Otsu's method. To ensure stability, if the computed threshold is < `0.02`, it is set to `0.02`.
 
 </div>
 
@@ -964,13 +970,14 @@ Shows the insert length distribution of deduplicated ATAC-seq fragments, a key p
 Cells with similar chromatin accessibility patterns are grouped in 2D space using UMAP + Louvain clustering to identify potential cell subpopulations.
 
 **How to Interpret**:
-*   **Left plot (cell clusters)**:
-    *   Each point is one cell.
-    *   Different colors indicate different clusters, potentially representing distinct cell types or states.
-    *   Nearby points have more similar accessibility profiles.
-*   **Right plot (fragment count overlay)**:
-    *   Uses the same UMAP layout with a color gradient for per-cell fragment count.
-    *   Darker colors indicate higher fragment counts and usually better data quality.
+
+1. **Left plot (cell clusters)**
+    - Each point is one cell.
+    - Different colors indicate different clusters, potentially representing distinct cell types or states.
+    - Nearby points have more similar accessibility profiles.
+2. **Right plot (fragment count overlay)**
+    - Uses the same UMAP layout with a color gradient for per-cell fragment count.
+    - Darker colors indicate higher fragment counts and usually better data quality.
 
 </div>
 
@@ -982,15 +989,16 @@ Cells with similar chromatin accessibility patterns are grouped in 2D space usin
 Shows fragment insertion enrichment around transcription start sites (TSS), a core indicator of ATAC-seq signal specificity and quality.
 
 **How to Interpret**:
-*   **Axes**:
-    *   **X-axis**: Position relative to TSS (0 = TSS).
-    *   **Y-axis**: Normalized signal intensity (insertion frequency).
-*   **Key pattern**:
-    *   High-quality data shows a sharp enrichment peak at TSS center (0).
-    *   Signal should drop quickly away from the center.
-*   **Quality assessment**:
-    *   **TSS Enrichment Score** quantifies this pattern; higher scores (e.g., > 4-6) indicate better signal-to-noise.
-    *   Flat curves without a clear peak suggest poor sample quality or failed library prep.
+
+1. **Axes**
+    - **X-axis**: Position relative to TSS (0 = TSS).
+    - **Y-axis**: Normalized signal intensity (insertion frequency).
+2. **Key pattern**
+    - High-quality data shows a sharp enrichment peak at TSS center (0).
+    - Signal should drop quickly away from the center.
+3. **Quality assessment**
+    - **TSS Enrichment Score** quantifies this pattern; higher scores (e.g., >4-6) indicate better signal-to-noise.
+    - Flat curves without a clear peak suggest poor sample quality or failed library prep.
 
 </div>
 
@@ -1004,12 +1012,12 @@ A scatter plot of two key QC metrics per cell, used to evaluate cell-calling per
 **How to Interpret**:
 
 1. **Axes**
-   - **X-axis (Fragment Counts)**: Total fragments per cell (log scale).
-   - **Y-axis (TSS Enrichment)**: TSS enrichment score per cell.
+    - **X-axis (Fragment Counts)**: Total fragments per cell (log scale).
+    - **Y-axis (TSS Enrichment)**: TSS enrichment score per cell.
 2. **Quality assessment**
-   - **Top-right**: High fragment count + high TSS enrichment, usually high-quality real cells.
-   - **Bottom-left**: Low fragment count + low TSS enrichment, usually background/noise and filtered out.
-   - Ideally, high-quality cells and background should be clearly separable.
+    - **Top-right**: High fragment count + high TSS enrichment, usually high-quality real cells.
+    - **Bottom-left**: Low fragment count + low TSS enrichment, usually background/noise and filtered out.
+    - Ideally, high-quality cells and background should be clearly separable.
 
 </div>
 
@@ -1023,13 +1031,13 @@ Evaluates sequencing depth sufficiency and library complexity, i.e., whether add
 **How to Interpret**:
 
 1. **Axes**
-   - **X-axis**: Mean read pairs per cell (sequencing depth).
-   - **Y-axis**: Median unique fragments per cell.
+    - **X-axis**: Mean read pairs per cell (sequencing depth).
+    - **Y-axis**: Median unique fragments per cell.
 2. **Curve behavior**
-   - **Linear/rising phase**: Additional sequencing yields many new unique fragments.
-   - **Plateau/saturation phase**: Library complexity is mostly exhausted; additional sequencing gives diminishing returns.
+    - **Linear/rising phase**: Additional sequencing yields many new unique fragments.
+    - **Plateau/saturation phase**: Library complexity is mostly exhausted; additional sequencing gives diminishing returns.
 3. **Quality guidance**
-   - A saturation (duplication-related) level around 20%-50% is often a practical balance between cost and completeness.
+    - A saturation (duplication-related) level around 20%-50% is often a practical balance between cost and completeness.
 
 </div>
 
@@ -1043,11 +1051,11 @@ In C4 ATAC, this plot is used to merge multiple beads from the same droplet by r
 **How to Interpret**:
 
 1. **Axes**
-   - **X-axis**: All bead pairs ranked by Jaccard similarity (descending).
-   - **Y-axis**: Jaccard similarity index (log scale).
+    - **X-axis**: All bead pairs ranked by Jaccard similarity (descending).
+    - **Y-axis**: Jaccard similarity index (log scale).
 2. **Key regions**
-   - **Blue region**: Similarity above the Otsu-derived threshold; bead pairs are considered from the same cell and merged.
-   - **Gray region**: Similarity below threshold; bead pairs are treated as from different cells.
+    - **Blue region**: Similarity above the Otsu-derived threshold; bead pairs are considered from the same cell and merged.
+    - **Gray region**: Similarity below threshold; bead pairs are treated as from different cells.
 
 </div>
 
@@ -1059,13 +1067,13 @@ In C4 ATAC, this plot is used to merge multiple beads from the same droplet by r
 
 </div>
 
-<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);" markdown="1">
 
 | Document | Description |
 | :--- | :--- |
-| [scATAC Pipeline](../pipeline/scATAC.md) | Detailed scATAC analysis workflow |
-| [scATAC Parameters](../parameter/scATAC.md) | Command parameter reference |
-| [Output Files](./outs.md) | Return to output documentation index |
+| [scATAC Pipeline](../pipeline/scATAC.en.md) | Detailed scATAC analysis workflow |
+| [scATAC Parameters](../parameter/scATAC.en.md) | Command parameter reference |
+| [Output Files](./outs.en.md) | Return to output documentation index |
 
 </div>
 

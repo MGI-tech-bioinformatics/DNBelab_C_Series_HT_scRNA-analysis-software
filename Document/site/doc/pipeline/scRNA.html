@@ -1716,14 +1716,14 @@
 <h4 id="_5">基因类型统计<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h4>
 <pre><code class="language-shell"># 统计基因类型数量
 $dnbc4tools tools mkgtf \
-  --action stat \
+  --action stats \
   --ingtf genes.gtf
 </code></pre>
 <div style="background-color: #fffbe6; border-left: 6px solid #ffc107; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
 <p><strong>注意</strong>：软件会自动尝试识别 <code>type</code> 参数。如需手动确定，可查看 GTF 文件中的 tag。</p>
 </div>
 <div align="center">
-<p><img src="https://s2.loli.net/2024/10/09/afGqtQocTE9h3uR.png" alt="GTF文件类型示例" width="800"></p>
+<p><img src="https://s2.loli.net/2024/10/09/afGqtQocTE9h3uR.png" alt="GTF 文件类型示例" width="800"></p>
 </div>
 <p>输出示例：</p>
 <pre><code class="language-shell">Type    Count
@@ -1746,7 +1746,7 @@ IG_V_gene       145
 </code></pre>
 <h4 id="gtf_1">GTF 文件校正<a class="headerlink" href="#gtf_1" title="Permanent link">&para;</a></h4>
 <p>当 GTF 文件内容不完整时，主分析流程可能会因无法完全注释而中断。此功能能够自动填补基因（gene）与转录本（transcript）条目中的缺失信息，确保流程顺利进行。</p>
-<pre><code class="language-shell"># 校正GTF文件
+<pre><code class="language-shell"># 校正GTF 文件
 $dnbc4tools tools mkgtf \
   --action check \
   --ingtf genes.gtf \

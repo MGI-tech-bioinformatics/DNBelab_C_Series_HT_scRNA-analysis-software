@@ -51,39 +51,39 @@
 
 ### 第一步： 构建参考数据库
 
-**Human (GRCh38)**
+**人（Human, GRCh38）**
 ```bash
-# Download reference files
+# 下载参考文件
 wget http://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_32/GRCh38.primary_assembly.genome.fa.gz
 wget http://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_32/gencode.v32.primary_assembly.annotation.gtf.gz
 
-# Extract files
+# 解压文件
 gzip -d GRCh38.primary_assembly.genome.fa.gz
 gzip -d gencode.v32.primary_assembly.annotation.gtf.gz
 
-# Build reference
+# 构建参考库
 $dnbc4tools tools mkgtf --ingtf gencode.v32.primary_assembly.annotation.gtf --output genes.filtered.gtf
 $dnbc4tools rna mkref --ingtf genes.filtered.gtf --fasta GRCh38.primary_assembly.genome.fa --threads 10 --species Homo_sapiens
 ```
 
-**Mouse (GRCm38)**
+**小鼠（Mouse, GRCm38）**
 ```bash
-# Download reference files
+# 下载参考文件
 wget http://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_mouse/release_M23/GRCm38.primary_assembly.genome.fa.gz
 wget http://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_mouse/release_M23/gencode.vM23.primary_assembly.annotation.gtf.gz
 
-# Extract files
+# 解压文件
 gzip -d GRCm38.primary_assembly.genome.fa.gz
 gzip -d gencode.vM23.primary_assembly.annotation.gtf.gz
 
-# Build reference
+# 构建参考库
 $dnbc4tools tools mkgtf --ingtf gencode.vM23.primary_assembly.annotation.gtf --output genes.filtered.gtf
 $dnbc4tools rna mkref --ingtf genes.filtered.gtf --fasta GRCm38.primary_assembly.genome.fa --threads 10 --species Mus_musculus
 ```
 
-**Human-Mouse Mixed Reference**
+**人-鼠双物种参考库**
 ```bash
-# Prepare both references as above, then:
+# 按以上步骤准备两个参考库后，继续执行：
 $dnbc4tools rna mkref \
     --fasta GRCh38.primary_assembly.genome.fa,GRCm38.primary_assembly.genome.fa \
     --ingtf hg38/genes.filtered.gtf,mm10/genes.filtered.gtf \
@@ -130,32 +130,32 @@ $dnbc4tools rna run \
 
 ### 第一步： 构建参考数据库
 
-**Human (GRCh38)**
+**人（Human, GRCh38）**
 ```bash
-# Download reference files
+# 下载参考文件
 wget http://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_32/GRCh38.primary_assembly.genome.fa.gz
 wget http://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_32/gencode.v32.primary_assembly.annotation.gtf.gz
 
-# Extract files
+# 解压文件
 gzip -d GRCh38.primary_assembly.genome.fa.gz
 gzip -d gencode.v32.primary_assembly.annotation.gtf.gz
 
-# Build reference
+# 构建参考库
 $dnbc4tools tools mkgtf --ingtf gencode.v32.primary_assembly.annotation.gtf --output genes.filtered.gtf
 $dnbc4tools atac mkref --fasta GRCh38.primary_assembly.genome.fa --ingtf genes.filtered.gtf --species Homo_sapiens --prefix chr
 ```
 
-**Mouse (GRCm38)**
+**小鼠（Mouse, GRCm38）**
 ```bash
-# Download reference files
+# 下载参考文件
 wget http://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_mouse/release_M23/GRCm38.primary_assembly.genome.fa.gz
 wget http://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_mouse/release_M23/gencode.vM23.primary_assembly.annotation.gtf.gz
 
-# Extract files
+# 解压文件
 gzip -d GRCm38.primary_assembly.genome.fa.gz
 gzip -d gencode.vM23.primary_assembly.annotation.gtf.gz
 
-# Build reference
+# 构建参考库
 $dnbc4tools tools mkgtf --ingtf gencode.vM23.primary_assembly.annotation.gtf --output genes.filtered.gtf
 $dnbc4tools atac mkref --fasta GRCm38.primary_assembly.genome.fa --ingtf genes.filtered.gtf --species Mus_musculus --prefix chr
 ```
@@ -236,7 +236,7 @@ $dnbc4tools vdj run \
 
 **详细输入 (--fastq1/2)**
 
-**TCR Analysis (Human)**
+**TCR 分析（人）**
 ```bash
 $dnbc4tools vdj run \
     --fastq1 /test/data/test1_R1.fastq.gz,/test/data/test2_R1.fastq.gz \
@@ -248,7 +248,7 @@ $dnbc4tools vdj run \
     --chain TR
 ```
 
-**TCR Analysis (Mouse)**
+**TCR 分析（小鼠）**
 ```bash
 $dnbc4tools vdj run \
     --fastq1 /test/data_tcrmouse/test3_R1.fastq.gz,/test/data_tcrmouse/test4_R1.fastq.gz \
@@ -260,7 +260,7 @@ $dnbc4tools vdj run \
     --chain TR
 ```
 
-**BCR Analysis (Human)**
+**BCR 分析（人）**
 ```bash
 $dnbc4tools vdj run \
     --fastq1 /test/data_bcrhuman/test5_R1.fastq.gz,/test/data_bcrhuman/test6_R1.fastq.gz \
@@ -272,7 +272,7 @@ $dnbc4tools vdj run \
     --chain IG
 ```
 
-**BCR Analysis (Mouse)**
+**BCR 分析（小鼠）**
 ```bash
 $dnbc4tools vdj run \
     --fastq1 /test/data_bcrmouse/test7_R1.fastq.gz,/test/data_bcrmouse/test8_R1.fastq.gz \

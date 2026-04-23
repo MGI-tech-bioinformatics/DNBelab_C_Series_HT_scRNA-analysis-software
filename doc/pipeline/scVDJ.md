@@ -31,7 +31,7 @@
 
 本文档详细介绍了使用 dnbc4tools 进行单细胞 VDJ 测序数据分析的完整流程。
 
-**工作流程**：5端转录组分析 → VDJ文库处理 → 序列组装注释 → 细胞过滤 → 克隆型分析 → 分析报告
+**工作流程**：5'端转录组分析 → VDJ 文库处理 → 序列组装注释 → 细胞过滤 → 克隆型分析 → 分析报告
 
 <div align="center">
   <img src="../images/scVDJ_pipeline.png" alt="scVDJpipeline" width="700">
@@ -54,9 +54,9 @@
 
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
 
-### 5端转录组分析
+### 5'端转录组分析
 
-转录组分析请参考 `dnbc4tools rna run`。5'端转录组分析主流程需在单细胞RNA主流程分析基础上添加参数 `--end5`。
+转录组分析请参考 `dnbc4tools rna run`。5'端转录组分析需在单细胞 RNA 主流程基础上添加参数 `--end5`。
 
 为单个样本生成表达矩阵，以下是一个示例步骤或脚本模板：
 
@@ -73,10 +73,10 @@ $dnbc4tools rna run \
 ```
 
 <div style="background-color: #fffbe6; border-left: 6px solid #ffc107; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
- <strong>注意</strong>：5端转录组分析是VDJ分析的前提，需要先完成此步骤才能进行后续分析。
+ <strong>注意</strong>：5'端转录组分析是 VDJ 分析的前提，需要先完成此步骤才能进行后续分析。
 </div>
 
-### VDJ分析所需文件
+### VDJ 分析所需文件
 
 分析需要以下文件：
 
@@ -89,12 +89,12 @@ $dnbc4tools rna run \
   </thead>
   <tbody>
     <tr>
-      <td style="padding: 12px 15px; border: 1px solid #ddd;"><b>FASTQ文件</b></td>
-      <td style="padding: 12px 15px; border: 1px solid #ddd;">VDJ文库测序数据，包含TCR或BCR序列信息</td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;"><b>FASTQ 文件</b></td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;">VDJ 文库测序数据，包含 TCR 或 BCR 序列信息</td>
     </tr>
     <tr>
-      <td style="padding: 12px 15px; border: 1px solid #ddd;"><b>singlecell.csv文件</b></td>
-      <td style="padding: 12px 15px; border: 1px solid #ddd;">5端转录组分析结果中的细胞信息文件</td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;"><b>singlecell.csv 文件</b></td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;">5'端转录组分析结果中的细胞信息文件</td>
     </tr>
   </tbody>
 </table>
@@ -102,7 +102,7 @@ $dnbc4tools rna run \
 分析需要5'端转录组分析结果目录中的 `singlecell.csv` 文件。该文件包含 `cell` 和 `barcode` 列的合并信息，以及 `is_cell_barcode` 列（1表示细胞，0表示非细胞），用于鉴定有效的细胞。
 
 <div style="background-color: #fffbe6; border-left: 6px solid #ffc107; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
- <strong>注意</strong>：确保singlecell.csv文件路径正确，该文件是连接转录组和VDJ分析的关键。
+ <strong>注意</strong>：确保 `singlecell.csv` 文件路径正确，该文件是连接转录组与 VDJ 分析的关键。
 </div>
 
 参考示例文件内容：
@@ -293,7 +293,7 @@ $dnbc4tools vdj run \
 
 </div>
 
-<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);" markdown="1">
 
 | 资源 | 描述 |
 | :--- | :--- |

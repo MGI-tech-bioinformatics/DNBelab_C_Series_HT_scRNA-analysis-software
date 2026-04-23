@@ -137,7 +137,7 @@ Analysis Settings:
 
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>--fastqs</code> <span style="font-size: 0.8em; font-weight: normal; color: #3498db;">(方式1)</span></h4>
-<p>指定包含所有FASTQ文件的目录路径。</p>
+<p>指定包含所有FASTQ 文件的目录路径。</p>
 <ul>
   <li><strong>功能:</strong> 流程会自动检测此目录下（包含cDNA和oligo两个子目录）的配对文件。</li>
   <li><strong>注意:</strong> 这是一个便捷选项，不能与 <code>--cDNAfastq1</code> / <code>--cDNAfastq2</code> / <code>--oligofastq1</code> / <code>--oligofastq2</code> 同时使用。</li>
@@ -149,7 +149,7 @@ Analysis Settings:
 
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>--cDNAfastq1</code> <span style="font-size: 0.8em; font-weight: normal; color: #3498db;">(方式2A)</span></h4>
-<p>单独指定一个或多个cDNA Read1 FASTQ文件。</p>
+<p>单独指定一个或多个cDNA Read1 FASTQ 文件。</p>
 <ul>
   <li><strong>支持:</strong> 可以使用通配符 (<code>*</code>) 匹配文件，使用逗号分隔来指定多个文件。</li>
   <li><strong>要求:</strong> 必须与 <code>--cDNAfastq2</code> 参数配对使用，且文件顺序必须完全匹配。</li>
@@ -161,7 +161,7 @@ Analysis Settings:
 
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>--cDNAfastq2</code> <span style="font-size: 0.8em; font-weight: normal; color: #3498db;">(方式2B)</span></h4>
-<p>单独指定一个或多个cDNA Read2 FASTQ文件。</p>
+<p>单独指定一个或多个cDNA Read2 FASTQ 文件。</p>
 <ul>
   <li><strong>支持:</strong> 可以使用通配符 (<code>*</code>) 匹配文件，使用逗号分隔来指定多个文件。</li>
   <li><strong>要求:</strong> 必须与 <code>--cDNAfastq1</code> 参数配对使用，且文件顺序必须完全匹配。</li>
@@ -173,7 +173,7 @@ Analysis Settings:
 
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>--oligofastq1</code> <span style="font-size: 0.8em; font-weight: normal; color: #3498db;">(方式2C)</span></h4>
-<p>单独指定一个或多个oligo Read1 FASTQ文件。</p>
+<p>单独指定一个或多个oligo Read1 FASTQ 文件。</p>
 <ul>
   <li><strong>支持:</strong> 可以使用通配符 (<code>*</code>) 匹配文件，使用逗号分隔来指定多个文件。</li>
   <li><strong>要求:</strong> 必须与 <code>--oligofastq2</code> 参数配对使用，且文件顺序必须完全匹配。</li>
@@ -185,7 +185,7 @@ Analysis Settings:
 
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>--oligofastq2</code> <span style="font-size: 0.8em; font-weight: normal; color: #3498db;">(方式2D)</span></h4>
-<p>单独指定一个或多个oligo Read2 FASTQ文件。</p>
+<p>单独指定一个或多个oligo Read2 FASTQ 文件。</p>
 <ul>
   <li><strong>支持:</strong> 可以使用通配符 (<code>*</code>) 匹配文件，使用逗号分隔来指定多个文件。</li>
   <li><strong>要求:</strong> 必须与 <code>--oligofastq1</code> 参数配对使用，且文件顺序必须完全匹配。</li>
@@ -448,17 +448,17 @@ dnbc4tools rna run --name sample2 --fastqs ./fq --genomeDir ./ref --chemistry sc
 
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>--no_bam</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(标志)</span></h4>
-<p>启用此参数以跳过BAM文件的生成。</p>
+<p>启用此参数以跳过BAM 文件的生成。</p>
 <ul>
   <li><strong>功能:</strong> 节省时间和磁盘空间，显著减少计算时间和存储需求。</li>
-  <li><strong>注意:</strong> 无法进行需要BAM文件的下游分析。</li>
+  <li><strong>注意:</strong> 无法进行需要BAM 文件的下游分析。</li>
 </ul>
-<p><strong>默认值:</strong> 不设置此参数则生成BAM文件</p>
+<p><strong>默认值:</strong> 不设置此参数则生成BAM 文件</p>
 </div>
 
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>--sample_read_pairs</code> <span style="font-size: 0.8em; font-weight: normal; color: #9b59b6;">(可选)</span></h4>
-<p>从输入的cDNA FASTQ文件中提取指定数量的读段对进行分析。</p>
+<p>从输入的cDNA FASTQ 文件中提取指定数量的读段对进行分析。</p>
 <ul>
   <li><strong>功能:</strong> 用于在完整分析前对大数据集进行快速测试，或在资源有限时进行降采样分析。</li>
 </ul>
@@ -838,7 +838,7 @@ Analysis Settings:
 <details open>
 <summary><strong>路径格式规则</strong></summary>
 <ul style="margin-top: 5px;">
-  <li><strong>多个FASTQ文件:</strong> 同一文库的多个FASTQ文件路径使用逗号(<code>,</code>)分隔。</li>
+  <li><strong>多个FASTQ 文件:</strong> 同一文库的多个FASTQ 文件路径使用逗号(<code>,</code>)分隔。</li>
   <li><strong>R1和R2文件:</strong> 配对的R1和R2文件路径使用分号(<code>;</code>)分隔。</li>
   <li><strong>路径类型:</strong> 支持绝对路径和相对路径。</li>
 </ul>

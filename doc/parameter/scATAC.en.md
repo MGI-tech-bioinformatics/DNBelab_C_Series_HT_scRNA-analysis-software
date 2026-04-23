@@ -757,12 +757,12 @@ SampleB	/path/to/B_L01_R1.fq.gz,/path/to/B_L02_R1.fq.gz;/path/to/B_L01_R2.fq.gz,
 
 </div>
 
-<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #d2d2d7; overflow-x: auto;">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #d2d2d7; overflow-x: auto;" markdown="1">
 
 | Resource | Description |
 | :--- | :--- |
-| [scATAC Pipeline](../pipeline/scATAC.md) | Single-cell ATAC analysis workflow guide |
-| [scATAC Output](../outs/scATAC.md) | Detailed output file interpretation |
+| [scATAC Pipeline](../pipeline/scATAC.en.md) | Single-cell ATAC analysis workflow guide |
+| [scATAC Output](../outs/scATAC.en.md) | Detailed output file interpretation |
 
 </div>
 

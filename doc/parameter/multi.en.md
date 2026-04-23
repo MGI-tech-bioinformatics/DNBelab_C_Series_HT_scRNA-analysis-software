@@ -182,7 +182,7 @@ fastqs,feature_types
 
 </div>
 
-<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #d2d2d7; overflow-x: auto;">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #d2d2d7; overflow-x: auto;" markdown="1">
 
 | # | Rule | Correct Example | Incorrect Example |
 | :--- | :--- | :--- | :--- |
@@ -205,7 +205,7 @@ In multi mode, VDJ cell filtering is aligned to RNA results by default.
 
 </div>
 
-<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #d2d2d7; overflow-x: auto;">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #d2d2d7; overflow-x: auto;" markdown="1">
 
 | Mode | Behavior | Typical Usage |
 | :--- | :--- | :--- |
@@ -228,20 +228,20 @@ In multi mode, VDJ cell filtering is aligned to RNA results by default.
 
 </div>
 
-<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #d2d2d7; overflow-x: auto;">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #d2d2d7; overflow-x: auto;" markdown="1">
 
 | Config Section | Subpipeline Command | Detailed Parameter Doc |
 | :--- | :--- | :--- |
-| `[rna]` | `dnbc4tools rna run` | [scRNA parameters →](./scRNA.md) |
-| `[atac]` | `dnbc4tools atac run` | [scATAC parameters →](./scATAC.md) |
-| `[vdj-t]` / `[vdj-b]` | `dnbc4tools vdj run` | [scVDJ parameters →](./scVDJ.md) |
+| `[rna]` | `dnbc4tools rna run` | [scRNA parameters →](scRNA.en.md) |
+| `[atac]` | `dnbc4tools atac run` | [scATAC parameters →](scATAC.en.md) |
+| `[vdj-t]` / `[vdj-b]` | `dnbc4tools vdj run` | [scVDJ parameters →](scVDJ.en.md) |
 | `[libraries]` | multi input mapping section | [See CSV spec ↑](#csv-config-specification) |
 
 </div>
 
 <div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
 
-<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;" markdown="1">
 
 ### Available Parameters by Section
 
@@ -350,15 +350,15 @@ fastqs,feature_types
 
 </div>
 
-<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #d2d2d7; overflow-x: auto;">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #d2d2d7; overflow-x: auto;" markdown="1">
 
 | Resource | Description |
 | :--- | :--- |
-| [Multi Pipeline](../pipeline/multi.md) | Multi-omics integrated workflow guide |
-| [Multi Output](../outs/multi.md) | Detailed output file interpretation |
-| [scRNA Parameters](./scRNA.md) | Single-cell RNA analysis parameters |
-| [scATAC Parameters](./scATAC.md) | Single-cell ATAC analysis parameters |
-| [scVDJ Parameters](./scVDJ.md) | Single-cell VDJ analysis parameters |
+| [Multi Pipeline](../pipeline/multi.en.md) | Multi-omics integrated workflow guide |
+| [Multi Output](../outs/multi.en.md) | Detailed output file interpretation |
+| [scRNA Parameters](scRNA.en.md) | Single-cell RNA analysis parameters |
+| [scATAC Parameters](scATAC.en.md) | Single-cell ATAC analysis parameters |
+| [scVDJ Parameters](scVDJ.en.md) | Single-cell VDJ analysis parameters |
 
 </div>
 

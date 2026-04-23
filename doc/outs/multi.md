@@ -6,7 +6,7 @@
 
 <div align="center" style="padding: 40px 20px; background: linear-gradient(135deg, #f5f5f7 0%, #ffffff 100%); border-radius: 12px; margin-bottom: 30px; max-width: 1200px; margin-left: auto; margin-right: auto;">
 
-<h1 style="font-size: 48px; font-weight: 600; color: #1d1d1f; margin: 0 0 16px 0; letter-spacing: -0.02em;">Multi-omics 分析输出</h1>
+<h1 style="font-size: 48px; font-weight: 600; color: #1d1d1f; margin: 0 0 16px 0; letter-spacing: -0.02em;">多组学分析输出</h1>
 
 <p style="font-size: 21px; color: rgba(0,0,0,0.6); margin: 0 0 30px 0; font-weight: 400;">多组学整合分析输出文件完整指南</p>
 
@@ -20,9 +20,9 @@
 
 <div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
 
-##  概述 <a id="概述"></a>
+## 概述 <a id="概述"></a>
 
-Multi-omics 流程会将 RNA / ATAC / VDJ 的关键结果统一整理到一个样本目录，支持在同一份报告中完成跨组学浏览和对比。
+多组学流程会将 RNA / ATAC / VDJ 的关键结果统一整理到一个样本目录，支持在同一份报告中完成跨组学浏览和对比。
 
 > **提示***
 > 
@@ -34,7 +34,7 @@ Multi-omics 流程会将 RNA / ATAC / VDJ 的关键结果统一整理到一个�
 
 <div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
 
-##  输出目录结构 <a id="输出目录结构"></a>
+## 输出目录结构 <a id="输出目录结构"></a>
 
 </div>
 
@@ -56,13 +56,13 @@ Multi-omics 流程会将 RNA / ATAC / VDJ 的关键结果统一整理到一个�
 
 <div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
 
-##  详细文件说明 <a id="详细文件说明"></a>
+## 详细文件说明 <a id="详细文件说明"></a>
 
 </div>
 
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 
-###  `outs/<sample>_multi_report.html`
+### `outs/<sample>_multi_report.html`
 
 - **内容**：整合展示 RNA / ATAC / VDJ 的核心 QC 与分析图表。
 - **用途**：一页内完成跨组学质量检查与结果浏览。
@@ -71,7 +71,7 @@ Multi-omics 流程会将 RNA / ATAC / VDJ 的关键结果统一整理到一个�
 
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 
-###  `outs/rna`, `outs/atac`, `outs/vdj-t`, `outs/vdj-b`
+### `outs/rna`, `outs/atac`, `outs/vdj-t`, `outs/vdj-b`
 
 - **内容**：对应模块的标准输出（矩阵、统计表、模块报告等）。
 - **用途**：用于下游模块化分析或单组学复用。
@@ -82,7 +82,7 @@ Multi-omics 流程会将 RNA / ATAC / VDJ 的关键结果统一整理到一个�
 
 <div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
 
-##  网页报告释义 <a id="网页报告释义"></a>
+## 网页报告释义 <a id="网页报告释义"></a>
 
 <div align="center">
 
@@ -94,7 +94,7 @@ Multi-omics 流程会将 RNA / ATAC / VDJ 的关键结果统一整理到一个�
 
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 
-###  Summary 与导航
+### Summary 与导航
 
 <div align="center" style="margin: 24px auto; max-width: 1200px;">
 <img src="../images/html_multi_summary.png" alt="multi summary 页面" width="760" style="border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,0.1);">
@@ -136,7 +136,7 @@ Multi-omics 流程会将 RNA / ATAC / VDJ 的关键结果统一整理到一个�
 
 <div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
 
-###  RNA 页面
+### RNA 页面
 
 </div>
 
@@ -182,7 +182,7 @@ Multi-omics 流程会将 RNA / ATAC / VDJ 的关键结果统一整理到一个�
 
 <div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
 
-###  ATAC 页面
+### ATAC 页面
 
 </div>
 
@@ -226,7 +226,7 @@ Multi-omics 流程会将 RNA / ATAC / VDJ 的关键结果统一整理到一个�
 
 <div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
 
-###  VDJ 页面
+### VDJ 页面
 
 </div>
 
@@ -270,16 +270,16 @@ Multi-omics 流程会将 RNA / ATAC / VDJ 的关键结果统一整理到一个�
 
 <div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
 
-##  相关文档
+## 相关文档
 
 </div>
 
-<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);" markdown="1">
 
 | 文档 | 说明 |
 | :--- | :--- |
-| [Multi 流程](../pipeline/multi.md) | Multi 分析流程详细说明 |
-| [Multi 参数](../parameter/multi.md) | 命令参数参考文档 |
+| [多组学流程](../pipeline/multi.md) | 多组学分析流程详细说明 |
+| [多组学参数](../parameter/multi.md) | 命令参数参考文档 |
 | [scRNA 输出](./scRNA.md) | scRNA 模块输出文件说明 |
 | [scATAC 输出](./scATAC.md) | scATAC 模块输出文件说明 |
 | [scVDJ 输出](./scVDJ.md) | scVDJ 模块输出文件说明 |

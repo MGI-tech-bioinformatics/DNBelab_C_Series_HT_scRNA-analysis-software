@@ -15,37 +15,37 @@ A high-performance single-cell analysis toolkit for DNBelab C Series™ data. CL
 
 ---
 
-##  Documentation
+## Documentation
 
 > We recommend starting with the online manual for a complete guide to using this pipeline.
 
 | Resource | Description |
 |:---|:---|
-| [** Documentation Home**](https://lishuangshuang0616.github.io/DNBelab_C_Series_HT_scRNA-analysis-software/Document/site/index.html) | Full reference documentation and tutorials |
-| [**️ Installation Guide**](https://lishuangshuang0616.github.io/DNBelab_C_Series_HT_scRNA-analysis-software/Document/site/doc/installation.html) | System requirements and installation steps |
-| [** Quick Start**](https://lishuangshuang0616.github.io/DNBelab_C_Series_HT_scRNA-analysis-software/Document/site/doc/quickstart.html) | Get up and running in minutes |
+| [**Documentation Home**](https://lishuangshuang0616.github.io/DNBelab_C_Series_HT_scRNA-analysis-software/Document/site/index.html) | Full reference documentation and tutorials |
+| [**Installation Guide**](https://lishuangshuang0616.github.io/DNBelab_C_Series_HT_scRNA-analysis-software/Document/site/doc/installation.html) | System requirements and installation steps |
+| [**Quick Start**](https://lishuangshuang0616.github.io/DNBelab_C_Series_HT_scRNA-analysis-software/Document/site/doc/quickstart.html) | Get up and running in minutes |
 
 ---
 
-## 🆕 What's New in v3.1
+## What's New in v3.1
 
 - **Multi-omics Analysis** — Single-sample multi-omics workflow supporting RNA + VDJ combined analysis
 - **Consistent Cell Analysis** — New `--consistent_cells` parameter for reproducible downstream processing
 - **Bug Fixes** — Fixed calculation errors in cell metrics and dual-species database handling
 - **Performance** — Optimized processing speed for `bam2fastq` and `fqsubC4` tools
 
- [**Full Release Notes**](https://lishuangshuang0616.github.io/DNBelab_C_Series_HT_scRNA-analysis-software/Document/site/doc/release.html)
+[**Full Release Notes**](https://lishuangshuang0616.github.io/DNBelab_C_Series_HT_scRNA-analysis-software/Document/site/doc/release.html)
 
 ---
 
-##  Support & Community
+## Support & Community
 
 - **Questions, bug reports, feature requests** → [GitHub Issues](https://github.com/MGI-tech-bioinformatics/DNBelab_C_Series_HT_scRNA-analysis-software/issues)
 - **Website** → [www.mgitech.com](https://www.mgitech.com)
 
 ---
 
-##  Version Note
+## Version Note
 
 This is the stable release version (**v3.1**).
 Users on beta or RC versions are recommended to update.

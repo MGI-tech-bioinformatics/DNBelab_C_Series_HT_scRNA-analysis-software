@@ -121,7 +121,7 @@ The Multi-omics workflow orchestrates RNA / ATAC / VDJ sub-pipelines, enabling m
 </table>
 
 <div style="background-color: #e7f3fe; border-left: 6px solid #2196F3; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
- <strong>Detailed Configuration</strong>: Please refer to the <a href="../parameter/multi.md">Multi Parameter Documentation</a> for complete CSV configuration specifications and parameter mappings.
+ <strong>Detailed Configuration</strong>: Please refer to the <a href="../parameter/multi.en.md">Multi Parameter Documentation</a> for complete CSV configuration specifications and parameter mappings.
 </div>
 
 ### Minimal Configuration Example
@@ -376,7 +376,7 @@ After completion, results are organized under `<outdir>/<name>/`:
 </table>
 
 <div style="background-color: #e7f3fe; border-left: 6px solid #2196F3; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
- <strong>Detailed Output Description</strong>: Please refer to the <a href="../outs/multi.md">Multi Output Documentation</a> for detailed interpretation of the integrated report.
+ <strong>Detailed Output Description</strong>: Please refer to the <a href="../outs/multi.en.md">Multi Output Documentation</a> for detailed interpretation of the integrated report.
 </div>
 
 
@@ -390,15 +390,15 @@ After completion, results are organized under `<outdir>/<name>/`:
 
 </div>
 
-<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);" markdown="1">
 
 | Resource | Description |
 | :--- | :--- |
-| [Parameter Settings](../parameter/multi.md) | Complete parameter reference and descriptions |
-| [Output Descriptions](../outs/multi.md) | Detailed interpretation of analysis results |
-| [scRNA Pipeline](./scRNA.md) | Single-cell RNA analysis workflow guide |
-| [scATAC Pipeline](./scATAC.md) | Single-cell ATAC analysis workflow guide |
-| [scVDJ Pipeline](./scVDJ.md) | Single-cell VDJ analysis workflow guide |
+| [Parameter Settings](../parameter/multi.en.md) | Complete parameter reference and descriptions |
+| [Output Descriptions](../outs/multi.en.md) | Detailed interpretation of analysis results |
+| [scRNA Pipeline](scRNA.en.md) | Single-cell RNA analysis workflow guide |
+| [scATAC Pipeline](scATAC.en.md) | Single-cell ATAC analysis workflow guide |
+| [scVDJ Pipeline](scVDJ.en.md) | Single-cell VDJ analysis workflow guide |
 
 
 </div>
@@ -413,7 +413,7 @@ After completion, results are organized under `<outdir>/<name>/`:
 
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
 
-This section is being updated.
+This section is being updated. Common troubleshooting entries will be added in the next revision.
 
 </div>
 

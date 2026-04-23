@@ -23,7 +23,7 @@
 
 <div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
 
-##  Overview <a id="overview"></a>
+## Overview <a id="overview"></a>
 
 <div align="center">
 
@@ -39,7 +39,7 @@ After single-cell V(D)J analysis is complete, a standardized set of files and su
 
 <div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
 
-##  Output Directory Structure <a id="output-directory-structure"></a>
+## Output Directory Structure <a id="output-directory-structure"></a>
 
 </div>
 
@@ -161,7 +161,7 @@ A contig sequence is identified as a **productive sequence** (i.e., functionally
 
 </div>
 
-#####  High-Confidence Sequence Determination (High Confidence)
+##### High-Confidence Sequence Determination (High Confidence)
 
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px; ">
 
@@ -1165,16 +1165,9 @@ Productive contigs require: full V-to-J span, valid start codon, complete in-fra
 </div>
 
 **How to Interpret:**
-*   **Axes**:
-    *   **X-axis (Barcode Rank)**: Cell barcodes ranked by total UMI counts (log scale).
-    *   **Y-axis (UMI Counts)**: Total UMIs per cell (log scale).
-*   **Visual encoding**:
-    *   **Blue line**: Called valid cells.
-    *   **Gray line**: Background/noise.
-    *   **Blue gradient zone**: Transitional mixed region.
-*   **Quality assessment**:
-    *   A steeper drop typically indicates better separation between cells and background.
-    *   In BCR datasets, a subgroup with very high UMIs may appear and often represents highly expressed plasma cells.
+*   **Axes**: X-axis (Barcode Rank) shows cell barcodes ranked by total UMI counts (log scale); Y-axis (UMI Counts) shows total UMIs per cell (log scale).
+*   **Visual encoding**: Blue line indicates called valid cells; gray line indicates background/noise; blue gradient zone indicates a transitional mixed region. (visual-check)
+*   **Quality assessment**: A steeper drop typically indicates better separation between cells and background; in BCR datasets, a subgroup with very high UMIs may appear and often represents highly expressed plasma cells.
 
 </div>
 
@@ -1207,13 +1200,13 @@ Productive contigs require: full V-to-J span, valid start codon, complete in-fra
 
 </div>
 
-<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);" markdown="1">
 
 | Document | Description |
 | :--- | :--- |
-| [scVDJ Pipeline](../pipeline/scVDJ.md) | Detailed scVDJ analysis workflow |
-| [scVDJ Parameters](../parameter/scVDJ.md) | Command parameter reference |
-| [Output Files](./outs.md) | Return to output documentation index |
+| [scVDJ Pipeline](../pipeline/scVDJ.en.md) | Detailed scVDJ analysis workflow |
+| [scVDJ Parameters](../parameter/scVDJ.en.md) | Command parameter reference |
+| [Output Files](./outs.en.md) | Return to output documentation index |
 
 </div>
 

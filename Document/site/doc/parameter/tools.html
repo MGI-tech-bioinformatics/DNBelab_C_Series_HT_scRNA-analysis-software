@@ -2381,9 +2381,9 @@ Usage Examples:
 <h4 id="-action"><code>--action</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(可选)</span><a class="headerlink" href="#-action" title="Permanent link">&para;</a></h4>
 <p>选择要执行的操作类型。</p>
 <ul>
-<li><strong><code>mkgtf</code>:</strong> (默认) 根据基因类型过滤GTF文件。</li>
-<li><strong><code>stats</code>:</strong> 统计GTF文件中的基因类型。</li>
-<li><strong><code>check</code>:</strong> 校验并修复GTF文件格式。</li>
+<li><strong><code>mkgtf</code>:</strong> (默认) 根据基因类型过滤GTF 文件。</li>
+<li><strong><code>stats</code>:</strong> 统计GTF 文件中的基因类型。</li>
+<li><strong><code>check</code>:</strong> 校验并修复GTF 文件格式。</li>
 </ul>
 <p><strong>默认值:</strong> <code>mkgtf</code></p>
 <p><strong>示例:</strong></p>
@@ -2404,7 +2404,7 @@ Usage Examples:
 <h4 id="-type"><code>--type</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(可选)</span><a class="headerlink" href="#-type" title="Permanent link">&para;</a></h4>
 <p>指定GTF属性中用于标识基因类型的标签。</p>
 <ul>
-<li><strong>功能:</strong> 适配不同来源GTF文件的注释风格。</li>
+<li><strong>功能:</strong> 适配不同来源GTF 文件的注释风格。</li>
 <li><strong>自动识别:</strong> 使用 <code>auto</code> 时，程序会自动检测常见标签（如 <code>gene_biotype</code>、<code>gene_type</code>）。</li>
 </ul>
 <p><strong>默认值:</strong> <code>auto</code></p>
@@ -2413,10 +2413,10 @@ Usage Examples:
 </div>
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4 id="-feature"><code>--feature</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(可选)</span><a class="headerlink" href="#-feature" title="Permanent link">&para;</a></h4>
-<p>指定从GTF文件的哪一列（feature）提取信息。</p>
+<p>指定从GTF 文件的哪一列（feature）提取信息。</p>
 <ul>
 <li><strong>功能:</strong> 通常用于指定操作对象是基因级别还是转录本级别。</li>
-<li><strong>备选:</strong> 如果GTF文件中没有 `gene` 行，建议选择 `transcript`。</li>
+<li><strong>备选:</strong> 如果GTF 文件中没有 `gene` 行，建议选择 `transcript`。</li>
 </ul>
 <p><strong>默认值:</strong> <code>gene</code></p>
 <p><strong>示例:</strong></p>
@@ -2475,10 +2475,10 @@ Options:
 </div>
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4 id="bam"><code>&lt;BAM&gt;</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(必需)</span><a class="headerlink" href="#bam" title="Permanent link">&para;</a></h4>
-<p>指定输入的BAM文件路径。</p>
+<p>指定输入的BAM 文件路径。</p>
 <ul>
-<li><strong>格式要求:</strong> 必须是有效的C4 RNA BAM文件，支持单端和双端数据。</li>
-<li><strong>索引要求:</strong> BAM文件必须已经索引（即旁边存在对应的.bai文件）。</li>
+<li><strong>格式要求:</strong> 必须是有效的C4 RNA BAM 文件，支持单端和双端数据。</li>
+<li><strong>索引要求:</strong> BAM 文件必须已经索引（即旁边存在对应的.bai文件）。</li>
 <li><strong>双端数据注意:</strong> 如果是双端数据，需要先使用 <code>samtools sort -n</code> 根据序列名排序后再进行处理。</li>
 </ul>
 <p><strong>默认值:</strong> 无</p>
@@ -2487,9 +2487,9 @@ Options:
 </div>
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4 id="output"><code>&lt;OUTPUT&gt;</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(必需)</span><a class="headerlink" href="#output" title="Permanent link">&para;</a></h4>
-<p>指定输出FASTQ文件的目录。</p>
+<p>指定输出FASTQ 文件的目录。</p>
 <ul>
-<li><strong>功能:</strong> 所有转换后的FASTQ文件将保存在此目录。</li>
+<li><strong>功能:</strong> 所有转换后的FASTQ 文件将保存在此目录。</li>
 <li><strong>自动创建:</strong> 如果目录不存在，将会被自动创建。</li>
 </ul>
 <p><strong>默认值:</strong> 无</p>
@@ -2526,7 +2526,7 @@ Options:
 </div>
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4 id="-n-reads-per-fastq"><code>-n, --reads-per-fastq</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(可选)</span><a class="headerlink" href="#-n-reads-per-fastq" title="Permanent link">&para;</a></h4>
-<p>设置每个输出FASTQ文件的最大读段数量。</p>
+<p>设置每个输出FASTQ 文件的最大读段数量。</p>
 <ul>
 <li><strong>分割策略:</strong> 自动将大文件分割为多个小文件，便于下游处理。</li>
 <li><strong>默认行为:</strong> 如果不指定，所有读段将写入单个文件。</li>
@@ -2548,7 +2548,7 @@ Options:
 </div>
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4 id="-no-compress"><code>--no-compress</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(标志)</span><a class="headerlink" href="#-no-compress" title="Permanent link">&para;</a></h4>
-<p>禁用对输出FASTQ文件的gzip压缩，以显著提高分析速度。</p>
+<p>禁用对输出FASTQ 文件的gzip压缩，以显著提高分析速度。</p>
 <ul>
 <li><strong>性能瓶颈:</strong> 程序的主要速度瓶颈在于写入压缩文件。</li>
 <li><strong>注意:</strong> 得益于软件的并行加速压缩，目前的默认压缩写入速度已获得大幅提升，基本消除分析瓶颈。</li>
@@ -2728,7 +2728,7 @@ Options:
 </div>
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4 id="-i-input-file"><code>-i, --input &lt;FILE&gt;</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(必需)</span><a class="headerlink" href="#-i-input-file" title="Permanent link">&para;</a></h4>
-<p>指定输入的FASTQ文件路径。</p>
+<p>指定输入的FASTQ 文件路径。</p>
 <ul>
 <li><strong>格式支持:</strong> 支持未压缩 (.fq, .fastq) 和 gzip 压缩 (.fq.gz, .fastq.gz) 格式。</li>
 <li><strong>自动识别:</strong> 工具会根据文件扩展名自动判断压缩格式。</li>
@@ -2739,7 +2739,7 @@ Options:
 </div>
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4 id="-o-output-file"><code>-o, --output &lt;FILE&gt;</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(必需)</span><a class="headerlink" href="#-o-output-file" title="Permanent link">&para;</a></h4>
-<p>指定输出的FASTQ文件路径。</p>
+<p>指定输出的FASTQ 文件路径。</p>
 <ul>
 <li><strong>自动压缩:</strong> 如果输出文件名以 <code>.gz</code> 结尾，输出文件将被自动压缩。推荐使用压缩格式，可以有效减少磁盘I/O和存储空间。</li>
 </ul>

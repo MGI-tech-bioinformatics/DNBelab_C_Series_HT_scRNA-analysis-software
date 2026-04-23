@@ -6,7 +6,7 @@
 
 <div align="center" style="padding: 40px 20px; background: linear-gradient(135deg, #f5f5f7 0%, #ffffff 100%); border-radius: 12px; margin-bottom: 30px; max-width: 1200px; margin-left: auto; margin-right: auto;">
 
-<h1 style="font-size: 48px; font-weight: 600; color: #1d1d1f; margin: 0 0 16px 0; letter-spacing: -0.02em;">DNBelab C Series HT Multi-omics 分析流程</h1>
+<h1 style="font-size: 48px; font-weight: 600; color: #1d1d1f; margin: 0 0 16px 0; letter-spacing: -0.02em;">DNBelab C Series HT 多组学分析流程</h1>
 
 <p style="font-size: 21px; color: #86868b; margin: 0 0 30px 0; font-weight: 400;">单细胞多组学整合分析完整指南</p>
 
@@ -29,7 +29,7 @@
 
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
 
-Multi-omics 流程用于统一编排 RNA / ATAC / VDJ 子流程，通过一份配置文件完成多组学联合运行，并生成组合报告用于跨组学联看。
+多组学流程用于统一编排 RNA / ATAC / VDJ 子流程，通过一份配置文件完成多组学联合运行，并生成组合报告用于跨组学联看。
 
 **工作流程**：配置准备 → 模块调度 → 并行分析 → 状态汇总 → 组合报告
 
@@ -122,7 +122,7 @@ Multi-omics 流程用于统一编排 RNA / ATAC / VDJ 子流程，通过一份�
 </table>
 
 <div style="background-color: #e7f3fe; border-left: 6px solid #2196F3; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
- <strong>详细配置说明</strong>：请参考 <a href="../parameter/multi.md">Multi 参数文档</a> 了解完整的 CSV 配置规范和参数映射关系。
+ <strong>详细配置说明</strong>：请参考 <a href="../parameter/multi.md">多组学参数文档</a> 了解完整的 CSV 配置规范和参数映射关系。
 </div>
 
 ### 最小配置示例
@@ -379,7 +379,7 @@ Warning: ATAC joint analysis is currently unsupported. Libraries will be analyze
 </table>
 
 <div style="background-color: #e7f3fe; border-left: 6px solid #2196F3; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
- <strong>详细输出说明</strong>：请参考 <a href="../outs/multi.md">Multi 输出文档</a> 了解组合报告的详细解读方法。
+ <strong>详细输出说明</strong>：请参考 <a href="../outs/multi.md">多组学输出文档</a> 了解组合报告的详细解读方法。
 </div>
 
 
@@ -393,7 +393,7 @@ Warning: ATAC joint analysis is currently unsupported. Libraries will be analyze
 
 </div>
 
-<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);" markdown="1">
 
 | 资源 | 描述 |
 | :--- | :--- |

@@ -127,7 +127,7 @@ The analysis requires FASTQ files:
 
 ### GTF File Processing (Optional)
 
-For details on GTF file filtering, please [refer to the scRNA analysis pipeline](./scRNA.md#gtf-file-processing-optional).
+For details on GTF file filtering, please [refer to the scRNA analysis pipeline](scRNA.en.md#gtf-file-processing-optional).
 
 ### Build Reference Database
 
@@ -145,7 +145,7 @@ $dnbc4tools atac mkref \
 Upon successful execution, a reference database directory will be created at the specified location with the following structure:
 
 ```
-/opt/database/Mus_musculus
+/database/scATAC/Mus_musculus
 ├── fasta
 │   ├── genome.fa
 │   ├── genome.fa.fai
@@ -171,15 +171,15 @@ The `ref.json` file records the main information of the database:
     "input_gtf_files": [
         "genes.gtf"
     ],
-    "genome": "/opt/database/Mus_musculus/fasta/genome.fa",
-    "index": "/opt/database/Mus_musculus/fasta/genome.index",
-    "gtf": "/opt/database/Mus_musculus/genes/genes.gtf",
+    "genome": "fasta/genome.fa",
+    "index": "fasta/genome.index",
+    "gtf": "genes/genes.gtf",
     "chrmt": "chrM",
     "chloroplast": "None",
-    "chromeSize": "/opt/database/Mus_musculus/regions/chrom.sizes",
-    "tss": "/opt/database/Mus_musculus/regions/tss.bed",
-    "promoter": "/opt/database/Mus_musculus/regions/promoter.bed",
-    "version": "dnbc4tools 3.0",
+    "chromeSize": "regions/chrom.sizes",
+    "tss": "regions/tss.bed",
+    "promoter": "regions/promoter.bed",
+    "version": "3.1",
     "blacklist": "None",
     "genomesize": "mm"
 }
@@ -423,13 +423,13 @@ Upon completion, `outs` (outputs) and `logs` directories will be generated.
 
 </div>
 
-<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);" markdown="1">
 
 | Resource | Description |
 | :--- | :--- |
-| [Output File Usage](../io.md) | Understanding output file structure and formats |
-| [Analysis Parameters](../parameter/scATAC.md) | Complete parameter reference and descriptions |
-| [Output Descriptions](../outs/scATAC.md) | Detailed interpretation of analysis results |
+| [Output File Usage](../io.en.md) | Understanding output file structure and formats |
+| [Analysis Parameters](../parameter/scATAC.en.md) | Complete parameter reference and descriptions |
+| [Output Descriptions](../outs/scATAC.en.md) | Detailed interpretation of analysis results |
 
 
 </div>
@@ -444,7 +444,7 @@ Upon completion, `outs` (outputs) and `logs` directories will be generated.
 
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
 
-This section is being updated.
+This section is being updated. Common troubleshooting entries will be added in the next revision.
 
 </div>
 

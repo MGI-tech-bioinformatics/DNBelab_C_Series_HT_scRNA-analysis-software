@@ -1681,11 +1681,13 @@
 <div style="background-color: #e7f3fe; border-left: 6px solid #2196F3; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
 <p><strong>Recommended Data Source</strong>: It is recommended to use files from the <a href="https://www.ensembl.org/index.html">Ensembl database</a>. Ensembl's GTF files contain optional tags that facilitate filtering with <code>dnbc4tools tools mkgtf</code>.</p>
 </div>
-<p><strong>GTF File Requirements</strong>:
-- Must contain annotations of type <code>gene</code> or <code>transcript</code> as well as <code>exon</code>.
-- Attributes must include <code>gene_id</code> or <code>gene_name</code> and <code>transcript_id</code> or <code>transcript_name</code>.
-- The GFF file format is not supported.
-- The genome file and annotation file must be from corresponding versions.</p>
+<p><strong>GTF File Requirements</strong>:</p>
+<ul>
+<li>Must contain annotations of type <code>gene</code> or <code>transcript</code> as well as <code>exon</code>.</li>
+<li>Attributes must include <code>gene_id</code> or <code>gene_name</code> and <code>transcript_id</code> or <code>transcript_name</code>.</li>
+<li>The GFF file format is not supported.</li>
+<li>The genome file and annotation file must be from corresponding versions.</li>
+</ul>
 <h3 id="gtf-file-processing-optional">GTF File Processing (Optional) <a id="gtf-file-processing-optional"></a><a class="headerlink" href="#gtf-file-processing-optional" title="Permanent link">&para;</a></h3>
 <p>GTF files downloaded from sites like ENSEMBL and UCSC often contain many types of genes. Selecting specific gene types relevant to your research can reduce overlapping gene annotations and improve the uniqueness of alignments, as reads mapping non-uniquely to multiple genes are filtered out.</p>
 <p>We provide three functions for GTF file processing:</p>
@@ -1714,7 +1716,7 @@
 <h4 id="gene-type-statistics">Gene Type Statistics<a class="headerlink" href="#gene-type-statistics" title="Permanent link">&para;</a></h4>
 <pre><code class="language-shell"># Count gene type quantities
 $dnbc4tools tools mkgtf \
-  --action stat \
+  --action stats \
   --ingtf genes.gtf \
   --output gtfstat.txt \
   --type gene_biotype
@@ -2087,7 +2089,7 @@ sample3.sh
 <h2 id="frequently-asked-questions">Frequently Asked Questions<a class="headerlink" href="#frequently-asked-questions" title="Permanent link">&para;</a></h2>
 </div>
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
-<p>This section is being updated.</p>
+<p>This section is being updated. Common troubleshooting entries will be added in the next revision.</p>
 </div>
 <div style="max-width: 1200px; margin: 0 auto;">
 <hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;">

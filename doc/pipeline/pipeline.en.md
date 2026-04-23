@@ -26,14 +26,14 @@
 
 </div>
 
-<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);" markdown="1">
 
 | Analysis Type | Description & Key Features | Documentation |
 | :--- | :--- | :--- |
-| **Single-Cell RNA** | **Workflow**: Gene expression profiling at single-cell resolution. <br> <ul><li>High-throughput processing for large datasets</li><li>Dual-species support (human-mouse)</li><li>5' and 3' chemistry compatibility</li><li>Automated cell identification</li></ul> | [View Guide](./scRNA.md) |
-| **Single-Cell ATAC** | **Workflow**: Chromatin accessibility profiling at single-cell resolution. <br> <ul><li>Advanced fragment processing</li><li>TSS enrichment analysis</li><li>Peak-based cell identification</li><li>Mitochondrial/chloroplast filtering</li></ul> | [View Guide](./scATAC.md) |
-| **Single-Cell VDJ** | **Workflow**: Immune receptor repertoire profiling (requires 5' RNA-seq data). <br> <ul><li>Integrated with 5' RNA analysis</li><li>Advanced assembly algorithms</li><li>TCR and BCR support</li><li>Clonotype identification</li></ul> | [View Guide](./scVDJ.md) |
-| **Multi-omics** | **Workflow**: Integrated RNA/ATAC/VDJ workflow orchestration. <br> <ul><li>Unified execution from one config file</li><li>Pipeline-level status tracking</li><li>Combined multi-omics HTML report</li></ul> | [View Guide](./multi.md) |
+| **Single-Cell RNA** | **Workflow**: Gene expression profiling at single-cell resolution. <br> <ul><li>High-throughput processing for large datasets</li><li>Dual-species support (human-mouse)</li><li>5' and 3' chemistry compatibility</li><li>Automated cell identification</li></ul> | [View Guide](scRNA.en.md) |
+| **Single-Cell ATAC** | **Workflow**: Chromatin accessibility profiling at single-cell resolution. <br> <ul><li>Advanced fragment processing</li><li>TSS enrichment analysis</li><li>Peak-based cell identification</li><li>Mitochondrial/chloroplast filtering</li></ul> | [View Guide](scATAC.en.md) |
+| **Single-Cell VDJ** | **Workflow**: Immune receptor repertoire profiling (requires 5' RNA-seq data). <br> <ul><li>Integrated with 5' RNA analysis</li><li>Advanced assembly algorithms</li><li>TCR and BCR support</li><li>Clonotype identification</li></ul> | [View Guide](scVDJ.en.md) |
+| **Multi-omics** | **Workflow**: Integrated RNA/ATAC/VDJ workflow orchestration. <br> <ul><li>Unified execution from one config file</li><li>Pipeline-level status tracking</li><li>Combined multi-omics HTML report</li></ul> | [View Guide](multi.en.md) |
 
 </div>
 
@@ -45,14 +45,14 @@
 
 </div>
 
-<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);" markdown="1">
 
 | Resource | Description |
 | :--- | :--- |
-| [Parameters](../parameter/parameter.md) | Command reference and configuration options |
-| [Outputs](../outs/outs.md) | Understanding result files and reports |
-| [Quick Start](../quickstart.md) | Get started in 5 minutes |
-| [Installation](../installation.md) | Software setup and requirements |
+| [Parameters](../parameter/parameter.en.md) | Command reference and configuration options |
+| [Outputs](../outs/outs.en.md) | Understanding result files and reports |
+| [Quick Start](../quickstart.en.md) | Get started in 5 minutes |
+| [Installation](../installation.en.md) | Software setup and requirements |
 
 </div>
 

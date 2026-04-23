@@ -6,7 +6,7 @@
 
 <br>
 
-# DNBelab C Series™ 历史版本安装
+# DNBelab C Series™ 历史版本安装指南
 
 <br>
 
