@@ -43,41 +43,44 @@ See details in [Release Notes](./doc/release.en.md).
 
 ### Module Navigation
 
-<table class="home-module-table">
-  <thead>
-    <tr>
-      <th>Pipeline</th>
-      <th>Parameter</th>
-      <th>Outputs</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>
-        <p><a href="./doc/pipeline/pipeline.en.md">Overview</a></p>
-        <p><a href="./doc/pipeline/scRNA.en.md">scRNA</a></p>
-        <p><a href="./doc/pipeline/scATAC.en.md">scATAC</a></p>
-        <p><a href="./doc/pipeline/scVDJ.en.md">scVDJ</a></p>
-        <p><a href="./doc/pipeline/multi.en.md">Multi</a></p>
-      </td>
-      <td>
-        <p><a href="./doc/parameter/parameter.en.md">Overview</a></p>
-        <p><a href="./doc/parameter/scRNA.en.md">scRNA</a></p>
-        <p><a href="./doc/parameter/scATAC.en.md">scATAC</a></p>
-        <p><a href="./doc/parameter/scVDJ.en.md">scVDJ</a></p>
-        <p><a href="./doc/parameter/multi.en.md">Multi</a></p>
-        <p><a href="./doc/parameter/tools.en.md">Toolbox</a></p>
-      </td>
-      <td>
-        <p><a href="./doc/outs/outs.en.md">Overview</a></p>
-        <p><a href="./doc/outs/scRNA.en.md">scRNA</a></p>
-        <p><a href="./doc/outs/scATAC.en.md">scATAC</a></p>
-        <p><a href="./doc/outs/scVDJ.en.md">scVDJ</a></p>
-        <p><a href="./doc/outs/multi.en.md">Multi</a></p>
-      </td>
-    </tr>
-  </tbody>
-</table>
+<div class="home-card-grid">
+  <div class="home-card">
+    <h4>Pipeline</h4>
+    <p>End-to-end workflow guidance from input preparation to result interpretation.</p>
+    <div class="home-card-links">
+      <a href="./doc/pipeline/pipeline.en.md">Overview</a>
+      <a href="./doc/pipeline/scRNA.en.md">scRNA</a>
+      <a href="./doc/pipeline/scATAC.en.md">scATAC</a>
+      <a href="./doc/pipeline/scVDJ.en.md">scVDJ</a>
+      <a href="./doc/pipeline/multi.en.md">Multi</a>
+    </div>
+  </div>
+
+  <div class="home-card">
+    <h4>Parameter</h4>
+    <p>Command parameters and recommended settings for configuration and troubleshooting.</p>
+    <div class="home-card-links">
+      <a href="./doc/parameter/parameter.en.md">Overview</a>
+      <a href="./doc/parameter/scRNA.en.md">scRNA</a>
+      <a href="./doc/parameter/scATAC.en.md">scATAC</a>
+      <a href="./doc/parameter/scVDJ.en.md">scVDJ</a>
+      <a href="./doc/parameter/multi.en.md">Multi</a>
+      <a href="./doc/parameter/tools.en.md">Toolbox</a>
+    </div>
+  </div>
+
+  <div class="home-card">
+    <h4>Outputs</h4>
+    <p>Output directory structure, key files, and web-report metric interpretation.</p>
+    <div class="home-card-links">
+      <a href="./doc/outs/outs.en.md">Overview</a>
+      <a href="./doc/outs/scRNA.en.md">scRNA</a>
+      <a href="./doc/outs/scATAC.en.md">scATAC</a>
+      <a href="./doc/outs/scVDJ.en.md">scVDJ</a>
+      <a href="./doc/outs/multi.en.md">Multi</a>
+    </div>
+  </div>
+</div>
 
 ---
 

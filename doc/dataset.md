@@ -42,11 +42,11 @@
 ## 数据使用说明
 
 <div style="background-color: #e7f3fe; border-left: 6px solid #2196F3; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
-<strong>scVDJ 使用提示</strong>：如果不需要分析 5' RNA 数据，可直接从对应 FTP 目录下载 `singlecell.csv` 作为 VDJ 流程输入。
+<strong>scVDJ 使用说明</strong>：如果不需要分析 5' RNA 数据，可直接从对应 FTP 目录下载 `singlecell.csv` 作为 VDJ 流程输入。
 </div>
 
 <div style="background-color: #e7f3fe; border-left: 6px solid #2196F3; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
-<strong>通用提示</strong>：点击项目链接后，在 “Sample” 或 “Experiment” 页面中可找到原始数据 FTP 下载地址。
+<strong>通用说明</strong>：访问项目链接后，在 “Sample” 或 “Experiment” 页面中可找到原始数据 FTP 下载地址。
 </div>
 
 <div align="center">

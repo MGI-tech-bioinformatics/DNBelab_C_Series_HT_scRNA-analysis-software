@@ -35,6 +35,9 @@
     
       <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
       
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
       
 
 
@@ -63,7 +66,14 @@
   </head>
   
   
-    <body dir="ltr">
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="blue">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -114,6 +124,24 @@
         </div>
       </div>
     </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="blue"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="blue"  aria-hidden="true"  type="radio" name="__palette" id="__palette_1">
+    
+  
+</form>
+      
     
     
       <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
@@ -1777,7 +1805,7 @@ TR_D_gene
 TR_J_gene
 TR_C_gene
 </code></pre>
-<p>您也可以使用 <code>include</code> 参数自定义需要保留的基因类型：</p>
+<p>也可使用 <code>include</code> 参数自定义需要保留的基因类型：</p>
 <pre><code class="language-shell"># 自定义基因类型过滤
 $dnbc4tools tools mkgtf \
   --ingtf genes.gtf \
@@ -1875,7 +1903,7 @@ $dnbc4tools rna mkref \
 </div>
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
 <h3 id="_9">多样本批处理（可选）<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
-<p>为简化多样本分析流程，您可以使用配置文件批量生成针对每个样本的 shell 脚本。</p>
+<p>为简化多样本分析流程，可使用配置文件批量生成针对每个样本的 shell 脚本。</p>
 <pre><code class="language-shell">$dnbc4tools rna multi \
   --list sample.tsv \
   --genomeDir /opt/database/Homo_sapiens \
@@ -1920,7 +1948,7 @@ sample3.sh
 <pre><code class="language-shell">$cat sample1.sh
 /opt/software/dnbc4tools3.0beta/dnbc4tools rna run --name sample1 --cDNAfastq1 /data/cDNA1_R1.fq.gz --cDNAfastq2 /data/cDNA1_R2.fq.gz --oligofastq1 /data/oligo1_R1.fq.gz,/data/oligo4_R1.fq.gz --oligofastq2 /data/oligo1_R2.fq.gz,/data/oligo4_R2.fq.gz --genomeDir /database/scRNA/Mus_musculus/mm10 --threads 30
 </code></pre>
-<p>随后，您可以执行这些脚本以进行主流程分析。</p>
+<p>随后可执行这些脚本进行主流程分析。</p>
 <h3 id="_10">单样本分析<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
 <p>RNA 主分析流程处理单个样本的 cDNA 和 Oligo 文库测序数据。该流程的核心步骤包括：</p>
 <ol>
@@ -2099,7 +2127,7 @@ sample3.sh
 <div align="center">
 <blockquote>
 <p><strong>反馈与支持</strong></p>
-<p>本文档持续更新中，如发现内容错误或需要补充的信息，欢迎反馈。</p>
+<p>本文档持续维护更新。若发现内容错误或需要补充信息，请通过 GitHub Issues 反馈。</p>
 <p><strong>文档版本：</strong> 3.1 | <strong>最后更新：</strong> 2026年4月</p>
 </blockquote>
 </div>

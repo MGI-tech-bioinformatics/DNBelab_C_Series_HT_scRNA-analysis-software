@@ -51,7 +51,7 @@
 | :--- | :--- |
 | [Parameters](../parameter/parameter.en.md) | Command reference and configuration options |
 | [Outputs](../outs/outs.en.md) | Understanding result files and reports |
-| [Quick Start](../quickstart.en.md) | Get started in 5 minutes |
+| [Quick Start](../quickstart.en.md) | Introductory workflow guide |
 | [Installation](../installation.en.md) | Software setup and requirements |
 
 </div>
@@ -59,7 +59,7 @@
 <div align="center" style="background: #f5f5f7; border-radius: 12px; padding: 30px; margin: 40px auto; max-width: 1200px;">
 
 <strong>Feedback & Support</strong>
-> For detailed workflow instructions, click on any analysis type above.
+> For detailed workflow instructions, select one of the analysis types above.
 >
 <strong>Document Version:</strong> 3.1 | <strong>Last Updated:</strong> April 2026
 

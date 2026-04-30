@@ -1,4 +1,20 @@
 document.addEventListener("DOMContentLoaded", () => {
+  // Always sync Material palette with current system preference.
+  // This prevents stale localStorage palette values from locking the theme.
+  try {
+    const isDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+    const scheme = isDark ? "slate" : "default";
+    const primary = "indigo";
+    const accent = "blue";
+    const palette = { color: { scheme, primary, accent } };
+    localStorage.setItem("__palette", JSON.stringify(palette));
+    document.body.setAttribute("data-md-color-scheme", scheme);
+    document.body.setAttribute("data-md-color-primary", primary);
+    document.body.setAttribute("data-md-color-accent", accent);
+  } catch (e) {
+    // no-op
+  }
+
   const langInner = document.querySelector(".md-header__option .md-select__inner");
   if (!langInner) return;
   const option = langInner.closest(".md-header__option");

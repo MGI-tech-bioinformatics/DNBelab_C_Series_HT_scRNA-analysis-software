@@ -71,11 +71,11 @@ Basic Options:
 <h4><code>-n, --name</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(必需)</span></h4>
 <p>指定本次 multi 任务名称。</p>
 <ul>
-  <li><strong>功能:</strong> 作为输出目录和报告中的样本标识。</li>
-  <li><strong>影响:</strong> 最终输出路径通常为 <code>&lt;outdir&gt;/&lt;name&gt;/</code>。</li>
+  <li><strong>功能：</strong> 作为输出目录和报告中的样本标识。</li>
+  <li><strong>影响：</strong> 最终输出路径通常为 <code>&lt;outdir&gt;/&lt;name&gt;/</code>。</li>
 </ul>
-<p><strong>默认值:</strong> 无</p>
-<p><strong>示例:</strong></p>
+<p><strong>默认值：</strong> 无</p>
+<p><strong>示例：</strong></p>
 <pre><code>--name demo</code></pre>
 </div>
 
@@ -83,11 +83,11 @@ Basic Options:
 <h4><code>-c, --csv</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(必需)</span></h4>
 <p>指定多组学配置 CSV 文件。</p>
 <ul>
-  <li><strong>功能:</strong> 定义 RNA / ATAC / VDJ 各模块参数，以及输入数据来源。</li>
-  <li><strong>要求:</strong> 文件中应包含模块配置段和 <code>[libraries]</code> 输入映射。</li>
+  <li><strong>功能：</strong> 定义 RNA / ATAC / VDJ 各模块参数，以及输入数据来源。</li>
+  <li><strong>要求：</strong> 文件中应包含模块配置段和 <code>[libraries]</code> 输入映射。</li>
 </ul>
-<p><strong>默认值:</strong> 无</p>
-<p><strong>示例:</strong></p>
+<p><strong>默认值：</strong> 无</p>
+<p><strong>示例：</strong></p>
 <pre><code>--csv sample.csv</code></pre>
 </div>
 
@@ -99,11 +99,11 @@ Basic Options:
 <h4><code>-o, --outdir</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(可选)</span></h4>
 <p>指定 multi 流程输出目录。</p>
 <ul>
-  <li><strong>功能:</strong> 存放整合报告、模块输出和运行日志。</li>
-  <li><strong>建议:</strong> 为不同任务使用独立目录，便于结果管理。</li>
+  <li><strong>功能：</strong> 存放整合报告、模块输出和运行日志。</li>
+  <li><strong>建议：</strong> 为不同任务使用独立目录，便于结果管理。</li>
 </ul>
-<p><strong>默认值:</strong> <code>./</code> (当前目录)</p>
-<p><strong>示例:</strong></p>
+<p><strong>默认值：</strong> <code>./</code> (当前目录)</p>
+<p><strong>示例：</strong></p>
 <pre><code>--outdir /data/result</code></pre>
 </div>
 
@@ -111,11 +111,11 @@ Basic Options:
 <h4><code>-t, --threads</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(可选)</span></h4>
 <p>设置流程可用 CPU 线程数。</p>
 <ul>
-  <li><strong>功能:</strong> 控制并行度，影响整体运行速度。</li>
-  <li><strong>建议:</strong> 根据机器资源和并发任务数量设置。</li>
+  <li><strong>功能：</strong> 控制并行度，影响整体运行速度。</li>
+  <li><strong>建议：</strong> 根据机器资源和并发任务数量设置。</li>
 </ul>
-<p><strong>默认值:</strong> 使用软件默认线程策略</p>
-<p><strong>示例:</strong></p>
+<p><strong>默认值：</strong> 使用软件默认线程策略</p>
+<p><strong>示例：</strong></p>
 <pre><code>--threads 20</code></pre>
 </div>
 
@@ -148,7 +148,7 @@ Basic Options:
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
 
 <details open>
-<summary> 点击展开完整模板（RNA + VDJ-T/B 示例）</summary>
+<summary> 展开完整模板（RNA + VDJ-T/B 示例）</summary>
 
 ```csv
 [rna]

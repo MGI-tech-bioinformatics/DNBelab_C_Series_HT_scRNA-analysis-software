@@ -864,7 +864,7 @@ SampleB	/path/to/B_cDNA_L01_R1.fq.gz,/path/to/B_cDNA_L02_R1.fq.gz;/path/to/B_cDN
 
 > **Feedback & Support**
 >
-> This document is continuously updated. If you find any errors or have information to add, feedback is welcome.
+> This document is continuously maintained. If you identify errors or additional information is required, please submit feedback via GitHub Issues.
 >
 <strong>Document Version:</strong> 3.1 | <strong>Last Updated:</strong> April 2026
 

@@ -8,7 +8,7 @@
 
 <div align="center">
 
-**Get started with dnbc4tools**
+**Operational Quick-Start for dnbc4tools**
 
 [RNA-seq](#single-cell-rna-analysis) • [ATAC-seq](#single-cell-atac-analysis) • [VDJ-seq](#single-cell-vdj-analysis) • [Multi-omics](#integrated-multi-omics-analysis)
 
@@ -93,7 +93,7 @@ $dnbc4tools rna mkref \
 
 ### Step 2: Run Analysis
 
-**Quick Input (`--fastqs`)**
+**Directory-based Input (`--fastqs`)**
 ```bash
 $dnbc4tools rna run \
     --fastqs /test/data/rna_fastqs \
@@ -110,7 +110,7 @@ Directory structure recommendation:
 
 See [File Naming Conventions](#file-naming-conventions) for supported patterns.
 
-**Detailed Input (--cDNAfastq1/2 --oligofastq1/2)**
+**File-specific Input (--cDNAfastq1/2 --oligofastq1/2)**
 ```bash
 $dnbc4tools rna run \
     --cDNAfastq1 /test/data/rna_fastqs/cDNA/test_R1.fastq.gz \
@@ -162,7 +162,7 @@ $dnbc4tools atac mkref --fasta GRCm38.primary_assembly.genome.fa --ingtf genes.f
 
 ### Step 2: Run Analysis
 
-**Quick Input (`--fastqs`)**
+**Directory-based Input (`--fastqs`)**
 ```bash
 $dnbc4tools atac run \
     --fastqs /test/data \
@@ -177,7 +177,7 @@ Directory structure recommendation:
 
 See [File Naming Conventions](#file-naming-conventions) for supported patterns.
 
-**Detailed Input (--fastq1/2)**
+**File-specific Input (--fastq1/2)**
 ```bash
 $dnbc4tools atac run \
     --fastq1 /test/data/test1_R1.fastq.gz,/test/data/test2_R1.fastq.gz \
@@ -217,7 +217,7 @@ $dnbc4tools rna run \
 
 ### Step 2: VDJ Analysis
 
-**Quick Input (`--fastqs`)**
+**Directory-based Input (`--fastqs`)**
 ```bash
 $dnbc4tools vdj run \
     --fastqs /test/data \
@@ -234,7 +234,7 @@ Directory structure recommendation:
 
 See [File Naming Conventions](#file-naming-conventions) for supported patterns.
 
-**Detailed Input (--fastq1/2)**
+**File-specific Input (--fastq1/2)**
 
 **TCR Analysis (Human)**
 ```bash

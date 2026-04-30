@@ -80,10 +80,10 @@ Usage Examples:
 <h4><code>--ingtf</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(必需)</span></h4>
 <p>指定输入的GTF基因注释文件路径。</p>
 <ul>
-  <li><strong>格式要求:</strong> 标准GTF格式，不支持GFF或GFF3格式。</li>
+  <li><strong>格式要求：</strong> 标准GTF格式，不支持GFF或GFF3格式。</li>
 </ul>
-<p><strong>默认值:</strong> 无</p>
-<p><strong>示例:</strong></p>
+<p><strong>默认值：</strong> 无</p>
+<p><strong>示例：</strong></p>
 <pre><code>--ingtf Homo_sapiens.GRCh38.108.gtf</code></pre>
 </div>
 
@@ -91,12 +91,12 @@ Usage Examples:
 <h4><code>--output</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(必需)</span></h4>
 <p>指定处理结果的输出文件。</p>
 <ul>
-  <li><strong>功能:</strong> 根据操作模式生成不同类型的输出文件。</li>
-  <li><strong>条件要求:</strong> 当 <code>--action mkgtf</code> 或 <code>--action check</code> 时必须提供；当 <code>--action stats</code> 时可省略，统计结果会输出到标准输出。</li>
-  <li><strong>自动创建:</strong> 如果指定的输出目录不存在，将会被自动创建。</li>
+  <li><strong>功能：</strong> 根据操作模式生成不同类型的输出文件。</li>
+  <li><strong>条件要求：</strong> 当 <code>--action mkgtf</code> 或 <code>--action check</code> 时必须提供；当 <code>--action stats</code> 时可省略，统计结果会输出到标准输出。</li>
+  <li><strong>自动创建：</strong> 如果指定的输出目录不存在，将会被自动创建。</li>
 </ul>
-<p><strong>默认值:</strong> 无</p>
-<p><strong>示例:</strong></p>
+<p><strong>默认值：</strong> 无</p>
+<p><strong>示例：</strong></p>
 <pre><code># 当 action 为 'mkgtf' (过滤)
 --output ./filtered_genes.gtf</code></pre>
 
@@ -123,8 +123,8 @@ Usage Examples:
   <li><strong><code>stats</code>:</strong> 统计GTF 文件中的基因类型。</li>
   <li><strong><code>check</code>:</strong> 校验并修复GTF 文件格式。</li>
 </ul>
-<p><strong>默认值:</strong> <code>mkgtf</code></p>
-<p><strong>示例:</strong></p>
+<p><strong>默认值：</strong> <code>mkgtf</code></p>
+<p><strong>示例：</strong></p>
 <pre><code>--action stats</code></pre>
 </div>
 
@@ -132,11 +132,11 @@ Usage Examples:
 <h4><code>--include</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(可选)</span></h4>
 <p>在 <code>mkgtf</code> 模式下，指定要保留的基因类型，多个类型以逗号分隔。</p>
 <ul>
-  <li><strong>功能:</strong> 用于精确筛选您感兴趣的基因集合。</li>
-  <li><strong>通配符:</strong> 支持通配符匹配（例如 <code>IG_*</code> 可匹配 <code>IG_V_gene</code>、<code>IG_C_gene</code>）。</li>
+  <li><strong>功能：</strong> 用于精确筛选您感兴趣的基因集合。</li>
+  <li><strong>通配符：</strong> 支持通配符匹配（例如 <code>IG_*</code> 可匹配 <code>IG_V_gene</code>、<code>IG_C_gene</code>）。</li>
 </ul>
-<p><strong>默认值:</strong> <code>protein_coding,lncRNA,lincRNA,antisense,IG_*,TR_*</code></p>
-<p><strong>示例:</strong></p>
+<p><strong>默认值：</strong> <code>protein_coding,lncRNA,lincRNA,antisense,IG_*,TR_*</code></p>
+<p><strong>示例：</strong></p>
 <pre><code>--include protein_coding,lncRNA</code></pre>
 </div>
 
@@ -144,11 +144,11 @@ Usage Examples:
 <h4><code>--type</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(可选)</span></h4>
 <p>指定GTF属性中用于标识基因类型的标签。</p>
 <ul>
-  <li><strong>功能:</strong> 适配不同来源GTF 文件的注释风格。</li>
-  <li><strong>自动识别:</strong> 使用 <code>auto</code> 时，程序会自动检测常见标签（如 <code>gene_biotype</code>、<code>gene_type</code>）。</li>
+  <li><strong>功能：</strong> 适配不同来源GTF 文件的注释风格。</li>
+  <li><strong>自动识别：</strong> 使用 <code>auto</code> 时，程序会自动检测常见标签（如 <code>gene_biotype</code>、<code>gene_type</code>）。</li>
 </ul>
-<p><strong>默认值:</strong> <code>auto</code></p>
-<p><strong>示例:</strong></p>
+<p><strong>默认值：</strong> <code>auto</code></p>
+<p><strong>示例：</strong></p>
 <pre><code>--type gene_type</code></pre>
 </div>
 
@@ -156,11 +156,11 @@ Usage Examples:
 <h4><code>--feature</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(可选)</span></h4>
 <p>指定从GTF 文件的哪一列（feature）提取信息。</p>
 <ul>
-  <li><strong>功能:</strong> 通常用于指定操作对象是基因级别还是转录本级别。</li>
-  <li><strong>备选:</strong> 如果GTF 文件中没有 `gene` 行，建议选择 `transcript`。</li>
+  <li><strong>功能：</strong> 通常用于指定操作对象是基因级别还是转录本级别。</li>
+  <li><strong>备选：</strong> 如果GTF 文件中没有 `gene` 行，建议选择 `transcript`。</li>
 </ul>
-<p><strong>默认值:</strong> <code>gene</code></p>
-<p><strong>示例:</strong></p>
+<p><strong>默认值：</strong> <code>gene</code></p>
+<p><strong>示例：</strong></p>
 <pre><code>--feature transcript</code></pre>
 </div>
 
@@ -234,12 +234,12 @@ Options:
 <h4><code>&lt;BAM&gt;</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(必需)</span></h4>
 <p>指定输入的BAM 文件路径。</p>
 <ul>
-  <li><strong>格式要求:</strong> 必须是有效的C4 RNA BAM 文件，支持单端和双端数据。</li>
-  <li><strong>索引要求:</strong> BAM 文件必须已经索引（即旁边存在对应的.bai文件）。</li>
-  <li><strong>双端数据注意:</strong> 如果是双端数据，需要先使用 <code>samtools sort -n</code> 根据序列名排序后再进行处理。</li>
+  <li><strong>格式要求：</strong> 必须是有效的C4 RNA BAM 文件，支持单端和双端数据。</li>
+  <li><strong>索引要求：</strong> BAM 文件必须已经索引（即旁边存在对应的.bai文件）。</li>
+  <li><strong>双端数据注意：</strong> 如果是双端数据，需要先使用 <code>samtools sort -n</code> 根据序列名排序后再进行处理。</li>
 </ul>
-<p><strong>默认值:</strong> 无</p>
-<p><strong>示例:</strong></p>
+<p><strong>默认值：</strong> 无</p>
+<p><strong>示例：</strong></p>
 <pre><code>/path/outs/anno_decon_sorted.bam</code></pre>
 </div>
 
@@ -247,11 +247,11 @@ Options:
 <h4><code>&lt;OUTPUT&gt;</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(必需)</span></h4>
 <p>指定输出FASTQ 文件的目录。</p>
 <ul>
-  <li><strong>功能:</strong> 所有转换后的FASTQ 文件将保存在此目录。</li>
-  <li><strong>自动创建:</strong> 如果目录不存在，将会被自动创建。</li>
+  <li><strong>功能：</strong> 所有转换后的FASTQ 文件将保存在此目录。</li>
+  <li><strong>自动创建：</strong> 如果目录不存在，将会被自动创建。</li>
 </ul>
-<p><strong>默认值:</strong> 无</p>
-<p><strong>示例:</strong></p>
+<p><strong>默认值：</strong> 无</p>
+<p><strong>示例：</strong></p>
 <pre><code>/path/to/output_dir</code></pre>
 </div>
 
@@ -267,11 +267,11 @@ Options:
 <h4><code>-t, --threads</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(可选)</span></h4>
 <p>设置用于并行处理的CPU线程数。</p>
 <ul>
-  <li><strong>性能说明:</strong> 增加线程数通常可提升BAM解码与写出效率，但受磁盘I/O带宽限制。</li>
-  <li><strong>建议:</strong> 默认值为 <code>所有可用的核心数量</code>；I/O性能较强时可增大该值，机械硬盘环境建议保守设置。</li>
+  <li><strong>性能说明：</strong> 增加线程数通常可提升BAM解码与写出效率，但受磁盘I/O带宽限制。</li>
+  <li><strong>建议：</strong> 默认值为 <code>所有可用的核心数量</code>；I/O性能较强时可增大该值，机械硬盘环境建议保守设置。</li>
 </ul>
-<p><strong>默认值:</strong> <code>所有可用的核心数量</code></p>
-<p><strong>示例:</strong></p>
+<p><strong>默认值：</strong> <code>所有可用的核心数量</code></p>
+<p><strong>示例：</strong></p>
 <pre><code>-t 8</code></pre>
 </div>
 
@@ -279,11 +279,11 @@ Options:
 <h4><code>-r, --locus</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(可选)</span></h4>
 <p>仅处理来自特定基因组区域的读段。</p>
 <ul>
-  <li><strong>格式:</strong> 标准基因组坐标格式 (<code>染色体:起始-结束</code>)。</li>
-  <li><strong>应用:</strong> 用于靶向分析特定基因或染色体区域。</li>
+  <li><strong>格式：</strong> 标准基因组坐标格式 (<code>染色体:起始-结束</code>)。</li>
+  <li><strong>应用：</strong> 用于靶向分析特定基因或染色体区域。</li>
 </ul>
-<p><strong>默认值:</strong> 无</p>
-<p><strong>示例:</strong></p>
+<p><strong>默认值：</strong> 无</p>
+<p><strong>示例：</strong></p>
 <pre><code>-r chr1:1000-2000</code></pre>
 </div>
 
@@ -291,11 +291,11 @@ Options:
 <h4><code>-n, --reads-per-fastq</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(可选)</span></h4>
 <p>设置每个输出FASTQ 文件的最大读段数量。</p>
 <ul>
-  <li><strong>分割策略:</strong> 自动将大文件分割为多个小文件，便于下游处理。</li>
-  <li><strong>默认行为:</strong> 如果不指定，所有读段将写入单个文件。</li>
+  <li><strong>分割策略：</strong> 自动将大文件分割为多个小文件，便于下游处理。</li>
+  <li><strong>默认行为：</strong> 如果不指定，所有读段将写入单个文件。</li>
 </ul>
-<p><strong>默认值:</strong> 无</p>
-<p><strong>示例:</strong></p>
+<p><strong>默认值：</strong> 无</p>
+<p><strong>示例：</strong></p>
 <pre><code>-n 10000000</code></pre>
 </div>
 
@@ -303,11 +303,11 @@ Options:
 <h4><code>--max-memory &lt;MEMORY&gt;</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(可选)</span></h4>
 <p>设定工具可使用的最大内存（单位：MB）。</p>
 <ul>
-  <li><strong>功能:</strong> 控制工具的内存消耗，防止因内存不足导致程序失败。</li>
-  <li><strong>自动确定:</strong> 如果不指定，工具将根据系统可用资源自动分配。</li>
+  <li><strong>功能：</strong> 控制工具的内存消耗，防止因内存不足导致程序失败。</li>
+  <li><strong>自动确定：</strong> 如果不指定，工具将根据系统可用资源自动分配。</li>
 </ul>
-<p><strong>默认值:</strong> 自动确定</p>
-<p><strong>示例:</strong></p>
+<p><strong>默认值：</strong> 自动确定</p>
+<p><strong>示例：</strong></p>
 <pre><code>--max-memory 8192</code></pre>
 </div>
 
@@ -315,10 +315,10 @@ Options:
 <h4><code>--no-compress</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(标志)</span></h4>
 <p>禁用对输出FASTQ 文件的gzip压缩，以显著提高分析速度。</p>
 <ul>
-  <li><strong>性能瓶颈:</strong> 程序的主要速度瓶颈在于写入压缩文件。</li>
-  <li><strong>注意:</strong> 得益于软件的并行加速压缩，目前的默认压缩写入速度已获得大幅提升，基本消除分析瓶颈。</li>
+  <li><strong>性能瓶颈：</strong> 程序的主要速度瓶颈在于写入压缩文件。</li>
+  <li><strong>注意：</strong> 得益于软件的并行加速压缩，目前的默认压缩写入速度已获得大幅提升，基本消除分析瓶颈。</li>
 </ul>
-<p><strong>默认值:</strong> 不设置</p>
+<p><strong>默认值：</strong> 不设置</p>
 </div>
 
 <div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
@@ -392,11 +392,11 @@ Options:
 <h4><code>-f, --fasta &lt;FA&gt;</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(必需)</span></h4>
 <p>指定输入的基因组序列文件。</p>
 <ul>
-  <li><strong>格式要求:</strong> 标准FASTA格式 (.fa, .fasta, .fna)。</li>
-  <li><strong>内容:</strong> 包含完整的染色体或scaffold序列。</li>
+  <li><strong>格式要求：</strong> 标准FASTA格式 (.fa, .fasta, .fna)。</li>
+  <li><strong>内容：</strong> 包含完整的染色体或scaffold序列。</li>
 </ul>
-<p><strong>默认值:</strong> 无</p>
-<p><strong>示例:</strong></p>
+<p><strong>默认值：</strong> 无</p>
+<p><strong>示例：</strong></p>
 <pre><code>--fasta genome.fasta</code></pre>
 </div>
 
@@ -404,11 +404,11 @@ Options:
 <h4><code>-o, --prefix &lt;PREFIX&gt;</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(必需)</span></h4>
 <p>指定输出文件的前缀。</p>
 <ul>
-  <li><strong>输出文件:</strong> 工具会自动生成 <code>&lt;prefix&gt;.fa</code>, <code>&lt;prefix&gt;.cutsite.tsv</code> 等文件。</li>
-  <li><strong>文件管理:</strong> 便于批量处理和结果追踪。</li>
+  <li><strong>输出文件：</strong> 工具会自动生成 <code>&lt;prefix&gt;.fa</code>, <code>&lt;prefix&gt;.cutsite.tsv</code> 等文件。</li>
+  <li><strong>文件管理：</strong> 便于批量处理和结果追踪。</li>
 </ul>
-<p><strong>默认值:</strong> 无</p>
-<p><strong>示例:</strong></p>
+<p><strong>默认值：</strong> 无</p>
+<p><strong>示例：</strong></p>
 <pre><code>--prefix split_genome</code></pre>
 </div>
 
@@ -424,11 +424,11 @@ Options:
 <h4><code>-g, --gtf &lt;GTF&gt;</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(可选)</span></h4>
 <p>指定基因注释文件（GTF/GFF格式）。</p>
 <ul>
-  <li><strong>智能分割:</strong> 提供注释文件可确保分割点位于基因间区域，保护基因完整性。</li>
-  <li><strong>注释同步:</strong> 工具会自动调整并输出坐标同步后的新注释文件。</li>
+  <li><strong>智能分割：</strong> 提供注释文件可确保分割点位于基因间区域，保护基因完整性。</li>
+  <li><strong>注释同步：</strong> 工具会自动调整并输出坐标同步后的新注释文件。</li>
 </ul>
-<p><strong>默认值:</strong> 无</p>
-<p><strong>示例:</strong></p>
+<p><strong>默认值：</strong> 无</p>
+<p><strong>示例：</strong></p>
 <pre><code>--gtf annotation.gtf</code></pre>
 </div>
 
@@ -436,10 +436,10 @@ Options:
 <h4><code>--min_length &lt;MIN_LENGTH&gt;</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(可选)</span></h4>
 <p>设置输出片段的最小长度（单位：bp）。</p>
 <ul>
-  <li><strong>功能:</strong> 确保分割后的片段不会过小，以影响后续分析。</li>
+  <li><strong>功能：</strong> 确保分割后的片段不会过小，以影响后续分析。</li>
 </ul>
-<p><strong>默认值:</strong> <code>300000000</code></p>
-<p><strong>示例:</strong></p>
+<p><strong>默认值：</strong> <code>300000000</code></p>
+<p><strong>示例：</strong></p>
 <pre><code>--min_length 300000000</code></pre>
 </div>
 
@@ -447,10 +447,10 @@ Options:
 <h4><code>--max_length &lt;MAX_LENGTH&gt;</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(可选)</span></h4>
 <p>设置输出片段的最大长度（单位：bp）。</p>
 <ul>
-  <li><strong>技术限制:</strong> 主要用于确保片段长度符合ATAC建库等下游分析的要求 (通常 < 2^29-1 bp)。</li>
+  <li><strong>技术限制：</strong> 主要用于确保片段长度符合ATAC建库等下游分析的要求 (通常 < 2^29-1 bp)。</li>
 </ul>
-<p><strong>默认值:</strong> <code>500000000</code></p>
-<p><strong>示例:</strong></p>
+<p><strong>默认值：</strong> <code>500000000</code></p>
+<p><strong>示例：</strong></p>
 <pre><code>--max_length 500000000</code></pre>
 </div>
 
@@ -458,10 +458,10 @@ Options:
 <h4><code>--cut_site &lt;CUT_SITE&gt;</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(可选)</span></h4>
 <p>提供一个包含预定义分割位置的文本文件。</p>
 <ul>
-  <li><strong>精确控制:</strong> 优先使用文件中指定的位点进行分割，实现对分割位置的精确控制。</li>
+  <li><strong>精确控制：</strong> 优先使用文件中指定的位点进行分割，实现对分割位置的精确控制。</li>
 </ul>
-<p><strong>默认值:</strong> 无</p>
-<p><strong>示例:</strong></p>
+<p><strong>默认值：</strong> 无</p>
+<p><strong>示例：</strong></p>
 <pre><code>--cut_site predefined_cuts.txt</code></pre>
 </div>
 
@@ -534,11 +534,11 @@ Options:
 <h4><code>-i, --input &lt;FILE&gt;</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(必需)</span></h4>
 <p>指定输入的FASTQ 文件路径。</p>
 <ul>
-  <li><strong>格式支持:</strong> 支持未压缩 (.fq, .fastq) 和 gzip 压缩 (.fq.gz, .fastq.gz) 格式。</li>
-  <li><strong>自动识别:</strong> 工具会根据文件扩展名自动判断压缩格式。</li>
+  <li><strong>格式支持：</strong> 支持未压缩 (.fq, .fastq) 和 gzip 压缩 (.fq.gz, .fastq.gz) 格式。</li>
+  <li><strong>自动识别：</strong> 工具会根据文件扩展名自动判断压缩格式。</li>
 </ul>
-<p><strong>默认值:</strong> 无</p>
-<p><strong>示例:</strong></p>
+<p><strong>默认值：</strong> 无</p>
+<p><strong>示例：</strong></p>
 <pre><code>--input sample_R1.fastq.gz</code></pre>
 </div>
 
@@ -546,10 +546,10 @@ Options:
 <h4><code>-o, --output &lt;FILE&gt;</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(必需)</span></h4>
 <p>指定输出的FASTQ 文件路径。</p>
 <ul>
-  <li><strong>自动压缩:</strong> 如果输出文件名以 <code>.gz</code> 结尾，输出文件将被自动压缩。推荐使用压缩格式，可以有效减少磁盘I/O和存储空间。</li>
+  <li><strong>自动压缩：</strong> 如果输出文件名以 <code>.gz</code> 结尾，输出文件将被自动压缩。推荐使用压缩格式，可以有效减少磁盘I/O和存储空间。</li>
 </ul>
-<p><strong>默认值:</strong> 无</p>
-<p><strong>示例:</strong></p>
+<p><strong>默认值：</strong> 无</p>
+<p><strong>示例：</strong></p>
 <pre><code>--output extracted_R1.fastq.gz</code></pre>
 </div>
 
@@ -557,12 +557,12 @@ Options:
 <h4><code>-r, --regions &lt;REGIONS&gt;</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(必需)</span></h4>
 <p>指定要从序列中提取的区域。</p>
 <ul>
-  <li><strong>格式规范:</strong> 使用 <code>start:end</code> 格式，多个区域用逗号分隔。</li>
-  <li><strong>坐标系统:</strong> 坐标为1-based（序列的第一个碱基位置为1）。</li>
-  <li><strong>应用:</strong> 用于提取Barcode、UMI，或对序列进行修剪。</li>
+  <li><strong>格式规范：</strong> 使用 <code>start:end</code> 格式，多个区域用逗号分隔。</li>
+  <li><strong>坐标系统：</strong> 坐标为1-based（序列的第一个碱基位置为1）。</li>
+  <li><strong>应用：</strong> 用于提取Barcode、UMI，或对序列进行修剪。</li>
 </ul>
-<p><strong>默认值:</strong> 无</p>
-<p><strong>示例:</strong></p>
+<p><strong>默认值：</strong> 无</p>
+<p><strong>示例：</strong></p>
 <pre><code>--regions 7:16,23:32,38:47</code></pre>
 </div>
 
@@ -578,11 +578,11 @@ Options:
 <h4><code>-t, --threads &lt;THREADS&gt;</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(可选)</span></h4>
 <p>设置并行处理线程数。</p>
 <ul>
-  <li><strong>功能:</strong> 提升读取、截取和写出阶段的并行能力，适用于大文件加速处理。</li>
-  <li><strong>建议:</strong> 默认值为 <code>所有可用的核心数量</code>；建议根据CPU核心数和磁盘I/O性能进行调整。</li>
+  <li><strong>功能：</strong> 提升读取、截取和写出阶段的并行能力，适用于大文件加速处理。</li>
+  <li><strong>建议：</strong> 默认值为 <code>所有可用的核心数量</code>；建议根据CPU核心数和磁盘I/O性能进行调整。</li>
 </ul>
-<p><strong>默认值:</strong> <code>所有可用的核心数量</code></p>
-<p><strong>示例:</strong></p>
+<p><strong>默认值：</strong> <code>所有可用的核心数量</code></p>
+<p><strong>示例：</strong></p>
 <pre><code>--threads 8</code></pre>
 </div>
 
@@ -620,7 +620,7 @@ Options:
 
 > <strong>反馈与支持</strong>
 >
-> 本文档持续更新中，如发现内容错误或需要补充的信息，欢迎反馈。
+> 本文档持续维护更新。若发现内容错误或需要补充信息，请通过 GitHub Issues 反馈。
 >
 <strong>文档版本：</strong> 3.1 | <strong>最后更新：</strong> 2026年4月
 

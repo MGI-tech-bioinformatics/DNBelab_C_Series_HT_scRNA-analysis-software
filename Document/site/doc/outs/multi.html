@@ -35,6 +35,9 @@
     
       <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
       
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
       
 
 
@@ -63,7 +66,14 @@
   </head>
   
   
-    <body dir="ltr">
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="blue">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -114,6 +124,24 @@
         </div>
       </div>
     </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="blue"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="blue"  aria-hidden="true"  type="radio" name="__palette" id="__palette_1">
+    
+  
+</form>
+      
     
     
       <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
@@ -1058,10 +1086,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#configuration-parameters" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Configuration Parameters（参数信息）
+        参数信息
       
     </span>
   </a>
@@ -1191,7 +1219,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
       
         相关文档
@@ -1519,10 +1547,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#configuration-parameters" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Configuration Parameters（参数信息）
+        参数信息
       
     </span>
   </a>
@@ -1652,7 +1680,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
       
         相关文档
@@ -1695,7 +1723,7 @@
 <h2 id="_2">概述 <a id="概述"></a><a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>多组学流程会将 RNA / ATAC / VDJ 的关键结果统一整理到一个样本目录，支持在同一份报告中完成跨组学浏览和对比。</p>
 <blockquote>
-<p><strong>提示</strong>*</p>
+<p><strong>提示</strong></p>
 <p>组合报告用于快速总览和跨模块联看。需要深入解释时，请进入对应单组学 outs 文档。</p>
 </blockquote>
 </div>
@@ -1762,7 +1790,7 @@
 </ul>
 </div>
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
-<h3 id="configuration-parameters">Configuration Parameters（参数信息）<a class="headerlink" href="#configuration-parameters" title="Permanent link">&para;</a></h3>
+<h3 id="_6">参数信息<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
 <div align="center" style="margin: 24px auto; max-width: 1200px;">
 <p><img src="../images/html_multi_parameter.png" alt="multi configuration parameters 页面" width="760" style="border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,0.1);"></p>
 </div>
@@ -1883,7 +1911,7 @@
 <hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;">
 </div>
 <div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
-<h2 id="_6">相关文档<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<h2 id="_7">相关文档<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
 </div>
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
 <table>
@@ -1927,7 +1955,7 @@
 <div align="center" style="background: #f5f5f7; border-radius: 12px; padding: 30px; margin: 40px auto; max-width: 1200px;">
 <blockquote>
 <p><strong>反馈与支持</strong></p>
-<p>本文档持续更新中，如发现内容错误或需要补充的信息，欢迎反馈。</p>
+<p>本文档持续维护更新。若发现内容错误或需要补充信息，请通过 GitHub Issues 反馈。</p>
 <p><strong>文档版本：</strong> 3.1 | <strong>最后更新：</strong> 2026年4月</p>
 </blockquote>
 </div>

@@ -24,7 +24,7 @@
 
 多组学流程会将 RNA / ATAC / VDJ 的关键结果统一整理到一个样本目录，支持在同一份报告中完成跨组学浏览和对比。
 
-> **提示***
+> **提示**
 > 
 > 组合报告用于快速总览和跨模块联看。需要深入解释时，请进入对应单组学 outs 文档。
 
@@ -115,7 +115,7 @@
 
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 
-### Configuration Parameters（参数信息）
+### 参数信息
 
 <div align="center" style="margin: 24px auto; max-width: 1200px;">
 <img src="../images/html_multi_parameter.png" alt="multi configuration parameters 页面" width="760" style="border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,0.1);">
@@ -293,7 +293,7 @@
 
 > <strong>反馈与支持</strong>
 > 
-> 本文档持续更新中，如发现内容错误或需要补充的信息，欢迎反馈。
+> 本文档持续维护更新。若发现内容错误或需要补充信息，请通过 GitHub Issues 反馈。
 > 
 <strong>文档版本：</strong> 3.1 | <strong>最后更新：</strong> 2026年4月
 

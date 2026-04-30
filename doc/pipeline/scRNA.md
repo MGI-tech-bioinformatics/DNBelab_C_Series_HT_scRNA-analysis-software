@@ -244,7 +244,7 @@ TR_J_gene
 TR_C_gene
 ```
 
-您也可以使用 `include` 参数自定义需要保留的基因类型：
+也可使用 `include` 参数自定义需要保留的基因类型：
 
 ```shell
 # 自定义基因类型过滤
@@ -367,7 +367,7 @@ $dnbc4tools rna mkref \
 
 ### 多样本批处理（可选）
 
-为简化多样本分析流程，您可以使用配置文件批量生成针对每个样本的 shell 脚本。
+为简化多样本分析流程，可使用配置文件批量生成针对每个样本的 shell 脚本。
 
 ```shell
 $dnbc4tools rna multi \
@@ -426,7 +426,7 @@ $cat sample1.sh
 /opt/software/dnbc4tools3.0beta/dnbc4tools rna run --name sample1 --cDNAfastq1 /data/cDNA1_R1.fq.gz --cDNAfastq2 /data/cDNA1_R2.fq.gz --oligofastq1 /data/oligo1_R1.fq.gz,/data/oligo4_R1.fq.gz --oligofastq2 /data/oligo1_R2.fq.gz,/data/oligo4_R2.fq.gz --genomeDir /database/scRNA/Mus_musculus/mm10 --threads 30
 ```
 
-随后，您可以执行这些脚本以进行主流程分析。
+随后可执行这些脚本进行主流程分析。
 
 
 ### 单样本分析
@@ -627,7 +627,7 @@ $dnbc4tools rna run \
 
 > <strong>反馈与支持</strong>
 >
-> 本文档持续更新中，如发现内容错误或需要补充的信息，欢迎反馈。
+> 本文档持续维护更新。若发现内容错误或需要补充信息，请通过 GitHub Issues 反馈。
 >
 > <strong>文档版本：</strong> 3.1 | <strong>最后更新：</strong> 2026年4月
 

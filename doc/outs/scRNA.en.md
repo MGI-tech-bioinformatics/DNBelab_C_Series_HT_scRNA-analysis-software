@@ -649,7 +649,7 @@ The Market Exchange Format (MEX) is a standard format used in single-cell analys
 
 The HTML web report is a comprehensive display platform for single-cell RNA sequencing analysis, integrating complete results from data quality control to downstream biological analysis. The report uses an interactive visual design to help users quickly assess experimental quality, understand analysis results, and guide future research directions.
 
-> **Usage Suggestion**: It is recommended to review the metrics in the order they are presented in the report.
+> **Usage Notes**: It is recommended to review the metrics in the order they are presented in the report.
 
 > **Note**: The following standards are for reference only. Actual quality assessment should consider multiple factors such as tissue type, cell state, and experimental goals. Significant differences may exist between different samples, and it is recommended to make judgments based on the specific experimental context.
 
@@ -1194,7 +1194,7 @@ Using UMAP dimensionality reduction and the Louvain clustering algorithm, cells 
 **How to Interpret**:
 
 *   **Left Plot (Cell Type Clustering)**: Each point represents a cell, and different colors represent different cell clusters. Cells that are close in space have more similar gene expression profiles.
-*   **Right Plot (UMI Count Distribution)**: On the same UMAP space, a color gradient shows the total UMI count for each cell. This can be used to help assess the reliability of the clustering results, for example, whether certain clusters are composed of low-quality cells.
+*   **Right Plot (UMI Count Distribution)**: On the same UMAP space, a color gradient shows the total UMI count for each cell. This can be used to assess clustering reliability, for example, whether certain clusters are composed of low-quality cells.
 
 <div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
 
@@ -1223,14 +1223,14 @@ On the UMAP plot, each cluster is labeled with a cell type inferred from a refer
 
 *   **Annotation Result**: Provides a possible cell type label for each cluster.
 *   **Species Support**: Human (Homo sapiens) / Mouse (Mus musculus). Cell type annotation is not provided for other species.
-*   **Usage Suggestion**: The automatic annotation results are for reference only. Their accuracy depends on the quality of the reference database and the similarity of the sample. It is recommended to manually verify and correct them in conjunction with marker genes.
+*   **Usage Notes**: The automatic annotation results are for reference only. Their accuracy depends on the quality of the reference database and the similarity of the sample. It is recommended to manually verify and correct them in conjunction with marker genes.
 
 <div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
 
 ##### Sequencing Saturation Curve
 
 **Chart Function**:
-Assesses the adequacy of sequencing depth and data complexity, i.e., whether further increasing the sequencing volume can lead to the discovery of more new genes or UMIs.
+Assesses the adequacy of sequencing depth and data complexity, that is, whether further increasing the sequencing volume can lead to the discovery of more new genes or UMIs.
 
 **How to Interpret**:
 
@@ -1263,7 +1263,7 @@ This page combines droplet-level multiplet statistics, cell-level species scatte
 *   **Summary panel (bottom)**:
     - Separately reports cell count, median UMI/genes per cell, total genes detected, and mapping-related metrics for `hg38` and `mm10`.
     - Large imbalance between species in key metrics may indicate issues in loading ratio, sample condition, or species separation performance.
-*   **Usage suggestions**:
+*   **Usage Notes**:
     - Mark or remove `call=Multiplet` cells before downstream clustering.
     - Interpret this page together with `analysis/cell_classification.csv` rather than relying on a single threshold.
 

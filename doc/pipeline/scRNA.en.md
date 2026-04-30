@@ -607,7 +607,7 @@ Upon completion, `outs` (outputs) and `logs` directories will be generated. The 
 
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
 
-This section is being updated. Common troubleshooting entries will be added in the next revision.
+This section is under continuous maintenance. Common troubleshooting entries will be added in a future revision.
 
 </div>
 
@@ -619,7 +619,7 @@ This section is being updated. Common troubleshooting entries will be added in t
 
 > <strong>Feedback & Support</strong>
 >
-> This document is continuously updated. If you find any errors or need additional information, feedback is welcome.
+> This document is continuously maintained. If you identify errors or missing information, please submit feedback via GitHub Issues.
 >
 > <strong>Document Version:</strong> 3.1 | <strong>Last Updated:</strong> April 2026
 

@@ -51,7 +51,7 @@
 | :--- | :--- |
 | [参数说明](../parameter/parameter.md) | 命令参数与配置项参考 |
 | [输出说明](../outs/outs.md) | 输出文件和报告解读 |
-| [快速开始](../quickstart.md) | 5 分钟快速上手 |
+| [快速开始](../quickstart.md) | 入门操作指南 |
 | [安装指南](../installation.md) | 软件安装与环境要求 |
 
 </div>

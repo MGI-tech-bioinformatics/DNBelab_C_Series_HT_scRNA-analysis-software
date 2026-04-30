@@ -293,7 +293,7 @@ Reference:
 
 > <strong>Feedback & Support</strong>
 >
-> This document is continuously updated. If you find any issues or missing information, feedback is welcome.
+> This document is continuously maintained. If you identify issues or missing information, please submit feedback via GitHub Issues.
 >
 <strong>Document Version:</strong> 3.1 | <strong>Last Updated:</strong> April 2026
 

@@ -33,6 +33,9 @@
     
       <link rel="stylesheet" href="assets/stylesheets/main.484c7ddc.min.css">
       
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+      
       
 
 
@@ -61,7 +64,14 @@
   </head>
   
   
-    <body dir="ltr">
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="blue">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -112,6 +122,24 @@
         </div>
       </div>
     </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="blue"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="blue"  aria-hidden="true"  type="radio" name="__palette" id="__palette_1">
+    
+  
+</form>
+      
     
     
       <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
@@ -1370,41 +1398,44 @@
 </div>
 <hr />
 <h3 id="_3">模块导航<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
-<table class="home-module-table">
-  <thead>
-    <tr>
-      <th>分析流程</th>
-      <th>命令参数</th>
-      <th>结果输出</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>
-        <p><a href="./doc/pipeline/pipeline.html">总览</a></p>
-        <p><a href="./doc/pipeline/scRNA.html">scRNA</a></p>
-        <p><a href="./doc/pipeline/scATAC.html">scATAC</a></p>
-        <p><a href="./doc/pipeline/scVDJ.html">scVDJ</a></p>
-        <p><a href="./doc/pipeline/multi.html">多组学</a></p>
-      </td>
-      <td>
-        <p><a href="./doc/parameter/parameter.html">总览</a></p>
-        <p><a href="./doc/parameter/scRNA.html">scRNA</a></p>
-        <p><a href="./doc/parameter/scATAC.html">scATAC</a></p>
-        <p><a href="./doc/parameter/scVDJ.html">scVDJ</a></p>
-        <p><a href="./doc/parameter/multi.html">多组学</a></p>
-        <p><a href="./doc/parameter/tools.html">工具箱</a></p>
-      </td>
-      <td>
-        <p><a href="./doc/outs/outs.html">总览</a></p>
-        <p><a href="./doc/outs/scRNA.html">scRNA</a></p>
-        <p><a href="./doc/outs/scATAC.html">scATAC</a></p>
-        <p><a href="./doc/outs/scVDJ.html">scVDJ</a></p>
-        <p><a href="./doc/outs/multi.html">多组学</a></p>
-      </td>
-    </tr>
-  </tbody>
-</table>
+<div class="home-card-grid">
+  <div class="home-card">
+    <h4>分析流程（Pipeline）</h4>
+    <p>端到端流程说明，覆盖输入准备、执行步骤与结果判读。</p>
+    <div class="home-card-links">
+      <a href="./doc/pipeline/pipeline.html">总览</a>
+      <a href="./doc/pipeline/scRNA.html">scRNA</a>
+      <a href="./doc/pipeline/scATAC.html">scATAC</a>
+      <a href="./doc/pipeline/scVDJ.html">scVDJ</a>
+      <a href="./doc/pipeline/multi.html">多组学</a>
+    </div>
+  </div>
+
+  <div class="home-card">
+    <h4>命令参数（Parameter）</h4>
+    <p>参数定义与推荐设置，适合运行前配置和问题排查。</p>
+    <div class="home-card-links">
+      <a href="./doc/parameter/parameter.html">总览</a>
+      <a href="./doc/parameter/scRNA.html">scRNA</a>
+      <a href="./doc/parameter/scATAC.html">scATAC</a>
+      <a href="./doc/parameter/scVDJ.html">scVDJ</a>
+      <a href="./doc/parameter/multi.html">多组学</a>
+      <a href="./doc/parameter/tools.html">工具箱</a>
+    </div>
+  </div>
+
+  <div class="home-card">
+    <h4>结果输出（Outputs）</h4>
+    <p>输出目录、关键文件与网页报告指标解读。</p>
+    <div class="home-card-links">
+      <a href="./doc/outs/outs.html">总览</a>
+      <a href="./doc/outs/scRNA.html">scRNA</a>
+      <a href="./doc/outs/scATAC.html">scATAC</a>
+      <a href="./doc/outs/scVDJ.html">scVDJ</a>
+      <a href="./doc/outs/multi.html">多组学</a>
+    </div>
+  </div>
+</div>
 
 <hr />
 <h2 id="_4">支持与反馈<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>

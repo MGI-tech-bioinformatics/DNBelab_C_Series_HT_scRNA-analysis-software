@@ -35,6 +35,9 @@
     
       <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
       
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
       
 
 
@@ -63,7 +66,14 @@
   </head>
   
   
-    <body dir="ltr">
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="blue">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -114,6 +124,24 @@
         </div>
       </div>
     </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="blue"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="blue"  aria-hidden="true"  type="radio" name="__palette" id="__palette_1">
+    
+  
+</form>
+      
     
     
       <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
@@ -2062,7 +2090,7 @@
 </div>
 <div align="center" style="padding: 40px 20px; background: linear-gradient(135deg, #f5f5f7 0%, #ffffff 100%); border-radius: 12px; margin-bottom: 30px; max-width: 1200px; margin-left: auto; margin-right: auto;">
 <h1 id="scvdj" style="font-size: 48px; font-weight: 600; color: #1d1d1f; margin: 0 0 16px 0; letter-spacing: -0.02em;"> scVDJ 分析输出<a class="headerlink" href="#scvdj" title="Permanent link">&para;</a></h1>
-<p style="font-size: 21px; color: #86868b; margin: 0; font-weight: 400;">单细胞V(D)J测序分析输出文件完整指南</p>
+<p style="font-size: 21px; color: #86868b; margin: 0; font-weight: 400;">单细胞 V(D)J 测序分析输出文件完整指南</p>
 <div style="margin-top: 24px;">
 <p><a href="#输出目录结构"> 目录结构</a> • <a href="#详细文件说明">文件详情</a> • <a href="#分析指标汇总">分析结果</a> • <a href="#网页报告释义">报告解读</a></p>
 </div>
@@ -2076,8 +2104,8 @@
 <p>单细胞 V(D)J 分析完成后，会在指定的输出目录中生成标准化的文件和子目录结构，专门用于免疫受体库谱分析。</p>
 </div>
 <blockquote>
-<p><strong>提示</strong>*: V(D)J 分析需要基于 5' 端 RNA 测序数据，所有输出文件遵循 AIRR 标准并兼容主流免疫组学分析工具。</p>
-<p><strong>前提条件</strong>*: 需要先完成 5' 端单细胞 RNA 测序分析</p>
+<p><strong>提示</strong>：V(D)J 分析需基于 5' 端 RNA 测序数据。所有输出文件遵循 AIRR 标准，并兼容主流免疫组学分析工具。</p>
+<p><strong>前提条件</strong>：需先完成 5' 端单细胞 RNA 测序分析。</p>
 </blockquote>
 </div>
 <div style="max-width: 1200px; margin: 0 auto;">
@@ -2219,7 +2247,7 @@
 </tr>
 </tbody>
 </table>
-<p>** 低置信度序列的判定依据：**</p>
+<p><strong>低置信度序列的判定依据：</strong></p>
 <ul>
 <li>生物学上极不可能存在的异常受体配置模式</li>
 <li>UMI 分子支持度显著偏低的可疑序列</li>
@@ -2847,7 +2875,7 @@
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
 <p>HTML 网页报告是单细胞 V(D)J 测序分析的综合展示平台，整合了从数据质量控制到下游免疫组库分析的完整结果。该报告采用交互式可视化设计，帮助用户快速评估实验质量、理解分析结果并指导后续研究方向。</p>
 <blockquote>
-<p><strong>使用建议</strong>*: 建议按照报告展示顺序依次查看各项指标。</p>
+<p><strong>使用说明</strong>：建议按照报告展示顺序依次查看各项指标。</p>
 <p><strong>注意</strong>: 以下标准仅供参考，实际质量评估应考虑组织类型、细胞状态和实验目标等多种因素。不同样本间存在显著差异，建议结合具体实验背景进行判断。</p>
 </blockquote>
 </div>
@@ -3313,7 +3341,7 @@
 <div align="center">
 <p><img src="../images/html_scvdj3.jpg" alt="V(D)J 细胞排序分析图" width="400"></p>
 </div>
-<p><strong>如何解读</strong>:</p>
+<p><strong>如何解读</strong>：</p>
 <ul>
 <li><strong>坐标轴</strong>:<ul>
 <li><strong>X轴 (Barcode Rank)</strong>: 所有细胞条形码按UMI总数降序排列（对数刻度）。</li>
@@ -3343,7 +3371,7 @@
 <div align="center">
 <p><img src="../images/html_scvdj2.png" alt="scVDJ 克隆型分析图表" width="500"></p>
 </div>
-<p><strong>如何解读</strong>:</p>
+<p><strong>如何解读</strong>：</p>
 <ul>
 <li><strong>上图 (Top 10 Clonotypes)</strong>: 柱状图显示样本中 10 个最丰富克隆型所占细胞的百分比，直观反映克隆型的相对丰度分布和免疫应答的集中程度。</li>
 <li><strong>下表 (详细信息表格)</strong>: 提供丰度最高的前 10 种克隆型的完整描述信息，包括克隆型 ID、CDR3 氨基酸/核苷酸序列、绝对频率以及相对比例。</li>
@@ -3382,7 +3410,7 @@
 <div align="center" style="background: #f5f5f7; border-radius: 12px; padding: 30px; margin: 40px auto; max-width: 1200px;">
 <blockquote>
 <p><strong>反馈与支持</strong></p>
-<p>本文档持续更新中，如发现内容错误或需要补充的信息，欢迎反馈。</p>
+<p>本文档持续维护更新。若发现内容错误或需要补充信息，请通过 GitHub Issues 反馈。</p>
 <p><strong>文档版本：</strong> 3.1 | <strong>最后更新：</strong> 2026年4月</p>
 </blockquote>
 </div>

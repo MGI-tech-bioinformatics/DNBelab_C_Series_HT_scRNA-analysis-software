@@ -35,6 +35,9 @@
     
       <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
       
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
       
 
 
@@ -63,7 +66,14 @@
   </head>
   
   
-    <body dir="ltr">
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="blue">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -114,6 +124,24 @@
         </div>
       </div>
     </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="blue"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="blue"  aria-hidden="true"  type="radio" name="__palette" id="__palette_1">
+    
+  
+</form>
+      
     
     
       <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
@@ -1920,22 +1948,22 @@ Basic Options:
 <h4 id="-n-name"><code>-n, --name</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(必需)</span><a class="headerlink" href="#-n-name" title="Permanent link">&para;</a></h4>
 <p>指定本次 multi 任务名称。</p>
 <ul>
-<li><strong>功能:</strong> 作为输出目录和报告中的样本标识。</li>
-<li><strong>影响:</strong> 最终输出路径通常为 <code>&lt;outdir&gt;/&lt;name&gt;/</code>。</li>
+<li><strong>功能：</strong> 作为输出目录和报告中的样本标识。</li>
+<li><strong>影响：</strong> 最终输出路径通常为 <code>&lt;outdir&gt;/&lt;name&gt;/</code>。</li>
 </ul>
-<p><strong>默认值:</strong> 无</p>
-<p><strong>示例:</strong></p>
+<p><strong>默认值：</strong> 无</p>
+<p><strong>示例：</strong></p>
 <pre><code>--name demo</code></pre>
 </div>
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4 id="-c-csv"><code>-c, --csv</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(必需)</span><a class="headerlink" href="#-c-csv" title="Permanent link">&para;</a></h4>
 <p>指定多组学配置 CSV 文件。</p>
 <ul>
-<li><strong>功能:</strong> 定义 RNA / ATAC / VDJ 各模块参数，以及输入数据来源。</li>
-<li><strong>要求:</strong> 文件中应包含模块配置段和 <code>[libraries]</code> 输入映射。</li>
+<li><strong>功能：</strong> 定义 RNA / ATAC / VDJ 各模块参数，以及输入数据来源。</li>
+<li><strong>要求：</strong> 文件中应包含模块配置段和 <code>[libraries]</code> 输入映射。</li>
 </ul>
-<p><strong>默认值:</strong> 无</p>
-<p><strong>示例:</strong></p>
+<p><strong>默认值：</strong> 无</p>
+<p><strong>示例：</strong></p>
 <pre><code>--csv sample.csv</code></pre>
 </div>
 <div style="max-width: 1200px; margin: 0 auto;">
@@ -1946,22 +1974,22 @@ Basic Options:
 <h4 id="-o-outdir"><code>-o, --outdir</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(可选)</span><a class="headerlink" href="#-o-outdir" title="Permanent link">&para;</a></h4>
 <p>指定 multi 流程输出目录。</p>
 <ul>
-<li><strong>功能:</strong> 存放整合报告、模块输出和运行日志。</li>
-<li><strong>建议:</strong> 为不同任务使用独立目录，便于结果管理。</li>
+<li><strong>功能：</strong> 存放整合报告、模块输出和运行日志。</li>
+<li><strong>建议：</strong> 为不同任务使用独立目录，便于结果管理。</li>
 </ul>
-<p><strong>默认值:</strong> <code>./</code> (当前目录)</p>
-<p><strong>示例:</strong></p>
+<p><strong>默认值：</strong> <code>./</code> (当前目录)</p>
+<p><strong>示例：</strong></p>
 <pre><code>--outdir /data/result</code></pre>
 </div>
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4 id="-t-threads"><code>-t, --threads</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(可选)</span><a class="headerlink" href="#-t-threads" title="Permanent link">&para;</a></h4>
 <p>设置流程可用 CPU 线程数。</p>
 <ul>
-<li><strong>功能:</strong> 控制并行度，影响整体运行速度。</li>
-<li><strong>建议:</strong> 根据机器资源和并发任务数量设置。</li>
+<li><strong>功能：</strong> 控制并行度，影响整体运行速度。</li>
+<li><strong>建议：</strong> 根据机器资源和并发任务数量设置。</li>
 </ul>
-<p><strong>默认值:</strong> 使用软件默认线程策略</p>
-<p><strong>示例:</strong></p>
+<p><strong>默认值：</strong> 使用软件默认线程策略</p>
+<p><strong>示例：</strong></p>
 <pre><code>--threads 20</code></pre>
 </div>
 <div style="max-width: 1200px; margin: 0 auto;">
@@ -1986,7 +2014,7 @@ Basic Options:
 </div>
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
 <details open="open">
-<summary> 点击展开完整模板（RNA + VDJ-T/B 示例）</summary>
+<summary> 展开完整模板（RNA + VDJ-T/B 示例）</summary>
 
 
 <pre><code class="language-csv">[rna]

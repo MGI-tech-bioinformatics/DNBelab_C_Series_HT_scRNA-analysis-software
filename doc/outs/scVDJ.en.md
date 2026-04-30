@@ -845,15 +845,15 @@ An interactive comprehensive analysis report in HTML web format.
 
 <div align="center">
 
-** Overview**: The HTML web report provides a comprehensive visual display and detailed interpretation of single-cell V(D)J sequencing analysis results, including an evaluation of key performance indicators to help users quickly understand the experimental quality and analysis outcomes.
+**Overview**: The HTML web report provides a comprehensive visual display and detailed interpretation of single-cell V(D)J sequencing analysis results, including an evaluation of key performance indicators to help users quickly understand experimental quality and analysis outcomes.
 
 </div>
 
 The HTML web report is a comprehensive platform for displaying single-cell V(D)J sequencing analysis, integrating complete results from data quality control to downstream immune repertoire analysis. The report uses an interactive visual design to help users quickly assess experimental quality, understand analysis results, and guide future research directions.
 
-> **Usage Suggestion**: It is recommended to review the metrics in the order they are presented in the report.
+> **Usage Notes**: Review metrics in the order presented in the report.
 
-> **Note**: The following standards are for reference only. Actual quality assessment should consider multiple factors such as tissue type, cell state, and experimental objectives. Significant differences may exist between samples, so judgment should be based on the specific experimental context.
+> **Note**: The following standards are for reference only. Actual quality assessment should consider tissue type, cell state, experimental objectives, and sample-specific context.
 
 ### Main Report Content and Structure
 
@@ -1164,10 +1164,12 @@ Productive contigs require: full V-to-J span, valid start codon, complete in-fra
 <img src="../images/html_scvdj3.jpg" alt="V(D)J Barcode Rank Plot" width="400">
 </div>
 
-**How to Interpret:**
-*   **Axes**: X-axis (Barcode Rank) shows cell barcodes ranked by total UMI counts (log scale); Y-axis (UMI Counts) shows total UMIs per cell (log scale).
-*   **Visual encoding**: Blue line indicates called valid cells; gray line indicates background/noise; blue gradient zone indicates a transitional mixed region. (visual-check)
-*   **Quality assessment**: A steeper drop typically indicates better separation between cells and background; in BCR datasets, a subgroup with very high UMIs may appear and often represents highly expressed plasma cells.
+<p><strong>How to Interpret:</strong></p>
+<ul>
+  <li><strong>Axes</strong>: X-axis (Barcode Rank) shows cell barcodes ranked by total UMI counts (log scale); Y-axis (UMI Counts) shows total UMIs per cell (log scale).</li>
+  <li><strong>Visual encoding</strong>: Blue line indicates called valid cells; gray line indicates background/noise; blue gradient zone indicates a transitional mixed region.</li>
+  <li><strong>Quality assessment</strong>: A steeper drop typically indicates better separation between cells and background; in BCR datasets, a subgroup with very high UMIs may appear and often represents highly expressed plasma cells.</li>
+</ul>
 
 </div>
 
@@ -1188,9 +1190,11 @@ Productive contigs require: full V-to-J span, valid start codon, complete in-fra
 <img src="../images/html_scvdj2.png" alt="scVDJ clonotype analysis charts" width="500">
 </div>
 
-**How to Interpret:**
-*   **Top panel (Top 10 Clonotypes)**: Bar chart of cell percentages for the top 10 clonotypes, reflecting clonal expansion and immune dominance.
-*   **Bottom table (Detail table)**: Full descriptions of top clonotypes, including clonotype ID, CDR3 amino acid/nucleotide sequences, absolute frequency, and relative proportion.
+<p><strong>How to Interpret:</strong></p>
+<ul>
+  <li><strong>Top panel (Top 10 Clonotypes)</strong>: Bar chart of cell percentages for the top 10 clonotypes, reflecting clonal expansion and immune dominance.</li>
+  <li><strong>Bottom table (Detail table)</strong>: Full descriptions of top clonotypes, including clonotype ID, CDR3 amino acid/nucleotide sequences, absolute frequency, and relative proportion.</li>
+</ul>
 
 </div>
 

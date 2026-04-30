@@ -41,7 +41,7 @@ A high-performance single-cell analysis toolkit for DNBelab C Series™ data. CL
 ## Support & Community
 
 - **Questions, bug reports, feature requests** → [GitHub Issues](https://github.com/MGI-tech-bioinformatics/DNBelab_C_Series_HT_scRNA-analysis-software/issues)
-- **Website** → [www.mgitech.com](https://www.mgitech.com)
+- **Website** → [www.mgi-tech.com](https://www.mgi-tech.com)
 
 ---
 

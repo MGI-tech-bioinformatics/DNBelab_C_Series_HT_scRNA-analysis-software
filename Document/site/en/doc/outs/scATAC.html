@@ -35,6 +35,9 @@
     
       <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
       
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
       
 
 
@@ -63,7 +66,14 @@
   </head>
   
   
-    <body dir="ltr">
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="blue">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -114,6 +124,24 @@
         </div>
       </div>
     </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="blue"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="blue"  aria-hidden="true"  type="radio" name="__palette" id="__palette_1">
+    
+  
+</form>
+      
     
     
       <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
@@ -2702,7 +2730,7 @@
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
 <p>The HTML web report is a comprehensive display platform for single-cell ATAC sequencing analysis, integrating complete results from data quality control to downstream epigenomic analysis. The report uses an interactive visualization design to help users quickly evaluate experimental quality, understand analysis results, and guide subsequent research directions.</p>
 <blockquote>
-<p><strong>Usage Suggestion</strong>: It is recommended to review the metrics in the order they are presented in the report.</p>
+<p><strong>Usage Notes</strong>: It is recommended to review the metrics in the order they are presented in the report.</p>
 <p><strong>Note</strong>: The following standards are for reference only. Actual quality assessment should consider factors such as sample type, cell state, and experimental goals. Since significant differences can exist between samples, we recommend interpreting the results in the context of your specific experimental background.</p>
 </blockquote>
 </div>
@@ -2973,7 +3001,7 @@
 <td align="left" style="padding: 12px 16px; border-bottom: 1px solid #f0f0f0;"><strong>Nucleosome-free regions</strong></td>
 <td style="padding: 12px 16px; border-bottom: 1px solid #f0f0f0;">
 <ul>
-<li><strong>Definition</strong>: The proportion of fragments originating from open chromatin regions (i.e., nucleosome-free regions).</li>
+<li><strong>Definition</strong>: The proportion of fragments originating from open chromatin regions (that is, nucleosome-free regions).</li>
 <li><strong>Biological Significance</strong>: Reflects the strength of the valid ATAC-seq signal.</li>
 <li><strong>Quality Interpretation</strong>: A high proportion (e.g., &gt; 40%) indicates good chromatin accessibility.</li>
 </ul>
@@ -3076,7 +3104,7 @@ Shows the insert length distribution of deduplicated ATAC-seq fragments, a key p
 <p><strong>How to Interpret</strong>:</p>
 <ul>
 <li><strong>Periodic peaks</strong>:<ul>
-<li><strong>&lt; ~100 bp</strong>: First peak, corresponding to <strong>nucleosome-free regions (NFRs)</strong>, i.e., open chromatin.</li>
+<li><strong>&lt; ~100 bp</strong>: First peak, corresponding to <strong>nucleosome-free regions (NFRs)</strong>, that is, open chromatin.</li>
 <li><strong>~200 bp</strong>: Second peak, corresponding to <strong>mono-nucleosome</strong> fragments.</li>
 <li><strong>~400 bp, ~600 bp</strong>: Subsequent peaks corresponding to <strong>di-nucleosome</strong> and <strong>tri-nucleosome</strong> fragments.</li>
 </ul>
@@ -3178,7 +3206,7 @@ A scatter plot of two key QC metrics per cell, used to evaluate cell-calling per
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px; ">
 <h4 id="saturation-curve">Saturation Curve<a class="headerlink" href="#saturation-curve" title="Permanent link">&para;</a></h4>
 <p><strong>Chart Function</strong>:<br />
-Evaluates sequencing depth sufficiency and library complexity, i.e., whether additional sequencing can still identify substantial numbers of new unique fragments.</p>
+Evaluates sequencing depth sufficiency and library complexity, that is, whether additional sequencing can still identify substantial numbers of new unique fragments.</p>
 <p><strong>How to Interpret</strong>:</p>
 <ol>
 <li><strong>Axes</strong><ul>
@@ -3251,7 +3279,7 @@ In C4 ATAC, this plot is used to merge multiple beads from the same droplet by r
 <div align="center" style="background: #f5f5f7; border-radius: 12px; padding: 30px; margin: 40px auto; max-width: 1200px;">
 <blockquote>
 <p><strong>Feedback &amp; Support</strong></p>
-<p>This document is continuously updated. If you find any errors or have information to add, feedback is welcome.</p>
+<p>This document is continuously maintained. If you identify errors or additional information is required, please submit feedback via GitHub Issues.</p>
 <p><strong>Document Version:</strong> 3.1 | <strong>Last Updated:</strong> April 2026</p>
 </blockquote>
 </div>

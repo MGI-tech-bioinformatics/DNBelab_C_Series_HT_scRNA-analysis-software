@@ -511,7 +511,7 @@ Market Exchange Format (MEX) is a standard format for storing sparse count matri
 
 The HTML web report is a comprehensive display platform for single-cell ATAC sequencing analysis, integrating complete results from data quality control to downstream epigenomic analysis. The report uses an interactive visualization design to help users quickly evaluate experimental quality, understand analysis results, and guide subsequent research directions.
 
-> **Usage Suggestion**: It is recommended to review the metrics in the order they are presented in the report.
+> **Usage Notes**: It is recommended to review the metrics in the order they are presented in the report.
 
 > **Note**: The following standards are for reference only. Actual quality assessment should consider factors such as sample type, cell state, and experimental goals. Since significant differences can exist between samples, we recommend interpreting the results in the context of your specific experimental background.
 
@@ -802,7 +802,7 @@ The HTML web report is a comprehensive display platform for single-cell ATAC seq
 <td align="left" style="padding: 12px 16px; border-bottom: 1px solid #f0f0f0;"><strong>Nucleosome-free regions</strong></td>
 <td style="padding: 12px 16px; border-bottom: 1px solid #f0f0f0;">
 <ul>
-<li><strong>Definition</strong>: The proportion of fragments originating from open chromatin regions (i.e., nucleosome-free regions).</li>
+<li><strong>Definition</strong>: The proportion of fragments originating from open chromatin regions (that is, nucleosome-free regions).</li>
 <li><strong>Biological Significance</strong>: Reflects the strength of the valid ATAC-seq signal.</li>
 <li><strong>Quality Interpretation</strong>: A high proportion (e.g., > 40%) indicates good chromatin accessibility.</li>
 </ul>
@@ -917,7 +917,7 @@ Shows the insert length distribution of deduplicated ATAC-seq fragments, a key p
 **How to Interpret**:
 
 *   **Periodic peaks**:
-    *   **< ~100 bp**: First peak, corresponding to **nucleosome-free regions (NFRs)**, i.e., open chromatin.
+    *   **< ~100 bp**: First peak, corresponding to **nucleosome-free regions (NFRs)**, that is, open chromatin.
     *   **~200 bp**: Second peak, corresponding to **mono-nucleosome** fragments.
     *   **~400 bp, ~600 bp**: Subsequent peaks corresponding to **di-nucleosome** and **tri-nucleosome** fragments.
 *   **Quality assessment**:
@@ -1026,7 +1026,7 @@ A scatter plot of two key QC metrics per cell, used to evaluate cell-calling per
 #### Saturation Curve
 
 **Chart Function**:  
-Evaluates sequencing depth sufficiency and library complexity, i.e., whether additional sequencing can still identify substantial numbers of new unique fragments.
+Evaluates sequencing depth sufficiency and library complexity, that is, whether additional sequencing can still identify substantial numbers of new unique fragments.
 
 **How to Interpret**:
 
@@ -1083,7 +1083,7 @@ In C4 ATAC, this plot is used to merge multiple beads from the same droplet by r
 
 > <strong>Feedback & Support</strong>
 > 
-> This document is continuously updated. If you find any errors or have information to add, feedback is welcome.
+> This document is continuously maintained. If you identify errors or additional information is required, please submit feedback via GitHub Issues.
 > 
 <strong>Document Version:</strong> 3.1 | <strong>Last Updated:</strong> April 2026
 

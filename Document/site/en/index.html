@@ -33,6 +33,9 @@
     
       <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
       
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
       
 
 
@@ -61,7 +64,14 @@
   </head>
   
   
-    <body dir="ltr">
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="blue">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -112,6 +122,24 @@
         </div>
       </div>
     </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="blue"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="blue"  aria-hidden="true"  type="radio" name="__palette" id="__palette_1">
+    
+  
+</form>
+      
     
     
       <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
@@ -1370,41 +1398,44 @@
 </div>
 <hr />
 <h3 id="module-navigation">Module Navigation<a class="headerlink" href="#module-navigation" title="Permanent link">&para;</a></h3>
-<table class="home-module-table">
-  <thead>
-    <tr>
-      <th>Pipeline</th>
-      <th>Parameter</th>
-      <th>Outputs</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>
-        <p><a href="./doc/pipeline/pipeline.en.html">Overview</a></p>
-        <p><a href="./doc/pipeline/scRNA.en.html">scRNA</a></p>
-        <p><a href="./doc/pipeline/scATAC.en.html">scATAC</a></p>
-        <p><a href="./doc/pipeline/scVDJ.en.html">scVDJ</a></p>
-        <p><a href="./doc/pipeline/multi.en.html">Multi</a></p>
-      </td>
-      <td>
-        <p><a href="./doc/parameter/parameter.en.html">Overview</a></p>
-        <p><a href="./doc/parameter/scRNA.en.html">scRNA</a></p>
-        <p><a href="./doc/parameter/scATAC.en.html">scATAC</a></p>
-        <p><a href="./doc/parameter/scVDJ.en.html">scVDJ</a></p>
-        <p><a href="./doc/parameter/multi.en.html">Multi</a></p>
-        <p><a href="./doc/parameter/tools.en.html">Toolbox</a></p>
-      </td>
-      <td>
-        <p><a href="./doc/outs/outs.en.html">Overview</a></p>
-        <p><a href="./doc/outs/scRNA.en.html">scRNA</a></p>
-        <p><a href="./doc/outs/scATAC.en.html">scATAC</a></p>
-        <p><a href="./doc/outs/scVDJ.en.html">scVDJ</a></p>
-        <p><a href="./doc/outs/multi.en.html">Multi</a></p>
-      </td>
-    </tr>
-  </tbody>
-</table>
+<div class="home-card-grid">
+  <div class="home-card">
+    <h4>Pipeline</h4>
+    <p>End-to-end workflow guidance from input preparation to result interpretation.</p>
+    <div class="home-card-links">
+      <a href="./doc/pipeline/pipeline.en.html">Overview</a>
+      <a href="./doc/pipeline/scRNA.en.html">scRNA</a>
+      <a href="./doc/pipeline/scATAC.en.html">scATAC</a>
+      <a href="./doc/pipeline/scVDJ.en.html">scVDJ</a>
+      <a href="./doc/pipeline/multi.en.html">Multi</a>
+    </div>
+  </div>
+
+  <div class="home-card">
+    <h4>Parameter</h4>
+    <p>Command parameters and recommended settings for configuration and troubleshooting.</p>
+    <div class="home-card-links">
+      <a href="./doc/parameter/parameter.en.html">Overview</a>
+      <a href="./doc/parameter/scRNA.en.html">scRNA</a>
+      <a href="./doc/parameter/scATAC.en.html">scATAC</a>
+      <a href="./doc/parameter/scVDJ.en.html">scVDJ</a>
+      <a href="./doc/parameter/multi.en.html">Multi</a>
+      <a href="./doc/parameter/tools.en.html">Toolbox</a>
+    </div>
+  </div>
+
+  <div class="home-card">
+    <h4>Outputs</h4>
+    <p>Output directory structure, key files, and web-report metric interpretation.</p>
+    <div class="home-card-links">
+      <a href="./doc/outs/outs.en.html">Overview</a>
+      <a href="./doc/outs/scRNA.en.html">scRNA</a>
+      <a href="./doc/outs/scATAC.en.html">scATAC</a>
+      <a href="./doc/outs/scVDJ.en.html">scVDJ</a>
+      <a href="./doc/outs/multi.en.html">Multi</a>
+    </div>
+  </div>
+</div>
 
 <hr />
 <h2 id="support">Support<a class="headerlink" href="#support" title="Permanent link">&para;</a></h2>

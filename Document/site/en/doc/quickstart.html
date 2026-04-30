@@ -35,6 +35,9 @@
     
       <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
       
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
       
 
 
@@ -63,7 +66,14 @@
   </head>
   
   
-    <body dir="ltr">
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="blue">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -114,6 +124,24 @@
         </div>
       </div>
     </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="blue"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="blue"  aria-hidden="true"  type="radio" name="__palette" id="__palette_1">
+    
+  
+</form>
+      
     
     
       <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
@@ -1660,7 +1688,7 @@
 </div>
 <h1 id="quick-start-guide">Quick Start Guide<a class="headerlink" href="#quick-start-guide" title="Permanent link">&para;</a></h1>
 <div align="center">
-<p><strong>Get started with dnbc4tools</strong></p>
+<p><strong>Operational Quick-Start for dnbc4tools</strong></p>
 <p><a href="#single-cell-rna-analysis">RNA-seq</a> • <a href="#single-cell-atac-analysis">ATAC-seq</a> • <a href="#single-cell-vdj-analysis">VDJ-seq</a> • <a href="#integrated-multi-omics-analysis">Multi-omics</a></p>
 </div>
 <hr />
@@ -1725,7 +1753,7 @@ $dnbc4tools rna mkref \
     --threads 10
 </code></pre>
 <h3 id="step-2-run-analysis">Step 2: Run Analysis<a class="headerlink" href="#step-2-run-analysis" title="Permanent link">&para;</a></h3>
-<p><strong>Quick Input (<code>--fastqs</code>)</strong></p>
+<p><strong>Directory-based Input (<code>--fastqs</code>)</strong></p>
 <pre><code class="language-bash">$dnbc4tools rna run \
     --fastqs /test/data/rna_fastqs \
     --genomeDir /database/scRNA/Mus_musculus/mm10 \
@@ -1739,7 +1767,7 @@ $dnbc4tools rna mkref \
 </ul>
 
 <p>See <a href="#file-naming-conventions">File Naming Conventions</a> for supported patterns.</p>
-<p><strong>Detailed Input (--cDNAfastq1/2 --oligofastq1/2)</strong></p>
+<p><strong>File-specific Input (--cDNAfastq1/2 --oligofastq1/2)</strong></p>
 <pre><code class="language-bash">$dnbc4tools rna run \
     --cDNAfastq1 /test/data/rna_fastqs/cDNA/test_R1.fastq.gz \
     --cDNAfastq2 /test/data/rna_fastqs/cDNA/test_R2.fastq.gz \
@@ -1782,7 +1810,7 @@ $dnbc4tools tools mkgtf --ingtf gencode.vM23.primary_assembly.annotation.gtf --o
 $dnbc4tools atac mkref --fasta GRCm38.primary_assembly.genome.fa --ingtf genes.filtered.gtf --species Mus_musculus --prefix chr
 </code></pre>
 <h3 id="step-2-run-analysis_1">Step 2: Run Analysis<a class="headerlink" href="#step-2-run-analysis_1" title="Permanent link">&para;</a></h3>
-<p><strong>Quick Input (<code>--fastqs</code>)</strong></p>
+<p><strong>Directory-based Input (<code>--fastqs</code>)</strong></p>
 <pre><code class="language-bash">$dnbc4tools atac run \
     --fastqs /test/data \
     --genomeDir /database/scATAC/Mus_musculus/mm10 \
@@ -1795,7 +1823,7 @@ $dnbc4tools atac mkref --fasta GRCm38.primary_assembly.genome.fa --ingtf genes.f
 </ul>
 
 <p>See <a href="#file-naming-conventions">File Naming Conventions</a> for supported patterns.</p>
-<p><strong>Detailed Input (--fastq1/2)</strong></p>
+<p><strong>File-specific Input (--fastq1/2)</strong></p>
 <pre><code class="language-bash">$dnbc4tools atac run \
     --fastq1 /test/data/test1_R1.fastq.gz,/test/data/test2_R1.fastq.gz \
     --fastq2 /test/data/test1_R2.fastq.gz,/test/data/test2_R2.fastq.gz \
@@ -1824,7 +1852,7 @@ $dnbc4tools atac mkref --fasta GRCm38.primary_assembly.genome.fa --ingtf genes.f
     --end5
 </code></pre>
 <h3 id="step-2-vdj-analysis">Step 2: VDJ Analysis<a class="headerlink" href="#step-2-vdj-analysis" title="Permanent link">&para;</a></h3>
-<p><strong>Quick Input (<code>--fastqs</code>)</strong></p>
+<p><strong>Directory-based Input (<code>--fastqs</code>)</strong></p>
 <pre><code class="language-bash">$dnbc4tools vdj run \
     --fastqs /test/data \
     --beadstrans /scRNA/test1/outs/singlecell.csv \
@@ -1839,7 +1867,7 @@ $dnbc4tools atac mkref --fasta GRCm38.primary_assembly.genome.fa --ingtf genes.f
 </ul>
 
 <p>See <a href="#file-naming-conventions">File Naming Conventions</a> for supported patterns.</p>
-<p><strong>Detailed Input (--fastq1/2)</strong></p>
+<p><strong>File-specific Input (--fastq1/2)</strong></p>
 <p><strong>TCR Analysis (Human)</strong></p>
 <pre><code class="language-bash">$dnbc4tools vdj run \
     --fastq1 /test/data/test1_R1.fastq.gz,/test/data/test2_R1.fastq.gz \

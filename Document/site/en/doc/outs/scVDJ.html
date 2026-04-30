@@ -35,6 +35,9 @@
     
       <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
       
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
       
 
 
@@ -63,7 +66,14 @@
   </head>
   
   
-    <body dir="ltr">
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="blue">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -114,6 +124,24 @@
         </div>
       </div>
     </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="blue"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="blue"  aria-hidden="true"  type="radio" name="__palette" id="__palette_1">
+    
+  
+</form>
+      
     
     
       <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
@@ -2891,12 +2919,12 @@
 <p><br></p>
 <h2 id="web-report-interpretation">Web Report Interpretation <a id="web-report-interpretation"></a><a class="headerlink" href="#web-report-interpretation" title="Permanent link">&para;</a></h2>
 <div align="center">
-<p>** Overview**: The HTML web report provides a comprehensive visual display and detailed interpretation of single-cell V(D)J sequencing analysis results, including an evaluation of key performance indicators to help users quickly understand the experimental quality and analysis outcomes.</p>
+<p><strong>Overview</strong>: The HTML web report provides a comprehensive visual display and detailed interpretation of single-cell V(D)J sequencing analysis results, including an evaluation of key performance indicators to help users quickly understand experimental quality and analysis outcomes.</p>
 </div>
 <p>The HTML web report is a comprehensive platform for displaying single-cell V(D)J sequencing analysis, integrating complete results from data quality control to downstream immune repertoire analysis. The report uses an interactive visual design to help users quickly assess experimental quality, understand analysis results, and guide future research directions.</p>
 <blockquote>
-<p><strong>Usage Suggestion</strong>: It is recommended to review the metrics in the order they are presented in the report.</p>
-<p><strong>Note</strong>: The following standards are for reference only. Actual quality assessment should consider multiple factors such as tissue type, cell state, and experimental objectives. Significant differences may exist between samples, so judgment should be based on the specific experimental context.</p>
+<p><strong>Usage Notes</strong>: Review metrics in the order presented in the report.</p>
+<p><strong>Note</strong>: The following standards are for reference only. Actual quality assessment should consider tissue type, cell state, experimental objectives, and sample-specific context.</p>
 </blockquote>
 <h3 id="main-report-content-and-structure">Main Report Content and Structure<a class="headerlink" href="#main-report-content-and-structure" title="Permanent link">&para;</a></h3>
 <div align="center">
@@ -3159,10 +3187,12 @@ Productive contigs require: full V-to-J span, valid start codon, complete in-fra
 <div align="center">
 <p><img src="../images/html_scvdj3.jpg" alt="V(D)J Barcode Rank Plot" width="400"></p>
 </div>
-<p><strong>How to Interpret:</strong>
-*   <strong>Axes</strong>: X-axis (Barcode Rank) shows cell barcodes ranked by total UMI counts (log scale); Y-axis (UMI Counts) shows total UMIs per cell (log scale).
-*   <strong>Visual encoding</strong>: Blue line indicates called valid cells; gray line indicates background/noise; blue gradient zone indicates a transitional mixed region. (visual-check)
-*   <strong>Quality assessment</strong>: A steeper drop typically indicates better separation between cells and background; in BCR datasets, a subgroup with very high UMIs may appear and often represents highly expressed plasma cells.</p>
+<p><strong>How to Interpret:</strong></p>
+<ul>
+<li><strong>Axes</strong>: X-axis (Barcode Rank) shows cell barcodes ranked by total UMI counts (log scale); Y-axis (UMI Counts) shows total UMIs per cell (log scale).</li>
+<li><strong>Visual encoding</strong>: Blue line indicates called valid cells; gray line indicates background/noise; blue gradient zone indicates a transitional mixed region.</li>
+<li><strong>Quality assessment</strong>: A steeper drop typically indicates better separation between cells and background; in BCR datasets, a subgroup with very high UMIs may appear and often represents highly expressed plasma cells.</li>
+</ul>
 </div>
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px; ">
 <h4 id="visualization-chart-2">Visualization Chart 2 <a id="visualization-chart-2"></a><a class="headerlink" href="#visualization-chart-2" title="Permanent link">&para;</a></h4>
@@ -3174,9 +3204,11 @@ Productive contigs require: full V-to-J span, valid start codon, complete in-fra
 <div align="center">
 <p><img src="../images/html_scvdj2.png" alt="scVDJ clonotype analysis charts" width="500"></p>
 </div>
-<p><strong>How to Interpret:</strong>
-*   <strong>Top panel (Top 10 Clonotypes)</strong>: Bar chart of cell percentages for the top 10 clonotypes, reflecting clonal expansion and immune dominance.
-*   <strong>Bottom table (Detail table)</strong>: Full descriptions of top clonotypes, including clonotype ID, CDR3 amino acid/nucleotide sequences, absolute frequency, and relative proportion.</p>
+<p><strong>How to Interpret:</strong></p>
+<ul>
+<li><strong>Top panel (Top 10 Clonotypes)</strong>: Bar chart of cell percentages for the top 10 clonotypes, reflecting clonal expansion and immune dominance.</li>
+<li><strong>Bottom table (Detail table)</strong>: Full descriptions of top clonotypes, including clonotype ID, CDR3 amino acid/nucleotide sequences, absolute frequency, and relative proportion.</li>
+</ul>
 </div>
 <div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
 <h2 id="related-documentation">Related Documentation<a class="headerlink" href="#related-documentation" title="Permanent link">&para;</a></h2>

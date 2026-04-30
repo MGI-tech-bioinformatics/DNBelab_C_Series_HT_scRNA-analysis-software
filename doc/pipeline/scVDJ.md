@@ -326,7 +326,7 @@ $dnbc4tools vdj run \
 
 > <strong>反馈与支持</strong>
 >
-> 本文档持续更新中，如发现内容错误或需要补充的信息，欢迎反馈。
+> 本文档持续维护更新。若发现内容错误或需要补充信息，请通过 GitHub Issues 反馈。
 >
 > <strong>文档版本：</strong> 3.1 | <strong>最后更新：</strong> 2026年4月
 

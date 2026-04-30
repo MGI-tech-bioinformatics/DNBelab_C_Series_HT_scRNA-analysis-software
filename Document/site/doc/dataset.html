@@ -35,6 +35,9 @@
     
       <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
       
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
       
 
 
@@ -63,7 +66,14 @@
   </head>
   
   
-    <body dir="ltr">
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="blue">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -114,6 +124,24 @@
         </div>
       </div>
     </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="blue"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="blue"  aria-hidden="true"  type="radio" name="__palette" id="__palette_1">
+    
+  
+</form>
+      
     
     
       <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
@@ -1279,10 +1307,10 @@
 <hr />
 <h2 id="_1">数据使用说明<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <div style="background-color: #e7f3fe; border-left: 6px solid #2196F3; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
-<p><strong>scVDJ 使用提示</strong>：如果不需要分析 5' RNA 数据，可直接从对应 FTP 目录下载 <code>singlecell.csv</code> 作为 VDJ 流程输入。</p>
+<p><strong>scVDJ 使用说明</strong>：如果不需要分析 5' RNA 数据，可直接从对应 FTP 目录下载 <code>singlecell.csv</code> 作为 VDJ 流程输入。</p>
 </div>
 <div style="background-color: #e7f3fe; border-left: 6px solid #2196F3; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
-<p><strong>通用提示</strong>：点击项目链接后，在 “Sample” 或 “Experiment” 页面中可找到原始数据 FTP 下载地址。</p>
+<p><strong>通用说明</strong>：访问项目链接后，在 “Sample” 或 “Experiment” 页面中可找到原始数据 FTP 下载地址。</p>
 </div>
 <div align="center">
 <p><img src="./images/scrna_v3_datasets.jpg" alt="scRNA-seq v3 样本详情" width="800">

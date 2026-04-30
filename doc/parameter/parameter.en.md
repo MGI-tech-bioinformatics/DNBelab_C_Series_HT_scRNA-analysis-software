@@ -60,7 +60,7 @@
 | :--- | :--- |
 | [Workflows](../pipeline/pipeline.en.md) | Analysis pipeline guides |
 | [Outputs](../outs/outs.en.md) | Understanding result files |
-| [Quick Start](../quickstart.en.md) | Get started in 5 minutes |
+| [Quick Start](../quickstart.en.md) | Introductory workflow guide |
 | [Installation](../installation.en.md) | Software setup and requirements |
 
 </div>
@@ -69,7 +69,7 @@
 
 > <strong>Feedback & Support</strong>
 > 
-> For detailed parameter descriptions, click on any analysis type above.
+> For detailed parameter descriptions, select any analysis type above.
 > 
 <strong>Document Version:</strong> 3.1 | <strong>Last Updated:</strong> April 2026
 

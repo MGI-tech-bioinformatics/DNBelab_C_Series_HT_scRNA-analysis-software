@@ -772,7 +772,7 @@ SampleB	/path/to/B_L01_R1.fq.gz,/path/to/B_L02_R1.fq.gz;/path/to/B_L01_R2.fq.gz,
 
 > **Feedback & Support**
 >
-> This document is continuously updated. If you find any errors or have information to add, feedback is welcome.
+> This document is continuously maintained. If you identify errors or additional information is required, please submit feedback via GitHub Issues.
 >
 > **Document Version:** 3.1 | **Last Updated:** April 2026
 

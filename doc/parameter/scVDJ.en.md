@@ -174,8 +174,8 @@ Analysis Settings:
 </div>
 
 > **Input Method Selection:**
-> - ** Method 1:** Use `--fastqs` to specify a directory containing paired files.
-> - ** Method 2:** Use `--fastq1` and `--fastq2` to specify R1 and R2 files respectively.
+> - **Method 1:** Use `--fastqs` to specify a directory containing paired files.
+> - **Method 2:** Use `--fastq1` and `--fastq2` to specify R1 and R2 files respectively.
 
 > **Compatible aliases**
 > - Legacy short options `-1/-2` are still supported, but hidden in current help output. Long options are recommended for better script readability.
@@ -347,7 +347,7 @@ CCTGGACTCCTGGGCCCCAG</code></pre>
 
 > **Feedback & Support**
 >
-> This document is continuously updated. If you find any errors or have information to add, feedback is welcome.
+> This document is continuously maintained. If you identify errors or additional information is required, please submit feedback via GitHub Issues.
 >
 > **Document Version:** 3.1 | **Last Updated:** April 2026
 

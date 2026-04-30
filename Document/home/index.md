@@ -43,41 +43,44 @@
 
 ### 模块导航
 
-<table class="home-module-table">
-  <thead>
-    <tr>
-      <th>分析流程</th>
-      <th>命令参数</th>
-      <th>结果输出</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>
-        <p><a href="./doc/pipeline/pipeline.md">总览</a></p>
-        <p><a href="./doc/pipeline/scRNA.md">scRNA</a></p>
-        <p><a href="./doc/pipeline/scATAC.md">scATAC</a></p>
-        <p><a href="./doc/pipeline/scVDJ.md">scVDJ</a></p>
-        <p><a href="./doc/pipeline/multi.md">多组学</a></p>
-      </td>
-      <td>
-        <p><a href="./doc/parameter/parameter.md">总览</a></p>
-        <p><a href="./doc/parameter/scRNA.md">scRNA</a></p>
-        <p><a href="./doc/parameter/scATAC.md">scATAC</a></p>
-        <p><a href="./doc/parameter/scVDJ.md">scVDJ</a></p>
-        <p><a href="./doc/parameter/multi.md">多组学</a></p>
-        <p><a href="./doc/parameter/tools.md">工具箱</a></p>
-      </td>
-      <td>
-        <p><a href="./doc/outs/outs.md">总览</a></p>
-        <p><a href="./doc/outs/scRNA.md">scRNA</a></p>
-        <p><a href="./doc/outs/scATAC.md">scATAC</a></p>
-        <p><a href="./doc/outs/scVDJ.md">scVDJ</a></p>
-        <p><a href="./doc/outs/multi.md">多组学</a></p>
-      </td>
-    </tr>
-  </tbody>
-</table>
+<div class="home-card-grid">
+  <div class="home-card">
+    <h4>分析流程（Pipeline）</h4>
+    <p>端到端流程说明，覆盖输入准备、执行步骤与结果判读。</p>
+    <div class="home-card-links">
+      <a href="./doc/pipeline/pipeline.md">总览</a>
+      <a href="./doc/pipeline/scRNA.md">scRNA</a>
+      <a href="./doc/pipeline/scATAC.md">scATAC</a>
+      <a href="./doc/pipeline/scVDJ.md">scVDJ</a>
+      <a href="./doc/pipeline/multi.md">多组学</a>
+    </div>
+  </div>
+
+  <div class="home-card">
+    <h4>命令参数（Parameter）</h4>
+    <p>参数定义与推荐设置，适合运行前配置和问题排查。</p>
+    <div class="home-card-links">
+      <a href="./doc/parameter/parameter.md">总览</a>
+      <a href="./doc/parameter/scRNA.md">scRNA</a>
+      <a href="./doc/parameter/scATAC.md">scATAC</a>
+      <a href="./doc/parameter/scVDJ.md">scVDJ</a>
+      <a href="./doc/parameter/multi.md">多组学</a>
+      <a href="./doc/parameter/tools.md">工具箱</a>
+    </div>
+  </div>
+
+  <div class="home-card">
+    <h4>结果输出（Outputs）</h4>
+    <p>输出目录、关键文件与网页报告指标解读。</p>
+    <div class="home-card-links">
+      <a href="./doc/outs/outs.md">总览</a>
+      <a href="./doc/outs/scRNA.md">scRNA</a>
+      <a href="./doc/outs/scATAC.md">scATAC</a>
+      <a href="./doc/outs/scVDJ.md">scVDJ</a>
+      <a href="./doc/outs/multi.md">多组学</a>
+    </div>
+  </div>
+</div>
 
 ---
 

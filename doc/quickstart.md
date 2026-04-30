@@ -8,7 +8,7 @@
 
 <div align="center">
 
-**快速开始使用 dnbc4tools**
+**dnbc4tools 快速开始操作说明**
 
 [RNA-seq](#single-cell-rna-analysis) • [ATAC-seq](#single-cell-atac-analysis) • [VDJ-seq](#single-cell-vdj-analysis) • [多组学](#integrated-multi-omics-analysis)
 
@@ -93,7 +93,7 @@ $dnbc4tools rna mkref \
 
 ### 第二步： 运行分析
 
-**快速输入 (`--fastqs`)**
+**目录输入方式 (`--fastqs`)**
 ```bash
 $dnbc4tools rna run \
     --fastqs /test/data/rna_fastqs \
@@ -110,7 +110,7 @@ $dnbc4tools rna run \
 
 支持的文件命名见[文件命名规则](#file-naming-conventions)。
 
-**详细输入 (--cDNAfastq1/2 --oligofastq1/2)**
+**文件输入方式（--cDNAfastq1/2 --oligofastq1/2）**
 ```bash
 $dnbc4tools rna run \
     --cDNAfastq1 /test/data/rna_fastqs/cDNA/test_R1.fastq.gz \
@@ -162,7 +162,7 @@ $dnbc4tools atac mkref --fasta GRCm38.primary_assembly.genome.fa --ingtf genes.f
 
 ### 第二步： 运行分析
 
-**快速输入 (`--fastqs`)**
+**目录输入方式 (`--fastqs`)**
 ```bash
 $dnbc4tools atac run \
     --fastqs /test/data \
@@ -177,7 +177,7 @@ $dnbc4tools atac run \
 
 支持的文件命名见[文件命名规则](#file-naming-conventions)。
 
-**详细输入 (--fastq1/2)**
+**文件输入方式（--fastq1/2）**
 ```bash
 $dnbc4tools atac run \
     --fastq1 /test/data/test1_R1.fastq.gz,/test/data/test2_R1.fastq.gz \
@@ -203,7 +203,7 @@ $dnbc4tools atac run \
 **5' scRNA-seq 分析**
 
 <div style="background-color: #e7f3fe; border-left: 6px solid #2196F3; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
-<strong>说明：</strong> 5' scRNA-seq 数据需增加 <code>--end5</code> 参数以指定文库类型。
+<strong>注意：</strong> 5' scRNA-seq 数据需增加 <code>--end5</code> 参数以指定文库类型。
 </div>
 
 ```bash
@@ -217,7 +217,7 @@ $dnbc4tools rna run \
 
 ### 第二步： VDJ 分析
 
-**快速输入 (`--fastqs`)**
+**目录输入方式 (`--fastqs`)**
 ```bash
 $dnbc4tools vdj run \
     --fastqs /test/data \
@@ -234,7 +234,7 @@ $dnbc4tools vdj run \
 
 支持的文件命名见[文件命名规则](#file-naming-conventions)。
 
-**详细输入 (--fastq1/2)**
+**文件输入方式（--fastq1/2）**
 
 **TCR 分析（人）**
 ```bash
