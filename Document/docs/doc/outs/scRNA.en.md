@@ -1193,8 +1193,8 @@ Using UMAP dimensionality reduction and the Louvain clustering algorithm, cells 
 
 **How to Interpret**:
 
-*   **Left Plot (Cell Type Clustering)**: Each point represents a cell, and different colors represent different cell clusters. Cells that are close in space have more similar gene expression profiles.
-*   **Right Plot (UMI Count Distribution)**: On the same UMAP space, a color gradient shows the total UMI count for each cell. This can be used to assess clustering reliability, for example, whether certain clusters are composed of low-quality cells.
+- **Left Plot (Cell Type Clustering)**: Each point represents a cell, and different colors represent different cell clusters. Cells that are close in space have more similar gene expression profiles.
+- **Right Plot (UMI Count Distribution)**: On the same UMAP space, a color gradient shows the total UMI count for each cell. This can be used to assess clustering reliability, for example, whether certain clusters are composed of low-quality cells.
 
 <div style="max-width: 1200px; margin: 0 auto;" markdown="block"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
 
@@ -1205,12 +1205,12 @@ Displays the characteristic differentially expressed genes for each cell cluster
 
 **How to Interpret**:
 
-*   **Key Metrics Explained**: 
-    - **P-val**: The statistical significance p-value of differential expression. The smaller the value, the more significant the difference (Threshold: < 0.05 is significant, < 0.01 is highly significant).
-    - **p_val_adj**: The adjusted p-value after Bonferroni multiple testing correction, which controls the false positive rate (it is recommended to use the adjusted p-value for final screening).
-    - **avg_log2FC**: Average log2 fold change (on a log2 scale).
-    - **pct.1 / pct.2**: The proportion of cells expressing the gene in the target cluster versus other clusters.
-*   **Interactive Features**: Cluster filtering (select a specific cluster from the dropdown menu) | Gene search (use the search box to quickly locate gene expression).
+- **Key Metrics Explained**: 
+  - **P-val**: The statistical significance p-value of differential expression. The smaller the value, the more significant the difference (Threshold: < 0.05 is significant, < 0.01 is highly significant).
+  - **p_val_adj**: The adjusted p-value after Bonferroni multiple testing correction, which controls the false positive rate (it is recommended to use the adjusted p-value for final screening).
+  - **avg_log2FC**: Average log2 fold change (on a log2 scale).
+  - **pct.1 / pct.2**: The proportion of cells expressing the gene in the target cluster versus other clusters.
+- **Interactive Features**: Cluster filtering (select a specific cluster from the dropdown menu) | Gene search (use the search box to quickly locate gene expression).
 
 <div style="max-width: 1200px; margin: 0 auto;" markdown="block"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
 
@@ -1221,9 +1221,9 @@ On the UMAP plot, each cluster is labeled with a cell type inferred from a refer
 
 **How to Interpret**:
 
-*   **Annotation Result**: Provides a possible cell type label for each cluster.
-*   **Species Support**: Human (Homo sapiens) / Mouse (Mus musculus). Cell type annotation is not provided for other species.
-*   **Usage Notes**: The automatic annotation results are for reference only. Their accuracy depends on the quality of the reference database and the similarity of the sample. It is recommended to manually verify and correct them in conjunction with marker genes.
+- **Annotation Result**: Provides a possible cell type label for each cluster.
+- **Species Support**: Human (Homo sapiens) / Mouse (Mus musculus). Cell type annotation is not provided for other species.
+- **Usage Notes**: The automatic annotation results are for reference only. Their accuracy depends on the quality of the reference database and the similarity of the sample. It is recommended to manually verify and correct them in conjunction with marker genes.
 
 <div style="max-width: 1200px; margin: 0 auto;" markdown="block"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
 
@@ -1234,8 +1234,8 @@ Assesses the adequacy of sequencing depth and data complexity, that is, whether 
 
 **How to Interpret**:
 
-*   **Axes**: The X-axis is the average number of sequencing reads per cell, and the Y-axis is the saturation / median number of genes per cell.
-*   **Curve Trend**: If the curve tends to flatten, it indicates that sequencing is approaching saturation, and increasing sequencing depth will not contribute much to the discovery of new genes. If the curve is still rising rapidly, it indicates that increasing sequencing may still yield significant benefits.
+- **Axes**: The X-axis is the average number of sequencing reads per cell, and the Y-axis is the saturation / median number of genes per cell.
+- **Curve Trend**: If the curve tends to flatten, it indicates that sequencing is approaching saturation, and increasing sequencing depth will not contribute much to the discovery of new genes. If the curve is still rising rapidly, it indicates that increasing sequencing may still yield significant benefits.
 
 <div style="max-width: 1200px; margin: 0 auto;" markdown="block"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
 

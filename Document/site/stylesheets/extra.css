@@ -12,6 +12,23 @@
   --dn-scroll-thumb-hover: #aeb8c8;
 }
 
+/* Freeze Material's responsive root font scaling across wide screens */
+html {
+  font-size: 125% !important;
+}
+
+@media screen and (min-width: 100em) {
+  html {
+    font-size: 125% !important;
+  }
+}
+
+@media screen and (min-width: 125em) {
+  html {
+    font-size: 125% !important;
+  }
+}
+
 [data-md-color-scheme="slate"] {
   --dn-text-strong: #e5e7eb;
   --dn-text-body: #cbd5e1;
@@ -28,22 +45,6 @@
 /* Wider main content container */
 .md-grid {
   max-width: 1500px;
-}
-
-/* Lock baseline typography across viewport sizes */
-html {
-  font-size: 20px;
-}
-
-:root {
-  --md-typeset-font-size: 0.9rem;
-  --md-typeset-line-height: 1.6;
-}
-
-/* Prevent large-screen visual "inflation" in doc body */
-.md-typeset {
-  font-size: var(--md-typeset-font-size);
-  line-height: var(--md-typeset-line-height);
 }
 
 /* Keep default Material typography sizing */
@@ -142,6 +143,20 @@ html {
   letter-spacing: 0.01em;
   margin-right: 8px;
   opacity: 1;
+}
+
+/* Slightly enlarge top bar and side TOC/navigation text */
+.md-header__title {
+  font-size: 0.9rem;
+}
+
+.md-nav__title,
+.md-nav__link {
+  font-size: 0.78rem;
+}
+
+.md-nav--secondary .md-nav__link {
+  font-size: 0.75rem;
 }
 
 .md-header .md-header__option .md-select__icon,
@@ -288,14 +303,14 @@ html {
 
 .home-card h4 {
   margin: 0 0 10px;
-  font-size: 1.02rem;
+  font-size: 0.94rem;
   font-weight: 700;
 }
 
 .home-card p {
   margin: 0 0 10px;
   color: rgba(0, 0, 0, 0.68);
-  font-size: 0.92rem;
+  font-size: 0.86rem;
 }
 
 .home-card-links {
@@ -310,7 +325,7 @@ html {
   border-radius: 8px;
   padding: 5px 10px;
   text-decoration: none;
-  font-size: 0.9rem;
+  font-size: 0.84rem;
   background: #f8f9fc;
 }
 
@@ -361,12 +376,13 @@ html {
   color: var(--dn-text-strong);
   border-bottom: 1px solid var(--dn-brand-border);
   font-weight: 700;
-  font-size: 0.95rem;
+  font-size: 1.05em;
   letter-spacing: 0.01em;
 }
 
 .md-typeset table:not([class]) tbody td {
   border-top: 1px solid var(--dn-border);
+  font-size: 1.05em;
 }
 
 .md-typeset table:not([class]) tbody tr:hover {
@@ -375,7 +391,13 @@ html {
 
 /* Keep monospace text in tables aligned with body readability */
 .md-typeset table code {
-  font-size: 1em;
+  font-size: 1.04em;
+}
+
+/* Keep HTML tables and Markdown tables at consistent text size */
+.md-typeset table th,
+.md-typeset table td {
+  font-size: 1.05em;
 }
 
 /* Global scrollbar style */
@@ -422,6 +444,22 @@ body,
   background: #1f2937 !important;
   color: var(--dn-text-body) !important;
   border-color: var(--dn-border) !important;
+}
+
+[data-md-color-scheme="slate"] .md-typeset thead[style*="background-color: #f5f5f7"],
+[data-md-color-scheme="slate"] .md-typeset thead[style*="background-color:#f5f5f7"] {
+  background-color: #223049 !important;
+  border-bottom-color: #3b4f72 !important;
+}
+
+[data-md-color-scheme="slate"] .md-typeset th[style*="color: #1d1d1f"],
+[data-md-color-scheme="slate"] .md-typeset th[style*="color:#1d1d1f"] {
+  color: #e5e7eb !important;
+}
+
+[data-md-color-scheme="slate"] .md-typeset thead th {
+  background: #223049 !important;
+  color: #e5e7eb !important;
 }
 
 /* Dark scheme: convert light hero gradients to dark cards */
