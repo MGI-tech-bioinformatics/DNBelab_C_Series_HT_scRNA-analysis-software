@@ -6,9 +6,9 @@
 
 <div align="center" style="padding: 40px 20px; background: linear-gradient(135deg, #f5f5f7 0%, #ffffff 100%); border-radius: 12px; margin-bottom: 30px; max-width: 1200px; margin-left: auto; margin-right: auto;">
 
-<h1 style="font-size: 48px; font-weight: 600; color: #1d1d1f; margin: 0 0 16px 0; letter-spacing: -0.02em;">Tool Analysis Parameters</h1>
+<h1 style="font-size: 48px; font-weight: 600; color: #1d1d1f; margin: 0 0 16px 0; letter-spacing: -0.02em;">Tool Command Parameters</h1>
 
-<p style="font-size: 21px; color: rgba(0,0,0,0.6); margin: 0 0 30px 0; font-weight: 400;">Complete configuration guide for DNBelab C Series HT tool commands</p>
+<p style="font-size: 21px; color: rgba(0,0,0,0.6); margin: 0 0 30px 0; font-weight: 400;">Configuration reference for DNBelab C Series HT tool commands</p>
 
 <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
 <a href="#gtf-file-operations-mkgtf" style="background: #0071e3; color: white; padding: 8px 16px; border-radius: 980px; text-decoration: none; font-size: 14px;">mkgtf</a>
@@ -27,8 +27,8 @@
 
 </div>
 
-> <strong>Core Functionality</strong>
-> A comprehensive tool for GTF file operations, supporting gene type statistics, intelligent filtering, and file format validation. It provides high-quality, standardized gene annotation data for single-cell analysis.
+> <strong>Core Function</strong>
+> A GTF file operation tool for gene type statistics, rule-based filtering, and format validation. It provides standardized gene annotation data for single-cell analysis.
 
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #d2d2d7; overflow-x: auto;">
 
@@ -190,14 +190,14 @@ Usage Examples:
 </div>
 
 > <strong>Professional Conversion Tool</strong>
-> An efficient BAM file manipulation tool specialized for converting C4 RNA BAM files into FASTQ format. It supports multi-threaded parallel processing and flexible output configuration.
+> A BAM-to-FASTQ conversion tool for C4 RNA BAM files. It supports multi-threaded processing and configurable output splitting.
 
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #d2d2d7; overflow-x: auto;">
 
 ### Usage <a id="usage-bam2fastq"></a>
 
 ```shell
-$ bam2fastq -h
+$ bam2fastq --help
 BAM to FASTQ Converter for C4 Single Cell RNA seq Data
 
 Usage: bam2fastq [OPTIONS] <BAM> <OUTPUT>
@@ -207,13 +207,13 @@ Arguments:
   <OUTPUT>  Directory where FASTQ files will be written
 
 Options:
-  -t, --threads <THREADS>        Number of CPU threads for parallel processing (default: all available cores) [default: 8]
-  -r, --locus <REGION>           Process reads from a specific genomic region (format: chr1:1000-2000)
-  -n, --reads-per-fastq <READS>  Maximum number of reads per FASTQ file. All reads go to a single file if not specified.
+  --threads <THREADS>        Number of CPU threads for parallel processing (default: all available cores) [default: 8]
+  --locus <REGION>           Process reads from a specific genomic region (format: chr1:1000-2000)
+  --reads-per-fastq <READS>  Maximum number of reads per FASTQ file. All reads go to a single file if not specified.
       --max-memory <MEMORY>      Maximum memory to use in MB. Auto-determined if not specified.
       --no-compress              Disable gzip compression for output FASTQ files
-  -h, --help                     Print help
-  -V, --version                  Print version
+  --help                     Print help
+  --version                  Print version
 ```
 
 </div>
@@ -264,7 +264,7 @@ Options:
 </div>
 
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
-<h4><code>-t, --threads</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(Optional)</span></h4>
+<h4><code>--threads</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(Optional)</span></h4>
 <p>Set the number of CPU threads for parallel processing.</p>
 <ul>
   <li><strong>Performance Note:</strong> Increasing thread count usually improves BAM decoding and writing performance, but actual gain is limited by disk I/O bandwidth.</li>
@@ -272,11 +272,11 @@ Options:
 </ul>
 <p><strong>Default:</strong> <code>all available CPU cores</code></p>
 <p><strong>Example:</strong></p>
-<pre><code>-t 8</code></pre>
+<pre><code>--threads 8</code></pre>
 </div>
 
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
-<h4><code>-r, --locus</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(Optional)</span></h4>
+<h4><code>--locus</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(Optional)</span></h4>
 <p>Process only reads from a specific genomic region.</p>
 <ul>
   <li><strong>Format:</strong> Standard genomic coordinate format (<code>chromosome:start-end</code>).</li>
@@ -284,11 +284,11 @@ Options:
 </ul>
 <p><strong>Default:</strong> None</p>
 <p><strong>Example:</strong></p>
-<pre><code>-r chr1:1000-2000</code></pre>
+<pre><code>--locus chr1:1000-2000</code></pre>
 </div>
 
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
-<h4><code>-n, --reads-per-fastq</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(Optional)</span></h4>
+<h4><code>--reads-per-fastq</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(Optional)</span></h4>
 <p>Set the maximum number of reads per output FASTQ file.</p>
 <ul>
   <li><strong>Splitting Strategy:</strong> Automatically splits large files into smaller ones for easier downstream processing.</li>
@@ -296,7 +296,7 @@ Options:
 </ul>
 <p><strong>Default:</strong> None</p>
 <p><strong>Example:</strong></p>
-<pre><code>-n 10000000</code></pre>
+<pre><code>--reads-per-fastq 10000000</code></pre>
 </div>
 
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
@@ -313,10 +313,10 @@ Options:
 
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>--no-compress</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(Flag)</span></h4>
-<p>Disable gzip compression for the output FASTQ files to significantly increase analysis speed.</p>
+<p>Disable gzip compression for output FASTQ files to improve writing speed.</p>
 <ul>
   <li><strong>Performance Bottleneck:</strong> The main speed bottleneck of the program is writing compressed files.</li>
-  <li><strong>Note:</strong> Thanks to parallel accelerated compression, default compressed output performance has been substantially improved and this bottleneck is largely eliminated.</li>
+  <li><strong>Note:</strong> Thanks to parallel accelerated compression, default compressed output performance has been improved, reducing the impact of compression on runtime.</li>
 </ul>
 <p><strong>Default:</strong> Not set</p>
 </div>
@@ -330,15 +330,15 @@ Options:
 <ul>
   <li><strong>High-speed multi-threaded conversion</strong></li>
 </ul>
-<pre><code class="language-shell">bam2fastq -t 8 input.bam ./output_dir</code></pre>
+<pre><code class="language-shell">bam2fastq --threads 8 input.bam ./output_dir</code></pre>
 <ul>
   <li><strong>Region-specific conversion</strong></li>
 </ul>
-<pre><code class="language-shell">bam2fastq -r chr1:1000000-2000000 -t 4 input.bam ./output_dir</code></pre>
+<pre><code class="language-shell">bam2fastq --locus chr1:1000000-2000000 --threads 4 input.bam ./output_dir</code></pre>
 <ul>
   <li><strong>Large file splitting conversion</strong></li>
 </ul>
-<pre><code class="language-shell">bam2fastq -n 5000000 -t 4 input.bam ./output_dir</code></pre>
+<pre><code class="language-shell">bam2fastq --reads-per-fastq 5000000 --threads 4 input.bam ./output_dir</code></pre>
 </div>
 
 <div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
@@ -351,7 +351,7 @@ Options:
 
 </div>
 
-> <strong>Core Functionality</strong>
+> <strong>Core Function</strong>
 > A professional genome sequence splitting tool that intelligently identifies split points to maintain gene annotation integrity. It is primarily used in ATAC library construction to ensure chromosome lengths do not exceed the 2^29-1 limit.
 
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #d2d2d7; overflow-x: auto;">
@@ -359,20 +359,20 @@ Options:
 ### Usage
 
 ```shell
-$ chromsplit  -h
+$ chromsplit --help
 Split large genome sequences into smaller fragments at N-stretches or intergenic regions
 
 Usage: chromsplit [OPTIONS] --fasta <FA> --prefix <PREFIX>
 
 Options:
-  -f, --fasta <FA>           Input genome sequence file in FASTA format
-  -g, --gtf <GTF>            Optional GTF/GFF annotation file for the genome
-  -o, --prefix <PREFIX>      Prefix for output files (.fa and .cutsite.tsv will be appended)
+  --fasta <FA>           Input genome sequence file in FASTA format
+  --gtf <GTF>            Optional GTF/GFF annotation file for the genome
+  --prefix <PREFIX>      Prefix for output files (.fa and .cutsite.tsv will be appended)
       --min_length <MIN_LENGTH>  Minimum length of output scaffold fragments (in base pairs) [default: 300000000]
       --max_length <MAX_LENGTH>  Maximum length of output scaffold fragments (in base pairs) [default: 500000000]
   --cut_site <CUT_SITE>      Optional cut site file containing predefined split positions
-  -h, --help                     Print help (see more with '--help')
-  -V, --version              Print version
+  --help                     Print help (see more with '--help')
+  --version              Print version
 ```
 
 </div>
@@ -390,7 +390,7 @@ Options:
 </div>
 
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
-<h4><code>-f, --fasta &lt;FA&gt;</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(Required)</span></h4>
+<h4><code>--fasta &lt;FA&gt;</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(Required)</span></h4>
 <p>Specify the input genome sequence file.</p>
 <ul>
   <li><strong>Format Requirement:</strong> Standard FASTA format (.fa, .fasta, .fna).</li>
@@ -402,7 +402,7 @@ Options:
 </div>
 
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
-<h4><code>-o, --prefix &lt;PREFIX&gt;</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(Required)</span></h4>
+<h4><code>--prefix &lt;PREFIX&gt;</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(Required)</span></h4>
 <p>Specify the prefix for the output files.</p>
 <ul>
   <li><strong>Output Files:</strong> The tool will automatically generate files like <code>&lt;prefix&gt;.fa</code>, <code>&lt;prefix&gt;.cutsite.tsv</code>, etc.</li>
@@ -422,7 +422,7 @@ Options:
 </div>
 
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
-<h4><code>-g, --gtf &lt;GTF&gt;</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(Optional)</span></h4>
+<h4><code>--gtf &lt;GTF&gt;</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(Optional)</span></h4>
 <p>Specify the gene annotation file (GTF/GFF format).</p>
 <ul>
   <li><strong>Intelligent Splitting:</strong> Providing an annotation file ensures that split points are located in intergenic regions, protecting gene integrity.</li>
@@ -496,26 +496,26 @@ Options:
 
 </div>
 
-> <strong>Core Functionality</strong>
-> A professional tool for extracting regions from FASTQ sequences, supporting precise sequence position clipping. It is mainly used to resolve data format inconsistencies from multiple sequencing runs, ensuring standardized processing of C4 sequencing data.
+> <strong>Core Function</strong>
+> A FASTQ region extraction tool for clipping sequence positions. It can be used to normalize sequence structures across sequencing batches.
 
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #d2d2d7; overflow-x: auto;">
 
 ### Usage
 
 ```shell
-$ fqsubC4 -h
+$ fqsubC4 --help
 Extracts regions from FASTQ sequences
 
 Usage: fqsubC4 [OPTIONS] --input <FILE> --output <FILE> --regions <REGIONS>
 
 Options:
-  -i, --input <FILE>       Path to input FASTQ file (supports both uncompressed and gzipped formats)
-  -o, --output <FILE>      Path to output FASTQ file (output will be automatically compressed if filename ends with .gz)
-  -r, --regions <REGIONS>  Comma-separated regions in format start:end (e.g., 7:16,23:32,38:47)
-  -t, --threads <THREADS>  Number of threads to use for parallel processing [default: 8]
-  -h, --help               Print help (see more with '--help')
-  -V, --version            Print version
+  --input <FILE>       Path to input FASTQ file (supports both uncompressed and gzipped formats)
+  --output <FILE>      Path to output FASTQ file (output will be automatically compressed if filename ends with .gz)
+  --regions <REGIONS>  Comma-separated regions in format start:end (e.g., 7:16,23:32,38:47)
+  --threads <THREADS>  Number of threads to use for parallel processing [default: 8]
+  --help               Print help (see more with '--help')
+  --version            Print version
 ```
 
 </div>
@@ -533,7 +533,7 @@ Options:
 </div>
 
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
-<h4><code>-i, --input &lt;FILE&gt;</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(Required)</span></h4>
+<h4><code>--input &lt;FILE&gt;</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(Required)</span></h4>
 <p>Specify the path to the input FASTQ file.</p>
 <ul>
   <li><strong>Format Support:</strong> Supports both uncompressed (.fq, .fastq) and gzipped (.fq.gz, .fastq.gz) formats.</li>
@@ -545,7 +545,7 @@ Options:
 </div>
 
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
-<h4><code>-o, --output &lt;FILE&gt;</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(Required)</span></h4>
+<h4><code>--output &lt;FILE&gt;</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(Required)</span></h4>
 <p>Specify the path for the output FASTQ file.</p>
 <ul>
   <li><strong>Auto-compression:</strong> The output file will be automatically compressed if the filename ends with <code>.gz</code>.</li>
@@ -557,7 +557,7 @@ Options:
 </div>
 
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
-<h4><code>-r, --regions &lt;REGIONS&gt;</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(Required)</span></h4>
+<h4><code>--regions &lt;REGIONS&gt;</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(Required)</span></h4>
 <p>Specify the regions to be extracted from the sequences.</p>
 <ul>
   <li><strong>Format Specification:</strong> Use <code>start:end</code> format, with multiple regions separated by commas.</li>
@@ -578,7 +578,7 @@ Options:
 </div>
 
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
-<h4><code>-t, --threads &lt;THREADS&gt;</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(Optional)</span></h4>
+<h4><code>--threads &lt;THREADS&gt;</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(Optional)</span></h4>
 <p>Set the number of threads for parallel processing.</p>
 <ul>
   <li><strong>Function:</strong> Improves parallelism in read, extraction, and write stages for faster processing of large files.</li>

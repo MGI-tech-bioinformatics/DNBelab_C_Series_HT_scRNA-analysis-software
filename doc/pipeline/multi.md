@@ -8,7 +8,7 @@
 
 <h1 style="font-size: 48px; font-weight: 600; color: #1d1d1f; margin: 0 0 16px 0; letter-spacing: -0.02em;">DNBelab C Series HT 多组学分析流程</h1>
 
-<p style="font-size: 21px; color: #86868b; margin: 0 0 30px 0; font-weight: 400;">单细胞多组学整合分析完整指南</p>
+<p style="font-size: 21px; color: #86868b; margin: 0 0 30px 0; font-weight: 400;">单细胞多组学整合分析说明</p>
 
 <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
 <a href="#概述" style="background: #0071e3; color: white; padding: 8px 16px; border-radius: 980px; text-decoration: none; font-size: 14px;">概述</a>
@@ -125,6 +125,14 @@
  <strong>详细配置说明</strong>：请参考 <a href="../parameter/multi.md">多组学参数文档</a> 了解完整的 CSV 配置规范和参数映射关系。
 </div>
 
+<p><strong><code>[libraries]</code> 输入目录要求：</strong></p>
+<ul>
+  <li><code>rna</code>：<code>fastqs</code> 指向 RNA FASTQ 根目录，该目录下应包含 <code>cDNA/</code> 和 <code>oligo/</code> 子目录。</li>
+  <li><code>atac</code>：<code>fastqs</code> 指向当前 ATAC 文库 FASTQ 目录，R1/R2 文件直接放在该目录下。</li>
+  <li><code>vdj-t</code> / <code>vdj-b</code>：<code>fastqs</code> 指向当前 VDJ 文库 FASTQ 目录，TCR 与 BCR 数据应分别配置。</li>
+  <li>自动识别依赖文件名中的 R1/R2 标识，建议使用 <code>_R1</code>/<code>_R2</code> 或 <code>_R1_</code>/<code>_R2_</code> 命名。</li>
+</ul>
+
 ### 最小配置示例
 
 <details open>
@@ -133,7 +141,7 @@
 ```csv
 [rna]
 genomeDir,/database/scRNA/Human
-
+end5,true
 [vdj-t]
 ref,human
 
@@ -279,10 +287,10 @@ Warning: ATAC joint analysis is currently unsupported. Libraries will be analyze
 ┌─────────────┬────────────────────────────────────────────────────────────────────────────────────┐
 │ Type        │ Path                                                                               │
 ├─────────────┼────────────────────────────────────────────────────────────────────────────────────┤
-│ cDNA Read1  │ /data/cDNA/sample_cDNA_R1.fastq.gz                                                 │
-│ cDNA Read2  │ /data/cDNA/sample_cDNA_R2.fastq.gz                                                 │
-│ oligo Read1 │ /data/oligo/sample_oligo_1_R1.fastq.gz,/data/oligo/sample_oligo_2_R1.fastq.gz      │
-│ oligo Read2 │ /data/oligo/sample_oligo_1_R2.fastq.gz,/data/oligo/sample_oligo_2_R2.fastq.gz      │
+│ cDNA Read 1 │ /data/cDNA/sample_cDNA_R1.fastq.gz                                                 │
+│ cDNA Read 2 │ /data/cDNA/sample_cDNA_R2.fastq.gz                                                 │
+│ oligo Read 1 │ /data/oligo/sample_oligo_1_R1.fastq.gz,/data/oligo/sample_oligo_2_R1.fastq.gz      │
+│ oligo Read 2 │ /data/oligo/sample_oligo_1_R2.fastq.gz,/data/oligo/sample_oligo_2_R2.fastq.gz      │
 └─────────────┴────────────────────────────────────────────────────────────────────────────────────┘
 ────────────────────────────────────────────────────────────────────────────────────────────────────
 
@@ -291,8 +299,8 @@ Warning: ATAC joint analysis is currently unsupported. Libraries will be analyze
 ┌───────────────────────────────────────────────┬──────────────────────────────────────────────────┐
 │ Type                                          │ Result                                           │
 ├───────────────────────────────────────────────┼──────────────────────────────────────────────────┤
-│ oligo Read1                                   │ darkreaction                                     │
-│ oligo Read2                                   │ darkreaction                                     │
+│ oligo Read 1                                   │ darkreaction                                     │
+│ oligo Read 2                                   │ darkreaction                                     │
 └───────────────────────────────────────────────┴──────────────────────────────────────────────────┘
 ────────────────────────────────────────────────────────────────────────────────────────────────────
 
@@ -301,7 +309,7 @@ Warning: ATAC joint analysis is currently unsupported. Libraries will be analyze
 ┌─────────────────────────────────────────────┬────────────────────────────────────────────────────┐
 │ Type                                        │ Result                                             │
 ├─────────────────────────────────────────────┼────────────────────────────────────────────────────┤
-│ cDNA Read1                                  │ darkreaction                                       │
+│ cDNA Read 1                                  │ darkreaction                                       │
 └─────────────────────────────────────────────┴────────────────────────────────────────────────────┘
 ────────────────────────────────────────────────────────────────────────────────────────────────────
 
@@ -416,7 +424,7 @@ Warning: ATAC joint analysis is currently unsupported. Libraries will be analyze
 
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
 
-本节正在更新中。
+本节将根据常见使用问题持续补充。当前版本请优先参考运行日志、参数说明和输出文件说明进行排查。
 
 </div>
 

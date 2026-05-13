@@ -87,4 +87,4 @@
 ## 支持与反馈
 
 - 问题反馈与需求建议：[GitHub Issues](https://github.com/MGI-tech-bioinformatics/DNBelab_C_Series_HT_scRNA-analysis-software/issues)
-- 官方网站：[www.mgitech.com](https://www.mgitech.com)
+- 官方网站：[www.mgi-tech.com](https://www.mgi-tech.com)

@@ -29,18 +29,15 @@
 
 </div>
 
----
-
-## 文件命名规则 <a id="file-naming-conventions"></a>
-
-<div style="background-color: #e7f3fe; border-left: 6px solid #2196F3; padding: 15px; margin: 1.5em 0; border-radius: 4px;" markdown="block">
-流程会根据命名规则自动识别双端文件，支持以下模式：
+<div id="file-naming-conventions" style="background-color: #e7f3fe; border-left: 6px solid #2196F3; padding: 15px; margin: 1.5em 0; border-radius: 4px;" markdown="block">
+<p><strong><code>--fastqs</code> 自动识别命名规则</strong></p>
+当使用 <code>--fastqs</code> 目录输入方式时，流程会根据文件名自动识别双端文件，支持以下模式。若使用 <code>--fastq1/--fastq2</code> 或 RNA 的 <code>--cDNAfastq1/2</code>、<code>--oligofastq1/2</code> 逐项指定文件，则不要求文件名必须符合这些模式，但 R1/R2 文件顺序必须一一对应。
 <ul>
-  <li><strong>支持扩展名:</strong> <code>.fastq.gz</code>, <code>.fq.gz</code>, <code>.fastq</code>, <code>.fq</code></li>
-  <li><strong>R1 模式:</strong> <code>_R1_</code>, <code>_R1</code>, <code>_1</code>, <code>_read1</code></li>
-  <li><strong>R2 模式:</strong> <code>_R2_</code>, <code>_R2</code>, <code>_2</code>, <code>_read2</code></li>
+  <li><strong>支持扩展名：</strong> <code>.fastq.gz</code>、<code>.fq.gz</code>、<code>.fastq</code>、<code>.fq</code></li>
+  <li><strong>R1 模式：</strong> <code>_R1_</code>、<code>_R1</code>、<code>_1</code>、<code>_read1</code></li>
+  <li><strong>R2 模式：</strong> <code>_R2_</code>、<code>_R2</code>、<code>_2</code>、<code>_read2</code></li>
 </ul>
-示例： <code>sample_R1.fastq.gz</code>, <code>sample_1.fastq.gz</code>, <code>sample_R1_001.fastq.gz</code> 均会被识别为 R1 文件。
+示例：<code>sample_R1.fastq.gz</code>、<code>sample_1.fastq.gz</code>、<code>sample_R1_001.fastq.gz</code> 均会被识别为 R1 文件。
 </div>
 
 ---
@@ -108,7 +105,7 @@ $dnbc4tools rna run \
   <li><code>/test/data/rna_fastqs/oligo/*_R1*.fastq.gz</code>, <code>*_R2*.fastq.gz</code></li>
 </ul>
 
-支持的文件命名见[文件命名规则](#file-naming-conventions)。
+使用 <code>--fastqs</code> 时，支持的自动识别模式见[`--fastqs` 自动识别命名规则](#file-naming-conventions)。
 
 **文件输入方式（--cDNAfastq1/2 --oligofastq1/2）**
 ```bash
@@ -175,7 +172,7 @@ $dnbc4tools atac run \
   <li><code>/test/data/*_R1*.fastq.gz</code>, <code>*_R2*.fastq.gz</code></li>
 </ul>
 
-支持的文件命名见[文件命名规则](#file-naming-conventions)。
+使用 <code>--fastqs</code> 时，支持的自动识别模式见[`--fastqs` 自动识别命名规则](#file-naming-conventions)。
 
 **文件输入方式（--fastq1/2）**
 ```bash
@@ -232,7 +229,7 @@ $dnbc4tools vdj run \
   <li><code>/test/data/*_R1*.fastq.gz</code>, <code>*_R2*.fastq.gz</code></li>
 </ul>
 
-支持的文件命名见[文件命名规则](#file-naming-conventions)。
+使用 <code>--fastqs</code> 时，支持的自动识别模式见[`--fastqs` 自动识别命名规则](#file-naming-conventions)。
 
 **文件输入方式（--fastq1/2）**
 
@@ -292,12 +289,15 @@ $dnbc4tools vdj run \
 
 ### 第一步： 准备配置文件
 
-> 推荐：在 `[libraries]` 中，`fastqs` 应填写各组学文库对应的 FASTQ 目录路径；流程会在每个目录中自动识别 R1/R2 文件。
+<div style="background-color: #e7f3fe; border-left: 6px solid #2196F3; padding: 15px; margin: 1.5em 0; border-radius: 4px;" markdown="block">
+<strong>配置说明</strong>：在 <code>[libraries]</code> 中，<code>fastqs</code> 应填写各组学文库对应的 FASTQ 目录路径；流程会在每个目录中自动识别 R1/R2 文件。 启用 VDJ 模块时，<code>[rna]</code> 分段需设置 <code>end5,true</code>。
+</div>
 
 ```ini
 [libraries]
 fastqs,feature_types
 /test/data/rna,rna
+/test/data/atac,atac
 /test/data/vdj-t,vdj-t
 /test/data/vdj-b,vdj-b
 
@@ -306,6 +306,7 @@ genomeDir,/database/scRNA/Homo_sapiens
 end5,true
 
 [atac]
+genomeDir,/database/scATAC/Homo_sapiens
 
 [vdj-t]
 ref,human
@@ -328,7 +329,6 @@ ref,human
 $dnbc4tools multi run \
     --name test_multi \
     --csv ./multi_config.csv \
-    --outdir ./multi_output \
     --threads 20
 ```
 

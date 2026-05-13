@@ -1505,14 +1505,14 @@
 </div>
 <hr />
 <h2 id="json-configuration-explained">JSON Configuration Explained<a class="headerlink" href="#json-configuration-explained" title="Permanent link">&para;</a></h2>
-<p>The JSON configuration file defines how to parse barcodes, UMIs, and reads from your FASTQ files. Here are the key concepts:</p>
+<p>The JSON configuration file defines how to parse barcodes, UMIs, and effective read sequences from FASTQ files. The key concepts are:</p>
 <ul>
 <li><strong>Required Fields</strong>: The <code>"cell barcode tag"</code>, <code>"cell barcode"</code>, and <code>"read 1"</code> fields are mandatory.</li>
 <li><strong>Tags</strong>: In the <code>value</code> field, <code>CB</code> is the suggested tag name for the corrected cell barcode, and <code>UR</code> is for the UMI.</li>
-<li><strong>Location</strong>: The <code>location</code> field specifies the read (<code>R1</code> or <code>R2</code>) and the base pair coordinates. For example, <code>"R1:1-10"</code> refers to bases 1-10 of read 1.</li>
+<li><strong>Location</strong>: The <code>location</code> field specifies the read (<code>R1</code> or <code>R2</code>) and the base pair coordinates. For example, <code>"R1:1-10"</code> refers to bases 1-10 of Read 1.</li>
 <li><strong>Barcode Segments</strong>: A cell barcode can be composed of multiple segments from different locations (e.g., <code>"R1:1-10"</code> and <code>"R1:17-26"</code>).</li>
-<li><strong>Output</strong>: The program will export the parsed barcodes and UMIs into the name field of the output FASTQ. The sequence specified by <code>"read 1"</code> (e.g., <code>"R2:1-100"</code>) will be kept in the sequence field.</li>
-<li><strong>Whitelist Correction</strong>: A predefined <code>"white list"</code> can be provided to correct barcode sequences. Barcodes not found in the whitelist are compared against it, and if the hamming <code>"distance"</code> is within the specified cutoff, the barcode is corrected.</li>
+<li><strong>Output</strong>: The program will write the parsed barcodes and UMIs to the read name field of the output FASTQ. The sequence specified by <code>"read 1"</code> (e.g., <code>"R2:1-100"</code>) is retained in the sequence field.</li>
+<li><strong>Whitelist Correction</strong>: A predefined <code>"white list"</code> can be provided to correct barcode sequences. Barcodes not found in the whitelist are compared against it, and if the Hamming <code>"distance"</code> is within the specified cutoff, the barcode is corrected.</li>
 </ul>
 <h3 id="example-json-configuration">Example JSON Configuration<a class="headerlink" href="#example-json-configuration" title="Permanent link">&para;</a></h3>
 <pre><code class="language-json">{

@@ -753,10 +753,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#-n-name" class="md-nav__link">
+  <a href="#-name" class="md-nav__link">
     <span class="md-ellipsis">
       
-        -n, --name (必需)
+        --name (必需)
       
     </span>
   </a>
@@ -764,10 +764,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#-g-genomedir" class="md-nav__link">
+  <a href="#-genomedir" class="md-nav__link">
     <span class="md-ellipsis">
       
-        -g, --genomeDir (必需)
+        --genomeDir (必需)
       
     </span>
   </a>
@@ -852,10 +852,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#-o-outdir" class="md-nav__link">
+  <a href="#-outdir" class="md-nav__link">
     <span class="md-ellipsis">
       
-        -o, --outdir (可选)
+        --outdir (可选)
       
     </span>
   </a>
@@ -863,10 +863,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#-t-threads" class="md-nav__link">
+  <a href="#-threads" class="md-nav__link">
     <span class="md-ellipsis">
       
-        -t, --threads (可选)
+        --threads (可选)
       
     </span>
   </a>
@@ -1128,7 +1128,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#-genomedir" class="md-nav__link">
+  <a href="#-genomedir_1" class="md-nav__link">
     <span class="md-ellipsis">
       
         --genomeDir (可选)
@@ -1150,7 +1150,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#-threads" class="md-nav__link">
+  <a href="#-threads_1" class="md-nav__link">
     <span class="md-ellipsis">
       
         --threads (可选)
@@ -1900,10 +1900,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#-n-name" class="md-nav__link">
+  <a href="#-name" class="md-nav__link">
     <span class="md-ellipsis">
       
-        -n, --name (必需)
+        --name (必需)
       
     </span>
   </a>
@@ -1911,10 +1911,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#-g-genomedir" class="md-nav__link">
+  <a href="#-genomedir" class="md-nav__link">
     <span class="md-ellipsis">
       
-        -g, --genomeDir (必需)
+        --genomeDir (必需)
       
     </span>
   </a>
@@ -1999,10 +1999,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#-o-outdir" class="md-nav__link">
+  <a href="#-outdir" class="md-nav__link">
     <span class="md-ellipsis">
       
-        -o, --outdir (可选)
+        --outdir (可选)
       
     </span>
   </a>
@@ -2010,10 +2010,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#-t-threads" class="md-nav__link">
+  <a href="#-threads" class="md-nav__link">
     <span class="md-ellipsis">
       
-        -t, --threads (可选)
+        --threads (可选)
       
     </span>
   </a>
@@ -2275,7 +2275,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#-genomedir" class="md-nav__link">
+  <a href="#-genomedir_1" class="md-nav__link">
     <span class="md-ellipsis">
       
         --genomeDir (可选)
@@ -2297,7 +2297,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#-threads" class="md-nav__link">
+  <a href="#-threads_1" class="md-nav__link">
     <span class="md-ellipsis">
       
         --threads (可选)
@@ -2472,7 +2472,7 @@
 </div>
 <div align="center" style="padding: 40px 20px; background: linear-gradient(135deg, #f5f5f7 0%, #ffffff 100%); border-radius: 12px; margin-bottom: 30px; max-width: 1200px; margin-left: auto; margin-right: auto;">
 <h1 id="scrna" style="font-size: 48px; font-weight: 600; color: #1d1d1f; margin: 0 0 16px 0; letter-spacing: -0.02em;">scRNA 分析参数<a class="headerlink" href="#scrna" title="Permanent link">&para;</a></h1>
-<p style="font-size: 21px; color: rgba(0,0,0,0.6); margin: 0 0 30px 0; font-weight: 400;">DNBelab C Series HT scRNA 参数配置完整指南</p>
+<p style="font-size: 21px; color: rgba(0,0,0,0.6); margin: 0 0 30px 0; font-weight: 400;">DNBelab C Series HT scRNA 参数配置说明</p>
 <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
 <a href="#主分析流程-run" style="background: #0071e3; color: white; padding: 8px 16px; border-radius: 980px; text-decoration: none; font-size: 14px;">主分析 (run)</a>
 <a href="#参考数据库构建-mkref" style="background: transparent; color: #0071e3; padding: 8px 16px; border-radius: 980px; text-decoration: none; font-size: 14px; border: 1px solid #0071e3;">数据库构建 (mkref)</a>
@@ -2505,11 +2505,11 @@ optional arguments:
 Input Files:
   Choose one input method: either `--fastqs` (directory input) or all four individual FASTQ files.
 
-  --fastqs &lt;DIR&gt;             Directory containing cDNA and oligo FASTQ subfolders (e.g., `cDNA/sample_cdna_R1.fastq.gz`, `oligo/sample_oligo_R1.fastq.gz`). The pipeline automatically detects paired-end files.
-  --cDNAfastq1 &lt;FILE&gt;        cDNA Read1 FASTQ list. Supports wildcard and comma-separated inputs (e.g., `sample1_R1.fastq.gz,sample2_R1.fastq.gz`).
-  --cDNAfastq2 &lt;FILE&gt;        cDNA Read2 FASTQ list. Order must match `--cDNAfastq1` (e.g., `sample1_R2.fastq.gz,sample2_R2.fastq.gz`).
-  --oligofastq1 &lt;FILE&gt;       Oligo Read1 FASTQ list for barcode merging. Supports wildcard and comma-separated inputs.
-  --oligofastq2 &lt;FILE&gt;       Oligo Read2 FASTQ list. Order must match `--oligofastq1` (e.g., `sample1_oligo_R2.fastq.gz`).
+  --fastqs &lt;DIR&gt;             Directory containing cDNA and oligo FASTQ subfolders (e.g., `cDNA/sample_cdna_R1.fastq.gz`, `oligo/sample_oligo_L01_R1.fastq.gz`). The pipeline automatically detects paired-end files.
+  --cDNAfastq1 &lt;FILE&gt;        cDNA Read 1 FASTQ list. Supports wildcard and comma-separated inputs (e.g., `sample1_R1.fastq.gz,sample2_R1.fastq.gz`).
+  --cDNAfastq2 &lt;FILE&gt;        cDNA Read 2 FASTQ list. Order must match `--cDNAfastq1` (e.g., `sample1_R2.fastq.gz,sample2_R2.fastq.gz`).
+  --oligofastq1 &lt;FILE&gt;       Oligo Read 1 FASTQ list for barcode merging. Supports wildcard and comma-separated inputs.
+  --oligofastq2 &lt;FILE&gt;       Oligo Read 2 FASTQ list. Order must match `--oligofastq1` (e.g., `sample1_oligo_R2.fastq.gz`).
 
 Basic Settings:
   --name &lt;STR&gt;               Unique identifier for the sample. Used for naming output files and reports (e.g., `sample1`).
@@ -2545,7 +2545,7 @@ Analysis Settings:
 <p><strong>成功分析必须指定的基本参数</strong></p>
 </div>
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
-<h4 id="-n-name"><code>-n, --name</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(必需)</span><a class="headerlink" href="#-n-name" title="Permanent link">&para;</a></h4>
+<h4 id="-name"><code>--name</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(必需)</span><a class="headerlink" href="#-name" title="Permanent link">&para;</a></h4>
 <p>为本次分析提供一个唯一的样本名称。</p>
 <ul>
 <li><strong>功能：</strong> 该名称将用作所有输出文件和HTML报告的前缀。</li>
@@ -2556,7 +2556,7 @@ Analysis Settings:
 <pre><code>--name sample_001</code></pre>
 </div>
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
-<h4 id="-g-genomedir"><code>-g, --genomeDir</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(必需)</span><a class="headerlink" href="#-g-genomedir" title="Permanent link">&para;</a></h4>
+<h4 id="-genomedir"><code>--genomeDir</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(必需)</span><a class="headerlink" href="#-genomedir" title="Permanent link">&para;</a></h4>
 <p>指定参考基因组目录的路径。</p>
 <ul>
 <li><strong>要求：</strong> 目录必须包含由 <code>mkref</code> 命令生成的索引和注释资源。</li>
@@ -2571,22 +2571,32 @@ Analysis Settings:
 </div>
 <div style="max-width: 1200px; margin: 0 auto;">
 <h4 id="_5">输入文件参数<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h4>
-<p><strong>选择一种输入方式：基于目录 OR 单独指定文件</strong></p>
+<p><strong>选择一种输入方式：基于目录或单独指定文件</strong></p>
 </div>
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4 id="-fastqs-1"><code>--fastqs</code> <span style="font-size: 0.8em; font-weight: normal; color: #3498db;">(方式1)</span><a class="headerlink" href="#-fastqs-1" title="Permanent link">&para;</a></h4>
-<p>指定包含所有FASTQ 文件的目录路径。</p>
+<p>指定包含所有 FASTQ 文件的目录路径。</p>
 <ul>
-<li><strong>功能：</strong> 流程会自动检测此目录下（包含cDNA和oligo两个子目录）的配对文件。</li>
+<li><strong>功能：</strong> 流程会自动检测此目录下（包含 cDNA 和 oligo两个子目录）的配对文件。</li>
+<li><strong>目录要求（RNA）：</strong> <code>--fastqs</code> 指向的目录下必须包含 <code>cDNA/</code> 和 <code>oligo/</code> 两个子目录，且每个子目录内都应放置对应文库的 R1/R2 配对文件。</li>
+<li><strong>命名规则：</strong> 自动检测依赖文件名中的 R1/R2 标识，支持 <code>_R1_</code>、<code>_R1</code>、<code>_1</code>、<code>_read1</code> 与对应的 <code>_R2_</code>、<code>_R2</code>、<code>_2</code>、<code>_read2</code>；支持 <code>.fastq.gz</code>、<code>.fq.gz</code>、<code>.fastq</code>、<code>.fq</code>。</li>
 <li><strong>注意：</strong> 这是一个便捷选项，不能与 <code>--cDNAfastq1</code> / <code>--cDNAfastq2</code> / <code>--oligofastq1</code> / <code>--oligofastq2</code> 同时使用。</li>
 </ul>
+<p><strong>推荐目录结构：</strong></p>
+<pre><code>fastq_directory/
+├── cDNA/
+│   ├── sample_cDNA_L01_R1.fastq.gz
+│   └── sample_cDNA_L01_R2.fastq.gz
+└── oligo/
+    ├── sample_oligo_L01_R1.fastq.gz
+    └── sample_oligo_L01_R2.fastq.gz</code></pre>
 <p><strong>默认值：</strong> 无</p>
 <p><strong>示例：</strong></p>
 <pre><code>--fastqs ./fastq_directory</code></pre>
 </div>
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4 id="-cdnafastq1-2a"><code>--cDNAfastq1</code> <span style="font-size: 0.8em; font-weight: normal; color: #3498db;">(方式2A)</span><a class="headerlink" href="#-cdnafastq1-2a" title="Permanent link">&para;</a></h4>
-<p>单独指定一个或多个cDNA Read1 FASTQ 文件。</p>
+<p>单独指定一个或多个 cDNA Read 1 FASTQ 文件。</p>
 <ul>
 <li><strong>支持：</strong> 可以使用通配符 (<code>*</code>) 匹配文件，使用逗号分隔来指定多个文件。</li>
 <li><strong>要求：</strong> 必须与 <code>--cDNAfastq2</code> 参数配对使用，且文件顺序必须完全匹配。</li>
@@ -2597,7 +2607,7 @@ Analysis Settings:
 </div>
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4 id="-cdnafastq2-2b"><code>--cDNAfastq2</code> <span style="font-size: 0.8em; font-weight: normal; color: #3498db;">(方式2B)</span><a class="headerlink" href="#-cdnafastq2-2b" title="Permanent link">&para;</a></h4>
-<p>单独指定一个或多个cDNA Read2 FASTQ 文件。</p>
+<p>单独指定一个或多个 cDNA Read 2 FASTQ 文件。</p>
 <ul>
 <li><strong>支持：</strong> 可以使用通配符 (<code>*</code>) 匹配文件，使用逗号分隔来指定多个文件。</li>
 <li><strong>要求：</strong> 必须与 <code>--cDNAfastq1</code> 参数配对使用，且文件顺序必须完全匹配。</li>
@@ -2608,25 +2618,25 @@ Analysis Settings:
 </div>
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4 id="-oligofastq1-2c"><code>--oligofastq1</code> <span style="font-size: 0.8em; font-weight: normal; color: #3498db;">(方式2C)</span><a class="headerlink" href="#-oligofastq1-2c" title="Permanent link">&para;</a></h4>
-<p>单独指定一个或多个oligo Read1 FASTQ 文件。</p>
+<p>单独指定一个或多个 oligo Read 1 FASTQ 文件。</p>
 <ul>
 <li><strong>支持：</strong> 可以使用通配符 (<code>*</code>) 匹配文件，使用逗号分隔来指定多个文件。</li>
 <li><strong>要求：</strong> 必须与 <code>--oligofastq2</code> 参数配对使用，且文件顺序必须完全匹配。</li>
 </ul>
 <p><strong>默认值：</strong> 无</p>
 <p><strong>示例：</strong></p>
-<pre><code>--oligofastq1 sample_oligo_R1.fastq.gz</code></pre>
+<pre><code>--oligofastq1 sample_oligo_L01_R1.fastq.gz</code></pre>
 </div>
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4 id="-oligofastq2-2d"><code>--oligofastq2</code> <span style="font-size: 0.8em; font-weight: normal; color: #3498db;">(方式2D)</span><a class="headerlink" href="#-oligofastq2-2d" title="Permanent link">&para;</a></h4>
-<p>单独指定一个或多个oligo Read2 FASTQ 文件。</p>
+<p>单独指定一个或多个 oligo Read 2 FASTQ 文件。</p>
 <ul>
 <li><strong>支持：</strong> 可以使用通配符 (<code>*</code>) 匹配文件，使用逗号分隔来指定多个文件。</li>
 <li><strong>要求：</strong> 必须与 <code>--oligofastq1</code> 参数配对使用，且文件顺序必须完全匹配。</li>
 </ul>
 <p><strong>默认值：</strong> 无</p>
 <p><strong>示例：</strong></p>
-<pre><code>--oligofastq2 sample_oligo_R2.fastq.gz</code></pre>
+<pre><code>--oligofastq2 sample_oligo_L01_R2.fastq.gz</code></pre>
 </div>
 <div style="background: #f5f5f7; border-radius: 12px; padding: 20px; margin: 20px auto; max-width: 1200px;">
 <p><strong>输入方式选择：</strong></p>
@@ -2634,11 +2644,7 @@ Analysis Settings:
 <li><strong>方式1：</strong> 使用 <code>--fastqs</code> 指定包含 cDNA 和 oligo 子文件夹的目录。</li>
 <li><strong>方式2：</strong> 使用 <code>--cDNAfastq1</code>, <code>--cDNAfastq2</code>, <code>--oligofastq1</code>, <code>--oligofastq2</code> 分别指定 R1 和 R2 文件。</li>
 </ul>
-<p><strong>兼容别名</strong></p>
-<ul>
-<li>历史短参数 <code>-c1/-c2/-i1/-i2</code> 仍可使用，但在新版帮助信息中默认隐藏，建议优先使用长参数以便脚本可读性更好。</li>
-</ul>
-<p><strong>重要提示：</strong> 参数下所有文件必须来自同一文库，测序模式和暗反应设置保持一致，不同文库的数据不能合并分析。</p>
+<p><strong>重要提示：</strong> 同一组输入文件必须来自同一文库，测序模式和暗反应设置需保持一致；不同文库的数据不能合并分析。</p>
 </div>
 <div style="max-width: 1200px; margin: 0 auto;">
 <hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;">
@@ -2647,7 +2653,7 @@ Analysis Settings:
 <h4 id="_6">基本设置参数<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h4>
 </div>
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
-<h4 id="-o-outdir"><code>-o, --outdir</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(可选)</span><a class="headerlink" href="#-o-outdir" title="Permanent link">&para;</a></h4>
+<h4 id="-outdir"><code>--outdir</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(可选)</span><a class="headerlink" href="#-outdir" title="Permanent link">&para;</a></h4>
 <p>指定所有分析结果和报告的输出目录。</p>
 <ul>
 <li><strong>功能：</strong> 所有分析结果将保存在此目录中，流程会自动创建以样本名命名的结构化子目录。</li>
@@ -2657,13 +2663,13 @@ Analysis Settings:
 <pre><code>--outdir ./output_results</code></pre>
 </div>
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
-<h4 id="-t-threads"><code>-t, --threads</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(可选)</span><a class="headerlink" href="#-t-threads" title="Permanent link">&para;</a></h4>
-<p>设置分析过程中可使用的CPU线程数。</p>
+<h4 id="-threads"><code>--threads</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(可选)</span><a class="headerlink" href="#-threads" title="Permanent link">&para;</a></h4>
+<p>设置分析过程中可使用的 CPU 线程数。</p>
 <ul>
-<li><strong>功能：</strong> 增加线程数可显著提高分析速度。</li>
-<li><strong>建议：</strong> 根据可用的CPU核心数进行调整，以获得最佳性能。</li>
+<li><strong>功能：</strong> 增加线程数可提高分析速度。</li>
+<li><strong>建议：</strong> 根据可用的 CPU 核心数进行调整，以获得最佳性能。</li>
 </ul>
-<p><strong>默认值：</strong> <code>使用所有可用的CPU核心</code></p>
+<p><strong>默认值：</strong> <code>使用所有可用的 CPU 核心</code></p>
 <p><strong>示例：</strong></p>
 <pre><code>--threads 32</code></pre>
 </div>
@@ -2688,7 +2694,7 @@ Analysis Settings:
 <div style="margin-top: 15px;">
     <h5 style="margin-bottom: 5px; font-size: 1.1em;">emptydrops (默认)</h5>
     <ul style="margin: 0; padding-left: 20px;">
-      <li><strong>原理：</strong> 基于表达谱的统计检验，判断细胞表达谱是否显著区别于背景 RNA。</li>
+      <li><strong>原理：</strong> 基于表达谱的统计检验，判断细胞表达谱是否区别于背景 RNA。</li>
       <li><strong>适用场景：</strong> 标准分析（推荐），能精确识别低 RNA 含量的细胞并控制假阳性。</li>
     </ul>
   </div>
@@ -2781,22 +2787,22 @@ dnbc4tools rna run --name sample1 --fastqs ./fq --genomeDir ./ref --minumi 500</
 <ul>
 <li><strong>功能：</strong> 指导软件正确解析条形码和 UMI 的序列结构。</li>
 <li><strong>支持版本：</strong> <code>scRNAv1HT</code>, <code>scRNAv2HT</code>, <code>scRNAv3HT</code>, <code>scRNA5Pv1</code>。</li>
-<li><strong>智能检测 (auto)：</strong> 推荐默认使用；仅在自动识别失败时手动指定。</li>
+<li><strong>自动检测 (auto)：</strong> 推荐默认使用；仅在自动识别失败时手动指定。</li>
 </ul>
 <p><strong>默认值：</strong> <code>auto</code></p>
 <p><strong>示例：</strong></p>
 <pre><code># 场景: 已知文库为scRNAv3HT无暗反应设置且自动分析失败
 dnbc4tools rna run --name sample2 --fastqs ./fq --genomeDir ./ref --chemistry scRNAv3HT --darkreaction unset,unset</code></pre>
-<p><strong>重要提示：</strong>不正确的设置可能导致细胞条形码识别失败。仅在了解文库结构或自动检测失败时手动指定。手动指定时建议配合<code>--darkreaction</code>一起设置。</p>
+<p><strong>重要提示：</strong>不正确的设置可能导致细胞条形码识别失败。仅在了解文库结构或自动检测失败时手动指定。手动指定时建议配合 <code>--darkreaction</code> 一起设置。</p>
 </div>
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4 id="-darkreaction"><code>--darkreaction</code> <span style="font-size: 0.8em; font-weight: normal; color: #f39c12;">(可选)</span><a class="headerlink" href="#-darkreaction" title="Permanent link">&para;</a></h4>
-<p>配置cDNA和oligo文库的暗循环（dark cycle）设置。</p>
+<p>配置cDNA 和 oligo文库的暗循环（dark cycle）设置。</p>
 <ul>
 <li><strong>功能：</strong> 指导软件正确解析由测序化学产生的暗反应周期。</li>
 <li><strong>配置格式：</strong> <code>&lt;cDNA设置&gt;,&lt;oligo设置&gt;</code>。</li>
 <li><strong>支持选项：</strong> <code>auto</code>、<code>R1R2</code>、<code>R1</code>、<code>unset</code>。</li>
-<li><strong>智能检测 (auto)：</strong> 推荐默认使用；仅在自动识别失败时手动指定。</li>
+<li><strong>自动检测 (auto)：</strong> 推荐默认使用；仅在自动识别失败时手动指定。</li>
 </ul>
 <p><strong>默认值：</strong> <code>auto</code></p>
 <p><strong>示例：</strong></p>
@@ -2806,14 +2812,14 @@ dnbc4tools rna run --name sample2 --fastqs ./fq --genomeDir ./ref --chemistry sc
 --darkreaction R1,R1</code></pre>
 <pre><code># 示例3: 两个文库都无暗循环
 --darkreaction unset,unset</code></pre>
-<p><strong>重要提示：</strong>不正确的设置可能导致细胞条形码识别失败。仅在了解文库结构或自动检测失败时手动指定。手动指定时建议配合<code>--chemistry</code>一起设置。</p>
+<p><strong>重要提示：</strong>不正确的设置可能导致细胞条形码识别失败。仅在了解文库结构或自动检测失败时手动指定。手动指定时建议配合 <code>--chemistry</code> 一起设置。</p>
 </div>
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4 id="-customize"><code>--customize</code> <span style="font-size: 0.8em; font-weight: normal; color: #9b59b6;">(高级)</span><a class="headerlink" href="#-customize" title="Permanent link">&para;</a></h4>
 <p>为非标准文库精确定义条形码（barcode）、UMI和有效序列（read）的提取结构。此参数为高级功能，会覆盖 <code>--chemistry</code> 和 <code>--darkreaction</code> 的设置。</p>
 <ul>
-<li><strong>语法格式：</strong> <code>"&lt;type&gt;,&lt;read&gt;:&lt;start&gt;-&lt;end&gt;"</code>，多个段落以分号(<code>;</code>)分隔。</li>
-<li><strong>参数类型 (type)：</strong> <code>cb</code>（细胞条形码）、<code>umi</code>（UMI）、<code>R1</code>（Read1 有效序列）、<code>R2</code>（Read2 有效序列，仅双端测序）。</li>
+<li><strong>语法格式：</strong> <code>"&lt;type&gt;,&lt;read&gt;:&lt;start&gt;-&lt;end&gt;"</code>，多个段落以分号 (<code>;</code>) 分隔。</li>
+<li><strong>参数类型 (type)：</strong> <code>cb</code>（细胞条形码）、<code>umi</code>（UMI）、<code>R1</code>（Read 1 有效序列）、<code>R2</code>（Read 2 有效序列，仅双端测序）。</li>
 <li><strong>双重配置：</strong> 需要分别为 cDNA 和 oligo 文库指定两次 <code>--customize</code> 参数。</li>
 <li><strong>注意事项：</strong> 整个参数字符串必须用引号包裹；坐标为 1-based，且不能超过读长。</li>
 </ul>
@@ -2824,7 +2830,7 @@ dnbc4tools rna run --name sample2 --fastqs ./fq --genomeDir ./ref --chemistry sc
 --customize "cb,R1:7-16;cb,R1:23-32;umi,R1:38-47;R1,R2:1-100"</code></pre>
 <pre><code># 以cDNA文库为例，5端转录本同时利用双端数据
 --customize "cb,R1:1-10;cb,R1:11-20;umi,R1:21-30;R1,R1:31-120;R2,R2:1-150"</code></pre>
-<pre><code># 示例: 为cDNA和oligo文库分别自定义序列结构
+<pre><code># 示例: 为cDNA 和 oligo文库分别自定义序列结构
 --customize "cb,R1:1-10;cb,R1:11-20;umi,R1:21-30;R1,R2:1-100" --customize "cb,R1:1-10;cb,R1:11-20;R1,R2:1-30"</code></pre>
 <p><strong>风险提示：</strong>错误的自定义配置可能导致数据丢失或分析失败，建议仅在标准配置无法满足需求时使用。</p>
 </div>
@@ -2844,10 +2850,10 @@ dnbc4tools rna run --name sample2 --fastqs ./fq --genomeDir ./ref --chemistry sc
 </div>
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4 id="-end5"><code>--end5</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(标志)</span><a class="headerlink" href="#-end5" title="Permanent link">&para;</a></h4>
-<p>启用5'端单细胞转录组数据分析模式。</p>
+<p>启用5' 端单细胞转录组数据分析模式。</p>
 <ul>
-<li><strong>功能：</strong> 专门针对5'端捕获的mRNA进行分析。</li>
-<li><strong>注意：</strong> 仅在使用5'端scRNA试剂盒时使用此参数。</li>
+<li><strong>功能：</strong> 专门针对5' 端捕获的mRNA 进行分析。</li>
+<li><strong>注意：</strong> 仅在使用5' 端scRNA试剂盒时使用此参数。</li>
 </ul>
 <p><strong>默认值：</strong> 不设置此参数</p>
 </div>
@@ -2855,7 +2861,7 @@ dnbc4tools rna run --name sample2 --fastqs ./fq --genomeDir ./ref --chemistry sc
 <h4 id="-no_bam"><code>--no_bam</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(标志)</span><a class="headerlink" href="#-no_bam" title="Permanent link">&para;</a></h4>
 <p>启用此参数以跳过BAM 文件的生成。</p>
 <ul>
-<li><strong>功能：</strong> 节省时间和磁盘空间，显著减少计算时间和存储需求。</li>
+<li><strong>功能：</strong> 减少运行时间和磁盘空间占用。</li>
 <li><strong>注意：</strong> 无法进行需要BAM 文件的下游分析。</li>
 </ul>
 <p><strong>默认值：</strong> 不设置此参数则生成BAM 文件</p>
@@ -2961,7 +2967,7 @@ Advanced Settings:
 <h4 id="_13">设置参数<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h4>
 </div>
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
-<h4 id="-genomedir"><code>--genomeDir</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(可选)</span><a class="headerlink" href="#-genomedir" title="Permanent link">&para;</a></h4>
+<h4 id="-genomedir_1"><code>--genomeDir</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(可选)</span><a class="headerlink" href="#-genomedir_1" title="Permanent link">&para;</a></h4>
 <p>指定生成的参考数据库的输出目录。</p>
 <ul>
 <li><strong>功能：</strong> 所有生成的参考文件（索引、注释等）都将存储在此目录中。</li>
@@ -2975,15 +2981,15 @@ genomeDir/
 ├── genes/
 │   └── genes.gtf          # 处理后的基因注释文件
 ├── star/
-│   ├── SA                 # STAR索引文件
-│   ├── SAindex            # STAR索引核心文件
+│   ├── SA                 # STAR 索引文件
+│   ├── SAindex            # STAR 索引核心文件
 │   ├── chrLength.txt      # 染色体长度信息
 │   ├── chrName.txt        # 染色体名称信息
 │   ├── chrNameLength.txt  # 染色体名称和长度
 │   ├── chrStart.txt       # 染色体起始位置
 │   ├── Genome             # 基因组序列压缩文件
 │   ├── genomeParameters.txt # 基因组参数配置
-│   ├── Log.out            # STAR索引构建日志
+│   ├── Log.out            # STAR 索引构建日志
 │   ├── sjdbInfo.txt       # 剪切位点数据库信息
 │   ├── sjdbList.fromGTF.out.tab # GTF提取的剪切位点
 │   ├── sjdbList.out.tab   # 所有剪切位点列表
@@ -3025,10 +3031,10 @@ genomeDir/
 --species hg38,mm10</code></pre>
 </div>
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
-<h4 id="-threads"><code>--threads</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(可选)</span><a class="headerlink" href="#-threads" title="Permanent link">&para;</a></h4>
-<p>设置STAR索引构建过程中可使用的CPU线程数。</p>
+<h4 id="-threads_1"><code>--threads</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(可选)</span><a class="headerlink" href="#-threads_1" title="Permanent link">&para;</a></h4>
+<p>设置STAR 索引构建过程中可使用的 CPU 线程数。</p>
 <ul>
-<li><strong>性能影响：</strong> 增加线程数可显著缩短索引构建时间。</li>
+<li><strong>性能影响：</strong> 增加线程数通常可缩短索引构建时间，实际效果受计算资源和磁盘 I/O 影响。</li>
 <li><strong>资源平衡：</strong> 需要注意平衡线程数与可用内存（RAM）的关系，过多的线程可能会导致内存不足。</li>
 </ul>
 <p><strong>默认值：</strong> <code>10</code></p>
@@ -3058,7 +3064,7 @@ dnbc4tools rna mkref --fasta genome.fa --ingtf genes.gtf --chrM mitochondrion</c
 <p>限制STAR基因组索引生成过程中的最大内存使用量（以GB为单位）。</p>
 <ul>
 <li><strong>功能：</strong> 该参数控制STAR构建基因组索引时的内存占用，索引的内存配置会直接影响后续 <code>rna run</code> 分析时的内存使用量和运行速度。</li>
-<li><strong>影响：</strong> 较大的内存限制可以生成更高性能的索引，从而加快RNA分析速度，但会增加内存消耗；较小的内存限制会降低索引性能，可能导致分析速度变慢。</li>
+<li><strong>影响：</strong> 较大的内存限制可以生成更高性能的索引，从而加快 RNA 分析速度，但会增加内存消耗；较小的内存限制会降低索引性能，可能导致分析速度变慢。</li>
 <li><strong>建议：</strong> 根据系统可用内存合理设置，避免内存不足导致索引构建失败。</li>
 </ul>
 <p><strong>默认值：</strong> 无</p>
@@ -3067,7 +3073,7 @@ dnbc4tools rna mkref --fasta genome.fa --ingtf genes.gtf --chrM mitochondrion</c
 </div>
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4 id="-extra-args"><code>--extra-args</code> <span style="font-size: 0.8em; font-weight: normal; color: #9b59b6;">(高级)</span><a class="headerlink" href="#-extra-args" title="Permanent link">&para;</a></h4>
-<p>直接向STAR索引生成传递额外的命令行参数。</p>
+<p>直接向STAR 索引生成传递额外的命令行参数。</p>
 <ul>
 <li><strong>功能：</strong> 用于特殊需求和性能优化。</li>
 <li><strong>注意：</strong> 不当的参数设置可能导致索引构建失败或后续分析问题。</li>
@@ -3195,16 +3201,16 @@ Analysis Settings:
 <summary><strong>路径格式规则</strong></summary>
 <ul style="margin-top: 5px;">
 <li><strong>多个FASTQ 文件：</strong> 同一文库的多个FASTQ 文件路径使用逗号(<code>,</code>)分隔。</li>
-<li><strong>R1和R2文件：</strong> 配对的R1和R2文件路径使用分号(<code>;</code>)分隔。</li>
+<li><strong>R1 和 R2 文件：</strong> 配对的 R1 和 R2 文件路径使用分号 (<code>;</code>) 分隔。</li>
 <li><strong>路径类型：</strong> 支持绝对路径和相对路径。</li>
 </ul>
 </details>
 <p style="margin-top: 15px;"><strong>默认值：</strong> 无</p>
 <details open="open">
 <summary><strong>示例：</strong></summary>
-<pre><code># 示例1: SampleA, cDNA和oligo各有1对R1/R2文件
+<pre><code># 示例1: SampleA, cDNA 和 oligo各有 1 对 R1/R2 文件
 SampleA /path/to/A_cDNA_R1.fq.gz;/path/to/A_cDNA_R2.fq.gz   /path/to/A_oligo_R1.fq.gz;/path/to/A_oligo_R2.fq.gz</code></pre>
-<pre><code># 示例2: SampleB, cDNA有2对R1/R2文件, oligo有1对R1/R2文件
+<pre><code># 示例2: SampleB, cDNA 有 2 对 R1/R2 文件，oligo 有 1 对 R1/R2 文件
 SampleB /path/to/B_cDNA_L01_R1.fq.gz,/path/to/B_cDNA_L02_R1.fq.gz;/path/to/B_cDNA_L01_R2.fq.gz,/path/to/B_cDNA_L02_R2.fq.gz /path/to/B_oligo_R1.fq.gz;/path/to/B_oligo_R2.fq.gz</code></pre>
 </details>
 </div>

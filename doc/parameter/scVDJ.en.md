@@ -82,7 +82,7 @@ Analysis Settings:
 </div>
 
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
-<h4><code>-n, --name</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(Required)</span></h4>
+<h4><code>--name</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(Required)</span></h4>
 <p>Provide a unique name for this analysis run.</p>
 <ul>
   <li><strong>Function:</strong> This name will be used as a prefix for all output files and the HTML report.</li>
@@ -94,7 +94,7 @@ Analysis Settings:
 </div>
 
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
-<h4><code>-r, --ref</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(Required)</span></h4>
+<h4><code>--ref</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(Required)</span></h4>
 <p>Specify the reference database to be used for VDJ analysis.</p>
 <ul>
     <li><strong>Function:</strong> Specifies the reference database for VDJ analysis.</li>
@@ -111,7 +111,7 @@ Analysis Settings:
 </div>
 
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
-<h4><code>-c, --chain</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(Required)</span></h4>
+<h4><code>--chain</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(Required)</span></h4>
 <p>Specify the type of immune receptor to be analyzed.</p>
 <ul>
     <li><strong>Core Function:</strong> Specifies the immune receptor type for analysis, directly impacting the identification and recombination analysis of V(D)J gene segments.</li>
@@ -133,7 +133,7 @@ Analysis Settings:
 
 #### Input File Parameters
 
-> **Choose one input method: Directory-based OR specify individual files**
+<p><strong>Choose one input method: directory input or individual FASTQ files</strong></p>
 
 </div>
 
@@ -142,8 +142,16 @@ Analysis Settings:
 <p>Specify the path to the directory containing all FASTQ files.</p>
 <ul>
   <li><strong>Function:</strong> The pipeline will automatically detect paired files (R1/R2) within this directory.</li>
+  <li><strong>Directory requirement (VDJ):</strong> <code>--fastqs</code> should point to a directory that contains only FASTQ files from the current VDJ library, with R1/R2 files placed directly under that directory.</li>
+  <li><strong>Naming requirement:</strong> Automatic detection relies on R1/R2 markers in file names. Supported R1 patterns are <code>_R1_</code>, <code>_R1</code>, <code>_1</code>, and <code>_read1</code>; supported R2 patterns are <code>_R2_</code>, <code>_R2</code>, <code>_2</code>, and <code>_read2</code>. Supported extensions are <code>.fastq.gz</code>, <code>.fq.gz</code>, <code>.fastq</code>, and <code>.fq</code>.</li>
   <li><strong>Note:</strong> This is a convenience option and cannot be used simultaneously with <code>--fastq1</code> / <code>--fastq2</code>.</li>
 </ul>
+<p><strong>Recommended directory structure:</strong></p>
+<pre><code>VDJ_fastq_dir/
+├── sample_VDJ_L01_R1.fastq.gz
+├── sample_VDJ_L01_R2.fastq.gz
+├── sample_VDJ_L02_R1.fastq.gz
+└── sample_VDJ_L02_R2.fastq.gz</code></pre>
 <p><strong>Default:</strong> None</p>
 <p><strong>Example:</strong></p>
 <pre><code>--fastqs ./VDJ_fastq_dir</code></pre>
@@ -151,7 +159,7 @@ Analysis Settings:
 
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>--fastq1</code> <span style="font-size: 0.8em; font-weight: normal; color: #3498db;">(Method 2A)</span></h4>
-<p>Specify one or more Read1 FASTQ files for the VDJ library individually.</p>
+<p>Specify one or more Read 1 FASTQ files for the VDJ library individually.</p>
 <ul>
   <li><strong>Support:</strong> You can use wildcards (<code>*</code>) to match files or a comma-separated list for multiple files.</li>
   <li><strong>Requirement:</strong> Must be used in pairs with the <code>--fastq2</code> parameter, and the file order must match exactly.</li>
@@ -163,7 +171,7 @@ Analysis Settings:
 
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>--fastq2</code> <span style="font-size: 0.8em; font-weight: normal; color: #3498db;">(Method 2B)</span></h4>
-<p>Specify one or more Read2 FASTQ files for the VDJ library individually.</p>
+<p>Specify one or more Read 2 FASTQ files for the VDJ library individually.</p>
 <ul>
   <li><strong>Support:</strong> You can use wildcards (<code>*</code>) to match files or a comma-separated list for multiple files.</li>
   <li><strong>Requirement:</strong> Must be used in pairs with the <code>--fastq1</code> parameter, and the file order must match exactly.</li>
@@ -173,15 +181,23 @@ Analysis Settings:
 <pre><code>--fastq2 sample1_L01_R2.fastq.gz,sample1_L02_R2.fastq.gz</code></pre>
 </div>
 
-> **Input Method Selection:**
-> - **Method 1:** Use `--fastqs` to specify a directory containing paired files.
-> - **Method 2:** Use `--fastq1` and `--fastq2` to specify R1 and R2 files respectively.
+<div style="background: #f5f5f7; border-radius: 12px; padding: 20px; margin: 20px auto; max-width: 1200px;">
 
-> **Compatible aliases**
-> - Legacy short options `-1/-2` are still supported, but hidden in current help output. Long options are recommended for better script readability.
+<p><strong>Input Method Selection:</strong></p>
+<ul>
+  <li><strong>Method 1:</strong> Use <code>--fastqs</code> to specify a directory containing paired FASTQ files.</li>
+  <li><strong>Method 2:</strong> Use <code>--fastq1</code> and <code>--fastq2</code> to specify R1 and R2 files respectively.</li>
+</ul>
 
-> **Important Note:** All files under a parameter must come from the same library, with consistent sequencing mode and dark reaction settings. Data from different libraries cannot be merged for analysis.
----
+<p><strong>Compatible aliases</strong></p>
+<ul>
+</ul>
+
+<p><strong>Important Note:</strong> Files provided for the same input group must come from the same library and use consistent sequencing mode and dark-reaction settings. Data from different libraries must not be merged for analysis.</p>
+
+</div>
+
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
 
 <div style="max-width: 1200px; margin: 0 auto;">
 
@@ -190,7 +206,7 @@ Analysis Settings:
 </div>
 
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
-<h4><code>-o, --outdir</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(Optional)</span></h4>
+<h4><code>--outdir</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(Optional)</span></h4>
 <p>Specify the output directory for all analysis results and reports.</p>
 <ul>
   <li><strong>Function:</strong> All analysis results will be saved in this directory, and the pipeline will automatically create a structured subdirectory named after the sample.</li>
@@ -201,7 +217,7 @@ Analysis Settings:
 </div>
 
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
-<h4><code>-t, --threads</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(Optional)</span></h4>
+<h4><code>--threads</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(Optional)</span></h4>
 <p>Set the number of CPU threads to be used during the analysis.</p>
 <ul>
   <li><strong>Function:</strong> Increasing the number of threads can significantly speed up the analysis.</li>
@@ -213,7 +229,7 @@ Analysis Settings:
 </div>
 
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
-<h4><code>-s, --beadstrans</code> <span style="font-size: 0.8em; font-weight: normal; color: #9b59b6;">(Optional)</span></h4>
+<h4><code>--beadstrans</code> <span style="font-size: 0.8em; font-weight: normal; color: #9b59b6;">(Optional)</span></h4>
 <p>Provide the <code>singlecell.csv</code> file from a scRNA analysis for cell filtering and information integration.</p>
 <ul>
   <li><strong>Function:</strong> By integrating results from a 5' scRNA analysis, this enables bead merging and cell filtering, thereby establishing a precise correspondence between the single-cell RNA expression profile and the VDJ recombination sequence.</li>
@@ -238,12 +254,12 @@ Analysis Settings:
 <p>Configure the dark cycle settings for the VDJ library.</p>
 <ul>
   <li><strong>Function:</strong> Guides the software to correctly parse dark reaction cycles generated by the sequencing chemistry.</li>
-  <li><strong>Smart Detection (auto):</strong> Default setting. The software automatically identifies the structure by analyzing the sequence. <strong>Highly recommended for initial analysis.</strong></li>
-  <li><strong>Manual Settings:</strong> Options are <code>R1</code> (dark cycle in Read1) or <code>unset</code> (no dark cycle).</li>
+  <li><strong>Smart Detection (auto):</strong> Default setting. The software automatically identifies the structure by analyzing the sequence. <strong>Recommended for initial analysis.</strong></li>
+  <li><strong>Manual Settings:</strong> Options are <code>R1</code> (dark cycle in Read 1) or <code>unset</code> (no dark cycle).</li>
 </ul>
 <p><strong>Default:</strong> <code>auto</code></p>
 <p><strong>Example:</strong></p>
-<pre><code># Dark cycle present in Read1
+<pre><code># Dark cycle present in Read 1
 --darkreaction R1</code></pre>
 <p><strong>Important Note:</strong> Incorrect settings may lead to cell barcode identification failure. Specify manually only if you know the library structure or if auto-detection fails.</p>
 </div>
@@ -304,9 +320,9 @@ CCTGGACTCCTGGGCCCCAG</code></pre>
 
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
 <h4><code>--r2_only</code> <span style="font-size: 0.8em; font-weight: normal; color: #e67e22;">(Flag)</span></h4>
-<p>Enable this parameter to use only Read2 sequences for VDJ assembly.</p>
+<p>Enable this parameter to use only Read 2 sequences for VDJ assembly.</p>
 <ul>
-  <li><strong>Function:</strong> Suitable for library designs where Read1 contains only barcode and UMI information.</li>
+  <li><strong>Function:</strong> Suitable for library designs where Read 1 contains only barcode and UMI information.</li>
   <li><strong>Note:</strong> The software cannot auto-detect this situation; it must be specified manually based on the library design.</li>
 </ul>
 <p><strong>Default:</strong> Not set</p>

@@ -30,14 +30,14 @@ The configuration accommodates the specific structures of the `scRNAv2HT` reagen
 
 ## JSON Configuration Explained
 
-The JSON configuration file defines how to parse barcodes, UMIs, and reads from your FASTQ files. Here are the key concepts:
+The JSON configuration file defines how to parse barcodes, UMIs, and effective read sequences from FASTQ files. The key concepts are:
 
 - **Required Fields**: The `"cell barcode tag"`, `"cell barcode"`, and `"read 1"` fields are mandatory.
 - **Tags**: In the `value` field, `CB` is the suggested tag name for the corrected cell barcode, and `UR` is for the UMI.
-- **Location**: The `location` field specifies the read (`R1` or `R2`) and the base pair coordinates. For example, `"R1:1-10"` refers to bases 1-10 of read 1.
+- **Location**: The `location` field specifies the read (`R1` or `R2`) and the base pair coordinates. For example, `"R1:1-10"` refers to bases 1-10 of Read 1.
 - **Barcode Segments**: A cell barcode can be composed of multiple segments from different locations (e.g., `"R1:1-10"` and `"R1:17-26"`).
-- **Output**: The program will export the parsed barcodes and UMIs into the name field of the output FASTQ. The sequence specified by `"read 1"` (e.g., `"R2:1-100"`) will be kept in the sequence field.
-- **Whitelist Correction**: A predefined `"white list"` can be provided to correct barcode sequences. Barcodes not found in the whitelist are compared against it, and if the hamming `"distance"` is within the specified cutoff, the barcode is corrected.
+- **Output**: The program will write the parsed barcodes and UMIs to the read name field of the output FASTQ. The sequence specified by `"read 1"` (e.g., `"R2:1-100"`) is retained in the sequence field.
+- **Whitelist Correction**: A predefined `"white list"` can be provided to correct barcode sequences. Barcodes not found in the whitelist are compared against it, and if the Hamming `"distance"` is within the specified cutoff, the barcode is corrected.
 
 ### Example JSON Configuration
 

@@ -8,7 +8,7 @@
 
 <h1 style="font-size: 48px; font-weight: 600; color: #1d1d1f; margin: 0 0 16px 0; letter-spacing: -0.02em;">DNBelab C Series HT Multi-omics Analysis Pipeline</h1>
 
-<p style="font-size: 21px; color: #86868b; margin: 0 0 30px 0; font-weight: 400;">Complete Guide for Single-Cell Multi-omics Integrated Analysis</p>
+<p style="font-size: 21px; color: #86868b; margin: 0 0 30px 0; font-weight: 400;">Single-Cell Multi-omics Integrated Analysis Guide</p>
 
 <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
 <a href="#overview" style="background: #0071e3; color: white; padding: 8px 16px; border-radius: 980px; text-decoration: none; font-size: 14px;">Overview</a>
@@ -124,6 +124,14 @@ The Multi-omics workflow orchestrates RNA / ATAC / VDJ sub-pipelines, enabling m
  <strong>Detailed Configuration</strong>: Please refer to the <a href="../parameter/multi.en.md">Multi Parameter Documentation</a> for complete CSV configuration specifications and parameter mappings.
 </div>
 
+<p><strong><code>[libraries]</code> input directory requirements:</strong></p>
+<ul>
+  <li><code>rna</code>: <code>fastqs</code> should point to the RNA FASTQ root directory, which must contain <code>cDNA/</code> and <code>oligo/</code> subdirectories.</li>
+  <li><code>atac</code>: <code>fastqs</code> should point to the FASTQ directory for the current ATAC library, with R1/R2 files placed directly under that directory.</li>
+  <li><code>vdj-t</code> / <code>vdj-b</code>: <code>fastqs</code> should point to the FASTQ directory for the current VDJ library. TCR and BCR data should be configured separately.</li>
+  <li>Automatic detection relies on R1/R2 markers in file names. The recommended naming patterns are <code>_R1</code>/<code>_R2</code> or <code>_R1_</code>/<code>_R2_</code>.</li>
+</ul>
+
 ### Minimal Configuration Example
 
 <details open>
@@ -132,7 +140,7 @@ The Multi-omics workflow orchestrates RNA / ATAC / VDJ sub-pipelines, enabling m
 ```csv
 [rna]
 genomeDir,/database/scRNA/Human
-
+end5,true
 [vdj-t]
 ref,human
 
@@ -277,10 +285,10 @@ Warning: ATAC joint analysis is currently unsupported. Libraries will be analyze
 ┌─────────────┬────────────────────────────────────────────────────────────────────────────────────┐
 │ Type        │ Path                                                                               │
 ├─────────────┼────────────────────────────────────────────────────────────────────────────────────┤
-│ cDNA Read1  │ /data/cDNA/sample_cDNA_R1.fastq.gz                                                 │
-│ cDNA Read2  │ /data/cDNA/sample_cDNA_R2.fastq.gz                                                 │
-│ oligo Read1 │ /data/oligo/sample_oligo_1_R1.fastq.gz,/data/oligo/sample_oligo_2_R1.fastq.gz      │
-│ oligo Read2 │ /data/oligo/sample_oligo_1_R2.fastq.gz,/data/oligo/sample_oligo_2_R2.fastq.gz      │
+│ cDNA Read 1 │ /data/cDNA/sample_cDNA_R1.fastq.gz                                                 │
+│ cDNA Read 2 │ /data/cDNA/sample_cDNA_R2.fastq.gz                                                 │
+│ oligo Read 1 │ /data/oligo/sample_oligo_1_R1.fastq.gz,/data/oligo/sample_oligo_2_R1.fastq.gz      │
+│ oligo Read 2 │ /data/oligo/sample_oligo_1_R2.fastq.gz,/data/oligo/sample_oligo_2_R2.fastq.gz      │
 └─────────────┴────────────────────────────────────────────────────────────────────────────────────┘
 ────────────────────────────────────────────────────────────────────────────────────────────────────
 
@@ -289,8 +297,8 @@ Warning: ATAC joint analysis is currently unsupported. Libraries will be analyze
 ┌───────────────────────────────────────────────┬──────────────────────────────────────────────────┐
 │ Type                                          │ Result                                           │
 ├───────────────────────────────────────────────┼──────────────────────────────────────────────────┤
-│ oligo Read1                                   │ darkreaction                                     │
-│ oligo Read2                                   │ darkreaction                                     │
+│ oligo Read 1                                   │ darkreaction                                     │
+│ oligo Read 2                                   │ darkreaction                                     │
 └───────────────────────────────────────────────┴──────────────────────────────────────────────────┘
 ────────────────────────────────────────────────────────────────────────────────────────────────────
 
@@ -299,7 +307,7 @@ Warning: ATAC joint analysis is currently unsupported. Libraries will be analyze
 ┌─────────────────────────────────────────────┬────────────────────────────────────────────────────┐
 │ Type                                        │ Result                                             │
 ├─────────────────────────────────────────────┼────────────────────────────────────────────────────┤
-│ cDNA Read1                                  │ darkreaction                                       │
+│ cDNA Read 1                                  │ darkreaction                                       │
 └─────────────────────────────────────────────┴────────────────────────────────────────────────────┘
 ────────────────────────────────────────────────────────────────────────────────────────────────────
 
@@ -413,7 +421,7 @@ After completion, results are organized under `<outdir>/<name>/`:
 
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
 
-This section is under continuous maintenance. Common troubleshooting entries will be added in a future revision.
+This section will be expanded as common usage questions are collected. For the current version, use the run log, parameter reference, and output file documentation as the primary troubleshooting references.
 
 </div>
 

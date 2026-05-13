@@ -1505,13 +1505,13 @@
 </div>
 <hr />
 <h2 id="json_1">JSON 字段解释<a class="headerlink" href="#json_1" title="Permanent link">&para;</a></h2>
-<p>JSON 配置用于定义如何从 FASTQ 中解析 barcode、UMI 和 read。核心说明如下：</p>
+<p>JSON 配置用于定义如何从 FASTQ 中解析 barcode、UMI 和有效序列。核心说明如下：</p>
 <ul>
 <li><strong>必填字段</strong>：<code>"cell barcode tag"</code>、<code>"cell barcode"</code>、<code>"read 1"</code> 为必填。</li>
 <li><strong>Tag 含义</strong>：<code>value</code> 中通常用 <code>CB</code> 表示纠错后的细胞 barcode，用 <code>UR</code> 表示 UMI。</li>
-<li><strong>位置定义</strong>：<code>location</code> 使用 <code>R1</code>/<code>R2</code> 加区间坐标，例如 <code>"R1:1-10"</code> 表示 read1 的 1-10 bp。</li>
+<li><strong>位置定义</strong>：<code>location</code> 使用 <code>R1</code>/<code>R2</code> 加区间坐标，例如 <code>"R1:1-10"</code> 表示 Read 1 的 1-10 bp。</li>
 <li><strong>Barcode 片段</strong>：一个细胞 barcode 可以由多个片段拼接而成（例如 <code>"R1:1-10"</code> + <code>"R1:17-26"</code>）。</li>
-<li><strong>输出行为</strong>：程序会把解析出的 barcode/UMI 写入输出 FASTQ 的 name 字段；<code>"read 1"</code> 指定的序列（如 <code>"R2:1-100"</code>）保留在 sequence 字段。</li>
+<li><strong>输出行为</strong>：程序会把解析出的 barcode 和 UMI 写入输出 FASTQ 的 read name 字段；<code>"read 1"</code> 指定的序列（如 <code>"R2:1-100"</code>）保留在 sequence 字段。</li>
 <li><strong>白名单纠错</strong>：可通过 <code>"white list"</code> 指定合法 barcode；若不在白名单中，则按 <code>"distance"</code>（汉明距离阈值）尝试纠错。</li>
 </ul>
 <h3 id="json_2">JSON 示例<a class="headerlink" href="#json_2" title="Permanent link">&para;</a></h3>

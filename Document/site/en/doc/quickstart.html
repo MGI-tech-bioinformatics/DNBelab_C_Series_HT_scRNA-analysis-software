@@ -409,17 +409,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#file-naming-conventions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        File Naming Conventions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#single-cell-rna-analysis" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1461,17 +1450,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#file-naming-conventions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        File Naming Conventions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#single-cell-rna-analysis" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1701,10 +1679,9 @@
 <li>The backslash <code>\</code> is used to split a single command across multiple lines for readability. It is optional.</li>
 </ul>
 </div>
-<hr />
-<h2 id="file-naming-conventions">File Naming Conventions<a class="headerlink" href="#file-naming-conventions" title="Permanent link">&para;</a></h2>
-<div style="background-color: #e7f3fe; border-left: 6px solid #2196F3; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
-<p>The pipeline automatically detects paired-end files based on naming patterns. The following conventions are supported:</p>
+<div id="file-naming-conventions" style="background-color: #e7f3fe; border-left: 6px solid #2196F3; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
+<p><strong><code>--fastqs</code> automatic file naming conventions</strong></p>
+<p>When using directory-based input with <code>--fastqs</code>, the pipeline automatically detects paired-end files based on file names. The following patterns are supported. When files are specified explicitly with <code>--fastq1/--fastq2</code>, or with RNA-specific <code>--cDNAfastq1/2</code> and <code>--oligofastq1/2</code>, these naming patterns are not required, but the R1/R2 file order must match exactly.</p>
 <ul>
 <li><strong>Supported extensions:</strong> <code>.fastq.gz</code>, <code>.fq.gz</code>, <code>.fastq</code>, <code>.fq</code></li>
 <li><strong>R1 patterns:</strong> <code>_R1_</code>, <code>_R1</code>, <code>_1</code>, <code>_read1</code></li>
@@ -1766,7 +1743,7 @@ $dnbc4tools rna mkref \
   <li><code>/test/data/rna_fastqs/oligo/*_R1*.fastq.gz</code>, <code>*_R2*.fastq.gz</code></li>
 </ul>
 
-<p>See <a href="#file-naming-conventions">File Naming Conventions</a> for supported patterns.</p>
+<p>For directory-based <code>--fastqs</code> input, see <a href="#file-naming-conventions"><code>--fastqs</code> Automatic File Naming Conventions</a> for supported patterns.</p>
 <p><strong>File-specific Input (--cDNAfastq1/2 --oligofastq1/2)</strong></p>
 <pre><code class="language-bash">$dnbc4tools rna run \
     --cDNAfastq1 /test/data/rna_fastqs/cDNA/test_R1.fastq.gz \
@@ -1822,7 +1799,7 @@ $dnbc4tools atac mkref --fasta GRCm38.primary_assembly.genome.fa --ingtf genes.f
   <li><code>/test/data/*_R1*.fastq.gz</code>, <code>*_R2*.fastq.gz</code></li>
 </ul>
 
-<p>See <a href="#file-naming-conventions">File Naming Conventions</a> for supported patterns.</p>
+<p>For directory-based <code>--fastqs</code> input, see <a href="#file-naming-conventions"><code>--fastqs</code> Automatic File Naming Conventions</a> for supported patterns.</p>
 <p><strong>File-specific Input (--fastq1/2)</strong></p>
 <pre><code class="language-bash">$dnbc4tools atac run \
     --fastq1 /test/data/test1_R1.fastq.gz,/test/data/test2_R1.fastq.gz \
@@ -1866,7 +1843,7 @@ $dnbc4tools atac mkref --fasta GRCm38.primary_assembly.genome.fa --ingtf genes.f
   <li><code>/test/data/*_R1*.fastq.gz</code>, <code>*_R2*.fastq.gz</code></li>
 </ul>
 
-<p>See <a href="#file-naming-conventions">File Naming Conventions</a> for supported patterns.</p>
+<p>For directory-based <code>--fastqs</code> input, see <a href="#file-naming-conventions"><code>--fastqs</code> Automatic File Naming Conventions</a> for supported patterns.</p>
 <p><strong>File-specific Input (--fastq1/2)</strong></p>
 <p><strong>TCR Analysis (Human)</strong></p>
 <pre><code class="language-bash">$dnbc4tools vdj run \
@@ -1914,12 +1891,13 @@ $dnbc4tools atac mkref --fasta GRCm38.primary_assembly.genome.fa --ingtf genes.f
 <p>Run RNA/ATAC/VDJ pipelines in one integrated workflow and generate a unified report</p>
 </blockquote>
 <h3 id="step-1-prepare-config-file">Step 1: Prepare Config File<a class="headerlink" href="#step-1-prepare-config-file" title="Permanent link">&para;</a></h3>
-<blockquote>
-<p>Recommended: in <code>[libraries]</code>, <code>fastqs</code> should be the FASTQ directory path for each omics library; the pipeline will auto-detect R1/R2 files in each directory.</p>
-</blockquote>
+<div style="background-color: #e7f3fe; border-left: 6px solid #2196F3; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
+<p><strong>Configuration note</strong>: In <code>[libraries]</code>, <code>fastqs</code> should be the FASTQ directory path for each omics library; the pipeline will auto-detect R1/R2 files in each directory. When VDJ modules are enabled, set <code>end5,true</code> in the <code>[rna]</code> section.</p>
+</div>
 <pre><code class="language-ini">[libraries]
 fastqs,feature_types
 /test/data/rna,rna
+/test/data/atac,atac
 /test/data/vdj-t,vdj-t
 /test/data/vdj-b,vdj-b
 
@@ -1928,6 +1906,7 @@ genomeDir,/database/scRNA/Homo_sapiens
 end5,true
 
 [atac]
+genomeDir,/database/scATAC/Homo_sapiens
 
 [vdj-t]
 ref,human
@@ -1947,7 +1926,6 @@ ref,human
 <pre><code class="language-bash">$dnbc4tools multi run \
     --name test_multi \
     --csv ./multi_config.csv \
-    --outdir ./multi_output \
     --threads 20
 </code></pre>
 <hr />

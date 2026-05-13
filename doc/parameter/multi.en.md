@@ -42,13 +42,13 @@ Generate a unified multi-omics report.
 Usage: dnbc4tools multi run [OPTIONS]
 
 optional arguments:
-  -h, --help             show this help message and exit
+  --help             show this help message and exit
 
 Basic Options:
-  -n, --name NAME        Unique identifier for the sample.
-  -c, --csv CSV          CSV file containing pipeline configuration settings.
-  -o, --outdir OUTDIR    Output directory for analysis results.
-  -t, --threads THREADS  Number of CPU threads to use.
+  --name NAME        Unique identifier for the sample.
+  --csv CSV          CSV file containing pipeline configuration settings.
+  --outdir OUTDIR    Output directory for analysis results.
+  --threads THREADS  Number of CPU threads to use.
 ```
 
 </div>
@@ -68,7 +68,7 @@ Basic Options:
 </div>
 
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
-<h4><code>-n, --name</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(Required)</span></h4>
+<h4><code>--name</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(Required)</span></h4>
 <p>Task/sample identifier for the current multi run.</p>
 <ul>
   <li><strong>Function:</strong> Used in output paths and report sample labeling.</li>
@@ -80,7 +80,7 @@ Basic Options:
 </div>
 
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
-<h4><code>-c, --csv</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(Required)</span></h4>
+<h4><code>--csv</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(Required)</span></h4>
 <p>Path to multi-omics CSV configuration file.</p>
 <ul>
   <li><strong>Function:</strong> Defines RNA / ATAC / VDJ module parameters and input mapping.</li>
@@ -100,7 +100,7 @@ Basic Options:
 </div>
 
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
-<h4><code>-o, --outdir</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(Optional)</span></h4>
+<h4><code>--outdir</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(Optional)</span></h4>
 <p>Output directory for integrated results.</p>
 <ul>
   <li><strong>Function:</strong> Stores combined report, module outputs, and logs.</li>
@@ -112,7 +112,7 @@ Basic Options:
 </div>
 
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
-<h4><code>-t, --threads</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(Optional)</span></h4>
+<h4><code>--threads</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(Optional)</span></h4>
 <p>CPU threads for workflow execution.</p>
 <ul>
   <li><strong>Function:</strong> Controls parallelism and affects runtime.</li>
@@ -201,7 +201,7 @@ fastqs,feature_types
 
 ### `beadstrans` Behavior
 
-In multi mode, VDJ cell filtering is aligned to RNA results by default.
+In multi mode, VDJ cell filtering is aligned to RNA results by default. When VDJ modules are enabled, set `end5,true` in the `[rna]` section so that RNA analysis runs in 5' gene-expression mode.
 
 </div>
 
@@ -279,8 +279,19 @@ In multi mode, VDJ cell filtering is aligned to RNA results by default.
 
 | Column | Description |
 | :--- | :--- |
-| `fastqs` | FASTQ path (absolute path recommended) |
+| `fastqs` | FASTQ input directory path. Absolute paths are recommended. |
 | `feature_types` | Data type: `rna` / `atac` / `vdj-t` / `vdj-b` |
+
+</div>
+
+<div style="background: #f5f5f7; border-radius: 12px; padding: 16px; margin: 16px auto; max-width: 1200px;">
+
+**`fastqs` directory requirements**
+
+- `rna`: The path should point to the RNA FASTQ root directory. It must contain `cDNA/` and `oligo/` subdirectories, each containing the corresponding paired R1/R2 files.
+- `atac`: The path should point to the FASTQ directory for the current ATAC library. R1/R2 files should be placed directly under this directory.
+- `vdj-t` / `vdj-b`: The path should point to the FASTQ directory for the current VDJ library. R1/R2 files should be placed directly under this directory.
+- Automatic detection relies on R1/R2 markers in FASTQ file names. Recommended naming patterns include `_R1` / `_R2`, `_R1_` / `_R2_`, or equivalent Read 1/Read 2 markers.
 
 </div>
 
@@ -290,7 +301,7 @@ In multi mode, VDJ cell filtering is aligned to RNA results by default.
 
 ### Notes
 
-- **Centralize input paths in `[libraries]`** for cleaner configuration.
+- **Centralize FASTQ input directories in `[libraries]`** for easier review and management.
 - **`customize` may appear multiple times**; for single-value keys, keep only final intended value.
 
 </div>
@@ -321,6 +332,7 @@ fastqs,feature_types
 ```csv
 [rna]
 genomeDir,/database/scRNA/Human
+end5,true
 include_introns,true
 
 [atac]

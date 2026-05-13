@@ -8,7 +8,7 @@
 
 <h1 style="font-size: 48px; font-weight: 600; color: #1d1d1f; margin: 0 0 16px 0; letter-spacing: -0.02em;">DNBelab C Series HT scATAC 分析流程</h1>
 
-<p style="font-size: 21px; color: #86868b; margin: 0 0 30px 0; font-weight: 400;">单细胞 ATAC 测序数据分析完整指南</p>
+<p style="font-size: 21px; color: #86868b; margin: 0 0 30px 0; font-weight: 400;">单细胞 ATAC 测序数据分析说明</p>
 
 <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
 <a href="#概述" style="background: #0071e3; color: white; padding: 8px 16px; border-radius: 980px; text-decoration: none; font-size: 14px;">概述</a>
@@ -89,7 +89,7 @@
 
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
 
-### 文件要求
+### 参考数据库输入文件
 
 <table style="width:100%; border-collapse: collapse; margin: 1.5em 0; box-shadow: 0 2px 3px rgba(0,0,0,0.1);">
   <thead style="background-color: #f2f2f2; border-bottom: 2px solid #ddd;">
@@ -117,7 +117,7 @@
  <strong>推荐数据来源</strong>：优先使用 <a href="https://www.ensembl.org/index.html">Ensembl 数据库</a> 提供的文件。Ensembl 的 GTF 文件包含可选标签，便于通过 <code>dnbc4tools tools mkgtf</code> 进行过滤。
 </div>
 
-**GTF 文件要求：**
+<p><strong>GTF 文件要求：</strong></p>
 <ul>
   <li>必须包含 <code>gene</code> 或 <code>transcript</code> 类型以及 <code>exon</code> 类型的注释。</li>
   <li>属性中必须包含 <code>gene_id</code> 或 <code>gene_name</code> 以及 <code>transcript_id</code> 或 <code>transcript_name</code>。</li>
@@ -130,9 +130,11 @@
 有关 GTF 文件过滤的详细信息，请[参考 scRNA 分析流程](./scRNA.md#gtf-file-processing-optional-zh)。
 
 
-### 构建参考数据库
+### 参考数据库构建
 
 在运行 `dnbc4tools atac run` 分析之前，需要先构建参考数据库。此步骤使用注释文件（GTF）和参考基因组（FASTA）构建索引文件，用于测序 reads 的比对和统计分析。
+
+<p><strong>运行命令：</strong></p>
 
 ```shell
 $dnbc4tools atac mkref \
@@ -141,7 +143,7 @@ $dnbc4tools atac mkref \
   --species Mus_musculus 
 ```
 
-**输出结果**：
+<p><strong>输出目录：</strong></p>
 
 成功运行后，将在指定位置创建参考数据库目录，包含以下文件结构：
 
@@ -160,6 +162,9 @@ $dnbc4tools atac mkref \
     ├── promoter.bed
     └── tss.bed
 ```
+
+
+<p><strong>ref.json 示例：</strong></p>
 
 其中 `ref.json` 文件记录数据库的主要信息：
 
@@ -189,6 +194,8 @@ $dnbc4tools atac mkref \
 <div style="background-color: #fffbe6; border-left: 6px solid #ffc107; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
  <strong>注意</strong>：构建参考数据库可能需要较长时间，取决于基因组大小和计算机性能。软件主分析流程兼容旧版本数据库。
 </div>
+
+<p><strong>运行日志示例：</strong></p>
 
 运行时打印信息，以下是一个示例：
 
@@ -230,6 +237,108 @@ $dnbc4tools atac mkref \
 
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
 
+主分析流程包括单样本分析和多样本批处理两种使用方式：
+
+- **单样本分析**：直接运行 `dnbc4tools atac run`，适用于单个 ATAC 文库的完整分析。
+- **多样本批处理**：先通过 `dnbc4tools atac multi` 生成每个样本的运行脚本，适用于多个样本的批量任务准备。
+
+### 单样本分析
+
+ATAC 主分析流程使用单个样本单细胞 ATAC 文库测序数据。该流程的核心步骤包括：
+<ol>
+  <li><strong>数据处理</strong>：执行质控与比对，生成所有磁珠的 <code>fragments</code> 文件。</li>
+  <li><strong>Peak 调用</strong>：基于聚合数据进行 peak calling，识别开放染色质区域。</li>
+  <li><strong>细胞识别</strong>：利用 peaks 区域的片段信息识别有效细胞。</li>
+  <li><strong>高级分析</strong>：对细胞进行过滤、降维与聚类。</li>
+  <li><strong>报告生成</strong>：整合各步骤结果，输出 HTML 网页报告和其他分析结果文件。</li>
+</ol>
+
+支持两种输入方式：
+
+**方式1：目录方式（推荐）**
+
+```shell
+$dnbc4tools atac run \
+  --name sample \
+  --fastqs /data \
+  --genomeDir /database/scATAC/Mus_musculus \
+  --threads 10
+```
+目录结构示例：
+```
+/data/
+├── sample_R1.fastq.gz
+└── sample_R2.fastq.gz
+```
+
+目录要求：
+
+- `--fastqs` 指向当前 ATAC 文库的 FASTQ 目录。
+- R1/R2 配对文件需直接放在该目录下。
+- 自动识别依赖文件名中的 R1/R2 标识。建议使用 `_R1`/`_R2` 或 `_R1_`/`_R2_` 命名。
+- 不同样本或不同文库的数据不要混放到同一输入目录中。
+
+**方式2：单独参数方式**
+
+```shell
+$dnbc4tools atac run \
+  --name sample \
+  --fastq1 /data/sample_R1.fastq.gz \
+  --fastq2 /data/sample_R2.fastq.gz \
+  --genomeDir /database/scATAC/Mus_musculus \
+  --threads 10
+```
+
+在对试剂版本和暗反应自动检测后，软件开始运行分析，以下是一个示例：
+```shell
+
+──────────────────────────── Parsed FASTQ Inputs — 2025-11-12 15:05:39 ─────────────────────────────
+┌───────┬──────────────────────────────────────────────────────────────────────────────────────────┐
+│ Type  │ Path                                                                                     │
+├───────┼──────────────────────────────────────────────────────────────────────────────────────────┤
+│ Read 1 │ /data/sample_R1.fastq.gz                                                                 │
+│ Read 2 │ /data/sample_R2.fastq.gz                                                                 │
+└───────┴──────────────────────────────────────────────────────────────────────────────────────────┘
+────────────────────────────────────────────────────────────────────────────────────────────────────
+
+──────────────────────────── Chemistry Detection — 2025-11-12 15:05:49 ─────────────────────────────
+┌─────────────────────────────────┬────────────────────────────────────────────────────────────────┐
+│ Type                            │ Result                                                         │
+├─────────────────────────────────┼────────────────────────────────────────────────────────────────┤
+│ Read 1                           │ darkreaction                                                   │
+│ Read 2                           │ darkreaction                                                   │
+└─────────────────────────────────┴────────────────────────────────────────────────────────────────┘
+────────────────────────────────────────────────────────────────────────────────────────────────────
+
+ 2025-11-12 15:05:49 Performing raw data quality control and alignment...                           
+...done
+
+ 2025-11-12 15:24:56 Calculating bead similarity and merging beads within droplets...               
+...done
+
+ 2025-11-12 15:28:00 Processing fragments for peak calling...                                       
+...done
+
+ 2025-11-12 15:31:22 Generating raw peak count matrix...                                            
+...done
+
+ 2025-11-12 15:38:18 Generating cell-filtered peak count matrix...                                  
+...done
+
+ 2025-11-12 15:43:23 Performing dimensionality reduction and clustering...                          
+...done
+
+ 2025-11-12 15:50:03 Generating analysis report and summary statistics...                           
+...done
+
+ 2025-11-12 15:50:19 Analysis Finished. Elapsed Time: 0:44:30
+```
+
+当出现 `Analysis Finished` 消息时，表示分析已成功完成。
+
+
+<div style="border-top: 1px solid #d2d2d7; margin: 32px 0;"></div>
+
 ### 多样本批处理（可选）
 
 为简化逐样本生成主分析流程的操作，可使用配置文件生成包含多个样本的主流程 shell 脚本。以下为示例步骤：
@@ -264,8 +373,8 @@ $dnbc4tools atac multi \
 
 <div style="background-color: #fffbe6; border-left: 6px solid #ffc107; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
  <strong>注意</strong>：
-多个fastq文件以逗号（`,`）分隔，
-R1和R2文件以分号（`;`）分隔
+多个 FASTQ 文件以逗号（`,`）分隔，
+R1 和 R2 文件以分号（`;`）分隔
 </div>
 
 ```tsv
@@ -292,94 +401,6 @@ $cat sample1.sh
 执行第四步进行主流程分析。
 
 
-### 单样本分析
-
-ATAC 主分析流程使用单个样本单细胞 ATAC 文库测序数据。该流程的核心步骤包括：
-<ol>
-  <li><strong>数据处理</strong>：执行质控与比对，生成所有磁珠的 <code>fragments</code> 文件。</li>
-  <li><strong>Peak 调用</strong>：基于聚合数据进行 peak calling，识别开放染色质区域。</li>
-  <li><strong>细胞识别</strong>：利用 peaks 区域的片段信息识别有效细胞。</li>
-  <li><strong>高级分析</strong>：对细胞进行过滤、降维与聚类。</li>
-  <li><strong>报告生成</strong>：整合各步骤结果，输出 HTML 网页报告和其他分析结果文件。</li>
-</ol>
-
-支持两种输入方式：
-
-**方式1：目录方式（推荐）**
-
-```shell
-$dnbc4tools atac run \
-  --name sample \
-  --fastqs /data \
-  --genomeDir /database/scATAC/Mus_musculus \
-  --threads 10
-```
-目录结构示例：
-```
-/data/
-
-├── sample_R1.fastq.gz
-└── sample_R2.fastq.gz
-
-```
-
-**方式2：单独参数方式**
-
-```shell
-$dnbc4tools atac run \
-  --name sample \
-  --fastq1 /data/sample_R1.fastq.gz \
-  --fastq2 /data/sample_R2.fastq.gz \
-  --genomeDir /database/scATAC/Mus_musculus \
-  --threads 10
-```
-
-在对试剂版本和暗反应自动检测后，软件开始运行分析，以下是一个示例：
-```shell
-
-──────────────────────────── Parsed FASTQ Inputs — 2025-11-12 15:05:39 ─────────────────────────────
-┌───────┬──────────────────────────────────────────────────────────────────────────────────────────┐
-│ Type  │ Path                                                                                     │
-├───────┼──────────────────────────────────────────────────────────────────────────────────────────┤
-│ Read1 │ /data/sample_R1.fastq.gz                                                                 │
-│ Read2 │ /data/sample_R2.fastq.gz                                                                 │
-└───────┴──────────────────────────────────────────────────────────────────────────────────────────┘
-────────────────────────────────────────────────────────────────────────────────────────────────────
-
-──────────────────────────── Chemistry Detection — 2025-11-12 15:05:49 ─────────────────────────────
-┌─────────────────────────────────┬────────────────────────────────────────────────────────────────┐
-│ Type                            │ Result                                                         │
-├─────────────────────────────────┼────────────────────────────────────────────────────────────────┤
-│ Read1                           │ darkreaction                                                   │
-│ Read2                           │ darkreaction                                                   │
-└─────────────────────────────────┴────────────────────────────────────────────────────────────────┘
-────────────────────────────────────────────────────────────────────────────────────────────────────
-
- 2025-11-12 15:05:49 Performing raw data quality control and alignment...                           
-...done
-
- 2025-11-12 15:24:56 Calculating bead similarity and merging beads within droplets...               
-...done
-
- 2025-11-12 15:28:00 Processing fragments for peak calling...                                       
-...done
-
- 2025-11-12 15:31:22 Generating raw peak count matrix...                                            
-...done
-
- 2025-11-12 15:38:18 Generating cell-filtered peak count matrix...                                  
-...done
-
- 2025-11-12 15:43:23 Performing dimensionality reduction and clustering...                          
-...done
-
- 2025-11-12 15:50:03 Generating analysis report and summary statistics...                           
-...done
-
- 2025-11-12 15:50:19 Analysis Finished. Elapsed Time: 0:44:30
-```
-
-当出现 `Analysis Finished` 消息时，表示分析已成功完成。
 
 
 </div>
@@ -394,7 +415,7 @@ $dnbc4tools atac run \
 
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
 
-分析完成后，将生成结果输出目录outs，logs日志目录。
+分析完成后，将生成 `outs`（结果输出）和 `logs`（日志）目录。
 
 ```
 . 
@@ -445,7 +466,7 @@ $dnbc4tools atac run \
 
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
 
-本节正在更新中。
+本节将根据常见使用问题持续补充。当前版本请优先参考运行日志、参数说明和输出文件说明进行排查。
 
 </div>
 

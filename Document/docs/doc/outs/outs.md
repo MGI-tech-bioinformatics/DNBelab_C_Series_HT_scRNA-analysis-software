@@ -8,7 +8,7 @@
 
 <h1 style="font-size: 48px; font-weight: 600; color: #1d1d1f; margin: 0 0 16px 0; letter-spacing: -0.02em;">输出结果总览</h1>
 
-<p style="font-size: 21px; color: #86868b; margin: 0; font-weight: 400;">全面解读分析结果文件与报告</p>
+<p style="font-size: 21px; color: #86868b; margin: 0; font-weight: 400;">分析结果文件与报告说明</p>
 
 </div>
 

@@ -200,23 +200,27 @@ html {
 
 /* Home quick links bar */
 .home-quick-links {
-  border: 1px solid #d9dce4;
-  border-radius: 10px;
-  background: #f7f8fb;
-  padding: 12px;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 10px 0 20px;
+  padding: 16px;
+  border-radius: 12px;
+  background: #ffffff;
+  border: 1px solid #d7dce9;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
 }
 
 .home-quick-links a {
   display: inline-block;
-  padding: 8px 12px;
-  border-radius: 8px;
-  text-decoration: none;
-  background: #ffffff;
+  padding: 6px 12px;
   border: 1px solid #d7dce9;
-  font-weight: 600;
+  border-radius: 8px;
+  background: #f8f9fc;
+  color: #3550b5;
+  font-size: 0.78rem;
+  font-weight: 620;
+  text-decoration: none;
 }
 
 .home-quick-links a:hover {
@@ -225,15 +229,15 @@ html {
 }
 
 [data-md-color-scheme="slate"] .home-quick-links {
-  background: linear-gradient(180deg, #0f172a 0%, #111827 100%);
-  border-color: #2f3f5f;
+  background: #111b2d;
+  border-color: #36507d;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.24);
 }
 
 [data-md-color-scheme="slate"] .home-quick-links a {
   background: #172235;
   border-color: #36507d;
   color: #c7dbff;
-  font-weight: 650;
 }
 
 [data-md-color-scheme="slate"] .home-quick-links a:hover {
@@ -297,20 +301,21 @@ html {
   border: 1px solid #d9dce4;
   border-radius: 12px;
   background: #ffffff;
-  padding: 14px 16px;
+  padding: 18px 18px;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
 }
 
 .home-card h4 {
   margin: 0 0 10px;
-  font-size: 0.94rem;
+  font-size: 0.92rem;
   font-weight: 700;
 }
 
 .home-card p {
-  margin: 0 0 10px;
+  margin: 0 0 14px;
   color: rgba(0, 0, 0, 0.68);
-  font-size: 0.86rem;
+  font-size: 0.78rem;
+  line-height: 1.55;
 }
 
 .home-card-links {
@@ -323,10 +328,11 @@ html {
   display: inline-block;
   border: 1px solid #d7dce9;
   border-radius: 8px;
-  padding: 5px 10px;
+  padding: 6px 12px;
   text-decoration: none;
-  font-size: 0.84rem;
+  font-size: 0.78rem;
   background: #f8f9fc;
+  font-weight: 620;
 }
 
 .home-card-links a:hover {

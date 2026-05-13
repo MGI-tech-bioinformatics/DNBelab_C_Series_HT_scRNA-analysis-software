@@ -87,4 +87,4 @@ See details in [Release Notes](./doc/release.en.md).
 ## Support
 
 - Questions / bug reports / feature requests: [GitHub Issues](https://github.com/MGI-tech-bioinformatics/DNBelab_C_Series_HT_scRNA-analysis-software/issues)
-- Official website: [www.mgitech.com](https://www.mgitech.com)
+- Official website: [www.mgi-tech.com](https://www.mgi-tech.com)

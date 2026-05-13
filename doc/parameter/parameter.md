@@ -8,7 +8,7 @@
 
 <h1 style="font-size: 48px; font-weight: 600; color: #1d1d1f; margin: 0 0 16px 0; letter-spacing: -0.02em;">dnbc4tools 参数总览</h1>
 
-<p style="font-size: 21px; color: #86868b; margin: 0; font-weight: 400;">命令与参数完整说明</p>
+<p style="font-size: 21px; color: #86868b; margin: 0; font-weight: 400;">命令与参数说明</p>
 
 </div>
 
@@ -28,7 +28,7 @@
 
 <div align="center">
 
-**使用说明**：按分析类型进入对应参数文档，查看每个命令的详细参数说明。
+**使用说明**：按分析类型进入对应参数文档，查看每个命令的参数说明。
 
 </div>
 
@@ -69,7 +69,7 @@
 
 > <strong>反馈与支持</strong>
 > 
-> 如需详细参数说明，请进入上方各模块文档。
+> 如需参数说明，请进入上方各模块文档。
 > 
 <strong>文档版本：</strong> 3.1 | <strong>最后更新：</strong> 2026 年 4 月
 

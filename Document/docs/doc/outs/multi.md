@@ -8,7 +8,7 @@
 
 <h1 style="font-size: 48px; font-weight: 600; color: #1d1d1f; margin: 0 0 16px 0; letter-spacing: -0.02em;">多组学分析输出</h1>
 
-<p style="font-size: 21px; color: rgba(0,0,0,0.6); margin: 0 0 30px 0; font-weight: 400;">多组学整合分析输出文件完整指南</p>
+<p style="font-size: 21px; color: rgba(0,0,0,0.6); margin: 0 0 30px 0; font-weight: 400;">多组学整合分析输出文件说明</p>
 
 <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;" markdown="block">
 <a href="#输出目录结构" style="background: #0071e3; color: white; padding: 8px 16px; border-radius: 980px; text-decoration: none; font-size: 14px;">目录结构</a>
@@ -26,7 +26,7 @@
 
 > **提示**
 > 
-> 组合报告用于快速总览和跨模块联看。需要深入解释时，请进入对应单组学 outs 文档。
+> 组合报告用于快速总览和跨模块查看。需要详细说明时，请进入对应单组学 outs 文档。
 
 </div>
 
@@ -86,7 +86,7 @@
 
 <div align="center" markdown="block">
 
-**概述**: 多组学组合报告提供了 RNA / ATAC / VDJ 的核心 QC 与分析图表的整合展示
+**概述**：多组学组合报告整合展示 RNA / ATAC / VDJ 的核心 QC 与分析图表。
 
 </div>
 

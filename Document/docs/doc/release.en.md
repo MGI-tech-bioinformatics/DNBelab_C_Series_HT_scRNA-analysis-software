@@ -8,7 +8,7 @@
 
 <div align="center" markdown="block">
 
-**Official release history of DNBelab C Series™ HT Single-Cell Analysis Software**
+**Release history of DNBelab C Series™ HT Single-Cell Analysis Software**
 
 [Latest Release](#latest-release) • [Current Version Details](#release-history) • [Version Guide](#version-selection-guide)
 

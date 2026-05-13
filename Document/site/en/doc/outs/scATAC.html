@@ -2210,7 +2210,7 @@
 </div>
 <div align="center" style="padding: 40px 20px; background: linear-gradient(135deg, #f5f5f7 0%, #ffffff 100%); border-radius: 12px; margin-bottom: 30px; max-width: 1200px; margin-left: auto; margin-right: auto;">
 <h1 id="scatac-analysis-output" style="font-size: 48px; font-weight: 600; color: #1d1d1f; margin: 0 0 16px 0; letter-spacing: -0.02em;"> scATAC Analysis Output<a class="headerlink" href="#scatac-analysis-output" title="Permanent link">&para;</a></h1>
-<p style="font-size: 21px; color: rgba(0,0,0,0.6); margin: 0 0 30px 0; font-weight: 400;">Complete Guide to Single-Cell ATAC Sequencing Analysis Output Files</p>
+<p style="font-size: 21px; color: rgba(0,0,0,0.6); margin: 0 0 30px 0; font-weight: 400;">Single-Cell ATAC Sequencing Output File Guide</p>
 <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
 <p><a href="#directory-structure" style="background: #0071e3; color: white; padding: 8px 16px; border-radius: 980px; text-decoration: none; font-size: 14px;">Directory Structure</a>
 <a href="#file-details" style="background: transparent; color: #0071e3; padding: 8px 16px; border-radius: 980px; text-decoration: none; font-size: 14px; border: 1px solid #0071e3;">File Details</a>
@@ -2335,7 +2335,7 @@
 <ul>
 <li><strong>Core Purpose</strong>:<ul>
 <li><strong>Fast Data Access</strong>: Allows for rapid, genome-interval-based querying of large <code>fragments.tsv.gz</code> files without reading the entire file.</li>
-<li><strong>Tool Performance Optimization</strong>: Used by tools like ArchR, Signac, and IGV to efficiently load and process data from specific regions.</li>
+<li><strong>Tool Performance Optimization</strong>: Used by tools like ArchR, Signac, and IGV to load and process data from specific regions.</li>
 </ul>
 </li>
 <li><strong>Format</strong>:<ul>
@@ -2371,7 +2371,7 @@
 <p>The Tabix index file for <code>filtered.fragments.tsv.gz</code>.</p>
 <ul>
 <li><strong>Core Purpose</strong>:<ul>
-<li><strong>Efficient Downstream Analysis</strong>: Ensures that downstream tools (like ArchR, Signac) can quickly and efficiently access data from specific genomic regions when using the filtered fragment file.</li>
+<li><strong>Downstream Analysis Support</strong>: Ensures that downstream tools (like ArchR, Signac) can quickly access data from specific genomic regions when using the filtered fragment file.</li>
 </ul>
 </li>
 <li><strong>Format</strong>:<ul>
@@ -2547,13 +2547,13 @@
 </div>
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px; ">
 <h4 id="metrics_summaryxls">metrics_summary.xls<a class="headerlink" href="#metrics_summaryxls" title="Permanent link">&para;</a></h4>
-<p>An Excel-formatted summary table of key analysis metrics, providing a comprehensive assessment of the overall experiment quality.</p>
+<p>An Excel-formatted summary table of key analysis metrics, providing a structured assessment of the overall experiment quality.</p>
 <ul>
 <li>
 <p><strong>Core Purpose</strong>:</p>
 <ul>
 <li><strong>Quality Assessment</strong>: Quickly evaluate key metrics such as sequencing data quality, alignment efficiency, and cell identification results.</li>
-<li><strong>Results Overview</strong>: Get a comprehensive understanding of the analysis results without having to inspect all files.</li>
+<li><strong>Results Overview</strong>: Provides a summary view of the analysis results without inspecting all files.</li>
 </ul>
 </li>
 <li>
@@ -2627,7 +2627,7 @@
 </div>
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px; ">
 <h4 id="_scatac_reporthtml">*_scATAC_report.html<a class="headerlink" href="#_scatac_reporthtml" title="Permanent link">&para;</a></h4>
-<p>An interactive, comprehensive analysis report in HTML web format.</p>
+<p>An interactive HTML report for reviewing analysis results.</p>
 <ul>
 <li>
 <p><strong>Core Purpose</strong>:</p>
@@ -2725,10 +2725,10 @@
 <p><br></p>
 <h2 id="web-report-interpretation">Web Report Interpretation <a id="web-report-interpretation"></a><a class="headerlink" href="#web-report-interpretation" title="Permanent link">&para;</a></h2>
 <div align="center">
-<p><strong>Overview</strong>: The HTML web report provides a comprehensive visualization and detailed interpretation of the single-cell ATAC sequencing analysis results, including an evaluation of key performance indicators to help users quickly understand the experiment's quality and results.</p>
+<p><strong>Overview</strong>: The HTML web report provides visual summaries and metric explanations for single-cell ATAC sequencing results, including key performance indicators for experimental quality and downstream analysis.</p>
 </div>
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
-<p>The HTML web report is a comprehensive display platform for single-cell ATAC sequencing analysis, integrating complete results from data quality control to downstream epigenomic analysis. The report uses an interactive visualization design to help users quickly evaluate experimental quality, understand analysis results, and guide subsequent research directions.</p>
+<p>The HTML web report is the main entry point for reviewing single-cell ATAC sequencing results. It covers cell calling, fragment quality, TSS enrichment, peak-related metrics, and clustering results, and helps users identify metrics that require further review.</p>
 <blockquote>
 <p><strong>Usage Notes</strong>: It is recommended to review the metrics in the order they are presented in the report.</p>
 <p><strong>Note</strong>: The following standards are for reference only. Actual quality assessment should consider factors such as sample type, cell state, and experimental goals. Since significant differences can exist between samples, we recommend interpreting the results in the context of your specific experimental background.</p>
@@ -2799,12 +2799,8 @@
 <td style="padding: 12px 16px; border-bottom: 1px solid #f0f0f0;">
 <ul>
 <li><strong>Definition</strong>: The total number of valid cells identified from the sequencing data (as distinct from background noise or empty droplets).</li>
-<li><strong>Calculation Process</strong>: After merging barcodes from the same droplet, cells are filtered based on parameters like the number of fragments in peak regions and TSS proportion.</li>
-<li><strong>Quality Interpretation</strong>: 
-<ul><li><strong>Abnormal Causes</strong>: Inaccurate cell counting, poor cell lysis, poor sample or library quality, low sequencing depth.</ul>
-</li>
-</ul>
-</li>
+<li><strong>Calculation Process</strong>: After merging barcodes from the same droplet, cells are filtered based on peak-overlapping fragment counts, TSS proportion, and related QC metrics.</li>
+<li><strong>Interpretation</strong>: Compare this value with expected cell loading, fragment-count distribution, and filtering results. If it is much lower than expected, review sample integrity, library quality, and sequencing depth.</li>
 </ul>
 </td>
 </tr>
@@ -2813,7 +2809,7 @@
 <td style="padding: 12px 16px; border-bottom: 1px solid #f0f0f0;">
 <ul>
 <li><strong>Definition</strong>: The species or reference genome version used for the analysis.</li>
-<li><strong>Note</strong>: This information is derived from the reference genome provided during library preparation and is used to ensure the accuracy of alignment and annotation.</li>
+<li><strong>Use case</strong>: Confirms whether the reference genome used for analysis matches the sample species. This is a basic item for result review and troubleshooting.</li>
 </ul>
 </td>
 </tr>
@@ -2822,8 +2818,8 @@
 <td style="padding: 12px 16px; border-bottom: 1px solid #f0f0f0;">
 <ul>
 <li><strong>Definition</strong>: The median number of valid ATAC-seq fragments contained within a single cell.</li>
-<li><strong>Biological Significance</strong>: This metric directly reflects the capture efficiency of open chromatin regions within a single nucleus and the sequencing depth. A higher value indicates better single-cell data quality.</li>
-<li><strong>Quality Interpretation</strong>:
+<li><strong>Use case</strong>: Assesses the number of valid fragments available for open-chromatin analysis in each cell and reflects sequencing coverage.</li>
+<li><strong>Interpretation</strong>:
 <ul>
 <li><strong>High-Quality Standard</strong>: ≥ 10,000</li>
 <li><strong>Recommended Minimum</strong>: ≥ 2,000</li>
@@ -2838,7 +2834,7 @@
 <ul>
 <li><strong>Definition</strong>: The average number of raw sequencing read pairs assigned to each cell.</li>
 <li><strong>Calculation</strong>: `Total Raw Read Pairs / Estimated Number of Cells`</li>
-<li><strong>Quality Interpretation</strong>: A value of ≥ 25,000 is recommended to ensure adequate chromatin coverage.</li>
+<li><strong>Interpretation</strong>: A value of ≥ 25,000 is recommended to ensure adequate chromatin coverage. Lower values may reduce the stability of peak calling, clustering, and differential accessibility analysis.</li>
 </ul>
 </td>
 </tr>
@@ -2847,9 +2843,9 @@
 <td style="padding: 12px 16px; border-bottom: 1px solid #f0f0f0;">
 <ul>
 <li><strong>Definition</strong>: The proportion of a single cell's fragments that fall into identified open chromatin regions (Peaks).</li>
-<li><strong>Biological Significance</strong>: This is a key signal-to-noise ratio metric. A high proportion indicates that transposase activity was more concentrated in open chromatin, resulting in a high signal-to-noise ratio.</li>
-<li><strong>Quality Interpretation</strong>:
-<ul><li><strong>Quality Warning</strong>: &lt; 15% may indicate sample quality issues.</ul>
+<li><strong>Use case</strong>: Key metric for ATAC signal specificity. A higher proportion indicates that valid fragments are more concentrated in open chromatin regions and background noise is relatively lower.</li>
+<li><strong>Interpretation</strong>:
+<ul><li><strong>Needs attention</strong>: If &lt; 15%, review nuclei quality, transposition efficiency, peak calling results, and sequencing depth.</ul>
 </li>
 </ul>
 </li>
@@ -2861,9 +2857,9 @@
 <td style="padding: 12px 16px; border-bottom: 1px solid #f0f0f0;">
 <ul>
 <li><strong>Definition</strong>: The proportion of a single cell's fragments that fall within the ±2kb region of a Transcription Start Site (TSS).</li>
-<li><strong>Biological Significance</strong>: A key metric for assessing chromatin activity in promoter regions and sequencing specificity.</li>
-<li><strong>Quality Interpretation</strong>:
-<ul><li><strong>Quality Warning</strong>: &lt; 10% may indicate sample quality issues.</ul>
+<li><strong>Use case</strong>: Assesses promoter-proximal open-chromatin signal and ATAC-seq library specificity.</li>
+<li><strong>Interpretation</strong>:
+<ul><li><strong>Needs attention</strong>: If &lt; 10%, interpret together with the TSS enrichment profile, fragment length distribution, and sample preparation workflow.</ul>
 </li>
 </ul>
 </li>
@@ -2875,9 +2871,9 @@
 <td style="padding: 12px 16px; border-bottom: 1px solid #f0f0f0;">
 <ul>
 <li><strong>Definition</strong>: The proportion of all valid fragments that are successfully assigned to a high-quality cell ID.</li>
-<li><strong>Biological Significance</strong>: Reflects the efficiency of cell capture and the signal-to-noise ratio.</li>
-<li><strong>Quality Interpretation</strong>:
-<ul><li><strong>Quality Issue</strong>: A low ratio may indicate poor sample quality or library construction anomalies.</ul>
+<li><strong>Use case</strong>: Assesses how much valid fragment signal comes from high-quality cells and helps evaluate background fragments or empty-droplet effects.</li>
+<li><strong>Interpretation</strong>:
+<ul><li><strong>Needs attention</strong>: A low ratio may indicate high background fragments, abnormal filtering strictness, poor sample quality, or library construction issues.</ul>
 </li>
 </ul>
 </li>
@@ -2889,7 +2885,8 @@
 <td style="padding: 12px 16px;">
 <ul>
 <li><strong>Definition</strong>: The total number of open chromatin regions (peaks) identified across the genome after aggregating the signal from all cells.</li>
-<li><strong>Biological Significance</strong>: Reflects the overall complexity of the sample and the number of detectable regulatory elements.</li>
+<li><strong>Use case</strong>: Assesses the number of detectable open chromatin regions and the coverage of regulatory elements in the sample.</li>
+<li><strong>Influencing factors</strong>: Affected by cell number, cell-type heterogeneity, sequencing depth, and peak calling parameters.</li>
 <li><strong>Typical Range</strong>: 50,000 – 150,000 peaks.</li>
 </ul>
 </td>
@@ -2960,7 +2957,7 @@
 <td style="padding: 12px 16px; border-bottom: 1px solid #f0f0f0;">
 <ul>
 <li><strong>Definition</strong>: The total number of raw sequencing read pairs allocated to the sample.</li>
-<li><strong>Significance</strong>: Represents the overall volume of sequencing data.</li>
+<li><strong>Use case</strong>: Represents the total data volume of the sequencing run and serves as the baseline for evaluating sequencing depth and downstream QC metrics.</li>
 </ul>
 </td>
 </tr>
@@ -2969,8 +2966,8 @@
 <td style="padding: 12px 16px; border-bottom: 1px solid #f0f0f0;">
 <ul>
 <li><strong>Definition</strong>: The proportion of reads whose cell barcode sequence can be successfully matched to the predefined whitelist (with error correction).</li>
-<li><strong>Biological Significance</strong>: Reflects the effectiveness of cell labeling.</li>
-<li><strong>Quality Interpretation</strong>: A low proportion usually suggests issues in library construction or a high sequencing error rate.</li>
+<li><strong>Use case</strong>: Assesses whether cell barcode recognition is stable and whether fragments can be assigned to cells correctly.</li>
+<li><strong>Interpretation</strong>: A low proportion usually suggests barcode recognition issues, which may be related to barcode sequencing quality, contamination, or library preparation quality.</li>
 </ul>
 </td>
 </tr>
@@ -2979,8 +2976,8 @@
 <td style="padding: 12px 16px; border-bottom: 1px solid #f0f0f0;">
 <ul>
 <li><strong>Definition</strong>: The proportion of all reads that successfully align to any location on the reference genome.</li>
-<li><strong>Quality Interpretation</strong>:
-<ul><li><strong>Needs Attention</strong>: &lt; 50% may indicate sample contamination or species mismatch.</ul>
+<li><strong>Interpretation</strong>:
+<ul><li><strong>Needs attention</strong>: If &lt; 50%, review sample contamination, species selection, reference genome version, and sequencing quality.</ul>
 </li>
 </ul>
 </li>
@@ -2992,8 +2989,8 @@
 <td style="padding: 12px 16px; border-bottom: 1px solid #f0f0f0;">
 <ul>
 <li><strong>Definition</strong>: The proportion of all aligned reads that map to the mitochondrial genome.</li>
-<li><strong>Biological Significance</strong>: This is an important indicator of cell health.</li>
-<li><strong>Quality Interpretation</strong>: An excessively high ratio (e.g., &gt; 10%) often suggests cell death or excessive lysis.</li>
+<li><strong>Use case</strong>: Assesses mitochondrial-derived fragment proportion and helps evaluate nuclei preparation and sample integrity.</li>
+<li><strong>Interpretation</strong>: An excessively high ratio (e.g., &gt; 10%) often suggests cell death, excessive lysis, or elevated mitochondrial DNA capture.</li>
 </ul>
 </td>
 </tr>
@@ -3002,8 +2999,8 @@
 <td style="padding: 12px 16px; border-bottom: 1px solid #f0f0f0;">
 <ul>
 <li><strong>Definition</strong>: The proportion of fragments originating from open chromatin regions (that is, nucleosome-free regions).</li>
-<li><strong>Biological Significance</strong>: Reflects the strength of the valid ATAC-seq signal.</li>
-<li><strong>Quality Interpretation</strong>: A high proportion (e.g., &gt; 40%) indicates good chromatin accessibility.</li>
+<li><strong>Use case</strong>: Assesses the proportion of fragments from open chromatin and reflects valid ATAC-seq signal strength.</li>
+<li><strong>Interpretation</strong>: A high proportion (e.g., &gt; 40%) generally indicates strong chromatin accessibility signal and efficient transposition.</li>
 </ul>
 </td>
 </tr>
@@ -3012,7 +3009,7 @@
 <td style="padding: 12px 16px; border-bottom: 1px solid #f0f0f0;">
 <ul>
 <li><strong>Definition</strong>: The proportion of fragment regions containing a single nucleosome.</li>
-<li><strong>Biological Significance</strong>: Reflects the integrity of the chromatin structure.</li>
+<li><strong>Use case</strong>: Assesses mono-nucleosome fragment proportion and, together with nucleosome-free regions, helps evaluate chromatin structure integrity.</li>
 </ul>
 </td>
 </tr>
@@ -3124,15 +3121,15 @@ Shows the insert length distribution of deduplicated ATAC-seq fragments, a key p
 <h5 id="percent-duplicates">Percent duplicates<a class="headerlink" href="#percent-duplicates" title="Permanent link">&para;</a></h5>
 <ul>
 <li><strong>Definition</strong>: The proportion of fragments identified as PCR duplicates.</li>
-<li><strong>Biological significance</strong>: A key metric for library complexity and sequencing saturation.</li>
+<li><strong>Use case</strong>: Used to assess library complexity and sequencing saturation, and to determine whether additional sequencing is likely to be useful.</li>
 <li><strong>Quality interpretation</strong>:</li>
-<li>High duplication (e.g., &gt;20-30%) usually indicates sequencing has approached saturation.</li>
+<li>High duplication (e.g., &gt;20-30%) usually indicates sequencing has approached saturation and additional sequencing may have limited benefit.</li>
 <li>Very low duplication (e.g., &lt;10%) may suggest insufficient depth; deeper sequencing may recover more unique fragments.</li>
 </ul>
 <h5 id="jaccard-threshold">Jaccard threshold<a class="headerlink" href="#jaccard-threshold" title="Permanent link">&para;</a></h5>
 <ul>
 <li><strong>Definition</strong>: Similarity cutoff used to determine whether two beads came from the same droplet/cell.</li>
-<li><strong>Technical background</strong>: In C4 ATAC, one droplet may contain multiple beads; bead-level fragment overlap (Jaccard index) is used for merging.</li>
+<li><strong>Use case</strong>: In C4 ATAC, one droplet may contain multiple beads; the software uses bead-level fragment overlap (Jaccard index) to decide whether beads should be merged.</li>
 <li><strong>Algorithm</strong>: Automatically determined by Otsu's method. To ensure stability, if the computed threshold is &lt; <code>0.02</code>, it is set to <code>0.02</code>.</li>
 </ul>
 </div>
@@ -3173,13 +3170,13 @@ Shows fragment insertion enrichment around transcription start sites (TSS), a co
 </ul>
 </li>
 <li><strong>Key pattern</strong><ul>
-<li>High-quality data shows a sharp enrichment peak at TSS center (0).</li>
+<li>High-quality data usually shows a clear enrichment peak at TSS center (0).</li>
 <li>Signal should drop quickly away from the center.</li>
 </ul>
 </li>
 <li><strong>Quality assessment</strong><ul>
 <li><strong>TSS Enrichment Score</strong> quantifies this pattern; higher scores (e.g., &gt;4-6) indicate better signal-to-noise.</li>
-<li>Flat curves without a clear peak suggest poor sample quality or failed library prep.</li>
+<li>Flat curves without a clear enrichment peak may suggest poor sample quality or library preparation issues.</li>
 </ul>
 </li>
 </ol>

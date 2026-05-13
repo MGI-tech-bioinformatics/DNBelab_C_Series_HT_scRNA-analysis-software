@@ -29,13 +29,13 @@
 
 ## JSON 字段解释
 
-JSON 配置用于定义如何从 FASTQ 中解析 barcode、UMI 和 read。核心说明如下：
+JSON 配置用于定义如何从 FASTQ 中解析 barcode、UMI 和有效序列。核心说明如下：
 
 - **必填字段**：`"cell barcode tag"`、`"cell barcode"`、`"read 1"` 为必填。
 - **Tag 含义**：`value` 中通常用 `CB` 表示纠错后的细胞 barcode，用 `UR` 表示 UMI。
-- **位置定义**：`location` 使用 `R1`/`R2` 加区间坐标，例如 `"R1:1-10"` 表示 read1 的 1-10 bp。
+- **位置定义**：`location` 使用 `R1`/`R2` 加区间坐标，例如 `"R1:1-10"` 表示 Read 1 的 1-10 bp。
 - **Barcode 片段**：一个细胞 barcode 可以由多个片段拼接而成（例如 `"R1:1-10"` + `"R1:17-26"`）。
-- **输出行为**：程序会把解析出的 barcode/UMI 写入输出 FASTQ 的 name 字段；`"read 1"` 指定的序列（如 `"R2:1-100"`）保留在 sequence 字段。
+- **输出行为**：程序会把解析出的 barcode 和 UMI 写入输出 FASTQ 的 read name 字段；`"read 1"` 指定的序列（如 `"R2:1-100"`）保留在 sequence 字段。
 - **白名单纠错**：可通过 `"white list"` 指定合法 barcode；若不在白名单中，则按 `"distance"`（汉明距离阈值）尝试纠错。
 
 ### JSON 示例

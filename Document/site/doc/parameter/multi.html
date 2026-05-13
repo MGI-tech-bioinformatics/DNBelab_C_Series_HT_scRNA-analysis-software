@@ -826,10 +826,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#-n-name" class="md-nav__link">
+  <a href="#-name" class="md-nav__link">
     <span class="md-ellipsis">
       
-        -n, --name (必需)
+        --name (必需)
       
     </span>
   </a>
@@ -837,10 +837,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#-c-csv" class="md-nav__link">
+  <a href="#-csv" class="md-nav__link">
     <span class="md-ellipsis">
       
-        -c, --csv (必需)
+        --csv (必需)
       
     </span>
   </a>
@@ -859,10 +859,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#-o-outdir" class="md-nav__link">
+  <a href="#-outdir" class="md-nav__link">
     <span class="md-ellipsis">
       
-        -o, --outdir (可选)
+        --outdir (可选)
       
     </span>
   </a>
@@ -870,10 +870,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#-t-threads" class="md-nav__link">
+  <a href="#-threads" class="md-nav__link">
     <span class="md-ellipsis">
       
-        -t, --threads (可选)
+        --threads (可选)
       
     </span>
   </a>
@@ -1603,10 +1603,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#-n-name" class="md-nav__link">
+  <a href="#-name" class="md-nav__link">
     <span class="md-ellipsis">
       
-        -n, --name (必需)
+        --name (必需)
       
     </span>
   </a>
@@ -1614,10 +1614,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#-c-csv" class="md-nav__link">
+  <a href="#-csv" class="md-nav__link">
     <span class="md-ellipsis">
       
-        -c, --csv (必需)
+        --csv (必需)
       
     </span>
   </a>
@@ -1636,10 +1636,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#-o-outdir" class="md-nav__link">
+  <a href="#-outdir" class="md-nav__link">
     <span class="md-ellipsis">
       
-        -o, --outdir (可选)
+        --outdir (可选)
       
     </span>
   </a>
@@ -1647,10 +1647,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#-t-threads" class="md-nav__link">
+  <a href="#-threads" class="md-nav__link">
     <span class="md-ellipsis">
       
-        -t, --threads (可选)
+        --threads (可选)
       
     </span>
   </a>
@@ -1926,13 +1926,13 @@ Generate a unified multi-omics report.
 Usage: dnbc4tools multi run [OPTIONS]
 
 optional arguments:
-  -h, --help             show this help message and exit
+  --help             show this help message and exit
 
 Basic Options:
-  -n, --name NAME        Unique identifier for the sample.
-  -c, --csv CSV          CSV file containing pipeline configuration settings.
-  -o, --outdir OUTDIR    Output directory for analysis results.
-  -t, --threads THREADS  Number of CPU threads to use.
+  --name NAME        Unique identifier for the sample.
+  --csv CSV          CSV file containing pipeline configuration settings.
+  --outdir OUTDIR    Output directory for analysis results.
+  --threads THREADS  Number of CPU threads to use.
 </code></pre>
 </div>
 <div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
@@ -1945,7 +1945,7 @@ Basic Options:
 </blockquote>
 </div>
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
-<h4 id="-n-name"><code>-n, --name</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(必需)</span><a class="headerlink" href="#-n-name" title="Permanent link">&para;</a></h4>
+<h4 id="-name"><code>--name</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(必需)</span><a class="headerlink" href="#-name" title="Permanent link">&para;</a></h4>
 <p>指定本次 multi 任务名称。</p>
 <ul>
 <li><strong>功能：</strong> 作为输出目录和报告中的样本标识。</li>
@@ -1956,7 +1956,7 @@ Basic Options:
 <pre><code>--name demo</code></pre>
 </div>
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
-<h4 id="-c-csv"><code>-c, --csv</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(必需)</span><a class="headerlink" href="#-c-csv" title="Permanent link">&para;</a></h4>
+<h4 id="-csv"><code>--csv</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(必需)</span><a class="headerlink" href="#-csv" title="Permanent link">&para;</a></h4>
 <p>指定多组学配置 CSV 文件。</p>
 <ul>
 <li><strong>功能：</strong> 定义 RNA / ATAC / VDJ 各模块参数，以及输入数据来源。</li>
@@ -1971,7 +1971,7 @@ Basic Options:
 </div>
 <h4 id="_5">基本设置参数<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h4>
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
-<h4 id="-o-outdir"><code>-o, --outdir</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(可选)</span><a class="headerlink" href="#-o-outdir" title="Permanent link">&para;</a></h4>
+<h4 id="-outdir"><code>--outdir</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(可选)</span><a class="headerlink" href="#-outdir" title="Permanent link">&para;</a></h4>
 <p>指定 multi 流程输出目录。</p>
 <ul>
 <li><strong>功能：</strong> 存放整合报告、模块输出和运行日志。</li>
@@ -1982,7 +1982,7 @@ Basic Options:
 <pre><code>--outdir /data/result</code></pre>
 </div>
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
-<h4 id="-t-threads"><code>-t, --threads</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(可选)</span><a class="headerlink" href="#-t-threads" title="Permanent link">&para;</a></h4>
+<h4 id="-threads"><code>--threads</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(可选)</span><a class="headerlink" href="#-threads" title="Permanent link">&para;</a></h4>
 <p>设置流程可用 CPU 线程数。</p>
 <ul>
 <li><strong>功能：</strong> 控制并行度，影响整体运行速度。</li>
@@ -2102,7 +2102,7 @@ fastqs,feature_types
 <h3 id="beadstrans"><code>beadstrans</code> 行为说明<a class="headerlink" href="#beadstrans" title="Permanent link">&para;</a></h3>
 </div>
 <div style="background: #f5f5f7; border-radius: 12px; padding: 16px; margin: 16px auto; max-width: 1200px;">
-<p>在 multi 场景中，VDJ 的细胞筛选默认与 RNA 分析结果对齐。</p>
+<p>在 multi 场景中，VDJ 的细胞筛选默认与 RNA 分析结果对齐。若启用 VDJ 模块，<code>[rna]</code> 分段需要设置 <code>end5,true</code>，以确保 RNA 分析按 5' 端转录组模式运行。</p>
 </div>
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
 <table>
@@ -2142,7 +2142,7 @@ fastqs,feature_types
 <tr>
 <th style="text-align: left;">配置分段</th>
 <th style="text-align: left;">对应子流程</th>
-<th style="text-align: left;">详细参数文档</th>
+<th style="text-align: left;">参数文档</th>
 </tr>
 </thead>
 <tbody>
@@ -2301,7 +2301,7 @@ fastqs,feature_types
 <tbody>
 <tr>
 <td style="text-align: left;"><code>fastqs</code></td>
-<td style="text-align: left;">FASTQ 文件路径（建议绝对路径）</td>
+<td style="text-align: left;">FASTQ 输入目录路径，建议使用绝对路径</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>feature_types</code></td>
@@ -2309,6 +2309,15 @@ fastqs,feature_types
 </tr>
 </tbody>
 </table>
+</div>
+<div style="background: #f5f5f7; border-radius: 12px; padding: 16px; margin: 16px auto; max-width: 1200px;">
+<p><strong><code>fastqs</code> 目录要求</strong></p>
+<ul>
+<li><code>rna</code>：路径应指向 RNA FASTQ 根目录，目录下需包含 <code>cDNA/</code> 和 <code>oligo/</code> 两个子目录；两个子目录内分别放置对应文库的 R1/R2 文件。</li>
+<li><code>atac</code>：路径应指向当前 ATAC 文库的 FASTQ 目录，R1/R2 文件直接放在该目录下。</li>
+<li><code>vdj-t</code> / <code>vdj-b</code>：路径应指向当前 VDJ 文库的 FASTQ 目录，R1/R2 文件直接放在该目录下。</li>
+<li>自动识别依赖 FASTQ 文件名中的 R1/R2 标记，建议使用 <code>_R1</code> / <code>_R2</code>、<code>_R1_</code> / <code>_R2_</code> 或等价的 Read 1/Read 2 命名。</li>
+</ul>
 </div>
 <div style="max-width: 1200px; margin: 0 auto;">
 <hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;">
@@ -2318,7 +2327,7 @@ fastqs,feature_types
 </div>
 <div style="background: #f5f5f7; border-radius: 12px; padding: 16px; margin: 16px auto; max-width: 1200px;">
 <ul>
-<li><strong>[libraries] 集中配置</strong>：建议将所有模块的输入文件统一在 <code>[libraries]</code> 中配置，便于管理</li>
+<li><strong>[libraries] 集中配置</strong>：所有模块的 FASTQ 输入目录均在 <code>[libraries]</code> 中配置，便于统一检查和管理</li>
 <li><strong>customize 参数</strong>：可按规则填写多条；其余单值参数建议仅保留最终定义</li>
 </ul>
 </div>
@@ -2346,6 +2355,7 @@ fastqs,feature_types
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
 <pre><code class="language-csv">[rna]
 genomeDir,/database/scRNA/Human
+end5,true
 include_introns,true
 
 [atac]

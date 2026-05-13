@@ -8,7 +8,7 @@
 
 <h1 style="font-size: 48px; font-weight: 600; color: #1d1d1f; margin: 0 0 16px 0; letter-spacing: -0.02em;">DNBelab C Series HT scRNA 分析流程</h1>
 
-<p style="font-size: 21px; color: #86868b; margin: 0 0 30px 0; font-weight: 400;">单细胞 RNA 测序数据分析完整指南</p>
+<p style="font-size: 21px; color: #86868b; margin: 0 0 30px 0; font-weight: 400;">单细胞 RNA 测序数据分析说明</p>
 
 <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;" markdown="block">
 <a href="#概述" style="background: #0071e3; color: white; padding: 8px 16px; border-radius: 980px; text-decoration: none; font-size: 14px;">概述</a>
@@ -93,7 +93,7 @@
 
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);" markdown="block">
 
-### 文件要求
+### 参考数据库输入文件
 
 <table style="width:100%; border-collapse: collapse; margin: 1.5em 0; box-shadow: 0 2px 3px rgba(0,0,0,0.1);">
   <thead style="background-color: #f2f2f2; border-bottom: 2px solid #ddd;">
@@ -121,7 +121,8 @@
  <strong>推荐数据来源</strong>：优先使用 <a href="https://www.ensembl.org/index.html">Ensembl 数据库</a> 提供的文件。Ensembl 的 GTF 文件包含可选标签，便于通过 <code>dnbc4tools tools mkgtf</code> 进行过滤。
 </div>
 
-**GTF 文件要求：**
+<p><strong>GTF 文件要求：</strong></p>
+
 <ul>
   <li>必须包含 <code>gene</code> 或 <code>transcript</code> 类型以及 <code>exon</code> 类型的注释。</li>
   <li>属性中必须包含 <code>gene_id</code> 或 <code>gene_name</code> 以及 <code>transcript_id</code> 或 <code>transcript_name</code>。</li>
@@ -130,7 +131,7 @@
 </ul>
 
 
-### GTF 文件处理（可选） <a id="gtf-file-processing-optional-zh"></a>
+### GTF 文件预处理（可选） <a id="gtf-file-processing-optional-zh"></a>
 
 从 ENSEMBL 和 UCSC 等网站下载的 GTF 文件通常包含多种类型的基因。根据您的研究兴趣选择特定的基因类型进行分析，可以有效减少基因注释的重叠，从而提高比对的唯一性。与多个基因非唯一比对的 reads 会被过滤。
 
@@ -259,9 +260,11 @@ $dnbc4tools tools mkgtf \
 ```
 
 
-### 构建参考数据库
+### 参考数据库构建
 
 在执行 `dnbc4tools rna run` 分析前，必须先构建参考数据库。此步骤利用注释文件（GTF）和参考基因组（FASTA）创建索引，用于后续测序 reads 的比对和注释。
+
+<p><strong>运行命令：</strong></p>
 
 ```shell
 # 构建参考数据库
@@ -272,7 +275,7 @@ $dnbc4tools rna mkref \
   --threads 20
 ```
 
-**输出结果**：
+<p><strong>输出目录：</strong></p>
 
 成功运行后，将在指定位置创建参考数据库目录，包含以下文件结构：
 
@@ -304,6 +307,8 @@ $dnbc4tools rna mkref \
     └── transcriptInfo.tab
 ```
 
+<p><strong>ref.json 示例：</strong></p>
+
 其中 `ref.json` 文件记录了数据库的主要信息。
 
 ```json
@@ -327,6 +332,8 @@ $dnbc4tools rna mkref \
 <div style="background-color: #fffbe6; border-left: 6px solid #ffc107; padding: 15px; margin: 1.5em 0; border-radius: 4px;" markdown="block">
  <strong>注意</strong>：构建参考数据库可能需要较长时间，具体取决于基因组大小和计算性能。软件主分析流程兼容旧版本数据库。
 </div>
+
+<p><strong>运行日志示例：</strong></p>
 
 运行时将打印如下信息：
 
@@ -365,69 +372,10 @@ $dnbc4tools rna mkref \
 
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);" markdown="block">
 
-### 多样本批处理（可选）
+主流程分析包括单样本分析和多样本批处理两种使用方式：
 
-为简化多样本分析流程，可使用配置文件批量生成针对每个样本的 shell 脚本。
-
-```shell
-$dnbc4tools rna multi \
-  --list sample.tsv \
-  --genomeDir /opt/database/Homo_sapiens \
-  --threads 30
-```
-
-其中 `sample.tsv` 文件使用制表符 (`\t`) 分隔，包含三列：
-
-<table style="width:100%; border-collapse: collapse; margin: 1.5em 0; box-shadow: 0 2px 3px rgba(0,0,0,0.1);">
-  <thead style="background-color: #f2f2f2; border-bottom: 2px solid #ddd;">
-    <tr>
-      <th style="padding: 12px 15px; border: 1px solid #ddd; text-align: left;">列</th>
-      <th style="padding: 12px 15px; border: 1px solid #ddd; text-align: left;">内容</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="padding: 12px 15px; border: 1px solid #ddd;">1</td>
-      <td style="padding: 12px 15px; border: 1px solid #ddd;">样本名称</td>
-    </tr>
-    <tr>
-      <td style="padding: 12px 15px; border: 1px solid #ddd;">2</td>
-      <td style="padding: 12px 15px; border: 1px solid #ddd;">cDNA 文库测序数据</td>
-    </tr>
-    <tr>
-      <td style="padding: 12px 15px; border: 1px solid #ddd;">3</td>
-      <td style="padding: 12px 15px; border: 1px solid #ddd;">Oligo 文库测序数据</td>
-    </tr>
-  </tbody>
-</table>
-
-<div style="background-color: #fffbe6; border-left: 6px solid #ffc107; padding: 15px; margin: 1.5em 0; border-radius: 4px;" markdown="block">
- <strong>注意</strong>：多个 fastq 文件以逗号分隔，R1 和 R2 文件以分号分隔。
-</div>
-
-```tsv
-sample1	/data/cDNA1_R1.fq.gz;/data/cDNA1_R2.fq.gz	/data/oligo1_R1.fq.gz,/data/oligo4_R1.fq.gz;/data/oligo1_R2.fq.gz,/data/oligo4_R2.fq.gz
-sample2	/data/cDNA2_R1.fq.gz;/data/cDNA2_R2.fq.gz	/data/oligo2_R1.fq.gz;/data/oligo2_R2.fq.gz
-sample3	/data/cDNA3_R1.fq.gz;/data/cDNA3_R2.fq.gz	/data/oligo3_R1.fq.gz;/data/oligo3_R2.fq.gz
-```
-
-运行完成后，将为每个样本生成一个 shell 脚本：
-
-```shell
-sample1.sh
-sample2.sh
-sample3.sh
-```
-
-`sample1.sh` 文件内容示例：
-
-```shell
-$cat sample1.sh
-/opt/software/dnbc4tools3.0beta/dnbc4tools rna run --name sample1 --cDNAfastq1 /data/cDNA1_R1.fq.gz --cDNAfastq2 /data/cDNA1_R2.fq.gz --oligofastq1 /data/oligo1_R1.fq.gz,/data/oligo4_R1.fq.gz --oligofastq2 /data/oligo1_R2.fq.gz,/data/oligo4_R2.fq.gz --genomeDir /database/scRNA/Mus_musculus/mm10 --threads 30
-```
-
-随后可执行这些脚本进行主流程分析。
-
+- **单样本分析**：直接运行 `dnbc4tools rna run`，适用于单个样本的完整分析。
+- **多样本批处理**：先通过 `dnbc4tools rna multi` 生成每个样本的运行脚本，适用于多个样本的批量任务准备。
 
 ### 单样本分析
 
@@ -465,6 +413,13 @@ $dnbc4tools rna run \
     └── sample_oligo_2_R2.fastq.gz
 ```
 
+目录要求：
+
+- `--fastqs` 指向的目录必须包含 `cDNA/` 和 `oligo/` 两个子目录。
+- 每个子目录内放置对应文库的 R1/R2 配对 FASTQ 文件。
+- 自动识别依赖文件名中的 R1/R2 标识。建议使用 `_R1`/`_R2` 或 `_R1_`/`_R2_` 命名。
+- 不同样本或不同文库的数据不要混放到同一输入目录中。
+
 **方式2：单独参数方式**
 
 ```shell
@@ -485,10 +440,10 @@ $dnbc4tools rna run \
 ┌─────────────┬────────────────────────────────────────────────────────────────────────────────────┐
 │ Type        │ Path                                                                               │
 ├─────────────┼────────────────────────────────────────────────────────────────────────────────────┤
-│ cDNA Read1  │ /data/cDNA/sample_cDNA_R1.fastq.gz                                                 │
-│ cDNA Read2  │ /data/cDNA/sample_cDNA_R2.fastq.gz                                                 │
-│ oligo Read1 │ /data/oligo/sample_oligo_1_R1.fastq.gz,/data/oligo/sample_oligo_2_R1.fastq.gz      │
-│ oligo Read2 │ /data/oligo/sample_oligo_1_R2.fastq.gz,/data/oligo/sample_oligo_2_R2.fastq.gz      │
+│ cDNA Read 1 │ /data/cDNA/sample_cDNA_R1.fastq.gz                                                 │
+│ cDNA Read 2 │ /data/cDNA/sample_cDNA_R2.fastq.gz                                                 │
+│ oligo Read 1 │ /data/oligo/sample_oligo_1_R1.fastq.gz,/data/oligo/sample_oligo_2_R1.fastq.gz      │
+│ oligo Read 2 │ /data/oligo/sample_oligo_1_R2.fastq.gz,/data/oligo/sample_oligo_2_R2.fastq.gz      │
 └─────────────┴────────────────────────────────────────────────────────────────────────────────────┘
 ────────────────────────────────────────────────────────────────────────────────────────────────────
 
@@ -497,8 +452,8 @@ $dnbc4tools rna run \
 ┌───────────────────────────────────────────────┬──────────────────────────────────────────────────┐
 │ Type                                          │ Result                                           │
 ├───────────────────────────────────────────────┼──────────────────────────────────────────────────┤
-│ oligo Read1                                   │ darkreaction                                     │
-│ oligo Read2                                   │ darkreaction                                     │
+│ oligo Read 1                                   │ darkreaction                                     │
+│ oligo Read 2                                   │ darkreaction                                     │
 └───────────────────────────────────────────────┴──────────────────────────────────────────────────┘
 ────────────────────────────────────────────────────────────────────────────────────────────────────
 
@@ -507,7 +462,7 @@ $dnbc4tools rna run \
 ┌─────────────────────────────────────────────┬────────────────────────────────────────────────────┐
 │ Type                                        │ Result                                             │
 ├─────────────────────────────────────────────┼────────────────────────────────────────────────────┤
-│ cDNA Read1                                  │ darkreaction                                       │
+│ cDNA Read 1                                  │ darkreaction                                       │
 └─────────────────────────────────────────────┴────────────────────────────────────────────────────┘
 ────────────────────────────────────────────────────────────────────────────────────────────────────
 
@@ -545,6 +500,74 @@ $dnbc4tools rna run \
 ```
 
 当出现 `Analysis Finished` 消息时，表示分析已成功完成。
+
+
+<div style="border-top: 1px solid #d2d2d7; margin: 32px 0;" markdown="block"></div>
+
+### 多样本批处理（可选）
+
+为简化多样本分析流程，可使用配置文件批量生成针对每个样本的 shell 脚本。
+
+```shell
+$dnbc4tools rna multi \
+  --list sample.tsv \
+  --genomeDir /opt/database/Homo_sapiens \
+  --threads 30
+```
+
+其中 `sample.tsv` 文件使用制表符 (`\t`) 分隔，包含三列：
+
+<table style="width:100%; border-collapse: collapse; margin: 1.5em 0; box-shadow: 0 2px 3px rgba(0,0,0,0.1);">
+  <thead style="background-color: #f2f2f2; border-bottom: 2px solid #ddd;">
+    <tr>
+      <th style="padding: 12px 15px; border: 1px solid #ddd; text-align: left;">列</th>
+      <th style="padding: 12px 15px; border: 1px solid #ddd; text-align: left;">内容</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;">1</td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;">样本名称</td>
+    </tr>
+    <tr>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;">2</td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;">cDNA 文库测序数据</td>
+    </tr>
+    <tr>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;">3</td>
+      <td style="padding: 12px 15px; border: 1px solid #ddd;">Oligo 文库测序数据</td>
+    </tr>
+  </tbody>
+</table>
+
+<div style="background-color: #fffbe6; border-left: 6px solid #ffc107; padding: 15px; margin: 1.5em 0; border-radius: 4px;" markdown="block">
+ <strong>注意</strong>：多个 FASTQ 文件以逗号分隔，R1 和 R2 文件以分号分隔。
+</div>
+
+```tsv
+sample1	/data/cDNA1_R1.fq.gz;/data/cDNA1_R2.fq.gz	/data/oligo1_R1.fq.gz,/data/oligo4_R1.fq.gz;/data/oligo1_R2.fq.gz,/data/oligo4_R2.fq.gz
+sample2	/data/cDNA2_R1.fq.gz;/data/cDNA2_R2.fq.gz	/data/oligo2_R1.fq.gz;/data/oligo2_R2.fq.gz
+sample3	/data/cDNA3_R1.fq.gz;/data/cDNA3_R2.fq.gz	/data/oligo3_R1.fq.gz;/data/oligo3_R2.fq.gz
+```
+
+运行完成后，将为每个样本生成一个 shell 脚本：
+
+```shell
+sample1.sh
+sample2.sh
+sample3.sh
+```
+
+`sample1.sh` 文件内容示例：
+
+```shell
+$cat sample1.sh
+/opt/software/dnbc4tools3.1/dnbc4tools rna run --name sample1 --cDNAfastq1 /data/cDNA1_R1.fq.gz --cDNAfastq2 /data/cDNA1_R2.fq.gz --oligofastq1 /data/oligo1_R1.fq.gz,/data/oligo4_R1.fq.gz --oligofastq2 /data/oligo1_R2.fq.gz,/data/oligo4_R2.fq.gz --genomeDir /database/scRNA/Mus_musculus/mm10 --threads 30
+```
+
+随后可执行这些脚本进行主流程分析。
+
+
 
 
 </div>
@@ -615,7 +638,7 @@ $dnbc4tools rna run \
 
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);" markdown="block">
 
-本节正在更新中。
+本节将根据常见使用问题持续补充。当前版本请优先参考运行日志、参数说明和输出文件说明进行排查。
 
 </div>
 

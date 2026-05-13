@@ -8,7 +8,7 @@
 
 <h1 style="font-size: 48px; font-weight: 600; color: #1d1d1f; margin: 0 0 16px 0; letter-spacing: -0.02em;">dnbc4tools Parameter Reference</h1>
 
-<p style="font-size: 21px; color: #86868b; margin: 0; font-weight: 400;">Complete command and parameter documentation</p>
+<p style="font-size: 21px; color: #86868b; margin: 0; font-weight: 400;">Command and parameter reference</p>
 
 </div>
 
@@ -28,7 +28,7 @@
 
 <div align="center" markdown="block">
 
-**Quick Tip**: Select your analysis type below to view detailed parameter descriptions and usage examples.
+**Guide**: Select your analysis type below to view detailed parameter descriptions and usage examples.
 
 </div>
 

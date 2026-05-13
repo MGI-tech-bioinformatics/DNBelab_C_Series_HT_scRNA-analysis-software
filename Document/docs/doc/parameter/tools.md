@@ -6,9 +6,9 @@
 
 <div align="center" style="padding: 40px 20px; background: linear-gradient(135deg, #f5f5f7 0%, #ffffff 100%); border-radius: 12px; margin-bottom: 30px; max-width: 1200px; margin-left: auto; margin-right: auto;" markdown="block">
 
-<h1 style="font-size: 48px; font-weight: 600; color: #1d1d1f; margin: 0 0 16px 0; letter-spacing: -0.02em;">工具类分析参数</h1>
+<h1 style="font-size: 48px; font-weight: 600; color: #1d1d1f; margin: 0 0 16px 0; letter-spacing: -0.02em;">工具命令参数</h1>
 
-<p style="font-size: 21px; color: rgba(0,0,0,0.6); margin: 0 0 30px 0; font-weight: 400;">DNBelab C Series HT 工具类参数配置完整指南</p>
+<p style="font-size: 21px; color: rgba(0,0,0,0.6); margin: 0 0 30px 0; font-weight: 400;">DNBelab C Series HT 工具命令参数说明</p>
 
 <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;" markdown="block">
 <a href="#gtf-文件操作-mkgtf" style="background: #0071e3; color: white; padding: 8px 16px; border-radius: 980px; text-decoration: none; font-size: 14px;">GTF 文件操作 (mkgtf)</a>
@@ -29,7 +29,7 @@
 
 > <strong>核心功能</strong>
 > 
-> GTF 文件全面操作工具，支持基因类型统计、智能过滤和文件格式校验。为单细胞分析提供高质量、标准化的基因注释数据。
+> GTF 文件操作工具，支持基因类型统计、按规则过滤和文件格式校验。为单细胞分析提供标准化的基因注释数据。
 
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #d2d2d7; overflow-x: auto;" markdown="block">
 
@@ -188,16 +188,16 @@ Usage Examples:
 
 ##  BAM 转 FASTQ (bam2fastq) <a id="bam-转-fastq-bam2fastq"></a>
 
->  <strong>专业转换工具</strong>
+>  <strong>转换工具</strong>
 > 
-> 高效的 BAM 文件操作工具，专用于将 C4 RNA BAM 文件转换成 FASTQ 文件。支持多线程并行处理和灵活的输出配置。
+> BAM 文件转换工具，专用于将 C4 RNA BAM 文件转换成 FASTQ 文件。支持多线程并行处理和可配置的输出方式。
 
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #d2d2d7; overflow-x: auto;" markdown="block">
 
 ### 用法 <a id="usage-bam2fastq"></a>
 
 ```shell
-$ bam2fastq -h
+$ bam2fastq --help
 BAM to FASTQ Converter for C4 Single Cell RNA seq Data
 
 Usage: bam2fastq [OPTIONS] <BAM> <OUTPUT>
@@ -207,13 +207,13 @@ Arguments:
   <OUTPUT>  Directory where FASTQ files will be written
 
 Options:
-  -t, --threads <THREADS>        Number of CPU threads for parallel processing (default: all available cores) [default: 8]
-  -r, --locus <REGION>           Process reads from a specific genomic region (format: chr1:1000-2000)
-  -n, --reads-per-fastq <READS>  Maximum number of reads per FASTQ file. All reads go to a single file if not specified.
+  --threads <THREADS>        Number of CPU threads for parallel processing (default: all available cores) [default: 8]
+  --locus <REGION>           Process reads from a specific genomic region (format: chr1:1000-2000)
+  --reads-per-fastq <READS>  Maximum number of reads per FASTQ file. All reads go to a single file if not specified.
       --max-memory <MEMORY>      Maximum memory to use in MB. Auto-determined if not specified.
       --no-compress              Disable gzip compression for output FASTQ files
-  -h, --help                     Print help
-  -V, --version                  Print version
+  --help                     Print help
+  --version                  Print version
 ```
 
 </div>
@@ -245,7 +245,7 @@ Options:
 
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;" markdown="block">
 <h4><code>&lt;OUTPUT&gt;</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(必需)</span></h4>
-<p>指定输出FASTQ 文件的目录。</p>
+<p>指定输出 FASTQ 文件的目录。</p>
 <ul>
   <li><strong>功能：</strong> 所有转换后的FASTQ 文件将保存在此目录。</li>
   <li><strong>自动创建：</strong> 如果目录不存在，将会被自动创建。</li>
@@ -264,19 +264,19 @@ Options:
 </div>
 
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;" markdown="block">
-<h4><code>-t, --threads</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(可选)</span></h4>
-<p>设置用于并行处理的CPU线程数。</p>
+<h4><code>--threads</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(可选)</span></h4>
+<p>设置用于并行处理的CPU 线程数。</p>
 <ul>
   <li><strong>性能说明：</strong> 增加线程数通常可提升BAM解码与写出效率，但受磁盘I/O带宽限制。</li>
   <li><strong>建议：</strong> 默认值为 <code>所有可用的核心数量</code>；I/O性能较强时可增大该值，机械硬盘环境建议保守设置。</li>
 </ul>
 <p><strong>默认值：</strong> <code>所有可用的核心数量</code></p>
 <p><strong>示例：</strong></p>
-<pre><code>-t 8</code></pre>
+<pre><code>--threads 8</code></pre>
 </div>
 
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;" markdown="block">
-<h4><code>-r, --locus</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(可选)</span></h4>
+<h4><code>--locus</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(可选)</span></h4>
 <p>仅处理来自特定基因组区域的读段。</p>
 <ul>
   <li><strong>格式：</strong> 标准基因组坐标格式 (<code>染色体:起始-结束</code>)。</li>
@@ -284,19 +284,19 @@ Options:
 </ul>
 <p><strong>默认值：</strong> 无</p>
 <p><strong>示例：</strong></p>
-<pre><code>-r chr1:1000-2000</code></pre>
+<pre><code>--locus chr1:1000-2000</code></pre>
 </div>
 
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;" markdown="block">
-<h4><code>-n, --reads-per-fastq</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(可选)</span></h4>
-<p>设置每个输出FASTQ 文件的最大读段数量。</p>
+<h4><code>--reads-per-fastq</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(可选)</span></h4>
+<p>设置每个输出 FASTQ 文件的最大读段数量。</p>
 <ul>
   <li><strong>分割策略：</strong> 自动将大文件分割为多个小文件，便于下游处理。</li>
   <li><strong>默认行为：</strong> 如果不指定，所有读段将写入单个文件。</li>
 </ul>
 <p><strong>默认值：</strong> 无</p>
 <p><strong>示例：</strong></p>
-<pre><code>-n 10000000</code></pre>
+<pre><code>--reads-per-fastq 10000000</code></pre>
 </div>
 
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;" markdown="block">
@@ -313,10 +313,10 @@ Options:
 
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;" markdown="block">
 <h4><code>--no-compress</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(标志)</span></h4>
-<p>禁用对输出FASTQ 文件的gzip压缩，以显著提高分析速度。</p>
+<p>禁用对输出 FASTQ 文件的 gzip 压缩，以提高分析速度。</p>
 <ul>
   <li><strong>性能瓶颈：</strong> 程序的主要速度瓶颈在于写入压缩文件。</li>
-  <li><strong>注意：</strong> 得益于软件的并行加速压缩，目前的默认压缩写入速度已获得大幅提升，基本消除分析瓶颈。</li>
+  <li><strong>注意：</strong> 得益于软件的并行加速压缩，目前的默认压缩写入速度已获得提升，降低压缩写入对运行时间的影响。</li>
 </ul>
 <p><strong>默认值：</strong> 不设置</p>
 </div>
@@ -331,15 +331,15 @@ Options:
 <ul>
   <li><strong>多线程高速转换</strong></li>
 </ul>
-<pre><code class="language-shell">bam2fastq -t 8 input.bam ./output_dir</code></pre>
+<pre><code class="language-shell">bam2fastq --threads 8 input.bam ./output_dir</code></pre>
 <ul>
   <li><strong>区域特异性转换</strong></li>
 </ul>
-<pre><code class="language-shell">bam2fastq -r chr1:1000000-2000000 -t 4 input.bam ./output_dir</code></pre>
+<pre><code class="language-shell">bam2fastq --locus chr1:1000000-2000000 --threads 4 input.bam ./output_dir</code></pre>
 <ul>
   <li><strong>大文件分割转换</strong></li>
 </ul>
-<pre><code class="language-shell">bam2fastq -n 5000000 -t 4 input.bam ./output_dir</code></pre>
+<pre><code class="language-shell">bam2fastq --reads-per-fastq 5000000 --threads 4 input.bam ./output_dir</code></pre>
 
 </div>
 
@@ -351,27 +351,27 @@ Options:
 
 >  <strong>核心功能</strong>
 > 
-> 专业的基因组序列分割工具，智能识别分割位点以维护基因注释完整性。主要用于 ATAC 建库时控制染色体长度不超过 2^29-1 的限制要求。
+> 基因组序列分割工具，可结合注释信息选择分割位点以维护基因注释完整性。主要用于 ATAC 建库时控制染色体长度不超过 2^29-1 的限制要求。
 
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #d2d2d7; overflow-x: auto;" markdown="block">
 
 ### 用法
 
 ```shell
-$ chromsplit  -h
+$ chromsplit --help
 Split large genome sequences into smaller fragments at N-stretches or intergenic regions
 
 Usage: chromsplit [OPTIONS] --fasta <FA> --prefix <PREFIX>
 
 Options:
-  -f, --fasta <FA>               Input genome sequence file in FASTA format
-  -g, --gtf <GTF>                Optional GTF/GFF annotation file for the genome
-  -o, --prefix <PREFIX>          Prefix for output files (.fa and .cutsite.tsv will be appended)
+  --fasta <FA>               Input genome sequence file in FASTA format
+  --gtf <GTF>                Optional GTF/GFF annotation file for the genome
+  --prefix <PREFIX>          Prefix for output files (.fa and .cutsite.tsv will be appended)
       --min_length <MIN_LENGTH>  Minimum length of output scaffold fragments (in base pairs) [default: 300000000]
       --max_length <MAX_LENGTH>  Maximum length of output scaffold fragments (in base pairs) [default: 500000000]
       --cut_site <CUT_SITE>      Optional cut site file containing predefined split positions
-  -h, --help                     Print help (see more with '--help')
-  -V, --version                  Print version
+  --help                     Print help (see more with '--help')
+  --version                  Print version
 ```
 
 </div>
@@ -389,7 +389,7 @@ Options:
 </div>
 
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;" markdown="block">
-<h4><code>-f, --fasta &lt;FA&gt;</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(必需)</span></h4>
+<h4><code>--fasta &lt;FA&gt;</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(必需)</span></h4>
 <p>指定输入的基因组序列文件。</p>
 <ul>
   <li><strong>格式要求：</strong> 标准FASTA格式 (.fa, .fasta, .fna)。</li>
@@ -401,7 +401,7 @@ Options:
 </div>
 
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;" markdown="block">
-<h4><code>-o, --prefix &lt;PREFIX&gt;</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(必需)</span></h4>
+<h4><code>--prefix &lt;PREFIX&gt;</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(必需)</span></h4>
 <p>指定输出文件的前缀。</p>
 <ul>
   <li><strong>输出文件：</strong> 工具会自动生成 <code>&lt;prefix&gt;.fa</code>, <code>&lt;prefix&gt;.cutsite.tsv</code> 等文件。</li>
@@ -421,10 +421,10 @@ Options:
 </div>
 
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;" markdown="block">
-<h4><code>-g, --gtf &lt;GTF&gt;</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(可选)</span></h4>
+<h4><code>--gtf &lt;GTF&gt;</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(可选)</span></h4>
 <p>指定基因注释文件（GTF/GFF格式）。</p>
 <ul>
-  <li><strong>智能分割：</strong> 提供注释文件可确保分割点位于基因间区域，保护基因完整性。</li>
+  <li><strong>注释辅助分割：</strong> 提供注释文件可确保分割点位于基因间区域，保护基因完整性。</li>
   <li><strong>注释同步：</strong> 工具会自动调整并输出坐标同步后的新注释文件。</li>
 </ul>
 <p><strong>默认值：</strong> 无</p>
@@ -436,7 +436,7 @@ Options:
 <h4><code>--min_length &lt;MIN_LENGTH&gt;</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(可选)</span></h4>
 <p>设置输出片段的最小长度（单位：bp）。</p>
 <ul>
-  <li><strong>功能：</strong> 确保分割后的片段不会过小，以影响后续分析。</li>
+  <li><strong>功能：</strong> 控制分割后片段的最小长度，避免片段过短而影响后续分析。</li>
 </ul>
 <p><strong>默认值：</strong> <code>300000000</code></p>
 <p><strong>示例：</strong></p>
@@ -473,7 +473,7 @@ Options:
 </ul>
 <pre><code class="language-shell">chromsplit --fasta genome.fasta --prefix split_result</code></pre>
 <ul>
-  <li><strong>带注释文件的智能分割</strong></li>
+  <li><strong>带注释文件的注释辅助分割</strong></li>
 </ul>
 <pre><code class="language-shell">chromsplit --fasta genome.fasta --gtf annotation.gtf --prefix split_genome</code></pre>
 <ul>
@@ -495,25 +495,25 @@ Options:
 
 > <strong>核心功能</strong>
 > 
-> 专业的 FASTQ 序列区域提取工具，支持精确的序列位置截取。主要用于解决多次加测数据格式不一致问题，确保 C4 测序数据的标准化处理。
+> FASTQ 序列区域提取工具，支持精确的序列位置截取。可用于解决多次加测数据格式不一致问题，并统一 C4 测序数据的序列结构。
 
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #d2d2d7; overflow-x: auto;" markdown="block">
 
 ### 用法
 
 ```shell
-$ fqsubC4 -h
+$ fqsubC4 --help
 Extracts regions from FASTQ sequences
 
 Usage: fqsubC4 [OPTIONS] --input <FILE> --output <FILE> --regions <REGIONS>
 
 Options:
-  -i, --input <FILE>       Path to input FASTQ file (supports both uncompressed and gzipped formats)
-  -o, --output <FILE>      Path to output FASTQ file （output will be automatically compressed if filename ends with .gz）
-  -r, --regions <REGIONS>  Comma-separated regions in format start:end (e.g., 7:16,23:32,38:47)
-  -t, --threads <THREADS>  Number of threads to use for parallel processing [default: 8]
-  -h, --help               Print help (see more with '--help')
-  -V, --version            Print version
+  --input <FILE>       Path to input FASTQ file (supports both uncompressed and gzipped formats)
+  --output <FILE>      Path to output FASTQ file （output will be automatically compressed if filename ends with .gz）
+  --regions <REGIONS>  Comma-separated regions in format start:end (e.g., 7:16,23:32,38:47)
+  --threads <THREADS>  Number of threads to use for parallel processing [default: 8]
+  --help               Print help (see more with '--help')
+  --version            Print version
 ```
 
 </div>
@@ -531,8 +531,8 @@ Options:
 </div>
 
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;" markdown="block">
-<h4><code>-i, --input &lt;FILE&gt;</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(必需)</span></h4>
-<p>指定输入的FASTQ 文件路径。</p>
+<h4><code>--input &lt;FILE&gt;</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(必需)</span></h4>
+<p>指定输入的 FASTQ 文件路径。</p>
 <ul>
   <li><strong>格式支持：</strong> 支持未压缩 (.fq, .fastq) 和 gzip 压缩 (.fq.gz, .fastq.gz) 格式。</li>
   <li><strong>自动识别：</strong> 工具会根据文件扩展名自动判断压缩格式。</li>
@@ -543,7 +543,7 @@ Options:
 </div>
 
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;" markdown="block">
-<h4><code>-o, --output &lt;FILE&gt;</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(必需)</span></h4>
+<h4><code>--output &lt;FILE&gt;</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(必需)</span></h4>
 <p>指定输出的FASTQ 文件路径。</p>
 <ul>
   <li><strong>自动压缩：</strong> 如果输出文件名以 <code>.gz</code> 结尾，输出文件将被自动压缩。推荐使用压缩格式，可以有效减少磁盘I/O和存储空间。</li>
@@ -554,7 +554,7 @@ Options:
 </div>
 
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;" markdown="block">
-<h4><code>-r, --regions &lt;REGIONS&gt;</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(必需)</span></h4>
+<h4><code>--regions &lt;REGIONS&gt;</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(必需)</span></h4>
 <p>指定要从序列中提取的区域。</p>
 <ul>
   <li><strong>格式规范：</strong> 使用 <code>start:end</code> 格式，多个区域用逗号分隔。</li>
@@ -575,11 +575,11 @@ Options:
 </div>
 
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;" markdown="block">
-<h4><code>-t, --threads &lt;THREADS&gt;</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(可选)</span></h4>
+<h4><code>--threads &lt;THREADS&gt;</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(可选)</span></h4>
 <p>设置并行处理线程数。</p>
 <ul>
   <li><strong>功能：</strong> 提升读取、截取和写出阶段的并行能力，适用于大文件加速处理。</li>
-  <li><strong>建议：</strong> 默认值为 <code>所有可用的核心数量</code>；建议根据CPU核心数和磁盘I/O性能进行调整。</li>
+  <li><strong>建议：</strong> 默认值为 <code>所有可用的核心数量</code>；建议根据CPU 核心数和磁盘I/O性能进行调整。</li>
 </ul>
 <p><strong>默认值：</strong> <code>所有可用的核心数量</code></p>
 <p><strong>示例：</strong></p>

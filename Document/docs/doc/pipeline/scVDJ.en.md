@@ -8,7 +8,7 @@
 
 <h1 style="font-size: 48px; font-weight: 600; color: #1d1d1f; margin: 0 0 16px 0; letter-spacing: -0.02em;">DNBelab C Series HT scVDJ Analysis Pipeline</h1>
 
-<p style="font-size: 21px; color: #86868b; margin: 0 0 30px 0; font-weight: 400;">A Complete Guide to Single-Cell VDJ Sequencing Data Analysis</p>
+<p style="font-size: 21px; color: #86868b; margin: 0 0 30px 0; font-weight: 400;">Single-Cell VDJ Sequencing Data Analysis Guide</p>
 
 <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;" markdown="block">
 <a href="#overview" style="background: #0071e3; color: white; padding: 8px 16px; border-radius: 980px; text-decoration: none; font-size: 14px;">Overview</a>
@@ -157,6 +157,14 @@ $dnbc4tools vdj run \
   --threads 10
 ```
 
+Directory structure example:
+
+```text
+/data/vdjt/
+├── sample_tcr_R1.fastq.gz
+└── sample_tcr_R2.fastq.gz
+```
+
 **Method 2: Individual Parameters**
 
 ```shell
@@ -187,6 +195,14 @@ $dnbc4tools vdj run \
   --threads 10
 ```
 
+Directory structure example:
+
+```text
+/data/vdjb/
+├── sample_bcr_R1.fastq.gz
+└── sample_bcr_R2.fastq.gz
+```
+
 **Method 2: Individual Parameters**
 
 ```shell
@@ -200,6 +216,13 @@ $dnbc4tools vdj run \
   --threads 10
 ```
 
+Input directory requirements:
+
+- The `--fastqs` path should point to the FASTQ directory for the current VDJ library.
+- R1/R2 FASTQ pairs should be placed directly under this directory.
+- Automatic detection relies on R1/R2 markers in file names. The recommended naming patterns are `_R1`/`_R2` or `_R1_`/`_R2_`.
+- TCR and BCR data should be run separately and should not be mixed in the same input directory.
+
 
 ### Execution Process
 
@@ -210,8 +233,8 @@ After auto-detecting the dark reaction, the software begins the analysis. Here i
 ┌───────┬──────────────────────────────────────────────────────────────────────────────────────────┐
 │ Type  │ Path                                                                                     │
 ├───────┼──────────────────────────────────────────────────────────────────────────────────────────┤
-│ Read1 │ /data/vdjt/sample_tcr_R1.fastq.gz                                                        │
-│ Read2 │ /data/vdjt/sample_tcr_R2.fastq.gz                                                        │
+│ Read 1 │ /data/vdjt/sample_tcr_R1.fastq.gz                                                        │
+│ Read 2 │ /data/vdjt/sample_tcr_R2.fastq.gz                                                        │
 └───────┴──────────────────────────────────────────────────────────────────────────────────────────┘
 ────────────────────────────────────────────────────────────────────────────────────────────────────
 
@@ -220,7 +243,7 @@ After auto-detecting the dark reaction, the software begins the analysis. Here i
 ┌─────────────────────────────────┬────────────────────────────────────────────────────────────────┐
 │ Type                            │ Result                                                         │
 ├─────────────────────────────────┼────────────────────────────────────────────────────────────────┤
-│ Read1                           │ darkreaction                                                   │
+│ Read 1                           │ darkreaction                                                   │
 └─────────────────────────────────┴────────────────────────────────────────────────────────────────┘
 ────────────────────────────────────────────────────────────────────────────────────────────────────
 
@@ -314,7 +337,7 @@ Upon completion, `outs` (outputs) and `logs` directories will be generated. The 
 
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);" markdown="block">
 
-This section is under continuous maintenance. Common troubleshooting entries will be added in a future revision.
+This section will be expanded as common usage questions are collected. For the current version, use the run log, parameter reference, and output file documentation as the primary troubleshooting references.
 
 </div>
 

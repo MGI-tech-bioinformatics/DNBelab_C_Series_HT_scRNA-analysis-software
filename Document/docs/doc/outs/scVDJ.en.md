@@ -8,7 +8,7 @@
 
 <h1 style="font-size: 48px; font-weight: 600; color: #1d1d1f; margin: 0 0 16px 0; letter-spacing: -0.02em;"> scVDJ Analysis Output</h1>
 
-<p style="font-size: 21px; color: rgba(0,0,0,0.6); margin: 0 0 30px 0; font-weight: 400;">Complete Guide to Single-Cell V(D)J Sequencing Analysis Output Files</p>
+<p style="font-size: 21px; color: rgba(0,0,0,0.6); margin: 0 0 30px 0; font-weight: 400;">Single-Cell V(D)J Sequencing Output File Guide</p>
 
 <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;" markdown="block">
 <a href="#output-directory-structure" style="background: #0071e3; color: white; padding: 8px 16px; border-radius: 980px; text-decoration: none; font-size: 14px;">Directory Structure</a>
@@ -402,7 +402,7 @@ Contains annotated and consensus sequences of V(D)J rearrangements in the AIRR s
 Contains detailed annotation information for all contig sequences (from both cellular and background barcodes).
 
 *   **Purpose**:
-    *   **Comprehensive Data Review**: Provides all assembled contig data, including low-quality or background signals, for in-depth quality control analysis.
+    *   **Data Review**: Provides all assembled contig data, including low-quality or background signals, for quality control review.
     *   **Complete Annotation**: Offers full annotation of V(D)J gene segments and CDR/FWR regions.
 
 *   **Content and Format**:
@@ -765,11 +765,11 @@ A FASTA file containing the consensus sequence for each clonotype.
 
 #### metrics_summary.xls
 
-A summary table of key analysis metrics in Excel format, providing a comprehensive assessment of the overall experiment quality.
+A summary table of key analysis metrics in Excel format, providing a structured assessment of the overall experiment quality.
 
 *   **Purpose**:
     *   **Quality Assessment**: Quickly evaluate core metrics such as sequencing quality, cell identification, gene mapping, and assembly effectiveness.
-    *   **Results Overview**: Get a comprehensive understanding of the analysis results without having to view all the files.
+    *   **Results Overview**: Provides a summary view of the analysis results without inspecting all files.
 
 *   **Content and Format**:
     *   Includes five main categories of key metrics:
@@ -825,7 +825,7 @@ A summary table of key analysis metrics in Excel format, providing a comprehensi
 
 #### *_scVDJ_TR(IG)_report.html
 
-An interactive comprehensive analysis report in HTML web format.
+An interactive HTML report for reviewing analysis results.
 
 *   **Purpose**:
     *   **Results Visualization**: Intuitively displays key results such as QC, rearrangement analysis, and clonotype analysis in the form of interactive charts.
@@ -845,11 +845,11 @@ An interactive comprehensive analysis report in HTML web format.
 
 <div align="center" markdown="block">
 
-**Overview**: The HTML web report provides a comprehensive visual display and detailed interpretation of single-cell V(D)J sequencing analysis results, including an evaluation of key performance indicators to help users quickly understand experimental quality and analysis outcomes.
+**Overview**: The HTML web report provides visual summaries and metric explanations for single-cell V(D)J sequencing results, including key performance indicators for experimental quality and immune receptor analysis.
 
 </div>
 
-The HTML web report is a comprehensive platform for displaying single-cell V(D)J sequencing analysis, integrating complete results from data quality control to downstream immune repertoire analysis. The report uses an interactive visual design to help users quickly assess experimental quality, understand analysis results, and guide future research directions.
+The HTML web report is the main entry point for reviewing single-cell V(D)J sequencing results. It covers cell calling, sequencing quality, V(D)J enrichment, productive pairing, and clonotype abundance, and helps users identify metrics that require further review.
 
 > **Usage Notes**: Review metrics in the order presented in the report.
 
@@ -914,23 +914,23 @@ The HTML web report is a comprehensive platform for displaying single-cell V(D)J
 <tbody>
 <tr>
 <td align="left" style="padding: 12px 16px; border-bottom: 1px solid #f0f0f0;"><strong>Estimated number of cells</strong></td>
-<td style="padding: 12px 16px; border-bottom: 1px solid #f0f0f0;">Estimate of barcodes associated with cells expressing target V(D)J transcripts.</td>
+<td style="padding: 12px 16px; border-bottom: 1px solid #f0f0f0;">Estimated number of barcodes associated with cells expressing target V(D)J transcripts. Interpret this value together with loaded cell number, target B/T-cell proportion, sample integrity, enrichment efficiency, and sequencing depth.</td>
 </tr>
 <tr>
 <td align="left" style="padding: 12px 16px; border-bottom: 1px solid #f0f0f0;"><strong>Mean reads per cell</strong></td>
-<td style="padding: 12px 16px; border-bottom: 1px solid #f0f0f0;">Ratio of total sequencing read pairs to estimated valid cells (Recommended ≥ 5,000).</td>
+<td style="padding: 12px 16px; border-bottom: 1px solid #f0f0f0;">Ratio of total sequencing read pairs to estimated valid cells. A depth of ≥ 5,000 read pairs per cell is recommended; insufficient depth may reduce cell calling accuracy, contig assembly completeness, and clonotype identification stability.</td>
 </tr>
 <tr>
 <td align="left" style="padding: 12px 16px; border-bottom: 1px solid #f0f0f0;"><strong>Fraction of Reads in Cells</strong></td>
-<td style="padding: 12px 16px; border-bottom: 1px solid #f0f0f0;">Ratio of reads with cell-associated barcodes to total valid barcode reads.</td>
+<td style="padding: 12px 16px; border-bottom: 1px solid #f0f0f0;">Ratio of reads with cell-associated barcodes to total valid-barcode reads. Higher values usually indicate better cell capture and lower background; low values may suggest poor sample quality, inappropriate cell concentration, library issues, or elevated background reads.</td>
 </tr>
 <tr>
 <td align="left" style="padding: 12px 16px; border-bottom: 1px solid #f0f0f0;"><strong>Median UMIs per cell</strong></td>
-<td style="padding: 12px 16px; border-bottom: 1px solid #f0f0f0;">Median UMI molecules assigned to specific receptor chains (e.g., IGH, TRA).</td>
+<td style="padding: 12px 16px; border-bottom: 1px solid #f0f0f0;">Median UMI count assigned to specific receptor chains such as IGH, TRA, TRB, IGK, and IGL. Used to assess receptor transcript capture and expression strength per cell.</td>
 </tr>
 <tr>
 <td align="left" style="padding: 12px 16px;"><strong>Productive contig metrics</strong></td>
-<td style="padding: 12px 16px;">Statistics for cells with productive V-J spanning rearrangements.</td>
+<td style="padding: 12px 16px;">Statistics for cells with productive V-J spanning rearrangements. These metrics indicate the fraction of cells suitable for functional TCR/BCR analysis and clonotype interpretation.</td>
 </tr>
 </tbody>
 </table>
@@ -994,15 +994,15 @@ The HTML web report is a comprehensive platform for displaying single-cell V(D)J
 <tbody>
 <tr>
 <td align="left" style="padding: 12px 16px; border-bottom: 1px solid #f0f0f0;"><strong>Valid barcodes</strong></td>
-<td style="padding: 12px 16px; border-bottom: 1px solid #f0f0f0;">Proportion of reads whose Cell Barcode matches the whitelist.</td>
+<td style="padding: 12px 16px; border-bottom: 1px solid #f0f0f0;">Proportion of reads whose cell barcode matches the whitelist. This metric assesses barcode recognition stability and whether reads can be assigned to cells correctly.</td>
 </tr>
 <tr>
 <td align="left" style="padding: 12px 16px; border-bottom: 1px solid #f0f0f0;"><strong>Valid UMIs</strong></td>
-<td style="padding: 12px 16px; border-bottom: 1px solid #f0f0f0;">Proportion of UMIs without N bases and not homopolymers.</td>
+<td style="padding: 12px 16px; border-bottom: 1px solid #f0f0f0;">Proportion of UMIs without `N` bases and not homopolymers. This metric assesses whether UMI sequences can support reliable molecular deduplication and counting.</td>
 </tr>
 <tr>
 <td align="left" style="padding: 12px 16px;"><strong>Q30 Base Quality</strong></td>
-<td style="padding: 12px 16px;">Proportion of bases with quality score Q30 or higher.</td>
+<td style="padding: 12px 16px;">Proportion of bases with quality score Q30 or higher. Q30 corresponds to a sequencing error rate below 0.1% and supports accurate barcode recognition, UMI counting, and V(D)J sequence assembly.</td>
 </tr>
 </tbody>
 </table>
@@ -1059,7 +1059,7 @@ The HTML web report is a comprehensive platform for displaying single-cell V(D)J
 <td style="padding: 12px 16px; border-bottom: 1px solid #f0f0f0;">
 <ul>
 <li><strong>Definition</strong>: Fraction of reads with valid barcodes that partially or fully map to any germline V(D)J gene segment.</li>
-<li><strong>Quality warning (&lt;30%)</strong>: May indicate low B/T-cell proportion in sample, degraded sample quality, poor enrichment efficiency, or reference mismatch.</li>
+<li><strong>Interpretation (&lt;30%)</strong>: May indicate low B/T-cell proportion, degraded sample quality, insufficient enrichment efficiency, or reference mismatch.</li>
 </ul>
 </td>
 </tr>
@@ -1067,8 +1067,8 @@ The HTML web report is a comprehensive platform for displaying single-cell V(D)J
 <td align="left" style="padding: 12px 16px;"><strong>Reads mapped to TRA/TRB/IGH/IGK/IGL</strong><br><em>Chain-specific mapping fractions</em></td>
 <td style="padding: 12px 16px;">
 <ul>
-<li><strong>TRA vs TRB</strong>: TRA expression is often lower than TRB, reflecting typical TCR expression patterns.</li>
-<li><strong>IGH vs IGK/IGL</strong>: Heavy and light chain mapping fractions jointly reflect chain usage.</li>
+<li><strong>TRA vs TRB</strong>: TRA expression is often lower than TRB; this ratio helps assess whether TCR chain capture is consistent with expectations.</li>
+<li><strong>IGH vs IGK/IGL</strong>: Heavy and light chain mapping fractions jointly reflect BCR chain usage and relative expression abundance.</li>
 <li><strong>Calculation baseline</strong>: All enrichment fractions use total valid-barcode reads as denominator.</li>
 </ul>
 </td>
@@ -1121,26 +1121,25 @@ The HTML web report is a comprehensive platform for displaying single-cell V(D)J
 <tbody>
 <tr>
 <td align="left" style="padding: 12px 16px; border-bottom: 1px solid #f0f0f0;"><strong>Number of Cells with Productive V-J Spanning Pair</strong></td>
-<td style="padding: 12px 16px; border-bottom: 1px solid #f0f0f0;">Absolute number of cells with at least one productive paired receptor (TRA/TRB or heavy/light chain pair).</td>
+<td style="padding: 12px 16px; border-bottom: 1px solid #f0f0f0;">Absolute number of cells with at least one productive paired receptor (TRA/TRB or heavy/light chain pair). This metric indicates the number of cells available for functional TCR/BCR pairing analysis.</td>
 </tr>
 <tr>
 <td align="left" style="padding: 12px 16px; border-bottom: 1px solid #f0f0f0;"><strong>Cells with productive V-J spanning pair</strong></td>
 <td style="padding: 12px 16px; border-bottom: 1px solid #f0f0f0;">
-Percentage of cell-associated barcodes with at least one complete receptor pair where both chains are productive.
-Productive contigs require: full V-to-J span, valid start codon, complete in-frame CDR3, and no premature stop codon.
+Percentage of cell-associated barcodes with at least one complete receptor pair where both chains are productive. This metric indicates the fraction of cells suitable for reliable clonotype analysis and functional receptor interpretation. Productive contigs require a full V-to-J span, valid start codon, complete in-frame CDR3, and no premature stop codon.
 </td>
 </tr>
 <tr>
 <td align="left" style="padding: 12px 16px; border-bottom: 1px solid #f0f0f0;"><strong>Cells with productive V-J spanning (IGK, IGH) pair</strong></td>
-<td style="padding: 12px 16px; border-bottom: 1px solid #f0f0f0;">B-cell specific metric; depends on the proportion of kappa-chain expressing subpopulations.</td>
+<td style="padding: 12px 16px; border-bottom: 1px solid #f0f0f0;">BCR-specific metric showing the fraction of cells with productive IGK/IGH pairing. It depends on the proportion of kappa-chain expressing B-cell subpopulations and should be interpreted together with IGL/IGH pairing.</td>
 </tr>
 <tr>
 <td align="left" style="padding: 12px 16px; border-bottom: 1px solid #f0f0f0;"><strong>Cells with productive V-J spanning (IGL, IGH) pair</strong></td>
-<td style="padding: 12px 16px; border-bottom: 1px solid #f0f0f0;">B-cell specific metric; reflects lambda-chain usage and complements IGK pairing metrics.</td>
+<td style="padding: 12px 16px; border-bottom: 1px solid #f0f0f0;">BCR-specific metric showing the fraction of cells with productive IGL/IGH pairing. It complements the IGK/IGH metric and helps characterize B-cell light-chain usage.</td>
 </tr>
 <tr>
 <td align="left" style="padding: 12px 16px;"><strong>Cells with productive V-J spanning (TRA, TRB) pair</strong></td>
-<td style="padding: 12px 16px;">Core T-cell metric; reflects successful alpha-beta receptor pairing and functional TCR expression.</td>
+<td style="padding: 12px 16px;">TCR-specific metric showing the fraction of cells with productive TRA/TRB pairing. Higher values generally indicate more cells available for functional alpha-beta TCR analysis.</td>
 </tr>
 </tbody>
 </table>
@@ -1168,7 +1167,7 @@ Productive contigs require: full V-to-J span, valid start codon, complete in-fra
 <ul>
   <li><strong>Axes</strong>: X-axis (Barcode Rank) shows cell barcodes ranked by total UMI counts (log scale); Y-axis (UMI Counts) shows total UMIs per cell (log scale).</li>
   <li><strong>Visual encoding</strong>: Blue line indicates called valid cells; gray line indicates background/noise; blue gradient zone indicates a transitional mixed region.</li>
-  <li><strong>Quality assessment</strong>: A steeper drop typically indicates better separation between cells and background; in BCR datasets, a subgroup with very high UMIs may appear and often represents highly expressed plasma cells.</li>
+  <li><strong>Quality assessment</strong>: A steeper drop typically indicates clearer separation between called cells and background. In BCR datasets, a subgroup with very high UMIs may appear and often represents plasma cells or plasmablasts with high immunoglobulin expression.</li>
 </ul>
 
 </div>
@@ -1184,7 +1183,7 @@ Productive contigs require: full V-to-J span, valid start codon, complete in-fra
 
 ##### Clonotype Abundance Analysis
 
-**Chart Function:** Shows the relative abundance distribution of clonotypes and the concentration of immune responses.
+**Chart Function:** Shows the relative abundance distribution of clonotypes and helps assess whether the immune response is dominated by a small number of expanded clones.
 
 <div align="center" markdown="block">
 <img src="../images/html_scvdj2.png" alt="scVDJ clonotype analysis charts" width="500">
@@ -1192,8 +1191,8 @@ Productive contigs require: full V-to-J span, valid start codon, complete in-fra
 
 <p><strong>How to Interpret:</strong></p>
 <ul>
-  <li><strong>Top panel (Top 10 Clonotypes)</strong>: Bar chart of cell percentages for the top 10 clonotypes, reflecting clonal expansion and immune dominance.</li>
-  <li><strong>Bottom table (Detail table)</strong>: Full descriptions of top clonotypes, including clonotype ID, CDR3 amino acid/nucleotide sequences, absolute frequency, and relative proportion.</li>
+  <li><strong>Top panel (Top 10 Clonotypes)</strong>: Bar chart of cell percentages for the top 10 clonotypes. More concentrated proportions usually indicate stronger clonal expansion.</li>
+  <li><strong>Bottom table (Detail table)</strong>: Detailed information for the top 10 clonotypes, including clonotype ID, CDR3 amino acid/nucleotide sequences, absolute frequency, and relative proportion.</li>
 </ul>
 
 </div>

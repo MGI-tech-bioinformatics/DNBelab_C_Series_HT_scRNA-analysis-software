@@ -8,7 +8,7 @@
 
 <h1 style="font-size: 48px; font-weight: 600; color: #1d1d1f; margin: 0 0 16px 0; letter-spacing: -0.02em;">DNBelab C Series HT scATAC Analysis Pipeline</h1>
 
-<p style="font-size: 21px; color: #86868b; margin: 0 0 30px 0; font-weight: 400;">A Complete Guide to Single-Cell ATAC Sequencing Data Analysis</p>
+<p style="font-size: 21px; color: #86868b; margin: 0 0 30px 0; font-weight: 400;">Single-Cell ATAC Sequencing Data Analysis Guide</p>
 
 <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;" markdown="block">
 <a href="#overview" style="background: #0071e3; color: white; padding: 8px 16px; border-radius: 980px; text-decoration: none; font-size: 14px;">Overview</a>
@@ -89,7 +89,7 @@ The analysis requires FASTQ files:
 
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);" markdown="block">
 
-### File Requirements
+### Reference Database Input Files
 
 <table style="width:100%; border-collapse: collapse; margin: 1.5em 0; box-shadow: 0 2px 3px rgba(0,0,0,0.1);">
   <thead style="background-color: #f2f2f2; border-bottom: 2px solid #ddd;">
@@ -117,7 +117,7 @@ The analysis requires FASTQ files:
  <strong>Recommended Data Source</strong>: It is recommended to use files from the <a href="https://www.ensembl.org/index.html">Ensembl database</a>. Ensembl's GTF files contain optional tags that facilitate filtering with <code>dnbc4tools tools mkgtf</code>.
 </div>
 
-**GTF File Requirements:**
+<p><strong>GTF File Requirements:</strong></p>
 <ul>
   <li>Must contain annotations of type <code>gene</code> or <code>transcript</code> as well as <code>exon</code>.</li>
   <li>Attributes must include <code>gene_id</code> or <code>gene_name</code> and <code>transcript_id</code> or <code>transcript_name</code>.</li>
@@ -129,9 +129,11 @@ The analysis requires FASTQ files:
 
 For details on GTF file filtering, please [refer to the scRNA analysis pipeline](scRNA.en.md#gtf-file-processing-optional).
 
-### Build Reference Database
+### Reference Database Construction
 
 Before running the `dnbc4tools atac run` analysis, a reference database must be built. This step requires an annotation file (GTF) and a reference genome (FASTA) to create index files for read alignment and statistical analysis.
+
+<p><strong>Command:</strong></p>
 
 ```shell
 $dnbc4tools atac mkref \
@@ -140,7 +142,7 @@ $dnbc4tools atac mkref \
   --species Mus_musculus 
 ```
 
-**Output**:
+<p><strong>Output Directory:</strong></p>
 
 Upon successful execution, a reference database directory will be created at the specified location with the following structure:
 
@@ -159,6 +161,9 @@ Upon successful execution, a reference database directory will be created at the
     ├── promoter.bed
     └── tss.bed
 ```
+
+
+<p><strong>ref.json Example:</strong></p>
 
 The `ref.json` file records the main information of the database:
 
@@ -188,6 +193,8 @@ The `ref.json` file records the main information of the database:
 <div style="background-color: #fffbe6; border-left: 6px solid #ffc107; padding: 15px; margin: 1.5em 0; border-radius: 4px;" markdown="block">
  <strong>Note</strong>: Building the reference database can be time-consuming, depending on the genome size and computational resources. The main analysis pipeline is compatible with older database versions.
 </div>
+
+<p><strong>Runtime Log Example:</strong></p>
 
 The following information will be printed during runtime:
 
@@ -227,6 +234,110 @@ Analysis Complete
 </div>
 
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);" markdown="block">
+
+The main pipeline can be used in two ways:
+
+- **Single-sample analysis**: Run `dnbc4tools atac run` directly for a complete analysis of one ATAC library.
+- **Multi-sample batch processing**: Use `dnbc4tools atac multi` to generate one run script per sample, which is useful for preparing batch jobs.
+
+### Single-Sample Analysis
+
+The ATAC main analysis pipeline processes single-cell ATAC library data from a single sample. The core workflow includes:
+<ol>
+  <li><strong>Data Processing</strong>: Perform quality control and alignment to generate the <code>fragments</code> file for all beads.</li>
+  <li><strong>Peak Calling</strong>: Run peak calling on aggregated data to identify open chromatin regions.</li>
+  <li><strong>Cell Identification</strong>: Identify valid cells using fragment information within peak regions.</li>
+  <li><strong>Advanced Analysis</strong>: Perform cell filtering, dimensionality reduction, and clustering.</li>
+  <li><strong>Report Generation</strong>: Integrate outputs from all steps and generate the HTML report plus other result files.</li>
+</ol>
+
+Two input methods are supported:
+
+**Method 1: Directory (Recommended)**
+
+```shell
+$dnbc4tools atac run \
+  --name sample \
+  --fastqs /data \
+  --genomeDir /opt/database/Mus_musculus \
+  --threads 10
+```
+
+Directory structure example:
+```
+/data/
+├── sample_R1.fastq.gz
+└── sample_R2.fastq.gz
+```
+
+Directory requirements:
+
+- The `--fastqs` path should point to the FASTQ directory for the current ATAC library.
+- R1/R2 FASTQ pairs should be placed directly under this directory.
+- Automatic detection relies on R1/R2 markers in file names. The recommended naming patterns are `_R1`/`_R2` or `_R1_`/`_R2_`.
+- Do not mix data from different samples or different libraries in the same input directory.
+
+**Method 2: Individual Parameters**
+
+```shell
+$dnbc4tools atac run \
+  --name sample \
+  --fastq1 /data/sample_R1.fastq.gz \
+  --fastq2 /data/sample_R2.fastq.gz \
+  --genomeDir /opt/database/Mus_musculus \
+  --threads 10
+```
+
+After auto-detecting the reagent version and dark reaction, the software begins the analysis. Here is an example:
+
+```shell
+
+──────────────────────────── Parsed FASTQ Inputs — 2025-11-12 15:05:39 ─────────────────────────────
+┌───────┬──────────────────────────────────────────────────────────────────────────────────────────┐
+│ Type  │ Path                                                                                     │
+├───────┼──────────────────────────────────────────────────────────────────────────────────────────┤
+│ Read 1 │ /data/sample_R1.fastq.gz                                                                 │
+│ Read 2 │ /data/sample_R2.fastq.gz                                                                 │
+└───────┴──────────────────────────────────────────────────────────────────────────────────────────┘
+────────────────────────────────────────────────────────────────────────────────────────────────────
+
+──────────────────────────── Chemistry Detection — 2025-11-12 15:05:49 ─────────────────────────────
+┌─────────────────────────────────┬────────────────────────────────────────────────────────────────┐
+│ Type                            │ Result                                                         │
+├─────────────────────────────────┼────────────────────────────────────────────────────────────────┤
+│ Read 1                           │ darkreaction                                                   │
+│ Read 2                           │ darkreaction                                                   │
+└─────────────────────────────────┴────────────────────────────────────────────────────────────────┘
+────────────────────────────────────────────────────────────────────────────────────────────────────
+
+ 2025-11-12 15:05:49 Performing raw data quality control and alignment...                           
+...done
+
+ 2025-11-12 15:24:56 Calculating bead similarity and merging beads within droplets...               
+...done
+
+ 2025-11-12 15:28:00 Processing fragments for peak calling...                                       
+...done
+
+ 2025-11-12 15:31:22 Generating raw peak count matrix...                                            
+...done
+
+ 2025-11-12 15:38:18 Generating cell-filtered peak count matrix...                                  
+...done
+
+ 2025-11-12 15:43:23 Performing dimensionality reduction and clustering...                          
+...done
+
+ 2025-11-12 15:50:03 Generating analysis report and summary statistics...                           
+...done
+
+ 2025-11-12 15:50:19 Analysis Finished. Elapsed Time: 0:44:30
+```
+
+A successful run will end with `Analysis Finished`.
+
+
+<div style="border-top: 1px solid #d2d2d7; margin: 32px 0;" markdown="block"></div>
 
 ### Multi-Sample Batch Processing (Optional)
 
@@ -284,101 +395,11 @@ Example content of `sample1.sh`:
 
 ```shell
 $cat sample1.sh
-/opt/software/dnbc4tools3.0Beta/dnbc4tools atac run --name sample1 --fastq1 /data/sample1_R1.fq.gz --fastq2 /data/sample1_R2.fq.gz --genomeDir /opt/database/Mus_musculus --threads 10 
+/opt/software/dnbc4tools3.1/dnbc4tools atac run --name sample1 --fastq1 /data/sample1_R1.fq.gz --fastq2 /data/sample1_R2.fq.gz --genomeDir /opt/database/Mus_musculus --threads 10 
 ```
 
 You can then execute these scripts to run the main analysis.
 
-### Single-Sample Analysis
-
-The ATAC main analysis pipeline processes single-cell ATAC library data from a single sample. The core workflow includes:
-<ol>
-  <li><strong>Data Processing</strong>: Perform quality control and alignment to generate the <code>fragments</code> file for all beads.</li>
-  <li><strong>Peak Calling</strong>: Run peak calling on aggregated data to identify open chromatin regions.</li>
-  <li><strong>Cell Identification</strong>: Identify valid cells using fragment information within peak regions.</li>
-  <li><strong>Advanced Analysis</strong>: Perform cell filtering, dimensionality reduction, and clustering.</li>
-  <li><strong>Report Generation</strong>: Integrate outputs from all steps and generate the HTML report plus other result files.</li>
-</ol>
-
-Two input methods are supported:
-
-**Method 1: Directory (Recommended)**
-
-```shell
-$dnbc4tools atac run \
-  --name sample \
-  --fastqs /data \
-  --genomeDir /opt/database/Mus_musculus \
-  --threads 10
-```
-
-Directory structure example:
-```
-/data/
-
-├── sample_R1.fastq.gz
-└── sample_R2.fastq.gz
-
-```
-
-**Method 2: Individual Parameters**
-
-```shell
-$dnbc4tools atac run \
-  --name sample \
-  --fastq1 /data/sample_R1.fastq.gz \
-  --fastq2 /data/sample_R2.fastq.gz \
-  --genomeDir /opt/database/Mus_musculus \
-  --threads 10
-```
-
-After auto-detecting the reagent version and dark reaction, the software begins the analysis. Here is an example:
-
-```shell
-
-──────────────────────────── Parsed FASTQ Inputs — 2025-11-12 15:05:39 ─────────────────────────────
-┌───────┬──────────────────────────────────────────────────────────────────────────────────────────┐
-│ Type  │ Path                                                                                     │
-├───────┼──────────────────────────────────────────────────────────────────────────────────────────┤
-│ Read1 │ /data/sample_R1.fastq.gz                                                                 │
-│ Read2 │ /data/sample_R2.fastq.gz                                                                 │
-└───────┴──────────────────────────────────────────────────────────────────────────────────────────┘
-────────────────────────────────────────────────────────────────────────────────────────────────────
-
-──────────────────────────── Chemistry Detection — 2025-11-12 15:05:49 ─────────────────────────────
-┌─────────────────────────────────┬────────────────────────────────────────────────────────────────┐
-│ Type                            │ Result                                                         │
-├─────────────────────────────────┼────────────────────────────────────────────────────────────────┤
-│ Read1                           │ darkreaction                                                   │
-│ Read2                           │ darkreaction                                                   │
-└─────────────────────────────────┴────────────────────────────────────────────────────────────────┘
-────────────────────────────────────────────────────────────────────────────────────────────────────
-
- 2025-11-12 15:05:49 Performing raw data quality control and alignment...                           
-...done
-
- 2025-11-12 15:24:56 Calculating bead similarity and merging beads within droplets...               
-...done
-
- 2025-11-12 15:28:00 Processing fragments for peak calling...                                       
-...done
-
- 2025-11-12 15:31:22 Generating raw peak count matrix...                                            
-...done
-
- 2025-11-12 15:38:18 Generating cell-filtered peak count matrix...                                  
-...done
-
- 2025-11-12 15:43:23 Performing dimensionality reduction and clustering...                          
-...done
-
- 2025-11-12 15:50:03 Generating analysis report and summary statistics...                           
-...done
-
- 2025-11-12 15:50:19 Analysis Finished. Elapsed Time: 0:44:30
-```
-
-A successful run will end with `Analysis Finished`.
 
 
 </div>
@@ -444,7 +465,7 @@ Upon completion, `outs` (outputs) and `logs` directories will be generated.
 
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);" markdown="block">
 
-This section is under continuous maintenance. Common troubleshooting entries will be added in a future revision.
+This section will be expanded as common usage questions are collected. For the current version, use the run log, parameter reference, and output file documentation as the primary troubleshooting references.
 
 </div>
 

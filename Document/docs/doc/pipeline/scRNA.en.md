@@ -8,7 +8,7 @@
 
 <h1 style="font-size: 48px; font-weight: 600; color: #1d1d1f; margin: 0 0 16px 0; letter-spacing: -0.02em;">DNBelab C Series HT scRNA Analysis Pipeline</h1>
 
-<p style="font-size: 21px; color: #86868b; margin: 0 0 30px 0; font-weight: 400;">A Complete Guide to Single-Cell RNA Sequencing Data Analysis</p>
+<p style="font-size: 21px; color: #86868b; margin: 0 0 30px 0; font-weight: 400;">Single-Cell RNA Sequencing Data Analysis Guide</p>
 
 <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;" markdown="block">
 <a href="#overview" style="background: #0071e3; color: white; padding: 8px 16px; border-radius: 980px; text-decoration: none; font-size: 14px;">Overview</a>
@@ -93,7 +93,7 @@ Two types of FASTQ files are required for the analysis:
 
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);" markdown="block">
 
-### File Requirements
+### Reference Database Input Files
 
 <table style="width:100%; border-collapse: collapse; margin: 1.5em 0; box-shadow: 0 2px 3px rgba(0,0,0,0.1);">
   <thead style="background-color: #f2f2f2; border-bottom: 2px solid #ddd;">
@@ -121,14 +121,14 @@ Two types of FASTQ files are required for the analysis:
  <strong>Recommended Data Source</strong>: It is recommended to use files from the <a href="https://www.ensembl.org/index.html">Ensembl database</a>. Ensembl's GTF files contain optional tags that facilitate filtering with <code>dnbc4tools tools mkgtf</code>.
 </div>
 
-**GTF File Requirements**:
+<p><strong>GTF File Requirements:</strong></p>
 
 - Must contain annotations of type <code>gene</code> or <code>transcript</code> as well as <code>exon</code>.
 - Attributes must include <code>gene_id</code> or <code>gene_name</code> and <code>transcript_id</code> or <code>transcript_name</code>.
 - The GFF file format is not supported.
 - The genome file and annotation file must be from corresponding versions.
 
-### GTF File Processing (Optional) <a id="gtf-file-processing-optional"></a>
+### GTF File Preprocessing (Optional) <a id="gtf-file-processing-optional"></a>
 
 GTF files downloaded from sites like ENSEMBL and UCSC often contain many types of genes. Selecting specific gene types relevant to your research can reduce overlapping gene annotations and improve the uniqueness of alignments, as reads mapping non-uniquely to multiple genes are filtered out.
 
@@ -256,9 +256,11 @@ $dnbc4tools tools mkgtf \
         IG_C_pseudogene,TR_V_gene,TR_D_gene,TR_J_gene,TR_C_gene
 ```
 
-### Build Reference Database
+### Reference Database Construction
 
 Before running the `dnbc4tools rna run` analysis, a reference database must be built. This step uses the annotation file (GTF) and reference genome (FASTA) to create an index for aligning and annotating the sequencing reads.
+
+<p><strong>Command:</strong></p>
 
 ```shell
 # Build reference database
@@ -269,7 +271,7 @@ $dnbc4tools rna mkref \
   --threads 10
 ```
 
-**Output**:
+<p><strong>Output Directory:</strong></p>
 
 Upon successful execution, a reference database directory will be created at the specified location with the following structure:
 
@@ -300,6 +302,8 @@ Upon successful execution, a reference database directory will be created at the
     └── transcriptInfo.tab
 ```
 
+<p><strong>ref.json Example:</strong></p>
+
 The `ref.json` file records the main information of the database.
 
 ```json
@@ -316,13 +320,15 @@ The `ref.json` file records the main information of the database.
     ],
     "mtgenes": "/opt/database/Homo_sapiens/star/mtgene.list",
     "species": "Homo_sapiens",
-    "version": "dnbc4tools 3.0"
+    "version": "3.1"
 }
 ```
 
 <div style="background-color: #fffbe6; border-left: 6px solid #ffc107; padding: 15px; margin: 1.5em 0; border-radius: 4px;" markdown="block">
  <code>Note</code>: Building the reference database can be time-consuming, depending on the genome size and computational resources. The main analysis pipeline is compatible with older database versions.
 </div>
+
+<p><strong>Runtime Log Example:</strong></p>
 
 The following information will be printed during runtime:
 
@@ -359,6 +365,136 @@ Analysis Complete
 </div>
 
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);" markdown="block">
+
+The main pipeline can be used in two ways:
+
+- **Single-sample analysis**: Run `dnbc4tools rna run` directly for a complete analysis of one sample.
+- **Multi-sample batch processing**: Use `dnbc4tools rna multi` to generate one run script per sample, which is useful for preparing batch jobs.
+
+### Single-Sample Analysis
+
+The main RNA analysis pipeline processes cDNA and Oligo library data from a single sample. Key steps include:
+1.  **Data Processing**: Performs quality control, alignment, and functional region annotation.
+2.  **Cell Identification**: Merges beads to identify valid cells.
+3.  **Matrix Generation**: Creates raw and filtered gene expression matrices.
+4.  **Advanced Analysis**: Filters cells, performs dimensionality reduction, clustering, and annotation on the filtered matrix.
+5.  **Report Generation**: Outputs an HTML report and other result files.
+
+Two input methods are supported:
+
+**Method 1: Directory (Recommended)**
+
+```shell
+$dnbc4tools rna run \
+  --name sample \
+  --fastqs /data \
+  --genomeDir /opt/database/Homo_sapiens \
+  --threads 30
+```
+
+Directory structure example:
+```
+/data/
+├── cDNA/
+│   ├── sample_cDNA_R1.fastq.gz
+│   └── sample_cDNA_R2.fastq.gz
+└── oligo/
+    ├── sample_oligo_1_R1.fastq.gz
+    ├── sample_oligo_1_R2.fastq.gz
+    ├── sample_oligo_2_R1.fastq.gz
+    └── sample_oligo_2_R2.fastq.gz
+```
+
+Directory requirements:
+
+- The `--fastqs` directory must contain both `cDNA/` and `oligo/` subdirectories.
+- Each subdirectory should contain the R1/R2 FASTQ pairs for the corresponding library.
+- Automatic detection relies on R1/R2 markers in file names. The recommended naming patterns are `_R1`/`_R2` or `_R1_`/`_R2_`.
+- Do not mix data from different samples or different libraries in the same input directory.
+
+**Method 2: Individual Parameters**
+
+```shell
+$dnbc4tools rna run \
+  --name sample \
+  --cDNAfastq1 /data/cDNA/sample_cDNA_R1.fastq.gz \
+  --cDNAfastq2 /data/cDNA/sample_cDNA_R2.fastq.gz \
+  --oligofastq1 /data/oligo/sample_oligo_1_R1.fastq.gz,/data/oligo/sample_oligo_2_R1.fastq.gz \
+  --oligofastq2 /data/oligo/sample_oligo_1_R2.fastq.gz,/data/oligo/sample_oligo_2_R2.fastq.gz \
+  --genomeDir /opt/database/Homo_sapiens \
+  --threads 30
+```
+
+After auto-detecting the reagent version and dark reaction, the software begins the analysis. Here is an example:
+
+```shell
+──────────────────────────── Parsed FASTQ Inputs — 2025-11-12 15:00:24 ─────────────────────────────
+┌─────────────┬────────────────────────────────────────────────────────────────────────────────────┐
+│ Type        │ Path                                                                               │
+├─────────────┼────────────────────────────────────────────────────────────────────────────────────┤
+│ cDNA Read 1 │ /data/cDNA/sample_cDNA_R1.fastq.gz                                                 │
+│ cDNA Read 2 │ /data/cDNA/sample_cDNA_R2.fastq.gz                                                 │
+│ oligo Read 1 │ /data/oligo/sample_oligo_1_R1.fastq.gz,/data/oligo/sample_oligo_2_R1.fastq.gz      │
+│ oligo Read 2 │ /data/oligo/sample_oligo_1_R2.fastq.gz,/data/oligo/sample_oligo_2_R2.fastq.gz      │
+└─────────────┴────────────────────────────────────────────────────────────────────────────────────┘
+────────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+──────────────────────────── Chemistry Detection — 2025-11-12 15:00:31 ─────────────────────────────
+┌───────────────────────────────────────────────┬──────────────────────────────────────────────────┐
+│ Type                                          │ Result                                           │
+├───────────────────────────────────────────────┼──────────────────────────────────────────────────┤
+│ oligo Read 1                                   │ darkreaction                                     │
+│ oligo Read 2                                   │ darkreaction                                     │
+└───────────────────────────────────────────────┴──────────────────────────────────────────────────┘
+────────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+──────────────────────────── Chemistry Detection — 2025-11-12 15:00:31 ─────────────────────────────
+┌─────────────────────────────────────────────┬────────────────────────────────────────────────────┐
+│ Type                                        │ Result                                             │
+├─────────────────────────────────────────────┼────────────────────────────────────────────────────┤
+│ cDNA Read 1                                  │ darkreaction                                       │
+└─────────────────────────────────────────────┴────────────────────────────────────────────────────┘
+────────────────────────────────────────────────────────────────────────────────────────────────────
+
+ 2025-11-12 15:00:31 Starting oligo library filtering...                                            
+...done
+
+ 2025-11-12 15:05:53 Starting cDNA library filtering...                                             
+...done
+
+ 2025-11-12 15:07:49 Performing read alignment and UMI counting...                                  
+...done
+
+ 2025-11-12 15:15:25 Calculating bead similarity and merging beads within droplets...               
+...done
+
+ 2025-11-12 15:15:41 Generating raw gene expression matrix...                                       
+...done
+
+ 2025-11-12 15:17:24 Generating cell-filtered gene expression matrix...                             
+...done
+
+ 2025-11-12 15:17:43 Calculating sequencing saturation metrics...                                   
+...done
+
+ 2025-11-12 15:18:08 Generating position-sorted BAM file...                                         
+...done
+
+ 2025-11-12 15:24:46 Performing dimensionality reduction and clustering analysis...                 
+...done
+
+ 2025-11-12 15:27:21 Generating analysis report and summary statistics...                           
+...done
+
+ 2025-11-12 15:27:40 Analysis Finished. Elapsed Time: 0:27:16
+```
+
+When the message `Analysis Finished` appears, the analysis is successfully completed.
+
+
+<div style="border-top: 1px solid #d2d2d7; margin: 32px 0;" markdown="block"></div>
 
 ### Multi-Sample Batch Processing (Optional)
 
@@ -418,125 +554,11 @@ Example content of `sample1.sh`:
 
 ```shell
 $cat sample1.sh
-/opt/software/dnbc4tools3.0beta/dnbc4tools rna run --name sample1 --cDNAfastq1 /data/cDNA1_R1.fq.gz --cDNAfastq2 /data/cDNA1_R2.fq.gz --oligofastq1 /data/oligo1_R1.fq.gz,/data/oligo4_R1.fq.gz --oligofastq2 /data/oligo1_R2.fq.gz,/data/oligo4_R2.fq.gz --genomeDir /database/scRNA/Mus_musculus/mm10 --threads 30
+/opt/software/dnbc4tools3.1/dnbc4tools rna run --name sample1 --cDNAfastq1 /data/cDNA1_R1.fq.gz --cDNAfastq2 /data/cDNA1_R2.fq.gz --oligofastq1 /data/oligo1_R1.fq.gz,/data/oligo4_R1.fq.gz --oligofastq2 /data/oligo1_R2.fq.gz,/data/oligo4_R2.fq.gz --genomeDir /database/scRNA/Mus_musculus/mm10 --threads 30
 ```
 
 You can then execute these scripts to run the main analysis.
 
-### Single-Sample Analysis
-
-The main RNA analysis pipeline processes cDNA and Oligo library data from a single sample. Key steps include:
-1.  **Data Processing**: Performs quality control, alignment, and functional region annotation.
-2.  **Cell Identification**: Merges beads to identify valid cells.
-3.  **Matrix Generation**: Creates raw and filtered gene expression matrices.
-4.  **Advanced Analysis**: Filters cells, performs dimensionality reduction, clustering, and annotation on the filtered matrix.
-5.  **Report Generation**: Outputs an HTML report and other result files.
-
-Two input methods are supported:
-
-**Method 1: Directory (Recommended)**
-
-```shell
-$dnbc4tools rna run \
-  --name sample \
-  --fastqs /data \
-  --genomeDir /opt/database/Homo_sapiens \
-  --threads 30
-```
-
-Directory structure example:
-```
-/data/
-├── cDNA/
-│   ├── sample_cDNA_R1.fastq.gz
-│   └── sample_cDNA_R2.fastq.gz
-└── oligo/
-    ├── sample_oligo_1_R1.fastq.gz
-    ├── sample_oligo_1_R2.fastq.gz
-    ├── sample_oligo_2_R1.fastq.gz
-    └── sample_oligo_2_R2.fastq.gz
-```
-
-**Method 2: Individual Parameters**
-
-```shell
-$dnbc4tools rna run \
-  --name sample \
-  --cDNAfastq1 /data/cDNA/sample_cDNA_R1.fastq.gz \
-  --cDNAfastq2 /data/cDNA/sample_cDNA_R2.fastq.gz \
-  --oligofastq1 /data/oligo/sample_oligo_1_R1.fastq.gz,/data/oligo/sample_oligo_2_R1.fastq.gz \
-  --oligofastq2 /data/oligo/sample_oligo_1_R2.fastq.gz,/data/oligo/sample_oligo_2_R2.fastq.gz \
-  --genomeDir /opt/database/Homo_sapiens \
-  --threads 30
-```
-
-After auto-detecting the reagent version and dark reaction, the software begins the analysis. Here is an example:
-
-```shell
-──────────────────────────── Parsed FASTQ Inputs — 2025-11-12 15:00:24 ─────────────────────────────
-┌─────────────┬────────────────────────────────────────────────────────────────────────────────────┐
-│ Type        │ Path                                                                               │
-├─────────────┼────────────────────────────────────────────────────────────────────────────────────┤
-│ cDNA Read1  │ /data/cDNA/sample_cDNA_R1.fastq.gz                                                 │
-│ cDNA Read2  │ /data/cDNA/sample_cDNA_R2.fastq.gz                                                 │
-│ oligo Read1 │ /data/oligo/sample_oligo_1_R1.fastq.gz,/data/oligo/sample_oligo_2_R1.fastq.gz      │
-│ oligo Read2 │ /data/oligo/sample_oligo_1_R2.fastq.gz,/data/oligo/sample_oligo_2_R2.fastq.gz      │
-└─────────────┴────────────────────────────────────────────────────────────────────────────────────┘
-────────────────────────────────────────────────────────────────────────────────────────────────────
-
-
-──────────────────────────── Chemistry Detection — 2025-11-12 15:00:31 ─────────────────────────────
-┌───────────────────────────────────────────────┬──────────────────────────────────────────────────┐
-│ Type                                          │ Result                                           │
-├───────────────────────────────────────────────┼──────────────────────────────────────────────────┤
-│ oligo Read1                                   │ darkreaction                                     │
-│ oligo Read2                                   │ darkreaction                                     │
-└───────────────────────────────────────────────┴──────────────────────────────────────────────────┘
-────────────────────────────────────────────────────────────────────────────────────────────────────
-
-
-──────────────────────────── Chemistry Detection — 2025-11-12 15:00:31 ─────────────────────────────
-┌─────────────────────────────────────────────┬────────────────────────────────────────────────────┐
-│ Type                                        │ Result                                             │
-├─────────────────────────────────────────────┼────────────────────────────────────────────────────┤
-│ cDNA Read1                                  │ darkreaction                                       │
-└─────────────────────────────────────────────┴────────────────────────────────────────────────────┘
-────────────────────────────────────────────────────────────────────────────────────────────────────
-
- 2025-11-12 15:00:31 Starting oligo library filtering...                                            
-...done
-
- 2025-11-12 15:05:53 Starting cDNA library filtering...                                             
-...done
-
- 2025-11-12 15:07:49 Performing read alignment and UMI counting...                                  
-...done
-
- 2025-11-12 15:15:25 Calculating bead similarity and merging beads within droplets...               
-...done
-
- 2025-11-12 15:15:41 Generating raw gene expression matrix...                                       
-...done
-
- 2025-11-12 15:17:24 Generating cell-filtered gene expression matrix...                             
-...done
-
- 2025-11-12 15:17:43 Calculating sequencing saturation metrics...                                   
-...done
-
- 2025-11-12 15:18:08 Generating position-sorted BAM file...                                         
-...done
-
- 2025-11-12 15:24:46 Performing dimensionality reduction and clustering analysis...                 
-...done
-
- 2025-11-12 15:27:21 Generating analysis report and summary statistics...                           
-...done
-
- 2025-11-12 15:27:40 Analysis Finished. Elapsed Time: 0:27:16
-```
-
-When the message `Analysis Finished` appears, the analysis is successfully completed.
 
 
 </div>
@@ -607,7 +629,7 @@ Upon completion, `outs` (outputs) and `logs` directories will be generated. The 
 
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);" markdown="block">
 
-This section is under continuous maintenance. Common troubleshooting entries will be added in a future revision.
+This section will be expanded as common usage questions are collected. For the current version, use the run log, parameter reference, and output file documentation as the primary troubleshooting references.
 
 </div>
 

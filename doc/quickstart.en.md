@@ -29,12 +29,9 @@
 
 </div>
 
----
-
-## File Naming Conventions
-
-<div style="background-color: #e7f3fe; border-left: 6px solid #2196F3; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
-The pipeline automatically detects paired-end files based on naming patterns. The following conventions are supported:
+<div id="file-naming-conventions" style="background-color: #e7f3fe; border-left: 6px solid #2196F3; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
+<p><strong><code>--fastqs</code> automatic file naming conventions</strong></p>
+When using directory-based input with <code>--fastqs</code>, the pipeline automatically detects paired-end files based on file names. The following patterns are supported. When files are specified explicitly with <code>--fastq1/--fastq2</code>, or with RNA-specific <code>--cDNAfastq1/2</code> and <code>--oligofastq1/2</code>, these naming patterns are not required, but the R1/R2 file order must match exactly.
 <ul>
   <li><strong>Supported extensions:</strong> <code>.fastq.gz</code>, <code>.fq.gz</code>, <code>.fastq</code>, <code>.fq</code></li>
   <li><strong>R1 patterns:</strong> <code>_R1_</code>, <code>_R1</code>, <code>_1</code>, <code>_read1</code></li>
@@ -108,7 +105,7 @@ Directory structure recommendation:
   <li><code>/test/data/rna_fastqs/oligo/*_R1*.fastq.gz</code>, <code>*_R2*.fastq.gz</code></li>
 </ul>
 
-See [File Naming Conventions](#file-naming-conventions) for supported patterns.
+For directory-based `--fastqs` input, see [`--fastqs` Automatic File Naming Conventions](#file-naming-conventions) for supported patterns.
 
 **File-specific Input (--cDNAfastq1/2 --oligofastq1/2)**
 ```bash
@@ -175,7 +172,7 @@ Directory structure recommendation:
   <li><code>/test/data/*_R1*.fastq.gz</code>, <code>*_R2*.fastq.gz</code></li>
 </ul>
 
-See [File Naming Conventions](#file-naming-conventions) for supported patterns.
+For directory-based `--fastqs` input, see [`--fastqs` Automatic File Naming Conventions](#file-naming-conventions) for supported patterns.
 
 **File-specific Input (--fastq1/2)**
 ```bash
@@ -232,7 +229,7 @@ Directory structure recommendation:
   <li><code>/test/data/*_R1*.fastq.gz</code>, <code>*_R2*.fastq.gz</code></li>
 </ul>
 
-See [File Naming Conventions](#file-naming-conventions) for supported patterns.
+For directory-based `--fastqs` input, see [`--fastqs` Automatic File Naming Conventions](#file-naming-conventions) for supported patterns.
 
 **File-specific Input (--fastq1/2)**
 
@@ -292,12 +289,15 @@ $dnbc4tools vdj run \
 
 ### Step 1: Prepare Config File
 
-> Recommended: in `[libraries]`, `fastqs` should be the FASTQ directory path for each omics library; the pipeline will auto-detect R1/R2 files in each directory.
+<div style="background-color: #e7f3fe; border-left: 6px solid #2196F3; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
+<strong>Configuration note</strong>: In <code>[libraries]</code>, <code>fastqs</code> should be the FASTQ directory path for each omics library; the pipeline will auto-detect R1/R2 files in each directory. When VDJ modules are enabled, set <code>end5,true</code> in the <code>[rna]</code> section.
+</div>
 
 ```ini
 [libraries]
 fastqs,feature_types
 /test/data/rna,rna
+/test/data/atac,atac
 /test/data/vdj-t,vdj-t
 /test/data/vdj-b,vdj-b
 
@@ -306,6 +306,7 @@ genomeDir,/database/scRNA/Homo_sapiens
 end5,true
 
 [atac]
+genomeDir,/database/scATAC/Homo_sapiens
 
 [vdj-t]
 ref,human
@@ -328,7 +329,6 @@ Directory structure:
 $dnbc4tools multi run \
     --name test_multi \
     --csv ./multi_config.csv \
-    --outdir ./multi_output \
     --threads 20
 ```
 

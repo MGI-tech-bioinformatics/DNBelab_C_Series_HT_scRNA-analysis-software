@@ -826,10 +826,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#-n-name-required" class="md-nav__link">
+  <a href="#-name-required" class="md-nav__link">
     <span class="md-ellipsis">
       
-        -n, --name (Required)
+        --name (Required)
       
     </span>
   </a>
@@ -837,10 +837,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#-c-csv-required" class="md-nav__link">
+  <a href="#-csv-required" class="md-nav__link">
     <span class="md-ellipsis">
       
-        -c, --csv (Required)
+        --csv (Required)
       
     </span>
   </a>
@@ -859,10 +859,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#-o-outdir-optional" class="md-nav__link">
+  <a href="#-outdir-optional" class="md-nav__link">
     <span class="md-ellipsis">
       
-        -o, --outdir (Optional)
+        --outdir (Optional)
       
     </span>
   </a>
@@ -870,10 +870,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#-t-threads-optional" class="md-nav__link">
+  <a href="#-threads-optional" class="md-nav__link">
     <span class="md-ellipsis">
       
-        -t, --threads (Optional)
+        --threads (Optional)
       
     </span>
   </a>
@@ -1603,10 +1603,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#-n-name-required" class="md-nav__link">
+  <a href="#-name-required" class="md-nav__link">
     <span class="md-ellipsis">
       
-        -n, --name (Required)
+        --name (Required)
       
     </span>
   </a>
@@ -1614,10 +1614,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#-c-csv-required" class="md-nav__link">
+  <a href="#-csv-required" class="md-nav__link">
     <span class="md-ellipsis">
       
-        -c, --csv (Required)
+        --csv (Required)
       
     </span>
   </a>
@@ -1636,10 +1636,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#-o-outdir-optional" class="md-nav__link">
+  <a href="#-outdir-optional" class="md-nav__link">
     <span class="md-ellipsis">
       
-        -o, --outdir (Optional)
+        --outdir (Optional)
       
     </span>
   </a>
@@ -1647,10 +1647,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#-t-threads-optional" class="md-nav__link">
+  <a href="#-threads-optional" class="md-nav__link">
     <span class="md-ellipsis">
       
-        -t, --threads (Optional)
+        --threads (Optional)
       
     </span>
   </a>
@@ -1926,13 +1926,13 @@ Generate a unified multi-omics report.
 Usage: dnbc4tools multi run [OPTIONS]
 
 optional arguments:
-  -h, --help             show this help message and exit
+  --help             show this help message and exit
 
 Basic Options:
-  -n, --name NAME        Unique identifier for the sample.
-  -c, --csv CSV          CSV file containing pipeline configuration settings.
-  -o, --outdir OUTDIR    Output directory for analysis results.
-  -t, --threads THREADS  Number of CPU threads to use.
+  --name NAME        Unique identifier for the sample.
+  --csv CSV          CSV file containing pipeline configuration settings.
+  --outdir OUTDIR    Output directory for analysis results.
+  --threads THREADS  Number of CPU threads to use.
 </code></pre>
 </div>
 <div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
@@ -1945,7 +1945,7 @@ Basic Options:
 </blockquote>
 </div>
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
-<h4 id="-n-name-required"><code>-n, --name</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(Required)</span><a class="headerlink" href="#-n-name-required" title="Permanent link">&para;</a></h4>
+<h4 id="-name-required"><code>--name</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(Required)</span><a class="headerlink" href="#-name-required" title="Permanent link">&para;</a></h4>
 <p>Task/sample identifier for the current multi run.</p>
 <ul>
 <li><strong>Function:</strong> Used in output paths and report sample labeling.</li>
@@ -1956,7 +1956,7 @@ Basic Options:
 <pre><code>--name demo</code></pre>
 </div>
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
-<h4 id="-c-csv-required"><code>-c, --csv</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(Required)</span><a class="headerlink" href="#-c-csv-required" title="Permanent link">&para;</a></h4>
+<h4 id="-csv-required"><code>--csv</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(Required)</span><a class="headerlink" href="#-csv-required" title="Permanent link">&para;</a></h4>
 <p>Path to multi-omics CSV configuration file.</p>
 <ul>
 <li><strong>Function:</strong> Defines RNA / ATAC / VDJ module parameters and input mapping.</li>
@@ -1973,7 +1973,7 @@ Basic Options:
 <h4 id="basic-settings">Basic Settings<a class="headerlink" href="#basic-settings" title="Permanent link">&para;</a></h4>
 </div>
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
-<h4 id="-o-outdir-optional"><code>-o, --outdir</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(Optional)</span><a class="headerlink" href="#-o-outdir-optional" title="Permanent link">&para;</a></h4>
+<h4 id="-outdir-optional"><code>--outdir</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(Optional)</span><a class="headerlink" href="#-outdir-optional" title="Permanent link">&para;</a></h4>
 <p>Output directory for integrated results.</p>
 <ul>
 <li><strong>Function:</strong> Stores combined report, module outputs, and logs.</li>
@@ -1984,7 +1984,7 @@ Basic Options:
 <pre><code>--outdir /data/result</code></pre>
 </div>
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
-<h4 id="-t-threads-optional"><code>-t, --threads</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(Optional)</span><a class="headerlink" href="#-t-threads-optional" title="Permanent link">&para;</a></h4>
+<h4 id="-threads-optional"><code>--threads</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(Optional)</span><a class="headerlink" href="#-threads-optional" title="Permanent link">&para;</a></h4>
 <p>CPU threads for workflow execution.</p>
 <ul>
 <li><strong>Function:</strong> Controls parallelism and affects runtime.</li>
@@ -2100,7 +2100,7 @@ fastqs,feature_types
 </div>
 <div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
 <h3 id="beadstrans-behavior"><code>beadstrans</code> Behavior<a class="headerlink" href="#beadstrans-behavior" title="Permanent link">&para;</a></h3>
-<p>In multi mode, VDJ cell filtering is aligned to RNA results by default.</p>
+<p>In multi mode, VDJ cell filtering is aligned to RNA results by default. When VDJ modules are enabled, set <code>end5,true</code> in the <code>[rna]</code> section so that RNA analysis runs in 5' gene-expression mode.</p>
 </div>
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #d2d2d7; overflow-x: auto;">
 <table>
@@ -2276,7 +2276,7 @@ fastqs,feature_types
 <tbody>
 <tr>
 <td style="text-align: left;"><code>fastqs</code></td>
-<td style="text-align: left;">FASTQ path (absolute path recommended)</td>
+<td style="text-align: left;">FASTQ input directory path. Absolute paths are recommended.</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>feature_types</code></td>
@@ -2285,13 +2285,22 @@ fastqs,feature_types
 </tbody>
 </table>
 </div>
+<div style="background: #f5f5f7; border-radius: 12px; padding: 16px; margin: 16px auto; max-width: 1200px;">
+<p><strong><code>fastqs</code> directory requirements</strong></p>
+<ul>
+<li><code>rna</code>: The path should point to the RNA FASTQ root directory. It must contain <code>cDNA/</code> and <code>oligo/</code> subdirectories, each containing the corresponding paired R1/R2 files.</li>
+<li><code>atac</code>: The path should point to the FASTQ directory for the current ATAC library. R1/R2 files should be placed directly under this directory.</li>
+<li><code>vdj-t</code> / <code>vdj-b</code>: The path should point to the FASTQ directory for the current VDJ library. R1/R2 files should be placed directly under this directory.</li>
+<li>Automatic detection relies on R1/R2 markers in FASTQ file names. Recommended naming patterns include <code>_R1</code> / <code>_R2</code>, <code>_R1_</code> / <code>_R2_</code>, or equivalent Read 1/Read 2 markers.</li>
+</ul>
+</div>
 <div style="max-width: 1200px; margin: 0 auto;">
 <hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;">
 </div>
 <div style="background: #f5f5f7; border-radius: 12px; padding: 20px; margin: 24px auto; max-width: 1200px;">
 <h3 id="notes">Notes<a class="headerlink" href="#notes" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>Centralize input paths in <code>[libraries]</code></strong> for cleaner configuration.</li>
+<li><strong>Centralize FASTQ input directories in <code>[libraries]</code></strong> for easier review and management.</li>
 <li><strong><code>customize</code> may appear multiple times</strong>; for single-value keys, keep only final intended value.</li>
 </ul>
 </div>
@@ -2313,6 +2322,7 @@ fastqs,feature_types
 <h3 id="example-2-rna-atac-vdj-t-vdj-b-full-modules">Example 2: RNA + ATAC + VDJ-T + VDJ-B (full modules)<a class="headerlink" href="#example-2-rna-atac-vdj-t-vdj-b-full-modules" title="Permanent link">&para;</a></h3>
 <pre><code class="language-csv">[rna]
 genomeDir,/database/scRNA/Human
+end5,true
 include_introns,true
 
 [atac]

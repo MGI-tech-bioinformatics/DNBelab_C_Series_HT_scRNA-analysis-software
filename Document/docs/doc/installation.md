@@ -8,7 +8,7 @@
 
 <div align="center" markdown="block">
 
-**DNBelab C Series™ HT 单细胞分析软件完整安装指南**
+**DNBelab C Series™ HT 单细胞分析软件安装说明**
 
 [环境要求](#system-requirements) • [软件下载](#software-download) • [安装流程](#installation-process) • [安装验证](#verification--testing)
 
@@ -40,7 +40,7 @@
 | :--- | :--- |
 | **文件名** | dnbc4tools-3.1.tar.gz |
 | **文件大小** | 518M |
-| **MD5 校验值** | 发布后更新 |
+| **MD5 校验值** | d7d1282871180486dae55d87b237134c |
 
 **下载方式：**
 
@@ -50,9 +50,9 @@
 
 ```bash
 # 使用 `wget` 下载
-wget -O dnbc4tools-3.1.tar.gz "ftp://ftp2.cngb.org/pub/CNSA/data7/CNP0008672/Single_Cell/CSE0000574/dnbc4tools-3.1.tar.gz"
+wget -O dnbc4tools-3.1.tar.gz "https://ftp2.cngb.org/pub/CNSA/data7/CNP0008672/Single_Cell/CSE0000574/dnbc4tools-3.1.tar.gz"
 # 使用 `curl` 下载
-curl -o dnbc4tools-3.1.tar.gz "ftp://ftp2.cngb.org/pub/CNSA/data7/CNP0008672/Single_Cell/CSE0000574/dnbc4tools-3.1.tar.gz"
+curl -o dnbc4tools-3.1.tar.gz "https://ftp2.cngb.org/pub/CNSA/data7/CNP0008672/Single_Cell/CSE0000574/dnbc4tools-3.1.tar.gz"
 ```
 
 <div style="margin-top: 15px;" markdown="block">

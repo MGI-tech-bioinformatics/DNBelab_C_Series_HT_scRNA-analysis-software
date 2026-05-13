@@ -8,7 +8,7 @@
 
 <div align="center">
 
-**DNBelab C Series™ HT 单细胞分析软件官方版本更新记录**
+**DNBelab C Series™ HT 单细胞分析软件版本更新记录**
 
 [最新版本](#latest-release) • [当前版本详情](#release-history) • [版本选择指南](#version-selection-guide)
 

@@ -8,7 +8,7 @@
 
 <div align="center">
 
-**Complete installation guide for the DNBelab C Series™ HT Single-Cell Analysis Software package**
+**Installation guide for the DNBelab C Series™ HT Single-Cell Analysis Software package**
 
 [Requirements](#system-requirements) • [Download](#software-download) • [Installation](#installation-process) • [Verification](#verification--testing)
 
@@ -40,7 +40,7 @@ Compatible with higher software and hardware configurations.
 | :--- | :--- |
 | **File Name** | dnbc4tools-3.1.tar.gz |
 | **File Size** | 518M |
-| **MD5 Checksum** | *To be updated upon release* |
+| **MD5 Checksum** | d7d1282871180486dae55d87b237134c |
 
 **Download Options:**
 
@@ -50,9 +50,9 @@ Compatible with higher software and hardware configurations.
 
 ```bash
 # Download using `wget`
-wget -O dnbc4tools-3.1.tar.gz "ftp://ftp2.cngb.org/pub/CNSA/data7/CNP0008672/Single_Cell/CSE0000574/dnbc4tools-3.1.tar.gz"
+wget -O dnbc4tools-3.1.tar.gz "https://ftp2.cngb.org/pub/CNSA/data7/CNP0008672/Single_Cell/CSE0000574/dnbc4tools-3.1.tar.gz"
 # Download using `curl`
-curl -o dnbc4tools-3.1.tar.gz "ftp://ftp2.cngb.org/pub/CNSA/data7/CNP0008672/Single_Cell/CSE0000574/dnbc4tools-3.1.tar.gz"
+curl -o dnbc4tools-3.1.tar.gz "https://ftp2.cngb.org/pub/CNSA/data7/CNP0008672/Single_Cell/CSE0000574/dnbc4tools-3.1.tar.gz"
 ```
 
 <div style="margin-top: 15px;">

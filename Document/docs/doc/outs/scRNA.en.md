@@ -8,7 +8,7 @@
 
 <h1 style="font-size: 48px; font-weight: 600; color: #1d1d1f; margin: 0 0 16px 0; letter-spacing: -0.02em;">scRNA Analysis Output</h1>
 
-<p style="font-size: 21px; color: rgba(0,0,0,0.6); margin: 0 0 30px 0; font-weight: 400;">A Complete Guide to Single-Cell RNA Sequencing Analysis Output Files</p>
+<p style="font-size: 21px; color: rgba(0,0,0,0.6); margin: 0 0 30px 0; font-weight: 400;">Single-Cell RNA Sequencing Output File Guide</p>
 
 <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;" markdown="block">
 <a href="#output-directory-structure" style="background: #0071e3; color: white; padding: 8px 16px; border-radius: 980px; text-decoration: none; font-size: 14px;">Directory Structure</a>
@@ -25,7 +25,7 @@
 
 ## Overview <a id="overview"></a>
 
-After the single-cell RNA analysis is complete, a standardized file and subdirectory structure is generated in the specified output directory, specifically for gene expression profile analysis and cell type identification. This document details the content, format, and purpose of each output file to help users fully understand and efficiently utilize the single-cell RNA analysis results.
+After the single-cell RNA analysis is complete, a standardized file and subdirectory structure is generated in the specified output directory for gene expression profile analysis and cell type identification. This document describes the content, format, and intended use of each output file.
 
 <br>
 
@@ -448,7 +448,7 @@ A list of differentially expressed genes (marker genes) for each cluster, in CSV
 A single-cell data object that has undergone complete quality control, dimensionality reduction, and clustering analysis, in AnnData (`.h5ad`) format. It integrates the upstream expression matrix with downstream analysis results.
 
 *   **Core Purpose**:
-    *   **Analysis Reproduction and Exploration**: Contains the complete analysis workflow and results, and can be directly loaded in `scanpy` for in-depth exploratory analysis or visualization.
+    *   **Analysis Reproduction and Exploration**: Contains the complete analysis workflow and results, and can be directly loaded in `scanpy` for exploratory analysis or visualization.
     *   **Data Delivery**: Serves as a delivery file for final analysis results, with a clear structure and complete information.
 *   **Content and Format**:
     *   Builds on `filter_feature.h5ad` by adding the following information:
@@ -466,7 +466,7 @@ A single-cell data object that has undergone complete quality control, dimension
 
 <div align="center" markdown="block">
 
-**Core Content**: A summary of experimental quality assessment and statistical metrics, providing comprehensive data quality control information.
+**Core Content**: A summary of experimental quality assessment and statistical metrics, providing structured data quality control information.
 
 </div>
 
@@ -476,11 +476,11 @@ A single-cell data object that has undergone complete quality control, dimension
 
 #### metrics_summary.xls
 
-A summary table of key analysis metrics in Excel format, providing a comprehensive assessment of the overall quality of the experiment.
+A summary table of key analysis metrics in Excel format, providing a structured assessment of the overall quality of the experiment.
 
 *   **Core Purpose**:
     *   **Quality Assessment**: Quickly evaluate core metrics such as sequencing data quality, alignment efficiency, and cell identification results.
-    *   **Results Overview**: Provides a comprehensive understanding of the analysis results without needing to view all files.
+    *   **Results Overview**: Provides a summary view of the analysis results without needing to view all files.
 
 *   **Content and Format**:
     *   Includes three main categories of key metrics:
@@ -544,7 +544,7 @@ A single-cell level quality control information table in CSV format, recording d
 
 #### *_scRNA_report.html
 
-An interactive comprehensive analysis report in HTML web format.
+An interactive HTML report for reviewing analysis results.
 
 *   **Core Purpose**:
     *   **Result Visualization**: Intuitively displays key analysis results such as QC results, cell clustering, and marker genes in the form of interactive charts.
@@ -639,7 +639,7 @@ The Market Exchange Format (MEX) is a standard format used in single-cell analys
 
 <div align="center" markdown="block">
 
-**Overview**: The HTML web report provides a comprehensive visual display and detailed interpretation of single-cell RNA sequencing analysis results, including the evaluation of key performance indicators, to help users quickly understand the experimental quality and analysis results.
+**Overview**: The HTML web report provides visual summaries and metric explanations for single-cell RNA sequencing results, including key performance indicators for experimental quality and downstream analysis.
 
 </div>
 
@@ -647,7 +647,7 @@ The Market Exchange Format (MEX) is a standard format used in single-cell analys
 
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);" markdown="block">
 
-The HTML web report is a comprehensive display platform for single-cell RNA sequencing analysis, integrating complete results from data quality control to downstream biological analysis. The report uses an interactive visual design to help users quickly assess experimental quality, understand analysis results, and guide future research directions.
+The HTML web report is the main entry point for reviewing single-cell RNA sequencing results. It covers data quality control, cell clustering, marker genes, and cell type annotation, and helps users identify metrics that require further review.
 
 > **Usage Notes**: It is recommended to review the metrics in the order they are presented in the report.
 
@@ -739,10 +739,8 @@ The HTML web report is a comprehensive display platform for single-cell RNA sequ
 <td>
 <ul>
 <li><strong>Definition</strong>: The total number of valid cells (as opposed to background noise or empty droplets) identified from the sequencing data.</li>
-<li><strong>Calculation Process</strong>: After merging cell barcodes from the same droplet, real cells are predicted based on an empty-droplet model (EmptyDrops).</li>
-<li><strong>Quality Interpretation</strong>: 
-<ul><li><strong>Abnormal Causes</strong>: Inaccurate cell counting, cell lysis, poor sample or library quality, low sequencing depth.</li></ul>
-</li>
+<li><strong>Calculation Process</strong>: Real cells are identified based on barcode UMI distributions and an empty-droplet model (EmptyDrops).</li>
+<li><strong>Interpretation</strong>: Compare this value with the expected cell loading, sample type, and filtering results. If it is much lower than expected, review sample integrity, library quality, and sequencing depth.</li>
 </ul>
 </td>
 </tr>
@@ -753,7 +751,7 @@ The HTML web report is a comprehensive display platform for single-cell RNA sequ
 <td>
 <ul>
 <li><strong>Definition</strong>: The species or reference genome version used for the analysis.</li>
-<li><strong>Description</strong>: This information comes from the reference genome provided during library construction and is used to ensure the accuracy of alignment and annotation.</li>
+<li><strong>Use case</strong>: Confirms whether the reference genome used for analysis matches the sample species. This is a basic item for result review and troubleshooting.</li>
 </ul>
 </td>
 </tr>
@@ -765,7 +763,7 @@ The HTML web report is a comprehensive display platform for single-cell RNA sequ
 <ul>
 <li><strong>Definition</strong>: The average number of raw sequencing reads allocated to each cell.</li>
 <li><strong>Calculation</strong>: <em>Total number of raw sequencing reads / Estimated number of cells</em></li>
-<li><strong>Quality Interpretation</strong>: A value ≥ 30,000 is recommended to ensure sufficient transcript coverage.</li>
+<li><strong>Interpretation</strong>: A value ≥ 30,000 is recommended to ensure sufficient transcript coverage. Lower values may reduce the stability of clustering and differential expression analysis.</li>
 </ul>
 </td>
 </tr>
@@ -776,8 +774,8 @@ The HTML web report is a comprehensive display platform for single-cell RNA sequ
 <td>
 <ul>
 <li><strong>Definition</strong>: The median/mean number of unique molecular identifiers (UMIs) detected in each cell.</li>
-<li><strong>Biological Significance</strong>: Used to assess the gene expression level of single-cell sequencing, more accurately reflecting the abundance of original mRNA molecules than read counts.</li>
-<li><strong>Quality Interpretation</strong>: This metric is affected by cell type, sequencing depth, and library quality. A low value may indicate insufficient sequencing depth or poor sample quality.</li>
+<li><strong>Use case</strong>: Assesses the number of transcript molecules captured per cell and better approximates original mRNA abundance than read counts.</li>
+<li><strong>Interpretation</strong>: This metric is affected by cell type, sequencing depth, and library quality. If it is much lower than expected for comparable samples, review sequencing depth, cell condition, and library preparation quality.</li>
 </ul>
 </td>
 </tr>
@@ -788,8 +786,8 @@ The HTML web report is a comprehensive display platform for single-cell RNA sequ
 <td>
 <ul>
 <li><strong>Definition</strong>: The median/mean number of genes detected within a single cell.</li>
-<li><strong>Biological Significance</strong>: This metric directly reflects the complexity of the single-cell transcriptome and the sequencing depth. A higher value indicates better single-cell data quality.</li>
-<li><strong>Quality Interpretation</strong>:
+<li><strong>Use case</strong>: Assesses transcriptome complexity and effective information content at the single-cell level.</li>
+<li><strong>Interpretation</strong>:
 <ul>
 <li><strong>Note</strong>: This value is highly dependent on cell type and sequencing depth. Cell types with low transcript content (such as blood cells) may have a lower value.</li>
 </ul>
@@ -804,8 +802,8 @@ The HTML web report is a comprehensive display platform for single-cell RNA sequ
 <td>
 <ul>
 <li><strong>Definition</strong>: The total number of genes detected in the entire sample, requiring each gene to have at least one UMI count in at least one cell.</li>
-<li><strong>Biological Significance</strong>: Reflects the overall transcriptome complexity of the sample and whether the sequencing was comprehensive.</li>
-<li><strong>Quality Interpretation</strong>: A low value may indicate insufficient sequencing depth or a uniform cell type in the sample.</li>
+<li><strong>Use case</strong>: Assesses overall transcriptome coverage and cellular population complexity in the sample.</li>
+<li><strong>Interpretation</strong>: A low value may be associated with insufficient sequencing depth, limited cell-type diversity, or a high proportion of low-quality cells.</li>
 </ul>
 </td>
 </tr>
@@ -816,9 +814,9 @@ The HTML web report is a comprehensive display platform for single-cell RNA sequ
 <td>
 <ul>
 <li><strong>Definition</strong>: The proportion of reads successfully assigned to high-quality cell IDs among all validly aligned reads (with valid barcodes/UMIs and confidently mapped to the transcriptome).</li>
-<li><strong>Biological Significance</strong>: Reflects the efficiency of cell capture and the signal-to-noise ratio.</li>
-<li><strong>Quality Interpretation</strong>:
-<ul><li><strong>Quality Issues</strong>: A low proportion may indicate poor sample quality (e.g., extensive cell fragmentation releasing free-floating RNA) or abnormalities in library construction.</li></ul>
+<li><strong>Use case</strong>: Assesses how much valid sequencing signal comes from real cells and helps evaluate background RNA or empty-droplet effects.</li>
+<li><strong>Interpretation</strong>:
+<ul><li><strong>Needs attention</strong>: A low proportion may indicate increased free-floating RNA from cell breakage, high empty-droplet background, or library construction issues.</li></ul>
 </li>
 </ul>
 </td>
@@ -830,8 +828,8 @@ The HTML web report is a comprehensive display platform for single-cell RNA sequ
 <td>
 <ul>
 <li><strong>Definition</strong>: A metric to assess whether sequencing depth is sufficient, calculated as <em>1 - (number of deduplicated UMIs / total number of reads)</em>.</li>
-<li><strong>Biological Significance</strong>: Reflects library complexity and the cost-effectiveness of sequencing. High saturation means that increasing sequencing depth yields diminishing returns in discovering new genes.</li>
-<li><strong>Typical Range</strong>: A range of 40% – 85% is considered ideal.</li>
+<li><strong>Use case</strong>: Evaluates whether the current sequencing depth has sufficiently covered library complexity. Higher saturation generally means additional sequencing will recover fewer new UMIs or genes.</li>
+<li><strong>Interpretation</strong>: A range of 40%–85% is typically reasonable. Low saturation suggests additional sequencing may still be useful, whereas very high saturation suggests limited benefit from deeper sequencing.</li>
 </ul>
 </td>
 </tr>
@@ -902,7 +900,7 @@ The HTML web report is a comprehensive display platform for single-cell RNA sequ
 <td>
 <ul>
 <li><strong>Definition</strong>: The total number of raw sequencing read pairs assigned to this sample.</li>
-<li><strong>Significance</strong>: Represents the overall data volume of this sequencing run. Theoretically, a higher number of reads provides more comprehensive coverage of the cell's transcriptome.</li>
+<li><strong>Use case</strong>: Represents the total data volume of the sequencing run and serves as the baseline for evaluating sequencing depth and downstream QC metrics.</li>
 </ul>
 </td>
 </tr>
@@ -913,8 +911,8 @@ The HTML web report is a comprehensive display platform for single-cell RNA sequ
 <td>
 <ul>
 <li><strong>Definition</strong>: The proportion of all reads whose Cell Barcode can be matched to a preset whitelist (after error correction).</li>
-<li><strong>Biological Significance</strong>: Reflects the effectiveness of cell labeling.</li>
-<li><strong>Quality Interpretation</strong>: A very low proportion usually indicates sample quality issues leading to barcode degradation and adapter contamination, or a high error rate during the sequencing process.</li>
+<li><strong>Use case</strong>: Assesses whether cell barcode recognition is stable and whether reads can be assigned to cells correctly.</li>
+<li><strong>Interpretation</strong>: A low proportion usually suggests barcode recognition issues, which may be related to barcode sequencing quality, adapter contamination, or library preparation quality.</li>
 </ul>
 </td>
 </tr>
@@ -925,7 +923,7 @@ The HTML web report is a comprehensive display platform for single-cell RNA sequ
 <td>
 <ul>
 <li><strong>Definition</strong>: The proportion of all reads whose Unique Molecular Identifier (UMI) sequence does not contain <code>N</code> bases and is not a homopolymer (e.g., AAAAAA).</li>
-<li><strong>Biological Significance</strong>: Reflects the sequencing quality of the UMI sequence, which is key for accurate molecular counting.</li>
+<li><strong>Use case</strong>: Assesses whether UMI sequences can support reliable molecule deduplication and counting.</li>
 </ul>
 </td>
 </tr>
@@ -936,7 +934,7 @@ The HTML web report is a comprehensive display platform for single-cell RNA sequ
 <td>
 <ul>
 <li><strong>Definition</strong>: The proportion of bases with a sequencing quality score of Q30 or higher in the cell barcode, UMI, and RNA read sequences.</li>
-<li><strong>Significance</strong>: Q30 represents a sequencing error rate of less than 0.1%. This metric directly affects the accuracy of cell identification, molecular counting, and gene alignment.</li>
+<li><strong>Use case</strong>: Q30 represents a sequencing error rate below 0.1%. This metric evaluates the base-level accuracy required for barcode recognition, UMI counting, and gene alignment.</li>
 </ul>
 </td>
 </tr>
@@ -980,7 +978,7 @@ The HTML web report is a comprehensive display platform for single-cell RNA sequ
 <tr>
 <td align="left"><strong>Reads mapped confidently to transcriptome</strong></td>
 <td align="left">≥ 50%</td>
-<td align="left">30-50%</td>
+<td align="left">30%–50%</td>
 <td align="left">< 30%</td>
 </tr>
 <tr>
@@ -1009,8 +1007,8 @@ The HTML web report is a comprehensive display platform for single-cell RNA sequ
 <td>
 <ul>
 <li><strong>Definition</strong>: The proportion of all reads that successfully align to any location on the reference genome (including unique and multiple alignments).</li>
-<li><strong>Quality Interpretation</strong>:
-<ul><li><strong>Needs Attention</strong>: A rate below 50% may indicate sample contamination (e.g., bacteria) or species mismatch.</li></ul>
+<li><strong>Interpretation</strong>:
+<ul><li><strong>Needs attention</strong>: If the rate is below 50%, review sample contamination, species selection, reference genome version, and sequencing quality.</li></ul>
 </li>
 </ul>
 </td>
@@ -1023,7 +1021,7 @@ The HTML web report is a comprehensive display platform for single-cell RNA sequ
 <ul>
 <li><strong>Definition</strong>: The proportion of all reads that align with high quality (STAR MAPQ value of 255) to a <strong>unique</strong> location on the genome.</li>
 <li><strong>Technical Detail</strong>: For multi-mapping reads, they are corrected to confident reads in one specific case: when the read aligns to both an exonic region and one or more non-exonic regions, the pipeline accepts its alignment in the exonic region and retains it.</li>
-<li><strong>Biological Significance</strong>: This forms the basis of valid data for gene expression quantification and regional analysis. A low proportion may be caused by repetitive sequences, poor sequence quality, or a mismatched reference genome.</li>
+<li><strong>Use case</strong>: Assesses the proportion of uniquely aligned reads that can support reliable quantification. A low proportion may be associated with repetitive sequences, poor sequence quality, or reference genome mismatch.</li>
 </ul>
 </td>
 </tr>
@@ -1035,7 +1033,7 @@ The HTML web report is a comprehensive display platform for single-cell RNA sequ
 <ul>
 <li><strong>Definition</strong>: The proportion of all reads that can be uniquely aligned with high confidence to a <strong>single gene</strong> (including exons and introns by default).</li>
 <li><strong>Technical Detail</strong>: To ensure quantification accuracy, if a read's alignment region overlaps with multiple different genes, the read is considered of ambiguous origin and filtered out.</li>
-<li><strong>Biological Significance</strong>: This is a core metric for assessing library quality and data reliability. A higher proportion means more valid data for downstream quantitative analysis and more reliable results.</li>
+<li><strong>Use case</strong>: Directly reflects the proportion of reads usable for gene expression quantification. Higher values generally provide a more reliable data basis for downstream quantitative analysis.</li>
 </ul>
 </td>
 </tr>
@@ -1047,7 +1045,7 @@ The HTML web report is a comprehensive display platform for single-cell RNA sequ
 <ul>
 <li><strong>Definition</strong>: The proportion of reads confidently mapped to the genome that fall into annotated <strong>exonic</strong> regions.</li>
 <li><strong>Technical Detail</strong>: A read is considered confidently mapped to an exonic region only if at least 50% of it falls within an exonic region.</li>
-<li><strong>Biological Significance</strong>: This is the main source of mature mRNA and a core metric for assessing library quality. In standard whole-cell scRNA-seq, this proportion should be high.</li>
+<li><strong>Interpretation</strong>: In standard whole-cell scRNA-seq, this proportion is usually expected to be high. If it is low, interpret together with intronic proportion, annotation version, and sample type.</li>
 </ul>
 </td>
 </tr>
@@ -1059,7 +1057,7 @@ The HTML web report is a comprehensive display platform for single-cell RNA sequ
 <ul>
 <li><strong>Definition</strong>: The proportion of reads confidently mapped to the genome that fall into annotated <strong>intronic</strong> regions.</li>
 <li><strong>Technical Detail</strong>: A read is considered confidently mapped to an intronic region only if it does not meet the criteria for exonic region classification and intersects with an intronic region.</li>
-<li><strong>Biological Significance</strong>: A high proportion usually indicates the capture of a large amount of unspliced pre-mRNA. This is expected in nuclear sequencing (snRNA-seq).</li>
+<li><strong>Interpretation</strong>: A high proportion usually indicates capture of abundant unspliced pre-mRNA; this is expected in nuclear sequencing (snRNA-seq) or when intronic counting is enabled.</li>
 </ul>
 </td>
 </tr>
@@ -1070,7 +1068,7 @@ The HTML web report is a comprehensive display platform for single-cell RNA sequ
 <td>
 <ul>
 <li><strong>Definition</strong>: The proportion of reads confidently mapped to the genome that do not fall into any annotated gene (including exons and introns).</li>
-<li><strong>Quality Interpretation</strong>: An excessively high proportion may suggest incomplete gene annotation or non-specific amplification in the library.</li>
+<li><strong>Interpretation</strong>: An excessively high proportion may suggest incomplete gene annotation, reference-version mismatch, or non-specific amplification in the library.</li>
 </ul>
 </td>
 </tr>
@@ -1080,7 +1078,7 @@ The HTML web report is a comprehensive display platform for single-cell RNA sequ
 </td><td>
 <ul>
 <li><strong>Definition</strong>: The proportion of reads that successfully align to a gene region but in the opposite direction to the annotated gene.</li>
-<li><strong>Quality Interpretation</strong>: An excessively high proportion may indicate directionality issues during library construction or the presence of unknown antisense transcripts.</li>
+<li><strong>Interpretation</strong>: An excessively high proportion may indicate library directionality issues, incomplete annotation, or unannotated antisense transcripts.</li>
 </ul>
 </td>
 </tr>
@@ -1091,7 +1089,7 @@ The HTML web report is a comprehensive display platform for single-cell RNA sequ
 <td>
 <ul>
 <li><strong>Definition</strong>: Controls whether reads aligned to intronic regions are included in gene expression counts.</li>
-<li><strong>Enabled State (Default)</strong>: When set to <code>True</code>, reads from intronic regions <strong>are counted</strong> towards the expression of the corresponding gene. This mode captures gene activity more comprehensively, especially suitable for nuclear sequencing or scenarios requiring pre-mRNA analysis.</li>
+<li><strong>Enabled State (Default)</strong>: When set to <code>True</code>, reads from intronic regions <strong>are counted</strong> towards the expression of the corresponding gene. This mode captures gene activity more broadly, especially suitable for nuclear sequencing or scenarios requiring pre-mRNA analysis.</li>
 <li><strong>Disabled State</strong>: When set to <code>False</code>, <strong>only exonic</strong> reads are counted towards gene expression. This mode focuses on the quantification of mature mRNA.</li>
 </ul>
 </td>
@@ -1111,7 +1109,7 @@ The HTML web report is a comprehensive display platform for single-cell RNA sequ
 
 <div align="center" markdown="block">
 
-**Core Function**: Provides comprehensive data visualization analysis, from cell quality control to a complete display of downstream biological analysis.
+**Core Function**: Provides visual summaries from cell quality control to downstream biological analysis.
 
 </div>
 
@@ -1182,19 +1180,19 @@ Through three separate violin plots, it shows the distribution of high-quality c
 
 <div align="center" markdown="block">
 
-**Core Function**: A comprehensive display of cell clustering analysis, differential gene identification, cell type annotation, and sequencing depth assessment.
+**Core Function**: Summarizes cell clustering, differential gene identification, cell type annotation, and sequencing depth assessment.
 
 </div>
 
 ##### Cluster Analysis
 
 **Chart Function**:
-Using UMAP dimensionality reduction and the Louvain clustering algorithm, cells with similar gene expression patterns are grouped together in a 2D space, thereby identifying potential cell subpopulations.
+Uses UMAP dimensionality reduction and Louvain clustering to project cells with similar gene expression profiles into a 2D space and identify potential cell subpopulations.
 
 **How to Interpret**:
 
-- **Left Plot (Cell Type Clustering)**: Each point represents a cell, and different colors represent different cell clusters. Cells that are close in space have more similar gene expression profiles.
-- **Right Plot (UMI Count Distribution)**: On the same UMAP space, a color gradient shows the total UMI count for each cell. This can be used to assess clustering reliability, for example, whether certain clusters are composed of low-quality cells.
+- **Left Plot (Cell Type Clustering)**: Each point represents one cell. Different colors indicate different clusters; nearby cells generally have more similar gene expression profiles.
+- **Right Plot (UMI Count Distribution)**: Uses the same UMAP layout with a color gradient for total UMI counts per cell. This view helps assess clustering reliability, such as whether specific clusters are dominated by low-quality cells.
 
 <div style="max-width: 1200px; margin: 0 auto;" markdown="block"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
 
@@ -1205,19 +1203,19 @@ Displays the characteristic differentially expressed genes for each cell cluster
 
 **How to Interpret**:
 
-- **Key Metrics Explained**: 
-  - **P-val**: The statistical significance p-value of differential expression. The smaller the value, the more significant the difference (Threshold: < 0.05 is significant, < 0.01 is highly significant).
-  - **p_val_adj**: The adjusted p-value after Bonferroni multiple testing correction, which controls the false positive rate (it is recommended to use the adjusted p-value for final screening).
-  - **avg_log2FC**: Average log2 fold change (on a log2 scale).
-  - **pct.1 / pct.2**: The proportion of cells expressing the gene in the target cluster versus other clusters.
-- **Interactive Features**: Cluster filtering (select a specific cluster from the dropdown menu) | Gene search (use the search box to quickly locate gene expression).
+- **Key Metrics Explained**:
+  - **P-val**: P-value from the differential expression test. Smaller values indicate stronger statistical significance (commonly < 0.05 significant, < 0.01 highly significant).
+  - **p_val_adj**: Bonferroni-adjusted p-value for controlling false positives. Use this metric as the primary criterion for final marker selection.
+  - **avg_log2FC**: Average log2 fold change, indicating expression difference between the target cluster and other clusters.
+  - **pct.1 / pct.2**: Proportion of cells expressing the gene in the target cluster versus all other clusters, useful for assessing marker specificity.
+- **Interactive Features**: Use the cluster dropdown to inspect a specific cluster, or use gene search to locate target genes quickly.
 
 <div style="max-width: 1200px; margin: 0 auto;" markdown="block"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
 
 ##### Cell Type Annotation
 
 **Chart Function**:
-On the UMAP plot, each cluster is labeled with a cell type inferred from a reference database (e.g., scHCL, scMCA).
+Labels each cluster on the UMAP plot with a cell type inferred from reference databases such as scHCL and scMCA.
 
 **How to Interpret**:
 
@@ -1234,8 +1232,8 @@ Assesses the adequacy of sequencing depth and data complexity, that is, whether 
 
 **How to Interpret**:
 
-- **Axes**: The X-axis is the average number of sequencing reads per cell, and the Y-axis is the saturation / median number of genes per cell.
-- **Curve Trend**: If the curve tends to flatten, it indicates that sequencing is approaching saturation, and increasing sequencing depth will not contribute much to the discovery of new genes. If the curve is still rising rapidly, it indicates that increasing sequencing may still yield significant benefits.
+- **Axes**: X-axis shows mean reads per cell; Y-axis shows sequencing saturation or median genes per cell.
+- **Curve Trend**: A flattening curve indicates sequencing is approaching saturation, so deeper sequencing is expected to add limited new information. A rapidly rising curve indicates that additional sequencing may still provide meaningful gains.
 
 <div style="max-width: 1200px; margin: 0 auto;" markdown="block"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
 

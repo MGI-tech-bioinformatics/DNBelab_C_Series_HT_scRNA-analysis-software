@@ -42,13 +42,13 @@ Generate a unified multi-omics report.
 Usage: dnbc4tools multi run [OPTIONS]
 
 optional arguments:
-  -h, --help             show this help message and exit
+  --help             show this help message and exit
 
 Basic Options:
-  -n, --name NAME        Unique identifier for the sample.
-  -c, --csv CSV          CSV file containing pipeline configuration settings.
-  -o, --outdir OUTDIR    Output directory for analysis results.
-  -t, --threads THREADS  Number of CPU threads to use.
+  --name NAME        Unique identifier for the sample.
+  --csv CSV          CSV file containing pipeline configuration settings.
+  --outdir OUTDIR    Output directory for analysis results.
+  --threads THREADS  Number of CPU threads to use.
 ```
 
 </div>
@@ -68,7 +68,7 @@ Basic Options:
 </div>
 
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
-<h4><code>-n, --name</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(必需)</span></h4>
+<h4><code>--name</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(必需)</span></h4>
 <p>指定本次 multi 任务名称。</p>
 <ul>
   <li><strong>功能：</strong> 作为输出目录和报告中的样本标识。</li>
@@ -80,7 +80,7 @@ Basic Options:
 </div>
 
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
-<h4><code>-c, --csv</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(必需)</span></h4>
+<h4><code>--csv</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(必需)</span></h4>
 <p>指定多组学配置 CSV 文件。</p>
 <ul>
   <li><strong>功能：</strong> 定义 RNA / ATAC / VDJ 各模块参数，以及输入数据来源。</li>
@@ -96,7 +96,7 @@ Basic Options:
 #### 基本设置参数
 
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
-<h4><code>-o, --outdir</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(可选)</span></h4>
+<h4><code>--outdir</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(可选)</span></h4>
 <p>指定 multi 流程输出目录。</p>
 <ul>
   <li><strong>功能：</strong> 存放整合报告、模块输出和运行日志。</li>
@@ -108,7 +108,7 @@ Basic Options:
 </div>
 
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
-<h4><code>-t, --threads</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(可选)</span></h4>
+<h4><code>--threads</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(可选)</span></h4>
 <p>设置流程可用 CPU 线程数。</p>
 <ul>
   <li><strong>功能：</strong> 控制并行度，影响整体运行速度。</li>
@@ -205,7 +205,7 @@ fastqs,feature_types
 
 <div style="background: #f5f5f7; border-radius: 12px; padding: 16px; margin: 16px auto; max-width: 1200px;">
 
-在 multi 场景中，VDJ 的细胞筛选默认与 RNA 分析结果对齐。
+在 multi 场景中，VDJ 的细胞筛选默认与 RNA 分析结果对齐。若启用 VDJ 模块，`[rna]` 分段需要设置 `end5,true`，以确保 RNA 分析按 5' 端转录组模式运行。
 
 </div>
 
@@ -234,7 +234,7 @@ fastqs,feature_types
 
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);" markdown="1">
 
-| 配置分段 | 对应子流程 | 详细参数文档 |
+| 配置分段 | 对应子流程 | 参数文档 |
 | :--- | :--- | :--- |
 | `[rna]` | `dnbc4tools rna run` | [scRNA 参数](./scRNA.md) |
 | `[atac]` | `dnbc4tools atac run` | [scATAC 参数](./scATAC.md) |
@@ -317,8 +317,19 @@ fastqs,feature_types
 
 | 列名 | 说明 |
 | :--- | :--- |
-| `fastqs` | FASTQ 文件路径（建议绝对路径） |
+| `fastqs` | FASTQ 输入目录路径，建议使用绝对路径 |
 | `feature_types` | 数据类型：`rna` / `atac` / `vdj-t` / `vdj-b` |
+
+</div>
+
+<div style="background: #f5f5f7; border-radius: 12px; padding: 16px; margin: 16px auto; max-width: 1200px;">
+
+**`fastqs` 目录要求**
+
+- `rna`：路径应指向 RNA FASTQ 根目录，目录下需包含 `cDNA/` 和 `oligo/` 两个子目录；两个子目录内分别放置对应文库的 R1/R2 文件。
+- `atac`：路径应指向当前 ATAC 文库的 FASTQ 目录，R1/R2 文件直接放在该目录下。
+- `vdj-t` / `vdj-b`：路径应指向当前 VDJ 文库的 FASTQ 目录，R1/R2 文件直接放在该目录下。
+- 自动识别依赖 FASTQ 文件名中的 R1/R2 标记，建议使用 `_R1` / `_R2`、`_R1_` / `_R2_` 或等价的 Read 1/Read 2 命名。
 
 </div>
 
@@ -332,7 +343,7 @@ fastqs,feature_types
 
 <div style="background: #f5f5f7; border-radius: 12px; padding: 16px; margin: 16px auto; max-width: 1200px;">
 
-- **[libraries] 集中配置**：建议将所有模块的输入文件统一在 `[libraries]` 中配置，便于管理
+- **[libraries] 集中配置**：所有模块的 FASTQ 输入目录均在 `[libraries]` 中配置，便于统一检查和管理
 - **customize 参数**：可按规则填写多条；其余单值参数建议仅保留最终定义
 
 </div>
@@ -375,6 +386,7 @@ fastqs,feature_types
 ```csv
 [rna]
 genomeDir,/database/scRNA/Human
+end5,true
 include_introns,true
 
 [atac]
