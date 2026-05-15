@@ -1,38 +1,58 @@
-<div align="right">
+<div align="right" style="margin-bottom: 20px; max-width: 1200px; margin-left: auto; margin-right: auto;">
 
-[🏠 主页](../../README.md) • [English](scRNA_en.md)
-
-</div>
-
-# 🧬 DNBelab C Series HT scRNA 分析流程
-
-<div align="center">
-
-**单细胞 RNA 测序数据分析完整指南**
-
-[📋 概述](#概述) • [📁 文件准备](#文件准备) • [📊 参考数据库](#参考数据库) • [🚀 主流程分析](#主流程分析) • [📊 结果解析](#结果解析)
+[首页](../../README.md)
 
 </div>
 
----
+<div align="center" style="padding: 40px 20px; background: linear-gradient(135deg, #f5f5f7 0%, #ffffff 100%); border-radius: 12px; margin-bottom: 30px; max-width: 1200px; margin-left: auto; margin-right: auto;">
 
-## 📋 概述 <a id="概述"></a>
+<h1 style="font-size: 48px; font-weight: 600; color: #1d1d1f; margin: 0 0 16px 0; letter-spacing: -0.02em;">DNBelab C Series HT scRNA 分析流程</h1>
+
+<p style="font-size: 21px; color: #86868b; margin: 0 0 30px 0; font-weight: 400;">单细胞 RNA 测序数据分析说明</p>
+
+<div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+<a href="#概述" style="background: #0071e3; color: white; padding: 8px 16px; border-radius: 980px; text-decoration: none; font-size: 14px;">概述</a>
+<a href="#文件准备" style="background: transparent; color: #0071e3; padding: 8px 16px; border-radius: 980px; text-decoration: none; font-size: 14px; border: 1px solid #0071e3;">文件准备</a>
+<a href="#参考数据库" style="background: transparent; color: #0071e3; padding: 8px 16px; border-radius: 980px; text-decoration: none; font-size: 14px; border: 1px solid #0071e3;">参考数据库</a>
+<a href="#主流程分析" style="background: transparent; color: #0071e3; padding: 8px 16px; border-radius: 980px; text-decoration: none; font-size: 14px; border: 1px solid #0071e3;">主流程分析</a>
+<a href="#结果解析" style="background: transparent; color: #0071e3; padding: 8px 16px; border-radius: 980px; text-decoration: none; font-size: 14px; border: 1px solid #0071e3;">结果解析</a>
+</div>
+
+</div>
+
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
+
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
+
+## 概述 <a id="概述"></a>
+
+</div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
 
 本文档旨在提供一份完整的指南，详细介绍如何使用 dnbc4tools 对单细胞 RNA 测序数据进行分析。
 
 **工作流程**：原始数据 → 质量控制 → 比对 → 细胞识别 → 表达矩阵 → 分析报告
 
 <div align="center">
-  <img src="https://s2.loli.net/2024/09/26/uKTXv7Q2miNbz1S.png" alt="工作流程图" width="800">
+  <img src="../images/scRNA_pipeline.png" alt="scRNApipeline" width="700">
 </div>
 
 <div style="background-color: #e7f3fe; border-left: 6px solid #2196F3; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
-💡 <strong>使用说明</strong>：<code>$dnbc4tools</code> 代表可执行程序路径，需替换为您的实际安装路径。换行符 `\` 用于在命令行中将命令分为多行，以提高可读性。
+ <strong>使用说明</strong>：<code>$dnbc4tools</code> 代表可执行程序路径，需替换为您的实际安装路径。本文示例使用换行符 `\` 分隔命令以提高可读性，实际分析时可写为单行。
 </div>
 
----
+</div>
 
-## 📁 文件准备 <a id="文件准备"></a>
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
+
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
+
+## 文件准备 <a id="文件准备"></a>
+
+</div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
 
 分析需要两种类型的 FASTQ 文件：
 
@@ -56,14 +76,22 @@
 </table>
 
 <div style="background-color: #fffbe6; border-left: 6px solid #ffc107; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
-⚠️ <strong>注意</strong>：请确保 FASTQ 文件质量良好，并记录文件路径以备后续分析使用。
+ <strong>注意</strong>：请确保 FASTQ 文件质量良好，并记录文件路径以备后续分析使用。
 </div>
 
----
+</div>
 
-## 📊 参考数据库 <a id="参考数据库"></a>
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
 
-### 文件要求
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
+
+## 参考数据库 <a id="参考数据库"></a>
+
+</div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+
+### 参考数据库输入文件
 
 <table style="width:100%; border-collapse: collapse; margin: 1.5em 0; box-shadow: 0 2px 3px rgba(0,0,0,0.1);">
   <thead style="background-color: #f2f2f2; border-bottom: 2px solid #ddd;">
@@ -88,16 +116,19 @@
 </table>
 
 <div style="background-color: #e7f3fe; border-left: 6px solid #2196F3; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
-💡 <strong>推荐数据来源</strong>：优先使用 [Ensembl 数据库](https://www.ensembl.org/index.html)提供的文件。Ensembl 的 GTF 文件包含可选标签，便于通过 <code>$dnbc4tools tools mkgtf</code> 进行过滤。
+ <strong>推荐数据来源</strong>：优先使用 <a href="https://www.ensembl.org/index.html">Ensembl 数据库</a> 提供的文件。Ensembl 的 GTF 文件包含可选标签，便于通过 <code>dnbc4tools tools mkgtf</code> 进行过滤。
 </div>
 
-**GTF 文件要求**：
-- 必须包含 <code>gene</code> 或 <code>transcript</code> 类型以及 <code>exon</code> 类型的注释。
-- 属性中必须包含 <code>gene_id</code> 或 <code>gene_name</code> 以及 <code>transcript_id</code> 或 <code>transcript_name</code>。
-- 不支持 GFF 文件格式。
-- 基因组文件与注释文件需版本对应。
+<p><strong>GTF 文件要求：</strong></p>
 
-### GTF 文件处理（可选）
+<ul>
+  <li>必须包含 <code>gene</code> 或 <code>transcript</code> 类型以及 <code>exon</code> 类型的注释。</li>
+  <li>属性中必须包含 <code>gene_id</code> 或 <code>gene_name</code> 以及 <code>transcript_id</code> 或 <code>transcript_name</code>。</li>
+  <li>不支持 GFF 文件格式。</li>
+  <li>基因组文件与注释文件需版本对应。</li>
+</ul>
+
+### GTF 文件预处理（可选） <a id="gtf-file-processing-optional-zh"></a>
 
 从 ENSEMBL 和 UCSC 等网站下载的 GTF 文件通常包含多种类型的基因。根据您的研究兴趣选择特定的基因类型进行分析，可以有效减少基因注释的重叠，从而提高比对的唯一性。与多个基因非唯一比对的 reads 会被过滤。
 
@@ -131,24 +162,21 @@
 ```shell
 # 统计基因类型数量
 $dnbc4tools tools mkgtf \
-  --action stat \
-  --ingtf genes.gtf \
-  --output gtfstat.txt \
-  --type gene_biotype
+  --action stats \
+  --ingtf genes.gtf
 ```
 
 <div style="background-color: #fffbe6; border-left: 6px solid #ffc107; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
-⚠️ <strong>注意</strong>：需要查看 GTF 文件中的 tag 确定 <code>type</code> 的类型。
+ <strong>注意</strong>：软件会自动尝试识别 <code>type</code> 参数。如需手动确定，可查看 GTF 文件中的 tag。
 </div>
 
 <div align="center">
-  <img src="https://s2.loli.net/2024/10/09/afGqtQocTE9h3uR.png" alt="GTF文件类型示例" width="800">
+  <img src="https://s2.loli.net/2024/10/09/afGqtQocTE9h3uR.png" alt="GTF 文件类型示例" width="800">
 </div>
 
 输出示例：
 
 ```shell
-$cat gtf_type.txt
 Type    Count
 protein_coding  20006
 lncRNA  17755
@@ -173,7 +201,7 @@ IG_V_gene       145
 当 GTF 文件内容不完整时，主分析流程可能会因无法完全注释而中断。此功能能够自动填补基因（gene）与转录本（transcript）条目中的缺失信息，确保流程顺利进行。
 
 ```shell
-# 校正GTF文件
+# 校正GTF 文件
 $dnbc4tools tools mkgtf \
   --action check \
   --ingtf genes.gtf \
@@ -211,7 +239,7 @@ TR_J_gene
 TR_C_gene
 ```
 
-您也可以使用 `include` 参数自定义需要保留的基因类型：
+也可使用 `include` 参数自定义需要保留的基因类型：
 
 ```shell
 # 自定义基因类型过滤
@@ -219,31 +247,34 @@ $dnbc4tools tools mkgtf \
   --ingtf genes.gtf \
   --output genes.filter.gtf \
   --type gene_biotype \
-  --include protein_coding,lncRNA,lincRNA,\
-        antisense,IG_V_gene,IG_LV_gene,IG_J_gene,\
-        IG_C_gene,IG_V_pseudogene,IG_J_pseudogene,\
-        IG_C_pseudogene,TR_V_gene,TR_D_gene,TR_J_gene,TR_C_gene
+  --include protein_coding,lncRNA,lincRNA,antisense,IG_V_gene,\
+           IG_LV_gene,IG_J_gene,IG_C_gene,IG_V_pseudogene,\
+           IG_J_pseudogene,IG_C_pseudogene,TR_V_gene,TR_D_gene,\
+           TR_J_gene,TR_C_gene
 ```
 
-### 构建参考数据库
+### 参考数据库构建
 
 在执行 `dnbc4tools rna run` 分析前，必须先构建参考数据库。此步骤利用注释文件（GTF）和参考基因组（FASTA）创建索引，用于后续测序 reads 的比对和注释。
+
+<p><strong>运行命令：</strong></p>
 
 ```shell
 # 构建参考数据库
 $dnbc4tools rna mkref \
   --fasta genome.fa \
-  --ingtf genes.gtf \
+  --ingtf genes.filter.gtf \
   --species Homo_sapiens \
-  --threads 10
+  --threads 20
 ```
 
-**输出结果**：
+<p><strong>输出目录：</strong></p>
 
 成功运行后，将在指定位置创建参考数据库目录，包含以下文件结构：
 
 ```
-/opt/database/Homo_sapiens
+/database/scRNA/Homo_sapiens
+
 ├── fasta
 │   ├── genome.fa
 │   └── genome.fa.fai
@@ -269,60 +300,202 @@ $dnbc4tools rna mkref \
     └── transcriptInfo.tab
 ```
 
+<p><strong>ref.json 示例：</strong></p>
+
 其中 `ref.json` 文件记录了数据库的主要信息。
 
 ```json
 {
     "chrmt": "chrM",
-    "genome": "/opt/database/Homo_sapiens/fasta/genome.fa",
-    "genomeDir": "/opt/database/Homo_sapiens/star",
-    "gtf": "/opt/database/Homo_sapiens/genes/genes.gtf",
+    "genome": "fasta/genome.fa",
+    "genomeDir": "star",
+    "gtf": "genes/genes.gtf",
     "input_fasta_files": [
         "genome.fa"
     ],
     "input_gtf_files": [
         "genes.filter.gtf"
     ],
-    "mtgenes": "/opt/database/Homo_sapiens/star/mtgene.list",
+    "mtgenes": "star/mtgene.list",
     "species": "Homo_sapiens",
-    "version": "dnbc4tools 3.0"
+    "version": "3.1"
 }
 ```
 
 <div style="background-color: #fffbe6; border-left: 6px solid #ffc107; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
-⚠️ <strong>注意</strong>：构建参考数据库可能需要较长时间，具体取决于基因组大小和计算性能。软件主分析流程兼容旧版本数据库。
+ <strong>注意</strong>：构建参考数据库可能需要较长时间，具体取决于基因组大小和计算性能。软件主分析流程兼容旧版本数据库。
 </div>
+
+<p><strong>运行日志示例：</strong></p>
 
 运行时将打印如下信息：
 
 ```shell
-2025-11-12 15:56:12 Creating new reference folder at /opt/database/Homo_sapiens
+ 2026-04-03 16:29:02 Creating new reference folder at /database/scRNA/Homo_sapiens                          
 ...done
 
- 2025-11-12 15:56:12 Writing genome FASTA file into reference folder...                             
+ 2026-04-03 16:29:02 Writing genome FASTA file into reference folder...                             
 ...done
 
- 2025-11-12 15:56:14 Indexing genome FASTA file...                                                  
+ 2026-04-03 16:29:57 Indexing genome FASTA file...                                                  
 ...done
 
- 2025-11-12 15:56:15 Writing genes GTF file into reference folder...                                
+ 2026-04-03 16:30:09 Writing genes GTF file into reference folder...                                
 ...done
 
- 2025-11-12 15:57:11 Generating STAR genome index...                                                
+ 2026-04-03 16:33:20 Generating STAR genome index...                                                
 ...done
 
- 2025-11-12 15:59:29 Writing Reference JSON file into reference folder...                           
+ 2026-04-03 17:13:34 Writing Reference JSON file into reference folder...                           
 ...done
-Analysis Complete
+
+ 2026-04-03 17:13:37 RNA reference building finished. 
 ```
 
----
+</div>
 
-## 🚀 主流程分析 <a id="主流程分析"></a>
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
+
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
+
+## 主流程分析 <a id="主流程分析"></a>
+
+</div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+
+主流程分析包括单样本分析和多样本批处理两种使用方式：
+
+- **单样本分析**：直接运行 `dnbc4tools rna run`，适用于单个样本的完整分析。
+- **多样本批处理**：先通过 `dnbc4tools rna multi` 生成每个样本的运行脚本，适用于多个样本的批量任务准备。
+
+### 单样本分析
+
+RNA 主分析流程处理单个样本的 cDNA 和 Oligo 文库测序数据。该流程的核心步骤包括：
+<ol>
+  <li><strong>数据处理</strong>：执行质量控制、比对和功能区域注释。</li>
+  <li><strong>细胞识别</strong>：合并磁珠，识别有效细胞。</li>
+  <li><strong>矩阵生成</strong>：生成原始及过滤后的基因表达矩阵。</li>
+  <li><strong>高级分析</strong>：对过滤后矩阵进行细胞筛选、降维、聚类和注释。</li>
+  <li><strong>报告生成</strong>：输出 HTML 格式的分析报告及其他结果文件。</li>
+</ol>
+
+支持两种输入方式：
+
+**方式1：目录方式（推荐）**
+
+```shell
+$dnbc4tools rna run \
+  --name sample \
+  --fastqs /data \
+  --genomeDir /opt/database/Homo_sapiens \
+  --threads 30
+```
+
+目录结构示例：
+```
+/data/
+├── cDNA/
+│   ├── sample_cDNA_R1.fastq.gz
+│   └── sample_cDNA_R2.fastq.gz
+└── oligo/
+    ├── sample_oligo_1_R1.fastq.gz
+    ├── sample_oligo_1_R2.fastq.gz
+    ├── sample_oligo_2_R1.fastq.gz
+    └── sample_oligo_2_R2.fastq.gz
+```
+
+目录要求：
+
+- `--fastqs` 指向的目录必须包含 `cDNA/` 和 `oligo/` 两个子目录。
+- 每个子目录内放置对应文库的 R1/R2 配对 FASTQ 文件。
+- 自动识别依赖文件名中的 R1/R2 标识。建议使用 `_R1`/`_R2` 或 `_R1_`/`_R2_` 命名。
+- 不同样本或不同文库的数据不要混放到同一输入目录中。
+
+**方式2：单独参数方式**
+
+```shell
+$dnbc4tools rna run \
+  --name sample \
+  --cDNAfastq1 /data/cDNA/sample_cDNA_R1.fastq.gz \
+  --cDNAfastq2 /data/cDNA/sample_cDNA_R2.fastq.gz \
+  --oligofastq1 /data/oligo/sample_oligo_1_R1.fastq.gz,/data/oligo/sample_oligo_2_R1.fastq.gz \
+  --oligofastq2 /data/oligo/sample_oligo_1_R2.fastq.gz,/data/oligo/sample_oligo_2_R2.fastq.gz \
+  --genomeDir /opt/database/Homo_sapiens \
+  --threads 30
+```
+
+在对试剂版本和暗反应自动检测后，软件开始运行分析，以下是一个示例：
+
+```shell
+──────────────────────────── Parsed FASTQ Inputs — 2025-11-12 15:00:24 ─────────────────────────────
+┌─────────────┬────────────────────────────────────────────────────────────────────────────────────┐
+│ Type        │ Path                                                                               │
+├─────────────┼────────────────────────────────────────────────────────────────────────────────────┤
+│ cDNA Read 1 │ /data/cDNA/sample_cDNA_R1.fastq.gz                                                 │
+│ cDNA Read 2 │ /data/cDNA/sample_cDNA_R2.fastq.gz                                                 │
+│ oligo Read 1 │ /data/oligo/sample_oligo_1_R1.fastq.gz,/data/oligo/sample_oligo_2_R1.fastq.gz      │
+│ oligo Read 2 │ /data/oligo/sample_oligo_1_R2.fastq.gz,/data/oligo/sample_oligo_2_R2.fastq.gz      │
+└─────────────┴────────────────────────────────────────────────────────────────────────────────────┘
+────────────────────────────────────────────────────────────────────────────────────────────────────
+
+──────────────────────────── Chemistry Detection — 2025-11-12 15:00:31 ─────────────────────────────
+┌───────────────────────────────────────────────┬──────────────────────────────────────────────────┐
+│ Type                                          │ Result                                           │
+├───────────────────────────────────────────────┼──────────────────────────────────────────────────┤
+│ oligo Read 1                                   │ darkreaction                                     │
+│ oligo Read 2                                   │ darkreaction                                     │
+└───────────────────────────────────────────────┴──────────────────────────────────────────────────┘
+────────────────────────────────────────────────────────────────────────────────────────────────────
+
+──────────────────────────── Chemistry Detection — 2025-11-12 15:00:31 ─────────────────────────────
+┌─────────────────────────────────────────────┬────────────────────────────────────────────────────┐
+│ Type                                        │ Result                                             │
+├─────────────────────────────────────────────┼────────────────────────────────────────────────────┤
+│ cDNA Read 1                                  │ darkreaction                                       │
+└─────────────────────────────────────────────┴────────────────────────────────────────────────────┘
+────────────────────────────────────────────────────────────────────────────────────────────────────
+
+ 2025-11-12 15:00:31 Starting oligo library filtering...                                            
+...done
+
+ 2025-11-12 15:05:53 Starting cDNA library filtering...                                             
+...done
+
+ 2025-11-12 15:07:49 Performing read alignment and UMI counting...                                  
+...done
+
+ 2025-11-12 15:15:25 Calculating bead similarity and merging beads within droplets...               
+...done
+
+ 2025-11-12 15:15:41 Generating raw gene expression matrix...                                       
+...done
+
+ 2025-11-12 15:17:24 Generating cell-filtered gene expression matrix...                             
+...done
+
+ 2025-11-12 15:17:43 Calculating sequencing saturation metrics...                                   
+...done
+
+ 2025-11-12 15:18:08 Generating position-sorted BAM file...                                         
+...done
+
+ 2025-11-12 15:24:46 Performing dimensionality reduction and clustering analysis...                 
+...done
+
+ 2025-11-12 15:27:21 Generating analysis report and summary statistics...                           
+...done
+
+ 2025-11-12 15:27:40 Analysis Finished. Elapsed Time: 0:27:16
+```
+
+当出现 `Analysis Finished` 消息时，表示分析已成功完成。
+
+<div style="border-top: 1px solid #d2d2d7; margin: 32px 0;"></div>
 
 ### 多样本批处理（可选）
 
-为简化多样本分析流程，您可以使用配置文件批量生成针对每个样本的 shell 脚本。
+为简化多样本分析流程，可使用配置文件批量生成针对每个样本的 shell 脚本。
 
 ```shell
 $dnbc4tools rna multi \
@@ -357,7 +530,7 @@ $dnbc4tools rna multi \
 </table>
 
 <div style="background-color: #fffbe6; border-left: 6px solid #ffc107; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
-⚠️ <strong>注意</strong>：多个 fastq 文件以逗号分隔，R1 和 R2 文件以分号分隔。
+ <strong>注意</strong>：多个 FASTQ 文件以逗号分隔，R1 和 R2 文件以分号分隔。
 </div>
 
 ```tsv
@@ -378,107 +551,22 @@ sample3.sh
 
 ```shell
 $cat sample1.sh
-/opt/software/dnbc4tools3.0beta/dnbc4tools rna run --name sample1 --cDNAfastq1 /data/cDNA1_R1.fq.gz --cDNAfastq2 /data/cDNA1_R2.fq.gz --oligofastq1 /data/oligo1_R1.fq.gz,/data/oligo4_R1.fq.gz --oligofastq2 /data/oligo1_R2.fq.gz,/data/oligo4_R2.fq.gz --genomeDir /database/scRNA/Mus_musculus/mm10 --threads 30
+/opt/software/dnbc4tools3.1/dnbc4tools rna run --name sample1 --cDNAfastq1 /data/cDNA1_R1.fq.gz --cDNAfastq2 /data/cDNA1_R2.fq.gz --oligofastq1 /data/oligo1_R1.fq.gz,/data/oligo4_R1.fq.gz --oligofastq2 /data/oligo1_R2.fq.gz,/data/oligo4_R2.fq.gz --genomeDir /database/scRNA/Mus_musculus/mm10 --threads 30
 ```
 
-随后，您可以执行这些脚本以进行主流程分析。
+随后可执行这些脚本进行主流程分析。
 
+</div>
 
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
 
-### 单样本分析
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
 
-RNA 主分析流程处理单个样本的 cDNA 和 Oligo 文库测序数据。该流程的核心步骤包括：
-1.  **数据处理**：执行质量控制、比对和功能区域注释。
-2.  **细胞识别**：合并磁珠，识别有效细胞。
-3.  **矩阵生成**：生成原始及过滤后的基因表达矩阵。
-4.  **高级分析**：对过滤后矩阵进行细胞筛选、降维、聚类和注释。
-5.  **报告生成**：输出 HTML 格式的分析报告及其他结果文件。
+## 结果解析 <a id="结果解析"></a>
 
-为单个样本生成表达矩阵的示例脚本：
+</div>
 
-```shell
-$dnbc4tools rna run \
-		--name sample \
-		--cDNAfastq1 /data/sample_cDNA_R1.fastq.gz \
-		--cDNAfastq2 /data/sample_cDNA_R2.fastq.gz \
-		--oligofastq1 /data/sample_oligo1_1.fq.gz,/data/sample_oligo2_1.fq.gz \
-		--oligofastq2 /data/sample_oligo1_2.fq.gz,/data/sample_oligo2_2.fq.gz \
-		--genomeDir /opt/database/Homo_sapiens \
-		--threads 30
-```
-
-
-在对试剂版本和暗反应自动检测后，软件开始运行分析，以下是一个示例：
-
-```shell
-──────────────────────────── Parsed FASTQ Inputs — 2025-11-12 15:00:24 ─────────────────────────────
-┌─────────────┬────────────────────────────────────────────────────────────────────────────────────┐
-│ Type        │ Path                                                                               │
-├─────────────┼────────────────────────────────────────────────────────────────────────────────────┤
-│ cDNA Read1  │ /data/test_cDNA_R1.fastq.gz                                                        │
-│ cDNA Read2  │ /data/test_cDNA_R2.fastq.gz                                                        │
-│ oligo Read1 │ /data/test_oligo_1_R1.fastq.gz                                                     │
-│ oligo Read2 │ /data/test_oligo_2_R2.fastq.gz                                                     │
-└─────────────┴────────────────────────────────────────────────────────────────────────────────────┘
-────────────────────────────────────────────────────────────────────────────────────────────────────
-
-
-──────────────────────────── Chemistry Detection — 2025-11-12 15:00:31 ─────────────────────────────
-┌───────────────────────────────────────────────┬──────────────────────────────────────────────────┐
-│ Type                                          │ Result                                           │
-├───────────────────────────────────────────────┼──────────────────────────────────────────────────┤
-│ oligo Read1                                   │ darkreaction                                     │
-│ oligo Read2                                   │ darkreaction                                     │
-└───────────────────────────────────────────────┴──────────────────────────────────────────────────┘
-────────────────────────────────────────────────────────────────────────────────────────────────────
-
-
-──────────────────────────── Chemistry Detection — 2025-11-12 15:00:31 ─────────────────────────────
-┌─────────────────────────────────────────────┬────────────────────────────────────────────────────┐
-│ Type                                        │ Result                                             │
-├─────────────────────────────────────────────┼────────────────────────────────────────────────────┤
-│ cDNA Read1                                  │ darkreaction                                       │
-└─────────────────────────────────────────────┴────────────────────────────────────────────────────┘
-────────────────────────────────────────────────────────────────────────────────────────────────────
-
- 2025-11-12 15:00:31 Starting oligo library filtering...                                            
-...done
-
- 2025-11-12 15:05:53 Starting cDNA library filtering...                                             
-...done
-
- 2025-11-12 15:07:49 Performing read alignment and UMI counting...                                  
-...done
-
- 2025-11-12 15:15:25 Calculating bead similarity and merging beads within droplets...               
-...done
-
- 2025-11-12 15:15:41 Generating raw gene expression matrix...                                       
-...done
-
- 2025-11-12 15:17:24 Generating cell-filtered gene expression matrix...                             
-...done
-
- 2025-11-12 15:17:43 Calculating sequencing saturation metrics...                                   
-...done
-
- 2025-11-12 15:18:08 Generating position-sorted BAM file...                                         
-...done
-
- 2025-11-12 15:24:46 Performing dimensionality reduction and clustering analysis...                 
-...done
-
- 2025-11-12 15:27:21 Generating analysis report and summary statistics...                           
-...done
-
-Analysis Finished Elapsed Time: 0:28:56
-```
-
-当出现 `Analysis Finished` 消息时，表示分析已成功完成。
-
----
-
-## 📊 结果解析 <a id="结果解析"></a>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
 
 分析完成后，将生成 `outs`（结果输出）和 `logs`（日志）目录。`outs` 目录结构如下：
 
@@ -504,13 +592,52 @@ Analysis Finished Elapsed Time: 0:28:56
 └── singlecell.csv
 ```
 
-**相关文档**：
-- [📊 **输出文件使用方法**](../io.md)
-- [📋 **分析参数设置**](../parameter/scRNA.md)
-- [📝 **输出文件解释**](../outs/scRNA.md)
+</div>
 
----
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
 
-## ❓ 常见问题
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
 
-> `内容待补充`
+## 相关文档
+
+</div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);" markdown="1">
+
+| 资源 | 描述 |
+| :--- | :--- |
+| [输出文件使用方法](../io.md) | 了解输出文件结构和格式 |
+| [分析参数设置](../parameter/scRNA.md) | 完整的参数参考和说明 |
+| [输出文件解释](../outs/scRNA.md) | 分析结果的详细解读 |
+
+</div>
+
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
+
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
+
+## 常见问题
+
+</div>
+
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+
+本节将根据常见使用问题持续补充。当前版本请优先参考运行日志、参数说明和输出文件说明进行排查。
+
+</div>
+
+<div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
+
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
+
+<div align="center">
+
+> <strong>反馈与支持</strong>
+>
+> 本文档持续维护更新。若发现内容错误或需要补充信息，请通过 GitHub Issues 反馈。
+>
+> <strong>文档版本：</strong> 3.1 | <strong>最后更新：</strong> 2026 年 5 月 15 日
+
+</div>
+
+</div>

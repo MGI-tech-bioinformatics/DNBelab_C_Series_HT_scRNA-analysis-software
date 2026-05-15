@@ -1,0 +1,3480 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentation site generated from README and doc markdown files">
+      
+      
+      
+      
+        <link rel="prev" href="scATAC.html">
+      
+      
+        <link rel="next" href="multi.html">
+      
+      
+        
+          <link rel="alternate" href="scVDJ.html" hreflang="zh">
+        
+          <link rel="alternate" href="../../en/doc/outs/scVDJ.html" hreflang="en">
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.svg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>scVDJ - DNBelab C Series™ HT 单细胞分析软件</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#scvdj" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../index.html" title="DNBelab C Series™ HT 单细胞分析软件" class="md-header__button md-logo" aria-label="DNBelab C Series™ HT 单细胞分析软件" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 2h2v2c0 1.44.68 2.61 1.88 3.78.86.83 2.01 1.63 3.21 2.42l-1.83 1.19C8.27 10.72 7.31 10 6.5 9.21 5.07 7.82 4 6.1 4 4zm14 0h2v2c0 2.1-1.07 3.82-2.5 5.21-1.41 1.38-3.21 2.52-4.96 3.63-1.75 1.12-3.45 2.21-4.66 3.38C6.68 17.39 6 18.56 6 20v2H4v-2c0-2.1 1.07-3.82 2.5-5.21 1.41-1.38 3.21-2.52 4.96-3.63 1.75-1.12 3.45-2.21 4.66-3.38C17.32 6.61 18 5.44 18 4zm-3.26 10.61c.99.67 1.95 1.39 2.76 2.18C18.93 16.18 20 17.9 20 20v2h-2v-2c0-1.44-.68-2.61-1.88-3.78-.86-.83-2.01-1.63-3.21-2.42zM7 3h10v1l-.06.5H7.06L7 4zm.68 3h8.64c-.24.34-.52.69-.9 1.06l-.51.44H9.07l-.49-.44c-.38-.37-.66-.72-.9-1.06m1.41 10.5h5.84l.49.44c.38.37.66.72.9 1.06H7.68c.24-.34.52-.69.9-1.06zm-2.03 3h9.88l.06.5v1H7v-1z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            DNBelab C Series™ HT 单细胞分析软件
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              scVDJ
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="blue"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="blue"  aria-hidden="true"  type="radio" name="__palette" id="__palette_1">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="选择当前语言">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="scVDJ.html" hreflang="zh" class="md-select__link">
+              中文
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../en/doc/outs/scVDJ.html" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/MGI-tech-bioinformatics/DNBelab_C_Series_HT_scRNA-analysis-software" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    MGI-tech-bioinformatics/DNBelab_C_Series_HT_scRNA-analysis-software
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../index.html" title="DNBelab C Series™ HT 单细胞分析软件" class="md-nav__button md-logo" aria-label="DNBelab C Series™ HT 单细胞分析软件" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 2h2v2c0 1.44.68 2.61 1.88 3.78.86.83 2.01 1.63 3.21 2.42l-1.83 1.19C8.27 10.72 7.31 10 6.5 9.21 5.07 7.82 4 6.1 4 4zm14 0h2v2c0 2.1-1.07 3.82-2.5 5.21-1.41 1.38-3.21 2.52-4.96 3.63-1.75 1.12-3.45 2.21-4.66 3.38C6.68 17.39 6 18.56 6 20v2H4v-2c0-2.1 1.07-3.82 2.5-5.21 1.41-1.38 3.21-2.52 4.96-3.63 1.75-1.12 3.45-2.21 4.66-3.38C17.32 6.61 18 5.44 18 4zm-3.26 10.61c.99.67 1.95 1.39 2.76 2.18C18.93 16.18 20 17.9 20 20v2h-2v-2c0-1.44-.68-2.61-1.88-3.78-.86-.83-2.01-1.63-3.21-2.42zM7 3h10v1l-.06.5H7.06L7 4zm.68 3h8.64c-.24.34-.52.69-.9 1.06l-.51.44H9.07l-.49-.44c-.38-.37-.66-.72-.9-1.06m1.41 10.5h5.84l.49.44c.38.37.66.72.9 1.06H7.68c.24-.34.52-.69.9-1.06zm-2.03 3h9.88l.06.5v1H7v-1z"/></svg>
+
+    </a>
+    DNBelab C Series™ HT 单细胞分析软件
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/MGI-tech-bioinformatics/DNBelab_C_Series_HT_scRNA-analysis-software" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    MGI-tech-bioinformatics/DNBelab_C_Series_HT_scRNA-analysis-software
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    首页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../installation.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    安装
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quickstart.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    快速开始
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    流程
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    流程
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pipeline/pipeline.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    总览
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pipeline/scRNA.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    scRNA
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pipeline/scATAC.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    scATAC
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pipeline/scVDJ.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    scVDJ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pipeline/multi.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    多组学
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    参数
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    参数
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../parameter/parameter.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    总览
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../parameter/scRNA.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    scRNA
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../parameter/scATAC.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    scATAC
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../parameter/scVDJ.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    scVDJ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../parameter/multi.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    多组学
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../parameter/tools.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    工具
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    输出
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    输出
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="outs.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    总览
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="scRNA.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    scRNA
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="scATAC.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    scATAC
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    scVDJ
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="scVDJ.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    scVDJ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        概述
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        输出目录结构
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        文件详细说明
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="文件详细说明">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vdj" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        V(D)J 组装和注释文件
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="V(D)J 组装和注释文件">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vdj_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        V(D)J 转录本结构与组成
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        重要注释标准说明
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="重要注释标准说明">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#full-length" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        全长序列判定标准 (Full Length)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#productive" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        生产性序列判定标准 (Productive)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#high-confidence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        高置信度序列判定 (High Confidence)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#airr_annotationstsv" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        airr_annotations.tsv
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#all_contig_annotationscsv" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        all_contig_annotations.csv
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#all_contigfasta" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        all_contig.fasta
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#filtered_contig_annotationscsv" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        filtered_contig_annotations.csv
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#filtered_contigfasta" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        filtered_contig.fasta
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        克隆型谱系分析文件
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="克隆型谱系分析文件">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#clonotypescsv" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        clonotypes.csv
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#consensus_annotationscsv" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        consensus_annotations.csv
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#consensusfasta" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        consensus.fasta
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        分析指标汇总
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="分析指标汇总">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#metrics_summaryxls" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        metrics_summary.xls
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_scvdj_trig_reporthtml" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        *_scVDJ_TR(IG)_report.html
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        网页报告释义
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="网页报告释义">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        报告主要内容与结构
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        核心分析指标详解
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="核心分析指标详解">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vdj-vdj-analysis-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        V(D)J 分析指标 (V(D)J Analysis Metrics)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sequencing-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        测序指标 (Sequencing Metrics)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enrichment-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        基因富集性能指标 (Enrichment Metrics)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vdj-vdj-annotation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        V(D)J 注释分析 (V(D)J Annotation)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        可视化图表1
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="可视化图表1">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vdj-vdj-barcode-rank-plot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        V(D)J 细胞排序分析图 (V(D)J Barcode Rank Plot)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        可视化图表2
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="可视化图表2">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        克隆型丰度统计分析
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        相关文档
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="multi.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    多组学
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../io.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    结果分析
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../release.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    版本说明
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dataset.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    数据集
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    附加
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    附加
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../installation_previous.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    旧版安装
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../json.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    JSON 规范
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        概述
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        输出目录结构
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        文件详细说明
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="文件详细说明">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vdj" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        V(D)J 组装和注释文件
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="V(D)J 组装和注释文件">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vdj_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        V(D)J 转录本结构与组成
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        重要注释标准说明
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="重要注释标准说明">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#full-length" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        全长序列判定标准 (Full Length)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#productive" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        生产性序列判定标准 (Productive)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#high-confidence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        高置信度序列判定 (High Confidence)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#airr_annotationstsv" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        airr_annotations.tsv
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#all_contig_annotationscsv" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        all_contig_annotations.csv
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#all_contigfasta" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        all_contig.fasta
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#filtered_contig_annotationscsv" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        filtered_contig_annotations.csv
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#filtered_contigfasta" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        filtered_contig.fasta
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        克隆型谱系分析文件
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="克隆型谱系分析文件">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#clonotypescsv" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        clonotypes.csv
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#consensus_annotationscsv" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        consensus_annotations.csv
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#consensusfasta" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        consensus.fasta
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        分析指标汇总
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="分析指标汇总">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#metrics_summaryxls" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        metrics_summary.xls
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_scvdj_trig_reporthtml" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        *_scVDJ_TR(IG)_report.html
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        网页报告释义
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="网页报告释义">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        报告主要内容与结构
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        核心分析指标详解
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="核心分析指标详解">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vdj-vdj-analysis-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        V(D)J 分析指标 (V(D)J Analysis Metrics)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sequencing-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        测序指标 (Sequencing Metrics)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enrichment-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        基因富集性能指标 (Enrichment Metrics)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vdj-vdj-annotation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        V(D)J 注释分析 (V(D)J Annotation)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        可视化图表1
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="可视化图表1">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vdj-vdj-barcode-rank-plot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        V(D)J 细胞排序分析图 (V(D)J Barcode Rank Plot)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        可视化图表2
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="可视化图表2">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        克隆型丰度统计分析
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        相关文档
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<div align="right" style="margin-bottom: 20px; max-width: 1200px; margin-left: auto; margin-right: auto;">
+<p><a href="../../index.html">首页</a></p>
+</div>
+<div align="center" style="padding: 40px 20px; background: linear-gradient(135deg, #f5f5f7 0%, #ffffff 100%); border-radius: 12px; margin-bottom: 30px; max-width: 1200px; margin-left: auto; margin-right: auto;">
+<h1 id="scvdj" style="font-size: 48px; font-weight: 600; color: #1d1d1f; margin: 0 0 16px 0; letter-spacing: -0.02em;"> scVDJ 分析输出<a class="headerlink" href="#scvdj" title="Permanent link">&para;</a></h1>
+<p style="font-size: 21px; color: #86868b; margin: 0; font-weight: 400;">单细胞 V(D)J 测序分析输出文件说明</p>
+<div style="margin-top: 24px;">
+<p><a href="#输出目录结构"> 目录结构</a> • <a href="#详细文件说明">文件详情</a> • <a href="#分析指标汇总">分析结果</a> • <a href="#网页报告释义">报告解读</a></p>
+</div>
+</div>
+<div style="max-width: 1200px; margin: 0 auto;">
+<hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;">
+</div>
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
+<h2 id="_1">概述 <a id="概述"></a><a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<div align="center">
+<p>单细胞 V(D)J 分析完成后，会在指定的输出目录中生成标准化的文件和子目录结构，用于免疫受体库谱分析。</p>
+</div>
+<blockquote>
+<p><strong>提示</strong>：V(D)J 分析需基于 5' 端 RNA 测序数据。所有输出文件遵循 AIRR 标准，并兼容主流免疫组学分析工具。</p>
+<p><strong>前提条件</strong>：需先完成 5' 端单细胞 RNA 测序分析。</p>
+</blockquote>
+</div>
+<div style="max-width: 1200px; margin: 0 auto;">
+<hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;">
+</div>
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
+<h2 id="_2">输出目录结构 <a id="输出目录结构"></a><a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 20px; margin: 20px auto; max-width: 1200px; overflow-x: auto; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+<pre><code>.
+├── airr_annotations.tsv                    # AIRR标准格式的注释文件
+├── all_contig_annotations.csv              # 所有组装序列的注释信息
+├── all_contig.fasta                        # 所有组装序列的FASTA 文件
+├── all_contig.fasta.fai                    # 所有组装序列的索引文件
+├── clonotypes.csv                          # 克隆型分析结果
+├── consensus_annotations.csv               # 一致性序列注释信息
+├── consensus.fasta                         # 一致性序列FASTA 文件
+├── consensus.fasta.fai                     # 一致性序列索引文件
+├── filtered_contig_annotations.csv         # 过滤后组装序列的注释信息
+├── filtered_contig.fasta                   # 过滤后的组装序列FASTA 文件
+├── filtered_contig.fasta.fai               # 过滤后组装序列的索引文件
+├── metrics_summary.xls                     # 分析质量指标汇总表
+└── *_scVDJ_TR(IG)_report.html              # HTML格式的分析报告
+</code></pre>
+</div>
+<div style="max-width: 1200px; margin: 0 auto;">
+<hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;">
+</div>
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
+<h2 id="_3">文件详细说明 <a id="详细文件说明"></a><a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+</div>
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
+<h3 id="vdj">V(D)J 组装和注释文件 <a id="vdj组装和注释文件"></a><a class="headerlink" href="#vdj" title="Permanent link">&para;</a></h3>
+<div align="center">
+<p><strong>核心内容</strong>: V(D)J 重叠群序列组装、精确注释和质量评估结果，涵盖 TCR 和 BCR 重排序列的完整信息</p>
+</div>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+<h4 id="vdj_1">V(D)J 转录本结构与组成<a class="headerlink" href="#vdj_1" title="Permanent link">&para;</a></h4>
+<p><strong>典型 V(D)J 转录本结构示意：</strong></p>
+<div align="center">
+<p><img src="../images/vdj_transcript.png" alt="V(D)J 转录本结构示意图" width="650"></p>
+</div>
+<p><strong>重要术语解释：</strong></p>
+<table style="width:100%; border-collapse: collapse; margin: 15px 0;">
+<thead>
+<tr>
+<th align="left" width="20%"><strong>组成区域</strong></th>
+<th align="left" width="30%"><strong>英文缩写</strong></th>
+<th align="left" width="50%"><strong>生物学功能</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><strong>非翻译区</strong></td>
+<td align="left">UTR (Untranslated Region)</td>
+<td>调控 mRNA 稳定性和翻译效率，不编码蛋白质</td>
+</tr>
+<tr>
+<td align="left"><strong>框架区</strong></td>
+<td align="left">FWR (Framework Region)</td>
+<td>维持免疫球蛋白折叠的保守性结构框架</td>
+</tr>
+<tr>
+<td align="left"><strong>互补决定区</strong></td>
+<td align="left">CDR (Complementarity Determining Region)</td>
+<td>直接与抗原接触，决定结合特异性的关键可变区域</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>技术优势</strong>: V(D)J 分析流程可精确识别并提供框架区（FWR）和互补决定区（CDR）的氨基酸与核苷酸序列。所有组装重叠群和克隆型共识序列的 V(D)J 注释信息均以多种标准格式输出。</p>
+</blockquote>
+</div>
+<h4 id="_4">重要注释标准说明<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h4>
+<h5 id="full-length">全长序列判定标准 (Full Length)<a class="headerlink" href="#full-length" title="Permanent link">&para;</a></h5>
+<div style="padding: 15px; border-left: 4px solid #007bff; margin: 15px 0;">
+<p>重叠群序列被认定为 <strong>全长序列</strong> 须同时满足以下严格条件：</p>
+<ul>
+<li>重叠群序列完全匹配已注释 V 基因的 5' 起始区域</li>
+<li>重叠群序列完整延伸至 J 基因的 3' 末端区域</li>
+</ul>
+</div>
+<h5 id="productive">生产性序列判定标准 (Productive)<a class="headerlink" href="#productive" title="Permanent link">&para;</a></h5>
+<div style="padding: 15px; border-left: 4px solid #0ea5e9; margin: 15px 0;">
+<p>重叠群序列被认定为 <strong>生产性序列</strong>（具有功能活性）须同时满足以下所有条件：</p>
+<ul>
+<li>符合上述全长序列的所有要求</li>
+<li>在正确位置包含有效的起始密码子（ATG）</li>
+<li>V-J 跨越区域内不存在提前终止密码子</li>
+<li>V 基因起始密码子与 J 基因终止密码子保持相同阅读框</li>
+<li>成功识别出完整的 CDR3 可变区域</li>
+<li>V-J 跨越区域长度符合相应基因的生物学合理范围</li>
+</ul>
+</div>
+<h5 id="high-confidence">高置信度序列判定 (High Confidence)<a class="headerlink" href="#high-confidence" title="Permanent link">&para;</a></h5>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
+<p><strong>不同细胞类型的预期受体配置：</strong></p>
+<table style="width:100%; border-collapse: collapse; margin: 15px 0; border-radius: 8px; overflow: hidden;">
+<thead style="background-color: #f5f5f7; border-bottom: 1px solid #d2d2d7;">
+<tr>
+<th align="left" style="padding: 12px 16px; font-weight: 600; color: #1d1d1f;" width="25%">细胞类型</th>
+<th align="left" style="padding: 12px 16px; font-weight: 600; color: #1d1d1f;" width="45%">标准受体配置</th>
+<th align="left" style="padding: 12px 16px; font-weight: 600; color: #1d1d1f;" width="30%">生物学意义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" style="padding: 12px 16px; border-bottom: 1px solid #f0f0f0;"><strong>T 细胞</strong></td>
+<td align="left" style="padding: 12px 16px; border-bottom: 1px solid #f0f0f0;">1 个生产性 TRA 链 + 1 个生产性 TRB 链</td>
+<td align="left" style="padding: 12px 16px; border-bottom: 1px solid #f0f0f0;">正常 TCR α/β 异源二聚体</td>
+</tr>
+<tr>
+<td align="left" style="padding: 12px 16px;"><strong>B 细胞</strong></td>
+<td align="left" style="padding: 12px 16px;">1 个生产性重链 + 1 个生产性轻链（κ 或 λ）</td>
+<td align="left" style="padding: 12px 16px;">正常 BCR 重链/轻链配对</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>低置信度序列标记原则：</strong></p>
+<div style="padding: 15px; border-left: 4px solid #ffc107; margin: 15px 0;">
+<p>超出正常配置的额外生产性重叠群通常为异常情况，常见原因包括：</p>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
+<table style="width:100%; border-collapse: collapse; margin: 15px 0; border-radius: 8px; overflow: hidden;">
+<thead style="background-color: #f5f5f7; border-bottom: 1px solid #d2d2d7;">
+<tr>
+<th align="left" style="padding: 12px 16px; font-weight: 600; color: #1d1d1f;" width="25%">异常类型</th>
+<th align="left" style="padding: 12px 16px; font-weight: 600; color: #1d1d1f;" width="75%">原因分析</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" style="padding: 12px 16px; border-bottom: 1px solid #f0f0f0;"><strong>环境污染</strong></td>
+<td style="padding: 12px 16px; border-bottom: 1px solid #f0f0f0;">游离 mRNA 的非特异性捕获，可能来自外源污染或凋亡细胞释放的核酸</td>
+</tr>
+<tr>
+<td align="left" style="padding: 12px 16px; border-bottom: 1px solid #f0f0f0;"><strong>双细胞事件</strong></td>
+<td style="padding: 12px 16px; border-bottom: 1px solid #f0f0f0;">液滴中包含多个细胞 (doublets)，导致无法区分不同细胞的受体信号</td>
+</tr>
+<tr>
+<td align="left" style="padding: 12px 16px;"><strong>技术伪影</strong></td>
+<td style="padding: 12px 16px;">PCR 扩增或测序过程中的人工序列，包括嵌合体序列或错误的引物结合</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><strong>低置信度序列的判定依据：</strong></p>
+<div style="padding: 15px; border-left: 4px solid #ef4444; margin: 15px 0;">
+<ul>
+<li>生物学上极不可能存在的异常受体配置模式</li>
+<li>UMI 分子支持度显著偏低的可疑序列</li>
+<li>明显超出预期数量的额外生产性链</li>
+</ul>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+<h4 id="airr_annotationstsv">airr_annotations.tsv<a class="headerlink" href="#airr_annotationstsv" title="Permanent link">&para;</a></h4>
+<p>包含V(D)J重排的注释序列和共识序列，采用AIRR标准格式。</p>
+<ul>
+<li>
+<p><strong>用途</strong>:</p>
+<ul>
+<li><strong>标准化数据交换</strong>: 作为符合AIRR社区标准的交换格式，便于与其他免疫组库分析工具对接。</li>
+<li><strong>深度注释</strong>: 提供详细的V、D、J基因调用信息、CIGAR字符串、序列比对结果以及CDR3区域的核苷酸和氨基酸序列。</li>
+</ul>
+</li>
+<li>
+<p><strong>内容与格式</strong>:</p>
+<ul>
+<li>文件采用 AIRR 标准的 TSV 格式。</li>
+<li>文件具体包含的字段如下表所示：</li>
+</ul>
+<p><table style="width:100%; border-collapse: collapse; margin: 15px 0;">
+<thead>
+<tr>
+<th width="25%" align="left"><strong>字段名</strong></th>
+<th width="75%" align="left"><strong>详细描述</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>cell_id</code></td>
+<td>该重排序列所属细胞的唯一标识符，用于关联单细胞数据</td>
+</tr>
+<tr>
+<td align="left"><code>clone_id</code></td>
+<td>克隆型编号，标识该重排序列归属的特定克隆群体，用于克隆型分析</td>
+</tr>
+<tr>
+<td align="left"><code>sequence_id</code></td>
+<td>重叠群的唯一名称或标识符</td>
+</tr>
+<tr>
+<td align="left"><code>sequence</code></td>
+<td>V(D)J 重排的完整核苷酸序列，包含所有可变、多样性和连接区域</td>
+</tr>
+<tr>
+<td align="left"><code>sequence_aa</code></td>
+<td>重排区域翻译获得的氨基酸序列，反映功能性蛋白产物</td>
+</tr>
+<tr>
+<td align="left"><code>productive</code></td>
+<td>标记该重排是否为生产性（具有生物学功能），需满足框内翻译和无终止密码子等条件</td>
+</tr>
+<tr>
+<td align="left"><code>rev_comp</code></td>
+<td>指示序列是否为反向互补序列（默认：false），用于序列方向标记</td>
+</tr>
+<tr>
+<td align="left"><code>v_call</code></td>
+<td>识别的 V（可变）基因片段名称</td>
+</tr>
+<tr>
+<td align="left"><code>v_cigar</code></td>
+<td>V 基因比对的 CIGAR 字符串，记录比对的详细信息（匹配、插入、删除等）</td>
+</tr>
+<tr>
+<td align="left"><code>d_call</code></td>
+<td>识别的 D（多样性）基因片段名称（仅适用于重链和 β 链）</td>
+</tr>
+<tr>
+<td align="left"><code>d_cigar</code></td>
+<td>D 基因比对的 CIGAR 字符串，详细记录多样性区域的比对结果</td>
+</tr>
+<tr>
+<td align="left"><code>j_call</code></td>
+<td>识别的 J（连接）基因片段名称，完成 V(D)J 重组的关键元件</td>
+</tr>
+<tr>
+<td align="left"><code>j_cigar</code></td>
+<td>J 基因比对的 CIGAR 字符串，记录连接区域的精确比对信息</td>
+</tr>
+<tr>
+<td align="left"><code>c_call</code></td>
+<td>识别的 C（恒定）基因片段名称，决定抗体/受体的功能类型</td>
+</tr>
+<tr>
+<td align="left"><code>c_cigar</code></td>
+<td>C 基因比对的 CIGAR 字符串，记录恒定区域的比对详情</td>
+</tr>
+<tr>
+<td align="left"><code>sequence_alignment</code></td>
+<td>V(D)J 重排区域与参考种系序列的详细比对结果，显示突变和变异</td>
+</tr>
+<tr>
+<td align="left"><code>germline_alignment</code></td>
+<td>推断的种系全长序列比对结果，用于体细胞突变分析</td>
+</tr>
+<tr>
+<td align="left"><code>junction</code></td>
+<td>V(D)J 重排连接区的核苷酸序列（CDR3 区域），决定抗原结合特异性</td>
+</tr>
+<tr>
+<td align="left"><code>junction_aa</code></td>
+<td>重排连接区的氨基酸序列（CDR3 氨基酸），抗原识别的关键结构域</td>
+</tr>
+<tr>
+<td align="left"><code>junction_length</code></td>
+<td>CDR3 区域核苷酸序列长度（bp），影响抗原结合能力和特异性</td>
+</tr>
+<tr>
+<td align="left"><code>junction_aa_length</code></td>
+<td>CDR3 区域氨基酸序列长度（aa），决定抗原结合环的空间结构</td>
+</tr>
+<tr>
+<td align="left"><code>v_sequence_start</code></td>
+<td>V 区域在重排序列中的起始位置（1-based 坐标系统）</td>
+</tr>
+<tr>
+<td align="left"><code>v_sequence_end</code></td>
+<td>V 区域在重排序列中的结束位置（1-based 坐标系统）</td>
+</tr>
+<tr>
+<td align="left"><code>d_sequence_start</code></td>
+<td>D 区域在重排序列中的起始位置（1-based 坐标系统）</td>
+</tr>
+<tr>
+<td align="left"><code>d_sequence_end</code></td>
+<td>D 区域在重排序列中的结束位置（1-based 坐标系统）</td>
+</tr>
+<tr>
+<td align="left"><code>j_sequence_start</code></td>
+<td>J 区域在重排序列中的起始位置（1-based 坐标系统）</td>
+</tr>
+<tr>
+<td align="left"><code>j_sequence_end</code></td>
+<td>J 区域在重排序列中的结束位置（1-based 坐标系统）</td>
+</tr>
+<tr>
+<td align="left"><code>c_sequence_start</code></td>
+<td>C 区域在重排序列中的起始位置（1-based 坐标系统）</td>
+</tr>
+<tr>
+<td align="left"><code>c_sequence_end</code></td>
+<td>C 区域在重排序列中的结束位置（1-based 坐标系统）</td>
+</tr>
+<tr>
+<td align="left"><code>consensus_count</code></td>
+<td>支持该重排序列的总 reads 数量，反映测序深度和序列可信度</td>
+</tr>
+<tr>
+<td align="left"><code>duplicate_count</code></td>
+<td>支持该重排序列的独特 UMI 分子数量，用于去重和定量分析</td>
+</tr>
+<tr>
+<td align="left"><code>is_cell</code></td>
+<td>标记该重排是否来源于真实细胞（TRUE：细胞；FALSE：背景/空滴）</td>
+</tr>
+</tbody>
+</table></p>
+</li>
+</ul>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+<h4 id="all_contig_annotationscsv">all_contig_annotations.csv<a class="headerlink" href="#all_contig_annotationscsv" title="Permanent link">&para;</a></h4>
+<p>包含所有重叠群序列（来自细胞和背景条形码）的详细注释信息。</p>
+<ul>
+<li>
+<p><strong>用途</strong>:</p>
+<ul>
+<li><strong>全面数据审查</strong>: 提供所有组装出的重叠群数据，包括低质量或背景信号，用于深入的质控分析。</li>
+<li><strong>完整注释</strong>: 提供完整的 V(D)J 基因片段、CDR/FWR区域的注释信息。</li>
+</ul>
+</li>
+<li>
+<p><strong>内容与格式</strong>:</p>
+<ul>
+<li>文件采用 CSV 文本格式。</li>
+<li>文件具体包含的字段如下表所示：</li>
+</ul>
+<p><table style="width:100%; border-collapse: collapse; margin: 15px 0;">
+<thead>
+<tr>
+<th width="25%" align="left"><strong>字段名</strong></th>
+<th width="75%" align="left"><strong>描述</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>sample</code></td>
+<td>VDJ 文库的样本名称</td>
+</tr>
+<tr>
+<td align="left"><code>barcode</code></td>
+<td>该重叠群对应的细胞 ID（或条形码）</td>
+</tr>
+<tr>
+<td align="left"><code>is_cell</code></td>
+<td>布尔值，指示该细胞 ID是否被识别为细胞（TRUE为细胞，FALSE为背景）</td>
+</tr>
+<tr>
+<td align="left"><code>contig_id</code></td>
+<td>该重叠群的唯一标识符</td>
+</tr>
+<tr>
+<td align="left"><code>high_confidence</code></td>
+<td>布尔值，指示该重叠群是否被标记为高置信度（不太可能是嵌合序列或其他伪影）</td>
+</tr>
+<tr>
+<td align="left"><code>length</code></td>
+<td>重叠群序列的核苷酸长度（bp）</td>
+</tr>
+<tr>
+<td align="left"><code>chain</code></td>
+<td>与该重叠群相关的链类型：TRA、TRB、IGK、IGL或IGH</td>
+</tr>
+<tr>
+<td align="left"><code>v_gene</code></td>
+<td>得分最高的V基因片段，如TRAV1-1</td>
+</tr>
+<tr>
+<td align="left"><code>d_gene</code></td>
+<td>得分最高的D基因片段，如TRBD1</td>
+</tr>
+<tr>
+<td align="left"><code>j_gene</code></td>
+<td>得分最高的J基因片段，如TRAJ1-1</td>
+</tr>
+<tr>
+<td align="left"><code>full_length</code></td>
+<td>布尔值，指示该重叠群是否被声明为全长序列</td>
+</tr>
+<tr>
+<td align="left"><code>productive</code></td>
+<td>布尔值，指示该重叠群是否被声明为生产性序列</td>
+</tr>
+<tr>
+<td align="left"><code>fwr1</code></td>
+<td>预测的FWR1氨基酸序列</td>
+</tr>
+<tr>
+<td align="left"><code>fwr1_nt</code></td>
+<td>预测的FWR1核苷酸序列</td>
+</tr>
+<tr>
+<td align="left"><code>cdr1</code></td>
+<td>预测的CDR1氨基酸序列</td>
+</tr>
+<tr>
+<td align="left"><code>cdr1_nt</code></td>
+<td>预测的CDR1核苷酸序列</td>
+</tr>
+<tr>
+<td align="left"><code>fwr2</code></td>
+<td>预测的FWR2氨基酸序列</td>
+</tr>
+<tr>
+<td align="left"><code>fwr2_nt</code></td>
+<td>预测的FWR2核苷酸序列</td>
+</tr>
+<tr>
+<td align="left"><code>cdr2</code></td>
+<td>预测的CDR2氨基酸序列</td>
+</tr>
+<tr>
+<td align="left"><code>cdr2_nt</code></td>
+<td>预测的CDR2核苷酸序列</td>
+</tr>
+<tr>
+<td align="left"><code>fwr3</code></td>
+<td>预测的FWR3氨基酸序列</td>
+</tr>
+<tr>
+<td align="left"><code>fwr3_nt</code></td>
+<td>预测的FWR3核苷酸序列</td>
+</tr>
+<tr>
+<td align="left"><code>cdr3</code></td>
+<td>预测的CDR3氨基酸序列</td>
+</tr>
+<tr>
+<td align="left"><code>cdr3_nt</code></td>
+<td>预测的CDR3核苷酸序列</td>
+</tr>
+<tr>
+<td align="left"><code>fwr4</code></td>
+<td>预测的FWR4氨基酸序列</td>
+</tr>
+<tr>
+<td align="left"><code>fwr4_nt</code></td>
+<td>预测的FWR4核苷酸序列</td>
+</tr>
+<tr>
+<td align="left"><code>reads</code></td>
+<td>比对到该重叠群的reads数量</td>
+</tr>
+<tr>
+<td align="left"><code>umis</code></td>
+<td>比对到该重叠群的不同UMI数量</td>
+</tr>
+<tr>
+<td align="left"><code>raw_clonotype_id</code></td>
+<td>分配给该细胞条形码的克隆型ID</td>
+</tr>
+<tr>
+<td align="left"><code>raw_consensus_id</code></td>
+<td>该重叠群被分配到的共识序列ID</td>
+</tr>
+<tr>
+<td align="left"><code>exact_subclonotype_id</code></td>
+<td>该细胞条形码被分配到的精确亚克隆型ID</td>
+</tr>
+</tbody>
+</table></p>
+</li>
+</ul>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+<h4 id="all_contigfasta">all_contig.fasta<a class="headerlink" href="#all_contigfasta" title="Permanent link">&para;</a></h4>
+<p>包含所有组装重叠群的核苷酸序列。</p>
+<ul>
+<li><strong>用途</strong>:<ul>
+<li><strong>序列数据库</strong>: 作为所有重叠群的序列数据库，可用于igBLAST比对或其他序列分析。</li>
+<li><strong>数据完整性</strong>: 提供了最原始的组装结果。</li>
+</ul>
+</li>
+<li><strong>内容与格式</strong>:<ul>
+<li>采用标准 FASTA 格式，每个序列对应一个重叠群，序列标识符为重叠群的唯一名称。</li>
+</ul>
+</li>
+</ul>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+<h4 id="filtered_contig_annotationscsv">filtered_contig_annotations.csv<a class="headerlink" href="#filtered_contig_annotationscsv" title="Permanent link">&para;</a></h4>
+<p><code>all_contig_annotations.csv</code> 的高质量子集，仅包含通过质量过滤的高置信度、且来源于细胞的重叠群注释结果。</p>
+<ul>
+<li><strong>用途</strong>:<ul>
+<li><strong>核心下游分析</strong>: 这是进行克隆型定义和大多数下游分析的<strong>推荐输入文件</strong>。</li>
+<li><strong>高质量数据</strong>: 只包含被鉴定为真实细胞且高置信度的重叠群，确保分析结果的准确性。</li>
+</ul>
+</li>
+<li><strong>内容与格式</strong>:<ul>
+<li>文件格式与 <code>all_contig_annotations.csv</code> 完全相同。</li>
+</ul>
+</li>
+</ul>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+<h4 id="filtered_contigfasta">filtered_contig.fasta<a class="headerlink" href="#filtered_contigfasta" title="Permanent link">&para;</a></h4>
+<p><code>all_contig.fasta</code> 的高质量子集，仅包含通过质量过滤和细胞调用的高质量重叠群序列。</p>
+<ul>
+<li><strong>用途</strong>:<ul>
+<li><strong>可信序列集</strong>: 提供一个高可信度的重排序列集合，用于后续的功能分析或实验验证。</li>
+</ul>
+</li>
+<li><strong>内容与格式</strong>:<ul>
+<li>标准FASTA格式，序列标识符为重叠群ID。</li>
+</ul>
+</li>
+</ul>
+</div>
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
+<h3 id="_5">克隆型谱系分析文件 <a id="克隆型分析文件"></a><a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<div align="center">
+<p><strong>核心内容</strong>: TCR 和 BCR 克隆型谱系的精确识别、频率统计和 CDR3 序列多样性分析</p>
+</div>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+<h4 id="clonotypescsv">clonotypes.csv<a class="headerlink" href="#clonotypescsv" title="Permanent link">&para;</a></h4>
+<p>克隆型统计分析文件，提供每个独特克隆型的详细描述信息。</p>
+<ul>
+<li>
+<p><strong>用途</strong>:</p>
+<ul>
+<li><strong>克隆型丰度分析</strong>: 统计每个克隆型的细胞数（频率）和占比，用于评估克隆扩增程度。</li>
+<li><strong>免疫多样性评估</strong>: 分析克隆型分布，研究免疫库的多样性。</li>
+<li><strong>CDR3 序列分析</strong>: 提供每个克隆型精确的 CDR3 氨基酸和核苷酸序列。</li>
+</ul>
+</li>
+<li>
+<p><strong>内容与格式</strong>:</p>
+<ul>
+<li>文件采用 CSV 格式。</li>
+<li>文件具体包含的字段如下表所示：</li>
+</ul>
+<p><table style="width:100%; border-collapse: collapse; margin: 15px 0;">
+<thead>
+<tr>
+<th width="25%" align="left"><strong>字段名</strong></th>
+<th width="75%" align="left"><strong>详细描述</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>clonotype_id</code></td>
+<td>分配给该共识序列的克隆型唯一标识符，用于关联和追踪特定克隆群体的所有相关细胞</td>
+</tr>
+<tr>
+<td align="left"><code>frequency</code></td>
+<td>观察到的具有该克隆型的细胞绝对数量，反映克隆扩增程度和免疫应答强度</td>
+</tr>
+<tr>
+<td align="left"><code>proportion</code></td>
+<td>该克隆型细胞占总细胞群体的相对比例，用于评估克隆优势度和多样性分布</td>
+</tr>
+<tr>
+<td align="left"><code>cdr3s_aa</code></td>
+<td>以分号分隔的链:序列对列表，格式为"链名:CDR3 氨基酸序列"。链名包括 TRA、TRB、TRG、TRD（T 细胞受体）和 IGK、IGL、IGH（B 细胞受体），CDR3 氨基酸序列用于判断抗原结合特异性和功能活性</td>
+</tr>
+<tr>
+<td align="left"><code>cdr3s_nt</code></td>
+<td>以分号分隔的链:序列对列表，格式为"链名:CDR3 核苷酸序列"。提供 CDR3 区域的 DNA 序列信息，用于体细胞突变分析、克隆进化追踪和分子标记设计</td>
+</tr>
+</tbody>
+</table></p>
+</li>
+</ul>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+<h4 id="consensus_annotationscsv">consensus_annotations.csv<a class="headerlink" href="#consensus_annotationscsv" title="Permanent link">&para;</a></h4>
+<p>提供每个克隆型共识序列的详细注释信息。</p>
+<ul>
+<li>
+<p><strong>用途</strong>:</p>
+<ul>
+<li><strong>代表性序列注释</strong>: 为每个克隆型提供一个代表性序列的完整 V(D)J 基因和 CDR/FWR 区域注释。</li>
+<li><strong>克隆型水平分析</strong>: 支持在克隆型水平上进行序列特征分析。</li>
+</ul>
+</li>
+<li>
+<p><strong>内容与格式</strong>:</p>
+<ul>
+<li>文件采用 CSV 格式。</li>
+<li>文件具体包含的字段如下表所示：</li>
+</ul>
+<p><table style="width:100%; border-collapse: collapse; margin: 15px 0;">
+<thead>
+<tr>
+<th width="25%" align="left"><strong>字段名</strong></th>
+<th width="75%" align="left"><strong>描述</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>clonotype_id</code></td>
+<td>分配给该一致性序列的克隆型ID，对应clonotypes.csv中的克隆型标识符</td>
+</tr>
+<tr>
+<td align="left"><code>consensus_id</code></td>
+<td>该一致性序列的唯一标识符，用于关联FASTA 文件中的序列</td>
+</tr>
+<tr>
+<td align="left"><code>sample</code></td>
+<td>VDJ 文库的样本名称</td>
+</tr>
+<tr>
+<td align="left"><code>length</code></td>
+<td>一致性序列的核苷酸长度</td>
+</tr>
+<tr>
+<td align="left"><code>chain</code></td>
+<td>与该一致性序列相关的链类型：TRA、TRB、IGK、IGL或IGH</td>
+</tr>
+<tr>
+<td align="left"><code>v_gene</code></td>
+<td>得分最高的V基因片段调用结果</td>
+</tr>
+<tr>
+<td align="left"><code>d_gene</code></td>
+<td>得分最高的D基因片段调用结果（如适用）</td>
+</tr>
+<tr>
+<td align="left"><code>j_gene</code></td>
+<td>得分最高的J基因片段调用结果</td>
+</tr>
+<tr>
+<td align="left"><code>c_gene</code></td>
+<td>得分最高的C基因片段调用结果</td>
+</tr>
+<tr>
+<td align="left"><code>full_length</code></td>
+<td>布尔值，指示该一致性序列是否被声明为全长序列</td>
+</tr>
+<tr>
+<td align="left"><code>productive</code></td>
+<td>布尔值，指示该一致性序列是否被声明为生产性序列</td>
+</tr>
+<tr>
+<td align="left"><code>cdr3</code></td>
+<td>预测的CDR3氨基酸序列</td>
+</tr>
+<tr>
+<td align="left"><code>cdr3_nt</code></td>
+<td>预测的CDR3核苷酸序列</td>
+</tr>
+<tr>
+<td align="left"><code>reads</code></td>
+<td>支持该一致性序列的reads总数</td>
+</tr>
+<tr>
+<td align="left"><code>umis</code></td>
+<td>支持该一致性序列的不同UMI数量</td>
+</tr>
+</tbody>
+</table></p>
+</li>
+</ul>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+<h4 id="consensusfasta">consensus.fasta<a class="headerlink" href="#consensusfasta" title="Permanent link">&para;</a></h4>
+<p>包含每个克隆型共识序列的FASTA 文件。</p>
+<ul>
+<li><strong>用途</strong>:<ul>
+<li><strong>代表性序列库</strong>: 提供每个克隆型的代表性序列，用于功能预测或与其他数据集比对。</li>
+<li><strong>高质量序列</strong>: 共识序列通过克隆型分组算法生成，理想情况下为全长序列（从5'UTR起始到C基因引物结合位点结束）。</li>
+</ul>
+</li>
+<li><strong>内容与格式</strong>:<ul>
+<li>标准FASTA格式，序列标识符为<code>consensus_id</code>。</li>
+</ul>
+</li>
+</ul>
+</div>
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
+<h3 id="_6">分析指标汇总 <a id="分析指标汇总"></a><a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<div align="center">
+<p><strong>核心内容</strong>: V(D)J 组装质量的结构化评估和统计指标汇总，提供完整的数据质量控制信息</p>
+</div>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+<h4 id="metrics_summaryxls">metrics_summary.xls<a class="headerlink" href="#metrics_summaryxls" title="Permanent link">&para;</a></h4>
+<p>采用 Excel 格式的关键分析指标汇总表，提供了对实验整体质量的结构化评估。</p>
+<ul>
+<li>
+<p><strong>用途</strong>:</p>
+<ul>
+<li><strong>质量评估</strong>: 快速评估测序质量、细胞识别、基因映射、组装效果等核心指标。</li>
+<li><strong>结果概览</strong>: 无需查看所有文件即可对分析结果有一个概览。</li>
+</ul>
+</li>
+<li>
+<p><strong>内容与格式</strong>:</p>
+<ul>
+<li>
+<p>包含五大类别的关键指标：</p>
+<p><table style="width:100%; border-collapse: collapse; margin: 15px 0;">
+<thead>
+<tr>
+<th width="20%" align="left"><strong>指标类别</strong></th>
+<th width="80%" align="left"><strong>包含内容</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><strong>基本统计</strong></td>
+<td>总读段数、有效条形码比例、UMI 质量、Q30 碱基质量等基础测序指标</td>
+</tr>
+<tr>
+<td align="left"><strong>细胞识别</strong></td>
+<td>估计细胞数量、细胞内读段比例、每细胞平均读段数等细胞调用结果</td>
+</tr>
+<tr>
+<td align="left"><strong>基因映射</strong></td>
+<td>V(D)J基因映射比例、链特异性映射统计、基因利用度分析</td>
+</tr>
+<tr>
+<td align="left"><strong>组装质量</strong></td>
+<td>全长序列比例、生产性序列比例、CDR3识别成功率等组装效果评估</td>
+</tr>
+<tr>
+<td align="left"><strong>克隆型分析</strong></td>
+<td>克隆型多样性、配对成功率、主要克隆型频率等免疫组库特征</td>
+</tr>
+</tbody>
+</table></p>
+</li>
+<li>
+<p>内置推荐的质量控制标准，便于用户判断：
+    <details open>
+    <summary><strong>推荐质量阈值：</strong></summary>
+    <ul>
+    <li><strong>有效条形码比例</strong>: &gt;70%</li>
+    <li><strong>Q30 碱基质量</strong>: &gt;75%（条形码和 UMI 区域）</li>
+    <li><strong>V(D)J基因映射率</strong>: &gt;30%</li>
+    <li><strong>配对生产性序列比例</strong>: &gt;20%</li>
+    <li><strong>每细胞平均读段数</strong>: &gt;5,000</li>
+    </ul>
+    </details></p>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+<h4 id="_scvdj_trig_reporthtml">*_scVDJ_TR(IG)_report.html<a class="headerlink" href="#_scvdj_trig_reporthtml" title="Permanent link">&para;</a></h4>
+<p>采用 HTML 网页格式的交互式综合分析报告。</p>
+<ul>
+<li>
+<p><strong>用途</strong>:</p>
+<ul>
+<li><strong>结果可视化</strong>: 以交互式图表展示质控结果、重排分析、克隆型分析等关键结果。</li>
+<li><strong>结果解读</strong>: 提供各项指标的生物学意义和技术解释，帮助用户理解数据。</li>
+<li><strong>便捷分享</strong>: 单个 HTML 文件，易于传阅和分享。</li>
+</ul>
+</li>
+<li>
+<p><strong>内容与格式</strong>:</p>
+<ul>
+<li>无需网络，可在任何现代浏览器中打开。</li>
+<li>报告的详细解读请参考本文档下方的 <a href="#网页报告释义">网页报告释义</a> 部分。</li>
+</ul>
+</li>
+</ul>
+</div>
+<div style="max-width: 1200px; margin: 0 auto;">
+<hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;">
+</div>
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
+<h2 id="_7">网页报告释义 <a id="网页报告释义"></a><a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<div align="center">
+<p><strong>概述</strong>：HTML 网页报告提供单细胞 V(D)J 测序结果的可视化摘要和指标说明，覆盖实验质量与免疫受体分析相关的关键指标。</p>
+</div>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+<p>HTML 网页报告用于查看单细胞 V(D)J 测序分析结果，覆盖细胞识别、测序质量、V(D)J 富集、生产性配对和克隆型丰度等内容。用户可通过交互式图表快速检查实验质量并定位需要进一步复核的指标。</p>
+<blockquote>
+<p><strong>使用说明</strong>：建议按照报告展示顺序依次查看各项指标。</p>
+<p><strong>注意</strong>: 以下标准仅供参考，实际质量评估应考虑组织类型、细胞状态和实验目标等多种因素。不同样本间存在显著差异，建议结合具体实验背景进行判断。</p>
+</blockquote>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+<h3 id="_8">报告主要内容与结构<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<div align="center">
+<p><img src="../images/html_scvdj1.png" alt="scVDJ网页报告" width="500"></p>
+</div>
+</div>
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
+<h3 id="_9">核心分析指标详解<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+<h4 id="vdj-vdj-analysis-metrics">V(D)J 分析指标 (V(D)J Analysis Metrics) <a id="vdj分析指标"></a><a class="headerlink" href="#vdj-vdj-analysis-metrics" title="Permanent link">&para;</a></h4>
+<div align="center">
+<p><strong>核心功能</strong>: 细胞识别、质量评估和免疫受体组装统计，提供实验整体效果的关键指标</p>
+</div>
+<p><strong>质量控制标准：</strong></p>
+<blockquote>
+<p><strong>注意</strong>: 以下标准仅供参考，实际质量评估应考虑组织类型、细胞状态和实验目标等多种因素。不同样本间存在显著差异，建议结合具体实验背景进行判断。</p>
+</blockquote>
+<table style="width:100%; border-collapse: collapse; margin: 15px 0;">
+<thead>
+<tr>
+<th align="left" width="25%"><strong>指标名称</strong></th>
+<th align="left" width="30%"><strong>推荐值</strong></th>
+<th align="left" width="30%"><strong>可接受</strong></th>
+<th align="left" width="15%"><strong>需优化</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><strong>Mean reads per cell</strong></td>
+<td align="left">≥ 10,000</td>
+<td align="left">5,000–10,000</td>
+<td align="left">&lt; 5,000</td>
+</tr>
+<tr>
+<td align="left"><strong>Fraction of Reads in Cells</strong></td>
+<td align="left">≥ 50%</td>
+<td align="left">20–50%</td>
+<td align="left">&lt; 20%</td>
+</tr>
+</tbody>
+</table>
+<p><strong>详细指标解释：</strong></p>
+<table style="width:100%; border-collapse: collapse; margin: 15px 0;">
+<thead>
+<tr>
+<th align="left" width="30%"><strong>指标名称</strong></th>
+<th align="left" width="70%"><strong>详细解释与技术要求</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">
+<strong>Estimated number of cells</strong><br>
+<em>估计细胞数量</em>
+</td>
+<td>
+<ul>
+<li><strong>定义</strong>: 与表达目标 V(D)J 转录本的细胞相关联的条形码数量估计值。</li>
+<li><strong>影响因素</strong>: 上样细胞数量、样本中 T/B 细胞比例、V(D)J 转录本表达水平和测序深度。</li>
+<li><strong>判读建议</strong>: 若明显低于预期，建议优先检查目标细胞比例、样本完整性、富集效率和测序深度。</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td align="left">
+<strong>Mean reads per cell</strong><br>
+<em>平均每细胞读段数</em>
+</td>
+<td>
+<ul>
+<li><strong>定义</strong>: 输入测序读段对总数除以估计有效细胞数量的比值。</li>
+<li><strong>技术要求</strong>:
+<ul>
+<li>最低测序深度：每细胞 5,000 个读段对（双端测序）。</li>
+<li>单端测序建议深度翻倍至每细胞 10,000 个读段。</li>
+</ul>
+</li>
+<li><strong>判读建议</strong>: 测序深度不足可能降低 V(D)J 细胞识别准确性、重叠群组装完整性和克隆型识别稳定性。</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td align="left">
+<strong>Fraction of Reads in Cells</strong><br>
+<em>细胞内读段占比</em>
+</td>
+<td>
+<ul>
+<li><strong>定义</strong>: 具有细胞相关条形码的读段数量与具有有效条形码的读段总量的比值。</li>
+<li><strong>判读建议</strong>:
+<ul>
+<li><strong>推荐表现</strong>: 高比例通常表示细胞捕获效率较好，背景噪音较低。</li>
+<li><strong>需关注</strong>: 比例偏低可能提示样本质量不佳、细胞浓度不合适、文库构建异常或背景读段较高。</li>
+</ul>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td align="left">
+<strong>Median TRA/TRB or IGH/IGK/IGL UMIs per cell</strong><br>
+<em>每细胞特异性链 UMI 中位数</em>
+</td>
+<td>
+<ul>
+<li><strong>定义</strong>: 分配给特定免疫受体链（如 IGH、TRA、TRB、IGK、IGL 等）转录本的 UMI 数中位数。</li>
+<li><strong>用途</strong>: 用于评估每个细胞中 TCR/BCR 转录本的捕获水平和表达强度。</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td align="left">
+<strong>Number of cells with TRA/TRB or IGH/IGK/IGL contig</strong><br>
+<em>含有 TRA/TRB 或 IGH/IGK/IGL 重叠群的细胞</em>
+</td>
+<td>
+<ul>
+<li><strong>定义</strong>: 通过单细胞测序检测到至少一条 T 细胞受体（TRA/TRB）或 B 细胞受体（IGH/IGK/IGL）重叠群的细胞。</li>
+<li><strong>说明</strong>: 该指标只要求存在相关基因重叠群，不要求序列完整或具有功能性，因此可能包含片段化序列或非生产性重排。</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td align="left">
+<strong>Cells with V-J spanning TRA/TRB or IGH/IGK/IGL contig</strong><br>
+<em>含有 V-J 跨区 TRA/TRB 或 IGH/IGK/IGL 重叠群的细胞</em>
+</td>
+<td>
+<ul>
+<li><strong>定义</strong>: 要求重叠群序列跨越 V 基因和 J 基因的重组连接区。该指标比“含有重叠群的细胞”更严格，但仍可能包含非生产性重排。</li>
+<li><strong>用途</strong>: 用于评估受体重排序列的完整性，并排除未跨越 V-J 区域的片段化序列。</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td align="left">
+<strong>Cells with productive TRA/TRB or IGH/IGK/IGL contig</strong><br>
+<em>含功能性 TRA/TRB 或 IGH/IGK/IGL 重叠群的细胞</em>
+</td>
+<td>
+<ul>
+<li><strong>定义</strong>: 必须同时满足 V-J 跨区（TRA/IGK/IGL）或 V-D-J 跨区（TRB/IGH）、`productive=true`（无移码突变且 CDR3 完整）以及阅读框正确（in-frame）。</li>
+<li><strong>用途</strong>: 用于评估可用于功能性 TCR/BCR 分析和克隆型识别的高可信受体序列。</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td align="left">
+<strong>Paired clonotype diversity</strong><br>
+<em>配对克隆型多样性</em>
+</td>
+<td>
+<ul>
+<li><strong>定义</strong>: 配对克隆型的有效多样性，计算为克隆型频率的逆辛普森指数。值为 1 表示仅检测到一个克隆型；值越接近估计细胞数，表示克隆型越分散。</li>
+<li><strong>判读建议</strong>:
+<ul>
+<li>该指标强依赖样本类型和生物学背景，可用于评估免疫受体克隆扩增程度。</li>
+<li>若低于预期，可能与样本中 B/T 细胞比例低、样本质量差、文库质量差或测序深度不足有关。</li>
+</ul>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+<h4 id="sequencing-metrics">测序指标 (Sequencing Metrics) <a id="测序指标"></a><a class="headerlink" href="#sequencing-metrics" title="Permanent link">&para;</a></h4>
+<div align="center">
+<p><strong>核心功能</strong>: 测序数据的基础质量评估，包括条形码识别率、比对质量和测序准确性</p>
+</div>
+<p><strong>质量控制标准：</strong></p>
+<blockquote>
+<p><strong>注意</strong>: 以下标准仅供参考，实际质量评估应考虑组织类型、细胞状态和实验目标等多种因素。不同样本间存在显著差异，建议结合具体实验背景进行判断。</p>
+</blockquote>
+<table style="width:100%; border-collapse: collapse; margin: 15px 0;">
+<thead>
+<tr>
+<th align="left" width="25%"><strong>指标名称</strong></th>
+<th align="left" width="30%"><strong>推荐值</strong></th>
+<th align="left" width="30%"><strong>可接受</strong></th>
+<th align="left" width="15%"><strong>需优化</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><strong>Valid barcodes</strong></td>
+<td align="left">≥ 80%</td>
+<td align="left">70–80%</td>
+<td align="left">&lt; 70%</td>
+</tr>
+<tr>
+<td align="left"><strong>Valid UMIs</strong></td>
+<td align="left">≥ 80%</td>
+<td align="left">70–80%</td>
+<td align="left">&lt; 70%</td>
+</tr>
+<tr>
+<td align="left"><strong>Q30 Base Quality</strong></td>
+<td align="left">≥ 85%</td>
+<td align="left">75–85%</td>
+<td align="left">&lt; 75%</td>
+</tr>
+</tbody>
+</table>
+<p><strong>详细指标解释：</strong></p>
+<table style="width:100%; border-collapse: collapse; margin: 15px 0;">
+<thead>
+<tr>
+<th align="left" width="30%"><strong>指标名称</strong></th>
+<th align="left" width="70%"><strong>详细解释与技术要求</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">
+<strong>Valid barcodes</strong><br>
+<em>有效条形码比例</em>
+</td>
+<td>
+<ul>
+<li><strong>定义</strong>: 在所有读段中，其细胞条形码（Cell Barcode）能够匹配到预设白名单（经过容错校正）的读段所占的比例。</li>
+<li><strong>用途</strong>: 用于评估细胞条形码识别是否稳定，直接影响读段能否正确归属到细胞。</li>
+<li><strong>判读建议</strong>: 比例过低通常提示条形码识别异常，可能与条形码区域测序质量、接头污染或文库构建质量有关。</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td align="left">
+<strong>Valid UMIs</strong><br>
+<em>有效 UMI 比例</em>
+</td>
+<td>
+<ul>
+<li><strong>定义</strong>: 在所有读段中，其唯一分子标识符（UMI）序列不包含 `N` 碱基且不为同聚物（如 `AAAAAA`）的比例。</li>
+<li><strong>用途</strong>: 用于评估 UMI 序列是否可用于可靠的分子去重和计数。</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td align="left">
+<strong>Q30 Base Quality</strong><br>
+<em>Q30 碱基比例</em>
+</td>
+<td>
+<ul>
+<li><strong>定义</strong>: 在细胞条形码、UMI 和 RNA 读段序列中，测序质量值 Q30 及以上的碱基所占比例。</li>
+<li><strong>用途</strong>: Q30 表示碱基测序错误率低于 0.1%。该指标用于评估条形码识别、UMI 计数和 V(D)J 序列组装的基础准确性。</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+<h4 id="enrichment-metrics">基因富集性能指标 (Enrichment Metrics) <a id="基因富集性能指标"></a><a class="headerlink" href="#enrichment-metrics" title="Permanent link">&para;</a></h4>
+<div align="center">
+<p><strong>核心功能</strong>: V(D)J 基因富集效率评估，反映免疫受体序列的捕获效果</p>
+</div>
+<p><strong>质量控制标准：</strong></p>
+<blockquote>
+<p><strong>注意</strong>: 以下标准仅供参考，实际质量评估应考虑组织类型、细胞状态和实验目标等多种因素。不同样本间存在显著差异，建议结合具体实验背景进行判断。</p>
+</blockquote>
+<table style="width:100%; border-collapse: collapse; margin: 15px 0;">
+<thead>
+<tr>
+<th align="left" width="25%"><strong>指标类别</strong></th>
+<th align="left" width="25%"><strong>推荐值</strong></th>
+<th align="left" width="25%"><strong>可接受</strong></th>
+<th align="left" width="25%"><strong>需优化</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><strong>Reads mapped to any V(D)J gene</strong></td>
+<td align="left">≥ 50%</td>
+<td align="left">30–50%</td>
+<td align="left">&lt; 30%</td>
+</tr>
+</tbody>
+</table>
+<p><strong>详细指标解释：</strong></p>
+<table style="width:100%; border-collapse: collapse; margin: 15px 0;">
+<thead>
+<tr>
+<th align="left" width="30%"><strong>指标名称</strong></th>
+<th align="left" width="70%"><strong>详细解释与技术要求</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">
+<strong>Reads mapped to any V(D)J gene</strong><br>
+<em>任意 V(D)J 基因映射读段比例</em>
+</td>
+<td>
+<ul>
+<li><strong>定义</strong>: 具有有效条形码且部分或完全映射到任意胚系 V(D)J 基因片段的读段占比。</li>
+<li><strong>判读建议</strong>:
+<ul>
+<li><strong>&lt;30%</strong>: 可能提示样本中 B/T 细胞比例偏低、样本质量下降、文库富集效率不足或参考基因组不匹配。</li>
+</ul>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td align="left">
+<strong>Reads mapped to TRA/TRB/IGH/IGK/IGL</strong><br>
+<em>TRA/TRB/IGH/IGK/IGL 特异性免疫受体链映射比例</em>
+</td>
+<td>
+<ul>
+<li><strong>类型定义</strong>:</li>
+<ul>
+<li><strong>TRA vs TRB</strong>: TRA（α 链）表达水平通常低于 TRB（β 链），该比例用于辅助判断 TCR 链捕获是否符合预期。</li>
+<li><strong>IGH vs IGK/IGL</strong>: 重链和轻链呈现配对表达特征，映射比例用于评估 BCR 各免疫受体链的相对表达丰度。</li>
+</ul>
+<li><strong>计算基准说明</strong>: 以上富集指标均以有效条形码读段总量作为分母进行计算。</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+<h4 id="vdj-vdj-annotation">V(D)J 注释分析 (V(D)J Annotation) <a id="vdj注释分析"></a><a class="headerlink" href="#vdj-vdj-annotation" title="Permanent link">&para;</a></h4>
+<div align="center">
+<p><strong>核心功能</strong>: 生产性重排配对分析，评估免疫受体的功能性表达水平</p>
+</div>
+<p><strong>质量控制标准：</strong></p>
+<blockquote>
+<p><strong>注意</strong>: 以下标准仅供参考，实际质量评估应考虑组织类型、细胞状态和实验目标等多种因素。不同样本间存在显著差异，建议结合具体实验背景进行判断。</p>
+</blockquote>
+<table style="width:100%; border-collapse: collapse; margin: 15px 0;">
+<thead>
+<tr>
+<th align="left" width="25%"><strong>指标名称</strong></th>
+<th align="left" width="25%"><strong>推荐值</strong></th>
+<th align="left" width="25%"><strong>可接受</strong></th>
+<th align="left" width="25%"><strong>需优化</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><strong>Cells with productive V-J spanning pair</strong></td>
+<td align="left">≥ 40%</td>
+<td align="left">20–40%</td>
+<td align="left">&lt; 20%</td>
+</tr>
+</tbody>
+</table>
+<p><strong>详细指标解释：</strong></p>
+<table style="width:100%; border-collapse: collapse; margin: 15px 0;">
+<thead>
+<tr>
+<th align="left" width="30%"><strong>指标名称</strong></th>
+<th align="left" width="70%"><strong>详细解释与技术要求</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">
+<strong>Number of Cells with Productive V-J Spanning Pair</strong><br>
+<em>具有生产性 V-J 跨越配对的细胞绝对数量</em>
+</td>
+<td>
+<ul>
+<li><strong>定义</strong>: 至少具有一个 TRA/TRB 配对或免疫球蛋白重链/轻链配对生产性重叠群的细胞总数。</li>
+<li><strong>用途</strong>: 用于评估可进入功能性 TCR/BCR 配对分析的细胞规模。</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td align="left">
+<strong>Cells with productive V-J spanning pair</strong><br>
+<em>生产性 V-J 跨越配对细胞比例</em>
+</td>
+<td>
+<ul>
+<li><strong>定义</strong>: 具有至少一个完整受体配对（每个链均有生产性重叠群）的细胞相关条形码占比。</li>
+<li><strong>用途</strong>: 用于评估样本中可用于可靠克隆型分析和功能性受体解释的细胞比例。</li>
+<li><strong>生产性重叠群判定标准</strong>:
+    <ul>
+    <li><strong>跨越完整性</strong>：重叠群注释完整跨越从 V 区域 5' 端到对应链 J 区域 3' 端。</li>
+    <li><strong>起始密码子</strong>：在 V 序列预期位置成功识别有效起始密码子（ATG）。</li>
+    <li><strong>CDR3 完整性</strong>：发现完整的框内 CDR3 氨基酸基序。</li>
+    <li><strong>阅读框正确</strong>：比对的 V-J 区域中无提前终止密码子（无移码突变）。</li>
+    </ul>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td align="left">
+<strong>Cells with productive V-J spanning (IGK, IGH) pair</strong><br>
+<em>IGK/IGH 生产性配对细胞比例</em>
+</td>
+<td>
+<ul>
+<li><strong>定义</strong>: 具有（IGK, IGH）免疫球蛋白受体配对且每个链均有至少一个生产性重叠群的细胞相关条形码占比。</li>
+<li><strong>判读建议</strong>:
+    <ul>
+    <li>该指标适用于 BCR 数据集，反映 IGK 与 IGH 成功配对的细胞比例。</li>
+    <li>数值受样本中 κ 轻链 B 细胞亚群比例影响，κ/λ 轻链使用比例会因物种、样本和个体差异而变化。</li>
+    </ul>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td align="left">
+<strong>Cells with productive V-J spanning (IGL, IGH) pair</strong><br>
+<em>IGL/IGH 生产性配对细胞比例</em>
+</td>
+<td>
+<ul>
+<li><strong>定义</strong>: 具有（IGL, IGH）免疫球蛋白受体配对且每个链均有至少一个生产性重叠群的细胞相关条形码占比。</li>
+<li><strong>判读建议</strong>:
+    <ul>
+    <li>该指标适用于 BCR 数据集，反映 IGL 与 IGH 成功配对的细胞比例。</li>
+    <li>与 IGK 配对指标互补，用于共同判断 B 细胞轻链使用模式。</li>
+    </ul>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td align="left">
+<strong>Cells with productive V-J spanning (TRA, TRB) pair</strong><br>
+<em>TRA/TRB 生产性配对细胞比例</em>
+</td>
+<td>
+<ul>
+<li><strong>定义</strong>: 具有（TRA, TRB）T 细胞受体配对且每个链均有至少一个生产性重叠群的细胞相关条形码占比。</li>
+<li><strong>判读建议</strong>:
+    <ul>
+    <li>该指标适用于 TCR 数据集，反映 TCR α 链与 β 链成功配对的细胞比例。</li>
+    <li>比例较高通常说明样本中可用于 αβ T 细胞功能性受体分析的细胞更多。</li>
+    </ul>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+<h4 id="1">可视化图表1 <a id="可视化图表1"></a><a class="headerlink" href="#1" title="Permanent link">&para;</a></h4>
+<div align="center">
+<p><strong>核心功能</strong>: V(D)J 细胞质量控制、UMI 分析和免疫受体表达评估的多维度可视化展示</p>
+</div>
+<h5 id="vdj-vdj-barcode-rank-plot">V(D)J 细胞排序分析图 (V(D)J Barcode Rank Plot)<a class="headerlink" href="#vdj-vdj-barcode-rank-plot" title="Permanent link">&para;</a></h5>
+<p><strong>图表功能：</strong> 展示每个细胞的 UMI 数量分布（仅统计生产性重叠群的 UMI），用于评估细胞识别结果和背景噪音水平。</p>
+<div align="center">
+<p><img src="../images/html_scvdj3.jpg" alt="V(D)J 细胞排序分析图" width="400"></p>
+</div>
+<p><strong>如何解读</strong>：</p>
+<ul>
+<li><strong>坐标轴</strong>:<ul>
+<li><strong>X 轴 (Barcode Rank)</strong>: 所有细胞条形码按 UMI 总数降序排列（对数刻度）。</li>
+<li><strong>Y 轴 (UMI Counts)</strong>: 每个细胞对应的总 UMI 数量（对数刻度）。</li>
+</ul>
+</li>
+<li><strong>视觉编码</strong>:<ul>
+<li><strong>蓝色线</strong>: 已识别的有效细胞。</li>
+<li><strong>灰色线</strong>: 背景噪音细胞。</li>
+<li><strong>蓝色渐变区域</strong>: 细胞与背景噪音的过渡区域。</li>
+</ul>
+</li>
+<li><strong>质量评估</strong>:<ul>
+<li>质量较好的样本通常在细胞相关条形码与背景之间有清晰分离，表现为曲线快速下降。</li>
+<li>BCR V(D)J 数据中可能出现一组高 UMI 计数细胞，通常对应免疫球蛋白表达较高的浆细胞或浆母细胞。</li>
+</ul>
+</li>
+</ul>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+<h4 id="2">可视化图表2 <a id="可视化图表2"></a><a class="headerlink" href="#2" title="Permanent link">&para;</a></h4>
+<div align="center">
+<p><strong>核心功能</strong>: 克隆型丰度分析和免疫受体多样性评估的可视化展示</p>
+</div>
+<h5 id="_10">克隆型丰度统计分析<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h5>
+<p><strong>图表功能：</strong> 展示样本中克隆型的相对丰度分布，用于评估免疫应答是否由少数优势克隆主导。</p>
+<div align="center">
+<p><img src="../images/html_scvdj2.png" alt="scVDJ 克隆型分析图表" width="500"></p>
+</div>
+<p><strong>如何解读</strong>：</p>
+<ul>
+<li><strong>上图 (Top 10 Clonotypes)</strong>: 柱状图显示样本中丰度最高的 10 个克隆型所占细胞比例。比例越集中，通常表示克隆扩增越明显。</li>
+<li><strong>下表 (详细信息表格)</strong>: 提供前 10 个克隆型的详细信息，包括克隆型 ID、CDR3 氨基酸/核苷酸序列、绝对频率和相对比例。</li>
+</ul>
+</div>
+<div style="max-width: 1200px; margin: 0 auto;">
+<hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;">
+</div>
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
+<h2 id="_11">相关文档<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h2>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">文档</th>
+<th style="text-align: left;">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><a href="../pipeline/scVDJ.html">scVDJ 流程</a></td>
+<td style="text-align: left;">scVDJ 分析流程详细说明</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="../parameter/scVDJ.html">scVDJ 参数</a></td>
+<td style="text-align: left;">命令参数参考文档</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="outs.html">输出文件</a></td>
+<td style="text-align: left;">返回总输出文档索引</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div align="center" style="background: #f5f5f7; border-radius: 12px; padding: 30px; margin: 40px auto; max-width: 1200px;">
+<blockquote>
+<p><strong>反馈与支持</strong></p>
+<p>本文档持续维护更新。若发现内容错误或需要补充信息，请通过 GitHub Issues 反馈。</p>
+<p><strong>文档版本：</strong> 3.1 | <strong>最后更新：</strong> 2026 年 5 月 15 日</p>
+</blockquote>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 MGI Tech Bioinformatics. All rights reserved.<br>
+Documentation Version 3.1 · Last updated May 15, 2026
+
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["search.suggest", "search.highlight"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../javascripts/lang-toggle.js"></script>
+      
+    
+  </body>
+</html>

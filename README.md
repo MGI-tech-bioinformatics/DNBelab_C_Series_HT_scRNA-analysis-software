@@ -2,111 +2,52 @@
 
 # DNBelab C Series™ HT Single-Cell Analysis Software
 
-[![Github Release](https://img.shields.io/github/v/release/MGI-tech-bioinformatics/DNBelab_C_Series_HT_scRNA-analysis-software)](https://github.com/MGI-tech-bioinformatics/DNBelab_C_Series_HT_scRNA-analysis-software/releases) [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE) [![Documentation](https://img.shields.io/badge/docs-latest-brightgreen.svg)](https://lishuangshuang0616.github.io/DNBelab_C_Series_HT_scRNA-analysis-software/Document/README.html) [![Platform](https://img.shields.io/badge/platform-Linux-lightgrey.svg)](#system-requirements)
+[![Github Release](https://img.shields.io/github/v/release/MGI-tech-bioinformatics/DNBelab_C_Series_HT_scRNA-analysis-software)](https://github.com/MGI-tech-bioinformatics/DNBelab_C_Series_HT_scRNA-analysis-software/releases)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/MGI-tech-bioinformatics/DNBelab_C_Series_HT_scRNA-analysis-software/blob/main/LICENSE)
+[![Documentation](https://img.shields.io/badge/docs-latest-brightgreen.svg)](https://mgi-tech-bioinformatics.github.io/DNBelab_C_Series_HT_scRNA-analysis-software/Document/site/index.html)
+[![Platform](https://img.shields.io/badge/platform-Linux-lightgrey.svg)](./doc/installation.md#system-requirements)
 
-**The official pipeline for flexible and high-performance analysis of DNBelab C Series™ single-cell data.**
+A high-performance single-cell analysis toolkit for DNBelab C Series™ data. CLI tool: **`dnbc4tools`**.
 
-The command-line tool for this pipeline is named **`dnbc4tools`**.
-
-🧬 **scRNA-seq** | 🧪 **scATAC-seq** | 🦠 **scVDJ-seq**
-
-📚 **Documentation**: [**User Guide**](https://mgi-tech-bioinformatics.github.io/DNBelab_C_Series_HT_scRNA-analysis-software/Document/README.html)
-
+**scRNA-seq** | **scATAC-seq** | **scVDJ-seq** | **Multi-omics**
 </div>
+<br>
 
 ---
 
-## 🖥️ System Requirements
+## Documentation
 
-<table>
-<tr>
-<td><strong>Hardware</strong></td>
-<td><strong>Specification</strong></td>
-<td><strong>Recommendation</strong></td>
-</tr>
-<tr>
-<td>Processor</td>
-<td>x86-64 compatible</td>
-<td>Multi-core server CPU</td>
-</tr>
-<tr>
-<td>Memory</td>
-<td>50GB RAM minimum</td>
-<td>128GB+ recommended</td>
-</tr>
-<tr>
-<td>CPU Cores</td>
-<td>8 cores minimum</td>
-<td>16+ cores</td>
-</tr>
-<tr>
-<td>Storage</td>
-<td>SSD recommended</td>
-<td>High-speed SSD</td>
-</tr>
-<tr>
-<td>OS</td>
-<td>Linux 64-bit</td>
-<td>Ubuntu 20.04+ / CentOS 7+</td>
-</tr>
-</table>
+> We recommend starting with the online manual for a complete guide to using this pipeline.
+
+| Resource | Description |
+|:---|:---|
+| [**Documentation Home**](https://mgi-tech-bioinformatics.github.io/DNBelab_C_Series_HT_scRNA-analysis-software/Document/site/index.html) | Full reference documentation and tutorials |
+| [**Installation Guide**](https://mgi-tech-bioinformatics.github.io/DNBelab_C_Series_HT_scRNA-analysis-software/Document/site/doc/installation.html) | System requirements and installation steps |
+| [**Quick Start**](https://mgi-tech-bioinformatics.github.io/DNBelab_C_Series_HT_scRNA-analysis-software/Document/site/doc/quickstart.html) | Get up and running in minutes |
 
 ---
 
-## 📚 Documentation
+## What's New in v3.1
 
-| Guide | Purpose |
-| :--- | :--- |
-| **[Installation](./doc/installation.md)** | Set up dnbc4tools on your system. |
-| **[Quick Start](./doc/quickstart.md)** | Run your first analysis with sample data. |
-| **[Pipeline Guides](./doc/pipeline/pipeline.md)** | In-depth workflow documentation for: <br> [scRNA-seq](./doc/pipeline/scRNA_en.md) \| [scATAC-seq](./doc/pipeline/scATAC_en.md) \| [scVDJ-seq](./doc/pipeline/scVDJ_en.md) |
-| **[Parameters](./doc/parameter/parameter.md)** | Command reference and parameter settings for: <br> [scRNA-seq](./doc/parameter/scRNA_en.md) \| [scATAC-seq](./doc/parameter/scATAC_en.md) \| [scVDJ-seq](./doc/parameter/scVDJ_en.md) |
-| **[Outputs](./doc/outs/outs.md)** | Guides to understanding your results for: <br> [scRNA-seq](./doc/outs/scRNA_en.md) \| [scATAC-seq](./doc/outs/scATAC_en.md) \| [scVDJ-seq](./doc/outs/scVDJ_en.md) |
-| **[Analysis](./doc/io.md)** | Analyze results in R and Python. |
-| **[Demo Datasets](./doc/dataset.md)** | Access sample datasets for testing. |
+- **Multi-omics Analysis** — Single-sample multi-omics workflow supporting RNA + VDJ combined analysis
+- **Consistent Cell Analysis** — New `--consistent_cells` parameter for reproducible downstream processing
+- **Bug Fixes** — Fixed calculation errors in cell metrics and dual-species database handling
+- **Performance** — Optimized processing speed for `bam2fastq` and `fqsubC4` tools
+
+[**Full Release Notes**](https://mgi-tech-bioinformatics.github.io/DNBelab_C_Series_HT_scRNA-analysis-software/Document/site/doc/release.html)
 
 ---
 
-## 🤝 Support and Community
+## Support & Community
 
-### Get Help
-
-**Questions, Bug Reports, or Feature Requests:**  
-[GitHub Issues](https://github.com/MGI-tech-bioinformatics/DNBelab_C_Series_HT_scRNA-analysis-software/issues)
-
-### Contact Information
-
-- **Website**: [www.mgitech.cn](https://www.mgitech.cn)
----
-
-## 🚀 What's New
-
-### What's New in v3.0
-
-<details open>
-<summary><strong>New Features & Improvements</strong></summary>
-
-#### RNA-Seq Enhancements
-- **Annotation Logic**: Optimized RNA annotation for improved accuracy
-- **HTML Reports**: Updated interactive reports with more informative metrics
-- **Feature Matrices**: Included `gene_id` and `gene_name` in the feature file
-- **BAM Output**: Added comprehensive metadata tags to BAM alignment file
-- **Mixed Species**: Enabled support for dual-species analysis
-
-#### VDJ Analysis Upgrades
-- **Assembly & Annotation**: Improved algorithms for V(D)J assembly and annotation
-- **Output Format**: Standardized outputs for better compatibility with third-party tools
-
-#### Performance & Usability
-- **Storage Optimization**: Automatic removal of intermediate files to save disk space
-- **Directory Structure**: Reorganized output directories and logs for better readability
-- **Parallel Processing**: Implemented multi-threading for faster execution
-
-</details>
-
-
-> **Note**: This is the stable release version. Users on beta or Release Candidate (RC) versions should update to this stable release. If you wish to use version 2.1.3, please switch to the [`version2.0`](https://github.com/MGI-tech-bioinformatics/DNBelab_C_Series_HT_scRNA-analysis-software/tree/version2.0) branch.
-
-**Full Release History**: [Release Notes](./doc/release.md)
+- **Questions, bug reports, feature requests** → [GitHub Issues](https://github.com/MGI-tech-bioinformatics/DNBelab_C_Series_HT_scRNA-analysis-software/issues)
+- **Website** → [www.mgi-tech.com](https://www.mgi-tech.com)
 
 ---
+
+## Version Note
+
+This is the stable release version (**v3.1**).
+Users on beta or RC versions are recommended to update.
+
+For version **2.1.3**, switch to the [`version2.0`](https://github.com/MGI-tech-bioinformatics/DNBelab_C_Series_HT_scRNA-analysis-software/tree/version2.0) branch.

@@ -1,0 +1,3315 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentation site generated from README and doc markdown files">
+      
+      
+      
+      
+        <link rel="prev" href="parameter.html">
+      
+      
+        <link rel="next" href="scATAC.html">
+      
+      
+        
+          <link rel="alternate" href="scRNA.html" hreflang="zh">
+        
+          <link rel="alternate" href="../../en/doc/parameter/scRNA.html" hreflang="en">
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.svg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>scRNA - DNBelab C Series™ HT 单细胞分析软件</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#scrna" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../index.html" title="DNBelab C Series™ HT 单细胞分析软件" class="md-header__button md-logo" aria-label="DNBelab C Series™ HT 单细胞分析软件" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 2h2v2c0 1.44.68 2.61 1.88 3.78.86.83 2.01 1.63 3.21 2.42l-1.83 1.19C8.27 10.72 7.31 10 6.5 9.21 5.07 7.82 4 6.1 4 4zm14 0h2v2c0 2.1-1.07 3.82-2.5 5.21-1.41 1.38-3.21 2.52-4.96 3.63-1.75 1.12-3.45 2.21-4.66 3.38C6.68 17.39 6 18.56 6 20v2H4v-2c0-2.1 1.07-3.82 2.5-5.21 1.41-1.38 3.21-2.52 4.96-3.63 1.75-1.12 3.45-2.21 4.66-3.38C17.32 6.61 18 5.44 18 4zm-3.26 10.61c.99.67 1.95 1.39 2.76 2.18C18.93 16.18 20 17.9 20 20v2h-2v-2c0-1.44-.68-2.61-1.88-3.78-.86-.83-2.01-1.63-3.21-2.42zM7 3h10v1l-.06.5H7.06L7 4zm.68 3h8.64c-.24.34-.52.69-.9 1.06l-.51.44H9.07l-.49-.44c-.38-.37-.66-.72-.9-1.06m1.41 10.5h5.84l.49.44c.38.37.66.72.9 1.06H7.68c.24-.34.52-.69.9-1.06zm-2.03 3h9.88l.06.5v1H7v-1z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            DNBelab C Series™ HT 单细胞分析软件
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              scRNA
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="blue"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="blue"  aria-hidden="true"  type="radio" name="__palette" id="__palette_1">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="选择当前语言">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="scRNA.html" hreflang="zh" class="md-select__link">
+              中文
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../en/doc/parameter/scRNA.html" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/MGI-tech-bioinformatics/DNBelab_C_Series_HT_scRNA-analysis-software" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    MGI-tech-bioinformatics/DNBelab_C_Series_HT_scRNA-analysis-software
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../index.html" title="DNBelab C Series™ HT 单细胞分析软件" class="md-nav__button md-logo" aria-label="DNBelab C Series™ HT 单细胞分析软件" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 2h2v2c0 1.44.68 2.61 1.88 3.78.86.83 2.01 1.63 3.21 2.42l-1.83 1.19C8.27 10.72 7.31 10 6.5 9.21 5.07 7.82 4 6.1 4 4zm14 0h2v2c0 2.1-1.07 3.82-2.5 5.21-1.41 1.38-3.21 2.52-4.96 3.63-1.75 1.12-3.45 2.21-4.66 3.38C6.68 17.39 6 18.56 6 20v2H4v-2c0-2.1 1.07-3.82 2.5-5.21 1.41-1.38 3.21-2.52 4.96-3.63 1.75-1.12 3.45-2.21 4.66-3.38C17.32 6.61 18 5.44 18 4zm-3.26 10.61c.99.67 1.95 1.39 2.76 2.18C18.93 16.18 20 17.9 20 20v2h-2v-2c0-1.44-.68-2.61-1.88-3.78-.86-.83-2.01-1.63-3.21-2.42zM7 3h10v1l-.06.5H7.06L7 4zm.68 3h8.64c-.24.34-.52.69-.9 1.06l-.51.44H9.07l-.49-.44c-.38-.37-.66-.72-.9-1.06m1.41 10.5h5.84l.49.44c.38.37.66.72.9 1.06H7.68c.24-.34.52-.69.9-1.06zm-2.03 3h9.88l.06.5v1H7v-1z"/></svg>
+
+    </a>
+    DNBelab C Series™ HT 单细胞分析软件
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/MGI-tech-bioinformatics/DNBelab_C_Series_HT_scRNA-analysis-software" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    MGI-tech-bioinformatics/DNBelab_C_Series_HT_scRNA-analysis-software
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    首页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../installation.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    安装
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quickstart.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    快速开始
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    流程
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    流程
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pipeline/pipeline.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    总览
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pipeline/scRNA.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    scRNA
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pipeline/scATAC.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    scATAC
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pipeline/scVDJ.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    scVDJ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pipeline/multi.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    多组学
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    参数
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    参数
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="parameter.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    总览
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    scRNA
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="scRNA.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    scRNA
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        概述
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#run" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        主分析流程 (run)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="主分析流程 (run)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        用法
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        参数说明
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="参数说明">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        必需参数
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-name" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        --name (必需)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-genomedir" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        --genomeDir (必需)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        输入文件参数
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-fastqs-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        --fastqs (方式1)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-cdnafastq1-2a" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        --cDNAfastq1 (方式2A)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-cdnafastq2-2b" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        --cDNAfastq2 (方式2B)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-oligofastq1-2c" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        --oligofastq1 (方式2C)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-oligofastq2-2d" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        --oligofastq2 (方式2D)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        基本设置参数
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-outdir" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        --outdir (可选)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-threads" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        --threads (可选)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        过滤设置参数
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-calling_method" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        --calling_method (可选)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-expectcells" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        --expectcells (可选)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-forcecells" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        --forcecells (可选)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-minumi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        --minumi (可选)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-consistent_cells" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        --consistent_cells (可选)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        文库设置参数
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-chemistry" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        --chemistry (可选)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-darkreaction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        --darkreaction (可选)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-customize" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        --customize (高级)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        分析设置参数
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-no_introns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        --no_introns (标志)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-end5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        --end5 (标志)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-no_bam" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        --no_bam (标志)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-sample_read_pairs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        --sample_read_pairs (可选)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mkref" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        参考数据库构建 (mkref)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="参考数据库构建 (mkref)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        用法
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        参数说明
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="参数说明">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        必需参数
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-fasta" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        --fasta (必需)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-ingtf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        --ingtf (必需)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        设置参数
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-genomedir_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        --genomeDir (可选)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-species" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        --species (可选)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-threads_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        --threads (可选)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        高级设置参数
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-chrm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        --chrM (可选)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-limitram" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        --limitram (可选)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-extra-args" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        --extra-args (高级)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-noindex" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        --noindex (标志)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#multi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        多样本操作 (multi)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="多样本操作 (multi)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        用法
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        参数说明
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="参数说明">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        必需参数
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-list" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        --list (必需)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        相关文档
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="scATAC.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    scATAC
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="scVDJ.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    scVDJ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="multi.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    多组学
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tools.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    工具
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    输出
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    输出
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../outs/outs.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    总览
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../outs/scRNA.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    scRNA
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../outs/scATAC.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    scATAC
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../outs/scVDJ.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    scVDJ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../outs/multi.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    多组学
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../io.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    结果分析
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../release.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    版本说明
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dataset.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    数据集
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    附加
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    附加
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../installation_previous.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    旧版安装
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../json.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    JSON 规范
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        概述
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#run" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        主分析流程 (run)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="主分析流程 (run)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        用法
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        参数说明
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="参数说明">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        必需参数
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-name" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        --name (必需)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-genomedir" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        --genomeDir (必需)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        输入文件参数
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-fastqs-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        --fastqs (方式1)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-cdnafastq1-2a" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        --cDNAfastq1 (方式2A)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-cdnafastq2-2b" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        --cDNAfastq2 (方式2B)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-oligofastq1-2c" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        --oligofastq1 (方式2C)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-oligofastq2-2d" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        --oligofastq2 (方式2D)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        基本设置参数
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-outdir" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        --outdir (可选)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-threads" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        --threads (可选)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        过滤设置参数
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-calling_method" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        --calling_method (可选)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-expectcells" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        --expectcells (可选)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-forcecells" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        --forcecells (可选)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-minumi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        --minumi (可选)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-consistent_cells" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        --consistent_cells (可选)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        文库设置参数
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-chemistry" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        --chemistry (可选)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-darkreaction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        --darkreaction (可选)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-customize" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        --customize (高级)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        分析设置参数
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-no_introns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        --no_introns (标志)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-end5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        --end5 (标志)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-no_bam" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        --no_bam (标志)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-sample_read_pairs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        --sample_read_pairs (可选)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mkref" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        参考数据库构建 (mkref)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="参考数据库构建 (mkref)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        用法
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        参数说明
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="参数说明">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        必需参数
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-fasta" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        --fasta (必需)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-ingtf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        --ingtf (必需)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        设置参数
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-genomedir_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        --genomeDir (可选)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-species" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        --species (可选)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-threads_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        --threads (可选)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        高级设置参数
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-chrm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        --chrM (可选)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-limitram" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        --limitram (可选)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-extra-args" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        --extra-args (高级)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-noindex" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        --noindex (标志)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#multi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        多样本操作 (multi)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="多样本操作 (multi)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        用法
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        参数说明
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="参数说明">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        必需参数
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-list" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        --list (必需)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        相关文档
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<div align="right" style="margin-bottom: 20px; max-width: 1200px; margin-left: auto; margin-right: auto;">
+<p><a href="../../index.html">首页</a></p>
+</div>
+<div align="center" style="padding: 40px 20px; background: linear-gradient(135deg, #f5f5f7 0%, #ffffff 100%); border-radius: 12px; margin-bottom: 30px; max-width: 1200px; margin-left: auto; margin-right: auto;">
+<h1 id="scrna" style="font-size: 48px; font-weight: 600; color: #1d1d1f; margin: 0 0 16px 0; letter-spacing: -0.02em;">scRNA 分析参数<a class="headerlink" href="#scrna" title="Permanent link">&para;</a></h1>
+<p style="font-size: 21px; color: rgba(0,0,0,0.6); margin: 0 0 30px 0; font-weight: 400;">DNBelab C Series HT scRNA 参数配置说明</p>
+<div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+<a href="#主分析流程-run" style="background: #0071e3; color: white; padding: 8px 16px; border-radius: 980px; text-decoration: none; font-size: 14px;">主分析 (run)</a>
+<a href="#参考数据库构建-mkref" style="background: transparent; color: #0071e3; padding: 8px 16px; border-radius: 980px; text-decoration: none; font-size: 14px; border: 1px solid #0071e3;">数据库构建 (mkref)</a>
+<a href="#多样本操作-multi" style="background: transparent; color: #0071e3; padding: 8px 16px; border-radius: 980px; text-decoration: none; font-size: 14px; border: 1px solid #0071e3;">多样本 (multi)</a>
+</div>
+</div>
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
+<h2 id="_1">概述 <a id="概述"></a><a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>本文档说明 <code>dnbc4tools rna</code> 各子命令的参数含义、默认行为和常见使用方式，覆盖单样本分析 (<code>run</code>)、参考库构建 (<code>mkref</code>) 与多样本任务生成 (<code>multi</code>)。</p>
+<p><strong>提示：</strong> 参数说明以当前命令行帮助信息为基础，示例可直接作为模板调整后使用。</p>
+</div>
+<div style="max-width: 1200px; margin: 0 auto;">
+<hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;">
+</div>
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
+<h2 id="run">主分析流程 (run) <a id="主分析流程-run"></a><a class="headerlink" href="#run" title="Permanent link">&para;</a></h2>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #d2d2d7; overflow-x: auto;">
+<h3 id="_2">用法 <a id="usage"></a><a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<pre><code class="language-shell">$ dnbc4tools rna run
+dnbc4tools 3.1
+
+Process a single-cell RNA-seq sample.
+
+Usage: dnbc4tools rna run [OPTIONS]
+
+optional arguments:
+  --help                     show this help message and exit
+
+Input Files:
+  Choose one input method: either `--fastqs` (directory input) or all four individual FASTQ files.
+
+  --fastqs &lt;DIR&gt;             Directory containing cDNA and oligo FASTQ subfolders (e.g., `cDNA/sample_cdna_R1.fastq.gz`, `oligo/sample_oligo_L01_R1.fastq.gz`). The pipeline automatically detects paired-end files.
+  --cDNAfastq1 &lt;FILE&gt;        cDNA Read 1 FASTQ list. Supports wildcard and comma-separated inputs (e.g., `sample1_R1.fastq.gz,sample2_R1.fastq.gz`).
+  --cDNAfastq2 &lt;FILE&gt;        cDNA Read 2 FASTQ list. Order must match `--cDNAfastq1` (e.g., `sample1_R2.fastq.gz,sample2_R2.fastq.gz`).
+  --oligofastq1 &lt;FILE&gt;       Oligo Read 1 FASTQ list for barcode merging. Supports wildcard and comma-separated inputs.
+  --oligofastq2 &lt;FILE&gt;       Oligo Read 2 FASTQ list. Order must match `--oligofastq1` (e.g., `sample1_oligo_R2.fastq.gz`).
+
+Basic Settings:
+  --name &lt;STR&gt;               Unique identifier for the sample. Used for naming output files and reports (e.g., `sample1`).
+  --genomeDir &lt;DIR&gt;          Reference genome directory path containing STAR index files (e.g., `./genome_index`).
+  --outdir &lt;DIR&gt;             Output directory path for results and reports [default: current directory] (e.g., `./output`).
+  --threads &lt;INT&gt;            Number of CPU threads for parallel processing [default: all available cores] (e.g., `16`).
+
+Filtering Settings:
+  --calling_method &lt;STR&gt;     Cell detection method [default: emptydrops]. Supported values: `barcoderanks`, `emptydrops`.
+  --expectcells &lt;INT&gt;        Expected number of cells to guide detection [default: auto] (e.g., `3000`).
+  --forcecells &lt;INT&gt;         Force pipeline to use exactly this number of cells, overriding expected cell detection (e.g., `5000`).
+  --minumi &lt;INT&gt;             Minimum UMI count per cell to retain [default: 1000].
+  --consistent_cells &lt;FILE&gt;  Headered CSV for merge/cell-calling constraints. Supported schemas: `cell`; `cell,barcode`; `cell,is_cell_barcode`; `cell,barcode,is_cell_barcode`. Other columns are ignored.
+
+Library Settings:
+  --chemistry &lt;STR&gt;          Library chemistry version [default: auto]. Options: `scRNAv1HT`, `scRNAv2HT`, `scRNAv3HT`, `scRNA5Pv1`, `auto` (automatic detection).
+  --darkreaction &lt;STR&gt;       Dark cycle setting for cDNA and oligo libraries [default: auto]. Provide two comma-separated values in the form `&lt;cDNA&gt;,&lt;oligo&gt;`. Each field may be one of: `auto`, `R1R2`, `R1`, `unset`.
+  --customize &lt;STR&gt;          Custom read structure string. Format: `&lt;type&gt;,&lt;read&gt;:&lt;start&gt;-&lt;end&gt;` joined by `;`. cDNA (e.g., `cb,R1:1-10;cb,R1:11-20;umi,R1:21-30;R2,R2:1-100`). Oligo (e.g., `cb,R1:1-10;cb,R1:11-20;R1,R1:21-45`). For
+                             RNA, provide `--customize` twice when both cDNA and oligo are customized: first cDNA, then oligo.
+
+Analysis Settings:
+  --no_introns               Exclude intronic reads from the expression matrix to increase specificity.
+  --end5                     Enable 5'-end scRNA-seq analysis for 5' gene-expression profiling.
+  --no_bam                   Skip BAM file generation to save time and disk space.
+  --sample_read_pairs &lt;INT&gt;  Subsample this number of cDNA read pairs for analysis (e.g., `1000000`).
+</code></pre>
+</div>
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
+<h3 id="_3">参数说明<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+</div>
+<div style="max-width: 1200px; margin: 0 auto;">
+<h4 id="_4">必需参数<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h4>
+<p><strong>成功分析必须指定的基本参数</strong></p>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
+<h4 id="-name"><code>--name</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(必需)</span><a class="headerlink" href="#-name" title="Permanent link">&para;</a></h4>
+<p>为本次分析提供一个唯一的样本名称。</p>
+<ul>
+<li><strong>功能：</strong> 该名称将用作所有输出文件和HTML报告的前缀。</li>
+<li><strong>显示：</strong> 在最终的网页报告中，此名称将作为样本ID显示。</li>
+</ul>
+<p><strong>默认值：</strong> 无</p>
+<p><strong>示例：</strong></p>
+<pre><code>--name sample_001</code></pre>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
+<h4 id="-genomedir"><code>--genomeDir</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(必需)</span><a class="headerlink" href="#-genomedir" title="Permanent link">&para;</a></h4>
+<p>指定参考基因组目录的路径。</p>
+<ul>
+<li><strong>要求：</strong> 目录必须包含由 <code>mkref</code> 命令生成的索引和注释资源。</li>
+<li><strong>内容：</strong> 包含基因组序列、STAR 比对索引等。</li>
+</ul>
+<p><strong>默认值：</strong> 无</p>
+<p><strong>示例：</strong></p>
+<pre><code>--genomeDir /path/to/genome/database</code></pre>
+</div>
+<div style="max-width: 1200px; margin: 0 auto;">
+<hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;">
+</div>
+<div style="max-width: 1200px; margin: 0 auto;">
+<h4 id="_5">输入文件参数<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h4>
+<p><strong>选择一种输入方式：基于目录或单独指定文件</strong></p>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
+<h4 id="-fastqs-1"><code>--fastqs</code> <span style="font-size: 0.8em; font-weight: normal; color: #3498db;">(方式1)</span><a class="headerlink" href="#-fastqs-1" title="Permanent link">&para;</a></h4>
+<p>指定包含所有 FASTQ 文件的目录路径。</p>
+<ul>
+<li><strong>功能：</strong> 流程会自动检测此目录下（包含 cDNA 和 oligo两个子目录）的配对文件。</li>
+<li><strong>目录要求（RNA）：</strong> <code>--fastqs</code> 指向的目录下必须包含 <code>cDNA/</code> 和 <code>oligo/</code> 两个子目录，且每个子目录内都应放置对应文库的 R1/R2 配对文件。</li>
+<li><strong>命名规则：</strong> 自动检测依赖文件名中的 R1/R2 标识，支持 <code>_R1_</code>、<code>_R1</code>、<code>_1</code>、<code>_read1</code> 与对应的 <code>_R2_</code>、<code>_R2</code>、<code>_2</code>、<code>_read2</code>；支持 <code>.fastq.gz</code>、<code>.fq.gz</code>、<code>.fastq</code>、<code>.fq</code>。</li>
+<li><strong>注意：</strong> 这是一个便捷选项，不能与 <code>--cDNAfastq1</code> / <code>--cDNAfastq2</code> / <code>--oligofastq1</code> / <code>--oligofastq2</code> 同时使用。</li>
+</ul>
+<p><strong>推荐目录结构：</strong></p>
+<pre><code>fastq_directory/
+├── cDNA/
+│   ├── sample_cDNA_L01_R1.fastq.gz
+│   └── sample_cDNA_L01_R2.fastq.gz
+└── oligo/
+    ├── sample_oligo_L01_R1.fastq.gz
+    └── sample_oligo_L01_R2.fastq.gz</code></pre>
+<p><strong>默认值：</strong> 无</p>
+<p><strong>示例：</strong></p>
+<pre><code>--fastqs ./fastq_directory</code></pre>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
+<h4 id="-cdnafastq1-2a"><code>--cDNAfastq1</code> <span style="font-size: 0.8em; font-weight: normal; color: #3498db;">(方式2A)</span><a class="headerlink" href="#-cdnafastq1-2a" title="Permanent link">&para;</a></h4>
+<p>单独指定一个或多个 cDNA Read 1 FASTQ 文件。</p>
+<ul>
+<li><strong>支持：</strong> 可以使用通配符 (<code>*</code>) 匹配文件，使用逗号分隔来指定多个文件。</li>
+<li><strong>要求：</strong> 必须与 <code>--cDNAfastq2</code> 参数配对使用，且文件顺序必须完全匹配。</li>
+</ul>
+<p><strong>默认值：</strong> 无</p>
+<p><strong>示例：</strong></p>
+<pre><code>--cDNAfastq1 sample_cDNA_L01_R1.fastq.gz,sample_cDNA_L02_R1.fastq.gz</code></pre>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
+<h4 id="-cdnafastq2-2b"><code>--cDNAfastq2</code> <span style="font-size: 0.8em; font-weight: normal; color: #3498db;">(方式2B)</span><a class="headerlink" href="#-cdnafastq2-2b" title="Permanent link">&para;</a></h4>
+<p>单独指定一个或多个 cDNA Read 2 FASTQ 文件。</p>
+<ul>
+<li><strong>支持：</strong> 可以使用通配符 (<code>*</code>) 匹配文件，使用逗号分隔来指定多个文件。</li>
+<li><strong>要求：</strong> 必须与 <code>--cDNAfastq1</code> 参数配对使用，且文件顺序必须完全匹配。</li>
+</ul>
+<p><strong>默认值：</strong> 无</p>
+<p><strong>示例：</strong></p>
+<pre><code>--cDNAfastq2 sample_cDNA_L01_R2.fastq.gz,sample_cDNA_L02_R2.fastq.gz</code></pre>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
+<h4 id="-oligofastq1-2c"><code>--oligofastq1</code> <span style="font-size: 0.8em; font-weight: normal; color: #3498db;">(方式2C)</span><a class="headerlink" href="#-oligofastq1-2c" title="Permanent link">&para;</a></h4>
+<p>单独指定一个或多个 oligo Read 1 FASTQ 文件。</p>
+<ul>
+<li><strong>支持：</strong> 可以使用通配符 (<code>*</code>) 匹配文件，使用逗号分隔来指定多个文件。</li>
+<li><strong>要求：</strong> 必须与 <code>--oligofastq2</code> 参数配对使用，且文件顺序必须完全匹配。</li>
+</ul>
+<p><strong>默认值：</strong> 无</p>
+<p><strong>示例：</strong></p>
+<pre><code>--oligofastq1 sample_oligo_L01_R1.fastq.gz</code></pre>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
+<h4 id="-oligofastq2-2d"><code>--oligofastq2</code> <span style="font-size: 0.8em; font-weight: normal; color: #3498db;">(方式2D)</span><a class="headerlink" href="#-oligofastq2-2d" title="Permanent link">&para;</a></h4>
+<p>单独指定一个或多个 oligo Read 2 FASTQ 文件。</p>
+<ul>
+<li><strong>支持：</strong> 可以使用通配符 (<code>*</code>) 匹配文件，使用逗号分隔来指定多个文件。</li>
+<li><strong>要求：</strong> 必须与 <code>--oligofastq1</code> 参数配对使用，且文件顺序必须完全匹配。</li>
+</ul>
+<p><strong>默认值：</strong> 无</p>
+<p><strong>示例：</strong></p>
+<pre><code>--oligofastq2 sample_oligo_L01_R2.fastq.gz</code></pre>
+</div>
+<div style="background: #f5f5f7; border-radius: 12px; padding: 20px; margin: 20px auto; max-width: 1200px;">
+<p><strong>输入方式选择：</strong></p>
+<ul>
+<li><strong>方式1：</strong> 使用 <code>--fastqs</code> 指定包含 cDNA 和 oligo 子文件夹的目录。</li>
+<li><strong>方式2：</strong> 使用 <code>--cDNAfastq1</code>, <code>--cDNAfastq2</code>, <code>--oligofastq1</code>, <code>--oligofastq2</code> 分别指定 R1 和 R2 文件。</li>
+</ul>
+<p><strong>重要提示：</strong> 同一组输入文件必须来自同一文库，测序模式和暗反应设置需保持一致；不同文库的数据不能合并分析。</p>
+</div>
+<div style="max-width: 1200px; margin: 0 auto;">
+<hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;">
+</div>
+<div style="max-width: 1200px; margin: 0 auto;">
+<h4 id="_6">基本设置参数<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h4>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
+<h4 id="-outdir"><code>--outdir</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(可选)</span><a class="headerlink" href="#-outdir" title="Permanent link">&para;</a></h4>
+<p>指定所有分析结果和报告的输出目录。</p>
+<ul>
+<li><strong>功能：</strong> 所有分析结果将保存在此目录中，流程会自动创建以样本名命名的结构化子目录。</li>
+</ul>
+<p><strong>默认值：</strong> <code>./</code> (当前目录)</p>
+<p><strong>示例：</strong></p>
+<pre><code>--outdir ./output_results</code></pre>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
+<h4 id="-threads"><code>--threads</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(可选)</span><a class="headerlink" href="#-threads" title="Permanent link">&para;</a></h4>
+<p>设置分析过程中可使用的 CPU 线程数。</p>
+<ul>
+<li><strong>功能：</strong> 增加线程数可提高分析速度。</li>
+<li><strong>建议：</strong> 根据可用的 CPU 核心数进行调整，以获得最佳性能。</li>
+</ul>
+<p><strong>默认值：</strong> <code>使用所有可用的 CPU 核心</code></p>
+<p><strong>示例：</strong></p>
+<pre><code>--threads 32</code></pre>
+</div>
+<div style="max-width: 1200px; margin: 0 auto;">
+<hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;">
+</div>
+<div style="max-width: 1200px; margin: 0 auto;">
+<h4 id="_7">过滤设置参数<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h4>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
+<h4 id="-calling_method"><code>--calling_method</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(可选)</span><a class="headerlink" href="#-calling_method" title="Permanent link">&para;</a></h4>
+<p>设定细胞识别方法，用于区分真实细胞和空滴。</p>
+<details open="open">
+<summary><strong>方法对比分析</strong></summary>
+<div style="margin-top: 10px;">
+    <h5 style="margin-bottom: 5px; font-size: 1.1em;">barcoderanks</h5>
+    <ul style="margin: 0; padding-left: 20px;">
+      <li><strong>原理：</strong> 基于总 UMI 计数的经验性阈值，通过 UMI 排序曲线的“拐点”识别细胞。</li>
+      <li><strong>适用场景：</strong> 快速初步分析，或在细胞与背景区分明显的场景。</li>
+    </ul>
+  </div>
+<div style="margin-top: 15px;">
+    <h5 style="margin-bottom: 5px; font-size: 1.1em;">emptydrops (默认)</h5>
+    <ul style="margin: 0; padding-left: 20px;">
+      <li><strong>原理：</strong> 基于表达谱的统计检验，判断细胞表达谱是否区别于背景 RNA。</li>
+      <li><strong>适用场景：</strong> 标准分析（推荐），能精确识别低 RNA 含量的细胞并控制假阳性。</li>
+    </ul>
+  </div>
+</details>
+<p><strong>默认值：</strong> <code>emptydrops</code></p>
+<p><strong>示例：</strong></p>
+<pre><code># 切换为barcoderanks方法进行细胞识别
+dnbc4tools rna run --name sample1 --fastqs ./fq --genomeDir ./ref --calling_method barcoderanks</code></pre>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
+<h4 id="-expectcells"><code>--expectcells</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(可选)</span><a class="headerlink" href="#-expectcells" title="Permanent link">&para;</a></h4>
+<p>设定预期的细胞回收数量。</p>
+<ul>
+<li><strong>功能：</strong> 为emptydrops算法提供初步筛选的指导信息。</li>
+<li><strong>建议：</strong> 默认推荐使用<code>auto</code>模式，该模式会根据UMI分布特征自动估算细胞数量。若已知有效细胞数量，也可手动设置为该数量的50%作为初步筛选依据。</li>
+</ul>
+<p><strong>默认值：</strong> <code>auto</code></p>
+<p><strong>示例：</strong></p>
+<pre><code># 预期回收3000个细胞
+dnbc4tools rna run --name sample1 --fastqs ./fq --genomeDir ./ref --expectcells 3000</code></pre>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
+<h4 id="-forcecells"><code>--forcecells</code> <span style="font-size: 0.8em; font-weight: normal; color: #e67e22;">(可选)</span><a class="headerlink" href="#-forcecells" title="Permanent link">&para;</a></h4>
+<p>强制流程使用确切的细胞数量，此参数会覆盖软件的自动细胞检测结果。</p>
+<ul>
+<li><strong>功能：</strong> 当需要分析一个预先知道数量的细胞群体时使用。</li>
+<li><strong>优先级：</strong> 这是最高优先级的过滤参数。</li>
+</ul>
+<p><strong>默认值：</strong> 无</p>
+<p><strong>示例：</strong></p>
+<pre><code># 强制输出5000个细胞进行分析
+dnbc4tools rna run --name sample1 --fastqs ./fq --genomeDir ./ref --forcecells 5000</code></pre>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
+<h4 id="-minumi"><code>--minumi</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(可选)</span><a class="headerlink" href="#-minumi" title="Permanent link">&para;</a></h4>
+<p>设定用于保留细胞的最低UMI数量。</p>
+<ul>
+<li><strong>功能：</strong> 这是核心的细胞质量控制参数。低于此阈值的细胞被认为数据质量不佳，将从后续分析中排除。</li>
+<li><strong>建议：</strong> 初次分析可使用默认值，然后根据网页报告中<em>UMI计数分布图</em>来确定更合适的阈值。</li>
+</ul>
+<p><strong>默认值：</strong> <code>1000</code></p>
+<p><strong>示例：</strong></p>
+<pre><code># 将细胞过滤的UMI阈值降低到500
+dnbc4tools rna run --name sample1 --fastqs ./fq --genomeDir ./ref --minumi 500</code></pre>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
+<h4 id="-consistent_cells"><code>--consistent_cells</code> <span style="font-size: 0.8em; font-weight: normal; color: #9b59b6;">(可选)</span><a class="headerlink" href="#-consistent_cells" title="Permanent link">&para;</a></h4>
+<p>提供用于细胞合并/细胞调用约束的CSV文件（需包含表头）。</p>
+<ul>
+<li><strong>功能：</strong> 在细胞条形码合并和最终细胞判定阶段引入外部约束，提升跨数据批次的一致性。</li>
+<li><strong>支持表头结构：</strong> <code>cell</code>、<code>cell,barcode</code>、<code>cell,is_cell_barcode</code>、<code>cell,barcode,is_cell_barcode</code>。</li>
+<li><strong>说明：</strong> 其他额外列会被忽略，不影响流程执行。</li>
+<li><strong>注意：</strong> 如果同时包含 <code>cell</code> 和 <code>barcode</code>，那么 oligo 数据的分析结果将不会对最终合并存在作用，可使用任何其他非该样本的 oligo 数据不会影响分析结果。</li>
+</ul>
+<p><strong>默认值：</strong> 无</p>
+<p><strong>示例：</strong></p>
+<pre><code>--consistent_cells ./constraints/consistent_cells.csv</code></pre>
+</div>
+<div style="background: #f5f5f7; border-radius: 12px; padding: 20px; margin: 20px auto; max-width: 1200px;">
+<p><strong>细胞识别分析建议</strong></p>
+<p>细胞识别是单细胞分析的关键步骤，正确的参数设置和结果解读直接影响后续分析质量。</p>
+<details open="open">
+<summary><strong>展开诊断与策略</strong></summary>
+<div style="margin-top:10px;">
+<p><strong>细胞数量异常</strong></p>
+<ul>
+<li><strong>细胞数量过低：</strong> 常见于 <code>--minumi</code> 过高或背景污染偏高。可先降低 <code>--minumi</code> 并复查 UMI rank 曲线。</li>
+<li><strong>细胞数量过高：</strong> 常见于阈值过宽。可提高 <code>--minumi</code>，或用 <code>--forcecells</code> 约束目标细胞数。</li>
+<li><strong>UMI 分布无明显拐点：</strong> 建议优先检查文库与测序质量，再进行参数微调。</li>
+</ul>
+<p><strong>曲线形态判断</strong></p>
+<ul>
+<li><strong>平缓下降：</strong> 细胞与背景分离不明显，建议采用更保守细胞数。</li>
+<li><strong>多个拐点：</strong> 可能存在多群体或双联体，建议结合下游 doublet 去除。</li>
+<li><strong>陡峭下降：</strong> 通常是较理想信号，默认参数通常即可。</li>
+</ul>
+<p><strong>最佳实践：</strong> 首次运行建议用默认参数，随后基于报告中的 UMI 分布和质控图做二次调参。</p>
+</div>
+</details>
+</div>
+<div style="max-width: 1200px; margin: 0 auto;">
+<hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;">
+</div>
+<div style="max-width: 1200px; margin: 0 auto;">
+<h4 id="_8">文库设置参数<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h4>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
+<h4 id="-chemistry"><code>--chemistry</code> <span style="font-size: 0.8em; font-weight: normal; color: #f39c12;">(可选)</span><a class="headerlink" href="#-chemistry" title="Permanent link">&para;</a></h4>
+<p>配置scRNA试剂盒的化学反应版本，决定条形码和 UMI 的序列结构。</p>
+<ul>
+<li><strong>功能：</strong> 指导软件正确解析条形码和 UMI 的序列结构。</li>
+<li><strong>支持版本：</strong> <code>scRNAv1HT</code>, <code>scRNAv2HT</code>, <code>scRNAv3HT</code>, <code>scRNA5Pv1</code>。</li>
+<li><strong>自动检测 (auto)：</strong> 推荐默认使用；仅在自动识别失败时手动指定。</li>
+</ul>
+<p><strong>默认值：</strong> <code>auto</code></p>
+<p><strong>示例：</strong></p>
+<pre><code># 场景: 已知文库为scRNAv3HT无暗反应设置且自动分析失败
+dnbc4tools rna run --name sample2 --fastqs ./fq --genomeDir ./ref --chemistry scRNAv3HT --darkreaction unset,unset</code></pre>
+<p><strong>重要提示：</strong>不正确的设置可能导致细胞条形码识别失败。仅在了解文库结构或自动检测失败时手动指定。手动指定时建议配合 <code>--darkreaction</code> 一起设置。</p>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
+<h4 id="-darkreaction"><code>--darkreaction</code> <span style="font-size: 0.8em; font-weight: normal; color: #f39c12;">(可选)</span><a class="headerlink" href="#-darkreaction" title="Permanent link">&para;</a></h4>
+<p>配置cDNA 和 oligo文库的暗循环（dark cycle）设置。</p>
+<ul>
+<li><strong>功能：</strong> 指导软件正确解析由测序化学产生的暗反应周期。</li>
+<li><strong>配置格式：</strong> <code>&lt;cDNA设置&gt;,&lt;oligo设置&gt;</code>。</li>
+<li><strong>支持选项：</strong> <code>auto</code>、<code>R1R2</code>、<code>R1</code>、<code>unset</code>。</li>
+<li><strong>自动检测 (auto)：</strong> 推荐默认使用；仅在自动识别失败时手动指定。</li>
+</ul>
+<p><strong>默认值：</strong> <code>auto</code></p>
+<p><strong>示例：</strong></p>
+<pre><code># 示例1: cDNA文库R1有暗循环, oligo文库双端有暗循环
+--darkreaction R1,R1R2</code></pre>
+<pre><code># 示例2: 两个文库都仅R1有暗循环
+--darkreaction R1,R1</code></pre>
+<pre><code># 示例3: 两个文库都无暗循环
+--darkreaction unset,unset</code></pre>
+<p><strong>重要提示：</strong>不正确的设置可能导致细胞条形码识别失败。仅在了解文库结构或自动检测失败时手动指定。手动指定时建议配合 <code>--chemistry</code> 一起设置。</p>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
+<h4 id="-customize"><code>--customize</code> <span style="font-size: 0.8em; font-weight: normal; color: #9b59b6;">(高级)</span><a class="headerlink" href="#-customize" title="Permanent link">&para;</a></h4>
+<p>为非标准文库精确定义条形码（barcode）、UMI和有效序列（read）的提取结构。此参数为高级功能，会覆盖 <code>--chemistry</code> 和 <code>--darkreaction</code> 的设置。</p>
+<ul>
+<li><strong>语法格式：</strong> <code>"&lt;type&gt;,&lt;read&gt;:&lt;start&gt;-&lt;end&gt;"</code>，多个段落以分号 (<code>;</code>) 分隔。</li>
+<li><strong>参数类型 (type)：</strong> <code>cb</code>（细胞条形码）、<code>umi</code>（UMI）、<code>R1</code>（Read 1 有效序列）、<code>R2</code>（Read 2 有效序列，仅双端测序）。</li>
+<li><strong>双重配置：</strong> 需要分别为 cDNA 和 oligo 文库指定两次 <code>--customize</code> 参数。</li>
+<li><strong>注意事项：</strong> 整个参数字符串必须用引号包裹；坐标为 1-based，且不能超过读长。</li>
+</ul>
+<p><strong>示例：</strong></p>
+<pre><code># 以cDNA文库为例，结构: Barcode 1(1-10bp) + Barcode 2(11-20bp) + UMI(21-30bp) in R1; 序列(1-100bp) in R2
+--customize "cb,R1:1-10;cb,R1:11-20;umi,R1:21-30;R1,R2:1-100"</code></pre>
+<pre><code># 以cDNA文库为例，结构: Barcode 1(7-16bp) + Barcode 2(23-32bp) + UMI(38-47bp) in R1; 序列(1-100bp) in R2
+--customize "cb,R1:7-16;cb,R1:23-32;umi,R1:38-47;R1,R2:1-100"</code></pre>
+<pre><code># 以cDNA文库为例，5端转录本同时利用双端数据
+--customize "cb,R1:1-10;cb,R1:11-20;umi,R1:21-30;R1,R1:31-120;R2,R2:1-150"</code></pre>
+<pre><code># 示例: 为cDNA 和 oligo文库分别自定义序列结构
+--customize "cb,R1:1-10;cb,R1:11-20;umi,R1:21-30;R1,R2:1-100" --customize "cb,R1:1-10;cb,R1:11-20;R1,R2:1-30"</code></pre>
+<p><strong>风险提示：</strong>错误的自定义配置可能导致数据丢失或分析失败，建议仅在标准配置无法满足需求时使用。</p>
+</div>
+<div style="max-width: 1200px; margin: 0 auto;">
+<hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;">
+</div>
+<div style="max-width: 1200px; margin: 0 auto;">
+<h4 id="_9">分析设置参数<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h4>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
+<h4 id="-no_introns"><code>--no_introns</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(标志)</span><a class="headerlink" href="#-no_introns" title="Permanent link">&para;</a></h4>
+<p>启用此参数以在分析过程中过滤掉来自内含子区域的reads。</p>
+<ul>
+<li><strong>功能：</strong> 仅保留来自外显子区域的reads进行表达量化，避免未成熟转录本干扰。</li>
+</ul>
+<p><strong>默认值：</strong> 不设置此参数则包含内含子区域的reads</p>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
+<h4 id="-end5"><code>--end5</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(标志)</span><a class="headerlink" href="#-end5" title="Permanent link">&para;</a></h4>
+<p>启用5' 端单细胞转录组数据分析模式。</p>
+<ul>
+<li><strong>功能：</strong> 专门针对5' 端捕获的mRNA 进行分析。</li>
+<li><strong>注意：</strong> 仅在使用5' 端scRNA试剂盒时使用此参数。</li>
+</ul>
+<p><strong>默认值：</strong> 不设置此参数</p>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
+<h4 id="-no_bam"><code>--no_bam</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(标志)</span><a class="headerlink" href="#-no_bam" title="Permanent link">&para;</a></h4>
+<p>启用此参数以跳过BAM 文件的生成。</p>
+<ul>
+<li><strong>功能：</strong> 减少运行时间和磁盘空间占用。</li>
+<li><strong>注意：</strong> 无法进行需要BAM 文件的下游分析。</li>
+</ul>
+<p><strong>默认值：</strong> 不设置此参数则生成BAM 文件</p>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
+<h4 id="-sample_read_pairs"><code>--sample_read_pairs</code> <span style="font-size: 0.8em; font-weight: normal; color: #9b59b6;">(可选)</span><a class="headerlink" href="#-sample_read_pairs" title="Permanent link">&para;</a></h4>
+<p>从输入的cDNA FASTQ 文件中提取指定数量的读段对进行分析。</p>
+<ul>
+<li><strong>功能：</strong> 用于在完整分析前对大数据集进行快速测试，或在资源有限时进行降采样分析。</li>
+</ul>
+<p><strong>默认值：</strong> 无 (使用全部数据)</p>
+<p><strong>示例：</strong></p>
+<pre><code>--sample_read_pairs 100000000</code></pre>
+</div>
+<div style="max-width: 1200px; margin: 0 auto;">
+<hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;">
+</div>
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
+<div align="center">
+<p><strong>分析建议</strong></p>
+<p>首次分析时建议使用默认参数，获得结果报告后再根据需要调整参数。</p>
+</div>
+</div>
+<div style="max-width: 1200px; margin: 0 auto;">
+<hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;">
+</div>
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
+<h2 id="mkref">参考数据库构建 (mkref) <a id="参考数据库构建-mkref"></a><a class="headerlink" href="#mkref" title="Permanent link">&para;</a></h2>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #d2d2d7; overflow-x: auto;">
+<h3 id="_10">用法<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
+<pre><code class="language-shell">$ dnbc4tools rna mkref
+dnbc4tools 3.1
+
+Build an RNA reference database.
+
+Usage: dnbc4tools rna mkref [OPTIONS]
+
+optional arguments:
+  --help              show this help message and exit
+
+Input Files:
+  Input genome FASTA files and gene-annotation GTF files. For mixed-species analysis, separate multiple files with commas.
+
+  --fasta &lt;FILE&gt;      Reference-genome FASTA file path(s). Separate multiple files with commas (e.g., `genome1.fa,genome2.fa`).
+  --ingtf &lt;FILE&gt;      Gene-annotation GTF file path(s). Separate multiple files with commas (e.g., `anno1.gtf,anno2.gtf`).
+
+Basic Settings:
+  --genomeDir &lt;DIR&gt;   Output directory path for generated reference files [default: current directory] (e.g., `./ref`).
+  --species &lt;STR&gt;     Species identifier(s). Use commas for mixed-species analysis [default: undefined] (e.g., `human,mouse`).
+  --threads &lt;INT&gt;     Number of CPU threads for parallel processing [default: 10] (e.g., `16`).
+
+Advanced Settings:
+  --chrM &lt;STR&gt;        Mitochondrial chromosome identifier in the reference genome [default: auto] (e.g., `MT`).
+  --limitram &lt;INT&gt;    Maximum RAM, in GB, allowed for index generation (e.g., `64`). Also affects memory usage and alignment speed during mapping.
+  --extra-args &lt;STR&gt;  Additional STAR parameters to pass directly to STAR index generation (e.g., `&quot;--sjdbOverhang 100&quot;`).
+  --noindex           Skip the STAR index-generation step.
+</code></pre>
+</div>
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
+<h3 id="_11">参数说明<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
+</div>
+<div style="max-width: 1200px; margin: 0 auto;">
+<h4 id="_12">必需参数<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h4>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
+<h4 id="-fasta"><code>--fasta</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(必需)</span><a class="headerlink" href="#-fasta" title="Permanent link">&para;</a></h4>
+<p>提供参考基因组序列文件。</p>
+<ul>
+<li><strong>要求：</strong> 标准FASTA格式，建议使用primary组装版本。</li>
+</ul>
+<p><strong>默认值：</strong> 无</p>
+<p><strong>示例：</strong></p>
+<pre><code>--fasta Homo_sapiens.GRCh38.dna.primary_assembly.fa</code></pre>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
+<h4 id="-ingtf"><code>--ingtf</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(必需)</span><a class="headerlink" href="#-ingtf" title="Permanent link">&para;</a></h4>
+<p>提供基因结构注释文件。</p>
+<ul>
+<li><strong>功能：</strong> 用于基因表达量化和注释。</li>
+<li><strong>要求：</strong> 标准 GTF 格式。</li>
+<li><strong>必需特征：</strong> 必须包含 <code>gene</code>/<code>transcript</code>、<code>exon</code> 类型注释。</li>
+<li><strong>必需属性：</strong> 必须包含 <code>gene_id</code>/<code>gene_name</code>、<code>transcript_id</code>/<code>transcript_name</code>。</li>
+<li><strong>染色体名称：</strong> 必须与 FASTA 基因组文件中的染色体名称一致。</li>
+<li><strong>坐标：</strong> 起始和终止坐标必须合理。</li>
+</ul>
+<p><strong>默认值：</strong> 无</p>
+<p><strong>示例：</strong></p>
+<pre><code>--ingtf Homo_sapiens.GRCh38.108.gtf</code></pre>
+</div>
+<div style="background: #f5f5f7; border-radius: 12px; padding: 20px; margin: 20px auto; max-width: 1200px;">
+<p><strong>双物种分析配置</strong></p>
+<p>如需进行双物种分析，<code>--fasta</code> 和 <code>--ingtf</code> 均支持使用逗号分隔提供两个物种文件。</p>
+<ul>
+<li><strong>示例：</strong> <code>--fasta human.fa,mouse.fa --ingtf human.gtf,mouse.gtf</code></li>
+<li><strong>重要提示：</strong> FASTA、GTF 与 <code>--species</code> 的顺序必须严格一一对应。</li>
+</ul>
+</div>
+<div style="max-width: 1200px; margin: 0 auto;">
+<hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;">
+</div>
+<div style="max-width: 1200px; margin: 0 auto;">
+<h4 id="_13">设置参数<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h4>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
+<h4 id="-genomedir_1"><code>--genomeDir</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(可选)</span><a class="headerlink" href="#-genomedir_1" title="Permanent link">&para;</a></h4>
+<p>指定生成的参考数据库的输出目录。</p>
+<ul>
+<li><strong>功能：</strong> 所有生成的参考文件（索引、注释等）都将存储在此目录中。</li>
+</ul>
+<details open="open" style="margin-top: 10px;">
+<summary><strong>目录结构预览</strong></summary>
+<pre style="padding: 10px; border-radius: 5px; margin-top: 5px;">
+genomeDir/
+├── fasta/
+│   └── genome.fa          # 处理后的基因组序列文件
+├── genes/
+│   └── genes.gtf          # 处理后的基因注释文件
+├── star/
+│   ├── SA                 # STAR 索引文件
+│   ├── SAindex            # STAR 索引核心文件
+│   ├── chrLength.txt      # 染色体长度信息
+│   ├── chrName.txt        # 染色体名称信息
+│   ├── chrNameLength.txt  # 染色体名称和长度
+│   ├── chrStart.txt       # 染色体起始位置
+│   ├── Genome             # 基因组序列压缩文件
+│   ├── genomeParameters.txt # 基因组参数配置
+│   ├── Log.out            # STAR 索引构建日志
+│   ├── sjdbInfo.txt       # 剪切位点数据库信息
+│   ├── sjdbList.fromGTF.out.tab # GTF提取的剪切位点
+│   ├── sjdbList.out.tab   # 所有剪切位点列表
+│   └── mtgene.list        # 线粒体基因列表
+└── ref.json               # 数据库配置和元信息文件
+</pre>
+</details>
+<p><strong>默认值：</strong> <code>./</code> (当前目录)</p>
+<p><strong>示例：</strong></p>
+<pre><code>dnbc4tools rna mkref --fasta genome.fa --ingtf genes.gtf --genomeDir /database/scRNA/GRCh38</code></pre>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
+<h4 id="-species"><code>--species</code> <span style="font-size: 0.8em; font-weight: normal; color: #f39c12;">(可选)</span><a class="headerlink" href="#-species" title="Permanent link">&para;</a></h4>
+<p>为参考数据库指定一个或多个物种名称。</p>
+<ul>
+<li><strong>功能：</strong> 该名称会记录在配置文件中，用于后续分析中的物种识别、基因注释和细胞注释。</li>
+</ul>
+<details open="open" style="margin-top: 10px;">
+<summary><strong>双物种分析配置</strong></summary>
+<ul style="margin-top: 5px; padding-left: 20px;">
+<li><strong>命名格式：</strong> 使用逗号分隔多个物种名称 (例如: <code>hg38,mm10</code>)。</li>
+<li><strong>顺序要求：</strong> 必须与 <code>--fasta</code> 和 <code>--ingtf</code> 文件顺序严格一致。</li>
+<li><strong>自动处理：</strong> 流程会自动为基因添加物种前缀 (如 <code>hg38_GENE1</code>)，并在结果中分离统计信息。</li>
+</ul>
+</details>
+<details open="open" style="margin-top: 10px;">
+<summary><strong>细胞注释支持</strong></summary>
+<p style="margin-top: 5px;">为特定物种提供此参数，可启用下游的自动细胞类型注释功能。</p>
+<ul style="padding-left: 20px;">
+<li><strong>支持：</strong> <code>Homo_sapiens</code> (或 <code>hg38</code>), <code>Mus_musculus</code> (或 <code>mm10</code>)。</li>
+<li><strong>不支持：</strong> 其他物种不支持细胞注释。</li>
+</ul>
+</details>
+<p style="margin-top: 15px;"><strong>默认值：</strong> <code>undefined</code></p>
+<p><strong>示例：</strong></p>
+<pre><code># 单物种
+--species Homo_sapiens</code></pre>
+<pre><code># 双物种 (人+鼠)
+--species hg38,mm10</code></pre>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
+<h4 id="-threads_1"><code>--threads</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(可选)</span><a class="headerlink" href="#-threads_1" title="Permanent link">&para;</a></h4>
+<p>设置STAR 索引构建过程中可使用的 CPU 线程数。</p>
+<ul>
+<li><strong>性能影响：</strong> 增加线程数通常可缩短索引构建时间，实际效果受计算资源和磁盘 I/O 影响。</li>
+<li><strong>资源平衡：</strong> 需要注意平衡线程数与可用内存（RAM）的关系，过多的线程可能会导致内存不足。</li>
+</ul>
+<p><strong>默认值：</strong> <code>10</code></p>
+<p><strong>示例：</strong></p>
+<pre><code>--threads 16</code></pre>
+</div>
+<div style="max-width: 1200px; margin: 0 auto;">
+<hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;">
+</div>
+<div style="max-width: 1200px; margin: 0 auto;">
+<h4 id="_14">高级设置参数<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h4>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
+<h4 id="-chrm"><code>--chrM</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(可选)</span><a class="headerlink" href="#-chrm" title="Permanent link">&para;</a></h4>
+<p>指定线粒体染色体的名称。</p>
+<ul>
+<li><strong>功能：</strong> 用于展示细胞质量情况。线粒体基因表达过高通常表示细胞应激或死亡状态。</li>
+<li><strong>自动检测：</strong> 默认会从常见名称（如 <code>chrM</code>, <code>MT</code>）中自动识别。</li>
+</ul>
+<p><strong>默认值：</strong> <code>auto</code></p>
+<p><strong>示例：</strong></p>
+<pre><code># 如果线粒体染色体名称为"mitochondrion"
+dnbc4tools rna mkref --fasta genome.fa --ingtf genes.gtf --chrM mitochondrion</code></pre>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
+<h4 id="-limitram"><code>--limitram</code> <span style="font-size: 0.8em; font-weight: normal; color: #e67e22;">(可选)</span><a class="headerlink" href="#-limitram" title="Permanent link">&para;</a></h4>
+<p>限制STAR基因组索引生成过程中的最大内存使用量（以GB为单位）。</p>
+<ul>
+<li><strong>功能：</strong> 该参数控制STAR构建基因组索引时的内存占用，索引的内存配置会直接影响后续 <code>rna run</code> 分析时的内存使用量和运行速度。</li>
+<li><strong>影响：</strong> 较大的内存限制可以生成更高性能的索引，从而加快 RNA 分析速度，但会增加内存消耗；较小的内存限制会降低索引性能，可能导致分析速度变慢。</li>
+<li><strong>建议：</strong> 根据系统可用内存合理设置，避免内存不足导致索引构建失败。</li>
+</ul>
+<p><strong>默认值：</strong> 无</p>
+<p><strong>示例：</strong></p>
+<pre><code>--limitram 64</code></pre>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
+<h4 id="-extra-args"><code>--extra-args</code> <span style="font-size: 0.8em; font-weight: normal; color: #9b59b6;">(高级)</span><a class="headerlink" href="#-extra-args" title="Permanent link">&para;</a></h4>
+<p>直接向STAR 索引生成传递额外的命令行参数。</p>
+<ul>
+<li><strong>功能：</strong> 用于特殊需求和性能优化。</li>
+<li><strong>注意：</strong> 不当的参数设置可能导致索引构建失败或后续分析问题。</li>
+</ul>
+<p><strong>默认值：</strong> 无</p>
+<p><strong>示例：</strong></p>
+<pre><code>--extra-args "--sjdbOverhang 99 --runThreadN 20"</code></pre>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
+<h4 id="-noindex"><code>--noindex</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(标志)</span><a class="headerlink" href="#-noindex" title="Permanent link">&para;</a></h4>
+<p>如果设置此参数，将只生成配置文件而不构建基因组索引。</p>
+<ul>
+<li><strong>功能：</strong> 当索引文件已存在时，使用此参数可以跳过耗时的索引构建步骤。</li>
+</ul>
+<p><strong>默认值：</strong> 不设置</p>
+<p><strong>示例：</strong></p>
+<pre><code># 仅生成配置文件，不构建索引
+dnbc4tools rna mkref --fasta genome.fa --ingtf genes.gtf --noindex</code></pre>
+</div>
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
+<p><strong>数据库构建技术说明：</strong></p>
+<ul>
+<li>针对具有众多且不同染色体大小的基因组，数据库构建会自动确定 <code>genomeSAindexNbases</code> 和 <code>genomeChrBinNbits</code> 的优化值。</li>
+<li>数据库构建完成后，会在数据库目录中生成 <code>ref.json</code> 文件记录关键配置信息。</li>
+<li>双物种分析会自动为每个基因添加物种前缀（如 <code>hg38_GENE1</code>、<code>mm10_GENE2</code>），以区分不同物种基因。</li>
+<li>构建参数和版本信息会记录在 <code>ref.json</code> 中，确保分析可重现。</li>
+</ul>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #d2d2d7; overflow-x: auto;">
+<p><strong>单物种 ref.json 文件示例：</strong></p>
+<pre><code class="language-json">{
+  "chrmt": "chrM",
+  "genome": "/database/scRNA/Homo_sapiens/fasta/genome.fa",
+  "genomeDir": "/database/scRNA/Homo_sapiens/star",
+  "gtf": "/database/scRNA/Homo_sapiens/genes/genes.gtf",
+  "input_fasta_files": [
+    "genome.fa"
+  ],
+  "input_gtf_files": [
+    "genes.gtf"
+  ],
+  "mtgenes": "/database/scRNA/Homo_sapiens/star/mtgene.list",
+  "species": "Homo_sapiens",
+  "version": "3.1"
+}</code></pre>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #d2d2d7; overflow-x: auto;">
+<p><strong>双物种 ref.json 文件示例：</strong></p>
+<pre><code class="language-json">{
+  "chrmt": "hg38_chrM,mm10_chrM",
+  "genome": "/database/scRNA/hg38_and_mm10/fasta/genome.fa",
+  "genomeDir": "/database/scRNA/hg38_and_mm10/star",
+  "gtf": "/database/scRNA/hg38_and_mm10/genes/genes.gtf",
+  "input_fasta_files": [
+    "hg38_genome.fa",
+    "mm10_genome.fa"
+  ],
+  "input_gtf_files": [
+    "hg38_genes.gtf",
+    "mm10_genes.gtf"
+  ],
+  "mtgenes": "/database/scRNA/hg38_and_mm10/star/mtgene.list",
+  "species": "hg38_and_mm10",
+  "version": "3.1"
+}</code></pre>
+</div>
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
+<p><strong>性能优化建议：</strong></p>
+<ul>
+<li>常用基因组（如人类、小鼠）建议预先构建索引并在多个项目中复用。</li>
+<li>双物种索引构建耗时较长，建议在计算资源充足时执行。</li>
+<li>建议定期检查 Ensembl 等数据库更新，及时同步参考基因组与注释文件。</li>
+</ul>
+</div>
+<div style="max-width: 1200px; margin: 0 auto;">
+<hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;">
+</div>
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
+<h2 id="multi">多样本操作 (multi) <a id="多样本操作-multi"></a><a class="headerlink" href="#multi" title="Permanent link">&para;</a></h2>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #d2d2d7; overflow-x: auto;">
+<h3 id="_15">用法<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h3>
+<pre><code class="language-shell">$ dnbc4tools rna multi
+dnbc4tools 3.1
+
+Process multiple RNA-seq samples.
+
+Usage: dnbc4tools rna multi [OPTIONS]
+
+optional arguments:
+  --help             show this help message and exit
+
+Input Files:
+  --list &lt;FILE&gt;      Sample list file path. Each line must contain sample name, cDNA FASTQ file path(s), and oligo FASTQ file path(s).
+
+Basic Settings:
+  --genomeDir &lt;DIR&gt;  Reference genome directory path containing required reference files.
+  --outdir &lt;DIR&gt;     Output directory path for analysis results [default: current directory] (e.g., `./output`).
+  --threads &lt;INT&gt;    Number of CPU threads for parallel processing.
+
+Analysis Settings:
+  --end5             Enable 5'-end single-cell transcriptome analysis.
+</code></pre>
+</div>
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
+<h3 id="_16">参数说明<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h3>
+</div>
+<div style="max-width: 1200px; margin: 0 auto;">
+<h4 id="_17">必需参数<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h4>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;">
+<h4 id="-list"><code>--list</code> <span style="font-size: 0.8em; font-weight: normal; color: #e74c3c;">(必需)</span><a class="headerlink" href="#-list" title="Permanent link">&para;</a></h4>
+<p>指定包含多个样本信息的列表文件路径。</p>
+<ul>
+<li><strong>文件格式：</strong> 使用制表符(<code>\t</code>)分隔的文本文件，建议UTF-8编码。</li>
+<li><strong>列结构：</strong>
+      <ol>
+          <li>样本名称</li>
+          <li>cDNA 数据路径</li>
+          <li>oligo 数据路径</li>
+      </ol>
+  </li>
+</ul>
+<details open="open">
+<summary><strong>路径格式规则</strong></summary>
+<ul style="margin-top: 5px;">
+<li><strong>多个FASTQ 文件：</strong> 同一文库的多个FASTQ 文件路径使用逗号(<code>,</code>)分隔。</li>
+<li><strong>R1 和 R2 文件：</strong> 配对的 R1 和 R2 文件路径使用分号 (<code>;</code>) 分隔。</li>
+<li><strong>路径类型：</strong> 支持绝对路径和相对路径。</li>
+</ul>
+</details>
+<p style="margin-top: 15px;"><strong>默认值：</strong> 无</p>
+<details open="open">
+<summary><strong>示例：</strong></summary>
+<pre><code># 示例1: SampleA, cDNA 和 oligo各有 1 对 R1/R2 文件
+SampleA /path/to/A_cDNA_R1.fq.gz;/path/to/A_cDNA_R2.fq.gz   /path/to/A_oligo_R1.fq.gz;/path/to/A_oligo_R2.fq.gz</code></pre>
+<pre><code># 示例2: SampleB, cDNA 有 2 对 R1/R2 文件，oligo 有 1 对 R1/R2 文件
+SampleB /path/to/B_cDNA_L01_R1.fq.gz,/path/to/B_cDNA_L02_R1.fq.gz;/path/to/B_cDNA_L01_R2.fq.gz,/path/to/B_cDNA_L02_R2.fq.gz /path/to/B_oligo_R1.fq.gz;/path/to/B_oligo_R2.fq.gz</code></pre>
+</details>
+</div>
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
+<p><strong>参数继承说明</strong></p>
+<p>对于其他分析参数设置，请参考 <a href="#主分析流程-run"><code>dnbc4tools rna run</code></a> 命令的相应参数。所有样本应使用相同的参考数据库。</p>
+<p><strong>执行行为说明</strong></p>
+<p><code>dnbc4tools rna multi</code> 会为每个样本生成对应的执行脚本（如 <code>sample1.sh</code>），便于批量提交与复用；默认不会自动串行执行所有样本分析。</p>
+</div>
+<div style="max-width: 1200px; margin: 0 auto;">
+<hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;">
+</div>
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
+<h2 id="_18">相关文档<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h2>
+</div>
+<div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+<table style="width:100%; border-collapse: collapse; margin: 0;">
+<thead style="background-color: #f5f5f7; border-bottom: 1px solid #d2d2d7;">
+<tr>
+<th align="left" style="padding: 12px 16px; font-weight: 600; color: #1d1d1f;" width="35%">资源</th>
+<th align="left" style="padding: 12px 16px; font-weight: 600; color: #1d1d1f;" width="65%">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" style="padding: 10px 16px;"><a href="../pipeline/scRNA.html">scRNA 流程文档</a></td>
+<td style="padding: 10px 16px;">单细胞 RNA 分析流程指南</td>
+</tr>
+<tr>
+<td align="left" style="padding: 10px 16px;"><a href="../outs/scRNA.html">scRNA 输出文档</a></td>
+<td style="padding: 10px 16px;">输出文件详细解读</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
+<div align="center">
+<p><strong>反馈与支持</strong></p>
+<p>本文档持续维护更新。若发现内容错误或需要补充信息，请通过 GitHub Issues 反馈。</p>
+<p><strong>文档版本：</strong> 3.1 | <strong>最后更新：</strong> 2026 年 5 月 15 日</p>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 MGI Tech Bioinformatics. All rights reserved.<br>
+Documentation Version 3.1 · Last updated May 15, 2026
+
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["search.suggest", "search.highlight"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../javascripts/lang-toggle.js"></script>
+      
+    
+  </body>
+</html>
