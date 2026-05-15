@@ -196,7 +196,6 @@ $dnbc4tools atac run \
 
 ### Step 1: 5' RNA Analysis
 
-
 **5' scRNA-seq Analysis**
 
 <div style="background-color: #e7f3fe; border-left: 6px solid #2196F3; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
@@ -323,6 +322,7 @@ Directory structure:
   <li>VDJ-B: paired FASTQ files under <code>/test/data/vdj-b/</code></li>
 </ul>
   
+
 ### Step 2: Run Multi-omics Pipeline
 
 ```bash
@@ -347,7 +347,6 @@ $dnbc4tools multi run \
 | **Reference Building** | `dnbc4tools atac mkref` | Build ATAC reference database |
 | **Multi-omics** | `dnbc4tools multi run` | Integrated RNA/ATAC/VDJ analysis and unified report |
 | **GTF Processing** | `dnbc4tools tools mkgtf` | Filter and process GTF files |
-
 
 ---
 

@@ -41,7 +41,6 @@
  <strong>使用说明</strong>：<code>$dnbc4tools</code> 代表可执行程序路径，需替换为您的实际安装路径。本文示例使用换行符 `\` 分隔命令以提高可读性，实际分析时可写为单行。
 </div>
 
-
 </div>
 
 <div style="max-width: 1200px; margin: 0 auto;" markdown="block"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
@@ -120,7 +119,6 @@ CELL726_N4,585934,4617,22660,1,ACCTACGGCGTTACTATGTG;CGACGCTCTCGACAGTTAGG;CGGCAGA
 CELL4010_N1,555308,4268,22554,1,AGAGAGTCGCAGCAAGCGAC
 ```
 
-
 </div>
 
 <div style="max-width: 1200px; margin: 0 auto;" markdown="block"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
@@ -178,7 +176,6 @@ $dnbc4tools vdj run \
   --threads 10
 ```
 
-
 ### BCR 分析
 
 为单个样本运行 BCR 分析，支持两种输入方式：
@@ -223,7 +220,6 @@ $dnbc4tools vdj run \
 - 自动识别依赖文件名中的 R1/R2 标识。建议使用 `_R1`/`_R2` 或 `_R1_`/`_R2_` 命名。
 - TCR 与 BCR 数据应分别运行，不要混放到同一输入目录中。
 
-
 ### 运行过程
 
 在对暗反应自动检测后，软件开始运行分析，以下是一个示例：
@@ -237,7 +233,6 @@ $dnbc4tools vdj run \
 │ Read 2 │ /data/vdjt/sample_tcr_R2.fastq.gz                                                        │
 └───────┴──────────────────────────────────────────────────────────────────────────────────────────┘
 ────────────────────────────────────────────────────────────────────────────────────────────────────
-
 
 ──────────────────────────── Chemistry Detection — 2025-11-12 15:13:20 ─────────────────────────────
 ┌─────────────────────────────────┬────────────────────────────────────────────────────────────────┐
@@ -273,7 +268,6 @@ $dnbc4tools vdj run \
 
 成功的运行会以 `Analysis Finished` 结束。
 
-
 </div>
 
 <div style="max-width: 1200px; margin: 0 auto;" markdown="block"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
@@ -305,7 +299,6 @@ $dnbc4tools vdj run \
 └── metrics_summary.xls
 ```
 
-
 </div>
 
 <div style="max-width: 1200px; margin: 0 auto;" markdown="block"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
@@ -323,7 +316,6 @@ $dnbc4tools vdj run \
 | [输出文件使用方法](../io.md) | 了解输出文件结构和格式 |
 | [分析参数设置](../parameter/scVDJ.md) | 查看完整参数选项和说明 |
 | [输出文件解释](../outs/scVDJ.md) | 详细解读分析结果文件 |
-
 
 </div>
 
@@ -351,7 +343,7 @@ $dnbc4tools vdj run \
 >
 > 本文档持续维护更新。若发现内容错误或需要补充信息，请通过 GitHub Issues 反馈。
 >
-> <strong>文档版本：</strong> 3.1 | <strong>最后更新：</strong> 2026年4月
+> <strong>文档版本：</strong> 3.1 | <strong>最后更新：</strong> 2026 年 5 月 15 日
 
 </div>
 

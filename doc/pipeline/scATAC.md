@@ -42,7 +42,6 @@
  <strong>使用说明</strong>：<code>$dnbc4tools</code> 代表可执行程序路径，需替换为您的实际安装路径。本文示例使用换行符 `\` 分隔命令以提高可读性，实际分析时可写为单行。
 </div>
 
-
 </div>
 
 <div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
@@ -75,7 +74,6 @@
 <div style="background-color: #fffbe6; border-left: 6px solid #ffc107; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
  <strong>注意</strong>：确保 FASTQ 文件质量良好，并记录好文件路径用于后续分析。
 </div>
-
 
 </div>
 
@@ -129,7 +127,6 @@
 
 有关 GTF 文件过滤的详细信息，请[参考 scRNA 分析流程](./scRNA.md#gtf-file-processing-optional-zh)。
 
-
 ### 参考数据库构建
 
 在运行 `dnbc4tools atac run` 分析之前，需要先构建参考数据库。此步骤使用注释文件（GTF）和参考基因组（FASTA）构建索引文件，用于测序 reads 的比对和统计分析。
@@ -162,7 +159,6 @@ $dnbc4tools atac mkref \
     ├── promoter.bed
     └── tss.bed
 ```
-
 
 <p><strong>ref.json 示例：</strong></p>
 
@@ -223,7 +219,6 @@ $dnbc4tools atac mkref \
 
  2026-04-03 16:42:28 ATAC reference building finished.
 ```
-
 
 </div>
 
@@ -336,7 +331,6 @@ $dnbc4tools atac run \
 
 当出现 `Analysis Finished` 消息时，表示分析已成功完成。
 
-
 <div style="border-top: 1px solid #d2d2d7; margin: 32px 0;"></div>
 
 ### 多样本批处理（可选）
@@ -400,9 +394,6 @@ $cat sample1.sh
 
 执行第四步进行主流程分析。
 
-
-
-
 </div>
 
 <div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
@@ -434,7 +425,6 @@ $cat sample1.sh
 └── singlecell.csv
 ```
 
-
 </div>
 
 <div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
@@ -452,7 +442,6 @@ $cat sample1.sh
 | [输出文件使用方法](../io.md) | 了解输出文件结构和格式 |
 | [分析参数设置](../parameter/scATAC.md) | 查看完整参数选项和说明 |
 | [输出文件解释](../outs/scATAC.md) | 详细解读分析结果文件 |
-
 
 </div>
 
@@ -480,7 +469,7 @@ $cat sample1.sh
 >
 > 本文档持续维护更新。若发现内容错误或需要补充信息，请通过 GitHub Issues 反馈。
 >
-> <strong>文档版本：</strong> 3.1 | <strong>最后更新：</strong> 2026年4月
+> <strong>文档版本：</strong> 3.1 | <strong>最后更新：</strong> 2026 年 5 月 15 日
 
 </div>
 

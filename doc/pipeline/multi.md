@@ -33,7 +33,6 @@
 
 **工作流程**：配置准备 → 模块调度 → 并行分析 → 状态汇总 → 组合报告
 
-
 <div style="background-color: #e7f3fe; border-left: 6px solid #2196F3; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
  <strong>使用说明</strong>：<code>$dnbc4tools</code> 代表可执行程序路径，需替换为您的实际安装路径。本文示例使用换行符 <code>\</code> 分隔命令以提高可读性，实际分析时可写为单行。
 </div>
@@ -66,7 +65,6 @@
     </tr>
   </tbody>
 </table>
-
 
 </div>
 
@@ -210,7 +208,6 @@ $dnbc4tools multi run \
 </ol>
 </div>
 
-
 </div>
 
 <div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
@@ -266,12 +263,10 @@ $dnbc4tools multi run \
 </ul>
 </div>
 
-
 ### 典型运行日志
 
 ```shell
 Warning: ATAC joint analysis is currently unsupported. Libraries will be analyzed independently and summarized in a single report.
-
 
 ───────────────────────── Running checking libraries — 2026-04-08 13:39:42 ─────────────────────────
  RNA Library check complete
@@ -279,9 +274,7 @@ Warning: ATAC joint analysis is currently unsupported. Libraries will be analyze
  VDJ-B Library check complete
  ATAC Library check complete
 
-
 ──────────────────────────── Running RNA pipeline — 2026-04-08 13:40:10 ────────────────────────────
-
 
 ──────────────────────────── Parsed FASTQ Inputs — 2026-04-08 13:40:10 ─────────────────────────────
 ┌─────────────┬────────────────────────────────────────────────────────────────────────────────────┐
@@ -294,7 +287,6 @@ Warning: ATAC joint analysis is currently unsupported. Libraries will be analyze
 └─────────────┴────────────────────────────────────────────────────────────────────────────────────┘
 ────────────────────────────────────────────────────────────────────────────────────────────────────
 
-
 ──────────────────────────── Chemistry Detection — 2026-04-08 13:40:24 ─────────────────────────────
 ┌───────────────────────────────────────────────┬──────────────────────────────────────────────────┐
 │ Type                                          │ Result                                           │
@@ -303,7 +295,6 @@ Warning: ATAC joint analysis is currently unsupported. Libraries will be analyze
 │ oligo Read 2                                   │ darkreaction                                     │
 └───────────────────────────────────────────────┴──────────────────────────────────────────────────┘
 ────────────────────────────────────────────────────────────────────────────────────────────────────
-
 
 ──────────────────────────── Chemistry Detection — 2026-04-08 13:40:24 ─────────────────────────────
 ┌─────────────────────────────────────────────┬────────────────────────────────────────────────────┐
@@ -317,7 +308,6 @@ Warning: ATAC joint analysis is currently unsupported. Libraries will be analyze
 
  ...                                        
 ```
-
 
 </div>
 
@@ -351,7 +341,6 @@ Warning: ATAC joint analysis is currently unsupported. Libraries will be analyze
 ├── VDJ-T_ANALYSIS_WORKFLOW_PROCESSING/
 └── VDJ-B_ANALYSIS_WORKFLOW_PROCESSING/
 ```
-
 
 ### 重点输出文件
 
@@ -390,7 +379,6 @@ Warning: ATAC joint analysis is currently unsupported. Libraries will be analyze
  <strong>详细输出说明</strong>：请参考 <a href="../outs/multi.md">多组学输出文档</a> 了解组合报告的详细解读方法。
 </div>
 
-
 </div>
 
 <div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
@@ -410,7 +398,6 @@ Warning: ATAC joint analysis is currently unsupported. Libraries will be analyze
 | [scRNA 流程文档](./scRNA.md) | 单细胞 RNA 分析流程指南 |
 | [scATAC 流程文档](./scATAC.md) | 单细胞 ATAC 分析流程指南 |
 | [scVDJ 流程文档](./scVDJ.md) | 单细胞 VDJ 分析流程指南 |
-
 
 </div>
 
@@ -438,7 +425,7 @@ Warning: ATAC joint analysis is currently unsupported. Libraries will be analyze
 >
 > 本文档持续维护更新。若发现内容错误或需要补充信息，请通过 GitHub Issues 反馈。
 >
-> <strong>文档版本：</strong> 3.1 | <strong>最后更新：</strong> 2026年4月
+> <strong>文档版本：</strong> 3.1 | <strong>最后更新：</strong> 2026 年 5 月 15 日
 
 </div>
 

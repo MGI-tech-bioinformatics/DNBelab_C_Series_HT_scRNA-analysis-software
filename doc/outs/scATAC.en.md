@@ -369,6 +369,7 @@ An Excel-formatted summary table of key analysis metrics, providing a structured
         </tr>
         </tbody>
         </table>
+
     *   Includes built-in recommended quality control thresholds for user convenience:
         <details open style="margin-top: 15px;">
         <summary><strong>Recommended Quality Thresholds:</strong></summary>
@@ -462,6 +463,7 @@ An interactive HTML report for reviewing analysis results.
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);" markdown="1">
 
 #### Matrix Market Format (`.mtx.gz`) <a id="market-matrix-format-mtxgz"></a>
+
 Market Exchange Format (MEX) is a standard format for storing sparse count matrices in single-cell analysis, known for its space efficiency and high compatibility.
 
 *   **Core Advantages**:
@@ -1084,6 +1086,6 @@ In C4 ATAC, this plot is used to merge multiple beads from the same droplet by r
 > 
 > This document is continuously maintained. If you identify errors or additional information is required, please submit feedback via GitHub Issues.
 > 
-<strong>Document Version:</strong> 3.1 | <strong>Last Updated:</strong> April 2026
+<strong>Document Version:</strong> 3.1 | <strong>Last Updated:</strong> May 15, 2026
 
 </div>

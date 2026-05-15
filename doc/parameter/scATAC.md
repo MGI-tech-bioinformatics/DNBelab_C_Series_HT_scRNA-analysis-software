@@ -187,6 +187,7 @@ Analysis Settings:
 <p><strong>重要提示：</strong>同一组输入文件必须来自同一文库，测序模式和暗反应设置需保持一致；不同文库的数据不能合并分析。</p>
 
 </div>
+
 <div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
 
 #### 基本设置参数
@@ -251,7 +252,9 @@ Analysis Settings:
 </tr>
   </tbody>
   </table>
+
   </details>
+
 </ul>
 
 <p><strong>示例：</strong></p>
@@ -279,7 +282,9 @@ dnbc4tools atac run --name sample2 --fastqs ./fq --genomeDir ./ref --darkreactio
   <tr><td><code>R2</code></td><td>Read 2 中的有效 DNA 序列</td><td><code>R2,R2:1-50</code></td></tr>
   </tbody>
   </table>
+
   </details>
+
 </ul>
 <p><strong>示例：</strong></p>
 <pre><code># 示例1：假设其R1结构为：Barcode 1 (10bp) -> Barcode 2 (10bp) -> 插入序列 (50bp)。R2结构为：插入序列 (50bp)。
@@ -394,6 +399,7 @@ dnbc4tools atac run --name sample1 --fastqs ./fq --genomeDir ./ref --merge_cutof
 <div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
 
 <div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;">
+
 <div align="center">
 
 > **分析建议**
@@ -401,6 +407,7 @@ dnbc4tools atac run --name sample1 --fastqs ./fq --genomeDir ./ref --merge_cutof
 > 首次分析时建议使用默认参数，获得结果报告后再根据需要调整参数。
 
 </div>
+
 </div>
 
 <div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
@@ -508,6 +515,7 @@ Advanced Settings:
   └── ref.json
   </code></pre>
   </details>
+
 </ul>
 
 <p><strong>默认值：</strong> <code>./</code> (当前目录)</p>
@@ -710,7 +718,9 @@ Basic Settings:
   <li><strong>路径类型：</strong>支持绝对路径和相对路径</li>
   </ul>
   </details>
+
 </ul>
+
 <details open>
 <summary><strong>文件内容示例</strong></summary>
 
@@ -720,6 +730,7 @@ SampleA /path/to/SampleA_R1.fastq.gz;/path/to/SampleA_R2.fastq.gz</code></pre>
 <pre><code># 场景2: 样本B，具有两对R1/R2 文件 (同一 Read 的文件用逗号分隔)
 SampleB /path/to/B_L01_R1.fq.gz,/path/to/B_L02_R1.fq.gz;/path/to/B_L01_R2.fq.gz,/path/to/B_L02_R2.fq.gz</code></pre>
 </details>
+
 <p><strong>默认值：</strong> 无</p>
 </div>
 
@@ -763,6 +774,6 @@ SampleB /path/to/B_L01_R1.fq.gz,/path/to/B_L02_R1.fq.gz;/path/to/B_L01_R2.fq.gz,
 >
 > 本文档持续维护更新。若发现内容错误或需要补充信息，请通过 GitHub Issues 反馈。
 >
-<strong>文档版本：</strong> 3.1 | <strong>最后更新：</strong> 2026年4月
+<strong>文档版本：</strong> 3.1 | <strong>最后更新：</strong> 2026 年 5 月 15 日
 
 </div>

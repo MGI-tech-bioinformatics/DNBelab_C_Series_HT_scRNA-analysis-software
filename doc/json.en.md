@@ -4,7 +4,6 @@
 
 </div>
 
-
 # JSON Configuration Guide
 
 This document explains the JSON configuration used to define the library structure for `dnbc4tools`.
@@ -20,10 +19,12 @@ The configuration accommodates the specific structures of the `scRNAv2HT` reagen
     <h4>cDNA Library Structure</h4>
     <img src="./images/cDNA_library.jpg" alt="cDNA Library Structure" style="width: 500px; max-width: 100%;">
   </div>
+
   <div style="text-align: center; margin: 1em;">
     <h4>Oligo Library Structure</h4>
     <img src="./images/oligo_library.jpg" alt="Oligo Library Structure" style="width: 500px; max-width: 100%;">
   </div>
+
 </div>
 
 ---

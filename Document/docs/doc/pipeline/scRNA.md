@@ -42,7 +42,6 @@
  <strong>使用说明</strong>：<code>$dnbc4tools</code> 代表可执行程序路径，需替换为您的实际安装路径。本文示例使用换行符 `\` 分隔命令以提高可读性，实际分析时可写为单行。
 </div>
 
-
 </div>
 
 <div style="max-width: 1200px; margin: 0 auto;" markdown="block"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
@@ -79,7 +78,6 @@
 <div style="background-color: #fffbe6; border-left: 6px solid #ffc107; padding: 15px; margin: 1.5em 0; border-radius: 4px;" markdown="block">
  <strong>注意</strong>：请确保 FASTQ 文件质量良好，并记录文件路径以备后续分析使用。
 </div>
-
 
 </div>
 
@@ -130,7 +128,6 @@
   <li>基因组文件与注释文件需版本对应。</li>
 </ul>
 
-
 ### GTF 文件预处理（可选） <a id="gtf-file-processing-optional-zh"></a>
 
 从 ENSEMBL 和 UCSC 等网站下载的 GTF 文件通常包含多种类型的基因。根据您的研究兴趣选择特定的基因类型进行分析，可以有效减少基因注释的重叠，从而提高比对的唯一性。与多个基因非唯一比对的 reads 会被过滤。
@@ -159,7 +156,6 @@
     </tr>
   </tbody>
 </table>
-
 
 #### 基因类型统计
 
@@ -200,7 +196,6 @@ IG_V_gene       145
 ......
 ```
 
-
 #### GTF 文件校正
 
 当 GTF 文件内容不完整时，主分析流程可能会因无法完全注释而中断。此功能能够自动填补基因（gene）与转录本（transcript）条目中的缺失信息，确保流程顺利进行。
@@ -214,7 +209,6 @@ $dnbc4tools tools mkgtf \
 ```
 
 软件会根据 `gene_id` 和 `gene_name` 以及 `transcript_id` 和 `transcript_name` 互相填补，并提示可能存在多个基因信息的位置。
-
 
 #### 基因类型过滤
 
@@ -258,7 +252,6 @@ $dnbc4tools tools mkgtf \
            IG_J_pseudogene,IG_C_pseudogene,TR_V_gene,TR_D_gene,\
            TR_J_gene,TR_C_gene
 ```
-
 
 ### 参考数据库构建
 
@@ -359,7 +352,6 @@ $dnbc4tools rna mkref \
  2026-04-03 17:13:37 RNA reference building finished. 
 ```
 
-
 </div>
 
 <div style="max-width: 1200px; margin: 0 auto;" markdown="block"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
@@ -447,7 +439,6 @@ $dnbc4tools rna run \
 └─────────────┴────────────────────────────────────────────────────────────────────────────────────┘
 ────────────────────────────────────────────────────────────────────────────────────────────────────
 
-
 ──────────────────────────── Chemistry Detection — 2025-11-12 15:00:31 ─────────────────────────────
 ┌───────────────────────────────────────────────┬──────────────────────────────────────────────────┐
 │ Type                                          │ Result                                           │
@@ -456,7 +447,6 @@ $dnbc4tools rna run \
 │ oligo Read 2                                   │ darkreaction                                     │
 └───────────────────────────────────────────────┴──────────────────────────────────────────────────┘
 ────────────────────────────────────────────────────────────────────────────────────────────────────
-
 
 ──────────────────────────── Chemistry Detection — 2025-11-12 15:00:31 ─────────────────────────────
 ┌─────────────────────────────────────────────┬────────────────────────────────────────────────────┐
@@ -500,7 +490,6 @@ $dnbc4tools rna run \
 ```
 
 当出现 `Analysis Finished` 消息时，表示分析已成功完成。
-
 
 <div style="border-top: 1px solid #d2d2d7; margin: 32px 0;" markdown="block"></div>
 
@@ -567,9 +556,6 @@ $cat sample1.sh
 
 随后可执行这些脚本进行主流程分析。
 
-
-
-
 </div>
 
 <div style="max-width: 1200px; margin: 0 auto;" markdown="block"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
@@ -606,7 +592,6 @@ $cat sample1.sh
 └── singlecell.csv
 ```
 
-
 </div>
 
 <div style="max-width: 1200px; margin: 0 auto;" markdown="block"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
@@ -624,7 +609,6 @@ $cat sample1.sh
 | [输出文件使用方法](../io.md) | 了解输出文件结构和格式 |
 | [分析参数设置](../parameter/scRNA.md) | 完整的参数参考和说明 |
 | [输出文件解释](../outs/scRNA.md) | 分析结果的详细解读 |
-
 
 </div>
 
@@ -652,7 +636,7 @@ $cat sample1.sh
 >
 > 本文档持续维护更新。若发现内容错误或需要补充信息，请通过 GitHub Issues 反馈。
 >
-> <strong>文档版本：</strong> 3.1 | <strong>最后更新：</strong> 2026年4月
+> <strong>文档版本：</strong> 3.1 | <strong>最后更新：</strong> 2026 年 5 月 15 日
 
 </div>
 

@@ -71,6 +71,6 @@
 > 
 > For detailed parameter descriptions, select any analysis type above.
 > 
-<strong>Document Version:</strong> 3.1 | <strong>Last Updated:</strong> April 2026
+<strong>Document Version:</strong> 3.1 | <strong>Last Updated:</strong> May 15, 2026
 
 </div>

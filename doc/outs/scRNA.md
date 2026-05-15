@@ -387,6 +387,7 @@
         *   `mm10`: 归属于鼠参考（mm10）的计数
         *   `call`: 物种归属结果（`hg38` / `mm10` / `Multiplet`）
 <p><strong>示例：</strong></p>
+
 <div style="background-color: #f5f5f7; border-radius: 12px; padding: 20px; margin: 16px auto; max-width: 1200px; overflow-x: auto; border: 1px solid #d2d2d7;">
 <pre><code>barcode,hg38,mm10,call
 CELL1_N2,17098,821,hg38
@@ -505,6 +506,7 @@ CELL51_N5,1362,40817,mm10</code></pre>
         </tr>
         </tbody>
         </table>
+
     *   内置推荐的质量控制标准，便于用户判断：
         <details open>
         <summary><strong>推荐质量阈值：</strong></summary>
@@ -573,6 +575,7 @@ CELL51_N5,1362,40817,mm10</code></pre>
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px; ">
 
 #### Matrix Market 格式 (`.mtx.gz`) <a id="market-matrix-format-mtxgz"></a>
+
 Market Exchange Format (MEX) 是单细胞分析中用于存储稀疏计数矩阵的标准格式，具有空间高效和高度兼容的优点。
 
 *   **核心优势**:
@@ -1271,7 +1274,6 @@ HTML 网页报告用于查看单细胞 RNA 测序分析结果，覆盖数据质�
 
 **如何解读**：
 
-
 - **左图 (细胞类型聚类)**: 每个点代表一个细胞，不同颜色代表不同的细胞聚类。空间位置相近的细胞，其基因表达谱也更相似。
 - **右图 (UMI 数分布)**: 在相同的 UMAP 空间上，用颜色梯度展示每个细胞的总 UMI 数。可用于辅助判断聚类结果的可靠性，例如某些 cluster 是否由低质量细胞组成。
 
@@ -1287,7 +1289,6 @@ HTML 网页报告用于查看单细胞 RNA 测序分析结果，覆盖数据质�
 展示每个细胞聚类的特征性差异表达基因，用于识别和注释不同的细胞类型。
 
 **如何解读**：
-
 
 - **关键指标解释**: 
   - **P-val**: 差异表达检验的 p 值，数值越小表示差异越显著（通常 < 0.05 表示显著，< 0.01 表示高度显著）。
@@ -1309,7 +1310,6 @@ HTML 网页报告用于查看单细胞 RNA 测序分析结果，覆盖数据质�
 
 **如何解读**：
 
-
 - **注释结果**: 为每个聚类提供一个可能的细胞类型标签。
 - **物种支持**: Human (Homo sapiens) / Mouse (Mus musculus)；其他物种暂不提供细胞类型注释。
 - **使用说明**：自动注释结果仅供参考，其准确性依赖于参考数据库的质量和样本的相似性。建议结合标记基因进行手动验证和校正。
@@ -1326,7 +1326,6 @@ HTML 网页报告用于查看单细胞 RNA 测序分析结果，覆盖数据质�
 评估测序深度的充分性和数据复杂度，即继续增加测序量能否发现更多新的基因或 UMI。
 
 **如何解读**：
-
 
 - **坐标轴**: X 轴为平均每个细胞的测序读段数；Y 轴为测序饱和度或平均每个细胞的中位基因数。
 - **曲线趋势**：若曲线逐渐趋于平缓，说明测序接近饱和，继续加深测序对发现新基因的贡献有限；若曲线仍快速上升，说明增加测序深度仍可能带来明显收益。
@@ -1419,6 +1418,6 @@ HTML 网页报告用于查看单细胞 RNA 测序分析结果，覆盖数据质�
 > 
 > 本文档持续维护更新。若发现内容错误或需要补充信息，请通过 GitHub Issues 反馈。
 > 
-<strong>文档版本：</strong> 3.1 | <strong>最后更新：</strong> 2026年4月
+<strong>文档版本：</strong> 3.1 | <strong>最后更新：</strong> 2026 年 5 月 15 日
 
 </div>

@@ -41,7 +41,6 @@ This document provides a detailed guide for analyzing single-cell VDJ sequencing
  <strong>Usage Note</strong>: <code>$dnbc4tools</code> represents the executable path and must be replaced with the actual installation path. The backslash `\` is used to split a command across multiple lines for readability.
 </div>
 
-
 </div>
 
 <div style="max-width: 1200px; margin: 0 auto;" markdown="block"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
@@ -120,7 +119,6 @@ CELL726_N4,585934,4617,22660,1,ACCTACGGCGTTACTATGTG;CGACGCTCTCGACAGTTAGG;CGGCAGA
 CELL4010_N1,555308,4268,22554,1,AGAGAGTCGCAGCAAGCGAC
 ```
 
-
 </div>
 
 <div style="max-width: 1200px; margin: 0 auto;" markdown="block"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
@@ -178,7 +176,6 @@ $dnbc4tools vdj run \
   --threads 10
 ```
 
-
 ### BCR Analysis
 
 To run BCR analysis for a single sample, two input methods are supported:
@@ -223,7 +220,6 @@ Input directory requirements:
 - Automatic detection relies on R1/R2 markers in file names. The recommended naming patterns are `_R1`/`_R2` or `_R1_`/`_R2_`.
 - TCR and BCR data should be run separately and should not be mixed in the same input directory.
 
-
 ### Execution Process
 
 After auto-detecting the dark reaction, the software begins the analysis. Here is an example:
@@ -237,7 +233,6 @@ After auto-detecting the dark reaction, the software begins the analysis. Here i
 │ Read 2 │ /data/vdjt/sample_tcr_R2.fastq.gz                                                        │
 └───────┴──────────────────────────────────────────────────────────────────────────────────────────┘
 ────────────────────────────────────────────────────────────────────────────────────────────────────
-
 
 ──────────────────────────── Chemistry Detection — 2025-11-12 15:13:20 ─────────────────────────────
 ┌─────────────────────────────────┬────────────────────────────────────────────────────────────────┐
@@ -273,7 +268,6 @@ After auto-detecting the dark reaction, the software begins the analysis. Here i
 
 A successful run will end with `Analysis Finished`.
 
-
 </div>
 
 <div style="max-width: 1200px; margin: 0 auto;" markdown="block"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
@@ -305,7 +299,6 @@ Upon completion, `outs` (outputs) and `logs` directories will be generated. The 
 └── metrics_summary.xls
 ```
 
-
 </div>
 
 <div style="max-width: 1200px; margin: 0 auto;" markdown="block"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
@@ -323,7 +316,6 @@ Upon completion, `outs` (outputs) and `logs` directories will be generated. The 
 | [Output File Usage](../io.en.md) | Understanding output file structure and formats |
 | [Analysis Parameters](../parameter/scVDJ.en.md) | Complete parameter reference and descriptions |
 | [Output Descriptions](../outs/scVDJ.en.md) | Detailed interpretation of analysis results |
-
 
 </div>
 
@@ -351,7 +343,7 @@ This section will be expanded as common usage questions are collected. For the c
 >
 > This document is continuously maintained. If you identify errors or missing information, please submit feedback via GitHub Issues.
 >
-> <strong>Document Version:</strong> 3.1 | <strong>Last Updated:</strong> April 2026
+> <strong>Document Version:</strong> 3.1 | <strong>Last Updated:</strong> May 15, 2026
 
 </div>
 

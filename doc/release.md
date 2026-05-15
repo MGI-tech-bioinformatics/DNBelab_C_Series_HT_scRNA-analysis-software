@@ -18,7 +18,7 @@
 
 ## 最新版本 <a id="latest-release"></a>
 
-**dnbc4tools 3.1**（2026-04-03）- [查看详情](#31-2026-04-03)
+**dnbc4tools 3.1**（2026 年 5 月 15 日）- [查看详情](#31-2026-05-15)
 
 **主要更新：**
 - 新增多组学模式：支持 RNA + VDJ 联合分析
@@ -29,7 +29,7 @@
 
 ## 当前版本详情 <a id="release-history"></a>
 
-### 3.1（2026-04-03） <a id="31-2026-04-03"></a>
+### 3.1（2026 年 5 月 15 日） <a id="31-2026-05-15"></a>
 
 <div style="padding-left: 20px;">
 
@@ -71,6 +71,7 @@
 
 <details>
 <summary><strong>3.0（2025-12-18）</strong></summary>
+
 <div style="padding-left: 20px; margin-top: 1em;">
 
 <h4>RNA 模块增强</h4>
@@ -104,12 +105,14 @@
 </ul>
 
 </div>
+
 </details>
 
 ---
 
 <details>
 <summary><strong>2.1.3（2024-10-09）</strong></summary>
+
 <div style="padding-left: 20px; margin-top: 1em;">
   <h4>新增功能</h4>
   <ul>
@@ -125,12 +128,14 @@
     <li>优化 RNA 比对与注释性能</li>
   </ul>
 </div>
+
 </details>
 
 ---
 
 <details>
 <summary><strong>2.1.2（2024-04-24）</strong></summary>
+
 <div style="padding-left: 20px; margin-top: 1em;">
   <h4>ATAC 改进</h4>
   <ul>
@@ -145,12 +150,14 @@
     <li>优化 barcode/UMI 区域 N 碱基过滤逻辑</li>
   </ul>
 </div>
+
 </details>
 
 ---
 
 <details>
 <summary><strong>2.1.1（2023-09-21）</strong></summary>
+
 <div style="padding-left: 20px; margin-top: 1em;">
   <h4>RNA 流程优化</h4>
   <ul>
@@ -163,12 +170,14 @@
     <li>修复 ATAC 报告图像显示异常</li>
   </ul>
 </div>
+
 </details>
 
 ---
 
 <details>
 <summary><strong>2.1.0（2023-07-28）</strong></summary>
+
 <div style="padding-left: 20px; margin-top: 1em;">
   <h4>主要新增</h4>
   <ul>
@@ -180,12 +189,14 @@
     <li>降维聚类由 Seurat 切换为 Scanpy 以提升速度</li>
   </ul>
 </div>
+
 </details>
 
 ---
 
 <details>
 <summary><strong>2.0.7（2022-11-04）</strong></summary>
+
 <div style="padding-left: 20px; margin-top: 1em;">
   <h4>自动化与参数</h4>
   <ul>
@@ -199,12 +210,14 @@
     <li>新增 <em>limitram</em> 以优化参考库构建内存控制</li>
   </ul>
 </div>
+
 </details>
 
 ---
 
 <details>
 <summary><strong>2.0.6（2022-09-19）</strong></summary>
+
 <div style="padding-left: 20px; margin-top: 1em;">
   <h4>容器与稳定性</h4>
   <ul>
@@ -213,12 +226,14 @@
     <li>修复 cDNA 文库 Q30 与 barcode 统计异常</li>
   </ul>
 </div>
+
 </details>
 
 ---
 
 <details>
 <summary><strong>2.0.5（2022-08-19）</strong></summary>
+
 <div style="padding-left: 20px; margin-top: 1em;">
   <h4>容器与格式兼容</h4>
   <ul>
@@ -227,12 +242,14 @@
     <li>优化默认参数与异常处理逻辑</li>
   </ul>
 </div>
+
 </details>
 
 ---
 
 <details>
 <summary><strong>2.0.0（2022-06-20）</strong></summary>
+
 <div style="padding-left: 20px; margin-top: 1em;">
   <h4>主要发布</h4>
   <ul>
@@ -243,6 +260,7 @@
     <li>新增饱和度分析与细胞类型注释</li>
   </ul>
 </div>
+
 </details>
 
 ---

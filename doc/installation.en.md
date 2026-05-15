@@ -34,12 +34,12 @@ Compatible with higher software and hardware configurations.
 
 ## Software Download <a id="software-download"></a>
 
-### dnbc4tools 3.1 (Released: Apr 3, 2026)
+### dnbc4tools 3.1 (Released: May 15, 2026)
 
 | Package Details | Information |
 | :--- | :--- |
 | **File Name** | dnbc4tools-3.1.tar.gz |
-| **File Size** | 518M |
+| **File Size** | 504M |
 | **MD5 Checksum** | d7d1282871180486dae55d87b237134c |
 
 **Download Options:**
@@ -50,9 +50,9 @@ Compatible with higher software and hardware configurations.
 
 ```bash
 # Download using `wget`
-wget -O dnbc4tools-3.1.tar.gz "https://ftp2.cngb.org/pub/CNSA/data7/CNP0008672/Single_Cell/CSE0000574/dnbc4tools-3.1.tar.gz"
+wget -O dnbc4tools-3.1.tar.gz "ftp://ftp.cngb.org/pub/CNSA/data7/CNP0008672/Single_Cell/CSE0000574/dnbc4tools-3.1.tar.gz"
 # Download using `curl`
-curl -o dnbc4tools-3.1.tar.gz "https://ftp2.cngb.org/pub/CNSA/data7/CNP0008672/Single_Cell/CSE0000574/dnbc4tools-3.1.tar.gz"
+curl -o dnbc4tools-3.1.tar.gz "ftp://ftp.cngb.org/pub/CNSA/data7/CNP0008672/Single_Cell/CSE0000574/dnbc4tools-3.1.tar.gz"
 ```
 
 <div style="margin-top: 15px;">

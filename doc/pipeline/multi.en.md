@@ -66,7 +66,6 @@ The Multi-omics workflow orchestrates RNA / ATAC / VDJ sub-pipelines, enabling m
   </tbody>
 </table>
 
-
 </div>
 
 <div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
@@ -209,7 +208,6 @@ $dnbc4tools multi run \
 </ol>
 </div>
 
-
 </div>
 
 <div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
@@ -270,16 +268,13 @@ $dnbc4tools multi run \
 ```shell
 Warning: ATAC joint analysis is currently unsupported. Libraries will be analyzed independently and summarized in a single report.
 
-
 ───────────────────────── Running checking libraries — 2026-04-08 13:39:42 ─────────────────────────
  RNA Library check complete
  VDJ-T Library check complete
  VDJ-B Library check complete
  ATAC Library check complete
 
-
 ──────────────────────────── Running RNA pipeline — 2026-04-08 13:40:10 ────────────────────────────
-
 
 ──────────────────────────── Parsed FASTQ Inputs — 2026-04-08 13:40:10 ─────────────────────────────
 ┌─────────────┬────────────────────────────────────────────────────────────────────────────────────┐
@@ -292,7 +287,6 @@ Warning: ATAC joint analysis is currently unsupported. Libraries will be analyze
 └─────────────┴────────────────────────────────────────────────────────────────────────────────────┘
 ────────────────────────────────────────────────────────────────────────────────────────────────────
 
-
 ──────────────────────────── Chemistry Detection — 2026-04-08 13:40:24 ─────────────────────────────
 ┌───────────────────────────────────────────────┬──────────────────────────────────────────────────┐
 │ Type                                          │ Result                                           │
@@ -301,7 +295,6 @@ Warning: ATAC joint analysis is currently unsupported. Libraries will be analyze
 │ oligo Read 2                                   │ darkreaction                                     │
 └───────────────────────────────────────────────┴──────────────────────────────────────────────────┘
 ────────────────────────────────────────────────────────────────────────────────────────────────────
-
 
 ──────────────────────────── Chemistry Detection — 2026-04-08 13:40:24 ─────────────────────────────
 ┌─────────────────────────────────────────────┬────────────────────────────────────────────────────┐
@@ -315,7 +308,6 @@ Warning: ATAC joint analysis is currently unsupported. Libraries will be analyze
 
  ...                                        
 ```
-
 
 </div>
 
@@ -387,7 +379,6 @@ After completion, results are organized under `<outdir>/<name>/`:
  <strong>Detailed Output Description</strong>: Please refer to the <a href="../outs/multi.en.md">Multi Output Documentation</a> for detailed interpretation of the integrated report.
 </div>
 
-
 </div>
 
 <div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
@@ -407,7 +398,6 @@ After completion, results are organized under `<outdir>/<name>/`:
 | [scRNA Pipeline](scRNA.en.md) | Single-cell RNA analysis workflow guide |
 | [scATAC Pipeline](scATAC.en.md) | Single-cell ATAC analysis workflow guide |
 | [scVDJ Pipeline](scVDJ.en.md) | Single-cell VDJ analysis workflow guide |
-
 
 </div>
 
@@ -435,7 +425,7 @@ This section will be expanded as common usage questions are collected. For the c
 >
 > This document is continuously maintained. If you identify errors or missing information, please submit feedback via GitHub Issues.
 >
-> <strong>Document Version:</strong> 3.1 | <strong>Last Updated:</strong> April 2026
+> <strong>Document Version:</strong> 3.1 | <strong>Last Updated:</strong> May 15, 2026
 
 </div>
 

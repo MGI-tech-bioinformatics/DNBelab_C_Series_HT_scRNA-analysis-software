@@ -196,7 +196,6 @@ $dnbc4tools atac run \
 
 ### 第一步： 5' RNA 分析
 
-
 **5' scRNA-seq 分析**
 
 <div style="background-color: #e7f3fe; border-left: 6px solid #2196F3; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
@@ -323,6 +322,7 @@ ref,human
   <li>VDJ-B: 成对 FASTQ 文件放在 <code>/test/data/vdj-b/</code></li>
 </ul>
   
+
 ### 第二步： 运行多组学流程
 
 ```bash
@@ -347,7 +347,6 @@ $dnbc4tools multi run \
 | **参考库构建** | `dnbc4tools atac mkref` | 构建 ATAC 参考库 |
 | **多组学** | `dnbc4tools multi run` | RNA/ATAC/VDJ 联合分析与统一报告 |
 | **GTF 处理** | `dnbc4tools tools mkgtf` | 过滤并处理 GTF 文件 |
-
 
 ---
 

@@ -72,16 +72,13 @@ After single-cell V(D)J analysis is complete, a standardized set of files and su
 
 ## Detailed File Description <a id="detailed-file-description"></a>
 
-
 ### V(D)J Assembly and Annotation Files <a id="vdj-assembly-and-annotation-files"></a>
-
 
 <div align="center">
 
 **Core Content**: Results of V(D)J contig sequence assembly, precise annotation, and quality assessment, covering the complete information of TCR and BCR rearranged sequences.
 
 </div>
-
 
 <div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
 
@@ -131,7 +128,6 @@ After single-cell V(D)J analysis is complete, a standardized set of files and su
 </div>
 
 <div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
-
 
 #### Explanation of Important Annotation Standards
 
@@ -651,6 +647,7 @@ A statistical analysis file for clonotypes, providing detailed descriptive infor
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px; ">
 
 #### consensus_annotations.csv
+
 Provides detailed annotation information for each clonotype consensus sequence.
 
 *   **Purpose**:
@@ -1149,6 +1146,7 @@ Percentage of cell-associated barcodes with at least one complete receptor pair 
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px; ">
 
 #### Visualization Chart 1 <a id="visualization-chart-1"></a>
+
 <div align="center">
 
 **Core Function**: Multi-dimensional visualization for V(D)J cell QC, UMI analysis, and receptor expression assessment.
@@ -1175,6 +1173,7 @@ Percentage of cell-associated barcodes with at least one complete receptor pair 
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px; ">
 
 #### Visualization Chart 2 <a id="visualization-chart-2"></a>
+
 <div align="center">
 
 **Core Function**: Visualization of clonotype abundance and immune receptor diversity.
@@ -1221,6 +1220,6 @@ Percentage of cell-associated barcodes with at least one complete receptor pair 
 >
 > This document is continuously updated. If you find any errors or need additional information, please provide feedback.
 >
-<strong>Document Version:</strong> 3.1 | <strong>Last Updated:</strong> April 2026
+<strong>Document Version:</strong> 3.1 | <strong>Last Updated:</strong> May 15, 2026
 
 </div>

@@ -42,7 +42,6 @@ This document provides a complete guide on how to use dnbc4tools for single-cell
  <strong>Usage Note</strong>: <code>$dnbc4tools</code> represents the executable path and must be replaced with the actual installation path. The backslash `\` is used to split a command across multiple lines for readability.
 </div>
 
-
 </div>
 
 <div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
@@ -79,7 +78,6 @@ Two types of FASTQ files are required for the analysis:
 <div style="background-color: #fffbe6; border-left: 6px solid #ffc107; padding: 15px; margin: 1.5em 0; border-radius: 4px;">
  <strong>Note</strong>: Ensure that the FASTQ files are of good quality and record their paths for subsequent analysis.
 </div>
-
 
 </div>
 
@@ -353,7 +351,6 @@ The following information will be printed during runtime:
 Analysis Complete
 ```
 
-
 </div>
 
 <div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
@@ -439,7 +436,6 @@ After auto-detecting the reagent version and dark reaction, the software begins 
 └─────────────┴────────────────────────────────────────────────────────────────────────────────────┘
 ────────────────────────────────────────────────────────────────────────────────────────────────────
 
-
 ──────────────────────────── Chemistry Detection — 2025-11-12 15:00:31 ─────────────────────────────
 ┌───────────────────────────────────────────────┬──────────────────────────────────────────────────┐
 │ Type                                          │ Result                                           │
@@ -448,7 +444,6 @@ After auto-detecting the reagent version and dark reaction, the software begins 
 │ oligo Read 2                                   │ darkreaction                                     │
 └───────────────────────────────────────────────┴──────────────────────────────────────────────────┘
 ────────────────────────────────────────────────────────────────────────────────────────────────────
-
 
 ──────────────────────────── Chemistry Detection — 2025-11-12 15:00:31 ─────────────────────────────
 ┌─────────────────────────────────────────────┬────────────────────────────────────────────────────┐
@@ -492,7 +487,6 @@ After auto-detecting the reagent version and dark reaction, the software begins 
 ```
 
 When the message `Analysis Finished` appears, the analysis is successfully completed.
-
 
 <div style="border-top: 1px solid #d2d2d7; margin: 32px 0;"></div>
 
@@ -559,8 +553,6 @@ $cat sample1.sh
 
 You can then execute these scripts to run the main analysis.
 
-
-
 </div>
 
 <div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
@@ -597,7 +589,6 @@ Upon completion, `outs` (outputs) and `logs` directories will be generated. The 
 └── singlecell.csv
 ```
 
-
 </div>
 
 <div style="max-width: 1200px; margin: 0 auto;"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
@@ -615,7 +606,6 @@ Upon completion, `outs` (outputs) and `logs` directories will be generated. The 
 | [Output File Usage](../io.en.md) | Understanding output file structure and formats |
 | [Analysis Parameters](../parameter/scRNA.en.md) | Complete parameter reference and descriptions |
 | [Output Descriptions](../outs/scRNA.en.md) | Detailed interpretation of analysis results |
-
 
 </div>
 
@@ -643,7 +633,7 @@ This section will be expanded as common usage questions are collected. For the c
 >
 > This document is continuously maintained. If you identify errors or missing information, please submit feedback via GitHub Issues.
 >
-> <strong>Document Version:</strong> 3.1 | <strong>Last Updated:</strong> April 2026
+> <strong>Document Version:</strong> 3.1 | <strong>Last Updated:</strong> May 15, 2026
 
 </div>
 

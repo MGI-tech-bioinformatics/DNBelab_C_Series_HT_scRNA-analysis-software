@@ -34,12 +34,12 @@
 
 ## 软件下载 <a id="software-download"></a>
 
-### dnbc4tools 3.1（发布日期：2026-04-03）
+### dnbc4tools 3.1（发布日期：2026 年 5 月 15 日）
 
 | 包信息 | 内容 |
 | :--- | :--- |
 | **文件名** | dnbc4tools-3.1.tar.gz |
-| **文件大小** | 518M |
+| **文件大小** | 504M |
 | **MD5 校验值** | d7d1282871180486dae55d87b237134c |
 
 **下载方式：**
@@ -50,9 +50,9 @@
 
 ```bash
 # 使用 `wget` 下载
-wget -O dnbc4tools-3.1.tar.gz "https://ftp2.cngb.org/pub/CNSA/data7/CNP0008672/Single_Cell/CSE0000574/dnbc4tools-3.1.tar.gz"
+wget -O dnbc4tools-3.1.tar.gz "ftp://ftp.cngb.org/pub/CNSA/data7/CNP0008672/Single_Cell/CSE0000574/dnbc4tools-3.1.tar.gz"
 # 使用 `curl` 下载
-curl -o dnbc4tools-3.1.tar.gz "https://ftp2.cngb.org/pub/CNSA/data7/CNP0008672/Single_Cell/CSE0000574/dnbc4tools-3.1.tar.gz"
+curl -o dnbc4tools-3.1.tar.gz "ftp://ftp.cngb.org/pub/CNSA/data7/CNP0008672/Single_Cell/CSE0000574/dnbc4tools-3.1.tar.gz"
 ```
 
 <div style="margin-top: 15px;">

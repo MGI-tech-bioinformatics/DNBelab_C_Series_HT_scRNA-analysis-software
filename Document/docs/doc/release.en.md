@@ -18,7 +18,7 @@
 
 ## Latest Release <a id="latest-release"></a>
 
-**dnbc4tools 3.1** (Apr 3, 2026) - [See Details](#31-apr-3-2026)
+**dnbc4tools 3.1** (May 15, 2026) - [See Details](#31-may-15-2026)
 
 **Key Highlights:**
 - Multi-omics analysis mode: RNA + VDJ combined analysis support
@@ -29,7 +29,7 @@
 
 ## Current Version Details <a id="release-history"></a>
 
-### 3.1 (Apr 3, 2026) <a id="31-apr-3-2026"></a>
+### 3.1 (May 15, 2026) <a id="31-may-15-2026"></a>
 
 <div style="padding-left: 20px;" markdown="block">
 
@@ -71,6 +71,7 @@ The previous release records are listed below in reverse chronological order:
 
 <details>
 <summary><strong>3.0 (Dec 18, 2025)</strong></summary>
+
 <div style="padding-left: 20px; margin-top: 1em;" markdown="block">
 
 <h4>RNA-Seq Enhancements</h4>
@@ -104,12 +105,14 @@ The previous release records are listed below in reverse chronological order:
 </ul>
 
 </div>
+
 </details>
 
 ---
 
 <details>
 <summary><strong>2.1.3 (October 9, 2024)</strong></summary>
+
 <div style="padding-left: 20px; margin-top: 1em;" markdown="block">
   <h4>New Features</h4>
   <ul>
@@ -125,12 +128,14 @@ The previous release records are listed below in reverse chronological order:
     <li>Optimized RNA alignment and interval annotation performance</li>
   </ul>
 </div>
+
 </details>
 
 ---
 
 <details>
 <summary><strong>2.1.2 (April 24, 2024)</strong></summary>
+
 <div style="padding-left: 20px; margin-top: 1em;" markdown="block">
   <h4>ATAC Analysis Improvements</h4>
   <ul>
@@ -145,12 +150,14 @@ The previous release records are listed below in reverse chronological order:
     <li>Improved N filtering logic for cell barcodes and UMI regions</li>
   </ul>
 </div>
+
 </details>
 
 ---
 
 <details>
 <summary><strong>2.1.1 (September 21, 2023)</strong></summary>
+
 <div style="padding-left: 20px; margin-top: 1em;" markdown="block">
   <h4>RNA Workflow Optimization</h4>
   <ul>
@@ -163,12 +170,14 @@ The previous release records are listed below in reverse chronological order:
     <li>Resolved ATAC report image display issues</li>
   </ul>
 </div>
+
 </details>
 
 ---
 
 <details>
 <summary><strong>2.1.0 (July 28, 2023)</strong></summary>
+
 <div style="padding-left: 20px; margin-top: 1em;" markdown="block">
   <h4>Major Addition</h4>
   <ul>
@@ -180,12 +189,14 @@ The previous release records are listed below in reverse chronological order:
     <li>Replaced Seurat with Scanpy for faster dimensionality reduction and clustering</li>
   </ul>
 </div>
+
 </details>
 
 ---
 
 <details>
 <summary><strong>2.0.7 (November 4, 2022)</strong></summary>
+
 <div style="padding-left: 20px; margin-top: 1em;" markdown="block">
   <h4>Automation & Parameters</h4>
   <ul>
@@ -199,12 +210,14 @@ The previous release records are listed below in reverse chronological order:
     <li>Memory parameter <em>limitram</em> for database construction with automatic optimization</li>
   </ul>
 </div>
+
 </details>
 
 ---
 
 <details>
 <summary><strong>2.0.6 (September 19, 2022)</strong></summary>
+
 <div style="padding-left: 20px; margin-top: 1em;" markdown="block">
   <h4>Container & Reliability</h4>
   <ul>
@@ -213,12 +226,14 @@ The previous release records are listed below in reverse chronological order:
     <li>Corrected cDNA library Q30 statistics and barcode count consistency</li>
   </ul>
 </div>
+
 </details>
 
 ---
 
 <details>
 <summary><strong>2.0.5 (August 19, 2022)</strong></summary>
+
 <div style="padding-left: 20px; margin-top: 1em;" markdown="block">
   <h4>Container & Format Support</h4>
   <ul>
@@ -227,12 +242,14 @@ The previous release records are listed below in reverse chronological order:
     <li>Improved UMI correction logic and HTML report descriptions</li>
   </ul>
 </div>
+
 </details>
 
 ---
 
 <details>
 <summary><strong>2.0.0 (June 20, 2022)</strong></summary>
+
 <div style="padding-left: 20px; margin-top: 1em;" markdown="block">
   <h4>Major Release</h4>
   <ul>
@@ -243,6 +260,7 @@ The previous release records are listed below in reverse chronological order:
     <li>Added saturation analysis and cell cluster annotation</li>
   </ul>
 </div>
+
 </details>
 
 ---

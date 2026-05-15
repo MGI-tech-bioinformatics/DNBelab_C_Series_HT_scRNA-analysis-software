@@ -19,10 +19,12 @@
 <h4>cDNA 文库结构</h4>
 <img src="./images/cDNA_library.jpg" alt="cDNA Library Structure" style="width: 500px; max-width: 100%;">
   </div>
+
   <div style="text-align: center; margin: 1em;" markdown="block">
 <h4>Oligo 文库结构</h4>
 <img src="./images/oligo_library.jpg" alt="Oligo Library Structure" style="width: 500px; max-width: 100%;">
   </div>
+
 </div>
 
 ---

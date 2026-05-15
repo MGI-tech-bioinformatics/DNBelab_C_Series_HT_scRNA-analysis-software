@@ -76,7 +76,6 @@ After the single-cell RNA analysis is complete, a standardized file and subdirec
 
 </div>
 
-
 <div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;" markdown="block">
 
 ### Alignment and Annotation Files <a id="alignment-and-annotation-files"></a>
@@ -390,6 +389,7 @@ A cell-level species assignment file generated for dual-species analyses (e.g., 
         *   `call`: Species assignment result (`hg38` / `mm10` / `Multiplet`)
 
 <p><strong>Example:</strong></p>
+
 <div style="background-color: #f5f5f7; border-radius: 12px; padding: 20px; margin: 16px auto; max-width: 1200px; overflow-x: auto; border: 1px solid #d2d2d7;" markdown="block">
 <pre><code>barcode,hg38,mm10,call
 CELL1_N2,17098,821,hg38
@@ -506,6 +506,7 @@ A summary table of key analysis metrics in Excel format, providing a structured 
         </tr>
         </tbody>
         </table>
+
     *   Includes recommended quality control standards for user convenience:
         <details open>
         <summary><strong>Recommended Quality Thresholds:</strong></summary>
@@ -570,6 +571,7 @@ An interactive HTML report for reviewing analysis results.
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1200px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);" markdown="block">
 
 #### Matrix Market Format (`.mtx.gz`) <a id="market-matrix-format-mtxgz"></a>
+
 The Market Exchange Format (MEX) is a standard format used in single-cell analysis for storing sparse count matrices, offering advantages of space efficiency and high compatibility.
 
 *   **Core Advantages**:
@@ -1119,7 +1121,6 @@ The HTML web report is the main entry point for reviewing single-cell RNA sequen
 
 #### Visualization Chart Group One: Cell Quality Control Analysis <a id="visualization-chart-group-one"></a>
 
-
 ##### Barcode Rank Plot
 
 **Chart Function**:
@@ -1292,6 +1293,6 @@ This page combines droplet-level multiplet statistics, cell-level species scatte
 > <strong>Feedback & Support</strong>
 > 
 > This document is continuously updated. If you find any errors or need additional information, please provide feedback.
-<strong>Document Version:</strong> 3.1 | <strong>Last Updated:</strong> April 2026
+<strong>Document Version:</strong> 3.1 | <strong>Last Updated:</strong> May 15, 2026
 
 </div>

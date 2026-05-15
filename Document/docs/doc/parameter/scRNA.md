@@ -17,6 +17,7 @@
 </div>
 
 </div>
+
 <div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;" markdown="block">
 
 ## 概述 <a id="概述"></a>
@@ -259,6 +260,7 @@ Analysis Settings:
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;" markdown="block">
 <h4><code>--calling_method</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(可选)</span></h4>
 <p>设定细胞识别方法，用于区分真实细胞和空滴。</p>
+
 <details open>
   <summary><strong>方法对比分析</strong></summary>
   <div style="margin-top: 10px;" markdown="block">
@@ -268,6 +270,7 @@ Analysis Settings:
       <li><strong>适用场景：</strong> 快速初步分析，或在细胞与背景区分明显的场景。</li>
     </ul>
   </div>
+
   <div style="margin-top: 15px;" markdown="block">
     <h5 style="margin-bottom: 5px; font-size: 1.1em;">emptydrops (默认)</h5>
     <ul style="margin: 0; padding-left: 20px;">
@@ -275,7 +278,9 @@ Analysis Settings:
       <li><strong>适用场景：</strong> 标准分析（推荐），能精确识别低 RNA 含量的细胞并控制假阳性。</li>
     </ul>
   </div>
+
 </details>
+
 <p><strong>默认值：</strong> <code>emptydrops</code></p>
 <p><strong>示例：</strong></p>
 <pre><code># 切换为barcoderanks方法进行细胞识别
@@ -338,8 +343,10 @@ dnbc4tools rna run --name sample1 --fastqs ./fq --genomeDir ./ref --minumi 500</
 <div style="background: #f5f5f7; border-radius: 12px; padding: 20px; margin: 20px auto; max-width: 1200px;" markdown="block">
 <p><strong>细胞识别分析建议</strong></p>
 <p>细胞识别是单细胞分析的关键步骤，正确的参数设置和结果解读直接影响后续分析质量。</p>
+
 <details open>
 <summary><strong>展开诊断与策略</strong></summary>
+
 <div style="margin-top:10px;" markdown="block">
 <p><strong>细胞数量异常</strong></p>
 <ul>
@@ -355,7 +362,9 @@ dnbc4tools rna run --name sample1 --fastqs ./fq --genomeDir ./ref --minumi 500</
 </ul>
 <p><strong>最佳实践：</strong> 首次运行建议用默认参数，随后基于报告中的 UMI 分布和质控图做二次调参。</p>
 </div>
+
 </details>
+
 </div>
 
 <div style="max-width: 1200px; margin: 0 auto;" markdown="block"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
@@ -475,12 +484,14 @@ dnbc4tools rna run --name sample2 --fastqs ./fq --genomeDir ./ref --chemistry sc
 <div style="max-width: 1200px; margin: 0 auto;" markdown="block"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
 
 <div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;" markdown="block">
+
 <div align="center" markdown="block">
 
 <p><strong>分析建议</strong></p>
 <p>首次分析时建议使用默认参数，获得结果报告后再根据需要调整参数。</p>
 
 </div>
+
 </div>
 
 <div style="max-width: 1200px; margin: 0 auto;" markdown="block"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
@@ -564,6 +575,7 @@ Advanced Settings:
 <p><strong>示例：</strong></p>
 <pre><code>--ingtf Homo_sapiens.GRCh38.108.gtf</code></pre>
 </div>
+
 <div style="background: #f5f5f7; border-radius: 12px; padding: 20px; margin: 20px auto; max-width: 1200px;" markdown="block">
 <p><strong>双物种分析配置</strong></p>
 <p>如需进行双物种分析，<code>--fasta</code> 和 <code>--ingtf</code> 均支持使用逗号分隔提供两个物种文件。</p>
@@ -587,6 +599,7 @@ Advanced Settings:
 <ul>
   <li><strong>功能：</strong> 所有生成的参考文件（索引、注释等）都将存储在此目录中。</li>
 </ul>
+
 <details style="margin-top: 10px;" open>
 <summary><strong>目录结构预览</strong></summary>
 <pre style="padding: 10px; border-radius: 5px; margin-top: 5px;">
@@ -624,6 +637,7 @@ genomeDir/
 <ul>
   <li><strong>功能：</strong> 该名称会记录在配置文件中，用于后续分析中的物种识别、基因注释和细胞注释。</li>
 </ul>
+
 <details style="margin-top: 10px;" open>
 <summary><strong>双物种分析配置</strong></summary>
 <ul style="margin-top: 5px; padding-left: 20px;">
@@ -641,6 +655,7 @@ genomeDir/
   <li><strong>不支持：</strong> 其他物种不支持细胞注释。</li>
 </ul>
 </details>
+
 <p style="margin-top: 15px;"><strong>默认值：</strong> <code>undefined</code></p>
 <p><strong>示例：</strong></p>
 <pre><code># 单物种
@@ -840,6 +855,7 @@ Analysis Settings:
       </ol>
   </li>
 </ul>
+
 <details open>
 <summary><strong>路径格式规则</strong></summary>
 <ul style="margin-top: 5px;">
@@ -848,7 +864,9 @@ Analysis Settings:
   <li><strong>路径类型：</strong> 支持绝对路径和相对路径。</li>
 </ul>
 </details>
+
 <p style="margin-top: 15px;"><strong>默认值：</strong> 无</p>
+
 <details open>
 <summary><strong>示例：</strong></summary>
 <pre><code># 示例1: SampleA, cDNA 和 oligo各有 1 对 R1/R2 文件
@@ -856,6 +874,7 @@ SampleA	/path/to/A_cDNA_R1.fq.gz;/path/to/A_cDNA_R2.fq.gz	/path/to/A_oligo_R1.fq
 <pre><code># 示例2: SampleB, cDNA 有 2 对 R1/R2 文件，oligo 有 1 对 R1/R2 文件
 SampleB	/path/to/B_cDNA_L01_R1.fq.gz,/path/to/B_cDNA_L02_R1.fq.gz;/path/to/B_cDNA_L01_R2.fq.gz,/path/to/B_cDNA_L02_R2.fq.gz	/path/to/B_oligo_R1.fq.gz;/path/to/B_oligo_R2.fq.gz</code></pre>
 </details>
+
 </div>
 
 <div style="background: #f5f5f7; border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 1200px;" markdown="block">
@@ -904,7 +923,7 @@ SampleB	/path/to/B_cDNA_L01_R1.fq.gz,/path/to/B_cDNA_L02_R1.fq.gz;/path/to/B_cDN
 
 <p><strong>反馈与支持</strong></p>
 <p>本文档持续维护更新。若发现内容错误或需要补充信息，请通过 GitHub Issues 反馈。</p>
-<p><strong>文档版本：</strong> 3.1 | <strong>最后更新：</strong> 2026年4月</p>
+<p><strong>文档版本：</strong> 3.1 | <strong>最后更新：</strong> 2026 年 5 月 15 日</p>
 
 </div>
 

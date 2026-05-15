@@ -436,6 +436,6 @@ fastqs,feature_types
 >
 > 本页聚焦参数与配置填写，建议与流程文档、输出文档配套使用。
 >
-<strong>文档版本：</strong> 3.1 | <strong>最后更新：</strong> 2026年4月
+<strong>文档版本：</strong> 3.1 | <strong>最后更新：</strong> 2026 年 5 月 15 日
 
 </div>

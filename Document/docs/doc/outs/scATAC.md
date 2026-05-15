@@ -356,6 +356,7 @@
         </tr>
         </tbody>
         </table>
+
     *   内置推荐的质量控制标准，便于用户判断：
         <details open>
         <summary><strong>推荐质量阈值：</strong></summary>
@@ -1111,6 +1112,6 @@ HTML 网页报告用于查看单细胞 ATAC 测序分析结果，覆盖细胞识
 > 
 > 本文档持续维护更新。若发现内容错误或需要补充信息，请通过 GitHub Issues 反馈。
 > 
-<strong>文档版本：</strong> 3.1 | <strong>最后更新：</strong> 2026年4月
+<strong>文档版本：</strong> 3.1 | <strong>最后更新：</strong> 2026 年 5 月 15 日
 
 </div>

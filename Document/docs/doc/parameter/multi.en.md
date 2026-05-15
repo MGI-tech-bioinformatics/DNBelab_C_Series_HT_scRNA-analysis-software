@@ -382,6 +382,6 @@ fastqs,feature_types
 >
 > This page focuses on parameter and configuration authoring and should be used together with pipeline and output docs.
 >
-> **Document Version:** 3.1 | **Last Updated:** April 2026
+> **Document Version:** 3.1 | **Last Updated:** May 15, 2026
 
 </div>

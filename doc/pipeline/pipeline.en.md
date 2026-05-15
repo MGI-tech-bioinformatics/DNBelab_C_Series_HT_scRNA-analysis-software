@@ -61,6 +61,6 @@
 <strong>Feedback & Support</strong>
 > For detailed workflow instructions, select one of the analysis types above.
 >
-<strong>Document Version:</strong> 3.1 | <strong>Last Updated:</strong> April 2026
+<strong>Document Version:</strong> 3.1 | <strong>Last Updated:</strong> May 15, 2026
 
 </div>

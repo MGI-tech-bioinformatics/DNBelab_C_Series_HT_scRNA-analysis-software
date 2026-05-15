@@ -268,6 +268,7 @@ Analysis Settings:
 <div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e5e5; margin: 20px auto; max-width: 1200px;" markdown="block">
 <h4><code>--calling_method</code> <span style="font-size: 0.8em; font-weight: normal; color: #27ae60;">(Optional)</span></h4>
 <p>Set the cell identification method to distinguish real cells from empty droplets.</p>
+
 <details open>
   <summary><strong>Method Comparison</strong></summary>
   <div style="margin-top: 10px;" markdown="block">
@@ -277,6 +278,7 @@ Analysis Settings:
       <li><strong>Use Case:</strong> Quick preliminary analysis or in scenarios where cells are clearly distinct from the background.</li>
     </ul>
   </div>
+
   <div style="margin-top: 15px;" markdown="block">
     <h5 style="margin-bottom: 5px; font-size: 1.1em;">emptydrops (Default)</h5>
     <ul style="margin: 0; padding-left: 20px;">
@@ -284,7 +286,9 @@ Analysis Settings:
       <li><strong>Use Case:</strong> Standard analysis (recommended), accurately identifies cells with low RNA content and controls for false positives.</li>
     </ul>
   </div>
+
 </details>
+
 <p><strong>Default:</strong> <code>emptydrops</code></p>
 <p><strong>Example:</strong></p>
 <pre><code># Switch to barcoderanks for cell identification
@@ -346,8 +350,10 @@ dnbc4tools rna run --name sample1 --fastqs ./fq --genomeDir ./ref --minumi 500</
 
 <p><strong>Cell Identification Analysis Recommendations</strong></p>
 <p>Cell identification is critical for downstream reliability. Start with defaults, then tune based on QC plots.</p>
+
 <details open>
 <summary><strong>Click to view diagnostics and strategy</strong></summary>
+
 <div style="margin-top:10px;" markdown="block">
 <ul>
   <li><strong>Too few cells:</strong> Usually <code>--minumi</code> is too strict or ambient RNA is high. Lower <code>--minumi</code> and re-check UMI rank.</li>
@@ -356,6 +362,7 @@ dnbc4tools rna run --name sample1 --fastqs ./fq --genomeDir ./ref --minumi 500</
   <li><strong>Multiple knee points:</strong> May indicate mixed populations or doublets; follow with doublet filtering.</li>
 </ul>
 </div>
+
 </details>
 
 <div style="max-width: 1200px; margin: 0 auto;" markdown="block"><hr style="border: none; border-top: 1px solid #d2d2d7; margin: 24px 0;"></div>
@@ -580,6 +587,7 @@ Advanced Settings:
 <ul>
   <li><strong>Function:</strong> All generated reference files (index, annotations, etc.) will be stored in this directory.</li>
 </ul>
+
 <details style="margin-top: 10px;" open>
   <summary><strong>Directory Structure Preview</strong></summary>
   <pre style="padding: 10px; border-radius: 5px; margin-top: 5px;">
@@ -617,6 +625,7 @@ Advanced Settings:
 <ul>
   <li><strong>Function:</strong> This name is recorded in the configuration file and used for species identification, gene annotation, and cell annotation in subsequent analyses.</li>
 </ul>
+
 <details style="margin-top: 10px;" open>
   <summary><strong>Dual-Species Analysis Configuration</strong></summary>
   <ul style="margin-top: 5px; padding-left: 20px;">
@@ -634,6 +643,7 @@ Advanced Settings:
     <li><strong>Not Supported:</strong> Other species do not support cell annotation.</li>
   </ul>
   </details>
+
 <p style="margin-top: 15px;"><strong>Default:</strong> <code>undefined</code></p>
 <p><strong>Examples:</strong></p>
 <pre><code># Single species
@@ -836,8 +846,10 @@ Analysis Settings:
       <li><strong>Path Type:</strong> Both absolute and relative paths are supported.</li>
   </ul>
   </details>
+
 </ul>
 <p style="margin-top: 15px;"><strong>Default:</strong> None</p>
+
 <details open>
 <summary><strong>Example:</strong></summary>
 <pre><code># Example 1: SampleA, with 1 pair of R1/R2 files for cDNA and oligo each
@@ -845,6 +857,7 @@ SampleA	/path/to/A_cDNA_R1.fq.gz;/path/to/A_cDNA_R2.fq.gz	/path/to/A_oligo_R1.fq
 <pre><code># Example 2: SampleB, with 2 pairs of R1/R2 files for cDNA, and 1 pair for oligo
 SampleB	/path/to/B_cDNA_L01_R1.fq.gz,/path/to/B_cDNA_L02_R1.fq.gz;/path/to/B_cDNA_L01_R2.fq.gz,/path/to/B_cDNA_L02_R2.fq.gz	/path/to/B_oligo_R1.fq.gz;/path/to/B_oligo_R2.fq.gz</code></pre>
 </details>
+
 </div>
 
 > **Parameter Inheritance Note**
@@ -879,6 +892,6 @@ SampleB	/path/to/B_cDNA_L01_R1.fq.gz,/path/to/B_cDNA_L02_R1.fq.gz;/path/to/B_cDN
 >
 > This document is continuously maintained. If you identify errors or additional information is required, please submit feedback via GitHub Issues.
 >
-<strong>Document Version:</strong> 3.1 | <strong>Last Updated:</strong> April 2026
+<strong>Document Version:</strong> 3.1 | <strong>Last Updated:</strong> May 15, 2026
 
 </div>

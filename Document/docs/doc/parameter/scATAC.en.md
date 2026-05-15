@@ -42,7 +42,6 @@ This document explains the parameter meanings, default behaviors, and common usa
 
 ### Usage <a id="usage"></a>
 
-
 ```shell
 $ dnbc4tools atac run
 dnbc4tools 3.1
@@ -265,7 +264,9 @@ Analysis Settings:
 </tr>
   </tbody>
   </table>
+
   </details>
+
 </ul>
 
 <p><strong>Examples:</strong></p>
@@ -293,7 +294,9 @@ dnbc4tools atac run --name sample2 --fastqs ./fq --genomeDir ./ref --darkreactio
   <tr><td><code>R2</code></td><td>Effective DNA sequence in Read 2</td><td><code>R2,R2:1-50</code></td></tr>
   </tbody>
   </table>
+
   </details>
+
 </ul>
 <p><strong>Examples:</strong></p>
 <pre><code># Example 1: Assume R1 structure is: Barcode 1 (10bp) -> Barcode 2 (10bp) -> Insert (50bp). R2 structure is: Insert (50bp).
@@ -523,6 +526,7 @@ Advanced Settings:
   └── ref.json
   </code></pre>
   </details>
+
 </ul>
 
 <p><strong>Default:</strong> <code>./</code> (current directory)</p>
@@ -726,7 +730,9 @@ Basic Settings:
   <li><strong>Path Type:</strong> Both absolute and relative paths are supported.</li>
   </ul>
   </details>
+
 </ul>
+
 <details open>
 <summary><strong>File Content Example</strong></summary>
 
@@ -736,6 +742,7 @@ SampleA	/path/to/SampleA_R1.fastq.gz;/path/to/SampleA_R2.fastq.gz</code></pre>
 <pre><code># Scenario 2: Sample B, with two pairs of R1/R2 files (files for the same Read are comma-separated)
 SampleB	/path/to/B_L01_R1.fq.gz,/path/to/B_L02_R1.fq.gz;/path/to/B_L01_R2.fq.gz,/path/to/B_L02_R2.fq.gz</code></pre>
 </details>
+
 <p><strong>Default:</strong> None</p>
 </div>
 
@@ -777,6 +784,6 @@ SampleB	/path/to/B_L01_R1.fq.gz,/path/to/B_L02_R1.fq.gz;/path/to/B_L01_R2.fq.gz,
 >
 > This document is continuously maintained. If you identify errors or additional information is required, please submit feedback via GitHub Issues.
 >
-> **Document Version:** 3.1 | **Last Updated:** April 2026
+> **Document Version:** 3.1 | **Last Updated:** May 15, 2026
 
 </div>

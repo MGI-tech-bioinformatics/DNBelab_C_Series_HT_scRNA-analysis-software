@@ -71,6 +71,6 @@
 > 
 > 如需参数说明，请进入上方各模块文档。
 > 
-<strong>文档版本：</strong> 3.1 | <strong>最后更新：</strong> 2026 年 4 月
+<strong>文档版本：</strong> 3.1 | <strong>最后更新：</strong> 2026 年 5 月 15 日
 
 </div>
