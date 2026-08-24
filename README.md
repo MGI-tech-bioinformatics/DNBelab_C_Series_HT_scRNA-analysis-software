@@ -51,3 +51,10 @@ This is the stable release version (**v3.1**).
 Users on beta or RC versions are recommended to update.
 
 For version **2.1.3**, switch to the [`version2.0`](https://github.com/MGI-tech-bioinformatics/DNBelab_C_Series_HT_scRNA-analysis-software/tree/version2.0) branch.
+
+---
+
+## Related Projects
+
+- [**DNBCScope**](https://github.com/DNBelabCSeries/DNBCScope) — a desktop application for downstream visualization and analysis of single-cell results (**beta**).
+- Available for macOS and Windows
